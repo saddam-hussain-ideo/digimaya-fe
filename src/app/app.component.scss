@@ -1,0 +1,43 @@
+.custom-style{
+    width: 32px;
+    height: 32px;
+    background-image: url('../assets/img/esp.png');
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+}
+#language{
+    text-align: right;
+    background-color: white;
+    width: 32px
+}
+.dd-lg{
+  position: absolute;
+  right: 0px;
+}
+.dropdown-toggle::after {
+    display: none !important;
+  }
+.dropdown-menu{
+    position: absolute !important;
+    min-width: 32px;
+    padding: 0px;
+    top: 30px !important;
+    border-radius: 50%;
+    top: 30px;
+    border-color: transparent;
+    background-color: transparent;
+    will-change: inherit !important;
+    transform: none !important;
+    li{
+        text-align: right;
+      a{
+        padding-left: 0px !important;
+        padding: 5px 0px !important;
+        img{
+          width: 28px;
+          height: 28px;
+          margin-right: 4px;
+        }
+      }
+    }
+  }

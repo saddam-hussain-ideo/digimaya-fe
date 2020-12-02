@@ -1,0 +1,153 @@
+<h1 class="page-title change-btm">Notifications</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="height-div">
+            <div class="white-back2">
+                <div class="clear"></div>
+                <div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="white-box-notifications"> <!-- detect-scroll (onScroll)="handleScroll($event)" [bottomOffset]="10" [topOffset]="200"-->
+
+
+                            
+
+
+                            <ul class="notifications-list-full">
+
+                               
+                                <div *ngIf="notificationList.length == 0" class="clearfix">
+                                    <div class="not-inner">
+                                        <p class="notification-line text-centered">No Notifications</p>
+                                    </div>
+                                </div>
+
+                                <ng-container *ngFor="let nott of notificationList">
+
+
+
+                                    <li (click)="updateNotifications(nott._id)" *ngIf="nott.NotificationType == 'WIRE_TRANSFER_APPROVE_REJECTION'" [ngClass]="{'unreadNotification': nott.IsRead==false}">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <svg width="19px" style="    transform: translate(8px,5px);" height="25px" viewBox="0 0 19 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g id="Dashboard" transform="translate(-19.000000, -312.000000)" fill="#8E949C" fill-rule="nonzero">
+                                                            <g id="Navigation" transform="translate(0.000000, 70.000000)">
+                                                                <g id="transfer" transform="translate(19.000000, 242.000000)">
+                                                                    <path d="M18.8013361,4.97239972 L14.0512541,0.199623099 C13.7862098,-0.0666076039 13.3565565,-0.0665277027 13.0915917,0.199782901 C12.9643975,0.327624776 12.8929477,0.500930416 12.8929079,0.681706816 L12.8929079,2.7271768 L8.1428259,2.7271768 C7.7680423,2.7271768 7.4642314,3.03243923 7.4642314,3.40901345 C7.4642314,3.78558767 7.7680423,4.09085009 8.1428259,4.09085009 L13.5715024,4.09085009 C13.946286,4.09085009 14.2500969,3.78558767 14.2500969,3.40901345 L14.2500969,2.32759105 L17.3620811,5.45444348 L14.2500969,8.58129592 L14.2500969,7.49991347 C14.2500969,7.12333925 13.946286,6.81807683 13.5715024,6.81807683 L6.10708215,6.81807683 L6.10708215,4.77260684 C6.10700263,4.39603262 5.80311221,4.09085009 5.42836837,4.09093 C5.24849132,4.09096995 5.07596999,4.16276115 4.948736,4.29056307 L0.198693759,9.06333969 C-0.066231253,9.32961034 -0.066231253,9.76119652 0.198693759,10.0274272 L4.94877577,14.8002038 C5.07600975,14.9280857 5.24857084,14.9999568 5.42852741,14.9999967 C5.51771048,15.0002764 5.60609834,14.9826582 5.68840282,14.9481808 C5.94191654,14.8425515 6.10716167,14.593939 6.10708215,14.3181601 L6.10708215,12.2726901 L10.8571642,12.2726901 C11.2319478,12.2726901 11.5357587,11.9674277 11.5357587,11.5908534 C11.5357587,11.2142792 11.2319478,10.9090168 10.8571642,10.9090168 L5.42852741,10.9090168 C5.0537438,10.9090168 4.7499329,11.2142792 4.7499329,11.5908534 L4.7499329,12.6722359 L1.63794869,9.54538346 L4.7499329,6.41853102 L4.7499329,7.49991347 C4.7499329,7.87648769 5.0537438,8.18175012 5.42852741,8.18175012 L12.8929079,8.18175012 L12.8929079,10.2272201 C12.8929874,10.6037943 13.1968778,10.9089768 13.5716217,10.9088969 C13.7514987,10.908857 13.9240201,10.8370658 14.0512541,10.7092639 L18.8013361,5.93648725 C19.0662213,5.6702166 19.0662213,5.23863042 18.8013361,4.97239972 Z"
+                                                                        id="Shape"></path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+
+
+
+                                    <li (click)="updateNotifications(nott._id)" *ngIf="nott.NotificationType == 'Transaction_Confirmation'" [ngClass]="{'unreadNotification': nott.IsRead==false}">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/transaction.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li (click)="updateNotifications(nott._id)" *ngIf="nott.NotificationType == 'KYC_Approval'" [ngClass]="{'unreadNotification': nott.IsRead==false}">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/kyc.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li (click)="updateNotifications(nott._id)" *ngIf="nott.NotificationType == 'ICO_Stage_Updation'" [ngClass]="{'unreadNotification': nott.IsRead==false}">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/ico-stage.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li (click)="updateNotifications(nott._id)" *ngIf="nott.NotificationType === 'AFFILIATION_TRANSACTION'" [ngClass]="{'unreadNotification': nott.IsRead==false}">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/affiliate.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li (click)="updateNotifications(nott._id)" *ngIf="nott.NotificationType === 'AFFILIATION_REGISTRATION'" [ngClass]="{'unreadNotification': nott.IsRead==false}">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/protect.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ng-container>
+                                
+                            </ul>
+
+                            <div class="box-loader" *ngIf="notificationsLoader">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+                                            <path fill="#85ffbd" d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"></path>
+                                            <path fill="#316598" d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"></path>
+                                            <path fill="#a4bcc2" d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

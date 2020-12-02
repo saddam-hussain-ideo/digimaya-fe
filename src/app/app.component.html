@@ -1,0 +1,19 @@
+<!-- <button style="display: none" id="makeSmall" (click)="$zopim.livechat.window.setSize('small')"></button> -->
+<div class="dd-lg" id="mainLangDD">
+    <div id='language' class="dropdown">
+        <button class="btn btn-default dropdown-toggle custom-style" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <!-- <span class="caret"></span> -->
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+          <li (click)="switchLanguage('en')" class="rad-50 pd-2">
+            <a href="javascript:void(0)" class="rad-50">
+              <img class="rad-50" src="../assets/img/eng.png" width="32" height="32" /></a>
+          </li>
+          <li (click)="switchLanguage('es')" class="rad-50 pd-2">
+              <a href="javascript:void(0)" class="rad-50">
+                <img class="rad-50" src="../assets/img/esp.png" width="32" height="32" /></a>
+          </li>
+        </ul>
+      </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="5px" viewBox="0 0 8 5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+   
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-1875.000000, -35.000000)" fill="#616A75">
+            <g id="Header">
+                <g id="user" transform="translate(1689.000000, 9.000000)">
+                    <polygon id="arrow" transform="translate(189.584941, 28.211000) rotate(-270.000000) translate(-189.584941, -28.211000) " points="188.211 24.6260588 187.373941 25.4631175 190.121824 28.211 187.373941 30.9581358 188.211 31.7959412 191.795941 28.211"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

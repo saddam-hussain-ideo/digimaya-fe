@@ -1,0 +1,1948 @@
+<div>
+    <section class="myWallet-section">
+        <toaster-container [toasterconfig]="config"></toaster-container>
+        <div id="snackbar"></div>
+        <div class="background">
+            <div class="mywallet-head">
+                <h1 class="page-title abs-top">{{'Buy Tokens' | translate}}</h1>
+
+                <ul class="earn-boxes-list xchge-earn-list clearfix">
+
+
+                    <li class="ml-30">
+                        <div class="inner-box xchge-top min-hg background-green">
+                            <p class="earns-label color-blue"
+                                style="font-weight: bold;;margin-top: 19px;font-size: 20px;">
+                                <img class="fru-width" style="margin-bottom: 11px;" src="../../../assets//img//fru.png"
+                                    alt="">
+                                FRU:
+                                <strong class="earn-bold">{{investedValues.TokenBalance | currency:'crypto'}}</strong>
+                            </p>
+
+                        </div>
+                    </li>
+
+
+                    <!-- <li>
+                        <div class="inner-box earn-top">
+
+                            <p class="earns-label">Earn:
+                                <strong class="earn-bold">{{investedValues.EARNTokenBalance}}</strong>
+                            </p>
+
+                        </div>
+                    </li> -->
+
+                </ul>
+
+
+            </div>
+
+
+            <div class="mywallet-content">
+                <div class="row">
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                        <div class="wallet-type-wrap">
+
+
+
+                            <div class="box-loader" id="box-loader-BTC">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate"
+                                                repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                            </animateTransform>
+                                            <path fill="#85ffbd"
+                                                d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                            </path>
+                                            <path fill="#316598"
+                                                d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                            </path>
+                                            <path fill="#a4bcc2"
+                                                d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/btc-left.png" alt="bitcoin">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        BTc
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            <div class="padding10">
+
+                                <div>
+                                    <p class="wallet-address-txt">
+                                        {{ 'WALLET ADDRESS' | translate}}
+                                    </p>
+                                </div>
+                                <div class="relative-div">
+                                    <input readonly id="wallet-address1" type="text" class="nn-input"
+                                        value="{{walletInfo?.BtcFundReceiverAddress}}">
+
+                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address1')">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+
+
+                                </div>
+
+                                <div class="block-elems  refresh-value clearfix no-top-padding">
+
+                                    <div class="left-qr">
+
+                                        <qr-code class="custom-size" [value]="walletInfo?.BtcFundReceiverAddress"
+                                            [size]="100"></qr-code>
+
+
+                                    </div>
+
+                                    <div class="right-refresh clearfix">
+                                        <div class="left-side mar-ryt clearfix" (click)="getWalletAddressOnly('BTC')">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                <defs></defs>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <g id="Buy-tokens" transform="translate(-442.000000, -400.000000)"
+                                                        fill="#1B91E0">
+                                                        <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                            <g id="reload-icon"
+                                                                transform="translate(163.000000, 236.000000)">
+                                                                <path
+                                                                    d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                    id="Fill-1"></path>
+                                                                <path
+                                                                    d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                    id="Fill-2"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="right-side clearfix">
+                                            <p class="no-of-btc adjusting-font">
+                                                1 BTC = {{walletInfo?.btc | currency:'crypto'}} PUC
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                        <div class="wallet-type-wrap">
+
+
+                            <div class="box-loader" id="box-loader-DASH">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+                                            <path fill="#85ffbd" d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"></path>
+                                            <path fill="#316598" d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"></path>
+                                            <path fill="#a4bcc2" d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/dash-left.png" alt="dash-icon">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        MXN
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <div class="padding10">
+
+
+                                <div>
+                                    <p class="wallet-address-txt">
+                                        Wallet Address
+                                    </p>
+                                </div>
+                                <div class="relative-div">
+                                    <input readonly id="wallet-address2" type="text" class="nn-input " value="{{walletInfo?.DashFundReceiverAddress}}">
+
+                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address2')">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+
+
+                                </div>
+
+                                <div class="block-elems  refresh-value clearfix no-top-padding">
+
+                                    <div class="left-qr">
+
+                                        <qr-code class="custom-size" [value]="walletInfo?.DashFundReceiverAddress" [size]="100"></qr-code>
+
+
+                                    </div>
+
+                                    <div class="right-refresh clearfix">
+                                        <div class="left-side mar-ryt clearfix" (click)="getWalletAddressOnly('DASH')">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <title>90C7E3BA-6976-47CD-A05A-A91EAD590E84</title>
+                                                <desc>Created with sketchtool.</desc>
+                                                <defs></defs>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="Buy-tokens" transform="translate(-442.000000, -400.000000)" fill="#1B91E0">
+                                                        <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                            <g id="reload-icon" transform="translate(163.000000, 236.000000)">
+                                                                <path d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                    id="Fill-1"></path>
+                                                                <path d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                    id="Fill-2"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="right-side clearfix">
+                                            <p class="no-of-btc adjusting-font">
+                                                1 MXN = {{walletInfo?.mxn}} XCHGE
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div> -->
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                        <div class="wallet-type-wrap">
+
+
+                            <div class="box-loader" id="box-loader-LTC">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate"
+                                                repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                            </animateTransform>
+                                            <path fill="#85ffbd"
+                                                d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                            </path>
+                                            <path fill="#316598"
+                                                d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                            </path>
+                                            <path fill="#a4bcc2"
+                                                d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/ltc-left.png" alt="ltc-icon">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        ltc
+
+                                    </p>
+
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <div class="padding10">
+
+
+                                <div>
+                                    <p class="wallet-address-txt">
+                                        {{ 'WALLET ADDRESS' | translate }}
+                                    </p>
+                                </div>
+                                <div class="relative-div">
+                                    <input readonly id="wallet-address3" type="text" class="nn-input "
+                                        value="{{walletInfo?.LtcFundReceiverAddress}}">
+
+                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address3')">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+
+
+                                </div>
+
+                                <div class="block-elems  refresh-value clearfix no-top-padding">
+
+                                    <div class="left-qr">
+
+                                        <qr-code class="custom-size" [value]="walletInfo?.LtcFundReceiverAddress"
+                                            [size]="100"></qr-code>
+
+
+                                    </div>
+
+                                    <div class="right-refresh clearfix">
+                                        <div class="left-side mar-ryt clearfix" (click)="getWalletAddressOnly('LTC')">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                <defs></defs>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <g id="Buy-tokens" transform="translate(-442.000000, -400.000000)"
+                                                        fill="#1B91E0">
+                                                        <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                            <g id="reload-icon"
+                                                                transform="translate(163.000000, 236.000000)">
+                                                                <path
+                                                                    d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                    id="Fill-1"></path>
+                                                                <path
+                                                                    d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                    id="Fill-2"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="right-side clearfix">
+                                            <p class="no-of-btc adjusting-font">
+                                                1 LTC = {{walletInfo?.ltc | currency:'crypto'}} PUC
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                        <div class="wallet-type-wrap">
+
+
+
+                            <div class="box-loader" id="box-loader-ETH">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate"
+                                                repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                            </animateTransform>
+                                            <path fill="#85ffbd"
+                                                d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                            </path>
+                                            <path fill="#316598"
+                                                d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                            </path>
+                                            <path fill="#a4bcc2"
+                                                d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        Eth
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- IF Changes  for Eth  -->
+
+                            <div class="padding10" *ngIf="noEthAddress">
+                                <p class="no-eth-text">
+                                    {{'In order to proceed with your ETH investment, you need to provide a valid ETH Wallet Address' | translate}}
+                                </p>
+
+                                <div class="form-for-eth">
+                                    <input placeholder="{{'Eth address here' | translate}}" class="small-input"
+                                        name="userObject.WalletAddress" [(ngModel)]="userObject.WalletAddress">
+                                    <div *ngIf="updateLoader" class="loader">
+                                        <svg class="lds-comets" width="100%" height="100%"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                                            preserveAspectRatio="xMidYMid">
+                                            <g transform="rotate(208.756 50 50)">
+                                                <animateTransform attributeName="transform" type="rotate"
+                                                    repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                    dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                                </animateTransform>
+                                                <path fill="#85ffbd"
+                                                    d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                                </path>
+                                                <path fill="#316598"
+                                                    d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                                </path>
+                                                <path fill="#a4bcc2"
+                                                    d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </div>
+
+                                    <button class="update-buttons" (click)="updateGeneralSettings()" *ngIf="updateEth">
+                                        {{ 'Update' | translate}}
+                                    </button>
+                                </div>
+
+                            </div>
+
+                            <!-- IF Changes  for Eth  -->
+
+
+
+
+
+
+
+                            <div class="padding10" *ngIf="!noEthAddress">
+
+
+                                <div>
+                                    <p class="wallet-address-txt">
+                                        {{ 'WALLET ADDRESS' | translate}}
+                                    </p>
+                                </div>
+                                <div class="relative-div">
+                                    <input readonly id="wallet-address4" type="text" class="nn-input "
+                                        value="{{walletInfo?.EthFundReceiverAddress}}">
+
+                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address4')">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+
+
+                                </div>
+
+                                <div class="block-elems  refresh-value clearfix no-top-padding">
+
+                                    <div class="left-qr">
+
+                                        <qr-code class="custom-size" [value]="walletInfo?.EthFundReceiverAddress"
+                                            [size]="100"></qr-code>
+
+
+                                    </div>
+
+                                    <div class="right-refresh clearfix">
+                                        <div class="left-side mar-ryt clearfix" (click)="getWalletAddressOnly('ETH')">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <g id="Buy-tokens" transform="translate(-442.000000, -400.000000)"
+                                                        fill="#1B91E0">
+                                                        <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                            <g id="reload-icon"
+                                                                transform="translate(163.000000, 236.000000)">
+                                                                <path
+                                                                    d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                    id="Fill-1"></path>
+                                                                <path
+                                                                    d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                    id="Fill-2"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="right-side clearfix">
+                                            <p class="no-of-btc adjusting-font">
+                                                1 ETH = {{walletInfo?.eth | currency:'crypto'}} PUC
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <p class="eth-add">
+                                    <span class="links"
+                                        (click)="navigateToSettings()">{{'Click Here' | translate}}</span>
+                                    {{'to edit your ETH Address' | translate}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+                        <div class="wallet-type-wrap">
+
+
+                            <div class="box-loader-2" *ngIf="LoaderWire">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate"
+                                                repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                            </animateTransform>
+                                            <path fill="#85ffbd"
+                                                d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                            </path>
+                                            <path fill="#316598"
+                                                d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                            </path>
+                                            <path fill="#a4bcc2"
+                                                d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/wire-transfer.svg" atl="Wire Transfer icon">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        {{ 'WIRE TRANSFER' | translate }}
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="padding10 less-top">
+
+
+                                <div class="block">
+
+                                    <div class="floating-left w-40">
+                                        <div class="pos-left2 clearfix">
+                                            <div class="row">
+                                                <!-- <div class="col-4">
+                                                    <span class="checkp floating-left">
+                                                        <input type="radio" name="cpaRevenue" class='v-checkbox-wire'
+                                                            id="test1" (change)="changeWireCurrency('USD')" />
+                                                        <label for="test1">USD </label>
+                                                    </span>
+                                                </div> -->
+                                                <div class="col-4" style="text-align: center">
+                                                    <span class="checkp">
+                                                        <input type="radio" name="cpaRevenue" class='v-checkbox-wire'
+                                                            id="test2" checked (change)="changeWireCurrency('MXN')" />
+                                                        <label for="test2">AUD</label>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="floating-right w-60">
+
+                                        <div class="clearfix">
+                                            <div class="clearfix">
+                                                <p class="no-of-btc text-right-aligned">
+                                                    <button class="new-refresh-btn" (click)="getBankDetails('Wire')">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18"
+                                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                            <defs></defs>
+                                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                                fill-rule="evenodd">
+                                                                <g id="Buy-tokens"
+                                                                    transform="translate(-442.000000, -400.000000)"
+                                                                    fill="#1B91E0">
+                                                                    <g id="box1"
+                                                                        transform="translate(279.000000, 164.000000)">
+                                                                        <g id="reload-icon"
+                                                                            transform="translate(163.000000, 236.000000)">
+                                                                            <path
+                                                                                d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                                id="Fill-1"></path>
+                                                                            <path
+                                                                                d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                                id="Fill-2"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </button> 1 {{wireCurrencySelected}} =
+                                                    {{currencyRate | currency:'crypto'}} PUC
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+
+                                <div class="bank-fields" *ngIf="bankInfo">
+                                    <div class="scroll_bar">
+                                        <div class='form-group' *ngIf="displayField">
+                                            <label class="bold_text">{{ 'Intermediary Bank' | translate}}</label>
+                                            <input type="text" class="form-control" readonly maxlength="50"
+                                                value="{{merchantBankName}}">
+                                        </div>
+                                        <div class='form-group' *ngIf="displayField">
+                                            <label class="bold_text">{{ 'Branch Code / ABA' | translate }}</label>
+                                            <input type="text" class="form-control" readonly maxlength="50"
+                                                value="{{branchCode}}">
+                                        </div>
+                                        <div class='form-group' *ngIf="displayField">
+                                            <label class="bold_text">{{ 'Address' | translate }}</label>
+                                            <input type="text" class="form-control" readonly maxlength="50"
+                                                value="{{address}}">
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class="bold_text"> {{ 'Beneficiary Bank' | translate }} </label>
+                                            <input type="text" class="form-control" readonly maxlength="50"
+                                                value="{{beneficiartBank}}">
+                                        </div>
+                                        <div class='form-group' *ngIf="displayField">
+                                            <label class="bold_text">{{ 'SWIFT' | translate}}</label>
+                                            <input type="text" class="form-control" readonly maxlength="50"
+                                                value="{{swift}}">
+                                        </div>
+                                        <div class='form-group'>
+                                            <label class="bold_text">{{ 'Beneficiary' | translate}}</label>
+                                            <div class="abs-container">
+                                                <button class="copy-btn"
+                                                    (click)="copyToClipboard('beneficiary-account')">
+                                                    <i class="far fa-copy"></i>
+                                                </button>
+                                                <input type="text" id="beneficiary-account" class="form-control"
+                                                    readonly maxlength="40" value="{{beneficiaryNomber}}">
+                                            </div>
+                                            <!-- <input type="text" class="form-control" readonly maxlength="50" value="{{beneficiaryNomber}}"> -->
+                                        </div>
+                                        <!-- <div class='form-group'>
+                                        <label>{{ 'Bank Name' | translate}}</label>
+                                        <input type="text" class="form-control" readonly maxlength="50" value="{{merchantBankName}}">
+                                    </div> -->
+
+                                        <div class='form-group'>
+                                            <label class="bold_text">{{ 'Account No' | translate}}</label>
+                                            <div class="abs-container">
+                                                <button class="copy-btn" (click)="copyToClipboard('bank-account')">
+                                                    <i class="far fa-copy"></i>
+                                                </button>
+                                                <input type="text" id="bank-account" class="form-control" readonly
+                                                    maxlength="40" value="{{merchantBankAccount}}">
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class='form-group'>
+                                        <button class="submit-btn" data-toggle="modal"
+                                            data-target="#wire-transfer">{{ 'SUBMIT' | translate}}</button>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- <div class="row "> -->
+
+                <!--justify-content-center-->
+                <!--   <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                        <div class="wallet-type-wrap">
+
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/neo-left.png" alt="neo-icon">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        neo
+
+                                    </p>
+
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+                            <div class="padding10">
+
+
+                                <div>
+                                    <p class="wallet-address-txt">
+                                        Wallet Address
+                                    </p>
+                                </div>
+                                <div class="relative-div">
+                                    <input readonly id="wallet-address5" type="text" class="nn-input " value="{{walletInfo?.NeoFundReceiverAddress}}">
+
+                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address5')">
+                                        <svg width="21px" height="24px" viewBox="0 0 21 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                            <defs>
+                                                <polygon id="path-1" points="0 0 21 0 21 24 0 24"></polygon>
+                                            </defs>
+                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g id="Buy-tokens" transform="translate(-620.000000, -313.000000)">
+                                                    <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                        <g id="copy-file" transform="translate(341.000000, 149.000000)">
+                                                            <mask id="mask-2" fill="white">
+                                                                <use xlink:href="#path-1"></use>
+                                                            </mask>
+                                                            <g id="Clip-2"></g>
+                                                            <path d="M15.5604262,0 L5.54167918,0 C5.06036189,0 4.66654514,0.39042696 4.66654514,0.867537507 L4.66654514,4.62663283 L0.875134039,4.62663283 C0.393816751,4.62663283 0,5.01680465 0,5.49397898 L0,23.1327176 C0,23.6098282 0.393816751,24 0.875134039,24 L15.6043695,24 C16.0854294,24 16.4792462,23.6098282 16.4792462,23.1327176 L16.4792462,19.2291497 L20.1251877,19.2291497 C20.6064406,19.2291497 21,18.8386589 21,18.3615484 L21,5.42171076 C21,5.19049074 20.9125638,4.97343096 20.7522319,4.81447916 L16.1877279,0.260114547 C16.0270743,0.0866835874 15.7938468,0 15.5604262,0 Z M14.7292998,22.2651163 L1.74994638,22.2651163 L1.74994638,6.36151648 L4.66680249,6.36151648 L4.66680249,18.3615484 C4.66680249,18.8386589 5.06036189,19.2291497 5.54167918,19.2291497 L14.7292998,19.2291497 L14.7292998,22.2651163 Z M6.41674888,17.4939471 L6.41674888,1.73488366 L13.9999571,1.73488366 L13.9999571,6.65052556 C13.9999571,7.12769989 14.3937739,7.51812685 14.8750268,7.51812685 L19.2500536,7.51812685 L19.2500536,17.4939471 L6.41674888,17.4939471 Z M19.2500536,5.78324319 L15.7501608,5.78324319 L15.7501608,2.28426242 L19.2500536,5.78324319 Z"
+                                                                id="Fill-1" fill="#1B91E0" mask="url(#mask-2)"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </button>
+
+
+                                </div>
+
+                                <div class="block-elems  refresh-value clearfix no-top-padding">
+
+                                    <div class="left-qr">
+
+                                        <qr-code class="custom-size" [value]="walletInfo?.NeoFundReceiverAddress" [size]="100"></qr-code>
+
+
+                                    </div>
+
+                                    <div class="right-refresh clearfix">
+                                        <div class="left-side mar-ryt clearfix" (click)="getWalletAddressOnly()">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                <defs></defs>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="Buy-tokens" transform="translate(-442.000000, -400.000000)" fill="#1B91E0">
+                                                        <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                            <g id="reload-icon" transform="translate(163.000000, 236.000000)">
+                                                                <path d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                    id="Fill-1"></path>
+                                                                <path d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                    id="Fill-2"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="right-side clearfix">
+                                            <p class="no-of-btc adjusting-font">
+                                                1 NEO = {{walletInfo?.neo}} FRU
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>  -->
+                <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                        <div class="wallet-type-wrap">
+
+
+                            <div class="box-loader" id="box-loader-BTG">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+                                            <path fill="#85ffbd" d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"></path>
+                                            <path fill="#316598" d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"></path>
+                                            <path fill="#a4bcc2" d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/btg-left.png" atl="btg-icon">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        MXNP
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+                            <div class="padding10">
+
+
+                                <div>
+                                    <p class="wallet-address-txt">
+                                        Wallet Address
+                                    </p>
+                                </div>
+                                <div class="relative-div">
+                                    <input readonly id="wallet-address6" type="text" class="nn-input " value="{{walletInfo?.BtgFundReceiverAddress}}">
+
+                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address6')">
+
+                                        <i class="far fa-copy"></i>
+
+                                    </button>
+
+
+                                </div>
+
+                                <div class="block-elems  refresh-value clearfix no-top-padding">
+
+                                    <div class="left-qr">
+
+                                        <qr-code class="custom-size" [value]="walletInfo?.BtgFundReceiverAddress" [size]="100"></qr-code>
+
+
+                                    </div>
+
+                                    <div class="right-refresh clearfix">
+                                        <div class="left-side mar-ryt clearfix" (click)="getWalletAddressOnly('BTG')">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                <defs></defs>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="Buy-tokens" transform="translate(-442.000000, -400.000000)" fill="#1B91E0">
+                                                        <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                            <g id="reload-icon" transform="translate(163.000000, 236.000000)">
+                                                                <path d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                    id="Fill-1"></path>
+                                                                <path d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                    id="Fill-2"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="right-side clearfix">
+                                            <p class="no-of-btc adjusting-font">
+                                                1 MNXP = {{walletInfo?.mxnp}} FRU
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> -->
+                <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 ">
+                        <div class="wallet-type-wrap">
+
+
+
+                            <div class="box-loader" id="box-loader-BCH">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+                                            <path fill="#85ffbd" d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"></path>
+                                            <path fill="#316598" d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"></path>
+                                            <path fill="#a4bcc2" d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/bch-left.png" atl="bch-icon">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        bch
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div class="padding10">
+
+
+                                <div>
+                                    <p class="wallet-address-txt">
+                                        Wallet Address
+                                    </p>
+                                </div>
+                                <div class="relative-div">
+                                    <input readonly id="wallet-address7" type="text" class="nn-input " value="{{walletInfo?.BchFundReceiverAddress}}">
+
+                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address7')">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+
+
+                                </div>
+
+                                <div class="block-elems  refresh-value clearfix no-top-padding">
+
+                                    <div class="left-qr">
+
+                                        <qr-code class="custom-size" [value]="walletInfo?.BchFundReceiverAddress" [size]="100"></qr-code>
+
+
+                                    </div>
+
+                                    <div class="right-refresh clearfix">
+                                        <div class="left-side mar-ryt clearfix" (click)="getWalletAddressOnly('BCH')">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                <defs></defs>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="Buy-tokens" transform="translate(-442.000000, -400.000000)" fill="#1B91E0">
+                                                        <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                            <g id="reload-icon" transform="translate(163.000000, 236.000000)">
+                                                                <path d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                    id="Fill-1"></path>
+                                                                <path d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                    id="Fill-2"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="right-side clearfix">
+                                            <p class="no-of-btc adjusting-font">
+                                                1 BCH = {{walletInfo?.bch}} FRU
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div> -->
+
+
+
+
+
+                <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 ">
+
+                        <div class="wallet-type-wrap">
+
+
+                            <div class="box-loader-2" *ngIf="LoaderCC">
+                                <div class="center-loader">
+                                    <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                        <g transform="rotate(208.756 50 50)">
+                                            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+                                            <path fill="#85ffbd" d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"></path>
+                                            <path fill="#316598" d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"></path>
+                                            <path fill="#a4bcc2" d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"></path>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+
+
+                            <div class="top-head clearfix">
+                                <div class="left-icon">
+                                    <img src="../../../assets/img/credit-cards.svg" atl="Wire Transfer icon">
+                                </div>
+
+                                <div class="right-text">
+                                    <p class="no-of-coins">
+                                        Credit Cards
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="padding10 less-top">
+
+
+                                <div class="block">
+
+                                    <div class="floating-left w-40">
+                                        <div class="pos-left2 clearfix">
+                                            <div class="row">
+                                                <div class="col-4"><span class="checkp floating-left">
+                                                        <input type="radio" name="creditCardCurrency" class='v-checkbox-wire' checked id="usdCurrency" (change)="changeCreditCardCurrency('USD')"
+                                                        />
+                                                        <label for="usdCurrency">USD </label>
+                                                    </span>
+                                                </div>
+                                                <div class="col-4" style="text-align: center"><span class="checkp">
+                                                      <input type="radio" name="creditCardCurrency" class='v-checkbox-wire' id="mxn" (change)="changeCreditCardCurrency('MXN')"
+                                                        />
+                                                        <label for="mxn">MXN</label>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="floating-right w-60">
+
+                                        <div class="clearfix">
+                                            <div class="clearfix">
+                                                <p class="no-of-btc text-right-aligned">
+                                                    <button class="new-refresh-btn" (click)="getBankDetails('CC')">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                            <defs></defs>
+                                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <g id="Buy-tokens" transform="translate(-442.000000, -400.000000)" fill="#1B91E0">
+                                                                    <g id="box1" transform="translate(279.000000, 164.000000)">
+                                                                        <g id="reload-icon" transform="translate(163.000000, 236.000000)">
+                                                                            <path d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                                                                id="Fill-1"></path>
+                                                                            <path d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                                                                id="Fill-2"></path>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </button> 1 {{creditCardCurrency}} = {{currencyRateCreditCard.toFixed(4)}}
+                                                    FRU
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+
+                                <div class="card-fields">
+
+
+
+                                    <div class="form-group">
+                                        <label>Select Card Type:</label>
+
+                                        <div class="clearfix">
+
+                                            <span class="checkp no-bottom">
+                                                <input type="radio" name="cpaRevenue" class='v-checkbox-wire v-checkbox-wire-in-modal' id="visaCheck" (change)="getValueOfCurrencyTypeCC('EUR')"
+                                                />
+                                                <label for="visaCheck" class="no-bottom"><img class="card-images" src="../../../assets/img/visa.png">                                                </label>
+                                            </span>
+                                            <span class="checkp m-left-25 no-bottom">
+                                                <input type="radio" name="cpaRevenue" class='v-checkbox-wire v-checkbox-wire-in-modal' id="mastercardCheck" (change)="getValueOfCurrencyTypeCC('USD')"
+                                                />
+                                                <label for="mastercardCheck" class="no-bottom"><img class="card-images" src="../../../assets/img/mastercard.png"></label>
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="form-group col-md-8 credit-card">
+                                            <label>Card Number</label>
+                                            <div class='relative'>
+
+                                                <input type="text" maxlength="16" style="text-align: left" (keypress)="isNumberKey($event)"
+                                                    class="form-control" id="input1" name="creditCardNumber" [(ngModel)]="creditCardNumber"
+                                                    placeholder="---- ---- ---- ----">
+
+
+
+
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group  col-md-4">
+
+                                            <label>CVC</label>
+
+                                            <input type="text" (keypress)="isNumberKey($event)" maxlength="4" class="form-control" name="creditCardCvc" [(ngModel)]="creditCardCvc"
+                                                placeholder="----">
+                                        </div>
+
+                                    </div>
+
+                                    <div class='form-group'>
+                                        <button class="submit-btn" (click)="submitCreditCardInfo()">Submit</button>
+                                    </div>
+
+
+
+
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div> -->
+
+
+
+                <!-- </div> -->
+            </div>
+
+
+            <!--         <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="activity-box">
+                        <div class="activity-header clearfix">
+                            <div class="heading-left left-aligned">
+                                <h1 class="activity-head">Activity</h1>
+                            </div>
+
+                            <div class="heading-right right-aligned">
+                                <h1 class="download-csv">Download the history as a CSV
+                                    <span class="download-image">
+                                        <svg width="10px" height="12px" viewBox="0 0 10 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                            <defs></defs>
+                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g id="Buy-tokens" transform="translate(-1020.000000, -856.000000)" fill="#2097D4">
+                                                    <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                        <path d="M753,40.2355536 L750.143495,40.2355536 L750.143495,36 L745.856505,36 L745.856505,40.2355536 L743,40.2355536 L748.002232,45.1733569 L753,40.2355536 Z M743,48 L753,48 L753,46.5866784 L743,46.5866784 L743,48 Z"
+                                                            id="download-button"></path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </span>
+                                </h1>
+                            </div>
+
+                        </div>
+
+                        <div class="activity-content">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" data-target="#home" role="tab" aria-controls="home" aria-selected="true">Trades</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" data-target="#profile" role="tab" aria-controls="profile" aria-selected="false">FIATWALLET</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contact-tab" data-toggle="tab" data-target="#contact" role="tab" aria-controls="contact" aria-selected="false">CRYPTOWALLET</a>
+                                </li>
+                            </ul>
+
+
+                            <div class="tab-content" id="myTabContent">
+
+
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                    <div class="table-responsive ">
+                                        <table class="table table-striped tab-table">
+
+                                            <tbody>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/ltc-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">ltc</span>
+                                                        </p>
+                                                        <p class="small-grey">to LTC Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 LTC</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/eth-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">eth</span>
+                                                        </p>
+                                                        <p class="small-grey">to ETH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 ETH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/dash-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">dash</span>
+                                                        </p>
+                                                        <p class="small-grey">to DASH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 DASH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/eth-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">eth</span>
+                                                        </p>
+                                                        <p class="small-grey">to ETH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 ETH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+                                    <div class="table-responsive ">
+                                        <table class="table table-striped tab-table">
+
+                                            <tbody>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/ltc-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">ltc</span>
+                                                        </p>
+                                                        <p class="small-grey">to LTC Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 LTC</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/eth-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">eth</span>
+                                                        </p>
+                                                        <p class="small-grey">to ETH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 ETH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/dash-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">dash</span>
+                                                        </p>
+                                                        <p class="small-grey">to DASH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 DASH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/eth-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">eth</span>
+                                                        </p>
+                                                        <p class="small-grey">to ETH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 ETH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+
+                                    <div class="table-responsive ">
+                                        <table class="table table-striped tab-table">
+
+                                            <tbody>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/ltc-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">ltc</span>
+                                                        </p>
+                                                        <p class="small-grey">to LTC Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 LTC</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/eth-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">eth</span>
+                                                        </p>
+                                                        <p class="small-grey">to ETH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 ETH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/dash-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">dash</span>
+                                                        </p>
+                                                        <p class="small-grey">to DASH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 DASH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="width-20">
+                                                        <div class="table-img">
+                                                            <img src="../../../assets/img/eth-left.png" alt="litecoin">
+                                                        </div>
+                                                        <div class="table-img t-5">
+                                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                    <g id="Buy-tokens" transform="translate(-371.000000, -971.000000)">
+                                                                        <g id="Activity" transform="translate(277.000000, 820.000000)">
+                                                                            <g id="row" transform="translate(0.000000, 119.000000)">
+                                                                                <g id="arrow" transform="translate(94.000000, 32.000000)">
+                                                                                    <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                                                    <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                                        id="Fill-1" fill="#FFFFFF"></path>
+                                                                                </g>
+                                                                            </g>
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </div>
+                                                    </td>
+                                                    <td class="width-45">
+                                                        <p class="table-text">Traded
+                                                            <span class="text-uppercase">eur</span> for
+                                                            <span class="text-uppercase">eth</span>
+                                                        </p>
+                                                        <p class="small-grey">to ETH Wallet</p>
+                                                    </td>
+                                                    <td class="pad-right">
+                                                        <p class="blue-text">+57,2990 ETH</p>
+                                                        <p class="grey-text">+9940 EUR</p>
+                                                    </td>
+                                                </tr>
+
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+     -->
+        </div>
+    </section>
+
+
+    <!-- The Modal -->
+    <div class="modal" id="wire-transfer" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="close-modal" (click)="closeModal()"><img src="../../../assets/img/close.png"
+                        alt="close-image" /></div>
+                <div class="modal-body">
+
+
+                    <div class="header-inside clearfix">
+
+                        <div class="left-icon">
+                            <img src="../../../assets/img/wire-transfer.svg" alt="bitcoin">
+                        </div>
+
+                        <div class="right-text">
+                            <p class="no-of-coins">
+                                {{'WIRE TRANSFER' | translate}}
+                                <br /> {{'claim submission' | translate}}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <hr class="custom-2" />
+
+
+                    <div class="form-fields" *ngIf="userObject">
+
+                        <div class="form-group">
+                            <label>{{'Username' | translate}}</label>
+                            <input type="text" class="form-control" readonly placeholder="username here"
+                                value="{{userObject.UserName}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>{{'Email' | translate}}</label>
+                            <input type="text" class="form-control" readonly placeholder="email here"
+                                value="{{userObject.Email}}">
+                        </div>
+
+                        <div class="form-group">
+                            <label>{{'Select Currency' | translate}}:</label>
+                            <!--                  <select class="select-box form-control" [(ngModel)]="currencyTypeUserPaidIn">
+                                <option disabled selected>Select Currency</option>
+                                <option value="EUR">EURO</option>
+                                <option value="USD">USD</option>
+                            </select> -->
+
+                            <div class="clearfix">
+                                <!-- <span class="checkp  no-bottom">
+                                    <input type="radio" name="cpaRevenue"
+                                        class='v-checkbox-wire v-checkbox-wire-in-modal' id="currency-usd"
+                                        (change)="getValueOfCurrencyTypePaidIn('USD')" />
+                                    <label for="currency-usd" class="no-bottom">USD</label>
+                                </span> -->
+                                <span class="checkp m-left-25 no-bottom">
+                                    <input type="radio" name="cpaRevenue" checked
+                                        class='v-checkbox-wire v-checkbox-wire-in-modal' id="currency-mxn"
+                                        (change)="getValueOfCurrencyTypePaidIn('MXN')" />
+                                    <label for="currency-mxn" class="no-bottom">AUD</label>
+                                </span>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>{{'Instrument Id' | translate}}</label>
+                            <input type="text" maxlength="40" class="form-control" name="instrumentId"
+                                [(ngModel)]="instrumentId" placeholder="">
+                        </div>
+
+                        <div class="form-group">
+                            <label>{{'Bank Name' | translate}}</label>
+                            <input type="text" maxlength="40" class="form-control" placeholder="" name="bankName"
+                                [(ngModel)]="bankName">
+                        </div>
+
+                        <div class="form-group clearfix">
+
+                            <div class="float-left left-slip w-25">
+                                <span>{{'Deposit Slip' | translate}}:</span>
+                            </div>
+
+                            <div class="float-left right-upload w-75">
+                                <button class="choose-btn" (click)="changeImage()">
+
+                                    <input type='file' (change)="changeimage($event)" id="imgInp"
+                                        style="visibility:hidden;width:0;height:0" />{{fileName ? fileName : 'Image Upload' | translate}}
+                                    <img src="../../../assets/img/upload-icon.svg">
+                                </button>
+                            </div>
+
+                            <div class='clear'></div>
+
+                            <small class="allowed">{{'Allowed Types' | translate}}: JPG, PNG & PDF</small>
+
+                        </div>
+
+
+                        <div *ngIf="submitClaimLoader" class="loader">
+                            <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                                preserveAspectRatio="xMidYMid">
+                                <g transform="rotate(208.756 50 50)">
+                                    <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
+                                        values="360 50 50;0 50 50" keyTimes="0;1" dur="2.3s"
+                                        keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+                                    <path fill="#85ffbd"
+                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                    </path>
+                                    <path fill="#316598"
+                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                    </path>
+                                    <path fill="#a4bcc2"
+                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </div>
+
+
+                        <div class="form-group" *ngIf="submitClaimBtn">
+                            <button class="submit-btn" (click)="submitClaim()">{{'Submit Claim' | translate}}</button>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="enable-2fa" data-keyboard="false" data-backdrop="static"
+        style="z-index: 9999 !important;position: absolute !important;padding-left: 0px !important">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- <div class="close-modal" (click)="closeModal()"><img src="../../../assets/img/close.png" alt="close-image" /></div> -->
+                <div class="modal-body">
+
+
+                    <div class="header-inside clearfix" style="width: 100% !important">
+                        <div class="inline-blk">
+                            <div class="left-icon">
+                                <img style="width: 40px;" src="../../../assets/img/info.png" alt="Info">
+                            </div>
+
+                            <div class="right-text">
+                                <p class="no-of-coins">
+                                    Info
+                                </p>
+                            </div>
+                        </div>
+                        <button
+                            *ngIf="RestrictionModalMessage != 'In order to buy Token please submit KYC' && RestrictionModalMessage != 'You must enable 2FA to buy tokens' && RestrictionModalMessage != 'ICO sale currently Stopped'"
+                            class="abs-refresh inline-blk" (click)="getkycstatus()" data-toggle="tooltip"
+                            title="Fetch Kyc Status">
+                            <img src="assets/img/reload-btn.png">
+                        </button>
+                    </div>
+                    <hr class="custom-2" />
+                    <div class="form-fields" style="font-size: 16px">
+                        <p class="color-blue">{{RestrictionModalMessage | translate}}</p>
+                        <button
+                            *ngIf="RestrictionModalMessage != 'Your KYC is under review of Fruture ICO team' && RestrictionModalMessage != 'ICO sale currently Stopped'"
+                            class="submit-btn" (click)="navigateToSetting()">
+                            <span *ngIf="RestrictionModalMessage == 'You must enable 2FA to buy tokens'">
+                                {{'Enable 2FA' | translate}}
+                            </span>
+                            <span *ngIf="RestrictionModalMessage == 'In order to buy Token please submit KYC'">
+                                {{'Submit Kyc' | translate}}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
