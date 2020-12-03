@@ -7,7 +7,7 @@ export const environment = {
   // BaseUrl:"http://192.168.2.29:9000/api/",
   // documentUrl:"http://localhost:3000/",
 
-  BaseUrl: "https://sapi.fruture.org/api/",
+  BaseUrl: "http://coin.piptleapp.store:3000/api/",
   documentUrl: "https://fruture.org/terms-of-use.html",
   privacyPolicy:"https://fruture.org/privacypolicy.html",
   defaultLanguage: 'es'
