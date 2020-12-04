@@ -107,7 +107,7 @@ export function createTranslateLoader(http: HttpClient) {
     TranslateService,
     {
       provide: RECAPTCHA_SETTINGS,
-      useValue: { siteKey: '6LeNqagUAAAAAD_fWAZVu94cVGE18IbUknC0l9wG' } as RecaptchaSettings,
+      useValue: { siteKey: '6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX' } as RecaptchaSettings,
     }], //shared service being injected into modules
   bootstrap: [AppComponent]
 })
