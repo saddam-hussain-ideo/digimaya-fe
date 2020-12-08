@@ -7,7 +7,7 @@ declare var $: any;
   styleUrls: ['./piptle-wallet.component.scss']
 })
 export class PiptleWalletComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {
