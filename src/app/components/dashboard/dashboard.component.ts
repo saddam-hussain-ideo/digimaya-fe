@@ -42,7 +42,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     private _alive: boolean = true;
 
-    public stageData = []
+    public stageData = [];
+    public totalCapacity = ''
+    public totalIssued = ''
 
 
     public userObject: any;
@@ -958,8 +960,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this._dashboardService.getILOStages().subscribe(a => {
 
             if (a.code == 200) {
-               console.log('sa',a['data'])
-               this.stageData = a['data']
+               this.stageData = a['data'].stagesInfo;
+               this.totalCapacity = a['data'].totalCapacity;
+               this.totalIssued = a['data'].totalIssued
             }
 
         }, err => {
