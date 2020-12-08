@@ -629,7 +629,12 @@
                                 <div class="stage-table-div">
                                     <table class="stage-table table-responsives table-striped">
                                         <tbody>
-                                            <tr *ngFor = "let sData of stageData">
+                                            <tr>
+                                                <td><span class="color-green">{{'Total Supply' | translate}} : </span>  <span class="color-pulper">{{stageData.totalCapacity}} PUCs</span></td>
+                                                <td><span class="color-green">{{'Total Issued' | translate }} : </span> <span class="color-pulper">{{stageData.totalIssued}} </span></td>
+                                                <td class="color-pulper">PUCs</td>
+                                            </tr>
+                                            <tr *ngFor = "let sData of stageData.stagesInfo">
                                                 <td><span class="color-green">{{sData.StageName}} : </span>  <span class="color-pulper">{{sData.TotalSaleAmount}} PUCs</span></td>
                                                 <td><span class="color-green">{{'Total Issued' | translate }} : </span> <span class="color-pulper">{{sData.TotalAmountSold}} </span></td>
                                                 <td class="color-pulper">PUCs</td>

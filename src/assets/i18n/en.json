@@ -394,8 +394,23 @@
     "Since we are working closely with financiall institutions and according to Mexican Law we will have a strict KYC Procedure in order to ensure safety and security for all our clients.": "Since we are working closely with financiall institutions and according to Mexican Law we will have a strict KYC Procedure in order to ensure safety and security for all our clients.",
     "ILO SALE STAGE" : "ILO SALE STAGE: ",
     "Current Price" :"Current Price:",
-    "Total Piptlers" : "Total Piptles:",
+    "Total Piptlers" : "Total Licensee:",
     "Your Total Piptlers" : "Your Total Piptles:",
-    "My Piptle Wallet" : "My Piptle Wallets"
-
+    "My Piptle Wallet" : "My Piptle Wallets",
+    "My Total Issued Piptles" : "My Total Issued Piptles : ",
+    "My Available Piptles": "My Available Piptles : ",
+    "Withdraw" : "Withdraw",
+    "My Locked Piptles": "My Locked Piptles : ",
+    "My Staked Piptles": "My Staked Piptles : ",
+    "Total Piptles Earned" : "Total Piptles Earned",
+    "Referral Bonuses" : "Referral Bonuses : ",
+    "Community Awarded" : "Community Awarded : ",
+    "Staking Bonuses" : "Staking Bonuses : ",
+    "Merchant Rewards" : "Merchant Rewards : ",
+    "YOUR PIPTLES TRANSACTION HISTORY" : "YOUR PIPTLES TRANSACTION HISTORY",
+    "Wallet Transferred from" : "Wallet Transferred from",
+    "Action" : "Action",
+    "Amount Debited" : "Amount Debited",
+    "Wallet transferred to" : "Wallet transferred to",
+    "Total Supply" : "Total Supply : "
 }
