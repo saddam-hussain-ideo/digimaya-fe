@@ -8,7 +8,7 @@ export function getLanguage(){
     } else {
         lang = localStorage.getItem('language');
         if (!lang) {
-            lang = 'es';
+            lang = 'en';
         }
     }
 
