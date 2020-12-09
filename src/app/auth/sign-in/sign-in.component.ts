@@ -83,9 +83,9 @@ export class SignInComponent implements OnInit, OnDestroy {
   }
 
   public languageChanged(value){
-    localStorage.setItem('language', value);
+    localStorage.setItem('language', 'es');
     if(value){
-      this.translate.use(value)
+      this.translate.use('es')
     }else{
       this.translate.use('es')
     }
