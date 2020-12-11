@@ -715,7 +715,7 @@
         
                                         <div class="col-md-2 col-xs-12 no-padding center-select">
                                             <div class="form-group">
-                                                <label class="black-labels hidden-above-sm " style="visibility: hidden;    padding-bottom: 5px;">FRU</label>
+                                                <label class="black-labels hidden-above-sm " style="visibility: hidden;    padding-bottom: 5px;">PUC</label>
                                                 <span class="custom-dropdown big">
                                                     <select (change)="getCurrencySelected($event.target.value)">
                                                         <option value="btc">BTC</option>
@@ -725,7 +725,7 @@
                                                         <!--  <option value="neo">NEO</option>-->
                                                         <!-- <option value="btg">BTG</option> -->
                                                         <!-- <option value="dash">DASH</option> -->
-                                                        <option value="mxn">MXN</option>
+                                                        <option value="aud">AUD</option>
                                                         <!-- <option value="mxnp">MXNP</option> -->
                                                         <option value="usd">USD</option>
                                                         <!-- <option value="eur">EURO</option> -->
@@ -738,7 +738,7 @@
                                             <div class="form-group">
                                                 <label class="black-labels p-b-5 hidden-above-sm">PUC</label>
                                                 <div class="spin-hider"></div>
-                                                <label class="black-labels d-block d-sm-none d-none d-sm-block d-md-none">FRU</label>
+                                                <label class="black-labels d-block d-sm-none d-none d-sm-block d-md-none">PUC</label>
                                                 <input type="number" name="coinsCalculated" placeholder="0.00" [(ngModel)]="coinsCalculated" (keyup)='byPasserReverseFunction($event.target.value)'
                                                     id="coinsCalculated" (input)="checkLengthForCoinsCalculated()" class="black-bg-inputs">
                                             </div>
@@ -773,7 +773,7 @@
                                                         <tr>
                                                             <td class="final-price left-header">{{'Total' | translate}}</td>
                                                             <!-- <td class="final-price">{{totalCoinToPayFor}}</td> -->
-                                                            <td class="final-price">{{coinsCalculatedBottom | currency:'crypto'}} FRU</td>
+                                                            <td class="final-price">{{coinsCalculatedBottom | currency:'crypto'}} PUC</td>
                                                             <!-- <td class="right-aligned final-price text-uppercase"></td> -->
                                                         </tr>
                                                     </tfoot>
