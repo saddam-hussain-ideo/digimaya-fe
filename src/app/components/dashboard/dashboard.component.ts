@@ -881,7 +881,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this.get24HrsGraph();
         this.getBlogs();
 
-
+        console.log(this.investedValues);
+        
 
         $(".list-unstyled li").removeClass("active");
         $("#dash-nav").addClass("active");
