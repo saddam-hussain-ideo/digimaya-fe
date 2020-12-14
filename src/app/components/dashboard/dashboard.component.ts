@@ -98,8 +98,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
     constructor(
-        public router: Router, 
-        public _dashboardService: DashboardService, 
+        public router: Router,
+        public _dashboardService: DashboardService,
         public _sharedService: SharedService,
         private ref: ChangeDetectorRef,
         private _ngZone: NgZone
@@ -108,7 +108,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this.investedValues = new AmountInvestedModel();
         this.RatesModel = new RatesModel();
         this.validations = new Validations();
-    
+
     }
 
 
@@ -137,7 +137,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     getAmountInvested() {
         this._sharedService.showHideLoader(true);
         this._dashboardService.getAmountInvested(this.userObject.UserId).takeWhile(() => this._alive).subscribe(a => {
-        
+
             if (a.code == 200) {
                 this.investedValues = a.data;
 
@@ -206,12 +206,12 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     getMostRecentTransactions() {
         this._dashboardService.getTransactionDetails(this.userObject.UserId, this.currentPage, this.recentTransactionsPSize).takeWhile(() => this._alive).subscribe(a => {
-   
+
             if (a.code == 200) {
                 this.pagination = [];
                 this.recentTransactions = a.data.list;
                 this.paginationNumber = a.data.count;
-           
+
 
                 for(var x = 0; x<this.recentTransactions.length; x++){
                     this.recentTransactions[x].CalculatedTokens = this.validations.toCommas(this.recentTransactions[x].CalculatedTokens);
@@ -352,7 +352,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         $("#coinsWanted").val('');
         $("#coinsCalculated").val('');
 
-        
+
      /* this.coinsWanted = 0;
         this.coinsCalculated = 0; */
 
@@ -597,7 +597,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
             var self = this;
             self.topScrollValue = $(window).scrollTop();
-           
+
             var arr = [];
             var graphWidgetOptions = {
 
@@ -622,7 +622,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
                     custom: function (tooltipModel) {
                         // Tooltip Element
 
-                   
+
 
                         var tooltipEl: any = document.getElementById('chartjs-tooltip');
 
@@ -685,16 +685,16 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
                        var canvas = this._chart.canvas;
-                     
+
                        var id = $(canvas).attr('id')
                        var graphPlacement = $("#"+id).offset();
                        var canvasContainer = $(canvas).parent();
                        var x = canvasContainer.position();
-                      
+
 
                         // Display, position, and set styles for font
 
-                  
+
 
                         tooltipEl.style.opacity = 1;
                         tooltipEl.style.position = 'absolute';
@@ -825,7 +825,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 options: graphWidgetOptions
             });
 
-            /* 
+            /*
                     var myChart = new Chart(this.ctx6, {
                         type: 'line',
                         lineColor: "#0FB8FA",
@@ -871,7 +871,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     ngOnInit() {
 
 
-        
+
 
         this.userObject = JSON.parse(localStorage.getItem("userObject"));
         this.getAmountInvested();
@@ -882,7 +882,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this.getBlogs();
 
         console.log(this.investedValues);
-        
+
 
         $(".list-unstyled li").removeClass("active");
         $("#dash-nav").addClass("active");
