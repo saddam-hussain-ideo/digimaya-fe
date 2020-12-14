@@ -20,6 +20,18 @@
     cursor: pointer;
 }
 
+.instruction-btn{
+    border-radius: unset;
+    background-color: #3AB4E5;
+    padding: 14px 23px;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'LatoWeb';
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
 .wallet-wrap{
     background-color: white;
     position: relative;
@@ -809,6 +821,12 @@ cursor: pointer;
     left: 3px;
     font-size: 13px;
   }
+}
+
+.aud{
+    font-family: 'LatoWeb';
+    color: #34519d;
+    font-size: 13px;
 }
 
 /* checked mark aspect changes */

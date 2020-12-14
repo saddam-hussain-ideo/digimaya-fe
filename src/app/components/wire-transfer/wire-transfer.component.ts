@@ -72,7 +72,7 @@ export class WireTransferComponent {
         }
 
 
-      
+
     }
 
 
@@ -118,5 +118,10 @@ export class WireTransferComponent {
         this.receiptImg = undefined;
         $("#image-modal").modal("hide");
     }
+
+    printPage() {
+        window.print();
+    }
+
 
 }
