@@ -348,7 +348,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     getCurrencySelected(elem) {
 
-
         $("#coinsWanted").val('');
         $("#coinsCalculated").val('');
 
@@ -361,8 +360,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this.selectedCurrency = elem;
         if (elem == "liveRate") {
             this.selectedCurrencyActual = "USD";
+
         } else {
             this.selectedCurrencyActual = elem;
+            
         }
 
         this.resetCalculator()
@@ -880,9 +881,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this.getMostRecentTransactions();
         this.get24HrsGraph();
         this.getBlogs();
-
-
-
         $(".list-unstyled li").removeClass("active");
         $("#dash-nav").addClass("active");
 
