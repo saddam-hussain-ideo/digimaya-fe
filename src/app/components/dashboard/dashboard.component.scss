@@ -16,7 +16,7 @@
 }
 
 .buy-text{
-    color: $theme-blue;
+    color: $white-color;
     margin-right: 10px;
     font-size: 14px;
     font-weight: bold;
@@ -143,7 +143,7 @@
     padding: 15px 0;
     text-align: center;
     position: relative;
-    color: $theme-blue !important;
+    color: $dashboard-purple-clr !important;
 }
 
 .chart-widgets{
@@ -266,14 +266,13 @@
 }
 
 .pay-btn{
-    background: #2097D4;
-    color:white;
+    background: $light-pulper-color;
+    border: 2px solid $white-color;
     font-size:16px;
     text-transform:uppercase;
     color:white;
     font-family: 'LatoWeb';
     font-weight: 400;
-    border:none;
     width:80%;
     height: 45.13px;;
     margin-top: 20px;
@@ -425,16 +424,18 @@
 
 
 .sub-title{
-    color:#616A75;
+    color: $dashboard-purple-clr;
     text-transform: $title-case;
     font-size: $font-14;
     font-family: 'LatoWebLight';
     margin: $title-margin;
+    font-weight: bold;
 
 }
 
 .rates-title{
-  color:#616A75;
+//   color:#616A75;
+  color: $white-color;
   text-transform: $title-case;
   font-size: $font-14;
   font-family: 'LatoWebLight';
@@ -495,7 +496,7 @@
 
 .custom-dropdown select {
     background-color: #F5F5F5;
-    color: $theme-blue;
+    color: $dashboard-purple-clr;
     font-size: 14px;
     font-weight: bold;
     font-family: Helvetica, sans-serif;
@@ -573,9 +574,15 @@
 .footer-bottom{
     position: relative;
     min-height: 82px;
-    background:#EAF4FA;
-}
+    // background:$dashboard-purple-clr;
+    background-image: linear-gradient(to left,  #643E8D,#010102 420px );
 
+}
+.blck-elems{
+    .left-section{
+        background-color: $black-color;
+    }
+}
 
 .earn-bold{
     font-family: 'LatoWebBold';
@@ -632,7 +639,8 @@
     border-top: none;
     font-family: 'LatoWeb', sans-serif;
     font-size: 14px;
-    color: #34519d !important;
+    // color: #34519d !important;
+    color: $dashboard-purple-clr;
   /*   color: #26497b; */
 }
 
@@ -794,7 +802,7 @@
     max-width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #34519d;
+    color: $dashboard-purple-clr;
 }
 
 .currency-heading{
@@ -811,7 +819,8 @@
     font-size:$font-14;
     font-family: 'LatoWebBold';
     padding-left:5px;
-    color:$theme-blue;
+    // color:$theme-blue;
+    color:$dashboard-purple-clr;
 
 }
 
@@ -865,7 +874,7 @@
                 color: $light-pulper-color;
             }
             .active{
-                background-color: $light-pulper-color;
+                background-color: $dashboard-purple-clr;
                 border-radius: 0px;
                 color: $white-color;
             }
@@ -906,10 +915,12 @@
 
 .padding-20 {
     padding:20px;
+    background-color: $dashboard-purple-clr;
+    color: $white-color;
 }
 
 .black-labels{
-    color:$label-color;
+    color:$dashboard-purple-clr;
     padding-left:0;
     font-size:15px;
     font-weight: bold;
@@ -1622,9 +1633,9 @@
 .buy-xchge {
     margin-bottom: 0;
     font-size: 13px;
-    color: #2097d4;
+    color: $white-color;
     text-align: left;
-    padding-top: 25px;
+    // padding-top: 25px;
     padding-left: 11px;
     font-weight: bold;
     font-family: 'LatoWebBold';
@@ -1652,6 +1663,7 @@
     padding-left:54px;
     position: relative;
     margin-bottom: 0;
+    color: $white-color;
 }
 }
 
@@ -1682,7 +1694,8 @@
 
 .dash-info-row{
     .info-custom-card{
-        background: $white-color;
+        background: $dashboard-purple-clr;
+        border: 3px solid $white-color;
         .content{
             padding: 13px 14px 9px;
             text-transform: uppercase;
@@ -1690,15 +1703,18 @@
             margin: 0;
             font-family: 'LatoWebBold';
             .heading{
-                color: $theme-green;
+                color: $white-color;
+            }
+            .prp-text{
+                color: $dashboard-purple-clr;
             }
             .pulper-color{
-                color: $light-pulper-color;
+                color: $white-color;
             }
         }
     }
     .dark-bg{
-        background-color: $light-pulper-color;
+        background-color: $white-color;
     }
 }
 
@@ -1713,4 +1729,21 @@
 div[disabled=disabled] {
   pointer-events: none;
   opacity: 0.4;
+}
+
+.dashboard-upper-sec{
+    background-color: #643E8D;
+    padding: 15px;
+    .content-flex{
+        img{
+            height: 33px;
+            width: 33px;
+            margin-top: 6px;
+            margin-right: 3px;
+        }
+        .page-title{
+            color: #FCFBFD;
+        }
+      
+    }
 }

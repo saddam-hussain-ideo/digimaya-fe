@@ -34,6 +34,20 @@ a, a:hover, a:focus {
   }
 }
 
+.img-borders{
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  background-color: #643E8D;
+  display: inline-block;
+  .sidebar-img{
+    width: 33px;
+    height: 33px;
+    padding: 3px;
+  }
+}
+
+
 .navbar-btn {
   box-shadow: none;
   outline: none !important;
@@ -89,11 +103,15 @@ a, a:hover, a:focus {
   border: none;
 }
 
+.nav-clr{
+  // background-color: #643E8D;
+  background-image: linear-gradient(to left,  #643E8D,#010102 );
 
+}
 
 .parallelogram {
   position: relative;
-  background: #fff;
+  // background: #fff;
   width: 162px;
   border: none;
   height: 70px;
@@ -135,6 +153,18 @@ a, a:hover, a:focus {
   width: 210px;
   height: 40px;
   z-index: 201;
+}
+.myimg{
+  object-fit: cover;
+}
+.sidebar-bg{
+  background-image: url('../../../assets/img/dashboard-bg.png');
+  // background-repeat: no-repeat;
+    /* position: fixed; */
+    /* background-position-y: bottom; */
+    background-repeat: round;
+    /* background-repeat-y: no-repeat; */
+    /* height: 100vh */;
 }
 
 .sidebar-toggle-wrapper {
@@ -198,10 +228,12 @@ a, a:hover, a:focus {
 }
 
 .logo-box img {
-  max-width: 35%;
+  // max-width: 35%;
+  width: 200px;
+  margin-left: 2rem;
   z-index: 23;
   position: relative;
-  margin-top: 3px;
+  // margin-top: 3px;
 }
 
 .rounded-image-box {
@@ -369,6 +401,7 @@ a, a:hover, a:focus {
   position: relative;
   height: 70px;
   min-width: 270px;
+  // background-color: #010102;
 }
 
 .icon-drop {
@@ -616,11 +649,13 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a {
-  padding: 15px 0 15px 5px;
+  // padding: 15px 0 15px 5px;
+  padding: 0 0 10px 5px; 
   font-size: 0.85rem;
   display: block;
   font-family: 'LatoWeb';
-  color: #34519d;
+  // color: #34519d;
+  color:   #997bb5;
   font-weight: 500;
 
   .side-icons{
@@ -642,7 +677,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a:hover {
-  color: #cf5d29 !important;
+  color:  #997bb5 !important;
   .side-icons{
     svg{
       filter: invert(40%) sepia(95%) saturate(534%) hue-rotate(337deg) brightness(90%) contrast(92%) !important;
@@ -655,7 +690,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li.active>a, a[aria-expanded="true"] {
-  color: #cf5d29  !important;
+  color: white !important;
   border-radius: 2px;
   .side-icons{
        svg{
@@ -1036,6 +1071,10 @@ a.article, a.article:hover {
 
 .right-aligned{
   justify-content: flex-end;
+}
+
+.right-content{
+  background-color: #643E8D;
 }
 
 .custome-menu{
