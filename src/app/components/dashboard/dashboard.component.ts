@@ -64,7 +64,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     public paginationNumber: any = 1;
     public noTransactions: boolean = false;
 
-    public validations:Validations;
+    public validations: Validations;
 
     public BitcoinWidgetData = [];
     public LiteCoinnWidgetData = [];
@@ -98,17 +98,17 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
     constructor(
-        public router: Router, 
-        public _dashboardService: DashboardService, 
+        public router: Router,
+        public _dashboardService: DashboardService,
         public _sharedService: SharedService,
         private ref: ChangeDetectorRef,
         private _ngZone: NgZone
-        ) {
+    ) {
 
         this.investedValues = new AmountInvestedModel();
         this.RatesModel = new RatesModel();
         this.validations = new Validations();
-    
+
     }
 
 
@@ -137,7 +137,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     getAmountInvested() {
         this._sharedService.showHideLoader(true);
         this._dashboardService.getAmountInvested(this.userObject.UserId).takeWhile(() => this._alive).subscribe(a => {
-        
+
             if (a.code == 200) {
                 this.investedValues = a.data;
 
@@ -162,20 +162,20 @@ export class DashboardComponent implements OnDestroy, OnInit {
     getLiveRatesByCode() {
 
         // this.liveRates.btc = (this.liveRates.btc / this.liveRates.fru).toFixed(4);
-        this.liveRates.btc = Number(this.liveRates.btc ).toFixed(4)
-        this.liveRates.btc = this.validations.toCommas(this.liveRates.btc );
+        this.liveRates.btc = Number(this.liveRates.btc).toFixed(4)
+        this.liveRates.btc = this.validations.toCommas(this.liveRates.btc);
         // this.liveRates.ltc = (this.liveRates.ltc / this.liveRates.fru).toFixed(4);
-        this.liveRates.ltc = Number(this.liveRates.ltc ).toFixed(4)
-        this.liveRates.ltc = this.validations.toCommas(this.liveRates.ltc );
+        this.liveRates.ltc = Number(this.liveRates.ltc).toFixed(4)
+        this.liveRates.ltc = this.validations.toCommas(this.liveRates.ltc);
         // this.liveRates.eth = (this.liveRates.eth / this.liveRates.fru).toFixed(4);
-        this.liveRates.eth = Number(this.liveRates.eth ).toFixed(4)
-        this.liveRates.eth = this.validations.toCommas(this.liveRates.eth );
+        this.liveRates.eth = Number(this.liveRates.eth).toFixed(4)
+        this.liveRates.eth = this.validations.toCommas(this.liveRates.eth);
         // this.liveRates.mxn = (this.liveRates.mxn / this.liveRates.fru).toFixed(4);
-        this.liveRates.mxn = Number(this.liveRates.mxn ).toFixed(4)
-        this.liveRates.mxn = this.validations.toCommas(this.liveRates.mxn );
+        this.liveRates.mxn = Number(this.liveRates.mxn).toFixed(4)
+        this.liveRates.mxn = this.validations.toCommas(this.liveRates.mxn);
 
-        this.liveRates.usd = Number(this.liveRates.usd ).toFixed(4)
-        this.liveRates.usd = this.validations.toCommas(this.liveRates.usd );
+        this.liveRates.usd = Number(this.liveRates.usd).toFixed(4)
+        this.liveRates.usd = this.validations.toCommas(this.liveRates.usd);
 
     }
 
@@ -206,14 +206,14 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     getMostRecentTransactions() {
         this._dashboardService.getTransactionDetails(this.userObject.UserId, this.currentPage, this.recentTransactionsPSize).takeWhile(() => this._alive).subscribe(a => {
-   
+
             if (a.code == 200) {
                 this.pagination = [];
                 this.recentTransactions = a.data.list;
                 this.paginationNumber = a.data.count;
-           
 
-                for(var x = 0; x<this.recentTransactions.length; x++){
+
+                for (var x = 0; x < this.recentTransactions.length; x++) {
                     this.recentTransactions[x].CalculatedTokens = this.validations.toCommas(this.recentTransactions[x].CalculatedTokens);
                     this.recentTransactions[x].TotalTokens = this.validations.toCommas(this.recentTransactions[x].TotalTokens);
                 }
@@ -243,34 +243,34 @@ export class DashboardComponent implements OnDestroy, OnInit {
     bonus_price: any = 0;
 
     calculate_now(selectedCurrency) {
-            let valueForCurrencySelected = this.RatesModel[selectedCurrency];
-            let calculateInMxn = valueForCurrencySelected * this.coinsWanted;
+        let valueForCurrencySelected = this.RatesModel[selectedCurrency];
+        let calculateInMxn = valueForCurrencySelected * this.coinsWanted;
 
-            let coinWithDiscount = (calculateInMxn / this.RatesModel.liveRate).toFixed(8);
-            this.coinsCalculated = (calculateInMxn / this.RatesModel.baseRate).toFixed(8);
+        let coinWithDiscount = (calculateInMxn / this.RatesModel.liveRate).toFixed(8);
+        this.coinsCalculated = (calculateInMxn / this.RatesModel.baseRate).toFixed(8);
 
-            this.bonusTokens = (Number(coinWithDiscount) - Number(this.coinsCalculated)).toFixed(8)
+        this.bonusTokens = (Number(coinWithDiscount) - Number(this.coinsCalculated)).toFixed(8)
 
-            this.totalTokensWithoutBonus = this.coinsCalculated;
+        this.totalTokensWithoutBonus = this.coinsCalculated;
 
-            this.coinsCalculatedBottom = coinWithDiscount;
-            this.coinsCalculated = coinWithDiscount;
-            this.coinsWantedBottom = this.coinsWanted;
+        this.coinsCalculatedBottom = coinWithDiscount;
+        this.coinsCalculated = coinWithDiscount;
+        this.coinsWantedBottom = this.coinsWanted;
 
-            this.totalCoinToPayFor = Number(coinWithDiscount)
+        this.totalCoinToPayFor = Number(coinWithDiscount)
 
     }
 
     calculate_reverse(selectedCurrency) {
 
 
-            let valueForCurrencySelected = this.RatesModel[selectedCurrency];
+        let valueForCurrencySelected = this.RatesModel[selectedCurrency];
 
-            this.coinsWanted = (this.coinsCalculated * this.RatesModel.liveRate) / valueForCurrencySelected;
-            this.coinsCalculatedBottom = this.coinsCalculated;
+        this.coinsWanted = (this.coinsCalculated * this.RatesModel.liveRate) / valueForCurrencySelected;
+        this.coinsCalculatedBottom = this.coinsCalculated;
 
-            this.bonusTokens = ((this.coinsCalculated / 100) * this.RatesModel.bonus).toFixed(8);
-            this.totalTokensWithoutBonus = (this.coinsCalculated - this.bonusTokens).toFixed(8)
+        this.bonusTokens = ((this.coinsCalculated / 100) * this.RatesModel.bonus).toFixed(8);
+        this.totalTokensWithoutBonus = (this.coinsCalculated - this.bonusTokens).toFixed(8)
     }
 
     byPasserFunction(value) {
@@ -338,7 +338,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
 
-    resetCalculator(){
+    resetCalculator() {
 
         this.totalTokensWithoutBonus = 0;
         this.bonusTokens = 0;
@@ -351,9 +351,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
         $("#coinsWanted").val('');
         $("#coinsCalculated").val('');
 
-        
-     /* this.coinsWanted = 0;
-        this.coinsCalculated = 0; */
+
+        /* this.coinsWanted = 0;
+           this.coinsCalculated = 0; */
 
 
 
@@ -363,7 +363,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
         } else {
             this.selectedCurrencyActual = elem;
-            
+
         }
 
         this.resetCalculator()
@@ -388,7 +388,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
             if (a.code == 200) {
-                this._ngZone.run(()=>{
+                this._ngZone.run(() => {
                     this.doughnutChartData = a.data;
                 })
             }
@@ -598,7 +598,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
             var self = this;
             self.topScrollValue = $(window).scrollTop();
-           
+
             var arr = [];
             var graphWidgetOptions = {
 
@@ -623,7 +623,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
                     custom: function (tooltipModel) {
                         // Tooltip Element
 
-                   
+
 
                         var tooltipEl: any = document.getElementById('chartjs-tooltip');
 
@@ -682,27 +682,27 @@ export class DashboardComponent implements OnDestroy, OnInit {
                         }
 
                         // `this` will be the overall tooltip
-                       /*  var position = this._chart.canvas.getBoundingClientRect(); */
+                        /*  var position = this._chart.canvas.getBoundingClientRect(); */
 
 
-                       var canvas = this._chart.canvas;
-                     
-                       var id = $(canvas).attr('id')
-                       var graphPlacement = $("#"+id).offset();
-                       var canvasContainer = $(canvas).parent();
-                       var x = canvasContainer.position();
-                      
+                        var canvas = this._chart.canvas;
+
+                        var id = $(canvas).attr('id')
+                        var graphPlacement = $("#" + id).offset();
+                        var canvasContainer = $(canvas).parent();
+                        var x = canvasContainer.position();
+
 
                         // Display, position, and set styles for font
 
-                  
+
 
                         tooltipEl.style.opacity = 1;
                         tooltipEl.style.position = 'absolute';
-                        tooltipEl.style.left = graphPlacement.left+ 30 + "px";
+                        tooltipEl.style.left = graphPlacement.left + 30 + "px";
                         tooltipEl.style.top = graphPlacement.top + 30 + "px";
-                      /*   tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
-                        tooltipEl.style.top = position.top + self.topScrollValue + tooltipModel.caretY + 'px'; */
+                        /*   tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
+                          tooltipEl.style.top = position.top + self.topScrollValue + tooltipModel.caretY + 'px'; */
                         tooltipEl.style.fontFamily = 'LatoWebBold';
                         tooltipEl.style.fontSize = tooltipModel.bodyFontSize + 'px';
                         tooltipEl.style.fontStyle = tooltipModel._bodyFontStyle;
@@ -826,7 +826,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 options: graphWidgetOptions
             });
 
-            /* 
+            /*
                     var myChart = new Chart(this.ctx6, {
                         type: 'line',
                         lineColor: "#0FB8FA",
@@ -872,7 +872,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     ngOnInit() {
 
 
-        
+
 
         this.userObject = JSON.parse(localStorage.getItem("userObject"));
         this.getAmountInvested();
@@ -958,9 +958,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this._dashboardService.getILOStages().subscribe(a => {
 
             if (a.code == 200) {
-               this.stageData = a['data'].stagesInfo;
-               this.totalCapacity = a['data'].totalCapacity;
-               this.totalIssued = a['data'].totalIssued
+                this.stageData = a['data'].stagesInfo;
+                this.totalCapacity = a['data'].totalCapacity;
+                this.totalIssued = a['data'].totalIssued
             }
 
         }, err => {
