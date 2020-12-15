@@ -13,9 +13,9 @@
                         <div class="inner-box xchge-top min-hg background-green">
                             <p class="earns-label color-blue"
                                 style="font-weight: bold;;margin-top: 19px;font-size: 20px;">
-                                <img class="fru-width" style="margin-bottom: 11px;" src="../../../assets//img//fru.png"
-                                    alt="">
-                                FRU:
+                                <!-- <img class="fru-width" style="margin-bottom: 11px;" src="../../../assets//img//fru.png"
+                                    alt=""> -->
+                                PUC:
                                 <strong class="earn-bold">{{investedValues.TokenBalance | currency:'crypto'}}</strong>
                             </p>
 
@@ -597,9 +597,9 @@
                                                 </div> -->
                                                 <div class="col-4" style="text-align: center">
                                                     <span class="checkp">
-                                                        <input type="radio" name="cpaRevenue" class='v-checkbox-wire'
-                                                            id="test2" checked (change)="changeWireCurrency('MXN')" />
-                                                        <label for="test2">AUD</label>
+                                                        <!-- <input type="radio" name="cpaRevenue" class='v-checkbox-wire '
+                                                            id="test2" checked (change)="changeWireCurrency('MXN')" /> -->
+                                                        <label for="test2" class="aud">AUD</label>
                                                     </span>
                                                 </div>
 
@@ -1186,7 +1186,7 @@
 
                                             <label>CVC</label>
 
-                                            <input type="text" (keypress)="isNumberKey($event)" maxlength="4" class="form-control" name="creditCardCvc" [(ngModel)]="creditCardCvc"
+                                            <input type="text" (keypress)="isNumberKey($event)" maxlenmodalgth="4" class="form-control" name="creditCardCvc" [(ngModel)]="creditCardCvc"
                                                 placeholder="----">
                                         </div>
 
@@ -1214,8 +1214,13 @@
 
 
                 <!-- </div> -->
+
             </div>
 
+            <!-- <div class="text-center ">
+                    <button class="btn instruction-btn" data-toggle="modal"
+                    data-target="#wire-transfer" click="readInstructions()">READ INSTRUCTIONS</button>
+            </div> -->
 
             <!--         <div class="row">
 
@@ -1801,26 +1806,27 @@
 
                         <div class="form-group">
                             <label>{{'Select Currency' | translate}}:</label>
+                            <label for="currency-mxn" class="aud ml-3" >AUD</label>
                             <!--                  <select class="select-box form-control" [(ngModel)]="currencyTypeUserPaidIn">
                                 <option disabled selected>Select Currency</option>
                                 <option value="EUR">EURO</option>
                                 <option value="USD">USD</option>
                             </select> -->
 
-                            <div class="clearfix">
+                            <!-- <div class="clearfix"> -->
                                 <!-- <span class="checkp  no-bottom">
                                     <input type="radio" name="cpaRevenue"
                                         class='v-checkbox-wire v-checkbox-wire-in-modal' id="currency-usd"
                                         (change)="getValueOfCurrencyTypePaidIn('USD')" />
                                     <label for="currency-usd" class="no-bottom">USD</label>
                                 </span> -->
-                                <span class="checkp m-left-25 no-bottom">
-                                    <input type="radio" name="cpaRevenue" checked
+                                <!-- <span class="checkp m-left-25 no-bottom"> -->
+                                    <!-- <input type="radio" name="cpaRevenue" checked
                                         class='v-checkbox-wire v-checkbox-wire-in-modal' id="currency-mxn"
-                                        (change)="getValueOfCurrencyTypePaidIn('MXN')" />
-                                    <label for="currency-mxn" class="no-bottom">AUD</label>
-                                </span>
-                            </div>
+                                        (change)="getValueOfCurrencyTypePaidIn('MXN')" /> -->
+                                    <!-- <label for="currency-mxn" class="no-bottom aud" >AUD</label> -->
+                                <!-- </span> -->
+                            <!-- </div> -->
 
 
 

@@ -146,8 +146,9 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   }
 
   changeWireCurrency(elem) {
+console.log(elem);
 
-    this.wireCurrencySelected = elem;
+    // this.wireCurrencySelected = elem;
     if (elem == "MXN") {
       this.beneficiartBank = this.bankInfo.MXNBeneficiartBank;
       this.merchantBankName = this.bankInfo.MXNBankName;
@@ -305,7 +306,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
 
 
   submitClaim() {
-
+    this.currencyTypeUserPaidIn = 'MXN';
     var error = false;
     this.toasterService.clear();
 
@@ -494,6 +495,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
 
   getInvestedData() {
     this._dashboardService.getAmountInvested(this.userObject.UserId).takeWhile(() => this._alive).subscribe(a => {
+      console.log(a);
 
       if (a.code == 200) {
         this.investedValues = a.data;
@@ -534,12 +536,14 @@ export class MyWalletComponent implements OnInit, OnDestroy {
 
 
     this._walletService.getBankDetails().subscribe(a => {
+      console.log(a);
 
       if (a.code == 200) {
         this.LoaderWire = false;
         this.bankInfo = a.data;
-        if(this.wireCurrencySelected == "MXN"){
-          this.beneficiaryNomber = this.bankInfo.BeneficiaryNomber;
+        // if(this.wireCurrencySelected == "MXN"){
+        if(this.wireCurrencySelected == "AUD"){
+          this.beneficiaryNomber = this.bankInfo.MXNBeneficiaryNomber;
           this.beneficiartBank = this.bankInfo.MXNBeneficiartBank;
           this.merchantBankName = this.bankInfo.MXNBankName;
           this.merchantBankAccount = this.bankInfo.MXNAccountNumber;
@@ -591,7 +595,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
 
     this.getInvestedData();
 
-
+    this.changeWireCurrency(this.wireCurrencySelected);
     if (this.userObject.WalletAddress == undefined || this.userObject.WalletAddress == null) {
       this.noEthAddress = true;
     } else {

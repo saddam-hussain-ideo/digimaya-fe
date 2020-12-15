@@ -1,4 +1,10 @@
-<h1 class="page-title change-btm">{{'WIRE TRANSFER CLAIMS' | translate}}</h1>
+<div class="d-flex justify-content-between">
+    <h1 class="page-title change-btm">{{'WIRE TRANSFER CLAIMS' | translate}}</h1>
+    <!-- <div > 
+        <button class="btn btn-primary" (click) ="printPage()" >Instructions</button>
+    </div> -->
+</div>
+
 
 <div class='table-section'>
 
@@ -9,11 +15,6 @@
         <h1 *ngIf="noRecords" class="no-data" style="margin-top:10px">{{'NO RECORDS FOUND' | translate}}</h1>
 
         <table *ngIf="!noRecords" class="table table-striped wire-table">
-
-
-
-
-
 
             <tbody>
 
@@ -58,7 +59,8 @@
                             </svg>
                         </a>
                     </td>
-                    <td class="text-centered">{{claims?.CurrencyType}}</td>
+                    <!-- <td class="text-centered">{{claims?.CurrencyType}}</td> -->
+                    <td class="text-centered">AUD</td> 
                     <td class="text-centered">{{claims?.Date}}</td>
 
 
@@ -94,10 +96,46 @@
 </div>
 
 
+<!--print instructions-->
 
-
-
-
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="instructions">
+            <p class="instructions-heading">INSTRUCTIONS</p>
+            <p class="instructions-text">Payment by Bank Wire Cash:</p>
+            <p class="instructions-text">Thank you for your selection to pay cash by direct bank deposit.</p>
+            <p class="instructions-text">You have locked in the pricing of your Piptle Utility Coins (PUCs) account will be held for 7 working days.  </p>
+            <p class="instructions-text">After which if your payment is not confirmed as received, any funds then subsequently received will have Piptles (PUCs) issued at the current value.  </p>
+            <p class="instructions-text">The issue of any bonus Piptle Utility Coins will only be done after confirmation of your payment.  </p>
+            <p class="instructions-text">Please follow the banking instructions on your tax invoice for the payment to be sent to our bank account that is held with the Commonwealth Bank in Australia.   Please endeavour to remit your payment within 5 working days:</p>
+            <p class="instructions-text">Please transfer funds to:</p>
+               
+        </div>
+        <div class="instruction-list">
+            <ol>
+                <li class="list-group-item-light">Account Name: Piptle Wealth Management </li>
+                <li class="list-group-item-light">Branch Number (BSB):  064 475 </li>
+                <li class="list-group-item-light">Account Number:  1043 6665 </li>
+                <li class="list-group-item-light">Bank Name:  Commonwealth Bank of Australia  </li>
+                <li class="list-group-item-light">Bank Address:  Shop 60, Stocklands Shopping Centre, 149 West Burleigh Rd, Burleigh Waters, QLD, 4220, Australia  </li>
+                <li class="list-group-item-light">Bank Swift Code:  CTBAAU2S</li>
+            </ol>
+        </div>
+        <div class="instructions">
+            <p class="instructions-text">Additional Instructions:</p>
+            <ol>
+                <li class="list-group-item-light">
+                    Please include your Order number as the reference for us to find your payment.  
+                </li>
+                <li class="list-group-item-light">
+                    Please save a PDF copy of your bank transfer receipt or a take a photo or scan of your bank deposit slip 
+                    and email to us at <a href="mailto:accounts@piptle.com">accounts@piptle.com</a>.
+                </li>
+            </ol>
+        </div>
+            
+    </div>
+</div>
 
 
 
