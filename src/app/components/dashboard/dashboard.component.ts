@@ -347,7 +347,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
     getCurrencySelected(elem) {
-
         $("#coinsWanted").val('');
         $("#coinsCalculated").val('');
 
@@ -363,6 +362,13 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
         } else {
             this.selectedCurrencyActual = elem;
+            // this.selectedCurrencyActual = elem;
+            if(elem == 'mxn'){
+                this.selectedCurrencyActual = 'AUD'
+            }
+            else{
+                this.selectedCurrencyActual = elem;
+            }
 
         }
 
