@@ -347,9 +347,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
     getCurrencySelected(elem) {
-        console.log(elem);
-        
-
         $("#coinsWanted").val('');
         $("#coinsCalculated").val('');
 
