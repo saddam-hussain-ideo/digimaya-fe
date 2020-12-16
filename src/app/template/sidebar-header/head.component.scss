@@ -1187,3 +1187,8 @@ a.article, a.article:hover {
 .btm-dd{
   right: -8px !important
 }
+
+.disabled {
+  pointer-events:none;
+  opacity:0.6;         
+}
