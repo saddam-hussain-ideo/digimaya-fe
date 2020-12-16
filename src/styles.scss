@@ -719,11 +719,11 @@ $label-color: #2097d4;
 
 .page-title {
   color: $theme-orange;
-  font-family: "LatoWebItalic";
+  font-family: "LatoWeb";
   font-size: $title-size;
   text-transform: $title-case;
   margin: $title-margin;
-  font-weight: 600;
+  // font-weight: 600;
   @media (max-width: 991px) {
     text-align: center;
   }
