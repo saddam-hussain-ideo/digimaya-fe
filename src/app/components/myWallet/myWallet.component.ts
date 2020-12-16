@@ -590,7 +590,7 @@ console.log(elem);
     this._sharedService.showHideLoader(true);
     this.userObject = JSON.parse(localStorage.getItem("userObject"));
 
-    this.showRestriction();
+    // this.showRestriction();
     this.getBankDetails('undefined');
 
     this.getInvestedData();
