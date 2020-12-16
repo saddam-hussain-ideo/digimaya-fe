@@ -87,7 +87,7 @@ export class IcoComponent {
               this.allICOStages[i]
             }
             let element = this.allICOStages[i].discount;
-            element = element.replace(' Discount', '')
+            element = element.replace('Discount', '')
             this.allICOStages[i].discount = element
             if(this.allICOStages[i].soldPercentage>100){
               this.allICOStages[i].soldPercentage = 99.8;
