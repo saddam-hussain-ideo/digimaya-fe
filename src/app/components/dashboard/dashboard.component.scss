@@ -14,14 +14,51 @@
 .noMarginBtm{
     visibility: hidden;
 }
-
-.buy-text{
-    color: $white-color;
-    margin-right: 10px;
+.buy-txt{
     font-size: 14px;
     font-weight: bold;
     font-family: 'LatoWebBold';
     text-transform: uppercase;
+    padding: 10px;
+
+}
+.puc-txt{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'LatoWebBold';
+    text-transform: uppercase;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+.vert-line{
+    border-right: 2px solid white;
+    margin-right: 8px;
+    /* padding-top: 10px; */
+    padding: 7px;
+    margin-top: 12px;
+    margin-left: -15px;
+    height: 3rem;
+}
+
+.curr-txt{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'LatoWebBold';
+    text-transform: uppercase;
+}
+.buy-text{
+    color: $white-color;
+    margin-right: 10px;
+    font-size: 14px;
+    // display: inline-block;
+    // border-right: 2px solid white;
+    // height: 3rem;
+    font-weight: bold;
+    font-family: 'LatoWebBold';
+    text-transform: uppercase;
+}
+.ver-line{
+    border-right: 2px solid white;
 }
 .stacked-text{
     margin:0;
@@ -273,7 +310,8 @@
     color:white;
     font-family: 'LatoWeb';
     font-weight: 400;
-    width:80%;
+    // width:80%;
+    width: 130%;
     height: 45.13px;;
     margin-top: 20px;
     float: right;
@@ -952,6 +990,7 @@
     }
 
     .pay-btn{
+        width: 80%;
         float:none !important;
         margin:0 auto;
     }
@@ -1743,6 +1782,7 @@ div[disabled=disabled] {
         }
         .page-title{
             color: #FCFBFD;
+            font-weight: unset;
         }
       
     }

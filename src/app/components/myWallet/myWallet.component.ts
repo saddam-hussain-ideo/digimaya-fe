@@ -584,8 +584,9 @@ console.log(elem);
 
   public ngOnInit() {
 
-
-
+    $(".list-unstyled li").removeClass("active");
+    $("#wallet-nav").addClass("active");
+    
     this.fileName = "";
     this._sharedService.showHideLoader(true);
     this.userObject = JSON.parse(localStorage.getItem("userObject"));
@@ -611,8 +612,7 @@ console.log(elem);
 
     this.getWalletAddresses();
 
-    $(".list-unstyled li").removeClass("active");
-    $("#wallet-nav").addClass("active");
+    
 
   }
 
