@@ -23,7 +23,7 @@
   <!-- Sidebar -->
 
   <nav class="navbar fixed-top navbar-expand-md ok-top-nav nav-clr">
-    <hr class="upper-line">
+    <!-- <hr class="upper-line"> -->
     <button class="navbar-toggler top-nav-toggler" type="button" data-toggle="collapse" data-target="#nav-content"
       aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -61,22 +61,31 @@
 
     <div class="collapse navbar-collapse right-aligned " id="nav-content">
       <ul class="social-icon-list">
-        <li>
-          <a href="https://www.facebook.com/FrutureICO/" target="_blank">
-            <img src="../../../assets//img//fb-ico.png" alt="fb-icon">
+        <li class="text-center mr-2">
+          <a href="https://www.facebook.com/FrutureICO/" class="icon-borders" target="_blank">
+              <img src="../../../assets//img//PIPTLE-Facebook-F-Icon.png" alt="fb-icon" class="icon-img">
           </a>
         </li>
-        <li>
-          <a href="https://www.twitter.com/FrutureICO" target="_blank">
-            <img src="../../../assets//img/twitter-ico.png" alt="twitter-icon">
+        <li class="text-center mr-2">
+          <a href="https://www.twitter.com/FrutureICO" class="icon-borders" target="_blank">
+            <!-- <img src="../../../assets//img/twitter-ico.png" alt="twitter-icon"> -->
+              <img src="../../../assets//img//PIPTLE-TwitterIcon.png" alt="fb-icon" class="icon-img">
           </a>
         </li>
-        <li>
-          <a href="https://www.instagram.com/FrutureICO" target="_blank">
-            <img src="../../../assets//img/insta-ico.png" alt="instagram-icon">
+        <li class="text-center mr-2">
+          <a href="https://www.instagram.com/FrutureICO" target="_blank" class="icon-borders">
+            <!-- <img src="../../../assets//img/insta-ico.png" alt="instagram-icon"> -->
+              <img src="../../../assets//img//PIPTLE-InstagramIcon.png" alt="fb-icon" class="icon-img">
           </a>
         </li>
-        <li style="vertical-align: middle;" class='img-list-item'>
+
+        <li class="text-center mr-2" (click)="switchLanguage('en')" >
+          <a target="_blank" class="icon-borders">
+            <!-- <img src="../../../assets//img/insta-ico.png" alt="instagram-icon"> -->
+              <img src="../../../assets//img//PIPTLE-UnionJack-ICON.png" alt="fb-icon" class="icon-img">
+          </a>
+        </li>
+        <!-- <li style="vertical-align: middle;" class='img-list-item'>
           <div id='language' class="dropdown">
             <button class="btn btn-default dropdown-toggle custom-style" type="button" id="dropdownMenu1"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -92,14 +101,14 @@
                   <img class="rad-50" src="../../../assets/img/esp.png" width="32" height="32" /></a>
               </li>
             </ul>
-          </div>
+          </div> -->
           <!-- <select id='language' class="language-select" (change)="switchLanguage($event.target.value)" [(ngModel)]="selectedLang">
 
                 <option value="en">EN</option>
                 <option value="es">ES</option>
           
               </select> -->
-        </li>
+         <!-- </li> -->
       </ul>
       <!-- <div class="search-bar">
                 <div class='search-wrapper'>
@@ -684,12 +693,13 @@
                   <p class="count">{{notificationCount}}</p>
                 </div>
                 <button class="notification-btn" (click)="fetchNotifications()">
-                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px"
+                  <!-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px"
                     height="16px">
                     <image x="0px" y="0px" width="16px" height="16px"
                       xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAbFBMVEVYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4dYc4f///9Szu4AAAAAInRSTlMAJMzLIAKe/vuZycp4et/mARH8GRcP9w4Wdn1NUDM0VttZBjyCeAAAAAFiS0dEIypibDoAAAAHdElNRQfiBhsJOzJktLAgAAAAYUlEQVQY022N1w6AMAgAcda996z8/0eaUjui3hN3hABAOK7ngyEIGWIUBzokSKTKM3zIn1CoUFbkdaMCthS6SAf5qR+Us47CaE4mCrN2XISvaLHBF3wB/+xid9jl5PyS0w1XOQ/6mKyj9QAAAABJRU5ErkJggg==" />
-                  </svg> 
-                 
+                  </svg>  -->
+                  <span class="img-borders"> <img src="../../../assets/img/PIPTLE-AlarmICON1.png" class="sidebar-img" alt="">
+                  </span>
                 </button>
   
                 <div class="dropdown-menu notifications-tab">
@@ -885,24 +895,32 @@
                 <div class="centered-image">
                   <div class="rounded-image-box margin-auto">
                     <!-- <img [routerLink]="['/home/settings']" src="../../../assets/img/shirley.png"> -->
-                    <span class="img-borders"> 
-                      <img [routerLink]="['/home/settings']" src="../../../assets/img/PIPTLE-ProfileICON.png" class="sidebar-img" alt="">
+                    <span class="profile-borders"> 
+                      <img [routerLink]="['/home/settings']" src="../../../assets/img/PIPTLE-ProfileICON.png" class="profile-img" alt="">
                     </span>
                   </div>
                 </div>
                 <div class="profile-section">
-                  <p [routerLink]="['/home/settings']" class="actual-name custome-menu text-color bold">
+                  <!-- <p [routerLink]="['/home/settings']" class="actual-name custome-menu text-color bold">
                     {{userObject.UserName}}
   
-                  </p>
+                  </p> -->
+                  <p [routerLink]="['/home/settings']" class="profile-txt">PROFILE</p>
                 </div>
   
               </div>
             </button>
   
+
+            <hr class="sidebar-hr">
+
+            <div class="logout-sec">
+              <p class="log-out" (click)="logout()">{{'Logout' | translate}}</p>
+            </div>
+
             <div class='extra-side'>
               <ul class="profile-list" style="height: 85px;">
-                <li class="cursor" (click)="NavigateToSettings()" id="settings-small">
+                <!-- <li class="cursor" (click)="NavigateToSettings()" id="settings-small">
                   <div class="clearfix cursor">
                     <div class="left-icon">
                       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px"
@@ -915,7 +933,7 @@
                       <p class="text-color bold">{{'Profile' | translate}}</p>
                     </div>
                   </div>
-                </li>
+                </li> -->
   
   
   
@@ -941,23 +959,23 @@
                 </li> -->
   
   
-                <li (click)="logout()">
+                <!-- <li (click)="logout()">
   
-                  <div class="clearfix cursor">
-                    <div class="left-icon" style="text-align: center;">
+                  <div class="clearfix cursor"> -->
+                    <!-- <div class="left-icon" style="text-align: center;">
                       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px"
                         height="15px">
                         <image x="0px" y="0px" width="18px" height="15px"
                           xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAY1BMVEX///+jssf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+jsseNoU6pAAAAH3RSTlMAABSmowTA/M0M2xHtJPdDBVb1OgLnHdUJCga3C5gH9fLnCAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBhoMIR3BP9IsAAAAX0lEQVQY02XPVw7AIAwDULro3nua+5+yUklABX9Fz1KUCCHwRdiEiiliAmI9JJCGuEyR5ZZAKUqPUNUeoWk7l4DepWGcHJoXd9e6/e8C5E6D0nLgpO4yP97m74DpIXgB318QYzdytmQAAAAASUVORK5CYII=" />
                       </svg>
-                    </div>
-                    <div class="right-name">
+                    </div> -->
+                    <!-- <div class="right-name">
                       <p class="text-color bold">{{'Logout' | translate}}</p>
                     </div>
-                  </div>
+                  </div> -->
   
   
-                </li>
+                <!-- </li> -->
   
               </ul>
             </div>

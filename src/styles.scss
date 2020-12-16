@@ -1804,7 +1804,8 @@ blue-submit .back-btn {
 }
 
 .color-green {
-  color: #95d358 !important;
+  // color: #95d358 !important;
+  color: $dashboard-purple-clr;
 }
 .color-pulper {
   color: $light-pulper-color;

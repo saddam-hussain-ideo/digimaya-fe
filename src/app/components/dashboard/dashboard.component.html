@@ -767,14 +767,33 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td class="left-header">{{'Stage Discount' | translate}}</td>
+                                                            <!-- <td class="left-header">{{'Stage Discount' | translate}}</td> -->
+                                                            <td class="left-header">Bonus</td>
+
                                                             <!-- <td class="">{{bonusTokens}}</td> -->
-                                                            <td class="">{{RatesModel.bonus}}%</td>
+                                                            <!-- <td class="">{{RatesModel.bonus}}%</td> -->
+                                                            <td>{{bonusPercentage}} %</td>
                                                             <!-- <td class="right-aligned text-uppercase">FRU</td> -->
                                                         </tr>
 
+                                                        <tr>
+                                                            <!-- <td class="left-header">{{'Stage Discount' | translate}}</td> -->
+                                                            <td class="left-header">Bonus Coins</td>
+
+                                                            <!-- <td class="">{{bonusTokens}}</td> -->
+                                                            <!-- <td class="">{{RatesModel.bonus}}%</td> -->
+                                                            <td>{{bonusCoins}}</td>
+                                                            <!-- <td class="right-aligned text-uppercase">FRU</td> -->
+                                                        </tr>
+                                                        <!-- <tr> -->
+                                                            <!-- <td class=" left-header">{{'Total' | translate}}</td> -->
+                                                            <!-- <td class="final-price">{{totalCoinToPayFor}}</td> -->
+                                                            <!-- <td class="">{{coinsCalculatedBottom | currency:'crypto'}} PUC</td> -->
+                                                            <!-- <td class="right-aligned final-price text-uppercase"></td> -->
+                                                        <!-- </tr> -->
+
                                                     </tbody>
-                                                    <tfoot>
+                                                    <tfoot class="d-none">
                                                         <tr>
                                                             <td class="final-price left-header">{{'Total' | translate}}</td>
                                                             <!-- <td class="final-price">{{totalCoinToPayFor}}</td> -->

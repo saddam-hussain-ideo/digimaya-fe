@@ -34,6 +34,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
     public ctx6: any;
     public ctx7: any;
     public ctx8: any;
+    bonusPercentage : number = 0;
+    bonusCoins : number = 0;
     // public ctx9: any;
 
     public exchangeRate: any;
@@ -246,18 +248,34 @@ export class DashboardComponent implements OnDestroy, OnInit {
         let valueForCurrencySelected = this.RatesModel[selectedCurrency];
         let calculateInMxn = valueForCurrencySelected * this.coinsWanted;
 
-        let coinWithDiscount = (calculateInMxn / this.RatesModel.liveRate).toFixed(8);
-        this.coinsCalculated = (calculateInMxn / this.RatesModel.baseRate).toFixed(8);
+        // let coinWithDiscount = (calculateInMxn / this.RatesModel.liveRate).toFixed(8);
+        let totalCoins = +(calculateInMxn / this.RatesModel.liveRate).toFixed(8);
 
-        this.bonusTokens = (Number(coinWithDiscount) - Number(this.coinsCalculated)).toFixed(8)
+        let bonusTokens = 0;
+        let bonusPercentage = 0;
+        if (calculateInMxn >= 2000 && calculateInMxn < 12500) {
+            bonusTokens = +(totalCoins * 10 / 100).toFixed(8)
+            bonusPercentage = 10
+        } else if (calculateInMxn >= 12500) {
+            bonusTokens = +(totalCoins * 15 / 100).toFixed(8)
+            bonusPercentage = 15
+        }
+        let coinsWithBonus = totalCoins + bonusTokens;
+        this.bonusCoins = bonusTokens;
+        this.bonusPercentage = bonusPercentage;
+        this.coinsCalculated = totalCoins;
+        this.coinsCalculatedBottom = coinsWithBonus;
+        // this.coinsCalculated = (calculateInMxn / this.RatesModel.baseRate).toFixed(8);
 
-        this.totalTokensWithoutBonus = this.coinsCalculated;
+        // this.bonusTokens = (Number(coinWithDiscount) - Number(this.coinsCalculated)).toFixed(8)
 
-        this.coinsCalculatedBottom = coinWithDiscount;
-        this.coinsCalculated = coinWithDiscount;
+        // this.totalTokensWithoutBonus = this.coinsCalculated;
+
+        // this.coinsCalculatedBottom = coinWithDiscount;
+        // this.coinsCalculated = coinWithDiscount;
         this.coinsWantedBottom = this.coinsWanted;
 
-        this.totalCoinToPayFor = Number(coinWithDiscount)
+        // this.totalCoinToPayFor = Number(coinWithDiscount)
 
     }
 
@@ -344,6 +362,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this.bonusTokens = 0;
         this.coinsCalculatedBottom = 0;
         this.coinsWantedBottom = 0;
+        this.bonusCoins = 0;
+        this.bonusPercentage = 0;
+
     }
 
     getCurrencySelected(elem) {
@@ -459,10 +480,12 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 pointRadius: 0,
                 labels: ["BTC", "BTC", "BTC", "BTC", "BTC", "BTC"],
                 datasets: [{
-                    backgroundColor: "#95DCFA",
+                    // backgroundColor: "#95DCFA",
+                    backgroundColor: "#997bb5",
                     label: false,
                     data: this.BitcoinWidgetData,
-                    borderColor: "#0FB8FA",
+                    // borderColor: "#0FB8FA",
+                    borderColor: "#643E8D",
                     borderWidth: 1,
                     fontSize: 7
                 }]
@@ -473,10 +496,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 pointRadius: 0,
                 labels: ["LTC", "LTC", "LTC", "LTC", "LTC", "LTC"],
                 datasets: [{
-                    backgroundColor: "#95DCFA",
+                    backgroundColor: "#997bb5",
                     label: false,
                     data: this.LiteCoinnWidgetData,
-                    borderColor: "#0FB8FA",
+                    borderColor: "#643E8D",
                     borderWidth: 1
                 }]
             }
@@ -488,10 +511,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 pointRadius: 0,
                 labels: ["BCH", "BCH", "BCH", "BCH", "BCH", "BCH"],
                 datasets: [{
-                    backgroundColor: "#95DCFA",
+                    backgroundColor: "#997bb5",
                     label: false,
                     data: this.BitcoinCashWidgetData,
-                    borderColor: "#0FB8FA",
+                    borderColor: "#643E8D",
                     borderWidth: 1
                 }]
             }
@@ -502,10 +525,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 pointRadius: 0,
                 labels: ["DASH", "DASH", "DASH", "DASH", "DASH", "DASH"],
                 datasets: [{
-                    backgroundColor: "#95DCFA",
+                    backgroundColor: "#997bb5",
                     label: false,
                     data: this.DashWidgetData,
-                    borderColor: "#0FB8FA",
+                    borderColor: "#643E8D",
                     borderWidth: 1
                 }]
             }
@@ -515,10 +538,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 pointRadius: 0,
                 labels: ["ETH", "ETH", "ETH", "ETH", "ETH", "ETH"],
                 datasets: [{
-                    backgroundColor: "#95DCFA",
+                    backgroundColor: "#997bb5",
                     label: false,
                     data: this.EthereumWidgetData,
-                    borderColor: "#0FB8FA",
+                    borderColor: "#643E8D",
                     borderWidth: 1
                 }]
             }
@@ -528,10 +551,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 pointRadius: 0,
                 labels: ["MXN", "MXN", "MXN", "MXN", "MXN", "MXN"],
                 datasets: [{
-                    backgroundColor: "#95DCFA",
+                    backgroundColor: "#997bb5",
                     label: false,
                     data: this.MXNWidgetData,
-                    borderColor: "#0FB8FA",
+                    borderColor: "#643E8D",
                     borderWidth: 1
                 }]
             }
