@@ -9,22 +9,23 @@
 
             <div class="logo-top">
                 <!-- <img src="assets/img/fruture-logo.png"> -->
-                <p class="pp"> PIPTLE</p>
+                <!-- <p class="pp"> PIPTLE</p> -->
+                <img src="../../../assets/img/PIPTLEILO-LOGO.png" class="pptl-logo" alt="" srcset="">
             </div>
 
             <div class="form-div">
        
 
                 <div class='form-group'>
-                    <input autocomplete="off" type="email" class="blue-inputs" placeholder="{{'Email/Username' | translate}}" name="email" [(ngModel)]="email">
+                    <input autocomplete="off" type="email" class="piptle-inputs" placeholder="{{'Email/Username' | translate}}" name="email" [(ngModel)]="email">
 
                 </div>
                 <div class='form-group'>
-                    <input autocomplete="off" type="password" class="blue-inputs" placeholder="{{'Password' | translate}}" name="password" (keydown)="loginWithEnter($event)" [(ngModel)]="password">
+                    <input autocomplete="off" type="password" class="piptle-inputs" placeholder="{{'Password' | translate}}" name="password" (keydown)="loginWithEnter($event)" [(ngModel)]="password">
 
                 </div>
 
-                <hr class="custom-hr">
+                <!-- <hr class="custom-hr"> -->
 
                 <div class='form-group no-margin'>
                     <p style="text-align: center;margin-bottom:0;">
@@ -54,7 +55,7 @@
                 </div>
 
                 <div class="form-button centered-text" *ngIf="actionBtnShow">
-                    <button class="blue-submit" (click)="login()">{{'Login' | translate}}</button>
+                    <button class="piptle-submit" (click)="login()">{{'Login' | translate}}</button>
                 </div>
 
 
@@ -62,7 +63,7 @@
 
                 <div class="form-group">
 
-                    <p class="bottom-text">{{'Not a user?' | translate}}
+                    <p class="bottom-text text-white">{{'Not a user?' | translate}}
                         <a class="links" (click)="routeToSignUp()">{{'Sign up Now' | translate}}</a>
                     </p>
 
