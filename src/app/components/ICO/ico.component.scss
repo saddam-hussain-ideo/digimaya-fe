@@ -1,15 +1,47 @@
 @import './../../../variables';
 
-$theme-blue: #34519d;
-$theme-green: #95d358;
-$theme-orange: #cf5d29;
+$theme-blue: $dashboard-purple-clr;
+$theme-green: $dashboard-purple-clr;
+$theme-orange: $dashboard-purple-clr;
+$bg-color-for-ilo : #d5cff533;
 
 .mywallet-head-txt{
     font-family: 'LatoWeb';
     color: #26497b;
     text-transform: uppercase;
 }
+.background{
+    .head-section {
+        background-color: $dashboard-purple-clr;
+        padding: 10px;
+        .heading{
+            img{
+                border: 1px solid #d3d3d352;
+                border-radius: 50px;
+                width: 40px;
+                height: 40px;
+                padding: 5px;
+                margin-right: 8px;
+            }
+            .page-title{
+                color: white;
+            }
+        }
+        .top-left-ico-text{
+            width: 100%;
+        }
+        .ico-top-text{
+            color: $dashboard-purple-clr;
+            text-align: center;
+        }
+    }
+}
 
+.ico-content-div{
+    margin-top: 10px ;
+    background-color: $bg-color-for-ilo ;
+    padding: 20px;
+}
 
 
 .genral-sett-div{
@@ -104,7 +136,8 @@ $theme-orange: #cf5d29;
     color: $theme-green;
     font-family: 'LatoWeb';
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 17px;
+    text-align: center;
 }
 
 
@@ -119,12 +152,12 @@ $theme-orange: #cf5d29;
 
 .fancy-progress {
     width: 85%;
-    margin:50px auto 0;
+    margin:6px auto 0;
     position: relative;
     .progress{
         height:10px;
         border-radius: 0;
-        background-color: #52BDEB;
+        background-image: linear-gradient(to left, $dashboard-purple-clr, #010102);
         position: relative;
     }
 
@@ -295,7 +328,7 @@ $theme-orange: #cf5d29;
     padding-left: 0px !important;
     position: relative;
     padding: 5px 0;
-    background-color: #F9F9F9;
+    // background-color: #F9F9F9;
    
 }
 
@@ -308,7 +341,11 @@ $theme-orange: #cf5d29;
     list-style-type: none;
 }
 
-
+.clock-ul li {
+    p{
+        color: $dashboard-purple-clr !important;
+    }
+}
 
 
 .clock-names-ul{
@@ -738,6 +775,7 @@ $theme-orange: #cf5d29;
     position: absolute;
     left: 0;
     right: 0;
+    font-weight: bold;
    }
 
 
@@ -750,7 +788,7 @@ $theme-orange: #cf5d29;
    .number{
     font-family: 'LatoWeb';
     font-weight: 800;
-    color:  #95d358;
+    color:  $dashboard-purple-clr;
     font-size: 25px;
     margin: 0;
     padding-top: 5px;
@@ -1027,7 +1065,7 @@ $theme-orange: #cf5d29;
  .td-token{
     font-family: 'LatoWebBold';
     font-size:12px;
-    color:#2097d4;
+    color : $dashboard-purple-clr;
  }
 
  .td-total{
@@ -1205,7 +1243,7 @@ $theme-orange: #cf5d29;
  }
 
  .UPCOMING{
-    background: #a9a9a9 !important;
+    background: #C2B5D3 !important;
  }
 
  .DONE{
@@ -1213,7 +1251,7 @@ $theme-orange: #cf5d29;
  }
 
  .RUNNING{
-    background: #ec7a00 !important;
+    background: $dashboard-purple-clr !important;
  }
 
  .sale-stopped{

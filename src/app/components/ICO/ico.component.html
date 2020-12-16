@@ -1,228 +1,232 @@
 <section>
 
   <div id="snackbar"></div>
-  <h1 class="page-title">{{ 'ICO Information' | translate}}</h1>
+  <!-- <h1 class="page-title">{{ 'ICO Information' | translate}}</h1> -->
   <div class="background">
 
 
-    <div class="clearfix ico-top-divs row">
-      <div class="col-sm-6 col-md-4 col-lg-3 no-right">
-        <div class="inner-box greenish-gradient">
-
-
-          <div class="top-left-ico-text">
-            <p class="ico-top-text">{{ 'OVERALL TOKEN SALE PROGRESS' | translate}}
-              <span class="white-right">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
-                  <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
-                </svg>
-              </span>
-            </p>
-          </div>
-
-
-          <div class="clearfix table-type">
-
-
-            <div class="left-stat-icon">
-
-              <img src="../../../assets/img/left-cash-icon.png">
-
-
-            </div>
-
-            <div class="right-icon-stats">
-
-
-              <p class="number">{{ICOInformation?.Sale}}
-                <span class="dollar">AUD$</span>
-              </p>
-              <p class="total-text">{{ 'ISSUED VALUE ' | translate}}</p>
-
-
-            </div>
-
-
-          </div>
-
-
-
-
-        </div>
+    <div class="head-section">
+      <div class="heading d-flex">
+        <img src="./../../../assets/img/PIPTLE-ILO-ICON.png" />
+         <h1 class="page-title text-left">
+          {{ 'ICO Information' | translate}}
+         </h1>
       </div>
-      <div class="col-sm-6 col-md-4 col-lg-3 no-right">
-        <div class="inner-box bluish-gradient">
-
-
-
-          <div class="top-left-ico-text">
-            <p class="ico-top-text">{{ 'TOKENSALE PROGRESS' | translate}}
-              <span class="white-right">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
-                  <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
-                </svg>
-              </span>
-            </p>
-          </div>
-
-          <div class="clearfix table-type">
-
-
-            <div class="left-stat-icon">
-
-              <img src="../../../assets/img/globe.png">
-
-
-            </div>
-
-            <div class="right-icon-stats">
-
-
-              <p class="number">{{ICOInformation?.userCount}}
-
+      <div class="clearfix ico-top-divs row">
+        <div class="col-sm-6 col-md-4 col-lg-3 no-right">
+          <div class="inner-box greenish-gradient">
+  
+  
+            <div class="top-left-ico-text">
+              <p class="ico-top-text">{{ 'OVERALL TOKEN SALE PROGRESS' | translate}}
+                <span class="white-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                    <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
+                  </svg>
+                </span>
               </p>
-              <p class="total-text">{{ 'Registered Piptlers' | translate}}
-              </p>
-
-
             </div>
-
-
+  
+  
+            <div class="clearfix table-type">
+  
+  
+              <div class="left-stat-icon">
+  
+                <img src="../../../assets/img/left-cash-icon.png">
+  
+  
+              </div>
+  
+              <div class="right-icon-stats">
+  
+  
+                <p class="number">{{ICOInformation?.Sale}}
+                  <span class="dollar">AUD$</span>
+                </p>
+                <p class="total-text">{{ 'ISSUED VALUE ' | translate}}</p>
+  
+  
+              </div>
+  
+  
+            </div>
+  
+  
+  
+  
           </div>
-
-
-
-
-
         </div>
-      </div>
-      <div class="col-sm-12 col-md-4 col-lg-2 no-right">
-        <div class="inner-box bluish-gradient">
-          <div class="top-left-ico-text">
-            <p class="ico-top-text">{{ 'Countries' | translate}}
-              <span class="white-right">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
-                  <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
-                </svg>
-              </span>
-            </p>
-          </div>
-
-          <div class="clearfix table-type">
-
-
-            <div class="left-stat-icon">
-
-              <img src="../../../assets/img/globe.png">
-
-
-            </div>
-
-            <div class="right-icon-stats">
-
-
-              <p class="number">{{ICOInformation?.userCount}}
-
+        <div class="col-sm-6 col-md-4 col-lg-3 no-right">
+          <div class="inner-box bluish-gradient">
+  
+  
+  
+            <div class="top-left-ico-text">
+              <p class="ico-top-text">{{ 'TOKENSALE PROGRESS' | translate}}
+                <span class="white-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                    <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
+                  </svg>
+                </span>
               </p>
-              <p class="total-text">{{ 'Countries' | translate}}
-              </p>
-
-
             </div>
-
-
+  
+            <div class="clearfix table-type">
+  
+  
+              <div class="left-stat-icon">
+  
+                <img src="../../../assets/img/globe.png" width="100">
+  
+  
+              </div>
+  
+              <div class="right-icon-stats">
+  
+  
+                <p class="number">{{ICOInformation?.userCount}}
+  
+                </p>
+                <p class="total-text">{{ 'Registered Piptlers' | translate}}
+                </p>
+  
+  
+              </div>
+  
+  
+            </div>
+  
+  
+  
+  
+  
           </div>
-
-
-
-
-
         </div>
-      </div>
-      <div class="col-sm-12 col-md-12 col-lg-4">
-        <div class="inner-box deep-blue">
-
-          <div class="top-left-ico-text">
-            <p class="ico-top-text">{{ 'CAPS' | translate}}
-              <span class="white-right">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
-                  <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
-                </svg>
-              </span>
-            </p>
+        <div class="col-sm-12 col-md-4 col-lg-3 no-right">
+          <div class="inner-box bluish-gradient">
+            <div class="top-left-ico-text">
+              <p class="ico-top-text">{{ 'Countries' | translate}}
+                <span class="white-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                    <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
+                  </svg>
+                </span>
+              </p>
+            </div>
+  
+            <div class="clearfix table-type">
+  
+  
+              <div class="left-stat-icon">
+  
+                <img src="../../../assets/img/globe.png" width="100">
+  
+  
+              </div>
+  
+              <div class="right-icon-stats">
+  
+  
+                <p class="number">{{ICOInformation?.userCount}}
+  
+                </p>
+                <p class="total-text">{{ 'Countries' | translate}}
+                </p>
+  
+  
+              </div>
+  
+  
+            </div>
+  
+  
+  
+  
+  
           </div>
-
-          <div class="clearfix table-type soft-hard-box">
-
-
-
-
-
-            <div class="row bg-row">
-
-
-
-              <div class="col some-padding text-centered">
-                <div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-3">
+          <div class="inner-box deep-blue">
+  
+            <div class="top-left-ico-text">
+              <p class="ico-top-text">{{ 'CAPS' | translate}}
+                <span class="white-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                    <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
+                  </svg>
+                </span>
+              </p>
+            </div>
+  
+            <div class="clearfix table-type soft-hard-box">
+  
+  
+  
+  
+  
+              <div class="row bg-row">
+  
+  
+  
+                <div class="col some-padding text-centered">
                   <div>
-                    <img src="../../../assets/img/softcap-icon.png" class="softcap-img" alt="softcap-icon">
+                    <!-- <div>
+                      <img src="../../../assets/img/softcap-icon.png" class="softcap-img" alt="softcap-icon">
+                    </div> -->
+  
+                    <div>
+  
+                      <p class="number"> {{ICOInformation?.softCap}}
+                        <span class="dollar">PUC</span>
+                      </p>
+                      <p class="total-text"> {{ 'Softcap' | translate}}
+  
+                      </p>
+  
+                    </div>
                   </div>
-
+  
+                </div>
+  
+  
+                <div class="col  text-centered">
+  
+                  <!-- <div >
+                    <img src="../../../assets/img/hardcap-icon.png" class="hardcap-img" alt="softcap-icon">
+                  </div> -->
                   <div>
-
-                    <p class="number"> {{ICOInformation?.softCap}}
+                    <p class="number">{{ICOInformation?.hardCap}}
                       <span class="dollar">PUC</span>
                     </p>
-                    <p class="total-text"> {{ 'Softcap' | translate}}
-
+                    <p class="total-text">{{ 'Hardcap' | translate}}
+  
                     </p>
-
                   </div>
+  
                 </div>
-
+  
               </div>
-
-
-              <div class="col  text-centered">
-
-                <div >
-                  <img src="../../../assets/img/hardcap-icon.png" class="hardcap-img" alt="softcap-icon">
-                </div>
-                <div>
-                  <p class="number">{{ICOInformation?.hardCap}}
-                    <span class="dollar">PUC</span>
-                  </p>
-                  <p class="total-text">{{ 'Hardcap' | translate}}
-
-                  </p>
-                </div>
-
-              </div>
-
+  
+  
+  
             </div>
-
-
-
+  
+  
+  
+  
           </div>
-
-
-
-
         </div>
+  
+  
+  
       </div>
-
-
-
     </div>
 
 
 
 
     <div class="ico-content-div">
-
-
-
-
       <div class="row row-eq-height" *ngIf="!noPendingStages" [ngClass]="{'justify-content-center': hideSecondBox==true}">
         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 no-right" [ngClass]="{'col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 right-15': hideSecondBox==true}">
           <div class="genral-sett-div">
@@ -464,19 +468,19 @@
           <div class="table-div">
             <div class="genral-sett-div-head clearfix width100 p-3">
               <div class="leftside">
-                <p class="gnrl-sett-txt p-0">
+                <p class="gnrl-sett-txt p-0 mb-0">
                   {{ 'ILO PIPTLERS' | translate}}
                 </p>
               </div>
-              <div class="d-flex justify-content-end">
+              <!-- <div class="d-flex justify-content-end">
                 <button class="btn participation-btn">
                   {{ 'View Participation Ranks' | translate}}
                 </button>
-              </div>
+              </div> -->
 
             </div>
             <div>
-              <div class="topp">
+              <div class="topp pt-0">
                 <div class="table-responsive no-wrap-640">
                   <table class="table my-tbl table-striped">
                     <thead>
