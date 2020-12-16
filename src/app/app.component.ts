@@ -26,7 +26,6 @@ export class AppComponent implements OnInit{
 
     console.log('Environment Testing Dev to Master')
     let language = getLanguage();
-    debugger
     if(language == 'en'){
       $("#dropdownMenu3").css("background-image", "url(" + this.imgEnglish + ")");
       $(".change-lang").html('This website uses cookies to ensure you get the best experience on our website.');

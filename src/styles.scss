@@ -257,8 +257,10 @@ input:-webkit-autofill {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #53d4ff;
-  font-size: 26px;
+  // color: #53d4ff;
+  color: $dashboard-purple-clr;
+  // font-size: 26px;
+  font-size: 20px;
   @media (max-width: 767px) {
     font-size: 14px;
     position: relative;
@@ -744,7 +746,7 @@ $label-color: #2097d4;
 }
 
 .sub-title {
-  color: $theme-green;
+  color: $dashboard-purple-clr;
   text-transform: $title-case;
   font-size: $font-14;
   font-family: "LatoWebLight";
@@ -1802,7 +1804,8 @@ blue-submit .back-btn {
 }
 
 .color-green {
-  color: #95d358 !important;
+  // color: #95d358 !important;
+  color: $dashboard-purple-clr;
 }
 .color-pulper {
   color: $light-pulper-color;

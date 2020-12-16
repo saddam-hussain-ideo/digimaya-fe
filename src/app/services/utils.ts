@@ -1,7 +1,6 @@
 export function getLanguage(){
     let user, lang;
     user = localStorage.getItem('userObject');
-    debugger
     if (user) {
         user = JSON.parse(user);
         lang = user.Language
