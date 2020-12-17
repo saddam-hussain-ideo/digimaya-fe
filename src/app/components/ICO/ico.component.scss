@@ -10,9 +10,37 @@ $bg-color-for-ilo : #d5cff533;
     color: #26497b;
     text-transform: uppercase;
 }
+
+
+.content-flex{
+    margin-bottom: 0;
+    .img-borders{
+        border-radius: 50%;
+        height: 52px;
+        width: 54px;
+        position: relative;
+        background-color: #643E8D;
+        display: inline-block;
+        .sidebar-img{
+
+            width: 49px;
+            height: 45px;
+            position: absolute;
+            padding: 3px;
+            right: 2px;
+            top: 3px;
+        }
+      }
+      .page-title{
+        color: $dashboard-purple-clr;
+        margin-left: 10px;
+    }
+    }
+
+
 .background{
     .head-section {
-        background-color: $dashboard-purple-clr;
+        background-color: white;
         padding: 10px;
         .heading{
             img{
@@ -24,7 +52,8 @@ $bg-color-for-ilo : #d5cff533;
                 margin-right: 8px;
             }
             .page-title{
-                color: white;
+                // color: white;
+                color: $dashboard-purple-clr;
             }
         }
         .top-left-ico-text{
@@ -130,7 +159,7 @@ $bg-color-for-ilo : #d5cff533;
 }
 .leftside{
     position: relative;
-    float: left;
+    // float: left;
 }
 .gnrl-sett-txt{
     color: $theme-green;
@@ -501,7 +530,10 @@ $bg-color-for-ilo : #d5cff533;
         height:  $ico-view-height;
         position: relative;
         margin-bottom: 15px;
-        background:white;
+        // background:white;
+        // background: #C2B5D3;
+
+        background-color: #e0d7d7;
         @media (min-width:992px) and (max-width:1199px) {
            height: 140px;
 

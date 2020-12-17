@@ -146,7 +146,6 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   }
 
   changeWireCurrency(elem) {
-console.log(elem);
 
     // this.wireCurrencySelected = elem;
     if (elem == "MXN") {
@@ -495,7 +494,6 @@ console.log(elem);
 
   getInvestedData() {
     this._dashboardService.getAmountInvested(this.userObject.UserId).takeWhile(() => this._alive).subscribe(a => {
-      console.log(a);
 
       if (a.code == 200) {
         this.investedValues = a.data;
@@ -536,8 +534,6 @@ console.log(elem);
 
 
     this._walletService.getBankDetails().subscribe(a => {
-      console.log(a);
-
       if (a.code == 200) {
         this.LoaderWire = false;
         this.bankInfo = a.data;
@@ -595,6 +591,7 @@ console.log(elem);
     this.getBankDetails('undefined');
 
     this.getInvestedData();
+    this.getWalletAddresses();
 
     this.changeWireCurrency(this.wireCurrencySelected);
     if (this.userObject.WalletAddress == undefined || this.userObject.WalletAddress == null) {
@@ -608,10 +605,6 @@ console.log(elem);
     .subscribe(res => {
       this.userObject = JSON.parse(localStorage.getItem("userObject"));
     })
-
-
-    this.getWalletAddresses();
-
     
 
   }
