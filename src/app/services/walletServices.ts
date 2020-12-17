@@ -66,7 +66,8 @@ export class WalletServices {
 
 
         var data;
-
+        console.log(userId);
+        
         data = { userid: userId, currencytype: currencyType };
 
         let headers = new Headers();
@@ -74,7 +75,8 @@ export class WalletServices {
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage());
         headers.append("authorization", this.userToken);
-
+        console.log(this.userToken);
+        
         return this.http.post(environment.BaseUrl + "user/getAddresses", data, { headers: headers })
             .map(res => res.json());
     }
