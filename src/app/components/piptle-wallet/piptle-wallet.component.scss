@@ -1,5 +1,77 @@
 @import "../../../_variables";
 
+
+.bg{
+  background-color: $dashboard-purple-clr;
+  padding: 10px;
+  .head-title{
+    img{
+      border: 1px solid #d3d3d352;
+      border-radius: 50px;
+      width: 40px;
+      height: 40px;
+      padding: 5px;
+      margin-right: 8px;
+    }
+    .page-title{
+    color: white;
+    }
+  }
+  .custom-draw-btn{
+    background: #997bb5;
+    color: #fff;
+    height: 43px;
+    font-family: "LatoWebBold";
+    min-width: 200px;
+    text-transform: uppercase;
+    border-radius: unset;
+  }
+}
+.inner-w-box {
+  background-color: white;
+  text-align: center;
+  .wallet-cards{
+    .wallet-val{
+      font-family: 'LatoWeb';
+      font-weight: 800;
+      color: #643E8D;
+      font-size: 25px;
+
+    }
+    .wallet-puc{
+      font-family: 'LatoWebLight';
+      font-weight: 400;
+      color: #643E8D;
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+  }
+}
+.wallet-inner-t{
+    color: $dashboard-purple-clr;
+    font-size: 14px;
+    font-family: "LatoWeb";
+    text-transform: uppercase;
+    margin-top: 12px;
+}
+
+.background{
+  background-color: #F2F1F7;
+}
+.transaction-txt{
+  text-transform: uppercase;
+  font-size: 25px;
+  font-family: "LatoWeb";
+  color: $dashboard-purple-clr;
+  padding: 10px 0 0 12px;
+}
+
+.header-whte{
+  background-color: white;
+}
+.piptle-tbl{
+  background-color: white;
+}
 .piptle-wallet {
   .card-content {
     padding: 13px 14px 9px;
@@ -35,7 +107,8 @@
       border-top: none;
       font-family: "LatoWeb", sans-serif;
       font-size: 14px;
-      color: #34519d !important;
+      // color: #34519d !important;
+      color:  $dashboard-purple-clr;
       /*   color: #26497b; */
     }
     .table td,

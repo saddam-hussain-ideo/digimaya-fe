@@ -1,11 +1,145 @@
+<section class="mb-3">
+  <div class="bg">
+
+    <div class="d-flex head-title">
+      <img src="./../../../assets/img/PIPTLE-ILO-ICON.png" />
+         <h1 class="page-title">
+          {{'My Piptle Wallet' | translate}}
+         </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'My Total Issued Piptles' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">2000</p>
+              <p class="wallet-puc ml-2">PUC</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'My Available Piptles' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">2000</p>
+              <p class="wallet-puc ml-2">PUC</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'My Locked Piptles' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">2000</p>
+              <p class="wallet-puc ml-2">PUC</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'My Staked Piptles' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">2000</p>
+              <p class="wallet-puc ml-2">PUC</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+     
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <button class="btn btn-block custom-draw-btn">{{'Withdraw' | translate}}</button>
+      </div>
+      <div class="col-md-6">
+        <button class="btn btn-block custom-draw-btn">{{'Withdraw' | translate}}</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class=" mt-3 bg">
+
+    <div class="d-flex head-title">
+      <img src="./../../../assets/img/PIPTLE-DOLLAR-ICON.png" />
+         <h1 class="page-title">
+          {{'Total Piptles Earned' | translate}}
+         </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'Referral Bonuses' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">2000</p>
+              <p class="wallet-puc ml-2">PUC</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'Community Awarded' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">2000</p>
+              <p class="wallet-puc ml-2">PUC</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'Staking Bonuses' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">2000</p>
+              <p class="wallet-puc ml-2">PUC</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'Merchant Rewards' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">2000</p>
+              <p class="wallet-puc ml-2">PUC</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</section>
+
+
 <section class="myWallet-section">
   <div id="snackbar"></div>
   <div class="background">
-    <div class="mywallet-head">
+    <!-- <div class="mywallet-head">
       <h1 class="page-title abs-top">{{'My Piptle Wallet' | translate}}</h1>
-    </div>
+    </div> -->
     <div class="piptle-wallet">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-3 col-md 4 mb-3">
           <div class="background-white">
             <div class="card-content">
@@ -126,11 +260,11 @@
 
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="piptel-transaction-history background-white">
-        <div class="header">
-          <h2 class="color-green">{{'YOUR PIPTLES TRANSACTION HISTORY' | translate}}</h2>
+      <div class="piptel-transaction-history ">
+        <div class="header header-whte">
+          <p class="transaction-txt">{{'YOUR PIPTLES TRANSACTION HISTORY' | translate}}</p>
 
           <div class="table-responsive">
             <table class="table table-striped">
@@ -145,31 +279,31 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
+                <tr class="bg-lght">
+                  <td>20/11/2020</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+
+                </tr>
+                <tr >
+                  <td>20/11/2020</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
 
                 </tr>
                 <tr>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-
-                </tr>
-                <tr>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
-                  <td>asdasdasdasd</td>
+                  <td>20/11/2020</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
+                  <td>sample only</td>
 
                 </tr>
               </tbody>
