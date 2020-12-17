@@ -1005,7 +1005,11 @@ $label-color: #2097d4;
 
 .table-striped tbody tr:nth-of-type(odd) {
   // background-color: #f9f9f9;
-  background-color: #eeecec;
+  background-color: white;
+}
+.table-striped tbody tr:nth-of-type(even) {
+  // background-color: #f9f9f9;
+  background-color: #e0d7d7;
 }
 .pay-centered {
   font-family: "LatoWebHeavy";

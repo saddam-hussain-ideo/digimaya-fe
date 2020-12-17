@@ -2,11 +2,12 @@
 
 
 .bg{
-  background-color: $dashboard-purple-clr;
+  background-color: $white-color;
   padding: 10px;
   .head-title{
     img{
-      border: 1px solid #d3d3d352;
+      border: 1px solid $dashboard-purple-clr;
+      background-color: $dashboard-purple-clr;
       border-radius: 50px;
       width: 40px;
       height: 40px;
@@ -14,11 +15,12 @@
       margin-right: 8px;
     }
     .page-title{
-    color: white;
+    color: $dashboard-purple-clr;
     }
   }
   .custom-draw-btn{
-    background: #997bb5;
+    // background: #997bb5;
+    background-color: #c0a9d6;
     color: #fff;
     height: 43px;
     font-family: "LatoWebBold";
@@ -28,7 +30,7 @@
   }
 }
 .inner-w-box {
-  background-color: white;
+  background-color:#e0d7d7;
   text-align: center;
   .wallet-cards{
     .wallet-val{
