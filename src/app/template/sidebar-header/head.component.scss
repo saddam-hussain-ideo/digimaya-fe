@@ -73,7 +73,12 @@ a, a:hover, a:focus {
     height: 30px;
     padding: 4px;
   }
+  .icon-flag{
+    height: 32px;
+    padding: 0px;
+  }
 }
+
 
 .profile-txt{
   color: white;
@@ -695,14 +700,16 @@ a, a:hover, a:focus {
 
 #sidebar ul li a {
   // padding: 15px 0 15px 5px;
-  padding: 0 0 10px 5px; 
-  font-size: 0.85rem;
+  // padding: 0 0 10px 5px; 
+  padding: 5px 0 5px 5px;
+  // font-size: 0.85rem;
+  font-size: 16px;
   display: block;
   font-family: 'LatoWeb';
   // color: #34519d;
-  color:   #997bb5;
+  // color:   #997bb5;
+  color: white;
   font-weight: 500;
-
   .side-icons{
     svg{
 
@@ -722,7 +729,9 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a:hover {
-  color:  #997bb5 !important;
+  // color:  #997bb5 !important;
+  // color: #c2c8cc;
+
   .side-icons{
     svg{
       filter: invert(40%) sepia(95%) saturate(534%) hue-rotate(337deg) brightness(90%) contrast(92%) !important;
@@ -735,7 +744,10 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li.active>a, a[aria-expanded="true"] {
-  color: white !important;
+  // color: white !important;
+  // color: #c2c8cc;
+  background-color: #997bb5;
+  color: white;
   border-radius: 2px;
   .side-icons{
        svg{
