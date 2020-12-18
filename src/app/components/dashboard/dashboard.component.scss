@@ -638,10 +638,15 @@
     position: absolute;
     pointer-events: none;
 }
-
+.custom-arrow{
+    position: absolute;
+    right: 7px;
+    top: 11px;
+    pointer-events: none;
+} 
 .custom-dropdown::after {
     /*  Custom dropdown arrow */
-    content: "\25BC";
+    // content: "\25BC";
     height: 0.2em;
     font-size: 0.5em;
     line-height: 1;
@@ -1121,6 +1126,36 @@
     position: relative;
 }
 
+.spin-icon{
+    position: absolute;
+    right: 0;
+}
+.spinner-button{
+    position: absolute;
+    cursor: default;
+    z-index: 2;
+    width: 14.5px;
+    text-align: center;
+    margin: 0px;
+    pointer-events: none;
+    height: 10px;
+    line-height: 10px;
+}
+#inc-button {
+    right: 4px;
+    top: 31px;
+  }
+  #dec-button {
+    right: 4px;
+    bottom: 11px;
+    
+  }
+
+  input[type=number]::-webkit-outer-spin-button, 
+  input[type=number]::-webkit-inner-spin-button {
+    visibility: none;
+
+  }
 .spin-hider{
     position: absolute;
     right: 0;
