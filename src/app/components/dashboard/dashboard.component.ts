@@ -305,6 +305,16 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     }
 
+    changeOnClick(value){
+        console.log(value);
+        
+        this.byPasserFunction(value);
+    }
+    changeOnReverse(value){
+        console.log(value);
+        this.byPasserReverseFunction(value);
+        
+    }
 
 
     checkLengthForCoinsCalculated() {
