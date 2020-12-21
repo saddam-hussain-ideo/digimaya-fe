@@ -393,7 +393,7 @@
 
 
         <li>
-            <div class="inner-box" disabled="disabled">
+            <div class="inner-box">
 
 
                 <div class="clearfix centering-content">
@@ -404,7 +404,7 @@
                         </div>
                     </div> -->
 
-                    <div class="grey-bottom-line disable-coins">
+                    <div class="grey-bottom-line ">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
                             <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
                             />
@@ -700,6 +700,8 @@
                           <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                                 <div class="inner-calc">
+                                    <p class="advised-txt">Please be advised that the minimum purchase amount is $88 AUD.</p>
+
                                     <div class="header-box m-b-20 clearfix">
 
                                         <div class="calculator-left">
@@ -714,14 +716,10 @@
 
                                         </div>
                                         <div class="calculator-center d-none hidden-l1600 d-sm-block d-lg-none">
-
                                         </div>
 
                                     </div>
-
-
                                     <div class="row in-calculator">
-
                                         <div class="col-md-5 col-xs-12">
                                             <div class="form-group">
                                                 <label class="black-labels hidden-above-sm p-b-5">{{selectedCurrencyActual}}</label>
@@ -935,6 +933,20 @@
                                             </td>
                                             <td class="rates-table-value">$ {{liveRates?.btc | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
                                             <td class="rates-table-value">{{liveRates?.tokenInBtc | currency:'fait'}} <span class="mxn-rate">PUC</span></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="rates-table-currency no-left liveRateWidth">1 BCH</td>
+                                            <td>
+                                                <div class="chart-widgets make-grp-cntr">
+
+                                                    <canvas id="myChart3" width="100" height="30px"></canvas>
+                                                </div>
+
+                                            </td>
+                                            <td class="rates-table-value">$ {{liveRates?.bch | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInBch | currency:'fait'}} <span class="mxn-rate">PUC</span></td>
 
                                         </tr>
 

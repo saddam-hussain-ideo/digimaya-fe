@@ -177,8 +177,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
 
       if (a.code == 200) {
 
-        this.walletInfo = a.data;
-
+        this.walletInfo = a.data;        
         if(this.walletInfo && 'isSaleStopped' in this.walletInfo && this.walletInfo.isSaleStopped){
           this.RestrictionModalMessage = 'ICO sale currently Stopped';
           this.closeModal();

@@ -166,6 +166,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
         // this.liveRates.btc = (this.liveRates.btc / this.liveRates.fru).toFixed(4);
         this.liveRates.btc = Number(this.liveRates.btc).toFixed(4)
         this.liveRates.btc = this.validations.toCommas(this.liveRates.btc);
+
+        this.liveRates.bch = Number(this.liveRates.bch).toFixed(4)
+        this.liveRates.bch = this.validations.toCommas(this.liveRates.bch);
+
         // this.liveRates.ltc = (this.liveRates.ltc / this.liveRates.fru).toFixed(4);
         this.liveRates.ltc = Number(this.liveRates.ltc).toFixed(4)
         this.liveRates.ltc = this.validations.toCommas(this.liveRates.ltc);
@@ -187,7 +191,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
             if (a.code == 200) {
                 this.RatesModel = a.data;
-                this.liveRates = Object.assign({}, a.data);
+                this.liveRates = Object.assign({}, a.data);                
                 this.getLiveRatesByCode()
                 this.populateWidgets();
             }
@@ -463,13 +467,12 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
 
-        this._dashboardService.getLiveStatsForWidgets().takeWhile(() => this._alive).subscribe(a => {
-
-
+        this._dashboardService.getLiveStatsForWidgets().takeWhile(() => this._alive).subscribe(a => {            
             this.BitcoinWidgetData = a.BTC;
             for (var i = 0; i < this.BitcoinWidgetData.length; i++) {
                 this.BitcoinWidgetData[i] = this.BitcoinWidgetData[i];
             }
+            this.BitcoinCashWidgetData = a.BCH            
             this.LiteCoinnWidgetData = a.LTC;
             this.EthereumWidgetData = a.ETH;
             this.MXNWidgetData = a.MXN
@@ -497,8 +500,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                     // borderColor: "#0FB8FA",
                     borderColor: "#643E8D",
                     borderWidth: 1,
-                    fontSize: 7
-                }]
+                    fontSize: 7,
+                    
+                }],
             }
 
             var LiteCoinnWidgetData = {
@@ -798,7 +802,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
             /*  this.exchangeRate = document.getElementById("exchangeRate"); */
             this.ctx = document.getElementById("myChart");
             this.ctx2 = document.getElementById("myChart2");
-            // this.ctx3 = document.getElementById("myChart3");
+            this.ctx3 = document.getElementById("myChart3");
             // this.ctx4 = document.getElementById("myChart4");
             this.ctx5 = document.getElementById("myChart5");
             this.ctx8 = document.getElementById("myChart8");
@@ -830,12 +834,13 @@ export class DashboardComponent implements OnDestroy, OnInit {
             });
 
 
-            // var myChart = new Chart(this.ctx3, {
-            //     type: 'line',
-            //     lineColor: "#0FB8FA",
-            //     data: BitcoinCashWidgetData,
-            //     options: graphWidgetOptions
-            // });
+            var myChart = new Chart(this.ctx3, {
+                type: 'line',
+                lineColor: "#0FB8FA",
+                data: BitcoinCashWidgetData,
+                options: graphWidgetOptions,
+                
+            });
 
             // var myChart = new Chart(this.ctx4, {
             //     type: 'line',

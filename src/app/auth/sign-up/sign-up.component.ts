@@ -108,11 +108,13 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this._sharedService.updateLanguage$
     .pipe(takeWhile(() => this.isAlive))
     .subscribe(res => {
+      console.log(res);
+      
       this.lang = localStorage.getItem('language');
       if(this.lang) {
         this.translate.use(this.lang)
       }else {
-        this.translate.use('es')
+        this.translate.use('en')
       }
     })
 
@@ -120,7 +122,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
       if(this.lang) {
         this.translate.use(this.lang)
       }else {
-        this.translate.use('es')
+        this.translate.use('en')
       }
 
   }
