@@ -485,6 +485,16 @@
   font-weight: bold;
 }
 
+.advised-txt{
+    color: #643E8D;
+    padding-left: 0;
+    font-size: 12px;
+    margin: 0 ;
+    font-weight: bold;
+    font-family: helvetica;
+    text-transform: uppercase;
+}
+
 .main-calculator{
     margin:40px 0 20px 0;
 }
@@ -1150,6 +1160,13 @@
     bottom: 11px;
     
   }
+
+  @media (min-width:1150) {
+    #inc-button {
+        right: 4px;
+        top: 26px;
+      }
+}
 
 .spin-hider{
     position: absolute;
