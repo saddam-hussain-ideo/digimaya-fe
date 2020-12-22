@@ -52,7 +52,7 @@
                     <p>
                         <input type="checkbox" id="TermsCheck" />
                         <label for="TermsCheck">{{'I confirm that I have read, accepted and agreed to all' | translate}}
-                            <a class="links no-underline" target="_blank" [(href)]=documentUrl>{{'Terms & Conditions' | translate}}</a> & <a class="links no-underline" target="_blank" [(href)]=privacyPolicy>{{'Privacy Policy' | translate}}</a> {{'and that I am of legal age' | translate}}
+                            <a class="links-signup no-underline" target="_blank" [(href)]=documentUrl>{{'Terms & Conditions' | translate}}</a> & <a class="links-signup no-underline" target="_blank" [(href)]=privacyPolicy>{{'Privacy Policy' | translate}}</a> {{'and that I am of legal age' | translate}}
 
                         </label>
                     </p>
@@ -77,7 +77,7 @@
                 <div class="form-group ">
 
                     <p class="bottom-text">{{'Already have an account?' | translate}}
-                        <a class="links" (click)="routeToLogin()">{{'Login' | translate}}</a>
+                        <a class="links-signup" (click)="routeToLogin()">{{'Login' | translate}}</a>
                     </p>
 
                 </div>

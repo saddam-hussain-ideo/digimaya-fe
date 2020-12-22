@@ -40,6 +40,13 @@
   
 }
 
+.links-signup{
+  text-decoration: underline;
+  font-weight: 600;
+  font-family: "LatoWebLight";
+  cursor: pointer;
+}
+
 .outer-wrapper-parent .inner-wrapper-child{
   width:28%;
   @media (max-width:767px){
