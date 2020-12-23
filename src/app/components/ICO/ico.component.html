@@ -263,7 +263,7 @@
               <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold}}</strong>
           </p>
             
-            <p class="till-pIco-Stge-small" *ngIf="!hideSecondBox">{{'Till' | translate}} {{ICOStageInfoRight?.stageName}} {{'stage' | translate}}</p>
+            <p class="till-pIco-Stge-small" *ngIf="!hideSecondBox">{{'Till' | translate}} {{ICOStageInfoRight?.stageName}}</p>
             <p class="till-pIco-Stge-small" *ngIf="hideSecondBox">{{'ICO will end after the current stage' | translate}}</p>
 
             <div class="progress-div fancy-progress">
@@ -469,7 +469,7 @@
           <div class="table-div">
             <div class="genral-sett-div-head clearfix width100 p-3">
               <div class="leftside">
-                <p class="gnrl-sett-txt p-0 mb-0">
+                <p class="gnrl-sett-txt p-0 mb-0 text-left piptle-font">
                   {{ 'ILO PIPTLERS' | translate}}
                 </p>
               </div>
@@ -508,20 +508,21 @@
 
                         <th>
 
-                          <p class="tbl-head-txt centerAlgn">AUD {{ 'VALUE' | translate }}</p>
+                          <p class="tbl-head-txt centerAlgn">{{ 'VALUE' | translate }}</p>
                         </th>
                       </tr>
                     </thead>
                     <tbody class="">
 
-                      <tr *ngFor="let investors of investorsList; let i = index">
-                        <td class="td-name">CONTRIBUTOR {{i+1}}</td>
+                      <tr class="trname" *ngFor="let investors of investorsList; let i = index">
+                        <td class="td-name">contributor {{i+1}}</td>
                         <td class="td-name">Australia </td>
                         <td class="td-token pl-3">
 
                           <div class="clearfix">
                             <ul class="token-progress">
-                              <li>{{investors.EARNTokenBalance | currency:'crypto'}}
+                              <li>
+                                <span class="font-13">{{investors.EARNTokenBalance | currency:'crypto'}}</span>
                                 <strong class="bold-text">PPTL </strong>
                               </li>
 
@@ -545,7 +546,7 @@
                             </div>
                           </div>
                         </td> -->
-                        <td class="centerAlgn td-total">$ {{investors.AmountInvestedInMXN | currency:'fait'}} </td>
+                        <td class="centerAlgn td-total">$ <span class="font-13">{{investors.AmountInvestedInMXN | currency:'fait'}}</span> </td>
                       </tr>
 
 

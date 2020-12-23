@@ -58,7 +58,7 @@ export class SignInComponent implements OnInit, OnDestroy {
 
 
   public ngOnInit() {
-
+    localStorage.setItem('language', 'en');
     if(localStorage.getItem('userToken')){
       this.router.navigate(['/home/dashboard'])
     }

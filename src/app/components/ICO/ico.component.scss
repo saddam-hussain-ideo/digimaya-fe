@@ -801,7 +801,8 @@ $bg-color-for-ilo : #d5cff533;
     text-transform: uppercase;
     color:white;
     font-family: 'LatoWebLight';
-    font-size:14px;
+    // font-size:14px;
+    font-size: 20px;
     margin:0;
     text-align: center;
     position: absolute;
@@ -876,6 +877,7 @@ $bg-color-for-ilo : #d5cff533;
    .total-text{
     font-family: 'LatoWebLight';
     font-weight: 400;
+    text-transform: uppercase;
     color:$theme-blue;
     font-size: 14px;
     margin: 0;
@@ -1025,7 +1027,7 @@ $bg-color-for-ilo : #d5cff533;
  }
  .my-tbl{
     margin-bottom: 15px;
-    height: 200px;
+    // height: 200px;
     overflow-y: scroll;
  }
  .my-tbl td{
@@ -1073,6 +1075,14 @@ $bg-color-for-ilo : #d5cff533;
     }
 }
 
+.font-13{
+    font-size: 13px;
+}
+
+.piptle-font{
+    font-weight: bold;
+    font-size: 20px;
+}
 
  .tbl-img{
     width: 100%;
@@ -1091,9 +1101,11 @@ $bg-color-for-ilo : #d5cff533;
      font-size:14px;
      color: $theme-blue;
      padding-left: 10px !important;
-     text-transform: uppercase;
+     text-transform: capitalize;
  }
-
+ .trname{
+    color: violet;
+ }
  .td-token{
     font-family: 'LatoWebBold';
     font-size:12px;
