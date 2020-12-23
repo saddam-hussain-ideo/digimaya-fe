@@ -66,7 +66,7 @@
             <div class="info-custom-card dark-bg">
                 <div class="content">
                     <span class="heading prp-text">{{'Your Total Piptlers' | translate }}</span>
-                    <span class="heading prp-text"> 20,000 PUC </span>
+                    <span class="heading prp-text"> 20,000 PPTL </span>
                 </div>
             </div>
         </div>
@@ -756,7 +756,7 @@
 
                                         <div class="col-md-5 col-xs-12">
                                             <div class="form-group">
-                                                <label class="black-labels p-b-5 hidden-above-sm">PUC</label>
+                                                <label class="black-labels p-b-5 hidden-above-sm">PPTL</label>
                                                 <!-- <div class="spin-hider"></div> -->
                                                 <div id="inc-button" class="spinner-button"><img src="../../../assets/img/drop-up-arrow.png" alt="" srcset=""></div>
                                                 <div id="dec-button" class="spinner-button"><img src="../../../assets/img/drop-down-arrow.png" alt="" srcset=""></div> 
@@ -838,7 +838,7 @@
                                                 <p class="buy-txt text-white">{{'Buy' | translate}} </p>
                                                 <p class="vert-line"></p>
                                                 <div class="d-flex flex-column text-white">
-                                                    <p class="puc-txt">{{coinsCalculatedBottom | currency:'crypto'}} PUC</p>
+                                                    <p class="puc-txt">{{coinsCalculatedBottom | currency:'crypto'}} PPTL</p>
                                                     <p class="curr-txt">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p>
                                                 </div>
                                             </div>
@@ -857,14 +857,14 @@
                                     <table class="stage-table table-responsives table-striped">
                                         <tbody>
                                             <tr>
-                                                <td><span class="color-green">{{'Total Supply' | translate}} : </span>  <span class="color-pulper" >{{totalCapacity}} PUCs</span></td>
+                                                <td><span class="color-green">{{'Total Supply' | translate}} : </span>  <span class="color-pulper" >{{totalCapacity}} PPTLs</span></td>
                                                 <td><span class="color-green">{{'Total Issued' | translate }} : </span> <span class="color-pulper" >{{totalIssued}} </span></td>
-                                                <td class="color-pulper">PUCs</td>
+                                                <td class="color-pulper">PPTLs</td>
                                             </tr>
                                             <tr *ngFor = "let sData of stageData">
-                                                <td><span class="color-green">{{sData.StageName}} : </span>  <span class="color-pulper">{{sData.TotalSaleAmount}} PUCs</span></td>
+                                                <td><span class="color-green">{{sData.StageName}} : </span>  <span class="color-pulper">{{sData.TotalSaleAmount}} PPTLs</span></td>
                                                 <td><span class="color-green">{{'Total Issued' | translate }} : </span> <span class="color-pulper">{{sData.TotalAmountSold}} </span></td>
-                                                <td class="color-pulper">PUCs</td>
+                                                <td class="color-pulper">PPTLs</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -932,7 +932,7 @@
 
                                             </td>
                                             <td class="rates-table-value">$ {{liveRates?.btc | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
-                                            <td class="rates-table-value">{{liveRates?.tokenInBtc | currency:'fait'}} <span class="mxn-rate">PUC</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInBtc | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
 
                                         </tr>
 
@@ -946,7 +946,7 @@
 
                                             </td>
                                             <td class="rates-table-value">$ {{liveRates?.bch | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
-                                            <td class="rates-table-value">{{liveRates?.tokenInBch | currency:'fait'}} <span class="mxn-rate">PUC</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInBch | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
 
                                         </tr>
 
@@ -958,7 +958,7 @@
                                                 </div>
                                             </td>
                                             <td class="rates-table-value">$ {{liveRates?.ltc | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
-                                            <td class="rates-table-value">{{liveRates?.tokenInLtc | currency:'fait'}} <span class="mxn-rate">PUC</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInLtc | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
 
                                         </tr>
 
@@ -970,7 +970,7 @@
                                                 </div>
                                             </td>
                                             <td class="rates-table-value">$ {{liveRates?.eth | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
-                                            <td class="rates-table-value">{{liveRates?.tokenInEth | currency:'fait'}} <span class="mxn-rate">PUC</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInEth | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
 
                                         </tr>
 
@@ -982,7 +982,7 @@
                                                 </div>
                                             </td>
                                             <td class="rates-table-value">$ {{liveRates?.usd | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
-                                            <td class="rates-table-value">{{liveRates?.tokenInUsd | currency:'fait'}} <span class="mxn-rate">PUC</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInUsd | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
 
                                         </tr>
 
