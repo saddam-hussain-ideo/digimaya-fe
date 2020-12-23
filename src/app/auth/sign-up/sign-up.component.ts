@@ -122,6 +122,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
       if(this.lang) {
         this.translate.use(this.lang)
       }else {
+        this.lang = 'en';
         this.translate.use('en')
       }
 
