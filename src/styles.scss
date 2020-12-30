@@ -718,7 +718,8 @@ $label-color: #2097d4;
 }
 
 .page-title {
-  color: $theme-orange;
+  // color: $theme-orange;
+  color: $dashboard-purple-clr;
   font-family: "LatoWeb";
   font-size: $title-size;
   text-transform: $title-case;
