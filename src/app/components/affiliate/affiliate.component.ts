@@ -142,7 +142,8 @@ export class Affiliate {
     public lineChartColors: Array<any> = [
         { // grey
             backgroundColor: 'rgba(74,193,180,0.2)',
-            borderColor: 'rgba(74,193,180,1)'
+            // borderColor: 'rgba(74,193,180,1)'
+            borderColor: '#643E8D'
 
         }
     ];

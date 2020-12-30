@@ -121,14 +121,14 @@
 }
 
 .update-buttons:hover{
-        color:#3AB4E5;
+        color:$dashboard-purple-clr;
         background: white;
-        border:1px solid #3AB4E5;
+        border:1px solid $dashboard-purple-clr;
 }
 .update-buttons{
     height: 45px;	
     width: 160px;	
-    background-color: #3AB4E5;
+    background-color: $dashboard-purple-clr;
     border:none;
     font-family: 'LatoWebBold';
     font-size:14px;

@@ -3,10 +3,10 @@
 .header-side-border{
     height:40px;
     background: #f4fafd;
-    border-left:3px solid $theme-blue;
+    border-left:3px solid $dashboard-purple-clr;
     margin-bottom:15px;
     h1{
-        color: $theme-green;	
+        color: $dashboard-purple-clr;	
         font-family: 'LatoWeb';	
         font-size: 13px;	
         font-weight: 600;	
@@ -45,7 +45,7 @@
     padding-left:15px;
     font-weight: 600;	
     .faq-points{  
-        color: $theme-blue;
+        color: $dashboard-purple-clr;
     }
 }
 
@@ -76,7 +76,7 @@
         background-color: #DFE6EC;
        
         p{
-            color:$theme-blue
+            color:$dashboard-purple-clr
         }
     }
 

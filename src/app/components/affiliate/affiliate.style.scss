@@ -75,7 +75,7 @@
 .aff-h2{
     text-transform: uppercase;
     font-family: 'LatoWeb';
-    color: $theme-green;
+    color: $dashboard-purple-clr;
     font-size: 14px !important;
     margin: 0px !important;
     padding-bottom: 20px;
@@ -127,7 +127,7 @@
 
 
 .aff-p1{
-    color: $theme-blue;
+    color: $dashboard-purple-clr;
     padding-right: 30px;
     font-family: 'LatoWebMedium';
     font-size: 14px !important;
@@ -240,7 +240,7 @@
     padding-bottom: 2px;
 }
 .aff-link{
-    color: $theme-blue;
+    color: $dashboard-purple-clr;
     font-family: 'LatoWebMedium';
     padding-top: 20px;
     font-size: 14px;
@@ -256,7 +256,8 @@
 }
 .aff-link-in{
     background-color: #F0F0F0;
-    color: $theme-blue;
+    // color: $theme-blue;
+    color: $dashboard-purple-clr;
     padding: 5px 10px;
     border: none;
     width: 100%;
@@ -278,7 +279,8 @@
     padding-top: 15px;
 }
 .copy-add{
-    color: #2097d4;
+    // color: #2097d4;
+    color: $dashboard-purple-clr;
     text-transform: uppercase;
     font-family: 'LatoWebSemibold';
     font-size: 13px;
@@ -335,7 +337,8 @@
 
             border-right: 6px solid #f9f9f9;
             border-top: 8px solid transparent;
-            background-color: #52BDEB;
+            // background-color: #52BDEB;
+            background-color: $dashboard-purple-clr;
         }
     } 
 
@@ -344,7 +347,8 @@
 
             border-right: 6px solid #fff;
             border-top: 8px solid transparent;
-            background-color: #7DE2D6;
+            // background-color: #7DE2D6;
+            background-color: $dashboard-purple-clr;
         }
     } 
 
@@ -372,7 +376,7 @@
 
 
 .no-record{
-    color: #53d4ff;
+    color: $dashboard-purple-clr;
     font-size: 18px;
     text-align: center;
 
@@ -403,7 +407,8 @@
 }
 .earners-name{
     text-transform: uppercase;
-    color: $theme-blue;
+    // color: $theme-blue;
+    color: $dashboard-purple-clr;
     font-family: 'LatoWebMedium';
     font-size:14px;
     margin:0;
@@ -411,7 +416,8 @@
 .earnings{
     font-size: 14px;
     margin: 0px !important;
-    color: $theme-blue;
+    // color: $theme-blue;
+    color: $dashboard-purple-clr;
     font-family: 'LatoWeb';
     
 }
@@ -900,7 +906,7 @@
      padding:20px;
      h6{
          text-transform: uppercase;
-        color: $theme-green;	
+        color: $dashboard-purple-clr;	
         font-family: 'LatoWeb';	
         font-size: 14px;	
         line-height: 15px;
@@ -999,7 +1005,7 @@
     }
 
     .bg-table{
-        background-color: #2097D4;
+        background-color: $dashboard-purple-clr;
     }
 }
 
@@ -1022,7 +1028,7 @@
 }
 
 .bg-table{
-    background-color: #2097D4;
+    background-color: $dashboard-purple-clr;
     .total-row{
         list-style-type:none;
         width: 40%;
@@ -1072,13 +1078,13 @@
 
 .affiliate-chart-btm-lbl{
     text-align: center;
-    color: #4AC1B4;
+    color: $dashboard-purple-clr;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 13px;
  }
  .affiliate-chart-lft-lbl{
-    color: #4AC1B4;
+    color: $dashboard-purple-clr;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 13px;
@@ -1098,7 +1104,8 @@
  .affiliate-graph-ul{
     padding: 0;
     margin-top: -9px;
-    color: $theme-blue;
+    // color: $theme-blue;
+    color: $dashboard-purple-clr;
     li{
         list-style-type: none;
         float: left;
@@ -1134,7 +1141,7 @@
  .scndHlf label{
     font-weight: 600;
     margin-top: -4px;
-    color: $theme-blue
+    color: $dashboard-purple-clr
  }
  .marryt20{
     margin-right: 20px;
@@ -1144,7 +1151,7 @@
     display: inline-flex;
  }
  .affiliate-active-li{
-    background-color:  $theme-green;
+    background-color:  $dashboard-purple-clr;
     color: white;
  }
 
