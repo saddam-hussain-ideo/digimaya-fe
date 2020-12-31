@@ -116,7 +116,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
     // Doughnut
-    public doughnutChartLabels: string[] = ['ETH', 'BTC', 'LTC', 'USD', 'MXN'];
+    public doughnutChartLabels: string[] = ['ETH', 'BTC', 'LTC', 'USD', 'AUD'];
     public doughnutChartData: number[] = [0, 0, 0, 0, 0];
     public options: any;
     public doughnutChartType: string = 'doughnut';
