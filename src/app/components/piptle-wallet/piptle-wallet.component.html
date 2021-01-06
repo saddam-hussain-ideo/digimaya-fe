@@ -13,7 +13,7 @@
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Total Issued Piptles' | translate }}</p>
             <div class="d-flex justify-content-center wallet-cards" >
-              <p class="wallet-val">{{totalPiptles}}</p>
+              <p class="wallet-val">{{totalPiptles | currency}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
 
@@ -25,7 +25,7 @@
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Available Piptles' | translate }}</p>
             <div class="d-flex justify-content-center wallet-cards" >
-              <p class="wallet-val">{{availablePiptles}}</p>
+              <p class="wallet-val">{{availablePiptles | currency}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
 
@@ -37,7 +37,7 @@
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Locked Piptles' | translate }}</p>
             <div class="d-flex justify-content-center wallet-cards" >
-              <p class="wallet-val">{{lockedPiptles}}</p>
+              <p class="wallet-val">{{lockedPiptles | currency}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
 
@@ -49,7 +49,7 @@
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Staked Piptles' | translate }}</p>
             <div class="d-flex justify-content-center wallet-cards" >
-              <p class="wallet-val">{{stakedPiptles}}</p>
+              <p class="wallet-val">{{stakedPiptles | currency}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
 

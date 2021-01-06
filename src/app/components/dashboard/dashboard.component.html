@@ -414,7 +414,7 @@
                         <div class="stats">
                             <img src="../../../assets/img/bitcoin-cash-bch-logo.png" width="40px" alt="bch-icon">
 
-                            <p class="balance">{{investedValues.BCHContributed}}
+                            <p class="balance">{{investedValues.BCHContributed | currency}}
                                 <span class="currency">Bch</span>
                             </p>
                             <p class="currency-heading">bch Invested</p>
@@ -448,7 +448,7 @@
                         <div class="stats">
                             <i class="fab fa-quora" ></i>
 
-                            <p class="balance">{{investedValues.BCHContributed}}
+                            <p class="balance">{{"0"}}
                                 <span class="currency">QOIN</span>
                             </p>
                             <p class="currency-heading">QOIN Invested</p>
@@ -484,7 +484,7 @@
                         <div class="stats">
                             <img src="../../../assets/img/cctn.png" class="curr-logo" alt="" srcset="" >
 
-                            <p class="balance">{{investedValues.BCHContributed}}
+                            <p class="balance">{{"0"}}
                                 <span class="currency">CTCN</span>
                             </p>
                             <p class="currency-heading">CTCN Invested</p>
@@ -518,7 +518,7 @@
                         <div class="stats">
                             <img class="curr-logo" src="../../../assets/img/dash-logo-circle.svg" alt="" srcset="" >
 
-                            <p class="balance">{{investedValues.BCHContributed}}
+                            <p class="balance">{{"0"}}
                                 <span class="currency">Dash</span>
                             </p>
                             <p class="currency-heading">Dash Invested</p>
@@ -553,7 +553,7 @@
                         <div class="stats">
                             <img src="../../../assets/img/tron-trx-logo.png"  class="curr-logo" alt="" srcset="" >
 
-                            <p class="balance">{{investedValues.BCHContributed}}
+                            <p class="balance">{{"0"}}
                                 <span class="currency">Tron</span>
                             </p>
                             <p class="currency-heading">Tron Invested</p>
@@ -588,7 +588,7 @@
                         <div class="stats">
                             <img src="../../../assets/img/xrp-xrp-logo.png" class="curr-logo" alt="" srcset="" >
 
-                            <p class="balance">{{investedValues.BCHContributed}}
+                            <p class="balance">{{"0"}}
                                 <span class="currency">XRP</span>
                             </p>
                             <p class="currency-heading">XRP Invested</p>
@@ -623,7 +623,7 @@
                         <div class="stats">
                             <img src="../../../assets/img/eos-eos-logo.png" class="curr-logo" alt="" srcset="" >
 
-                            <p class="balance">{{investedValues.BCHContributed}}
+                            <p class="balance">{{"0"}}
                                 <span class="currency">EOS</span>
                             </p>
                             <p class="currency-heading">EOS Invested</p>
@@ -747,7 +747,7 @@
                                                         <!-- <option value="dash">DASH</option> -->
                                                         <option value="mxn">AUD</option>
                                                         <!-- <option value="mxnp">MXNP</option> -->
-                                                        <option value="usd">USD</option>
+                                                        <option value="usd">USDT</option>
                                                         <!-- <option value="eur">EURO</option> -->
                                                     </select>
                                                 </span>
@@ -1188,11 +1188,11 @@
                                             <img *ngIf="transactions.TransactionCurrencyType=='USD'" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
                                             <img *ngIf="transactions.TransactionCurrencyType=='MXN'" src="../../../assets/img/dollar-icon.png" alt="dollar-icon">
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='EUR'" src="../../../assets/img/coin-euro.png" alt="euro-icon"> -->
-                                            <img *ngIf="transactions.TransactionCurrencyType=='LTC'" src="../../../assets/img/ltc-left.png" alt="ltc-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='LTC'" src="../../../assets/img/litecoin-ltc-logo.png" alt="ltc-icon">
                                             <img *ngIf="transactions.TransactionCurrencyType=='BTC'" src="../../../assets/img/btc-left.png" alt="btc-icon">
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='DASH'" src="../../../assets/img/dash-left.png" alt="dash-icon"> -->
                                             <img *ngIf="transactions.TransactionCurrencyType=='ETH'" src="../../../assets/img/eth-left.png" alt="eth-icon">
-                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='BCH'" src="../../../assets/img/bch-left.png" alt="bch-icon"> -->
+                                            <img *ngIf="transactions.TransactionCurrencyType=='BCH'" src="../../../assets/img/bitcoin-cash-bch-logo.png" alt="bch-icon">
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='BTG'" src="../../../assets/img/btg-left.png" alt="btg-icon"> -->
                                             <img style="padding-top: 12px;" *ngIf="transactions.TransactionCurrencyType=='FRU'" src="../../../assets/img/fav.png" alt="xchge-icon">
 
@@ -1251,7 +1251,7 @@
                                         <p class="stacked-text">{{'Tokens' | translate}}: {{transactions.CalculatedTokens | currency:'crypto'}}</p>
                                         <p class="stacked-text">{{'Discount' | translate}}: {{transactions.BonusPercentage}}%</p>
                                         <p class="stacked-text">
-                                            <strong>{{'Total Tokens' | translate}}: {{transactions.TotalTokens}} </strong>
+                                            <strong>{{'Total Tokens' | translate}}: {{transactions.TotalTokens | currency}} </strong>
                                         </p>
 
                                     </td>
@@ -1377,6 +1377,12 @@
                                         <div class="colors-box bg-color-euro"></div>
                                         <div class="colors-text">
                                             <p class="legend-text">AUD</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="colors-box bg-color-bch"></div>
+                                        <div class="colors-text">
+                                            <p class="legend-text">BCH</p>
                                         </div>
                                     </li>
                                 </ul>
