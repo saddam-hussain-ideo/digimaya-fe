@@ -52,6 +52,7 @@
     "ICO Information": "ILO Tracker",
     "Buy Frucoin": "Buy Frucoin",
     "Wire Transfer": "Wire Transfer",
+    "AUD": "AUD",
     "Referral Program": "Referral Program",
     "(FAQ)Frequently Asked Questions": "(FAQ)Frequently Asked Questions",
     "Profile": "Profile",
@@ -134,6 +135,8 @@
     "Beneficiary":"Beneficiary",
     "Account No":"Account No",
     "to edit your ETH Address": "to edit your ETH Address",
+    "to scan qr code": "to scan Banking Details",
+    "scan Banking details": "Scan Bank Details",
     "Click Here": "Click Here",
     "ACCOUNT NUMBER": "ACCOUNT NUMBER",
     "Update": "Update",
@@ -412,5 +415,6 @@
     "Action" : "Action",
     "Amount Debited" : "Amount Debited",
     "Wallet transferred to" : "Wallet transferred to",
-    "Total Supply" : "Total Supply : "
+    "Total Supply" : "Total Supply : ",
+    "Instructions" : "PAYMENT INSTRUCTIONS "
 }

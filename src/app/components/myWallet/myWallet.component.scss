@@ -1238,7 +1238,6 @@ cursor: pointer;
 
 
 .left-qr{
-
     @media (max-width:400px) {
         float: none;
         text-align: center;
@@ -1255,7 +1254,19 @@ cursor: pointer;
     }
 }
 
-
+.btn-qr{
+    height: 33px;
+    background-color: #643E8D !important;
+    width: 100%;
+    border: none;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-family: 'LatoWeb';
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
 /* @media only screen and (max-width:1300px) and (min-width:992px){
     .w-40{
         width: 80%;
@@ -1293,3 +1304,61 @@ cursor: pointer;
 .bold_text{
   font-weight: bold;
 }
+
+.scroll-div{
+    overflow-y: scroll;
+    height: 80vh;
+
+}
+
+.btn-print{
+    background-color: #643E8D !important;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'LatoWeb';
+    font-weight: bold;
+    text-align: center;
+}
+
+.instructions{
+    color: black;
+    .instructions-text-heading{
+        font-size: 20px;
+        color: #616A75;
+    }
+    .instructions-heading{
+        font-size: 20px;
+    }
+    .instructions-text{
+        font-size: 12px;
+    }
+
+}
+
+.list-group-item-light{
+    background-color: unset;
+    font-size: 12px;
+    color: black !important;
+
+}
+.instruction-close{
+    img{
+        height: 15px;
+        cursor: pointer;
+
+    }
+    padding: 20px 20px 0 20px;
+    .instruction-txt{
+        color: #616A75;
+        font-family: 'LatoWebBold';
+        font-size: 26px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+}
+
+// .printme {
+// 	display: none;
+// }

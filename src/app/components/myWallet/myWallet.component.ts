@@ -27,7 +27,8 @@ declare var $: any;
   templateUrl: './myWallet.component.html',
 })
 export class MyWalletComponent implements OnInit, OnDestroy {
-
+  bankObj: object;;
+  bankdetails: string
   public isAlive = true
   public config: ToasterConfig =
     new ToasterConfig({ animation: 'flyRight' });
@@ -112,6 +113,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     this.investedValues = new AmountInvestedModel();
     this.validations = new Validations();
   }
+
 
   copyToClipboard(id) {
 
@@ -290,6 +292,8 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   closeModal() {
     $("#wire-transfer").modal("hide");
     $("#enable-2fa").modal("hide");
+    $("#view-instructions").modal("hide");
+    $("#scan-QR").modal("hide");
     this.instrumentId = undefined;
     this.bankName = undefined;
     this.currencyTypeUserPaidIn = undefined;
@@ -300,7 +304,9 @@ export class MyWalletComponent implements OnInit, OnDestroy {
 
   }
 
-
+  print(){
+    window.print()
+  }
 
 
   submitClaim() {
@@ -578,7 +584,16 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
-
+    this.bankObj = {
+      AccountName:  'Piptle Wealth Management',
+      BranchNumber: '064 475',
+      AccountNumber: '1043 6665',
+      BankName: 'Commonwealth Bank of Australia',
+      BankAddress: 'Shop 60, Stocklands Shopping Centre, 149 West Burleigh Rd, Burleigh Waters, QLD, 4220, Australia',
+      Piptleaddressdetails: 'Unit 36, 15 Jackman Street, Southport, Qld 4215 Australia'
+    }    
+    this.bankdetails = JSON.stringify(this.bankObj)
+    
     $(".list-unstyled li").removeClass("active");
     $("#wallet-nav").addClass("active");
     
