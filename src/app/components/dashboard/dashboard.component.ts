@@ -215,7 +215,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
             if (a.code == 200) {
                 this.pagination = [];
-                this.recentTransactions = a.data.list;
+                this.recentTransactions = a.data.list;                
                 this.paginationNumber = a.data.count;
 
 
@@ -309,15 +309,11 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     }
 
-    changeOnClick(value){
-        console.log(value);
-        
+    changeOnClick(value){        
         this.byPasserFunction(value);
     }
     changeOnReverse(value){
-        console.log(value);
         this.byPasserReverseFunction(value);
-        
     }
 
 
