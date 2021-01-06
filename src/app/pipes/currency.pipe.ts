@@ -11,7 +11,8 @@ export class Currency implements PipeTransform {
             `${value[0]}.${value[1].slice(0, 8)}` :
             currency == 'fait' && value[1].length > 2 ?
             `${value[0]}.${value[1].slice(0, 2)}` :
-            `${value[0]}.${value[1]}`;
+            // `${value[0]}.${value[1]}`
+            `${value[0]}.${value[1].slice(0,6)}`
             return check;
         }
     }

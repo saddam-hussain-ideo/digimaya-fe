@@ -116,13 +116,13 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
     // Doughnut
-    public doughnutChartLabels: string[] = ['ETH', 'BTC', 'LTC', 'USD', 'AUD'];
-    public doughnutChartData: number[] = [0, 0, 0, 0, 0];
+    public doughnutChartLabels: string[] = ['ETH', 'BTC', 'LTC', 'USD', 'AUD', 'BCH'];
+    public doughnutChartData: number[] = [0, 0, 0, 0, 0, 0];
     public options: any;
     public doughnutChartType: string = 'doughnut';
     public chartColors: Array<any> = [
         {
-            backgroundColor: ['#191919', '#FF8C00', '#B7B6BC', '#34519D', '#00694B']
+            backgroundColor: ['#191919', '#FF8C00', '#B7B6BC', '#34519D', '#00694B', '#62c7be']
         }
     ]
 
@@ -141,8 +141,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this._dashboardService.getAmountInvested(this.userObject.UserId).takeWhile(() => this._alive).subscribe(a => {
 
             if (a.code == 200) {
-                this.investedValues = a.data;
-
+                this.investedValues = a.data;                
                 this.investedValues.TokenBalance = this.validations.toCommas(this.investedValues.TokenBalance);
                 this.investedValues.EARNTokenBalance = this.validations.toCommas(this.investedValues.EARNTokenBalance);
 
@@ -397,6 +396,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
             if(elem == 'mxn'){
                 this.selectedCurrencyActual = 'AUD'
             }
+            if(elem == 'usd'){
+                this.selectedCurrencyActual = 'USDT'
+            }
             else{
                 this.selectedCurrencyActual = elem;
             }
@@ -425,7 +427,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
             if (a.code == 200) {
-                this._ngZone.run(() => {
+                this._ngZone.run(() => {                    
                     this.doughnutChartData = a.data;
                 })
             }
