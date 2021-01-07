@@ -27,7 +27,9 @@ declare var $: any;
   templateUrl: './myWallet.component.html',
 })
 export class MyWalletComponent implements OnInit, OnDestroy {
-  bankObj: object;;
+  bankObj: object;
+  userId;
+  totalPiptles = 0;
   bankdetails: string
   public isAlive = true
   public config: ToasterConfig =
@@ -424,7 +426,8 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     $("#box-loader-" + currencyType).show();
 
     this._walletService.getAddressesForWallets(this.userObject.UserId, currencyType).subscribe(a => {
-
+      console.log(a);
+      
       if (a.code == 200) {
         $("#box-loader-" + currencyType).hide();
         this.currencyType = currencyType.toLowerCase();
@@ -600,7 +603,10 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     this.fileName = "";
     this._sharedService.showHideLoader(true);
     this.userObject = JSON.parse(localStorage.getItem("userObject"));
-
+    if (this.userObject) {
+      this.userId = this.userObject['UserId']
+      this.getTokens();
+      }
     // this.showRestriction();
     this.getBankDetails('undefined');
 
@@ -622,6 +628,16 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     
 
   }
+
+  getTokens(){
+		this._userSerivce.getTokens(this.userId).subscribe(res => {      
+			if (res) {
+                this.totalPiptles = res['data']['totalTokens'];
+			}
+		}, err => {
+			console.log(err);
+		})		
+	  }
 
   getkycstatus() {
     this._sharedService.showHideLoader(true);
