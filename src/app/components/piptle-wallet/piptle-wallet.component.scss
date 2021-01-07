@@ -29,6 +29,12 @@
     border-radius: unset;
   }
 }
+@media (max-width:1500px) {
+  .wallet-cards{
+    display: flex;
+    flex-direction: column;
+  }
+}
 .inner-w-box {
   background-color:#e0d7d7;
   text-align: center;

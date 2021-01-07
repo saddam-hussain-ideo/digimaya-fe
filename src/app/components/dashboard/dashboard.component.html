@@ -66,7 +66,7 @@
             <div class="info-custom-card dark-bg">
                 <div class="content">
                     <span class="heading prp-text">{{'Your Total Piptlers' | translate }}</span>
-                    <span class="heading prp-text"> 20,000 PPTL </span>
+                    <span class="heading prp-text"> {{totalPiptles | currency: 'crypto'}} PPTL </span>
                 </div>
             </div>
         </div>
@@ -799,7 +799,7 @@
 
                                                             <!-- <td class="">{{bonusTokens}}</td> -->
                                                             <!-- <td class="">{{RatesModel.bonus}}%</td> -->
-                                                            <td>{{bonusCoins}}</td>
+                                                            <td>{{bonusCoins | currency}}</td>
                                                             <!-- <td class="right-aligned text-uppercase">FRU</td> -->
                                                         </tr>
                                                         <!-- <tr> -->
@@ -1169,8 +1169,10 @@
                                     <th class="img-width-table"></th>
                                     <th class="img-width-table-2"></th>
                                     <th class="rates-table-currency special-padded left-aligned tx-hash-width">Tx ID</th>
-                                    <th></th>
-                                    <th class="rates-table-currency text-centered no-top-padding">{{'Amount' | translate}}</th>
+                                    <th class="rates-table-currency text-centered no-top-padding">{{'Tokens' | translate}}</th>
+                                    <th class="rates-table-currency text-centered no-top-padding">{{'Discount' | translate}}%</th>
+                                    <th class="rates-table-currency text-centered no-top-padding">{{'Total Tokens' | translate}}</th>
+                                    <th class="rates-table-currency text-centered no-top-padding">Amount</th>
                                     <th class="rates-table-currency">{{'Date' | translate}}</th>
 
                                 </tr>
@@ -1185,6 +1187,8 @@
                                     <td class="img-width-table v-middle">
 
                                         <div class="coin-image">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='PPTL'" src="../../../assets/img/Piptle logo.png" alt="dollar-icon">
+
                                             <img *ngIf="transactions.TransactionCurrencyType=='USD'" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
                                             <img *ngIf="transactions.TransactionCurrencyType=='MXN'" src="../../../assets/img/dollar-icon.png" alt="dollar-icon">
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='EUR'" src="../../../assets/img/coin-euro.png" alt="euro-icon"> -->
@@ -1238,7 +1242,7 @@
                                     </td>
 
 
-                                    <td class="tx-hash-width v-middle" *ngIf="transactions.TransactionType=='WIRETRANSFER' || transactions.TransactionType=='CREDITCARD' || transactions.TransactionType =='PRIVATESALE'">
+                                    <td class="tx-hash-width v-middle" *ngIf="transactions.TransactionType=='WIRETRANSFER' || transactions.TransactionType=='CREDITCARD' || transactions.TransactionType =='PRIVATESALE' || transactions.TransactionType =='admin_sent' ">
                                         <a class="no-underline" target="_blank">{{transactions.TransactionHash}}</a>
                                     </td>
 
@@ -1247,13 +1251,23 @@
                                         <a class="no-underline" href="{{transactions.TransactionURL}}" target="_blank">{{transactions.TransactionHash}}</a>
                                     </td>
 
-                                    <td class="v-middle">
+                                    <!-- <td class="v-middle">
                                         <p class="stacked-text">{{'Tokens' | translate}}: {{transactions.CalculatedTokens | currency:'crypto'}}</p>
                                         <p class="stacked-text">{{'Discount' | translate}}: {{transactions.BonusPercentage}}%</p>
                                         <p class="stacked-text">
                                             <strong>{{'Total Tokens' | translate}}: {{transactions.TotalTokens | currency}} </strong>
                                         </p>
 
+                                    </td> -->
+
+                                    <td class="text-centered v-middle stacked-text">
+                                        {{transactions.CalculatedTokens | currency:'crypto'}}
+                                    </td>
+                                    <td class="text-centered v-middle stacked-text">
+                                        {{transactions.BonusPercentage}}
+                                    </td>
+                                    <td class="text-centered v-middle stacked-text">
+                                        {{transactions.TotalTokens | currency}}
                                     </td>
                                     <td class="text-centered v-middle stacked-text">
                                         {{transactions.CryptoAmountReceive | currency:'crypto'}}
@@ -1273,7 +1287,7 @@
                     </div>
 
 
-                    <div class='pagination-bottom' *ngIf="paginationNumber>recentTransactionsPSize">
+                    <!-- <div class='pagination-bottom' *ngIf="paginationNumber>recentTransactionsPSize">
 
                         <pagination-controls *ngIf="recentTransactionsPSize < paginationNumber" responsive="true" previousLabel="" nextLabel="" (pageChange)="changePage($event)"></pagination-controls>
 
@@ -1282,7 +1296,7 @@
                             <li *ngFor="let item of recentTransactions | paginate: { itemsPerPage: recentTransactionsPSize, currentPage: currentPage, totalItems: paginationNumber }">{{item}}</li>
                         </ul>
 
-                    </div>
+                    </div> -->
 
 
                     <!-- <div *ngIf="paginationNumber>recentTransactionsPSize" class='pagination-bottom'>

@@ -13,6 +13,7 @@ import { BlogModel } from '../../models/blogModel';
 
 import 'chart.piecelabel.js';
 import { Validations } from '../../validations';
+import { UserService } from 'src/app/services/userService';
 
 
 
@@ -25,7 +26,8 @@ declare var $: any;
 })
 export class DashboardComponent implements OnDestroy, OnInit {
     public pieChartOptions: any;
-
+    userId;
+    totalPiptles = 0;
     public ctx: any;
     public ctx2: any;
     public ctx3: any;
@@ -104,7 +106,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
         public _dashboardService: DashboardService,
         public _sharedService: SharedService,
         private ref: ChangeDetectorRef,
-        private _ngZone: NgZone
+        private _ngZone: NgZone,
+        private userService: UserService
     ) {
 
         this.investedValues = new AmountInvestedModel();
@@ -214,7 +217,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
             if (a.code == 200) {
                 this.pagination = [];
-                this.recentTransactions = a.data.list;                
+                this.recentTransactions = a.data.list;
+                console.log(this.recentTransactions);
+                                
                 this.paginationNumber = a.data.count;
 
 
@@ -266,7 +271,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         let coinsWithBonus = totalCoins + bonusTokens;
         this.bonusCoins = bonusTokens;
         this.bonusPercentage = bonusPercentage;
-        this.coinsCalculated = totalCoins;
+        this.coinsCalculated = totalCoins.toFixed(6);
         this.coinsCalculatedBottom = coinsWithBonus;
         // this.coinsCalculated = (calculateInMxn / this.RatesModel.baseRate).toFixed(8);
 
@@ -287,7 +292,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
         let valueForCurrencySelected = this.RatesModel[selectedCurrency];
 
-        this.coinsWanted = (this.coinsCalculated * this.RatesModel.liveRate) / valueForCurrencySelected;
+        this.coinsWanted = ((this.coinsCalculated * this.RatesModel.liveRate) / valueForCurrencySelected).toFixed(6);
         this.coinsCalculatedBottom = this.coinsCalculated;
 
         this.bonusTokens = ((this.coinsCalculated / 100) * this.RatesModel.bonus).toFixed(8);
@@ -385,7 +390,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
            this.coinsCalculated = 0; */
 
 
-
+        console.log(elem);
+        
         this.selectedCurrency = elem;
         if (elem == "liveRate") {
             this.selectedCurrencyActual = "USD";
@@ -396,7 +402,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
             if(elem == 'mxn'){
                 this.selectedCurrencyActual = 'AUD'
             }
-            if(elem == 'usd'){
+            else if(elem == 'usd'){
                 this.selectedCurrencyActual = 'USDT'
             }
             else{
@@ -914,9 +920,11 @@ export class DashboardComponent implements OnDestroy, OnInit {
     ngOnInit() {
 
 
-
-
         this.userObject = JSON.parse(localStorage.getItem("userObject"));
+        if (this.userObject) {
+            this.userId = this.userObject['UserId']
+            this.getTokens();
+            }
         this.getAmountInvested();
         this.getRates();
         this.getILOStages();
@@ -992,9 +1000,19 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
 
-
+        
     }
 
+
+    getTokens(){
+		this.userService.getTokens(this.userId).subscribe(res => {      
+			if (res) {
+                this.totalPiptles = res['data']['totalTokens'];
+			}
+		}, err => {
+			console.log(err);
+		})		
+	  }
 
     getILOStages() {
         this._dashboardService.getILOStages().subscribe(a => {

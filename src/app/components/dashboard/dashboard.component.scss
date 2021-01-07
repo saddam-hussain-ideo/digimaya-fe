@@ -1166,13 +1166,23 @@
     bottom: 11px;
     
   }
-
-  @media (min-width:1150) {
-    #inc-button {
-        right: 4px;
-        top: 26px;
-      }
-}
+  @media (max-width:1430px) {
+        #inc-button {
+            right: 4px;
+            top: 26px;
+          }
+    }
+    @media (max-width:1210px) {
+        #inc-button {
+            top: 31px;
+          }
+    }
+//   @media (min-width:1150) {
+//     #inc-button {
+//         right: 4px;
+//         top: 26px;
+//       }
+// }
 
 .spin-hider{
     position: absolute;
