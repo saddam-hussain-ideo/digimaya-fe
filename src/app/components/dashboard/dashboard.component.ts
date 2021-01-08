@@ -27,6 +27,9 @@ declare var $: any;
 export class DashboardComponent implements OnDestroy, OnInit {
     public pieChartOptions: any;
     userId;
+    date;
+    piptleIssued = 0;
+    purchaseValue = 0;
     totalPiptles = 0;
     public ctx: any;
     public ctx2: any;
@@ -431,10 +434,14 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
         this._dashboardService.getLiveStats().subscribe(a => {
 
-
+            
             if (a.code == 200) {
+                console.log(a);
+                this.piptleIssued =  a['data']['totalTokens']
+                this.purchaseValue =  a['data']['tokensValueInAud']
+
                 this._ngZone.run(() => {                    
-                    this.doughnutChartData = a.data;
+                    this.doughnutChartData = a.data.arr;
                 })
             }
 
@@ -925,6 +932,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
             this.userId = this.userObject['UserId']
             this.getTokens();
             }
+        
+        this.date = new Date();
+
         this.getAmountInvested();
         this.getRates();
         this.getILOStages();

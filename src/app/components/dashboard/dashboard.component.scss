@@ -74,7 +74,7 @@
 
 .transactions-new-design{
     margin-top:15px;
-    table-layout: fixed;
+    // table-layout: fixed;
     @media (max-width:640px) {
         table-layout: auto;
     }
@@ -158,9 +158,17 @@
 .rates-table-currency{
     font-family: 'LatoWeb' !important;
     text-transform: $title-case !important;
-    color: #1D2939 !important;
+    // color: #1D2939 !important;
+    color: $dashboard-purple-clr;
     font-size: 14px !important;
     text-align: left;
+   
+}
+.tbl-pd{
+    padding: 12px 8px !important;
+}
+.table-head{
+    font-size: 12px !important;
 }
 .rates-table-value{
     font-family: 'LatoWebBold' !important;
@@ -355,7 +363,9 @@
     margin: 0;
     font-size: 14px;
     font-family: 'LatoWebLight';
-    color: #616A75;
+    // color: #616A75;
+    color:$dashboard-purple-clr;
+    font-weight: bold;
     padding-top: 0;
     line-height: 8px;
     text-transform: uppercase;
@@ -475,20 +485,46 @@
     color: $dashboard-purple-clr;
     text-transform: $title-case;
     font-size: $font-14;
-    font-family: 'LatoWebLight';
+    // font-family: 'LatoWebLight';
+    font-family: 'LatoWebBold';
     margin: $title-margin;
     font-weight: bold;
-
+    .piptleissued{
+        font-weight: bold;
+    }
 }
 
+// @media only screen and (max-width:1490px){
+//     .title-values{
+//         font-size: 10px;
+//     }
+// }
+
+.rates-title-sec{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 .rates-title{
 //   color:#616A75;
   color: $white-color;
   text-transform: $title-case;
-  font-size: $font-14;
-  font-family: 'LatoWebLight';
+//   font-size: $font-14;
+font-size: 12px;
+// font-family: 'LatoWebLight';
   margin: 0;
   font-weight: bold;
+  .link-clr{
+    color: white;
+  }
+}
+
+@media only screen and (max-width:1490px){
+    .rates-title-sec{
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        }
 }
 
 .advised-txt{
@@ -732,6 +768,10 @@
     border: none !important;
     font-size: 14px;
     color: $theme-blue;
+}
+.table .table-head{
+    padding: 12px 10px !important;
+
 }
 
 .right-aligned {
@@ -1227,9 +1267,9 @@
 */
 @media only screen and (min-width:641px) and (max-width:767px) {
 
-    .footer-bottom {
-        background-image: none;
-   }
+//     .footer-bottom {
+//         background-image: none;
+//    }
     .row-eq-height {
         .left-box,.centered-div,.carousel-box{
             margin-bottom:30px;
@@ -1246,9 +1286,9 @@
 
 @media only screen and (min-width:768px) and (max-width:991px) {
 
-    .footer-bottom{
-        background-image:none;
-    }
+    // .footer-bottom{
+    //     background-image:none;
+    // }
 
 
 
@@ -1552,9 +1592,9 @@
     .earn-bold{
         font-size: 14px;
     }
-    .footer-bottom {
-        background: transparent;
-   }
+//     .footer-bottom {
+//         background: transparent;
+//    }
 
    .earn-boxes-list li{
        width:100% !important;
@@ -1661,7 +1701,7 @@
     bottom:0;
     height: 82px;
     width: 100%;
-    background:#EAF4FA;
+    // background:#EAF4FA;
 }
 
     .buy-xchge{
@@ -1799,6 +1839,16 @@
 }
 
 .dash-info-row{
+    .payment-card{
+        margin-top: -20px;
+        .content{
+            padding: 13px 14px 9px 4px;
+            .prp-text{
+                color: $dashboard-purple-clr;
+                font-size: $font-14;
+            }
+        }
+    }
     .info-custom-card{
         background: $dashboard-purple-clr;
         border: 3px solid $white-color;
@@ -1833,6 +1883,15 @@
 
 .over_flow_table{
   overflow-y: scroll;
+  height: 300px;
+}
+.tbl-value{
+    font-size: 12px; 
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    width: 50%;
 }
 div[disabled=disabled] {
   pointer-events: none;

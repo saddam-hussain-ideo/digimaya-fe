@@ -257,10 +257,10 @@
             </div>
 
             <p class="till-pIco-Stge-small"> {{ 'STARTING PRICE:' | translate}}
-                <strong>{{ICOStageInfoLeft?.stageRate}}</strong>
+                <strong>{{ICOStageInfoLeft?.stageRate | currency: 'stageRate'}}</strong>
             </p>
             <p class="till-pIco-Stge-small"> {{ 'REMAINING TOKENS:' | translate}}
-              <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold}}</strong>
+              <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold | currency}}</strong>
           </p>
             
             <p class="till-pIco-Stge-small" *ngIf="!hideSecondBox">{{'Till' | translate}} {{ICOStageInfoRight?.stageName}}</p>

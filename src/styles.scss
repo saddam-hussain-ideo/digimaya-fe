@@ -1599,8 +1599,11 @@ blue-submit .back-btn {
   }
   .ipad-adjstmnt3 {
     width: 30%;
-    position: relative;
-    float: left;
+    position: absolute;
+    right: 0;
+    // width: 30%;
+    // position: relative;
+    // float: left;
   }
 }
 
