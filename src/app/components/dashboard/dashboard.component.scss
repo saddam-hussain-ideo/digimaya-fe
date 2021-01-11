@@ -1842,14 +1842,13 @@ font-size: 12px;
     .payment-card{
         margin-top: -13px;
         margin-left: 3px;
-        border: 3px solid $dashboard-purple-clr;
-
         .content{
-            // padding: 13px 9px 9px 4px;
-            padding: 10px 7px;
+            padding: 13px 9px 9px 0px;
+            // padding: 10px 7px;
             .prp-text{
                 color: $dashboard-purple-clr;
                 font-size: $font-14;
+                font-weight: bold;
             }
         }
     }
