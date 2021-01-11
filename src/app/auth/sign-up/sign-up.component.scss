@@ -1,5 +1,7 @@
+@import '../../../variables';
+
 .pp{
-  color: purple;
+  color: $dashboard-purple-clr;
   font-size: 100px;
   letter-spacing: 15px;
 }
@@ -39,6 +41,7 @@
   overflow: auto;
   
 }
+
 
 .links-signup{
   text-decoration: underline;
