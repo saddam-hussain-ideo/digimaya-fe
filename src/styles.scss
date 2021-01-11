@@ -206,7 +206,7 @@ input:-webkit-autofill {
   margin-bottom: 50px;
 }
 .logo-top img {
-  width: 85%;
+  // width: 85%;
 }
 .top-heading {
   font-family: LatoWebLight, Helvetica, sans-serif;
@@ -220,7 +220,8 @@ input:-webkit-autofill {
 }
 .blue-inputs {
   font-family: "LatoWebLight";
-  border: 1px solid rgb(121, 226, 226);
+  // border: 1px solid rgb(121, 226, 226);
+  border: 1px solid $dashboard-purple-clr;
   border-radius: 2px;
   background-color: #fff;
   text-align: center;
@@ -389,7 +390,8 @@ input:-webkit-autofill {
   left: 0.05em;
   font-size: 1.4em;
   line-height: 0.8;
-  color: #09ad7e;
+  // color: #09ad7e;
+  color: $dashboard-purple-clr;
   transition: all 0.2s;
   font-family: "LatoWebLight";
 }
@@ -429,6 +431,10 @@ label:hover:before {
 }
 .no-underline {
   text-decoration: none;
+}
+
+.piptle-links{
+  color:$dashboard-purple-clr;
 }
 
 /* QR Code */
@@ -1160,7 +1166,7 @@ blue-submit .back-btn {
   color: white;
   font-family: "LatoWebBold";
   font-size: 20px;
-  background: #316598;
+  background:$dashboard-purple-clr;
   width: 100%;
   border: none;
   cursor: pointer;
@@ -1866,7 +1872,7 @@ blue-submit .back-btn {
 }
 
 .pp{
-  color: purple;
+  color: $dashboard-purple-clr;
   font-size: 100px;
   letter-spacing: 15px;
 }
