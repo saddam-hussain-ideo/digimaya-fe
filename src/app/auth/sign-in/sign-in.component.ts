@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Validations } from '../../validations';
 import { UserService } from '../../services/userService';
@@ -18,7 +18,7 @@ declare var $: any;
 export class SignInComponent implements OnInit, OnDestroy {
 
   public isAlive = true;
-  
+  isShow : boolean = false;
   public localState: any;
   public showContentWhenReady: boolean = false;
   public selectedProduct: any;
@@ -38,7 +38,8 @@ export class SignInComponent implements OnInit, OnDestroy {
   public lang;
   public selectedLanguage: string = 'default';
   @ViewChild(RecaptchaComponent) reCaptcha: RecaptchaComponent;
-
+  @ViewChild('passwordField') passwordInput : ElementRef;
+  @ViewChild('#eyeicon') eyeicon : ElementRef;
   public config: ToasterConfig =
     new ToasterConfig({ animation: 'flyRight' });
 
@@ -131,7 +132,7 @@ export class SignInComponent implements OnInit, OnDestroy {
         if(a.data.Language){
           this.translate.use(a.data.Language)
         }else{
-          this.translate.use('es')
+          this.translate.use('en')
         }
         
         if (a.data.twoFAStatus) {
@@ -244,5 +245,13 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.isAlive = false;
+  }
+  hidePassword(){     
+    this.isShow = false
+    this.passwordInput.nativeElement.setAttribute('type', 'password');
+  }
+  showPassword(){ 
+    this.isShow = true
+    this.passwordInput.nativeElement.setAttribute('type', 'text');
   }
 }

@@ -1840,9 +1840,13 @@ font-size: 12px;
 
 .dash-info-row{
     .payment-card{
-        margin-top: -20px;
+        margin-top: -13px;
+        margin-left: 3px;
+        border: 3px solid $dashboard-purple-clr;
+
         .content{
-            padding: 13px 14px 9px 4px;
+            // padding: 13px 9px 9px 4px;
+            padding: 10px 7px;
             .prp-text{
                 color: $dashboard-purple-clr;
                 font-size: $font-14;

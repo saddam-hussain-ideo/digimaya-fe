@@ -393,7 +393,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
            this.coinsCalculated = 0; */
 
 
-        console.log(elem);
         
         this.selectedCurrency = elem;
         if (elem == "liveRate") {
