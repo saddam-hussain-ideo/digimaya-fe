@@ -14,6 +14,7 @@ import { BlogModel } from '../../models/blogModel';
 import 'chart.piecelabel.js';
 import { Validations } from '../../validations';
 import { UserService } from 'src/app/services/userService';
+import { ToasterConfig, ToasterService } from 'angular2-toaster';
 
 
 
@@ -31,6 +32,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
     piptleIssued = 0;
     purchaseValue = 0;
     totalPiptles = 0;
+    public config: ToasterConfig =
+    new ToasterConfig({ animation: 'flyRight' });
     public ctx: any;
     public ctx2: any;
     public ctx3: any;
@@ -66,6 +69,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     public coinsWantedBottom: any = 0;
     public totalCoinToPayFor: any = 0;
     public recentTransactionsPNumber: any = 0;
+    public totalCalulatedValue = 0;
 
     public recentTransactionsPSize: any = 4;
     public paginationNumber: any = 1;
@@ -110,7 +114,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
         public _sharedService: SharedService,
         private ref: ChangeDetectorRef,
         private _ngZone: NgZone,
-        private userService: UserService
+        private userService: UserService,
+        private toasterService: ToasterService
     ) {
 
         this.investedValues = new AmountInvestedModel();
@@ -258,7 +263,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
     calculate_now(selectedCurrency) {
         let valueForCurrencySelected = this.RatesModel[selectedCurrency];
         let calculateInMxn = valueForCurrencySelected * this.coinsWanted;
-
+        console.log(calculateInMxn);
+        
+        this.totalCalulatedValue = calculateInMxn;
         // let coinWithDiscount = (calculateInMxn / this.RatesModel.liveRate).toFixed(8);
         let totalCoins = +(calculateInMxn / this.RatesModel.liveRate).toFixed(8);
 
@@ -355,6 +362,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
     navigateToBuyTokens() {
+        if(this.totalCalulatedValue < 50){
+            this.toasterService.pop('warning', "Minimum purchase amount should be equivalent to AUD $50");
+            return
+        }
         this.router.navigate(['/home/my-wallet']);
     }
 
