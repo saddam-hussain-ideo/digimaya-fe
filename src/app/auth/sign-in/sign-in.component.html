@@ -22,8 +22,8 @@
                 </div>
                 <div class='form-group pwd-rel'>
                     <input autocomplete="off" #passwordField type="password" class="piptle-inputs" placeholder="{{'Password' | translate}}" name="password" (keydown)="loginWithEnter($event)" [(ngModel)]="password">
-                    <span *ngIf="!isShow"  class="toggle-password fa fa-eye-slash" (click)=" showPassword()"></span>
-                    <span  *ngIf="isShow"  class="fa fa-eye toggle-password" (click)="hidePassword()"></span>
+                    <span *ngIf="!isShow"  class="toggle-password toggle-signin fa fa-eye-slash" (click)=" showPassword()"></span>
+                    <span  *ngIf="isShow"  class="fa fa-eye toggle-password toggle-signin" (click)="hidePassword()"></span>
 
                 </div>
 

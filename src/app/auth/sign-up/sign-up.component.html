@@ -35,15 +35,17 @@
                 </div>
 
 
-                <div class='form-group'>
-                    <input type="password" class="blue-inputs" placeholder="{{'Password' | translate}}" name="SignUpObject.password" [(ngModel)]="SignUpObject.password">
-
+                <div class='form-group pwd-rel'>
+                    <input type="password" #passwordField class="blue-inputs" placeholder="{{'Password' | translate}}" name="SignUpObject.password" [(ngModel)]="SignUpObject.password">
+                    <span *ngIf="!isShow"  class="toggle-password toggle-signup fa fa-eye-slash" (click)=" showPassword()"></span>
+                    <span  *ngIf="isShow"  class="fa fa-eye toggle-password toggle-signup" (click)="hidePassword()"></span>
                 </div>
 
-                <div class='form-group'>
-                    <input type="password" class="blue-inputs" placeholder="{{'Confirm Password' | translate}}" name="SignUpObject.cPassword" [(ngModel)]="SignUpObject.cPassword"
+                <div class='form-group pwd-rel'>
+                    <input type="password" class="blue-inputs" #confirmPasswordField placeholder="{{'Confirm Password' | translate}}" name="SignUpObject.cPassword" [(ngModel)]="SignUpObject.cPassword"
                         (keydown)="signUpWithEnter($event)">
-
+                        <span *ngIf="!isConfirm"  class="toggle-password toggle-signup fa fa-eye-slash" (click)=" showPassword('confirm')"></span>
+                        <span  *ngIf="isConfirm"  class="fa fa-eye toggle-password toggle-signup" (click)="hidePassword('confirm')"></span>
 
                 </div>
 
