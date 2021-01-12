@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { Validations } from '../../validations';
@@ -77,6 +77,11 @@ export class SignUpComponent implements OnInit, OnDestroy {
   public documentUrl;
   public privacyPolicy;
   public lang;
+  isShow : boolean = false;
+  isConfirm : boolean = false;
+
+  @ViewChild('passwordField') passwordInput : ElementRef;
+  @ViewChild('confirmPasswordField') passwordConfirm: ElementRef;
   constructor(
     public activatedRoute: ActivatedRoute,
     public router: Router,
@@ -386,6 +391,25 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
 
+  hidePassword(value){   
+    if(value == 'confirm'){
+      this.isConfirm = false
+      this.passwordConfirm.nativeElement.setAttribute('type', 'password');
+      return
+    }
+    this.isShow = false
+    this.passwordInput.nativeElement.setAttribute('type', 'password');
+  }
+  showPassword(value){
+    
+    if(value == 'confirm'){
+      this.isConfirm = true
+      this.passwordConfirm.nativeElement.setAttribute('type', 'text');
+      return
+    }
+    this.isShow = true
+    this.passwordInput.nativeElement.setAttribute('type', 'text');
 
+  }
 
 }

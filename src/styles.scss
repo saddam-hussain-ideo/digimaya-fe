@@ -437,6 +437,24 @@ label:hover:before {
   color:$dashboard-purple-clr;
 }
 
+.pwd-rel{
+  position: relative;
+  .toggle-password{
+    position: absolute;
+    color:$dashboard-purple-clr;
+    right: 15px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  .toggle-signin{
+    top: 9px;
+  }
+  .toggle-signup{
+    top: 22px;
+  }
+}
+
+
 /* QR Code */
 
 .sidebar-active {
