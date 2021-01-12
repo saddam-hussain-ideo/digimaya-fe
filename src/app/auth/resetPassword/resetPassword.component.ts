@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
   ViewChild,
-  OnDestroy
+  OnDestroy,
+  ElementRef
 } from '@angular/core';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -61,7 +62,11 @@ export class ResetPassword implements OnInit, OnDestroy {
   new ToasterConfig({animation: 'flyRight'});
   public lang;
   public userObject:any;
+  isShow : boolean = false;
+  isConfirm : boolean = false;
 
+  @ViewChild('passwordField') passwordInput : ElementRef;
+  @ViewChild('confirmPasswordField') passwordConfirm: ElementRef;
   constructor(public activatedRoute: ActivatedRoute, public router: Router, public _userService: UserService,private toasterService: ToasterService,private translate: TranslateService, private _sharedService: SharedService) {
 
     this.ValidationsClass = new Validations();
@@ -234,6 +239,26 @@ export class ResetPassword implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.isAlive = false;
+  }
+  hidePassword(value){   
+    if(value == 'confirm'){
+      this.isConfirm = false
+      this.passwordConfirm.nativeElement.setAttribute('type', 'password');
+      return
+    }
+    this.isShow = false
+    this.passwordInput.nativeElement.setAttribute('type', 'password');
+  }
+  showPassword(value){
+    
+    if(value == 'confirm'){
+      this.isConfirm = true
+      this.passwordConfirm.nativeElement.setAttribute('type', 'text');
+      return
+    }
+    this.isShow = true
+    this.passwordInput.nativeElement.setAttribute('type', 'text');
+
   }
 
 }
