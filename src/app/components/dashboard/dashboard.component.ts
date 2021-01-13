@@ -261,9 +261,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     calculate_now(selectedCurrency) {
         let valueForCurrencySelected = this.RatesModel[selectedCurrency];
-        let calculateInMxn = valueForCurrencySelected * this.coinsWanted;
-        console.log(calculateInMxn);
-        
+        let calculateInMxn = valueForCurrencySelected * this.coinsWanted;        
         this.totalCalulatedValue = calculateInMxn;
         // let coinWithDiscount = (calculateInMxn / this.RatesModel.liveRate).toFixed(8);
         let totalCoins = +(calculateInMxn / this.RatesModel.liveRate).toFixed(8);
