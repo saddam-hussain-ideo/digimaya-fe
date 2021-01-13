@@ -71,7 +71,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     public recentTransactionsPNumber: any = 0;
     public totalCalulatedValue = 0;
 
-    public recentTransactionsPSize: any = 4;
+    public recentTransactionsPSize: any = 6;
     public paginationNumber: any = 1;
     public noTransactions: boolean = false;
 

@@ -846,11 +846,16 @@
                                                 <span class="buy-text">{{'Buy' | translate}} </span>{{coinsCalculatedBottom | currency:'crypto'}} PUC</p>
                                             <p class="btc-price">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p> -->
                                             <div class="d-flex">
-                                                <p class="buy-txt text-white">{{'Buy' | translate}} </p>
+                                                <div class="flex-column">
+                                                <p class="buy-txt text-white pb-0">{{'Buy' | translate}} </p>
+                                                <p class="buy-txt text-white pt-0">With</p>
+                                                </div>
                                                 <p class="vert-line"></p>
                                                 <div class="d-flex flex-column text-white">
                                                     <p class="puc-txt">{{coinsCalculatedBottom | currency:'crypto'}} PPTL</p>
-                                                    <p class="curr-txt">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p>
+                                                    <p class="curr-txt mb-0">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p>
+                                                    <p class="curr-txt">AUD ${{totalCalulatedValue | currency:'crypto'}}</p>
+
                                                 </div>
                                             </div>
                                         </div> 
@@ -1185,7 +1190,7 @@
                                     <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Tokens' | translate}}</th>
                                     <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Discount' | translate}}%</th>
                                     <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Total Tokens' | translate}}</th>
-                                    <th class="rates-table-currency  table-head text-centered no-top-padding">Amount Recieved</th>
+                                    <th class="rates-table-currency  table-head text-centered no-top-padding">Currency used</th>
                                     <th class="rates-table-currency  table-head text-centered no-top-padding">Piptle Value AUD</th>
 
                                     <th class="rates-table-currency text-centered  table-head">{{'Date' | translate}}</th>
@@ -1202,19 +1207,19 @@
                                     <td  class="img-width-table v-middle table-head">
 
                                         <div class="coin-image">
-                                            <img *ngIf="transactions.TransactionCurrencyType=='PPTL'" src="../../../assets/img/Piptle logo.png" alt="dollar-icon">
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='PPTL'" src="../../../assets/img/Piptle logo.png" alt="dollar-icon">
 
                                             <img *ngIf="transactions.TransactionCurrencyType=='USD'" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
-                                            <img *ngIf="transactions.TransactionCurrencyType=='MXN'" src="../../../assets/img/dollar-icon.png" alt="dollar-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='MXN'" src="../../../assets/img/dollar-icon.png" alt="dollar-icon"> -->
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='EUR'" src="../../../assets/img/coin-euro.png" alt="euro-icon"> -->
-                                            <img *ngIf="transactions.TransactionCurrencyType=='LTC'" src="../../../assets/img/litecoin-ltc-logo.png" alt="ltc-icon">
-                                            <img *ngIf="transactions.TransactionCurrencyType=='BTC'" src="../../../assets/img/btc-left.png" alt="btc-icon">
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='LTC'" src="../../../assets/img/litecoin-ltc-logo.png" alt="ltc-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='BTC'" src="../../../assets/img/btc-left.png" alt="btc-icon"> -->
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='DASH'" src="../../../assets/img/dash-left.png" alt="dash-icon"> -->
-                                            <img *ngIf="transactions.TransactionCurrencyType=='ETH'" src="../../../assets/img/eth-left.png" alt="eth-icon">
-                                            <img *ngIf="transactions.TransactionCurrencyType=='BCH'" src="../../../assets/img/bitcoin-cash-bch-logo.png" alt="bch-icon">
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='ETH'" src="../../../assets/img/eth-left.png" alt="eth-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='BCH'" src="../../../assets/img/bitcoin-cash-bch-logo.png" alt="bch-icon"> -->
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='BTG'" src="../../../assets/img/btg-left.png" alt="btg-icon"> -->
-                                            <img style="padding-top: 12px;" *ngIf="transactions.TransactionCurrencyType=='FRU'" src="../../../assets/img/fav.png" alt="xchge-icon">
-
+                                            <!-- <img style="padding-top: 12px;" *ngIf="transactions.TransactionCurrencyType=='FRU'" src="../../../assets/img/fav.png" alt="xchge-icon"> -->
+                                            <img src="../../../assets/img/Recieve international payments.png" alt="dollar-icon">
                                         </div>
 
 
@@ -1285,7 +1290,8 @@
                                         {{transactions.TotalTokens | currency}}
                                     </td>
                                     <td class="text-centered v-middle stacked-text table-head">
-                                        {{transactions.CryptoAmountReceive | currency:'crypto'}}
+                                        <!-- {{transactions.CryptoAmountReceive | currency:'crypto'}} -->
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='BTC'" >{{transactions.TransactionCurrencyType}}</p>
                                     </td>
                                     <td class="text-centered v-middle stacked-text table-head">
                                         ${{transactions.AmountInMxn | currency}}
