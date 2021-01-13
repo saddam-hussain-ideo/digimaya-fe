@@ -7,7 +7,7 @@
 
     <div class="head-section">
       <div class="page-title d-flex content-flex">
-        <span class="img-borders"> <img src="../../../assets/img/PIPTLE-ILO-ICON.png" class="sidebar-img" alt="">
+        <span class="img-borders"> <img src="../../../assets/img/PIPTLE-ILO-sideicon.png" class="sidebar-img" alt="">
         </span>
          <h1 class="page-title text-left">
           {{ 'ICO Tracker' | translate}}
@@ -42,8 +42,10 @@
               <div class="right-icon-stats">
   
   
-                <p class="number">{{ICOInformation?.Sale}}
-                  <span class="dollar">AUD$</span>
+                <p class="number">
+                  <!-- {{ICOInformation?.Sale}} -->
+                  7000000
+                  <span class="dollar">PPTL</span>
                 </p>
                 <p class="total-text">{{ 'ISSUED VALUE ' | translate}}</p>
   
@@ -64,7 +66,7 @@
   
   
             <div class="top-left-ico-text">
-              <p class="ico-top-text">{{ 'TOKENSALE PROGRESS' | translate}}
+              <p class="ico-top-text">{{ 'TOTAL LICENSEES' | translate}}
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -107,7 +109,7 @@
         <div class="col-sm-12 col-md-4 col-lg-3 no-right">
           <div class="inner-box">
             <div class="top-left-ico-text">
-              <p class="ico-top-text">{{ 'Countries' | translate}}
+              <p class="ico-top-text">{{ 'TOTAL COUNTRIES' | translate}}
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -151,7 +153,7 @@
           <div class="inner-box ">
   
             <div class="top-left-ico-text">
-              <p class="ico-top-text">{{ 'CAPS' | translate}}
+              <p class="ico-top-text">{{ 'LAST STAGE PROGRESS' | translate}}
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -176,14 +178,22 @@
                       <img src="../../../assets/img/softcap-icon.png" class="softcap-img" alt="softcap-icon">
                     </div> -->
   
-                    <div>
-  
-                      <p class="number"> {{ICOInformation?.softCap}}
+                    <div class="d-flex flex-column justify-content-center mt-3">
+                      <p class="ico-top-text mb-3 p-0">Founder</p>
+                      <div class="d-flex flex-row justify-content-center">
+                        <p class="number pt-0">34324</p>
+                        <p class="ml-2 dollar pt-0">PPTL</p>
+                      </div>
+                      <div class="d-flex flex-row justify-content-center">
+                        <p class="number pt-0">432</p>
+                        <p class="ml-2 dollar pt-0">AUD</p>
+                      </div>
+                      <!-- <p class="number"> {{ICOInformation?.softCap}}
                         <span class="dollar">PPTL</span>
                       </p>
                       <p class="total-text"> {{ 'Softcap' | translate}}
   
-                      </p>
+                      </p> -->
   
                     </div>
                   </div>
@@ -196,15 +206,21 @@
                   <!-- <div >
                     <img src="../../../assets/img/hardcap-icon.png" class="hardcap-img" alt="softcap-icon">
                   </div> -->
-                  <div>
+                  <!-- <div>
                     <p class="number">{{ICOInformation?.hardCap}}
                       <span class="dollar">PPTL</span>
                     </p>
                     <p class="total-text">{{ 'Hardcap' | translate}}
   
                     </p>
+                  </div> -->
+                  <div class="d-flex flex-column justify-content-center mt-3">
+
+                    <p class="ico-top-text mb-3 p-0">New Licensees</p>
+                      <div class="d-flex flex-row justify-content-center">
+                        <p class="number pt-0">34324</p>
+                      </div>
                   </div>
-  
                 </div>
   
               </div>
@@ -248,7 +264,7 @@
                 <img src="../../../assets/img/time-icon.png" alt="time-icon">
               </div>
               <div class="ico-small-head-upper clearfix">
-                <p class="till-pIco-Stge-txt text-uppercase">
+                <p class="till-pIco-Stge-txt stage-padding text-uppercase">
                   {{ICOStageInfoLeft?.stageName | translate}}
                 </p>
 
@@ -256,17 +272,21 @@
 
             </div>
 
-            <p class="till-pIco-Stge-small"> {{ 'STARTING PRICE:' | translate}}
+            <p class="till-pIco-Stge-small p-top"> {{ 'STARTING PRICE:' | translate}}
                 <strong>{{ICOStageInfoLeft?.stageRate | currency: 'stageRate'}}</strong>
             </p>
-            <p class="till-pIco-Stge-small"> {{ 'REMAINING TOKENS:' | translate}}
+            <p class="till-pIco-Stge-small p-top"> {{ 'REMAINING TOKENS:' | translate}}
               <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold | currency}}</strong>
           </p>
             
-            <p class="till-pIco-Stge-small" *ngIf="!hideSecondBox">{{'Till' | translate}} {{ICOStageInfoRight?.stageName}}</p>
-            <p class="till-pIco-Stge-small" *ngIf="hideSecondBox">{{'ICO will end after the current stage' | translate}}</p>
-
-            <div class="progress-div fancy-progress">
+            <p class="till-pIco-Stge-small p-top" *ngIf="!hideSecondBox">{{'Till' | translate}} {{ICOStageInfoRight?.stageName}}</p>
+            <p class="till-pIco-Stge-small p-top" *ngIf="hideSecondBox">{{'ICO will end after the current stage' | translate}}</p>
+            <div class="text-center p-top">
+              <!-- <button class="submit-btn" data-toggle="modal"
+              data-target="#stage1">Bonuses</button> -->
+              <button class="bonus-btn" (click)="invokeInfoModal('stage1')">View your benefits and bonuses</button>
+            </div>
+            <div class="progress-div fancy-progress p-top">
               <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"
                   [style.width.%]="leftProgressBar">
@@ -343,14 +363,15 @@
             <div class="clearfix time-block-down">
               <div class="ico-small-head" style="padding-top: 5px;">
                 <h1 class="till-pIco-Stge-txt text-uppercase"> {{ICOStageInfoRight?.stageName | translate}}</h1>
-                <p class="till-pIco-Stge-small">{{ 'STARTING PRICE:' | translate}}
+                <p class="till-pIco-Stge-small p-top">{{ 'STARTING PRICE:' | translate}}
                   <strong>{{ICOStageInfoRight?.stageRate}}</strong>
                 </p>
               </div>
-
             </div>
 
-
+            <div class="text-center paddingbtn">
+              <button class="bonus-btn" (click)="invokeInfoModal('stage2')">View your benefits and bonuses</button>
+            </div>
 
 
 
@@ -563,3 +584,124 @@
 
   </div>
 </section>
+
+
+<!-- Stage one modal -->
+<div class="modal" id="wire-transfer" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+          <div class="close-modal" (click)="closeModal()"><img src="../../../assets/img/close.png"
+                  alt="close-image" /></div>
+          <div class="modal-body">
+
+
+              <div class="header-inside clearfix">
+
+                  <div class="left-icon">
+                      <img src="../../../assets/img/wire-transfer.svg" alt="bitcoin">
+                  </div>
+
+                  <div class="right-text">
+                      <p class="no-of-coins">
+                          {{'WIRE TRANSFER' | translate}}
+                          <br /> {{'claim submission' | translate}}
+
+                      </p>
+
+                  </div>
+
+              </div>
+
+              <hr class="custom-2" />
+
+
+              <div class="form-fields" *ngIf="userObject">
+
+                  <div class="form-group">
+                      <label>{{'Username' | translate}}</label>
+                      <input type="text" class="form-control" readonly placeholder="username here"
+                          value="{{userObject.UserName}}">
+                  </div>
+
+                  <div class="form-group">
+                      <label>{{'Email' | translate}}</label>
+                      <input type="text" class="form-control" readonly placeholder="email here"
+                          value="{{userObject.Email}}">
+                  </div>
+
+                  <div class="form-group">
+                      <label>{{'Select Currency' | translate}}:</label>
+                      <label for="currency-mxn" class="aud ml-3" >AUD</label>
+                  </div>
+
+                  <div class="form-group">
+                      <label>{{'Instrument Id' | translate}}</label>
+                      <input type="text" maxlength="40" class="form-control" name="instrumentId"
+                          [(ngModel)]="instrumentId" placeholder="">
+                  </div>
+
+                  <div class="form-group">
+                      <label>{{'Bank Name' | translate}}</label>
+                      <input type="text" maxlength="40" class="form-control" placeholder="" name="bankName"
+                          [(ngModel)]="bankName">
+                  </div>
+
+                  <div class="form-group clearfix">
+
+                      <div class="float-left left-slip w-25">
+                          <span>{{'Deposit Slip' | translate}}:</span>
+                      </div>
+
+                      <div class="float-left right-upload w-75">
+                          <button class="choose-btn" (click)="changeImage()">
+
+                              <input type='file' (change)="changeimage($event)" id="imgInp"
+                                  style="visibility:hidden;width:0;height:0" />{{fileName ? fileName : 'Image Upload' | translate}}
+                              <img src="../../../assets/img/upload-icon.svg">
+                          </button>
+                      </div>
+
+                      <div class='clear'></div>
+
+                      <small class="allowed">{{'Allowed Types' | translate}}: JPG, PNG & PDF</small>
+
+                  </div>
+
+
+                  <div *ngIf="submitClaimLoader" class="loader">
+                      <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                          preserveAspectRatio="xMidYMid">
+                          <g transform="rotate(208.756 50 50)">
+                              <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
+                                  values="360 50 50;0 50 50" keyTimes="0;1" dur="2.3s"
+                                  keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+                              <path fill="#85ffbd"
+                                  d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                              </path>
+                              <path fill="#316598"
+                                  d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                              </path>
+                              <path fill="#a4bcc2"
+                                  d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                              </path>
+                          </g>
+                      </svg>
+                  </div>
+
+
+                  <div class="form-group" *ngIf="submitClaimBtn">
+                      <button class="submit-btn" (click)="submitClaim()">{{'Submit Claim' | translate}}</button>
+                  </div>
+
+              </div>
+
+
+
+          </div>
+
+
+      </div>
+  </div>
+</div>

@@ -25,7 +25,6 @@ import { FaqsComponent } from './components/faqs/faqs.component';
 import { QRCodeModule } from 'angular2-qrcode';
 import { ChartsModule } from 'ng2-charts';
 import { VerifyEmail } from './auth/verfication/verifyEmailcomponent';
-
 import { ForgotPasswordComponent } from './auth/forgotPassword/forgotPassword.component';
 import { ResetPassword } from './auth/resetPassword/resetPassword.component';
 import { SharedService } from './services/shared';
@@ -47,6 +46,7 @@ import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { Currency } from './pipes/currency.pipe';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
+import { StagesComponent } from './components/stages/stages.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -76,7 +76,8 @@ export function createTranslateLoader(http: HttpClient) {
     AuthenticateComponent,
     SafePipe,
     WireTransferComponent,
-    PiptleWalletComponent
+    PiptleWalletComponent,
+    StagesComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +110,8 @@ export function createTranslateLoader(http: HttpClient) {
       provide: RECAPTCHA_SETTINGS,
       useValue: { siteKey: '6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX' } as RecaptchaSettings,
     }], //shared service being injected into modules
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [StagesComponent]
 })
 export class AppModule { 
   constructor(public _sharedService:SharedService){
