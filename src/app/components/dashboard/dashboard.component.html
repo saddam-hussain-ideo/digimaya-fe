@@ -83,571 +83,585 @@
     <!-- Earn and XCHGE-->
 
 
-    <ul class="earn-boxes-list clearfix">
+    <div class="row">
+        <div class="col-md-6 col-sm-4">
+            <ul class="earn-boxes-list clearfix">
 
-        <li>
-            <div class="inner-box" disabled="disabled">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img style="width: 20px" src="../../../assets/img/dollar-icon.png" alt="eth-icon">
+                <li>
+                    <div class="inner-box" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img style="width: 20px" src="../../../assets/img/dollar-icon.png" alt="eth-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img style="width: 22px" src="../../../assets/img/dollar-icon.png" alt="eth-icon">
+        
+                                    <p class="balance" title="{{investedValues?.MXNContributed}}">{{investedValues?.MXNContributed | currency:'fait'}}
+                                        <span class="currency">AUD</span>
+                                    </p>
+                                    <p class="currency-heading">AUD {{ 'Invested' | translate}}</p>
+        
+                                </div>
+                            </div>
                         </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line disable-coins">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
+        
                     </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img style="width: 22px" src="../../../assets/img/dollar-icon.png" alt="eth-icon">
-
-                            <p class="balance" title="{{investedValues?.MXNContributed}}">{{investedValues?.MXNContributed | currency:'fait'}}
-                                <span class="currency">AUD</span>
-                            </p>
-                            <p class="currency-heading">AUD {{ 'Invested' | translate}}</p>
-
+                </li>
+        
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img style="width: 20px" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img style="width: 22px" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
+        
+                                    <p class="balance">{{investedValues.USDContributes | currency:'fait'}}
+                                        <span class="currency">USDT</span>
+                                    </p>
+                                    <p class="currency-heading">USDT {{ 'Invested' | translate}}</p>
+        
+                                </div>
+                            </div>
                         </div>
+        
                     </div>
-                </div>
-
-            </div>
-        </li>
-
-        <li>
-            <div class="inner-box">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img style="width: 20px" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
+                </li>
+        
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+        
+                                    <p class="balance" title="{{investedValues.ETHContributed}}">{{investedValues.ETHContributed | currency:'crypto'}}
+                                        <span class="currency">eth</span>
+                                    </p>
+                                    <p class="currency-heading">eth {{ 'Invested' | translate}}</p>
+        
+                                </div>
+                            </div>
                         </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
+        
                     </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img style="width: 22px" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
-
-                            <p class="balance">{{investedValues.USDContributes | currency:'fait'}}
-                                <span class="currency">USDT</span>
-                            </p>
-                            <p class="currency-heading">USDT {{ 'Invested' | translate}}</p>
-
+                </li>
+        
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/btc-left.png" alt="btc-icon">
+        
+                                </div>
+                            </div> -->
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/btc-left.png" alt="btc-icon" width="40px">
+        
+                                    <p class="balance" title="{{investedValues.BTCContributed}}">{{investedValues.BTCContributed | currency:'crypto'}}
+                                        <span class="currency">btc</span>
+                                    </p>
+                                    <p class="currency-heading">Btc {{ 'Invested' | translate }}</p>
+        
+                                </div>
+                            </div>
+        
+        
+        
                         </div>
+        
+        
+        
                     </div>
-                </div>
-
-            </div>
-        </li>
-
-        <li>
-            <div class="inner-box">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+                </li>
+                <!-- <li>
+                    <div class="inner-box">
+        
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+        
+                                    <img src="../../../assets/img/dash-left.png" alt="dash-icon">
+        
+        
+                                </div>
+                            </div>
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+        
+                                    <p class="balance" title="{{investedValues.DASHContributes}}">{{investedValues.DASHContributes}}
+                                        <span class="currency">dash</span>
+                                    </p>
+                                    <p class="currency-heading">dash Invested</p>
+        
+                                </div>
+                            </div>
+        
+        
                         </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
+        
                     </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img src="../../../assets/img/eth-left.png" alt="eth-icon">
-
-                            <p class="balance" title="{{investedValues.ETHContributed}}">{{investedValues.ETHContributed | currency:'crypto'}}
-                                <span class="currency">eth</span>
-                            </p>
-                            <p class="currency-heading">eth {{ 'Invested' | translate}}</p>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </li>
-
-        <li>
-            <div class="inner-box">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/btc-left.png" alt="btc-icon">
-
-                        </div>
-                    </div> -->
-                    <div class="grey-bottom-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img src="../../../assets/img/btc-left.png" alt="btc-icon" width="40px">
-
-                            <p class="balance" title="{{investedValues.BTCContributed}}">{{investedValues.BTCContributed | currency:'crypto'}}
-                                <span class="currency">btc</span>
-                            </p>
-                            <p class="currency-heading">Btc {{ 'Invested' | translate }}</p>
-
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-
-            </div>
-        </li>
-        <!-- <li>
-            <div class="inner-box">
-
-
-
-                <div class="clearfix centering-content">
-
-                    <div class="left-svg">
-                        <div class="left-svg-inner">
-
-                            <img src="../../../assets/img/dash-left.png" alt="dash-icon">
-
-
-                        </div>
-                    </div>
-
-                    <div class="grey-bottom-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-
-                            <p class="balance" title="{{investedValues.DASHContributes}}">{{investedValues.DASHContributes}}
-                                <span class="currency">dash</span>
-                            </p>
-                            <p class="currency-heading">dash Invested</p>
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </li> -->
-        <li>
-            <div class="inner-box">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/ltc-left.png" alt="ltc-icon">
-                        </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img src="../../../assets/img/litecoin-ltc-logo.png" style="width: 38px;" alt="ltc-icon">
-
-                            <p class="balance" title="{{investedValues.LTCContributed}}">{{investedValues.LTCContributed | currency:'crypto'}}
-                                <span class="currency">ltc</span>
-                            </p>
-                            <p class="currency-heading">ltc {{ 'Invested' | translate }}</p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </li>
-
-
-        <!-- <li>
-            <div class="inner-box">
-
-
-                <div class="clearfix centering-content">
-
-                    <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+                </li> -->
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/ltc-left.png" alt="ltc-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+        
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/litecoin-ltc-logo.png" style="width: 38px;" alt="ltc-icon">
+        
+                                    <p class="balance" title="{{investedValues.LTCContributed}}">{{investedValues.LTCContributed | currency:'crypto'}}
+                                        <span class="currency">ltc</span>
+                                    </p>
+                                    <p class="currency-heading">ltc {{ 'Invested' | translate }}</p>
+        
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="grey-bottom-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-
-                            <p class="balance" title="{{investedValues.MXNPContributed}}">{{investedValues.MXNPContributed}}
-                                <span class="currency">MXNP</span>
-                            </p>
-                            <p class="currency-heading">MXNP Invested</p>
-
+        
+                </li>
+        
+        
+                <!-- <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+                                </div>
+                            </div>
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+        
+                                    <p class="balance" title="{{investedValues.MXNPContributed}}">{{investedValues.MXNPContributed}}
+                                        <span class="currency">MXNP</span>
+                                    </p>
+                                    <p class="currency-heading">MXNP Invested</p>
+        
+                                </div>
+                            </div>
                         </div>
+        
                     </div>
-                </div>
-
-            </div>
-        </li> -->
-        <!-- <li>
-            <div class="inner-box">
-
-
-                <div class="clearfix centering-content">
-
-                    <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/neo-left.png" alt="neo-icon">
+                </li> -->
+                <!-- <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/neo-left.png" alt="neo-icon">
+                                </div>
+                            </div>
+        
+        
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+        
+                                    <p class="balance">{{investedValues.NEOContributes}}
+                                        <span class="currency">neo</span>
+                                    </p>
+                                    <p class="currency-heading">neo Invested</p>
+        
+                                </div>
+                            </div>
                         </div>
+        
                     </div>
-
-
-
-                    <div class="grey-bottom-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-
-                            <p class="balance">{{investedValues.NEOContributes}}
-                                <span class="currency">neo</span>
-                            </p>
-                            <p class="currency-heading">neo Invested</p>
-
+                </li> -->
+                <!-- <li>
+                    <div class="inner-box">
+        
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/btg-left.png" alt="btg-icon">
+                                </div>
+                            </div>
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+        
+                                    <p class="balance" title="{{investedValues.BTGContributes}}">{{investedValues.BTGContributes}}
+                                        <span class="currency">btg</span>
+                                    </p>
+                                    <p class="currency-heading">btg Invested</p>
+        
+                                </div>
+                            </div>
                         </div>
+        
+        
+        
                     </div>
-                </div>
-
-            </div>
-        </li> -->
-        <!-- <li>
-            <div class="inner-box">
-
-
-
-                <div class="clearfix centering-content">
-
-                    <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/btg-left.png" alt="btg-icon">
+                </li> -->
+        
+        
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        <!-- 
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/bch-left.png" alt="bch-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line ">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/bitcoin-cash-bch-logo.png" width="40px" alt="bch-icon">
+        
+                                    <p class="balance">{{investedValues.BCHContributed | currency}}
+                                        <span class="currency">Bch</span>
+                                    </p>
+                                    <p class="currency-heading">bch Invested</p>
+        
+                                </div>
+                            </div>
                         </div>
+        
                     </div>
-
-                    <div class="grey-bottom-line">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-
-                            <p class="balance" title="{{investedValues.BTGContributes}}">{{investedValues.BTGContributes}}
-                                <span class="currency">btg</span>
-                            </p>
-                            <p class="currency-heading">btg Invested</p>
-
+                </li>
+        
+                <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <i class="fab fa-quora" ></i>
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <i class="fab fa-quora" ></i>
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">QOIN</span>
+                                    </p>
+                                    <p class="currency-heading">QOIN Invested</p>
+        
+                                </div>
+                            </div>
+        
                         </div>
+        
                     </div>
-                </div>
+                </li>
+        
+        
+                <!-- <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content"> -->
+        
+                            <!--commented before-->
 
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/Contracoin-symbol.png" alt="" srcset="" width="100px" height="50px">
+                                </div>
+                            </div> -->
+                            <!---->
 
-
-            </div>
-        </li> -->
-
-
-        <li>
-            <div class="inner-box">
-
-
-                <div class="clearfix centering-content">
-<!-- 
-                    <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/bch-left.png" alt="bch-icon">
+                            <!-- <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/cctn.png" class="curr-logo" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">CTCN</span>
+                                    </p>
+                                    <p class="currency-heading">CTCN Invested</p>
+        
+                                </div>
+                            </div>
                         </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line ">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
+        
                     </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img src="../../../assets/img/bitcoin-cash-bch-logo.png" width="40px" alt="bch-icon">
+                </li> -->
 
-                            <p class="balance">{{investedValues.BCHContributed | currency}}
-                                <span class="currency">Bch</span>
-                            </p>
-                            <p class="currency-heading">bch Invested</p>
-
+                <li>
+                    <div class="inner-box mb-0" disabled="disabled" >
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/tron-trx-logo.png" alt="" srcset="" >
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/tron-trx-logo.png"  class="curr-logo" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">Tron</span>
+                                    </p>
+                                    <p class="currency-heading">Tron Invested</p>
+        
+                                </div>
+                            </div>
+        
                         </div>
+        
                     </div>
-                </div>
-
-            </div>
-        </li>
-
-        <li>
-            <div class="inner-box mb-0" disabled="disabled">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <i class="fab fa-quora" ></i>
+                </li>
+        
+                <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/dash-logo-circle.svg" alt="" srcset="" >
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img class="curr-logo" src="../../../assets/img/dash-logo-circle.svg" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">Dash</span>
+                                    </p>
+                                    <p class="currency-heading">Dash Invested</p>
+        
+                                </div>
+                            </div>
+        
                         </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line disable-coins">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
+        
                     </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <i class="fab fa-quora" ></i>
-
-                            <p class="balance">{{"0"}}
-                                <span class="currency">QOIN</span>
-                            </p>
-                            <p class="currency-heading">QOIN Invested</p>
-
+                </li>
+        
+               
+        
+                <!-- <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content"> -->
+                            <!--comented before-->
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/xrp-xrp-logo.png" alt="" srcset="" >
+                                </div>
+                            </div> -->
+                            <!---->
+                            <!-- <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/xrp-xrp-logo.png" class="curr-logo" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">XRP</span>
+                                    </p>
+                                    <p class="currency-heading">XRP Invested</p>
+        
+                                </div>
+                            </div>
+        
                         </div>
+        
                     </div>
-
-                </div>
-
-            </div>
-        </li>
-
-
-        <li>
-            <div class="inner-box mb-0" disabled="disabled">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/Contracoin-symbol.png" alt="" srcset="" width="100px" height="50px">
+                </li> -->
+        
+                <!-- <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content"> -->
+        
+                            <!--commented before-->
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/eos-eos-logo.png" alt="" srcset="" >
+                                </div>
+                            </div> -->
+                            <!---->
+                            <!-- <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/eos-eos-logo.png" class="curr-logo" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">EOS</span>
+                                    </p>
+                                    <p class="currency-heading">EOS Invested</p>
+        
+                                </div>
+                            </div>
                         </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line disable-coins">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
+        
                     </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img src="../../../assets/img/cctn.png" class="curr-logo" alt="" srcset="" >
-
-                            <p class="balance">{{"0"}}
-                                <span class="currency">CTCN</span>
-                            </p>
-                            <p class="currency-heading">CTCN Invested</p>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </li>
-
-        <li>
-            <div class="inner-box mb-0" disabled="disabled">
+                </li> -->
+            </ul>
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center coins-graph">
+            <p class="graph-text">PIPTLE PRICING AND TOTAL PARTICIPANTS</p>    
+            <p class="graph-inner-text">launching soon</p>
+        </div>
+    </div>
 
 
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/dash-logo-circle.svg" alt="" srcset="" >
-                        </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line disable-coins">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img class="curr-logo" src="../../../assets/img/dash-logo-circle.svg" alt="" srcset="" >
-
-                            <p class="balance">{{"0"}}
-                                <span class="currency">Dash</span>
-                            </p>
-                            <p class="currency-heading">Dash Invested</p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </li>
-
-        <li>
-            <div class="inner-box mb-0" disabled="disabled" >
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/tron-trx-logo.png" alt="" srcset="" >
-                        </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line disable-coins">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img src="../../../assets/img/tron-trx-logo.png"  class="curr-logo" alt="" srcset="" >
-
-                            <p class="balance">{{"0"}}
-                                <span class="currency">Tron</span>
-                            </p>
-                            <p class="currency-heading">Tron Invested</p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </li>
-
-        <li>
-            <div class="inner-box mb-0" disabled="disabled">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/xrp-xrp-logo.png" alt="" srcset="" >
-                        </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line disable-coins">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img src="../../../assets/img/xrp-xrp-logo.png" class="curr-logo" alt="" srcset="" >
-
-                            <p class="balance">{{"0"}}
-                                <span class="currency">XRP</span>
-                            </p>
-                            <p class="currency-heading">XRP Invested</p>
-
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </li>
-
-        <li>
-            <div class="inner-box mb-0" disabled="disabled">
-
-
-                <div class="clearfix centering-content">
-
-                    <!-- <div class="left-svg">
-                        <div class="left-svg-inner">
-                            <img src="../../../assets/img/eos-eos-logo.png" alt="" srcset="" >
-                        </div>
-                    </div> -->
-
-                    <div class="grey-bottom-line disable-coins">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
-                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
-                            />
-                        </svg>
-                    </div>
-                    <div class="right-stats">
-                        <div class="stats">
-                            <img src="../../../assets/img/eos-eos-logo.png" class="curr-logo" alt="" srcset="" >
-
-                            <p class="balance">{{"0"}}
-                                <span class="currency">EOS</span>
-                            </p>
-                            <p class="currency-heading">EOS Invested</p>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </li>
-    </ul>
-
-
-    <ul class="earn-boxes-list clearfix">
+    <ul class="earn-boxes-list clearfix d-none">
 
 
 
@@ -846,11 +860,16 @@
                                                 <span class="buy-text">{{'Buy' | translate}} </span>{{coinsCalculatedBottom | currency:'crypto'}} PUC</p>
                                             <p class="btc-price">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p> -->
                                             <div class="d-flex">
-                                                <p class="buy-txt text-white">{{'Buy' | translate}} </p>
+                                                <div class="flex-column">
+                                                <p class="buy-txt text-white pb-0">{{'Buy' | translate}} </p>
+                                                <p class="buy-txt text-white pt-0">With</p>
+                                                </div>
                                                 <p class="vert-line"></p>
                                                 <div class="d-flex flex-column text-white">
                                                     <p class="puc-txt">{{coinsCalculatedBottom | currency:'crypto'}} PPTL</p>
-                                                    <p class="curr-txt">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p>
+                                                    <p class="curr-txt mb-0">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p>
+                                                    <p class="curr-txt">(AUD ${{totalCalulatedValue | currency:'crypto'}})</p>
+
                                                 </div>
                                             </div>
                                         </div> 
@@ -1185,7 +1204,7 @@
                                     <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Tokens' | translate}}</th>
                                     <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Discount' | translate}}%</th>
                                     <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Total Tokens' | translate}}</th>
-                                    <th class="rates-table-currency  table-head text-centered no-top-padding">Amount Recieved</th>
+                                    <th class="rates-table-currency  table-head text-centered no-top-padding">Currency used</th>
                                     <th class="rates-table-currency  table-head text-centered no-top-padding">Piptle Value AUD</th>
 
                                     <th class="rates-table-currency text-centered  table-head">{{'Date' | translate}}</th>
@@ -1202,19 +1221,19 @@
                                     <td  class="img-width-table v-middle table-head">
 
                                         <div class="coin-image">
-                                            <img *ngIf="transactions.TransactionCurrencyType=='PPTL'" src="../../../assets/img/Piptle logo.png" alt="dollar-icon">
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='PPTL'" src="../../../assets/img/Piptle logo.png" alt="dollar-icon">
 
                                             <img *ngIf="transactions.TransactionCurrencyType=='USD'" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
-                                            <img *ngIf="transactions.TransactionCurrencyType=='MXN'" src="../../../assets/img/dollar-icon.png" alt="dollar-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='MXN'" src="../../../assets/img/dollar-icon.png" alt="dollar-icon"> -->
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='EUR'" src="../../../assets/img/coin-euro.png" alt="euro-icon"> -->
-                                            <img *ngIf="transactions.TransactionCurrencyType=='LTC'" src="../../../assets/img/litecoin-ltc-logo.png" alt="ltc-icon">
-                                            <img *ngIf="transactions.TransactionCurrencyType=='BTC'" src="../../../assets/img/btc-left.png" alt="btc-icon">
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='LTC'" src="../../../assets/img/litecoin-ltc-logo.png" alt="ltc-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='BTC'" src="../../../assets/img/btc-left.png" alt="btc-icon"> -->
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='DASH'" src="../../../assets/img/dash-left.png" alt="dash-icon"> -->
-                                            <img *ngIf="transactions.TransactionCurrencyType=='ETH'" src="../../../assets/img/eth-left.png" alt="eth-icon">
-                                            <img *ngIf="transactions.TransactionCurrencyType=='BCH'" src="../../../assets/img/bitcoin-cash-bch-logo.png" alt="bch-icon">
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='ETH'" src="../../../assets/img/eth-left.png" alt="eth-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='BCH'" src="../../../assets/img/bitcoin-cash-bch-logo.png" alt="bch-icon"> -->
                                             <!-- <img *ngIf="transactions.TransactionCurrencyType=='BTG'" src="../../../assets/img/btg-left.png" alt="btg-icon"> -->
-                                            <img style="padding-top: 12px;" *ngIf="transactions.TransactionCurrencyType=='FRU'" src="../../../assets/img/fav.png" alt="xchge-icon">
-
+                                            <!-- <img style="padding-top: 12px;" *ngIf="transactions.TransactionCurrencyType=='FRU'" src="../../../assets/img/fav.png" alt="xchge-icon"> -->
+                                            <img src="../../../assets/img/Recieve international payments.png" alt="dollar-icon">
                                         </div>
 
 
@@ -1285,7 +1304,15 @@
                                         {{transactions.TotalTokens | currency}}
                                     </td>
                                     <td class="text-centered v-middle stacked-text table-head">
-                                        {{transactions.CryptoAmountReceive | currency:'crypto'}}
+                                        <!-- {{transactions.CryptoAmountReceive | currency:'crypto'}} -->
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='BTC'" >{{transactions.TransactionCurrencyType}}</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='PPTL'" >{{transactions.TransactionCurrencyType}}</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='USD'" >USDT</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='MXN'" >AUD</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='LTC'" >{{transactions.TransactionCurrencyType}}</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='ETH'" >{{transactions.TransactionCurrencyType}}</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='BCH'" >{{transactions.TransactionCurrencyType}}</p>
+
                                     </td>
                                     <td class="text-centered v-middle stacked-text table-head">
                                         ${{transactions.AmountInMxn | currency}}

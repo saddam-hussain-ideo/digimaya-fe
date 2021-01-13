@@ -1,6 +1,6 @@
 export const INFO_MODAL_CONSTANT = {
     STAGE_1: {
-        modalContent: 'stage 1',
+        modalContent: 'stage 1 Bonuses',
         primaryText: {
             startingtext: 'Starting price of AUD',
             value: '$0.10.',
@@ -19,7 +19,7 @@ export const INFO_MODAL_CONSTANT = {
                     }
     },
     STAGE_2: {
-        modalContent: 'stage 2',
+        modalContent: 'stage 2 Bonuses',
         primaryText: { 
             bonus: 'Referral Bonus',
             bonus0: '7.5% of any PPTLs issued on Level 1',
