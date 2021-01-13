@@ -8,8 +8,19 @@ import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstra
 })
 export class StagesComponent implements OnInit {
   @Input() modalData: {
-    primaryText: { showButton: boolean, buttonText: string },
-    secondaryText: { showButton: boolean, buttonText: string}, modalContent: string
+    primaryText: {
+      startingtext: string,
+      value: string,
+      bonus: string,
+      bonus0: string,
+      bonus1: string,
+      bonus2: string,
+      bonus3: string,
+      bonus4: string,
+      bonus5: string,
+    },
+    secondaryText: { showButton: boolean, buttonText: string}, 
+    modalContent: string
   };
   @Output() emitUserOp = new EventEmitter<{ opStatus: string }>();
   
