@@ -15,6 +15,7 @@ import 'chart.piecelabel.js';
 import { Validations } from '../../validations';
 import { UserService } from 'src/app/services/userService';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
+import { element } from '@angular/core/src/render3/instructions';
 
 
 
@@ -225,9 +226,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
             if (a.code == 200) {
                 this.pagination = [];
-                this.recentTransactions = a.data.list;
-                console.log(this.recentTransactions);
-                                
+                this.recentTransactions = a.data.list;                                
                 this.paginationNumber = a.data.count;
 
 
@@ -446,12 +445,14 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
             
             if (a.code == 200) {
-                console.log(a);
                 this.piptleIssued =  a['data']['totalTokens']
                 this.purchaseValue =  a['data']['tokensValueInAud']
 
-                this._ngZone.run(() => {                    
-                    this.doughnutChartData = a.data.arr;
+                this._ngZone.run(() => {
+                    let newarr = a.data.arr.map(element => {
+                        return element.toFixed(6)
+                    })                                        
+                    this.doughnutChartData = newarr;
                 })
             }
 
