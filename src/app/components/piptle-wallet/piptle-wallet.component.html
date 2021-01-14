@@ -19,6 +19,9 @@
 
           </div>
         </div>
+        <div class="mt-2">
+          <button class="btn custom-draw-btn btn-block">{{'LINKWALLETS' | translate}}</button>
+        </div>
       </div>
       <div class="col-md-3">
         <div class="inner-w-box">
@@ -30,6 +33,12 @@
             </div>
 
           </div>
+        </div>
+        <div class="pptl-btns d-flex justify-content-between mt-2">
+          <button class="btn custom-small-btn">{{'SENDTEXT' | translate}}</button>
+          <button class="btn custom-small-btn">{{'RECIEVETEXT' | translate}}</button>
+          <button class="btn custom-small-btn">{{'STAKETEXT' | translate}}</button>
+
         </div>
       </div>
       <div class="col-md-3">
@@ -43,6 +52,9 @@
 
           </div>
         </div>
+        <div class="mt-2">
+          <button class="btn btn-block custom-draw-btn">{{'SCHEDULETEXT' | translate}}</button>
+        </div>
       </div>
       <div class="col-md-3">
         <div class="inner-w-box">
@@ -55,17 +67,32 @@
 
           </div>
         </div>
-      </div>
-     
-    </div>
-    <div class="row mt-2">
-      <div class="col-md-6">
-        <button class="btn btn-block custom-draw-btn">{{'Withdraw' | translate}}</button>
-      </div>
-      <div class="col-md-6">
-        <button class="btn btn-block custom-draw-btn">{{'Withdraw' | translate}}</button>
+        <div class="mt-2">
+          <button class="btn custom-draw-btn btn-block">{{'Withdraw' | translate}}</button>
+        </div>
       </div>
     </div>
+    <!-- <div class="row mt-2">
+      <div class="col-md-3">
+        <button class="btn btn-block custom-draw-btn">{{'LINKWALLETS' | translate}}</button>
+      </div>
+      <div class="col-md-1">
+        <button class="btn custom-small-btn">{{'SENDTEXT' | translate}}</button>
+      </div>
+      <div class="col-md-1">
+        <button class="btn custom-small-btn">{{'RECIEVETEXT' | translate}}</button>
+      </div>
+      <div class="col-md-1">
+        <button class="btn custom-small-btn">{{'STAKETEXT' | translate}}</button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-block custom-draw-btn">{{'SCHEDULETEXT' | translate}}</button>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-block custom-draw-btn">{{'Withdraw' | translate}}</button>
+      </div>
+
+    </div> -->
   </div>
 
 
@@ -93,7 +120,7 @@
       <div class="col-md-3">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'Community Awarded' | translate }}</p>
+            <p class="wallet-inner-t">{{ 'ACTIVITY BONUSES' | translate }}</p>
             <div class="d-flex justify-content-center wallet-cards" >
               <p class="wallet-val">2000</p>
               <p class="wallet-puc ml-2">PPTL</p>
@@ -117,7 +144,7 @@
       <div class="col-md-3">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'Merchant Rewards' | translate }}</p>
+            <p class="wallet-inner-t">{{ 'MERCHANT BONUSES' | translate }}</p>
             <div class="d-flex justify-content-center wallet-cards" >
               <p class="wallet-val">2000</p>
               <p class="wallet-puc ml-2">PPTL</p>
@@ -271,11 +298,16 @@
               <thead>
                 <tr>
                   <th>{{'Date' | translate}}</th>
+                  <th>Transaction</th>
                   <th>{{'Description' | translate}}</th>
-                  <th>{{'Wallet Transferred from' | translate}}</th>
+                  <th>PPTL Tokens</th>
+                  <th>PPTL Value (AUD)</th>
+                  <th>Wallet</th>
                   <th>{{'Action' | translate}}</th>
+
+                  <!-- <th>{{'Wallet Transferred from' | translate}}</th>
                   <th>{{'Amount Debited' | translate}}</th>
-                  <th>{{'Wallet transferred to' | translate}}</th>
+                  <th>{{'Wallet transferred to' | translate}}</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -286,6 +318,8 @@
                   <td>sample only</td>
                   <td>sample only</td>
                   <td>sample only</td>
+                  <td>sample only</td>
+
 
                 </tr>
                 <tr >
@@ -295,10 +329,12 @@
                   <td>sample only</td>
                   <td>sample only</td>
                   <td>sample only</td>
+                  <td>sample only</td>
 
                 </tr>
                 <tr>
                   <td>20/11/2020</td>
+                  <td>sample only</td>
                   <td>sample only</td>
                   <td>sample only</td>
                   <td>sample only</td>

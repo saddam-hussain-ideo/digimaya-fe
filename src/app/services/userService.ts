@@ -319,7 +319,7 @@ export class UserService {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         // headers.append("authorization", token);
-        return this.http.get(`${environment.BaseUrl}admin/tokenTransfer/${queryParams}`)
+        return this.http.get(`${environment.BaseUrl}user/getUserBalance/${queryParams}`)
         .map(res => res.json());
     }
 

@@ -24,7 +24,18 @@
     color: #fff;
     height: 43px;
     font-family: "LatoWebBold";
-    min-width: 200px;
+    // min-width: 200px;
+    text-transform: uppercase;
+    border-radius: unset;
+  }
+  .custom-small-btn{
+    // background: #997bb5;
+    background-color: #c0a9d6;
+    color: #fff;
+    height: 43px;
+    font-family: "LatoWebBold";
+    // min-width: 200px;
+    // min-width: 93px;
     text-transform: uppercase;
     border-radius: unset;
   }

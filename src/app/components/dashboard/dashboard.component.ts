@@ -223,7 +223,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     getMostRecentTransactions() {
         this._dashboardService.getTransactionDetails(this.userObject.UserId, this.currentPage, this.recentTransactionsPSize).takeWhile(() => this._alive).subscribe(a => {
-
             if (a.code == 200) {
                 this.pagination = [];
                 this.recentTransactions = a.data.list;                                

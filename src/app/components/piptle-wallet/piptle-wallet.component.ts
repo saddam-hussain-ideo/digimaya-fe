@@ -27,12 +27,13 @@ export class PiptleWalletComponent implements OnInit {
   }
 
   getTokens(){
-		this.userService.getTokens(this.userId).subscribe(res => {      
+		this.userService.getTokens(this.userId).subscribe(res => {
+
 			if (res) {
         this.totalPiptles = res['data']['totalTokens'];
         this.availablePiptles = res['data']['availableTokens'];
-        this.lockedPiptles = res['data']['lockedTokens'];
-        this.stakedPiptles = res['data']['stakedTokens'];
+        this.lockedPiptles = res['data']['blockedTokens'];
+        this.stakedPiptles = 0;
 
 			}
 		}, err => {
