@@ -314,12 +314,12 @@ export class UserService {
             .map(res => res.json());
     }
 
-    getTokens(userId){
+    getTokens(userId, token){
         const queryParams = `?userId=${userId}`
         let headers = new Headers();
         headers.append('Content-Type', 'application/json; charset=UTF-8');
-        // headers.append("authorization", token);
-        return this.http.get(`${environment.BaseUrl}user/getUserBalance/${queryParams}`)
+        headers.append("authorization", token);
+        return this.http.get(`${environment.BaseUrl}user/getUserBalance/${queryParams}`, { headers: headers })
         .map(res => res.json());
     }
 

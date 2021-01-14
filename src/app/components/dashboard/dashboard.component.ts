@@ -28,6 +28,7 @@ declare var $: any;
 })
 export class DashboardComponent implements OnDestroy, OnInit {
     public pieChartOptions: any;
+    userToken : string;
     userId;
     date;
     piptleIssued = 0;
@@ -223,6 +224,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     getMostRecentTransactions() {
         this._dashboardService.getTransactionDetails(this.userObject.UserId, this.currentPage, this.recentTransactionsPSize).takeWhile(() => this._alive).subscribe(a => {
+
             if (a.code == 200) {
                 this.pagination = [];
                 this.recentTransactions = a.data.list;                                
@@ -936,6 +938,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
         this.userObject = JSON.parse(localStorage.getItem("userObject"));
+        this.userToken = JSON.parse(localStorage.getItem('userToken'));     
         if (this.userObject) {
             this.userId = this.userObject['UserId']
             this.getTokens();
@@ -1023,7 +1026,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
     getTokens(){
-		this.userService.getTokens(this.userId).subscribe(res => {      
+		this.userService.getTokens(this.userId,this.userToken).subscribe(res => {      
 			if (res) {
                 this.totalPiptles = res['data']['totalTokens'];
 			}

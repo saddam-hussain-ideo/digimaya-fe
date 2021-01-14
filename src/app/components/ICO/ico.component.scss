@@ -944,7 +944,7 @@ $bg-color-for-ilo : #d5cff533;
     }
 
     @media (min-width:1800px) {
-        padding-top: 60px;
+        padding-top: 30px;
     }
 
     @media (min-width:1201px) and (max-width:1600px) {
@@ -1349,4 +1349,7 @@ $bg-color-for-ilo : #d5cff533;
 }
 .stage-padding{
     padding-top: 10px;
+}
+.margin-top{
+    margin-top: 5px;
 }

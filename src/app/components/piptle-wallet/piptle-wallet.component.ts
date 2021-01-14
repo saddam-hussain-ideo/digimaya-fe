@@ -14,12 +14,14 @@ export class PiptleWalletComponent implements OnInit {
   availablePiptles: number = 0;
   lockedPiptles: number = 0;
   stakedPiptles: number = 0;
+  userToken : string;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
     $(".list-unstyled li").removeClass("active");
     $("#piptle-wallet-nav").addClass("active");
-    this.userObj = JSON.parse(localStorage.getItem('userObject'));    
+    this.userObj = JSON.parse(localStorage.getItem('userObject'));
+    this.userToken = JSON.parse(localStorage.getItem('userToken'));     
 		if (this.userObj) {
       this.userId = this.userObj['UserId']
       this.getTokens();
@@ -27,7 +29,7 @@ export class PiptleWalletComponent implements OnInit {
   }
 
   getTokens(){
-		this.userService.getTokens(this.userId).subscribe(res => {
+		this.userService.getTokens(this.userId, this.userToken).subscribe(res => {
 
 			if (res) {
         this.totalPiptles = res['data']['totalTokens'];

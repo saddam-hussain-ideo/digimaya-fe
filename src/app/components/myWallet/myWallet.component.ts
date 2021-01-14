@@ -28,6 +28,7 @@ declare var $: any;
 })
 export class MyWalletComponent implements OnInit, OnDestroy {
   bankObj: object;
+  userToken : string;
   userId;
   totalPiptles = 0;
   bankdetails: string
@@ -587,6 +588,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
+    this.userToken = JSON.parse(localStorage.getItem('userToken'));     
     this.bankObj = {
       AccountName:  'Piptle Wealth Management',
       BranchNumber: '064 475',
@@ -630,7 +632,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   }
 
   getTokens(){
-		this._userSerivce.getTokens(this.userId).subscribe(res => {      
+		this._userSerivce.getTokens(this.userId,this.userToken).subscribe(res => {      
 			if (res) {
                 this.totalPiptles = res['data']['totalTokens'];
 			}
