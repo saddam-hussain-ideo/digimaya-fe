@@ -315,7 +315,7 @@ export class UserService {
     }
 
     getTokens(userId){
-        const queryParams = `?userid=${userId}`
+        const queryParams = `?userId=${userId}`
         let headers = new Headers();
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         // headers.append("authorization", token);
