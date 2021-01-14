@@ -632,7 +632,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   }
 
   getTokens(){
-		this._userSerivce.getTokens(this.userId, this.userToken).subscribe(res => {      
+		this._userSerivce.getTokens(this.userId,this.userToken).subscribe(res => {      
 			if (res) {
                 this.totalPiptles = res['data']['totalTokens'];
 			}
