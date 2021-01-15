@@ -90,4 +90,27 @@
         }
     }
 }
-
+.fb-pd{
+    padding-left: 3px;
+}
+.icon-borders{
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    background-color: #643E8D;
+    display: inline-block;
+    box-shadow: 1px 1px 4px #2d2d2d;
+    border: 1px solid white;
+    .icon-img{
+      // width: 20px;
+      height: 30px;
+      padding: 4px;
+    }
+    .icon-flag{
+      height: 32px;
+      padding: 0px;
+    }
+    .icon-telegram{
+      height: 30px;
+    }
+  }
