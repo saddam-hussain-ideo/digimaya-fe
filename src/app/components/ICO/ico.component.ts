@@ -75,8 +75,7 @@ export class IcoComponent {
 
 
   getIcoStagesBars(){
-    this._icoService.getStagesForBars().subscribe(a=>{
-  
+    this._icoService.getStagesForBars().subscribe(a=>{      
       if(a.code == 200){
           this.allICOStages  = a.data;
           this.numberOfIcoStage = this.allICOStages.length;
@@ -171,7 +170,6 @@ export class IcoComponent {
 
 
         this.ICOInformation = a.data;
-        console.log(this.ICOInformation);
         
         this.ICOInformation.hardCap = this.validations.toCommas(this.ICOInformation.hardCap);
         this.ICOInformation.softCap = this.validations.toCommas(this.ICOInformation.softCap);
@@ -187,13 +185,13 @@ export class IcoComponent {
           this.ICOStageInfoRight = [];
           this.noPendingStages = false;
           this.hideSecondBox = true;
-          this.ICOStageInfoLeft = a.data.icoInformation[0];
+          this.ICOStageInfoLeft = a.data.icoInformation[0];          
           this.calculateLeftProgressBar()
 
         }
         else {
-          this.ICOStageInfoLeft = a.data.icoInformation[0];
-          this.ICOStageInfoRight = a.data.icoInformation[1];
+          this.ICOStageInfoLeft = a.data.icoInformation[0];        
+          this.ICOStageInfoRight = a.data.icoInformation[1];          
           this.noPendingStages = false;
           this.calculateLeftProgressBar();
           this.calculateRightProgressBar();
@@ -231,12 +229,17 @@ export class IcoComponent {
       // ariaLabelledBy: 'info-modal',
       centered: true
     };
-    // this.ser.open(StagesComponent, modalConfig)
     this.stopEditingModal = this.modalService.open(StagesComponent, modalConfig);
-    if(stagevalue == 'stage1'){
+    if(stagevalue == 'ILO Stage 1'){
       this.stopEditingModal.componentInstance.modalData = INFO_MODAL_CONSTANT.STAGE_1;
-    } else if(stagevalue == 'stage2'){
+    } else if(stagevalue == 'ILO Stage 2'){
       this.stopEditingModal.componentInstance.modalData = INFO_MODAL_CONSTANT.STAGE_2;
+    }
+    else if(stagevalue == 'ILO Stage 3'){
+      this.stopEditingModal.componentInstance.modalData = INFO_MODAL_CONSTANT.STAGE_3;
+    }
+    else if(stagevalue == 'ILO Stage 4'){
+      this.stopEditingModal.componentInstance.modalData = INFO_MODAL_CONSTANT.STAGE_4;
     }
 
   this.stopEditingModal.componentInstance.emitUserOp

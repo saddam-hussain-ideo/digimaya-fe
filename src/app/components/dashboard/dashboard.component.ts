@@ -199,8 +199,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     getRates() {
 
-        this._dashboardService.getRates().subscribe(a => {
-
+        this._dashboardService.getRates().subscribe(a => {                    
             if (a.code == 200) {
                 this.RatesModel = a.data;
                 this.liveRates = Object.assign({}, a.data);                
@@ -261,25 +260,33 @@ export class DashboardComponent implements OnDestroy, OnInit {
     bonus_price: any = 0;
 
     calculate_now(selectedCurrency) {
+        let upperBonus = this.liveRates['upperBonus'];
+        let lowerBonus = this.liveRates['lowerBonus']
         let valueForCurrencySelected = this.RatesModel[selectedCurrency];
         let calculateInMxn = valueForCurrencySelected * this.coinsWanted;        
-        this.totalCalulatedValue = calculateInMxn;
+        if(isNaN(calculateInMxn)){
+            calculateInMxn = 0;
+        }
+        this.totalCalulatedValue = calculateInMxn;        
         // let coinWithDiscount = (calculateInMxn / this.RatesModel.liveRate).toFixed(8);
         let totalCoins = +(calculateInMxn / this.RatesModel.liveRate).toFixed(8);
 
         let bonusTokens = 0;
         let bonusPercentage = 0;
         if (calculateInMxn >= 2000 && calculateInMxn < 12500) {
-            bonusTokens = +(totalCoins * 10 / 100).toFixed(8)
-            bonusPercentage = 10
+            bonusTokens = +(totalCoins * lowerBonus / 100).toFixed(8)
+            bonusPercentage = lowerBonus
         } else if (calculateInMxn >= 12500) {
-            bonusTokens = +(totalCoins * 15 / 100).toFixed(8)
-            bonusPercentage = 15
+            bonusTokens = +(totalCoins * upperBonus / 100).toFixed(8)
+            bonusPercentage = upperBonus
         }
         let coinsWithBonus = totalCoins + bonusTokens;
         this.bonusCoins = bonusTokens;
         this.bonusPercentage = bonusPercentage;
         this.coinsCalculated = totalCoins.toFixed(6);
+        if(isNaN(coinsWithBonus)){
+            coinsWithBonus = 0;
+        }      
         this.coinsCalculatedBottom = coinsWithBonus;
         // this.coinsCalculated = (calculateInMxn / this.RatesModel.baseRate).toFixed(8);
 
