@@ -199,8 +199,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     getRates() {
 
-        this._dashboardService.getRates().subscribe(a => {
-
+        this._dashboardService.getRates().subscribe(a => {            
             if (a.code == 200) {
                 this.RatesModel = a.data;
                 this.liveRates = Object.assign({}, a.data);                
