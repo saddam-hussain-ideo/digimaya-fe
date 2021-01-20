@@ -47,6 +47,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { Currency } from './pipes/currency.pipe';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
 import { StagesComponent } from './components/stages/stages.component';
+import { environment } from 'src/environments/environment';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -108,7 +109,7 @@ export function createTranslateLoader(http: HttpClient) {
     TranslateService,
     {
       provide: RECAPTCHA_SETTINGS,
-      useValue: { siteKey: '6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX' } as RecaptchaSettings,
+      useValue: { siteKey: environment.captchaKey } as RecaptchaSettings,
     }], //shared service being injected into modules
   bootstrap: [AppComponent],
   entryComponents: [StagesComponent]
