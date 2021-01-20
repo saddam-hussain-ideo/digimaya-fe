@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment'
 import { getLanguage } from './services/utils';
@@ -7,25 +7,33 @@ declare var $: any;
 @Component({
   selector: 'crypto-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit{
-
+  isLoading: boolean = false ;
   public imgSpanish = '../assets/img/esp.png';
   public imgEnglish = '../assets/img/eng.png';
 
   public $zopim: any;
   constructor(
     private translate: TranslateService,
-    private _sharedService: SharedService
+    private _sharedService: SharedService,
+    private changeRef: ChangeDetectorRef
   ){
     translate.setDefaultLang(environment.defaultLanguage);
   }
-
+  
   ngOnInit() {
-
+    this._sharedService.updateLoader$.subscribe(
+      a => {
+        console.log(a);
+          this.isLoading = a;
+          this.changeRef.detectChanges();
+      }
+    )
     console.log('Environment Testing Dev to Master')
     let language = getLanguage();
+    
     if(language == 'en'){
       $("#dropdownMenu3").css("background-image", "url(" + this.imgEnglish + ")");
       $(".change-lang").html('This website uses cookies to ensure you get the best experience on our website.');
@@ -40,6 +48,7 @@ export class AppComponent implements OnInit{
     setTimeout(() => {
       // document.getElementById('makeSmall').click();
     }, 10000);
+
   }
 
   switchLanguage(language) {

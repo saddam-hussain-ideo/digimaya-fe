@@ -50,29 +50,30 @@ export class HeadComponent implements OnInit {
 
 
 
-    this.userObject = JSON.parse(localStorage.getItem("userObject"));
-
-    this._ngZone.run(() => {
-      if(this.userObject.Language == 'en') {
-        $("#dropdownMenu1").css("background-image", "url(" + this.imgEnglish + ")");
-        $("#dropdownMenu2").css("background-image", "url(" + this.imgEnglish + ")");
-        $(".change-lang").html('This website uses cookies to ensure you get the best experience on our website.');
-        $("#linking").html('Read More');
-        $("#allow").html('Allow Cookies');
-      } else {
-        $("#dropdownMenu1").css("background-image", "url(" + this.imgSpanish + ")");
-        $("#dropdownMenu2").css("background-image", "url(" + this.imgSpanish + ")");
-        $(".change-lang").html('Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.');
-        $("#linking").html('Ver mas detalles');
-        $("#allow").html('Permitir Cookies');
-      }
-      this.selectedLang = this.userObject.Language;
-      if(this.selectedLang){
-        this.translate.use(this.selectedLang);
-      }else{
-        this.translate.use('es');
-      }
-    })
+    this.userObject = JSON.parse(localStorage.getItem("userObject"));    
+    if(this.userObject){
+      this._ngZone.run(() => {
+        if(this.userObject.Language == 'en') {
+          $("#dropdownMenu1").css("background-image", "url(" + this.imgEnglish + ")");
+          $("#dropdownMenu2").css("background-image", "url(" + this.imgEnglish + ")");
+          $(".change-lang").html('This website uses cookies to ensure you get the best experience on our website.');
+          $("#linking").html('Read More');
+          $("#allow").html('Allow Cookies');
+        } else {
+          $("#dropdownMenu1").css("background-image", "url(" + this.imgSpanish + ")");
+          $("#dropdownMenu2").css("background-image", "url(" + this.imgSpanish + ")");
+          $(".change-lang").html('Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.');
+          $("#linking").html('Ver mas detalles');
+          $("#allow").html('Permitir Cookies');
+        }
+        this.selectedLang = this.userObject.Language;
+        if(this.selectedLang){
+          this.translate.use(this.selectedLang);
+        }else{
+          this.translate.use('es');
+        }
+      })
+    }
 
     this._sharedService.changeEmittedForLoader$.subscribe(
       a => {
@@ -83,6 +84,8 @@ export class HeadComponent implements OnInit {
 
     this._sharedService.changeEmittedForUserUpdation$.subscribe(
       a => {
+        console.log(a);
+        
         this.userObject = a;
         this.selectedLang = this.userObject.Language;
         if(this.userObject.Language == 'en') {

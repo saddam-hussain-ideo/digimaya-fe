@@ -44,6 +44,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'dashboard/:id', component: DashboardComponent, },
       { path: 'affiliate', component: Affiliate, canActivate: [AuthGuard] },
       { path: 'piptle-wallet', component: PiptleWalletComponent, canActivate: [AuthGuard] },
       { path: 'my-wallet', component: MyWalletComponent, canActivate: [AuthGuard] },

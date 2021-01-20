@@ -5,7 +5,7 @@ import { AmountInvestedModel } from '../../models/amountInvestedModel';
 import { RatesModel } from '../../models/ratesModel';
 import { SharedService } from '../../services/shared';
 import { TransactionsModel } from '../../models/transactionsModel';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import "rxjs/add/operator/takeWhile";
 import { BlogModel } from '../../models/blogModel';
 
@@ -16,6 +16,7 @@ import { Validations } from '../../validations';
 import { UserService } from 'src/app/services/userService';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
 import { element } from '@angular/core/src/render3/instructions';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -28,6 +29,7 @@ declare var $: any;
 })
 export class DashboardComponent implements OnDestroy, OnInit {
     public pieChartOptions: any;
+    valid = false;
     userToken : string;
     userId;
     date;
@@ -117,7 +119,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
         private ref: ChangeDetectorRef,
         private _ngZone: NgZone,
         private userService: UserService,
-        private toasterService: ToasterService
+        private toasterService: ToasterService,
+        private activatedRoute: ActivatedRoute,
+        private translate: TranslateService
     ) {
 
         this.investedValues = new AmountInvestedModel();
@@ -942,15 +946,43 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
     ngOnInit() {
-
-
-        this.userObject = JSON.parse(localStorage.getItem("userObject"));
-        this.userToken = JSON.parse(localStorage.getItem('userToken'));     
+        // this.userToken = JSON.parse(localStorage.getItem('userToken'));
+        let userToken = this.activatedRoute.snapshot.params['id'];
+        
+        if(userToken){            
+            this._sharedService.updateValidateLoader(true);
+            this.userService.singleSignOn(userToken,true).subscribe(response => {
+                if(response){
+                    this._sharedService.updateValidateLoader(false);       
+                    // this._sharedService.showHideLoader(true);
+                    localStorage.setItem('userObject', JSON.stringify(response.data));
+                    localStorage.setItem('userToken', JSON.stringify(response.data.token));
+                    this.translate.use(response.data.Language)
+                    this.getDashboardData();
+                }  
+            }, err => {
+                this._sharedService.updateValidateLoader(false);
+                
+                let obj = JSON.parse(err._body);                
+                if(obj['code']=== 401){
+                    this.router.navigate(['/']);                
+                } else{
+                    this.router.navigate(['/']);                
+                }
+            })
+        }
+        else{
+            this.getDashboardData()
+        }     
+    }
+    getDashboardData(){ 
+        this.userObject = JSON.parse(localStorage.getItem('userObject'));
+        this.userToken = JSON.parse(localStorage.getItem('userToken'));
+        
         if (this.userObject) {
             this.userId = this.userObject['UserId']
             this.getTokens();
-            }
-        
+        }
         this.date = new Date();
 
         this.getAmountInvested();
@@ -1024,13 +1056,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
             },
             tooltipTemplate: "<%= value %>%"
         }
-
-
-
-
-        
     }
-
 
     getTokens(){
 		this.userService.getTokens(this.userId,this.userToken).subscribe(res => {      
