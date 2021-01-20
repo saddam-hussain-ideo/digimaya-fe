@@ -323,7 +323,8 @@
                     dismiss: "Got it!",
                     allow: "Accept Cookies",
                     link: "Read More",
-                    href: "#", //TODO: update piptle link
+                    //TODO: update piptle link
+                    href: "#", 
                     close: "&#x274c;",
                     target: "_blank",
                     policy: "Cookie Policy"
