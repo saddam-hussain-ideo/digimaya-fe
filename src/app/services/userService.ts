@@ -11,10 +11,7 @@ export class UserService {
     public userToken: any;
 
     constructor(private http: Http) {
-
         this.userToken = JSON.parse(localStorage.getItem("userToken"));
-
-
     }
 
 
@@ -260,9 +257,10 @@ export class UserService {
 
     getAllNotifications(pagenumber, pagesize) {
         let headers = new Headers();
+        let token = JSON.parse(localStorage.getItem("userToken"));        
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append("authorization", this.userToken);
+        headers.append("authorization", token);
         headers.append('accept-language', getLanguage());
         return this.http.get(environment.BaseUrl + `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}&type=all`, { headers: headers })
             .map(res => res.json());
@@ -271,9 +269,10 @@ export class UserService {
 
     getNotifications(pagenumber, pagesize) {
         let headers = new Headers();
+        let token = JSON.parse(localStorage.getItem("userToken"));        
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append("authorization", this.userToken);
+        headers.append("authorization", token);
         headers.append('accept-language', getLanguage());
         return this.http.get(environment.BaseUrl + `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}`, { headers: headers })
             .map(res => res.json());
@@ -322,5 +321,12 @@ export class UserService {
         return this.http.get(`${environment.BaseUrl}user/getUserBalance/${queryParams}`, { headers: headers })
         .map(res => res.json());
     }
-
+    singleSignOn(token, value){
+        const queryParams = `?isForCredentials=${value}`
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append("authorization", token);
+        return this.http.get(`${environment.BaseUrl}user/getLoginCredentials/${queryParams}`, { headers: headers })
+        .map(res => res.json());
+    }
 }

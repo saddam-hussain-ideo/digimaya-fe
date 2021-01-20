@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  // BaseUrl:"http://192.168.2.29:9000/api/",
+  // BaseUrl:"http://192.168.100.65:9000/api/",
   // documentUrl:"http://localhost:3000/",
 
   BaseUrl: "http://coin.piptleapp.store:3000/api/",

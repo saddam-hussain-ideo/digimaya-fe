@@ -15,22 +15,20 @@ export class DashboardService {
     constructor(private http: Http) {
 
         this.userToken = JSON.parse(localStorage.getItem("userToken"));
-      
     }
 
 
     getAmountInvested(userId) {
-
+        let token = JSON.parse(localStorage.getItem("userToken"));        
         var data;
 
         data = { userid: userId };
 
 
         let headers = new Headers();
-
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
+        headers.append("authorization", token);
 
         return this.http.post(environment.BaseUrl + "user/amountinvested", data, { headers: headers })
             .map(res => res.json());
@@ -54,7 +52,7 @@ export class DashboardService {
 
 
     getTransactionDetails(userId, pageNumber, pageSize) {
-
+        let token = JSON.parse(localStorage.getItem("userToken"));        
         var data;
 
         data = { userid: userId, pagenumber: pageNumber, pagesize: pageSize };
@@ -63,7 +61,7 @@ export class DashboardService {
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
+        headers.append("authorization", token);
 
         return this.http.post(environment.BaseUrl + "user/gettransactiondetails", data, { headers: headers })
             .map(res => res.json());
@@ -71,12 +69,13 @@ export class DashboardService {
 
 
     getLiveStats() {
+        let token = JSON.parse(localStorage.getItem("userToken"));        
 
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
+        headers.append("authorization", token);
 
         return this.http.get(environment.BaseUrl + "user/getlastdaytansactionsstats/", { headers: headers })
             .map(res => res.json());
@@ -97,12 +96,12 @@ export class DashboardService {
     
 
     getBlogs() {
-
+        let token = JSON.parse(localStorage.getItem("userToken"));        
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
+        headers.append("authorization", token);
 
         return this.http.get(environment.BaseUrl + "user/getblogDetails", { headers: headers })
             .map(res => res.json());
@@ -110,7 +109,6 @@ export class DashboardService {
 
     getILOStages() {
         let headers = new Headers();
-
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
         headers.append("authorization", this.userToken);

@@ -19,6 +19,7 @@ export class SharedService {
   private navigationSeeAll = new Subject<any>();
   private updateLanguage = new Subject<any>();
   private updateAppLang = new Subject<any>();
+  private validateUser = new Subject<any>();
 
   changeEmittedForLoader$ = this.showLoader.asObservable();
   changeEmittedForUserUpdation$ = this.ChangeUserObject.asObservable();
@@ -28,11 +29,14 @@ export class SharedService {
   changeEmittedFornotificationsCountHeader$ = this.notificationsCountHeader.asObservable();
   updateAppLang$ = this.updateAppLang.asObservable();
   updateLanguage$ = this.updateLanguage.asObservable();
+  updateLoader$ = this.validateUser.asObservable();
 
 
 
  
-
+  updateValidateLoader(show){
+    this.validateUser.next(show);
+  }
 
   changeNotificationsCount(value) {
     this.NotificationsCount.next(value); 

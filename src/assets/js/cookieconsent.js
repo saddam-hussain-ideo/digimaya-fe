@@ -319,11 +319,11 @@
                 onNoCookieLaw: function(e, t) {},
                 content: {
                     header: "Cookies used on the website!",
-                    message: "Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.",
+                    message: "This website uses cookies to ensure you get the best experience on our website.",
                     dismiss: "Got it!",
-                    allow: "Permitir Cookies",
-                    link: "Ver mas detalles",
-                    href: "http://www.fruture.org/cookies.html",
+                    allow: "Accept Cookies",
+                    link: "Read More",
+                    href: "#", //TODO: update piptle link
                     close: "&#x274c;",
                     target: "_blank",
                     policy: "Cookie Policy"
@@ -331,7 +331,9 @@
                 elements: {
                     header: '<span class="cc-header">{{header}}</span>&nbsp;',
                     // message: '<span id="cookieconsent:desc" class="cc-message">{{message}}</span>',
-                    messagelink: '<span id="cookieconsent:desc" class="cc-message change-lang">{{message}}</span> <a aria-label="learn more about cookies" role=button tabindex="0" class="cc-link"  href="{{href}}" rel="noopener noreferrer nofollow" target="{{target}}"><span id="linking" style="margin-right: 15px">{{link}}</span></a>',
+                    // messagelink: '<span id="cookieconsent:desc" class="cc-message change-lang">{{message}}</span> <a aria-label="learn more about cookies" role=button tabindex="0" class="cc-link"  href="{{href}}" rel="noopener noreferrer nofollow" target="{{target}}"><span id="linking" style="margin-right: 15px">{{link}}</span></a>',
+                    messagelink: '<span id="cookieconsent:desc" class="cc-message change-lang">{{message}}</span> ',
+
                     // dismiss: '<a aria-label="dismiss cookie message" role=button tabindex="0" class="cc-btn cc-dismiss">{{dismiss}}</a>',
                     allow: '<a id="allow" aria-label="allow cookies" role=button tabindex="0"  class="cc-btn cc-allow">{{allow}}</a>',
                     // deny: '<a aria-label="deny cookies" role=button tabindex="0" class="cc-btn cc-deny">{{deny}}</a>',
