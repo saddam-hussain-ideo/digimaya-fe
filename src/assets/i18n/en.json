@@ -428,5 +428,6 @@
     "Amount Debited" : "Amount Debited",
     "Wallet transferred to" : "Wallet transferred to",
     "Total Supply" : "Total Supply : ",
-    "Instructions" : "PAYMENT INSTRUCTIONS "
+    "Instructions" : "PAYMENT INSTRUCTIONS ",
+    "Enable 2Fa for addresses" : "Enable Two-Factor Authentication (2FA) to view your wallet addresses"
 }

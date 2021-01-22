@@ -54,8 +54,19 @@
     .nn-input{
         color: $theme-blue;
     }
+    .twoFaText{
+        color: #34519d;
+        font-family: 'LatoWeb';
+        font-size: 13px;
+        font-weight: bold;
+    }
 
  }
+
+ .addressRates{
+    display: flex;
+    justify-content: center;
+}
 
 .update-buttons:hover{
     color:#3AB4E5;

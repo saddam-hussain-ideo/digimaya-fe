@@ -90,29 +90,38 @@
                             <div class="padding10">
 
                                 <div>
-                                    <p class="wallet-address-txt">
+                                    <p class="wallet-address-txt" *ngIf="isTwoFa">
                                         {{ 'WALLET ADDRESS' | translate}}
                                     </p>
                                 </div>
-                                <div class="relative-div">
-                                    <input readonly id="wallet-address1" type="text" class="nn-input"
-                                        value="{{walletInfo?.BtcFundReceiverAddress}}">
-
-                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address1')">
-                                        <i class="far fa-copy"></i>
-                                    </button>
-
-
+                                <div *ngIf="isTwoFa">
+                                    <div class="relative-div">
+                                        <input readonly id="wallet-address1" type="text" class="nn-input"
+                                            value="{{walletInfo?.BtcFundReceiverAddress}}">
+    
+                                        <button class="copy-btn" (click)="copyToClipboard('wallet-address1')">
+                                            <i class="far fa-copy"></i>
+                                        </button>
+    
+    
+                                    </div>
+                                </div>
+                                <div *ngIf="!isTwoFa" >
+                                    <div class="relative-div">
+                                        <p class="twoFaText">{{'Enable 2Fa for addresses' | translate}}</p>
+                                    </div>
                                 </div>
 
-                                <div class="block-elems  refresh-value clearfix no-top-padding">
+                                <div class="block-elems  refresh-value clearfix no-top-padding" [ngClass]="!isTwoFa? 'addressRates': '' ">
 
-                                    <div class="left-qr">
+                                    <div *ngIf="isTwoFa">
+                                        <div class="left-qr">
 
-                                        <qr-code class="custom-size" [value]="walletInfo?.BtcFundReceiverAddress"
-                                            [size]="100"></qr-code>
-
-
+                                            <qr-code class="custom-size" [value]="walletInfo?.BtcFundReceiverAddress"
+                                                [size]="100"></qr-code>
+    
+    
+                                        </div>
                                     </div>
 
                                     <div class="right-refresh clearfix">
@@ -311,29 +320,38 @@
 
 
                                 <div>
-                                    <p class="wallet-address-txt">
+                                    <p class="wallet-address-txt" *ngIf="isTwoFa">
                                         {{ 'WALLET ADDRESS' | translate }}
                                     </p>
                                 </div>
-                                <div class="relative-div">
-                                    <input readonly id="wallet-address3" type="text" class="nn-input "
-                                        value="{{walletInfo?.LtcFundReceiverAddress}}">
-
-                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address3')">
-                                        <i class="far fa-copy"></i>
-                                    </button>
-
-
+                                <div *ngIf="isTwoFa">
+                                    <div class="relative-div">
+                                        <input readonly id="wallet-address3" type="text" class="nn-input "
+                                            value="{{walletInfo?.LtcFundReceiverAddress}}">
+    
+                                        <button class="copy-btn" (click)="copyToClipboard('wallet-address3')">
+                                            <i class="far fa-copy"></i>
+                                        </button>
+    
+    
+                                    </div>
+                                </div>
+                                <div *ngIf="!isTwoFa" >
+                                    <div class="relative-div">
+                                        <p class="twoFaText">{{'Enable 2Fa for addresses' | translate}}</p>
+                                    </div>
                                 </div>
 
-                                <div class="block-elems  refresh-value clearfix no-top-padding">
+                                <div class="block-elems  refresh-value clearfix no-top-padding" [ngClass]="!isTwoFa? 'addressRates': '' ">
 
-                                    <div class="left-qr">
+                                    <div *ngIf="isTwoFa">
+                                        <div class="left-qr">
 
-                                        <qr-code class="custom-size" [value]="walletInfo?.LtcFundReceiverAddress"
-                                            [size]="100"></qr-code>
-
-
+                                            <qr-code class="custom-size" [value]="walletInfo?.LtcFundReceiverAddress"
+                                                [size]="100"></qr-code>
+    
+    
+                                        </div>
                                     </div>
 
                                     <div class="right-refresh clearfix">
@@ -472,29 +490,39 @@
 
 
                                 <div>
-                                    <p class="wallet-address-txt">
+                                    <p class="wallet-address-txt" *ngIf="isTwoFa">
                                         {{ 'WALLET ADDRESS' | translate}}
                                     </p>
                                 </div>
-                                <div class="relative-div">
-                                    <input readonly id="wallet-address4" type="text" class="nn-input "
-                                        value="{{walletInfo?.EthFundReceiverAddress}}">
-
-                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address4')">
-                                        <i class="far fa-copy"></i>
-                                    </button>
-
-
+                                <div *ngIf="isTwoFa">
+                                    <div class="relative-div">
+                                        <input readonly id="wallet-address4" type="text" class="nn-input "
+                                            value="{{walletInfo?.EthFundReceiverAddress}}">
+    
+                                        <button class="copy-btn" (click)="copyToClipboard('wallet-address4')">
+                                            <i class="far fa-copy"></i>
+                                        </button>
+    
+    
+                                    </div>
                                 </div>
 
-                                <div class="block-elems  refresh-value clearfix no-top-padding">
+                                <div *ngIf="!isTwoFa" >
+                                    <div class="relative-div">
+                                        <p class="twoFaText">{{'Enable 2Fa for addresses'| translate}}</p>
+                                    </div>
+                                </div>
 
-                                    <div class="left-qr">
+                                <div class="block-elems  refresh-value clearfix no-top-padding" [ngClass]="!isTwoFa? 'addressRates': '' ">
 
-                                        <qr-code class="custom-size" [value]="walletInfo?.EthFundReceiverAddress"
-                                            [size]="100"></qr-code>
+                                    <div *ngIf="isTwoFa">
+                                        <div class="left-qr">
 
-
+                                            <qr-code class="custom-size" [value]="walletInfo?.EthFundReceiverAddress"
+                                                [size]="100"></qr-code>
+    
+    
+                                        </div>
                                     </div>
 
                                     <div class="right-refresh clearfix">
@@ -1067,27 +1095,36 @@
 
 
                                 <div>
-                                    <p class="wallet-address-txt">
-                                        Wallet Address
+                                    <p class="wallet-address-txt" *ngIf="isTwoFa">
+                                        {{ 'WALLET ADDRESS' | translate}}
                                     </p>
                                 </div>
-                                <div class="relative-div">
-                                    <input readonly id="wallet-address7" type="text" class="nn-input " value="{{walletInfo?.BchFundReceiverAddress}}">
-
-                                    <button class="copy-btn" (click)="copyToClipboard('wallet-address7')">
-                                        <i class="far fa-copy"></i>
-                                    </button>
-
-
+                                <div *ngIf="isTwoFa">
+                                    <div class="relative-div">
+                                        <input readonly id="wallet-address7" type="text" class="nn-input " value="{{walletInfo?.BchFundReceiverAddress}}">
+    
+                                        <button class="copy-btn" (click)="copyToClipboard('wallet-address7')">
+                                            <i class="far fa-copy"></i>
+                                        </button>
+    
+    
+                                    </div>
+                                </div>
+                                <div *ngIf="!isTwoFa" >
+                                    <div class="relative-div">
+                                        <p class="twoFaText">{{'Enable 2Fa for addresses' | translate}}</p>
+                                    </div>
                                 </div>
 
-                                <div class="block-elems  refresh-value clearfix no-top-padding">
+                                <div class="block-elems  refresh-value clearfix no-top-padding" [ngClass]="!isTwoFa? 'addressRates': '' ">
 
-                                    <div class="left-qr">
+                                    <div *ngIf="isTwoFa">
+                                        <div class="left-qr">
 
-                                        <qr-code class="custom-size" [value]="walletInfo?.BchFundReceiverAddress" [size]="100"></qr-code>
-
-
+                                            <qr-code class="custom-size" [value]="walletInfo?.BchFundReceiverAddress" [size]="100"></qr-code>
+    
+    
+                                        </div>
                                     </div>
 
                                     <div class="right-refresh clearfix">
