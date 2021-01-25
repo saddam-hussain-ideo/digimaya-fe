@@ -2,7 +2,9 @@ import {
   Component,
   OnInit,
   NgZone,
-  OnDestroy
+  OnDestroy,
+  ViewChild,
+  ElementRef
 } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -137,8 +139,14 @@ export class SettingsComponent implements OnInit, OnDestroy {
   public billTypeImage: any = undefined;
   public phoneNumber: any;
   public idType: any;
-
+  public isShow: boolean = false;
+  public isNew: boolean = false;
+  public isConfirm: boolean = false;
   public showDetails = false;
+  @ViewChild('currentpassword') currentpassword : ElementRef;
+  @ViewChild('newpassword') newpassword: ElementRef;
+  @ViewChild('confirmpassword') confirmpassword: ElementRef;
+
 
   constructor(
     config: NgbDatepickerConfig,
@@ -682,10 +690,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
     }
 
-    if (!this.validations.verifyUserNameLength(this.userObject.Name)) {
+    else if (!this.validations.verifyUserNameLength(this.userObject.Name)) {
       error = true;
       this.userObject.Language == 'en' ?
-      this.toasterService.pop('error', 'Error', 'Full Name should be between 3-50 characters'):
+      this.toasterService.pop('error', 'Error', 'Name should be between 3-50 characters'):
       this.toasterService.pop('error', 'Error', 'El nombre completo debe ser entre 3 y 50 caracteres');
     }
 
@@ -1008,6 +1016,32 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.isAlive = false
+  }
+
+  hidePassword(value){
+    if(value == 'currentpassword'){
+      this.currentpassword.nativeElement.setAttribute('type', 'password');
+      this.isShow = false; 
+    } else if(value == 'newpassword'){
+      this.newpassword.nativeElement.setAttribute('type', 'password');
+      this.isNew = false; 
+    } else if(value == 'confirmpassword'){
+      this.confirmpassword.nativeElement.setAttribute('type', 'password');
+      this.isConfirm = false; 
+    }
+  }
+  showPassword(value){
+    if(value == 'currentpassword'){
+      this.currentpassword.nativeElement.setAttribute('type', 'text');
+      this.isShow = true
+    }
+    else if(value == 'newpassword'){
+      this.newpassword.nativeElement.setAttribute('type', 'text');
+      this.isNew = true
+    } else if(value == 'confirmpassword'){
+      this.confirmpassword.nativeElement.setAttribute('type', 'text');
+      this.isConfirm = true
+    }
   }
 
 }
