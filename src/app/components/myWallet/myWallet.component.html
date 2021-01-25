@@ -490,11 +490,11 @@
 
 
                                 <div>
-                                    <p class="wallet-address-txt" *ngIf="isTwoFa">
+                                    <p class="wallet-address-txt" *ngIf="isTwoFa && isWalletAddress">
                                         {{ 'WALLET ADDRESS' | translate}}
                                     </p>
                                 </div>
-                                <div *ngIf="isTwoFa">
+                                <div *ngIf="isTwoFa && isWalletAddress">
                                     <div class="relative-div">
                                         <input readonly id="wallet-address4" type="text" class="nn-input "
                                             value="{{walletInfo?.EthFundReceiverAddress}}">
@@ -512,10 +512,14 @@
                                         <p class="twoFaText">{{'Enable 2Fa for addresses'| translate}}</p>
                                     </div>
                                 </div>
+                                <div *ngIf="!isWalletAddress && isTwoFa">
+                                    <div class="relative-div">
+                                        <p class="twoFaText">{{'Set ETH Address' | translate }}</p>
+                                    </div>
+                                </div>
+                                <div class="block-elems  refresh-value clearfix no-top-padding" [ngClass]="!isTwoFa || !isWalletAddress? 'addressRates': '' ">
 
-                                <div class="block-elems  refresh-value clearfix no-top-padding" [ngClass]="!isTwoFa? 'addressRates': '' ">
-
-                                    <div *ngIf="isTwoFa">
+                                    <div *ngIf="isTwoFa && isWalletAddress">
                                         <div class="left-qr">
 
                                             <qr-code class="custom-size" [value]="walletInfo?.EthFundReceiverAddress"
@@ -551,7 +555,7 @@
                                                 </g>
                                             </svg>
                                         </div>
-                                        <div class="right-side clearfix">
+                                        <div class="right-side clearfix" >
                                             <p class="no-of-btc adjusting-font">
                                                 1 ETH = {{walletInfo?.eth | currency:'crypto'}} PPTL
                                             </p>

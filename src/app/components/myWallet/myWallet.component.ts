@@ -33,6 +33,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   totalPiptles = 0;
   isTwoFa: boolean;
   bankdetails: string
+  isWalletAddress: boolean;
   public isAlive = true
   public config: ToasterConfig =
     new ToasterConfig({ animation: 'flyRight' });
@@ -185,9 +186,13 @@ export class MyWalletComponent implements OnInit, OnDestroy {
         let userObj = JSON.parse(localStorage.getItem('userObject'));        
         if(userObj['twoFAStatus']){
           this.isTwoFa = true;
+          if(userObj['WalletAddress']){
+            this.isWalletAddress = true;
+          }
         } else{
           this.isTwoFa = false;
-        }        
+          this.isWalletAddress = false;
+        }
         this.walletInfo = a.data;        
         if(this.walletInfo && 'isSaleStopped' in this.walletInfo && this.walletInfo.isSaleStopped){
           this.RestrictionModalMessage = 'ICO sale currently Stopped';

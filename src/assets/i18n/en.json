@@ -429,5 +429,6 @@
     "Wallet transferred to" : "Wallet transferred to",
     "Total Supply" : "Total Supply : ",
     "Instructions" : "PAYMENT INSTRUCTIONS ",
-    "Enable 2Fa for addresses" : "Enable Two-Factor Authentication (2FA) to view your wallet addresses"
+    "Enable 2Fa for addresses" : "Enable Two-Factor Authentication (2FA) to view your wallet addresses",
+    "Set ETH Address": "Set Your Sending ETH Address to View exchange ETH Address"
 }
