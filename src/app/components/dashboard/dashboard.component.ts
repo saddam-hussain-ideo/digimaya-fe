@@ -324,9 +324,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
             this.coinsWanted = 0;
         }
 
-        if (value.length > 8) {
-            return false;
-        }
+        // if (value.length > 8) {
+        //     return false;
+        // }
 
         this.calculate_now(this.selectedCurrency);
 
@@ -384,9 +384,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
             this.coinsCalculated = 0;
         }
 
-        if (value.length > 8) {
-            return false;
-        }
+        // if (value.length > 8) {
+        //     return false;
+        // }
 
         this.calculate_reverse(this.selectedCurrency);
 
