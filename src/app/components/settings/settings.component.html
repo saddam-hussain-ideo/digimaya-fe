@@ -2,7 +2,7 @@
   <div id="snackbar"></div>
   <div class="background">
     <div class="mywallet-head">
-      <h1 style="display: inline-block" class="page-title">{{"SETTINGS" | translate}}</h1>
+      <h1 style="display: inline-block" class="page-title setting-txt">{{"SETTINGS" | translate}}</h1>
       <a class="helpbtn d-none" style="float:right;margin-top:35px;margin-right: auto" href="https://fruture.org/twoFactorInfo.html" target="_blank">{{"Help"| translate}}</a>
       <toaster-container [toasterconfig]="config"></toaster-container>
     </div>
@@ -104,19 +104,41 @@
 
 
               <div class="row mar-top10">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                  <div class="form-group">
+                <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> -->
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                  <div class="form-group pwd-rel">
                     <label for="pass" class="nn-lbl-sett">{{'Old Password:' | translate}}</label>
-                    <input type="password" class="form-control nn-input-sett" ame="pass" name="oldPassword" [(ngModel)]="oldPassword">
+                    <input type="password" #currentpassword class="form-control nn-input-sett" ame="pass" name="oldPassword" [(ngModel)]="oldPassword">
+                    <span *ngIf="!isShow"  class="toggle-password toggle-settings fa fa-eye-slash" (click)=" showPassword('currentpassword')"></span>
+                    <span  *ngIf="isShow"  class="fa fa-eye toggle-password toggle-settings" (click)="hidePassword('currentpassword')"></span>
 
+                  </div>
+                </div>
 
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                  <div class="form-group pwd-rel">
+                    <label for="pass" class="nn-lbl-sett">{{'Password' | translate}}:</label>
+                    <input type="password" #newpassword class="form-control nn-input-sett" id="pass" name="password" [(ngModel)]="password"
+                      name="pass" value="">
+
+                      <span *ngIf="!isNew"  class="toggle-password toggle-settings fa fa-eye-slash" (click)=" showPassword('newpassword')"></span>
+                      <span  *ngIf="isNew"  class="fa fa-eye toggle-password toggle-settings" (click)="hidePassword('newpassword')"></span>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                  <div class="form-group pwd-rel">
+                    <label for="cpass" class="nn-lbl-sett">{{'Confirm Password' | translate}}:</label>
+                    <input type="password" #confirmpassword class="form-control nn-input-sett" id="cpass" name="cPassword" [(ngModel)]="cPassword"
+                      value="">
+                      <span *ngIf="!isConfirm"  class="toggle-password toggle-settings fa fa-eye-slash" (click)=" showPassword('confirmpassword')"></span>
+                      <span  *ngIf="isConfirm"  class="fa fa-eye toggle-password toggle-settings" (click)="hidePassword('confirmpassword')"></span>
                   </div>
                 </div>
 
 
               </div>
 
-              <div class="row mar-top10">
+              <!-- <div class="row mar-top10">
                 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                   <div class="form-group">
                     <label for="pass" class="nn-lbl-sett">{{'Password' | translate}}:</label>
@@ -135,7 +157,7 @@
                   </div>
                 </div>
 
-              </div>
+              </div> -->
 
 
               <div *ngIf="loginLoaderShow" class="loader">
@@ -166,7 +188,7 @@
           </div>
 
 
-          <div class="acc-conf-div d-none d-lg-block">
+          <!-- <div class="acc-conf-div d-none d-lg-block">
             <h2 class="sub-title no-left-margin">{{'ACCOUNT CONFIRMATION' | translate}}
               <span class="sub-title-dash">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
@@ -254,7 +276,7 @@
 
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <!--column second half start-->
         <div class="col-lg-6">
@@ -388,6 +410,97 @@
 
 
 
+          </div>
+
+
+          <div class="acc-conf-div d-none d-lg-block">
+            <h2 class="sub-title no-left-margin">{{'ACCOUNT CONFIRMATION' | translate}}
+              <span class="sub-title-dash">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                  <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAMAAABkWjdgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAANlBMVEX///8gl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9T///+ffR1AAAAAEHRSTlMA7f3+9O/wYHFOROA1+8ojSqzE/AAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBhsLFicqx9pKAAAAOUlEQVQY02NgBAEmZmyAhRENsLKxMwiQAjgYSFHPwslAinpGLgZS1HPzgJQzYPUvLyu6Vxn5+MHKAb8aC8h9RInbAAAAAElFTkSuQmCC" />
+                </svg>
+              </span>
+            </h2>
+
+
+            <div class="genrl-sett-content-div">
+              <div class="table-responsive" id="confirmation-table">
+                <table class="table step-table">
+                  <tbody>
+                    <tr>
+                      <td class="noBordertop width15">
+                        <div class="step-images">
+                          <img src="../../../assets/img/step1.png">
+                        </div>
+                      </td>
+                      <td class="noBordertop width15 ">
+                        <img src="../../../assets/img/email-ver.png">
+                      </td>
+                      <td class="noBordertop width55 padding-top35">
+                        <p class="tbl-col3-txt">
+                          {{'E-MAIL VERIFICATION' | translate}}
+                        </p>
+                      </td>
+                      <td class="noBordertop w-25">
+                        <div class="verified-btn-wrapper">
+                          <button class="table-verified">
+                              {{'Verified' | translate}}
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="step-images">
+                          <img src="../../../assets/img/step2.png">
+                        </div>
+                      </td>
+                      <td>
+                        <img src="../../../assets/img/card-img.png">
+                      </td>
+                      <td class="padding-top35">
+                        <p class="tbl-col3-txt ">
+                          KYC
+                        </p>
+                      </td>
+                      <td class="w-25">
+                        <div class="verified-btn-wrapper">
+                          <button class="table-verified" [ngClass]="userKycStatus">
+                            {{AcutalStatus | translate}}
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-bor-btm">
+                        <div class="step-images">
+                          <img src="../../../assets/img/step3.png">
+                        </div>
+                      </td>
+                      <td class="custom-bor-btm custom-bor-btm">
+                        <img src="../../../assets/img/addr-img.png">
+                      </td>
+                      <td class="padding-top35 custom-bor-btm">
+                        <p class="tbl-col3-txt ">
+                          ETH {{'Address' | translate}}
+                        </p>
+                      </td>
+                      <td class="custom-bor-btm w-25">
+                        <div class="verified-btn-wrapper">
+                          <button class="table-verified" *ngIf="userObject.WalletAddress">
+                            {{'Submitted' | translate}}
+                          </button>
+                          <button class="table-verified NOT_SUBMITTED" *ngIf="!userObject.WalletAddress">
+                            {{'Not Submitted' | translate}}
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
           </div>
 
           <div class="upload-id-div d-none">
