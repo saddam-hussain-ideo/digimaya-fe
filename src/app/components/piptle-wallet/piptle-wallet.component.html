@@ -7,8 +7,8 @@
           {{'My Piptle Wallet' | translate}}
          </h1>
     </div>
-    <div class="row">
-      <div class="col-md-3">
+    <div class="wallet-new-cards">
+      <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Total Issued Piptles' | translate }}</p>
@@ -23,7 +23,7 @@
           <button class="btn custom-draw-btn btn-block">{{'LINKWALLETS' | translate}}</button>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Available Piptles' | translate }}</p>
@@ -35,13 +35,13 @@
           </div>
         </div>
         <div class="pptl-btns d-flex justify-content-between mt-2">
-          <button class="btn custom-small-btn">{{'SENDTEXT' | translate}}</button>
-          <button class="btn custom-small-btn">{{'RECIEVETEXT' | translate}}</button>
-          <button class="btn custom-small-btn">{{'STAKETEXT' | translate}}</button>
+          <button class="btn custom-small-btn custom-btns">{{'SENDTEXT' | translate}}</button>
+          <button class="btn custom-small-btn custom-btns">{{'RECIEVETEXT' | translate}}</button>
+          <button class="btn custom-small-btn custom-btns">{{'STAKETEXT' | translate}}</button>
 
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Locked Piptles' | translate }}</p>
@@ -56,7 +56,22 @@
           <button class="btn btn-block custom-draw-btn">{{'SCHEDULETEXT' | translate}}</button>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="cards-inner-width">
+        <div class="inner-w-box">
+          <div class="d-flex flex-column">
+            <p class="wallet-inner-t">{{ 'My Staked Piptles' | translate }}</p>
+            <div class="d-flex justify-content-center wallet-cards" >
+              <p class="wallet-val">{{stakedPiptles | currency}}</p>
+              <p class="wallet-puc ml-2">PPTL</p>
+            </div>
+
+          </div>
+        </div>
+        <div class="mt-2">
+          <button class="btn btn-block custom-draw-btn">{{'SCHEDULETEXT' | translate}}</button>
+        </div>
+      </div>
+      <!-- <div class="">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Staked Piptles' | translate }}</p>
@@ -70,7 +85,7 @@
         <div class="mt-2">
           <button class="btn custom-draw-btn btn-block">{{'Withdraw' | translate}}</button>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- <div class="row mt-2">
       <div class="col-md-3">
@@ -104,8 +119,8 @@
           {{'Total Piptles Earned' | translate}}
          </h1>
     </div>
-    <div class="row">
-      <div class="col-md-3">
+    <div class="wallet-new-cards">
+      <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'Referral Bonuses' | translate }}</p>
@@ -117,7 +132,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'ACTIVITY BONUSES' | translate }}</p>
@@ -129,7 +144,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'Staking Bonuses' | translate }}</p>
@@ -141,7 +156,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'MERCHANT BONUSES' | translate }}</p>

@@ -55,34 +55,49 @@
                             </div> -->
 
                             <div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-xs-12 padding-change">
-                                        <p class="aff-link">{{'Your Referral link:'| translate}}</p>
+                                <div class="">
+                                    <div class="padding-change">
+                                        <p class="aff-link pt-0 mb-0">{{'Your Referral link:'| translate}}</p>
                                     </div>
-                                    <div class="col-lg-8 col-md-8 col-xs-12 padding-change2">
+                                    <div class=" padding-change2 affiliate-text-field">
                                         <input id="aff-link-1" class="aff-link-in" type="text" readonly value="{{affiliateLink}}">
+                                        <div class="copy-link-section">
+                                            <button class="copy-af-link" (click)="copyToClipboard('aff-link-1')">
+
+
+                                                <p class="p-15 copy-add">
+                                                    <i class="far fa-copy"></i>
+    
+                                                </p>
+    
+    
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
-                                        <button class="copy-af-link" (click)="copyToClipboard('aff-link-1')">
-
-
-                                            <p class="p-15 copy-add">
-                                                <i class="far fa-copy"></i>
-
-                                            </p>
-
-
-                                        </button>
-                                    </div>
+                                    <!-- <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
+                                        
+                                    </div> -->
                                 </div>
-                                <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-xs-12 padding-change">
-                                            <p class="aff-link">{{ 'Your Referral Code:' | translate}}</p>
+                                <div class="">
+                                        <div class="padding-change">
+                                            <p class="aff-link mb-0">{{ 'Your Referral Code:' | translate}}</p>
                                         </div>
-                                        <div class="col-lg-8 col-md-8 col-xs-12 padding-change2">
+                                        <div class=" padding-change2 affiliate-text-field">
                                             <input id="aff-code-1" class="aff-link-in" type="text" readonly value="{{affiliateCode}}">
+                                            <div class="copy-link-section">
+                                                <button class="copy-af-link" (click)="copyToClipboard('aff-code-1')">
+    
+    
+                                                    <p class="p-15 copy-add">
+                                                        <i class="far fa-copy"></i>
+        
+                                                    </p>
+        
+        
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
+                                        <!-- <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
                                             <button class="copy-af-link" (click)="copyToClipboard('aff-code-1')">
     
     
@@ -93,7 +108,7 @@
     
     
                                             </button>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                             </div>
@@ -101,55 +116,57 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 left-7">
-                        <div class="white-back no-padding">
+                        <div class="">
+                            <div class="white-back">
 
-                            <div class="pos-rltv p-20">
-
-                                <div class="pos-left">
-                                    <h6 class="aff-h2">{{'TOP REFER EARNERS' | translate}}
-
-                                    </h6>
+                                <div class="pos-rltv">
+    
+                                    <div class="pos-left">
+                                        <h6 class="aff-h2">{{'TOP REFER EARNERS' | translate}}
+    
+                                        </h6>
+                                    </div>
+    
+    
+    
                                 </div>
-
-
-
-                            </div>
-
-                            <div class="table-responsive">
-
-
-                                <p class="no-record" *ngIf="noTopAffilliates">No Data Found</p>
-
-                                <table class="table table-striped top-aff" *ngIf="!noTopAffilliates">
-
-                                    <tbody>
-
-                                        <tr *ngFor="let referral of topReferrals">
-                                            <td>
-                                                <p class="earners-name">{{referral?.Name}}</p>
-                                            </td>
-
-                                            <td>
-                                                <p class="earnings">{{referral?.AmountInUsd  | currency:'crypto'}} PPTL </p>
-                                                <div class="progress-table-wrap">
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" [style.width.%]="referral.percentage">
-
+    
+                                <div class="table-responsive">
+    
+    
+                                    <p class="no-record" *ngIf="noTopAffilliates">No Data Found</p>
+    
+                                    <table class="table table-striped top-aff" *ngIf="!noTopAffilliates">
+    
+                                        <tbody>
+    
+                                            <tr *ngFor="let referral of topReferrals">
+                                                <td>
+                                                    <p class="earners-name">{{referral?.Name}}</p>
+                                                </td>
+    
+                                                <td>
+                                                    <p class="earnings">{{referral?.AmountInUsd  | currency:'crypto'}} PPTL </p>
+                                                    <div class="progress-table-wrap">
+                                                        <div class="progress">
+                                                            <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" [style.width.%]="referral.percentage">
+    
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-
-                                    </tbody>
-
-                                </table>
-
-
+                                                </td>
+                                            </tr>
+    
+    
+                                        </tbody>
+    
+                                    </table>
+    
+    
+                                </div>
+    
+    
                             </div>
-
-
                         </div>
                     </div>
 
@@ -209,9 +226,9 @@
 
                             </div>
 
-                            <div>
+                            <!-- <div>
                                 <img class="tbl-img" src="../../../assets/img/tbl-img.png">
-                            </div>
+                            </div> -->
 
 
                         </div>

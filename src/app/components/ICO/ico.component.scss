@@ -35,7 +35,14 @@ $bg-color-for-ilo : #d5cff533;
         color: $dashboard-purple-clr;
         margin-left: 10px;
     }
+}
+@media screen and (max-width: 400px){
+    .content-flex{
+        .img-borders{
+            width: 68px;
+        }
     }
+}
 
 
 .background{
@@ -1340,6 +1347,11 @@ $bg-color-for-ilo : #d5cff533;
     text-align: center;
     cursor: pointer;
     width: 28%;
+}
+@media screen and (max-width: 480px){
+    .bonus-btn{
+        width: 50%;
+    }
 }
 .p-top{
     padding-top: 13px;
