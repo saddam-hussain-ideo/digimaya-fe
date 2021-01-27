@@ -9,10 +9,12 @@
 //   letter-spacing: 15px;
 // }
 
-.bg-wrapper{
+.bg-cover{
   background-image: url(../../../assets/img/Pattern2.png);
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  height: 100vh;
 }
 
 .logo-top{
@@ -57,3 +59,23 @@
   }
 }
 
+@media screen and (max-width: 1210px){
+  
+.logo-top{
+  // margin-top: 9rem;
+  .pptl-logo{
+    // width: 270px;
+    width: 284px;
+  }
+}
+}
+
+@media screen and (max-width: 380px){
+  
+  .logo-top{
+    margin: 0;
+    .pptl-logo{
+      width: 215px;
+    }
+  }
+}

@@ -60,6 +60,10 @@
         font-size: 13px;
         font-weight: bold;
         text-transform: uppercase;
+        @media screen and (max-width: 1230px){
+            font-size: 10px;
+
+        }
     }
 
  }
@@ -144,9 +148,9 @@ cursor: pointer;
     font-size: 20px;
     // color: #1aa9a7;
     color: white;
-    @media (max-width:640px) {
-        font-size: 14px;
-    }
+    // @media (max-width:640px) {
+    //     font-size: 14px;
+    // }
 }
 
 
@@ -1063,21 +1067,21 @@ cursor: pointer;
     overflow: hidden;
     height:  410px;
     margin-bottom:30px;
-    @media (max-width:1600px) and (min-width:1156px) {
-        height: 455px;
-    }
+    // @media (max-width:1600px) and (min-width:1156px) {
+    //     height: 455px;
+    // }
 
-    @media (max-width:1155px) and (min-width:992px) {
-        height: 435px;
-    }
+    // @media (max-width:1155px) and (min-width:992px) {
+    //     height: 435px;
+    // }
 
-    @media (max-width:991px) and (min-width:768px){
-        height: 420px;
-    }
+    // @media (max-width:991px) and (min-width:768px){
+    //     height: 420px;
+    // }
 
-    @media (max-width:767px) {
-        height: 500px;
-    }
+    // @media (max-width:767px) {
+    //     height: 500px;
+    // }
 }
 
 .left-icon,.right-text{
@@ -1128,6 +1132,11 @@ cursor: pointer;
     margin: 0px 25px 50px 25px;
     padding-top:40px;
     border-top: 3px solid #F6F6F6;
+}
+@media screen and (max-width:1150px){
+    .instruction-section{
+        padding-top: 6px !important;
+    }
 }
 
 .less-top{
