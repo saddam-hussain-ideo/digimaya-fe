@@ -14,7 +14,7 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NotFoundComponent } from './template/not-found/not-found.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { HeadComponent } from './template/sidebar-header/head.component';
 import { Affiliate } from './components/affiliate/affiliate.component';
@@ -85,6 +85,7 @@ export function createTranslateLoader(http: HttpClient) {
     HttpModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     QRCodeModule,
     ChartsModule,
     UiSwitchModule,

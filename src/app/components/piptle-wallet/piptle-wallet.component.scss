@@ -1,5 +1,8 @@
 @import "../../../_variables";
 
+.withDrawLoader{
+  height: 35px;
+}
 
 .bg{
   background-color: $white-color;
@@ -20,7 +23,7 @@
   }
   .custom-draw-btn{
     // background: #997bb5;
-    background-color: #c0a9d6;
+    background-color: $dashboard-purple-clr;
     color: #fff;
     height: 43px;
     font-family: "LatoWebBold";
@@ -28,9 +31,13 @@
     text-transform: uppercase;
     border-radius: unset;
   }
+  .custom-draw-btn:disabled{
+    // background: #997bb5;
+    opacity: 0.6;
+  }
   .custom-small-btn{
     // background: #997bb5;
-    background-color: #c0a9d6;
+    background-color: $dashboard-purple-clr;
     color: #fff;
     height: 43px;
     font-family: "LatoWebBold";
@@ -38,6 +45,9 @@
     // min-width: 93px;
     text-transform: uppercase;
     border-radius: unset;
+  }
+  .custom-small-btn:disabled{
+    opacity: 0.6;
   }
 }
 @media (max-width:1500px) {
@@ -137,5 +147,117 @@
       font-size: 14px;
       color: $theme-blue;
     }
+  }
+}
+
+
+button:disabled {
+  opacity: 0.6;
+}
+
+::ng-deep .modal-content {
+  padding: 16px 30px;
+  border-radius: 5px !important;
+  box-sizing: border-box;
+  border: 1px solid #e1dddd;
+
+  .modal-heading{
+    .text-upercase{
+      color: $dashboard-purple-clr;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+  .modal-body{
+    padding:0;
+    position: relative;
+  
+  
+  
+    .header-inside{
+        padding-bottom: 25px;
+        width: 72%;
+        margin: 0 auto;
+  
+  
+  
+        @media (max-width:640px){
+            width:100%;
+        }
+  
+        .no-of-coins{
+            color: $theme-blue;
+            font-family: 'LatoWeb';
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 22px;
+        }
+    }
+  
+    .form-group{
+        margin-bottom: 15px;
+        &:last-child{
+            margin-bottom:0;
+        }
+    }
+  
+    .custom-2{
+        margin:0;
+        // border-top:4px solid #F6F6F6;
+        margin-bottom: 25px;
+    }
+  
+  
+    label,span{
+        color: $dashboard-purple-clr;
+        font-family: 'LatoWeb';
+        font-size: 13px;
+        line-height: 15px;
+        margin-bottom: 8px;
+    }
+  
+  
+    input,select{
+        height: 42px;
+        background-color: #F0F0F0;
+        font-family: 'LatoWeb';
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 22px;
+        border:none;
+        box-shadow: none;
+    }
+  
+    .w-25{
+        width:25%;
+        padding-top: 1px;
+    }
+  
+    .w-75{
+        width:75%;
+    }
+  
+    .submit-btn{
+      height: 52px;
+      background-color: $dashboard-purple-clr;
+      width: 100%;
+      border: none;
+      text-transform: uppercase;
+      color: $white-color;
+      font-family: 'LatoWeb';
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+  
+        @media (max-width:640px) {
+            width:100%;
+        }
+        img{
+            padding-left: 10px;
+            margin-top: -10px;
+        }
+    }
+  
   }
 }

@@ -79,5 +79,15 @@ export class WalletServices {
             .map(res => res.json());
     }
 
+    withDrawWallet(data) {
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append("authorization", this.userToken);
+        
+        return this.http.post(environment.BaseUrl + "user/withdrawal", data, { headers: headers })
+            .map(res => res.json());
+    }
+
 
 }

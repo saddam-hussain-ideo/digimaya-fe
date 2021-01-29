@@ -227,6 +227,7 @@ export class IcoComponent {
       // windowClass: 'info-modal-sm',
       // size: 'md',
       // ariaLabelledBy: 'info-modal',
+      backdrop: 'static',
       centered: true
     };
     this.stopEditingModal = this.modalService.open(StagesComponent, modalConfig);
