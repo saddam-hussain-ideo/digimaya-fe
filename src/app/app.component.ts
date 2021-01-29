@@ -24,6 +24,7 @@ export class AppComponent implements OnInit{
   }
   
   ngOnInit() {
+    localStorage.setItem('language', 'en');
     this._sharedService.updateLoader$.subscribe(
       a => {
         console.log(a);

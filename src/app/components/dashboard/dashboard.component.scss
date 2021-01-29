@@ -280,7 +280,7 @@
             margin-bottom: 15px;
         }
         @media (max-width: 767px) {
-            width: 50%;
+            // width: 50%;
         }
 
     }
@@ -329,7 +329,7 @@
     font-weight: 400;
     // width:80%;
     width: 130%;
-    height: 45.13px;;
+    height: 45.13px;
     margin-top: 20px;
     float: right;
     margin-right:15px;
@@ -496,11 +496,11 @@
     }
 }
 
-// @media only screen and (max-width:1490px){
-//     .title-values{
-//         font-size: 10px;
-//     }
-// }
+@media only screen and (max-width:1400px){
+    .title-values{
+        font-size: 10px;
+    }
+}
 
 .rates-title-sec{
     display: flex;
@@ -1046,6 +1046,11 @@ font-size: 12px;
 
 }
 
+@media only screen and (max-width:767px) {
+    .pay-btn{
+        height: unset;
+    }
+}
 
 @media only screen and (max-width:640px) {
 
@@ -1057,9 +1062,10 @@ font-size: 12px;
     }
 
     .pay-btn{
-        width: 80%;
+        width: 100%;
         float:none !important;
         margin:0 auto;
+        height: unset;
     }
 
     .row-eq-height{
@@ -1217,6 +1223,11 @@ font-size: 12px;
     @media (max-width:1210px) {
         #inc-button {
             top: 31px;
+          }
+    }
+    @media (max-width:769px) {
+        #inc-button {
+            top: 26px;
           }
     }
 //   @media (min-width:1150) {
@@ -1599,7 +1610,7 @@ font-size: 12px;
 //    }
 
    .earn-boxes-list li{
-       width:100% !important;
+    //    width:100% !important;
        margin-bottom:10px;
    }
 

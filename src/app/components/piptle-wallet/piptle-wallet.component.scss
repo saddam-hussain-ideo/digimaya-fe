@@ -50,6 +50,67 @@
     opacity: 0.6;
   }
 }
+
+.wallet-new-cards{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  .cards-inner-width{
+    width: 23%;
+  }
+}
+@media screen and (max-width:1280px){
+  .custom-draw-btn{
+    font-size: 11px;
+
+  }
+  .custom-btns{
+    width: 60px;
+    font-size: 11px;
+    padding: 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width:1047px){
+  .wallet-new-cards{
+    flex-direction: column;
+    .cards-inner-width{
+      width: unset;
+      margin-bottom: 10px;
+    }
+  }
+  .custom-draw-btn{
+    font-size: 16px;
+
+  }
+  .custom-btns{
+    width: 30%;
+    font-size: 16px;
+
+  }
+}
+
+// @media screen and (max-width:1280px){
+//   .custom-small-btn{
+//     font-size: 12px;
+//   }
+//   .custom-draw-btn{
+//     font-size: 12px;
+
+//   }
+//   .send{
+//     width: 30%;
+
+//   }
+//   .recieve{
+//     width: 30%;
+
+//   }
+//   .stake{
+//     width: 30%;
+
+//   }
+// }
 @media (max-width:1500px) {
   .wallet-cards{
     display: flex;

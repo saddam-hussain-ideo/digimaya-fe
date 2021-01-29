@@ -1,9 +1,17 @@
 @import '../../../_variables';
-
+.myWallet-section{
+    height: calc(100vh - 842px);
+}
 .mywallet-head-txt{
     font-family: 'LatoWeb';
     color: #26497b;
     text-transform: uppercase;
+}
+.mywallet-head{
+    .setting-txt{
+        margin-bottom: 15px;
+        margin-top: 0;
+    }
 }
 .genral-sett-div{
     background-color: white;

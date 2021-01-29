@@ -241,7 +241,7 @@ a, a:hover, a:focus {
       -ms-transform: none;
       -webkit-transform: none;
       transform: none;
-      background:  url(../../../assets/img/menu-toggle.png) no-repeat;
+      background:  url(../../../assets/img/menu-icn.png) no-repeat;
   }
 }
 
@@ -1124,7 +1124,9 @@ a.article, a.article:hover {
     }
   }
 }
-
+.side-social-icons{
+  background-color: #643E8D !important;
+}
 #sidebar-icon{
   display: none;
   @media (max-width:767px) {

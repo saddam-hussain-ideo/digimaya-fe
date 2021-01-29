@@ -2,7 +2,7 @@
 
 .pp{
   color: $dashboard-purple-clr;
-  font-size: 100px;
+  font-size: 87px;
   letter-spacing: 15px;
 }
 .panel{
@@ -51,15 +51,29 @@
 }
 
 .outer-wrapper-parent .inner-wrapper-child{
-  width:28%;
-  @media (max-width:767px){
-    width:80%
+  width:30%;
+  // @media (max-width:767px){
+  //   width:80%
+  // }
+  @media (max-width:900px){
+    width:70%
   }
 
-  @media (min-width:768px) and (max-width:992px){
-    width:80%
+  // @media (min-width:768px) and (max-width:992px){
+  //   width:80%
+  // }
+}
+@media (max-width:1300px){
+  .pp{
+    letter-spacing: 0;
+    font-size: 75px;
   }
 }
+  @media (max-width:990px){
+    .pp{
+      font-size: 75px;
+    }
+  }
 
 /* .inner-wrapper-child {
       position: absolute;
@@ -185,4 +199,10 @@ h2.panel-heading {
 .signup-loader .cssload-thecube{
     width:32px !important;
     height:32px !important;
+}
+
+@media (max-width:360px){
+  .pp{
+    font-size: 50px;
+  }
 }
