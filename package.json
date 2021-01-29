@@ -43,6 +43,7 @@
     "rxjs": "6.0.0",
     "rxjs-compat": "6.2.2",
     "socket.io": "~2.0.3",
+    "tronweb": "^3.2.3",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {
