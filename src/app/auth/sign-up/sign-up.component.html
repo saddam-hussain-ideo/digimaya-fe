@@ -49,17 +49,19 @@
 
                 </div>
 
-                <!-- <div class='form-group'>
+                <div class='form-group'>
 
                     <p>
                         <input type="checkbox" id="TermsCheck" />
                         <label for="TermsCheck">{{'I confirm that I have read, accepted and agreed to all' | translate}}
-                            <a class="links-signup piptle-links no-underline" target="_blank" [(href)]=documentUrl>{{'Terms & Conditions' | translate}}</a> & <a class="links-signup no-underline piptle-links" target="_blank" [(href)]=privacyPolicy>{{'Privacy Policy' | translate}}</a> {{'and that I am of legal age' | translate}}
+                            <!-- <a class="links-signup piptle-links no-underline" target="_blank" [(href)]=documentUrl>{{'Terms & Conditions' | translate}}</a> & <a class="links-signup no-underline piptle-links" target="_blank" [(href)]=privacyPolicy>{{'Privacy Policy' | translate}}</a>  -->
+                            Terms & Conditions & Privacy Policy
+                            {{'and that I am of legal age' | translate}}
 
                         </label>
                     </p>
 
-                </div> -->
+                </div>
 
                 <div *ngIf="signUpLoaderShow" class="loader">
                     <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"

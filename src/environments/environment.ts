@@ -9,7 +9,8 @@ export const environment = {
 
   BaseUrl: "http://coin.piptleapp.store:3000/api/",
   // BaseUrl: "https://api.mypiptles.com/api/",
-  captchaKey: '6LcY8zIaAAAAAJrc0THvOOZyjIdJKLYAl3tHnITp',
+  // captchaKey: '6LcY8zIaAAAAAJrc0THvOOZyjIdJKLYAl3tHnITp',
+  captchaKey: '6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX',
   //old captchakey : 6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX
   documentUrl: "https://fruture.org/terms-of-use.html",
   privacyPolicy:"https://fruture.org/privacypolicy.html",
