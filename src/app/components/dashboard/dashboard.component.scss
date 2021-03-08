@@ -1852,19 +1852,7 @@ font-size: 12px;
 }
 
 .dash-info-row{
-    .payment-card{
-        margin-top: -13px;
-        margin-left: 3px;
-        .content{
-            padding: 13px 9px 9px 0px;
-            // padding: 10px 7px;
-            .prp-text{
-                color: $dashboard-purple-clr;
-                font-size: $font-14;
-                font-weight: bold;
-            }
-        }
-    }
+    
     .info-custom-card{
         background: $dashboard-purple-clr;
         border: 3px solid $white-color;
@@ -1890,7 +1878,19 @@ font-size: 12px;
         border: 3px solid $dashboard-purple-clr;
     }
 }
-
+.payment-card{
+    margin-top: -13px;
+    margin-left: 3px;
+    .content{
+        padding: 13px 9px 9px 0px;
+        // padding: 10px 7px;
+        .prp-text{
+            color: $dashboard-purple-clr;
+            font-size: $font-14;
+            font-weight: bold;
+        }
+    }
+}
 .fa-quora{
     // font-size: 30px;
     font-size: 38px;
