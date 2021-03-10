@@ -37,7 +37,7 @@
 
                                     <p class="number">
                                         <!-- {{ICOInformation?.Sale}} -->
-                                        7000000
+                                        {{networkIssuedPPTL | currency : 'crypto'}}
                                         <span class="dollar">PPTL</span>
                                     </p>
                                     <!-- <p class="total-text">{{ 'ISSUED VALUE ' | translate}}</p> -->
@@ -84,14 +84,14 @@
                                         <p class="total-text">
                                             GPA Licensees
                                         </p>
-                                        <p class="number pt-0  pl-1">100
+                                        <p class="number pt-0  pl-1"> {{referalLicencesCount.gpa}}
                                         </p>
                                     </div>
                                     <div class="d-flex align-items-center mt-2">
                                         <p class="total-text">
                                             Other Licensees
                                         </p>
-                                        <p class="number pt-0 pl-1">100
+                                        <p class="number pt-0 pl-1">{{referalLicencesCount.other}}
                                         </p>
                                     </div>
 
@@ -138,10 +138,12 @@
                                 <div class="right-icon-stats">
 
 
-                                    <p class="number">100
+                                    <p class="number">{{referredCountries}}
 
                                     </p>
-                                    <p class="total-text">{{ 'Countries' | translate}}
+                                    <p class="total-text" *ngIf="referredCountries <= 1">COUNTRY
+                                    </p>
+                                    <p class="total-text" *ngIf="referredCountries > 1">{{ 'Countries' | translate}}
                                     </p>
 
 
@@ -166,7 +168,7 @@
                                         <div class="mt-4">
                                             <div class="d-flex flex-column justify-content-center">
                                                 <div class="d-flex flex-row justify-content-center mb-0 mt-3">
-                                                    <p class="number pt-0">34324</p>
+                                                    <p class="number pt-0">{{earningValues('pptl') | currency : 'crypto'}}</p>
                                                 </div>
                                                 <div class="d-flex flex-row justify-content-center">
                                                     <p class="ml-2 dollar pt-0">PPTL</p>
@@ -180,7 +182,9 @@
                                     <div class="col  text-centered">
                                         <div class="d-flex flex-column justify-content-center mt-4">
                                             <div class="d-flex flex-row justify-content-center mb-0 mt-3">
-                                                <p class="number pt-0">$ 34324</p>
+                                                <p class="number pt-0">$  
+                                                    {{earningValues('usdt') | currency:'crypto'}}
+                                                </p>
                                             </div>
                                             <div class="d-flex flex-row justify-content-center">
                                                 <p class="ml-2 dollar pt-0">AUD VALUE</p>
@@ -214,8 +218,8 @@
             <div class="row1">
                 <div class="row">
                     <div class="col-lg-6 right-7">
-                        <div class="white-back">
-                            <div class="pos-rltv">
+                        <div class="white-back referral-pd">
+                            <!-- <div class="pos-rltv">
 
                                 <div class="pos-left">
                                     <h6 class="aff-h2">{{'Discription' | translate}}
@@ -232,10 +236,10 @@
                                     {{ 'Every user will earn 2% of the investment of their referrals using their code' |
                                     translate}}
                                 </p>
-                            </div>
+                            </div> -->
 
 
-                            <hr class="saperator" />
+                            <!-- <hr class="saperator" /> -->
 
                             <!-- <div class="pos-rltv negate-margin">
 
@@ -477,44 +481,50 @@
 
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="bg-lght">
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
-
+                                <tbody *ngIf="tableLoader1">
+                                    <tr >
+                                        <td colspan="12">
+                                            <div  class="custom-loader">
+                                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                                                preserveAspectRatio="xMidYMid">
+                                                <g transform="rotate(208.756 50 50)">
+                                                    <animateTransform attributeName="transform" type="rotate"
+                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                                    </animateTransform>
+                                                    <path fill="#85ffbd"
+                                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                                    </path>
+                                                    <path fill="#316598"
+                                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                                    </path>
+                                                    <path fill="#a4bcc2"
+                                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            </div>
+                                        </td>
                                     </tr>
+                                </tbody>
+                                <tbody *ngIf="!tableLoader1 && !levelOneData" >
                                     <tr>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
+                                        <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
-                                    <tr>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
-                                    </tr>
+                                </tbody>
+                                <tbody *ngIf="!tableLoader1 && levelOneData">
+                                    <tr *ngFor="let data of levelOneData?.data.rows">
+                                        <td>{{data.name}}</td>
+                                        <td>{{data.username}}</td>
+                                        <td>{{data.join_date}}</td>
+                                        <td>{{data.licence}}</td>
+                                        <td>{{data.country}}</td>
+                                        <td>{{levelOneData?.data.totalRecords}}</td>
+                                        <td>{{data.audPurchase  | currency:'crypto'}}</td>
+                                        <td>{{data.pptlIssued   | currency:'crypto'}}</td>
+                                        <td>{{data.bonusEarned  | currency:'crypto'}}</td>
+                                    </tr>   
                                 </tbody>
                             </table>
                         </div>
@@ -531,63 +541,66 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="f-bold">Referrer Full name</th>
-                                        <th class="f-bold">Member Full name</th>
-                                        <th class="f-bold">Member Username</th>
-                                        <th class="f-bold">Join Date</th>
-                                        <th class="f-bold">Licence Type</th>
-                                        <th class="f-bold">Registration Country</th>
-                                        <th class="f-bold">Amount of Direct Referrals</th>
-                                        <th class="f-bold">Total AUD Purchase Value</th>
-                                        <th class="f-bold">Piptles Issued </th>
-                                        <th class="f-bold">My Bonus Piptles Earned</th>
+                                        <th class="f-bold tbl-row-head-pd">Referrer Full name</th>
+                                        <th class="f-bold tbl-row-head-pd">Member Full name</th>
+                                        <th class="f-bold tbl-row-head-pd">Member Username</th>
+                                        <th class="f-bold tbl-row-head-pd">Join Date</th>
+                                        <th class="f-bold tbl-row-head-pd">Licence Type</th>
+                                        <th class="f-bold tbl-row-head-pd">Registration Country</th>
+                                        <th class="f-bold tbl-row-head-pd">Amount of Direct Referrals</th>
+                                        <th class="f-bold tbl-row-head-pd">Total AUD Purchase Value</th>
+                                        <th class="f-bold tbl-row-head-pd">Piptles Issued </th>
+                                        <th class="f-bold tbl-row-head-pd">My Bonus Piptles Earned</th>
 
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="bg-lght">
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
-
-
+                                <tbody *ngIf="tableLoader2">
+                                    <tr >
+                                        <td colspan="12">
+                                            <div  class="custom-loader">
+                                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                                                preserveAspectRatio="xMidYMid">
+                                                <g transform="rotate(208.756 50 50)">
+                                                    <animateTransform attributeName="transform" type="rotate"
+                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                                    </animateTransform>
+                                                    <path fill="#85ffbd"
+                                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                                    </path>
+                                                    <path fill="#316598"
+                                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                                    </path>
+                                                    <path fill="#a4bcc2"
+                                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            </div>
+                                        </td>
                                     </tr>
+                                </tbody>
+                                <tbody *ngIf="!tableLoader2 && !levelTwoData" >
                                     <tr>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
-
+                                        <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
-                                    <tr>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
-
-                                    </tr>
+                                </tbody>
+                                <tbody *ngIf="!tableLoader2  && levelTwoData" >
+                                   
+                                    
+                                    <tr *ngFor="let data of levelTwoData?.data.rows">
+                                        <td>{{data.referrer}}</td>
+                                        <td>{{data.name}}</td>
+                                        <td>{{data.username}}</td>
+                                        <td>{{data.join_date}}</td>
+                                        <td>{{data.licence}}</td>
+                                        <td>{{data.country}}</td>
+                                        <td>{{levelTwoData?.data.totalRecords}}</td>
+                                        <td>{{data.audPurchase  | currency:'crypto'}}</td>
+                                        <td>{{data.pptlIssued  | currency:'crypto'}}</td>
+                                        <td>{{data.bonusEarned  | currency:'crypto'}}</td>
+                                    </tr>     
                                 </tbody>
                             </table>
                         </div>
@@ -604,63 +617,64 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="f-bold">Sponsor Full name</th>
-                                        <th class="f-bold">Member Full name</th>
-                                        <th class="f-bold">Member Username</th>
-                                        <th class="f-bold">Join Date</th>
-                                        <th class="f-bold">Licence Type</th>
-                                        <th class="f-bold">Registration Country</th>
-                                        <th class="f-bold">Amount of Direct Referrals</th>
-                                        <th class="f-bold">Total AUD Purchase Value</th>
-                                        <th class="f-bold">Piptles Issued </th>
-                                        <th class="f-bold">My Bonus Piptles Earned</th>
+                                        <th class="f-bold tbl-row-head-pd">Sponsor Full name</th>
+                                        <th class="f-bold tbl-row-head-pd">Member Full name</th>
+                                        <th class="f-bold tbl-row-head-pd">Member Username</th>
+                                        <th class="f-bold tbl-row-head-pd">Join Date</th>
+                                        <th class="f-bold tbl-row-head-pd">Licence Type</th>
+                                        <th class="f-bold tbl-row-head-pd">Registration Country</th>
+                                        <th class="f-bold tbl-row-head-pd">Amount of Direct Referrals</th>
+                                        <th class="f-bold tbl-row-head-pd">Total AUD Purchase Value</th>
+                                        <th class="f-bold tbl-row-head-pd">Piptles Issued </th>
+                                        <th class="f-bold tbl-row-head-pd">My Bonus Piptles Earned</th>
 
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="bg-lght">
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
-
-
+                                <tbody *ngIf="tableLoader3">
+                                    <tr >
+                                        <td colspan="12">
+                                            <div  class="custom-loader">
+                                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                                                preserveAspectRatio="xMidYMid">
+                                                <g transform="rotate(208.756 50 50)">
+                                                    <animateTransform attributeName="transform" type="rotate"
+                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                                    </animateTransform>
+                                                    <path fill="#85ffbd"
+                                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                                    </path>
+                                                    <path fill="#316598"
+                                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                                    </path>
+                                                    <path fill="#a4bcc2"
+                                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            </div>
+                                        </td>
                                     </tr>
+                                </tbody>
+                                <tbody *ngIf="!tableLoader3 && !levelThreeData" >
                                     <tr>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
-
+                                        <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
-                                    <tr>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-                                        <td>sample only</td>
-
-
-                                    </tr>
+                                </tbody>
+                                <tbody *ngIf="!tableLoader3 && levelThreeData">
+                                    <tr *ngFor="let data of levelThreeData?.data.rows">
+                                        <td class="tbl-row-pd">{{data.referrer}}</td>
+                                        <td class="tbl-row-pd">{{data.name}}</td>
+                                        <td class="tbl-row-pd">{{data.username}}</td>
+                                        <td class="tbl-row-pd">{{data.join_date}}</td>
+                                        <td class="tbl-row-pd">{{data.licence}}</td>
+                                        <td class="tbl-row-pd">{{data.country}}</td>
+                                        <td class="tbl-row-pd">{{levelThreeData?.data.totalRecords}}</td>
+                                        <td class="tbl-row-pd">{{data.audPurchase  | currency:'crypto'}}</td>
+                                        <td class="tbl-row-pd">{{data.pptlIssued  | currency:'crypto'}}</td>
+                                        <td class="tbl-row-pd">{{data.bonusEarned  | currency:'crypto'}}</td>
+                                    </tr>     
                                 </tbody>
                             </table>
                         </div>
@@ -725,46 +739,84 @@
 
                         <div class="table-responsive aff-earners-div">
 
-                            <p class="no-record" *ngIf="noAffiliateEarners">{{'No Refer Earners!' | translate}}</p>
 
 
-                            <table class="table table-striped affiliates-detail" *ngIf="!noAffiliateEarners">
+                            <table class="table table-striped affiliates-detail">
 
                                 <thead>
                                     <tr>
-
-
-                                        <td class="text-uppercase">
+                                        <td class="text-uppercase text-center">
                                             <p>{{'Currency' | translate}}</p>
                                         </td>
-                                        <td class="text-uppercase text-right">
+                                        <td class="text-uppercase text-center">
                                             <p>{{'AMOUNT CONTRIBUTED' | translate}}</p>
                                         </td>
                                         <!-- <td class="text-uppercase text-right">
                                             <p>{{'AMOUNT INVESTED IN MXN' | translate}}</p>
                                         </td> -->
-                                        <td class="text-uppercase text-left">
+                                        <td class="text-uppercase text-center">
                                             <p>{{'USERNAME' | translate}}</p>
                                         </td>
-                                        <td class="text-uppercase text-left">
+                                        <td class="text-uppercase text-center">
                                             <p>{{'TIME' | translate}}</p>
                                         </td>
                                         <!-- <td class="text-uppercase text-right">
                                             <p>{{'EARNING IN MXN' | translate}} (2%)</p>
                                         </td> -->
-                                        <td class="text-uppercase text-right">
-                                            <p>{{'EARNING IN FRU' | translate}} (2%)</p>
+                                        <td class="text-uppercase text-center">
+                                            <p>{{'EARNING IN FRU' | translate}}</p>
                                         </td>
 
 
                                     </tr>
                                 </thead>
 
-                                <tbody>
+                                <tbody *ngIf="affiliatesLoader">
+                                    <tr >
+                                        <td colspan="12">
+                                            <div  class="custom-loader">
+                                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                                                preserveAspectRatio="xMidYMid">
+                                                <g transform="rotate(208.756 50 50)">
+                                                    <animateTransform attributeName="transform" type="rotate"
+                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+                                                    </animateTransform>
+                                                    <path fill="#85ffbd"
+                                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+                                                    </path>
+                                                    <path fill="#316598"
+                                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+                                                    </path>
+                                                    <path fill="#a4bcc2"
+                                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <!-- <tbody *ngIf="!affiliatesLoader && !levelTwoData" >
+                                    <tr>
+                                        <td colspan="12" class="no-data-tbl">no data to display</td>
+                                    </tr>
+                                </tbody> -->
+                                <tbody *ngIf="!affiliatesLoader && !totalAffiliatesArray">
+                                    <tr>
+                                        <td colspan="12" class="text-center">
+                                            <p class="no-record">{{'No Refer Earners!' | translate}}</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                                <tbody *ngIf="!affiliatesLoader && totalAffiliatesArray">
+                                 
 
                                     <tr *ngFor="let affiliate of totalAffiliatesArray">
 
-                                        <td class="img-width-table v-middle text-center">
+                                        <!-- <td class="img-width-table v-middle text-center">
 
                                             <div class="coin-image">
                                                 <img *ngIf="affiliate.CurrencyType=='USD'"
@@ -784,31 +836,33 @@
 
 
 
-                                        </td>
+                                        </td> -->
 
-                                        <td class="text-uppercase text-right">
-                                            <p class="amounts-text">{{affiliate.CryptoReceived | currency:'crypto'}}</p>
+                                        <td class="text-uppercase text-center">
+                                            <p class="amounts-text">{{affiliate.currency | currency:'crypto'}}</p>
                                         </td>
-
+                                        <td class="text-center">
+                                            <p class="amounts-text">{{affiliate.amountInvested | currency: 'crypto'}}</p>
+                                        </td>
                                         <!-- <td class="text-uppercase text-right">
                                             <p class="amounts-text">${{affiliate.AmountInMexican}}</p>
                                         </td> -->
 
-                                        <td class="text-left">
-                                            <p class="amounts-text">{{affiliate.Name}}</p>
+                                        <td class="text-center">
+                                            <p class="amounts-text">{{affiliate.userName}}</p>
                                         </td>
 
-                                        <td class="text-left">
-                                            <p class="amounts-text">{{affiliate.Date}}</p>
+                                        <td class="text-center">
+                                            <p class="amounts-text">{{affiliate.time | date : 'yyyy-MM-dd'}}</p>
                                         </td>
 
                                         <!-- <td class="text-right">
                                             <p class="amounts-text-black">{{affiliate.EarningInMexican}} MXN</p>
                                         </td> -->
 
-                                        <td class="text-right">
-                                            <p class="amounts-text-black">{{affiliate.EarningInFru | currency:'crypto'}}
-                                                FRU</p>
+                                        <td class="text-center">
+                                            <p class="amounts-text-black">{{affiliate.earningInPPTL | currency:'crypto'}}
+                                                PPTL</p>
                                         </td>
 
                                     </tr>
@@ -840,7 +894,7 @@
 
                         </div>
 
-                        <div class="bg-table clearfix">
+                        <div class="bg-table clearfix" *ngIf="!affiliatesLoader && totalAffiliatesArray">
 
 
                             <ul class="clearfix total-row">
@@ -854,7 +908,7 @@
                                 </li> -->
 
                                 <li>
-                                    <p class="total-values">{{totalEarningInCrypto | currency:'crypto'}} PPTL </p>
+                                    <p class="total-values">{{totalEarningInPPTL | currency:'crypto'}} PPTL </p>
                                 </li>
 
                             </ul>

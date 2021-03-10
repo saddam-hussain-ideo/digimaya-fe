@@ -16,6 +16,9 @@ $ico-font:26px;
     font-weight: 600;
 }
 
+.referral-pd{
+    padding: 2rem 20px !important;
+}
 
 .white-back{
     background-color: white;
@@ -963,7 +966,7 @@ $ico-font:26px;
 
                 p.amounts-text{
                     color: $theme-blue;	
-                    font-family: 'LatoWebLight';	
+                    font-family: 'LatoWeb';	
                     font-size: 14px;	
                     line-height: 20px;	
                     margin-bottom:0;
@@ -1176,7 +1179,7 @@ $ico-font:26px;
  }
 
  .blue-text{
-    color: #2097D4 !important;
+    color: $dashboard-purple-clr !important;
  }
 
  .graph-loader{
@@ -1442,3 +1445,18 @@ $ico-font:26px;
     color: $dashboard-purple-clr;
     padding: 10px 0 0 12px;
   }
+  .custom-loader{
+      text-align: center;
+      svg{
+          width: 100px;
+      }
+  }
+  .tbl-row-head-pd, .tbl-row-pd{
+    padding: 12px 7px !important
+
+  }
+.no-data-tbl{
+    font-size: 16px;
+    padding: 2rem 0 !important;
+    text-align: center;
+}

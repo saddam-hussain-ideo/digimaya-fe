@@ -31,14 +31,15 @@ export class AffilliateService {
 
 
     getAffiliateEarnings(userid,pageNo,PageSize){
-
+        debugger
+        const queryParams = `userId=${userid}&pageSize=${PageSize}&pageNumber=${pageNo}`
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
         headers.append("authorization", this.userToken);
 
-        return this.http.get(environment.BaseUrl + "user/affiliateearning/"+userid+"/"+pageNo+"/"+PageSize, { headers: headers })
+        return this.http.get(`${environment.BaseUrl}user/affiliateearning?${queryParams}`, { headers: headers })
             .map(res => res.json());
     }
 
@@ -56,7 +57,7 @@ export class AffilliateService {
 
     getTopReferrals() {
 
-
+        // const queryParams = `?pageNo=${pageNo}&pageSize=${pageSize}`
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
@@ -89,6 +90,17 @@ export class AffilliateService {
         return this.http.get(environment.BaseUrl + "user/allreferrals/"+userId, { headers: headers })
             .map(res => res.json());
     } */
+    levelReferrals(userId, level, pageNo, pageSize){
+        const params = `?userId=${userId}&level=${level}&pageNumber=${pageNo}&pageSize=${pageSize}`
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+
+        headers.append("authorization", this.userToken);
+
+        return this.http.get(environment.BaseUrl + `user/getreferrals${params}`, { headers: headers })
+            .map(res => res.json());
+    }
 
 }
 
