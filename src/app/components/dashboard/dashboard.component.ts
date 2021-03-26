@@ -111,7 +111,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     public topScrollValue = 0;
 
-
+    selectedCurrencyAUD = 'AUD';
+    selectedCurrencyValue = 0;
+    totalValueAud = 0
     constructor(
         public router: Router,
         public _dashboardService: DashboardService,
@@ -198,15 +200,20 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
         this.liveRates.usd = Number(this.liveRates.usd).toFixed(4)
         this.liveRates.usd = this.validations.toCommas(this.liveRates.usd);
+        this.convertCurrencyToPPTL('mxn')
 
     }
 
     getRates() {
 
-        this._dashboardService.getRates().subscribe(a => {                    
+        this._dashboardService.getRates().subscribe(a => { 
+            console.log(a);
+                               
             if (a.code == 200) {
                 this.RatesModel = a.data;
-                this.liveRates = Object.assign({}, a.data);                
+                this.liveRates = Object.assign({}, a.data);    
+                console.log(this.liveRates);
+                            
                 this.getLiveRatesByCode()
                 this.populateWidgets();
             }
@@ -948,7 +955,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     ngOnInit() {
         // this.userToken = JSON.parse(localStorage.getItem('userToken'));
         let userToken = this.activatedRoute.snapshot.params['id'];
-        
         if(userToken){            
             this._sharedService.updateValidateLoader(true);
             this.userService.singleSignOn(userToken,true).subscribe(response => {
@@ -1061,7 +1067,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
     getTokens(){
 		this.userService.getTokens(this.userId,this.userToken).subscribe(res => {      
 			if (res) {
-                this.totalPiptles = res['data']['totalTokens'];
+                console.log(res);
+                
+                this.totalPiptles = res['data']['totalTokens'];               
+                this.totalValueAud = this.totalPiptles * this.RatesModel.liveRate
 			}
 		}, err => {
 			console.log(err);
@@ -1070,7 +1079,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     getILOStages() {
         this._dashboardService.getILOStages().subscribe(a => {
-
+            console.log(a);
+            
             if (a.code == 200) {
                 this.stageData = a['data'].stagesInfo;
                 this.totalCapacity = a['data'].totalCapacity;
@@ -1091,7 +1101,35 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this._alive = false;
     }
 
+    convertCurrencyToPPTL(value){
 
+        this.selectedCurrencyAUD = value
+        console.log(this.RatesModel);
+        const liveRate = this.RatesModel.liveRate
+        let rates
+        if(value == 'btc'){
+            rates = this.validations.toConcat(this.liveRates.btc)        
+        } else if(value == 'ltc') {
+            rates = this.validations.toConcat(this.liveRates.ltc)        
+        }
+        else if(value == 'bch') {
+            rates = this.validations.toConcat(this.liveRates.bch)        
+        }
+        else if(value == 'usd') {
+            rates = this.validations.toConcat(this.liveRates.usd)        
+        }
+        else if(value == 'mxn') {
+            this.selectedCurrencyAUD = 'AUD'
+            rates = this.validations.toConcat(this.liveRates.mxn)        
+        }
+        else if(value == 'eth') {
+            rates = this.validations.toConcat(this.liveRates.eth)        
+        }
+        console.log(rates);
+        const valueInAud = 1 / rates
+        console.log(valueInAud);
+        this.selectedCurrencyValue = liveRate * valueInAud
+    }
 
 
 }

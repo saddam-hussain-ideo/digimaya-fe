@@ -1862,6 +1862,8 @@ font-size: 12px;
             font-size: $font-14;
             margin: 0;
             font-family: 'LatoWebBold';
+            display: flex;
+            flex-direction: column;
             .heading{
                 color: $white-color;
             }
@@ -1945,7 +1947,8 @@ div[disabled=disabled] {
         .page-title{
             color: $dashboard-purple-clr;
             font-weight: unset;
-            margin-left: 10px;
+            // margin-left: 10px;
+            margin: auto;
         }
       
     }
@@ -1961,4 +1964,8 @@ div[disabled=disabled] {
         text-transform: uppercase;
         font-size: 26px;
     }
+}
+.dashboard-dropdown{
+    width: 7rem;
+    padding-right: 1rem;
 }

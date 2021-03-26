@@ -19,7 +19,7 @@
   
   
             <div class="top-left-ico-text">
-              <p class="ico-top-text">{{ 'OVERALL TOKEN SALE PROGRESS' | translate}}
+              <p class="ico-top-text">CURRENT STAGE PPTL ISSUE:
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -66,7 +66,7 @@
   
   
             <div class="top-left-ico-text">
-              <p class="ico-top-text">{{ 'TOTAL LICENSEES' | translate}}
+              <p class="ico-top-text"> NEW PARTICIPATING LICENSEES
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -86,15 +86,21 @@
               </div>
   
               <div class="right-icon-stats">
-  
-  
-                <p class="number">{{ICOInformation?.userCount}}
-  
-                </p>
-                <p class="total-text">{{ 'Registered Piptlers' | translate}}
-                </p>
-  
-  
+                <div class="d-flex flex-column">
+                  <div class="d-flex align-items-center">
+                    <p class="number pt-0">{{ICOInformation?.userCount}}
+    
+                    </p>
+                    <p class="total-text ml-2">GPA Licensees
+                    </p>
+                  </div>
+                  <div class="d-flex align-items-center mt-2">
+                    <p class="number pt-0">{{ICOInformation?.userCount}}
+                    </p>
+                    <p class="total-text ml-2">Other Licensees
+                    </p>
+                  </div>
+                </div>
               </div>
   
   
@@ -109,7 +115,7 @@
         <div class="col-sm-12 col-md-4 col-lg-3 no-right">
           <div class="inner-box">
             <div class="top-left-ico-text">
-              <p class="ico-top-text">{{ 'TOTAL COUNTRIES' | translate}}
+              <p class="ico-top-text">TOTAL REGISTRANT COUNTRIES
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -130,12 +136,20 @@
   
               <div class="right-icon-stats">
   
+                <div class="d-flex flex-column">
+                  <div class="d-flex align-items-center">
+                    <p class="number pt-0">{{ICOInformation?.userCount}}
   
-                <p class="number">{{ICOInformation?.userCount}}
+                    </p>
+                    <p class="total-text ml-2">{{ 'Countries' | translate}}
+                    </p>
+                  </div>
+                  <div class="mt-2">
+                    <button class="btn btn-country">view Countries</button>
+                  </div>
+                </div>
   
-                </p>
-                <p class="total-text">{{ 'Countries' | translate}}
-                </p>
+                
   
   
               </div>
@@ -153,7 +167,7 @@
           <div class="inner-box ">
   
             <div class="top-left-ico-text">
-              <p class="ico-top-text">{{ 'LAST STAGE PROGRESS' | translate}}
+              <p class="ico-top-text">PREVIOUS ILO STAGE
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />

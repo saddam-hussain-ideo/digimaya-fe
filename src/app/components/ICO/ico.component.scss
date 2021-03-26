@@ -883,7 +883,7 @@ $bg-color-for-ilo : #d5cff533;
  
 
    .total-text{
-    font-family: 'LatoWebLight';
+    font-family: 'LatoWeb';
     font-weight: 400;
     text-transform: uppercase;
     color:$theme-blue;
@@ -1364,4 +1364,17 @@ $bg-color-for-ilo : #d5cff533;
 }
 .margin-top{
     margin-top: 5px;
+}
+
+.btn-country{
+    background-color: #643E8D !important;
+    border: none;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-family: 'LatoWeb';
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
 }

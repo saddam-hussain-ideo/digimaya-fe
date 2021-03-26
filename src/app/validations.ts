@@ -43,7 +43,14 @@ export class Validations {
        /*  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); */
     }
 
-
+    toConcat(x){
+        if(x.includes(',')){
+            let value = x.split(',')
+            return value[0].concat(value[1])
+        } else{
+            return x
+        }
+    }
     convertToLiterals(value, dp) {
         dp = !dp ? 8 : 2
         // Nine Zeroes for Billions
