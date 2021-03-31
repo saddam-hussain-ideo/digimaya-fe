@@ -59,7 +59,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     public stageData = [];
     public totalCapacity = ''
     public totalIssued = ''
-
+    totalLicesees
 
     public userObject: any;
     public investedValues: AmountInvestedModel;
@@ -507,6 +507,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
         this._dashboardService.getLiveStatsForWidgets().takeWhile(() => this._alive).subscribe(a => {            
+            console.log(a);
+            
             this.BitcoinWidgetData = a.BTC;
             for (var i = 0; i < this.BitcoinWidgetData.length; i++) {
                 this.BitcoinWidgetData[i] = this.BitcoinWidgetData[i];
@@ -1085,6 +1087,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 this.stageData = a['data'].stagesInfo;
                 this.totalCapacity = a['data'].totalCapacity;
                 this.totalIssued = a['data'].totalIssued
+                console.log(this.totalIssued);
+                
+                this.totalLicesees = a['data']['globalInfo']['total_licences']
             }
 
         }, err => {

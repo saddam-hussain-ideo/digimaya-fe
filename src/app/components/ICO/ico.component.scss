@@ -1378,3 +1378,44 @@ $bg-color-for-ilo : #d5cff533;
     text-align: center;
     cursor: pointer;
 }
+
+.scroll-div{
+    overflow:auto;
+
+    height: 70vh;
+
+}
+
+
+.instructions{
+    color: black;
+    .instructions-text-heading{
+        font-size: 20px;
+        color: #616A75;
+        font-family: 'LatoWebBold';
+        
+    }
+    .instructions-text{
+        font-size: 16px;
+        color: #616A75;
+    }
+
+}
+
+.instruction-close{
+    img{
+        height: 15px;
+        cursor: pointer;
+
+    }
+    padding: 20px 20px 0 20px;
+    .instruction-txt{
+        color: #616A75;
+        font-family: 'LatoWebBold';
+        font-size: 26px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+}

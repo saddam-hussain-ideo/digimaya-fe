@@ -44,7 +44,7 @@
   
                 <p class="number">
                   <!-- {{ICOInformation?.Sale}} -->
-                  7000000
+                  {{ICOStageInfoLeft?.amountSold | currency: 'crypto'}}
                   <span class="dollar">PPTL</span>
                 </p>
                 <p class="total-text">{{ 'ISSUED VALUE ' | translate}}</p>
@@ -88,14 +88,14 @@
               <div class="right-icon-stats">
                 <div class="d-flex flex-column">
                   <div class="d-flex align-items-center">
-                    <p class="number pt-0">{{ICOInformation?.userCount}}
+                    <p class="number pt-0">{{globalInfo?.total_gpa_licences}}
     
                     </p>
                     <p class="total-text ml-2">GPA Licensees
                     </p>
                   </div>
                   <div class="d-flex align-items-center mt-2">
-                    <p class="number pt-0">{{ICOInformation?.userCount}}
+                    <p class="number pt-0">{{globalInfo?.other_licences}}
                     </p>
                     <p class="total-text ml-2">Other Licensees
                     </p>
@@ -138,14 +138,15 @@
   
                 <div class="d-flex flex-column">
                   <div class="d-flex align-items-center">
-                    <p class="number pt-0">{{ICOInformation?.userCount}}
+                    <p class="number pt-0">{{globalInfo?.total_countries}}
   
                     </p>
                     <p class="total-text ml-2">{{ 'Countries' | translate}}
                     </p>
                   </div>
                   <div class="mt-2">
-                    <button class="btn btn-country">view Countries</button>
+                    <button class="btn btn-country" data-toggle="modal"
+                    data-target="#view-instructions">view Countries</button>
                   </div>
                 </div>
   
@@ -195,11 +196,14 @@
                     <div class="d-flex flex-column justify-content-center mt-3">
                       <p class="ico-top-text mb-3 p-0">Founder</p>
                       <div class="d-flex flex-row justify-content-center mb-0">
-                        <p class="number pt-0">34324</p>
+                        <p class="number pt-0" *ngIf="noFounder">N/A</p>
+                        <p class="number pt-0" *ngIf="!noFounder">{{founderPPTL | currency: 'crypto'}}</p>
+
                         <p class="ml-2 dollar pt-0">PPTL</p>
                       </div>
                       <div class="d-flex flex-row justify-content-center">
-                        <p class="number pt-0">432</p>
+                        <p class="number pt-0" *ngIf="noFounder">N/A</p>
+                        <p class="number pt-0" *ngIf="!noFounder">{{founderAudValue | currency: 'crypto'}}</p>
                         <p class="ml-2 dollar pt-0">AUD$</p>
                       </div>
                       <!-- <p class="number"> {{ICOInformation?.softCap}}
@@ -215,7 +219,7 @@
                 </div>
   
   
-                <div class="col  text-centered">
+                <!-- <div class="col  text-centered"> -->
   
                   <!-- <div >
                     <img src="../../../assets/img/hardcap-icon.png" class="hardcap-img" alt="softcap-icon">
@@ -228,14 +232,14 @@
   
                     </p>
                   </div> -->
-                  <div class="d-flex flex-column justify-content-center mt-3">
+                  <!-- <div class="d-flex flex-column justify-content-center mt-3">
 
                     <p class="ico-top-text mb-3 p-0">New Licensees</p>
                       <div class="d-flex flex-row justify-content-center mb-0">
                         <p class="number pt-0">34324</p>
                       </div>
-                  </div>
-                </div>
+                  </div> -->
+                <!-- </div> -->
   
               </div>
   
@@ -598,3 +602,48 @@
 
   </div>
 </section>
+
+
+    <!-- countries modal -->
+    <div class="modal" id="view-instructions" data-keyboard="false" data-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="d-flex justify-content-between align-items-center instruction-close">
+                  <p class="instruction-txt">Countries</p>
+                  <img src="../../../assets/img/close.png"
+                      alt="close-image" (click)="closeModal()" />
+              </div>
+              <!-- <div class="close-modal instruction-close" class="close" data-dismiss="modal" (click)="closeModal()"><img src="../../../assets/img/close.png"
+                      alt="close-image" /></div> -->
+              <div class="modal-body pt-0">
+
+                  <hr class="custom-2" />
+
+                  <div class="scroll-div">
+                      <div class="instructions">
+                          <div class="d-flex">
+                            <p class="w-50 text-center instructions-text-heading">Country</p>
+                            <p class="w-50 text-center instructions-text-heading">Registered Users</p>
+                          </div>
+                          <div class="d-flex flex-column" *ngFor="let country of allCountries | keyvalue">
+                            <div class="d-flex ">
+                              <p class="w-50 text-center instructions-text" *ngIf="country.key.includes('_')">
+                                {{country.key.split('_').join(' ').toUpperCase()}}
+                             </p>
+                             <p class="w-50 text-center instructions-text" *ngIf="!country.key.includes('_')">
+                              {{country.key.toUpperCase()}}
+                            </p>
+                              <p class="w-50 text-center instructions-text">{{country.value}}</p>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+
+              </div>
+
+
+          </div>
+      </div>
+  </div>
