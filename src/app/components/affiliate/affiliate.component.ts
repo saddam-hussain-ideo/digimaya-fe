@@ -59,7 +59,7 @@ export class Affiliate {
     tableLoader1: boolean
     tableLoader2: boolean
     tableLoader3: boolean
-
+    topRefersLoader: boolean
     referralLevel: number
     pageNo;
     pageSize;
@@ -75,7 +75,10 @@ export class Affiliate {
     }
     networkIssuedPPTL = 0;
     referredCountries = 0;
-    constructor(public router: Router, public _affilliateService: AffilliateService, public _sharedService: SharedService) {
+    constructor(public router: Router, 
+        public _affilliateService: AffilliateService, 
+        public _sharedService: SharedService
+        ) {
         this.validations = new Validations();
     }
 
@@ -205,7 +208,6 @@ export class Affiliate {
         this.affiliateGraph();
         this.getReferrals()
 
-        
 
         $(".list-unstyled li").removeClass("active");
         $("#aff-nav").addClass("active");
@@ -274,8 +276,7 @@ export class Affiliate {
                 console.log(res);
                 if(res){
                     this._sharedService.showHideLoader(false);
-
-                    console.log(res['data']);
+                    this.referredCountries = res['data']['referred_countries']
                     this.obj = {
                         level : i,
                         data : res['data']
@@ -293,7 +294,7 @@ export class Affiliate {
 
                     if(this.levelOneData){
                         this.tableLoader1 = false
-                        this.referredCountries = this.levelOneData['data']['referred_countries']
+                        // this.referredCountries = this.levelOneData['data']['referred_countries']
                     }
                     if(this.levelTwoData){
                         this.tableLoader2 = false
@@ -484,26 +485,27 @@ export class Affiliate {
     }
 
     getTopReferrals() {
-
-        this._affilliateService.getTopReferrals().subscribe(a => {
+        this.topRefersLoader = true
+        this._affilliateService.getTopReferrals(1,5).subscribe(a => {
             console.log(a);
             
             if (a.code == 200) {
-                this.topReferrals = a.data.list;
+                this.topRefersLoader = false
+                this.topReferrals = a.data.rows;
 
 
-                this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
+                // this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
 
 
 
 
-                for (var i = 0; i < this.topReferrals.length; i++) {
-                    this.topReferrals[i].percentage = ((this.topReferrals[i].AmountInUsd / this.fivePercentOfTotalAmountInvested) * 100);
-                    if (this.topReferrals[i].percentage > 100) {
-                        this.topReferrals[i].percentage = 100;
-                    }
-                    this.topReferrals[i].AmountInUsd = this.validations.toCommas(this.topReferrals[i].AmountInUsd.toFixed(3));
-                }
+                // for (var i = 0; i < this.topReferrals.length; i++) {
+                //     this.topReferrals[i].percentage = ((this.topReferrals[i].AmountInUsd / this.fivePercentOfTotalAmountInvested) * 100);
+                //     if (this.topReferrals[i].percentage > 100) {
+                //         this.topReferrals[i].percentage = 100;
+                //     }
+                //     this.topReferrals[i].AmountInUsd = this.validations.toCommas(this.topReferrals[i].AmountInUsd.toFixed(3));
+                // }
 
 
 
@@ -514,10 +516,11 @@ export class Affiliate {
                 }
             }
         }, err => {
+            this.topRefersLoader = false
 
-            var obj = JSON.parse(err._body);
-
-
+            var obj = JSON.parse(err._body); 
+            console.log(obj);
+            
             if (obj.code == 400) {
                 this.noTopAffilliates = true;
             }
@@ -541,7 +544,8 @@ export class Affiliate {
     getTopAffiliates() {
 
         this._affilliateService.getMyAffiliates(this.userObject.UserId, this.myAffiliatesPageNumber, this.myAffiliatesPageSize).subscribe(a => {
-
+            console.log(a);
+            
             if (a.code == 200) {
                 this.myAffilliates = a.data.list;
                 this.totalAffiliatesForUser = a.data.count;
@@ -555,7 +559,8 @@ export class Affiliate {
         }, err => {
 
             var obj = JSON.parse(err._body)
-
+            console.log(obj);
+            
 
             if (obj.code == 400) {
                 this.noMyAffilliates = true;

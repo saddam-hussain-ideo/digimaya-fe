@@ -55,16 +55,16 @@ export class AffilliateService {
             .map(res => res.json());
     }
 
-    getTopReferrals() {
+    getTopReferrals(pageNumber,pageSize) {
 
-        // const queryParams = `?pageNo=${pageNo}&pageSize=${pageSize}`
+        const queryParams = `?pageNumber=${pageNumber}&pageSize=${pageSize}`
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
         headers.append("authorization", this.userToken);
 
-        return this.http.get(environment.BaseUrl + "user/gettopreferrals", { headers: headers })
+        return this.http.get(environment.BaseUrl + `user/gettopreferrals${queryParams}`, { headers: headers })
             .map(res => res.json());
 
     }
