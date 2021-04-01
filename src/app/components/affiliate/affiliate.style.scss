@@ -1,4 +1,10 @@
 @import '../../../_variables';
+$ico-view-height:185px;
+$ico-total-text:18px;
+$theme-blue: $dashboard-purple-clr;
+$ico-font:26px;
+
+
 .aff-head{
     color: #26497b;
     text-transform: uppercase;
@@ -10,6 +16,9 @@
     font-weight: 600;
 }
 
+.referral-pd{
+    padding: 2rem 20px !important;
+}
 
 .white-back{
     background-color: white;
@@ -957,7 +966,7 @@
 
                 p.amounts-text{
                     color: $theme-blue;	
-                    font-family: 'LatoWebLight';	
+                    font-family: 'LatoWeb';	
                     font-size: 14px;	
                     line-height: 20px;	
                     margin-bottom:0;
@@ -1170,7 +1179,7 @@
  }
 
  .blue-text{
-    color: #2097D4 !important;
+    color: $dashboard-purple-clr !important;
  }
 
  .graph-loader{
@@ -1198,4 +1207,256 @@
         top: 1px;
         right: -4px;
     }
+}
+
+.head-section {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 1rem;
+    .heading{
+        img{
+            border: 1px solid #d3d3d352;
+            border-radius: 50px;
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            margin-right: 8px;
+        }
+        .page-title{
+            // color: white;
+            color: $dashboard-purple-clr;
+        }
+    }
+    .top-left-ico-text{
+        width: 100%;
+    }
+    .ico-top-text{
+        color: $dashboard-purple-clr;
+        text-align: center;
+    }
+    
+}
+
+.ico-top-divs{
+    margin-left: -15px;
+}
+
+.ico-top-divs{
+    .no-right{
+        @media (max-width:992px) {
+               padding-right:15px;
+        }
+    }
+}
+
+
+.table-type{
+    display: table;
+    width:100%;
+    height: $ico-view-height;
+}
+.right-icon-stats{
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 100%;
+    margin-right: 15px;
+    height:$ico-view-height;
+    text-align: left;
+
+}
+.left-stat-icon{
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 100%;
+    height:$ico-view-height;
+    text-align: center;
+
+    img{
+     max-width: 85%;
+    }
+    @media (min-width:768px) and (max-width:1199px){
+         img{
+             width: 75px;
+             padding-left: 15px;
+         }
+    }
+
+    @media (min-width:1200px) and (max-width:1350px){
+         img{
+             width: 80px;
+             padding-left: 15px;
+         }
+     }
+}
+.left-stat-icon img{
+
+    opacity: 0.4;
+
+   }
+.inner-box{
+    height:  $ico-view-height;
+    position: relative;
+    margin-bottom: 15px;
+    // background:white;
+    // background: #C2B5D3;
+
+    background-color: #e0d7d7;
+    @media (min-width:992px) and (max-width:1199px) {
+       height: 140px;
+
+       .left-stat-icon,.table-type,.right-icon-stats{
+        height: 140px;
+       }
+    }
+}
+@media only screen and (min-width:768px) and (max-width:991px){
+
+  
+    .inner-box{
+        height: 210px;
+        position: relative;
+        margin-bottom: 15px;
+    }
+}
+.total-text{
+    font-family: 'LatoWebLight';
+    font-weight: 400;
+    text-transform: uppercase;
+    color:$theme-blue;
+    font-size: 14px;
+    margin: 0;
+    @media (min-width:992px) and (max-width:1199px) {
+        font-size: 13px; 
+    }
+   }
+   .number{
+    font-family: 'LatoWeb';
+    font-weight: 800;
+    color:  $dashboard-purple-clr;
+    font-size: 25px;
+    margin: 0;
+    padding-top: 5px;
+
+        @media (min-width:768px) and (max-width:991px) {
+            font-size: 26px; 
+        }
+
+        @media (min-width:992px) and (max-width:1199px) {
+            font-size: 16px; 
+        }
+
+        @media (min-width:1200px) and (max-width:1600px){
+            font-size: 20px;
+            padding-top: 4px;
+        }
+
+
+        @media (min-width:1601px) and (max-width:1800px){
+            font-size: 18px;
+            padding-top: 15px;
+        }
+
+        
+
+   }
+   .dollar{
+    font-family: 'LatoWebLight';
+    font-weight:400;
+    color:  $theme-blue;
+    font-size: $ico-font;
+    text-transform:uppercase;
+
+    @media (min-width:992px) and (max-width:1199px){
+       font-size: 16px; 
+    }
+    @media (min-width:1200px) and (max-width:1600px){
+        font-size: 20px;
+    }
+
+    @media (max-width: 1800px) and (min-width: 1601px)
+    {
+    font-size: 18px;
+    padding-top: 5px;
+    }
+
+
+   }
+   .bg-row{
+    padding-top: 30px;
+    @media (max-width:1200px) and (min-width:992px) {
+        padding-top: 35px;
+    }
+
+    @media (min-width:1800px) {
+        padding-top: 30px;
+    }
+
+    @media (min-width:1201px) and (max-width:1600px) {
+        padding-top: 35px;
+    }
+
+    @media (min-width:1601) and (max-width:1799px) {
+        padding-top: 65px;
+    }
+
+ 
+
+   }
+
+   .piptel-transaction-history {
+    padding: 13px 14px;
+    .header {
+      h2 {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: "LatoWeb";
+      }
+    }
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > thead > tr > td,
+    .table > thead > tr > th {
+      vertical-align: middle !important;
+      border-top: none;
+      font-family: "LatoWeb", sans-serif;
+      font-size: 14px;
+      // color: #34519d !important;
+      color:  $dashboard-purple-clr;
+      /*   color: #26497b; */
+    }
+    .table td,
+    .table th {
+      padding: 12px 15px;
+      border: none !important;
+      font-size: 14px;
+      color: $theme-blue;
+    }
+  }
+  .table-section{
+      margin-top: 1rem;
+  }  
+  .table-section,.header-whte{
+      background-color: white;
+  }
+  .transaction-txt{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: "LatoWeb";
+    color: $dashboard-purple-clr;
+    padding: 10px 0 0 12px;
+  }
+  .custom-loader{
+      text-align: center;
+      svg{
+          width: 100px;
+      }
+  }
+  .tbl-row-head-pd, .tbl-row-pd{
+    padding: 12px 7px !important
+
+  }
+.no-data-tbl{
+    font-size: 16px;
+    padding: 2rem 0 !important;
+    text-align: center;
 }

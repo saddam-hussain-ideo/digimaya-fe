@@ -40,8 +40,8 @@ export class Affiliate {
     public totalAffiliateCurrentPage = 1;
     public totalAffiliatesArray = [];
     public csvData: any;
-
-    public totalEarningInCrypto: any;
+    affiliatesLoader : boolean
+    public totalEarningInPPTL: any;
     public totalEarningInUSD: any;
 
     public dataFilter = "DAY";
@@ -56,8 +56,29 @@ export class Affiliate {
 
     public fivePercentOfTotalAmountInvested: any;
     public noAffiliateEarners: boolean = false;
-
-    constructor(public router: Router, public _affilliateService: AffilliateService, public _sharedService: SharedService) {
+    tableLoader1: boolean
+    tableLoader2: boolean
+    tableLoader3: boolean
+    topRefersLoader: boolean
+    referralLevel: number
+    pageNo;
+    pageSize;
+    rowsData;
+    levelOneData;
+    levelTwoData;
+    levelThreeData;
+    obj
+    dataArr = []
+    referalLicencesCount = {
+        gpa : 0,
+        other: 0
+    }
+    networkIssuedPPTL = 0;
+    referredCountries = 0;
+    constructor(public router: Router, 
+        public _affilliateService: AffilliateService, 
+        public _sharedService: SharedService
+        ) {
         this.validations = new Validations();
     }
 
@@ -185,9 +206,8 @@ export class Affiliate {
         this.getTopAffiliates();
         this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
         this.affiliateGraph();
-     
+        this.getReferrals()
 
-        
 
         $(".list-unstyled li").removeClass("active");
         $("#aff-nav").addClass("active");
@@ -234,10 +254,71 @@ export class Affiliate {
             $('.affiliate-graph-ul li').removeClass("affiliate-active-li");
             $(this).addClass("affiliate-active-li");
         })
+        // this._sharedService.showHideLoader(false);
+
 
     }
 
+    getReferrals(){
+        this._sharedService.showHideLoader(true);
+        console.log(this.levelOneData);
+                    console.log(this.levelTwoData);
+                    console.log(this.levelThreeData);
+                    this.tableLoader1 = true
+            this.tableLoader2 = true
 
+            this.tableLoader3 = true
+        for(let i = 1; i <= 3 ; i++) {
+            
+
+            this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = i,this.pageNo = 1, this.pageSize= 10 )
+            .subscribe(res => {
+                console.log(res);
+                if(res){
+                    this._sharedService.showHideLoader(false);
+                    this.referredCountries = res['data']['referred_countries']
+                    this.obj = {
+                        level : i,
+                        data : res['data']
+                    }
+                    this.dataArr.push(this.obj)
+                    console.log(this.dataArr);
+                    
+                    this.levelOneData = this.dataArr.find(result => result.level == 1)
+                    
+                    this.levelTwoData = this.dataArr.find(result => result.level == 2)
+                    this.levelThreeData = this.dataArr.find(result => result.level == 3)
+                    console.log(this.levelOneData);
+                    console.log(this.levelTwoData);
+                    console.log(this.levelThreeData);
+
+                    if(this.levelOneData){
+                        this.tableLoader1 = false
+                        // this.referredCountries = this.levelOneData['data']['referred_countries']
+                    }
+                    if(this.levelTwoData){
+                        this.tableLoader2 = false
+                    }
+                    if(this.levelThreeData){
+                        this.tableLoader3 = false
+                    }
+                    
+                }   
+            }, err => {
+                this.tableLoader1 = false
+                this.tableLoader2 = false
+
+                this.tableLoader3 = false
+                this._sharedService.showHideLoader(false);
+                console.log(err);
+                const obj = JSON.parse(err._body);
+                console.log('Level' , i ,obj);
+                
+                
+            })
+        }
+        
+    }
 
 
 
@@ -281,21 +362,31 @@ export class Affiliate {
 
 
     getAffiliateEarnings(pageNumber) {
+        this.affiliatesLoader = true
         this._sharedService.showHideLoader(true);
         this._affilliateService.getAffiliateEarnings(this.userObject.UserId, pageNumber, this.affiliateEarningsPageSize).subscribe(a => {
-
+            console.log(a);
+            
             if (a.code == 200) {
+                this.affiliatesLoader = false
                 this._sharedService.showHideLoader(false);
                 this.noAffiliateEarners = false;
                 this.totalAffiliateEarningsRecords = a.data.Count;
-                this.totalEarningInCrypto = a.data.EarningInFru.toFixed(4);
-                this.totalEarningInUSD = a.data.EarningInMexican.toFixed(4);
-                this.totalAffiliatesArray = a.data.list;
+                this.totalEarningInPPTL = a.data.totalEarningInPPTL
+                this.totalEarningInUSD = a.data.totalEarningInAud
+                this.totalAffiliatesArray = a.data.earningList;
+                this.referalLicencesCount = {
+                    gpa: a.data.referralLicencesCount['gpa'],
+                    other: a.data.referralLicencesCount['other']
+                }
+                this.networkIssuedPPTL = a.data.referralIssuedPptls
 
             }
         }, err => {
-
+            this.affiliatesLoader = false
             var obj = JSON.parse(err._body);
+            console.log(obj);
+            
             if (obj.code == 400) {
                 // show empty error
                 this._sharedService.showHideLoader(false);
@@ -311,6 +402,7 @@ export class Affiliate {
 
 
     ConvertToCSV(objArray) {
+        debugger
         var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
         var str = '';
 
@@ -334,11 +426,12 @@ export class Affiliate {
 
 
         this._affilliateService.getCsvData(this.userObject.UserId).subscribe(a => {
-
+            console.log(a);
+            
             if (a.code == 200) {
 
-
-                this.csvData = a.data.list;
+                debugger
+                this.csvData = a.data.earningList;
 
                 var jsonObject = JSON.stringify(this.csvData);
 
@@ -392,25 +485,27 @@ export class Affiliate {
     }
 
     getTopReferrals() {
-
-        this._affilliateService.getTopReferrals().subscribe(a => {
+        this.topRefersLoader = true
+        this._affilliateService.getTopReferrals(1,5).subscribe(a => {
+            console.log(a);
             
             if (a.code == 200) {
-                this.topReferrals = a.data.list;
+                this.topRefersLoader = false
+                this.topReferrals = a.data.rows;
 
 
-                this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
+                // this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
 
 
 
 
-                for (var i = 0; i < this.topReferrals.length; i++) {
-                    this.topReferrals[i].percentage = ((this.topReferrals[i].AmountInUsd / this.fivePercentOfTotalAmountInvested) * 100);
-                    if (this.topReferrals[i].percentage > 100) {
-                        this.topReferrals[i].percentage = 100;
-                    }
-                    this.topReferrals[i].AmountInUsd = this.validations.toCommas(this.topReferrals[i].AmountInUsd.toFixed(3));
-                }
+                // for (var i = 0; i < this.topReferrals.length; i++) {
+                //     this.topReferrals[i].percentage = ((this.topReferrals[i].AmountInUsd / this.fivePercentOfTotalAmountInvested) * 100);
+                //     if (this.topReferrals[i].percentage > 100) {
+                //         this.topReferrals[i].percentage = 100;
+                //     }
+                //     this.topReferrals[i].AmountInUsd = this.validations.toCommas(this.topReferrals[i].AmountInUsd.toFixed(3));
+                // }
 
 
 
@@ -421,10 +516,11 @@ export class Affiliate {
                 }
             }
         }, err => {
+            this.topRefersLoader = false
 
-            var obj = JSON.parse(err._body);
-
-
+            var obj = JSON.parse(err._body); 
+            console.log(obj);
+            
             if (obj.code == 400) {
                 this.noTopAffilliates = true;
             }
@@ -437,10 +533,19 @@ export class Affiliate {
         })
     }
 
+    earningValues(value){
+        if(value == 'usdt'){
+            return this.totalEarningInUSD != undefined ? this.totalEarningInUSD : 0
+        } else {
+            return this.totalEarningInPPTL != undefined ? this.totalEarningInPPTL : 0
+        }
+    }
+
     getTopAffiliates() {
 
         this._affilliateService.getMyAffiliates(this.userObject.UserId, this.myAffiliatesPageNumber, this.myAffiliatesPageSize).subscribe(a => {
-
+            console.log(a);
+            
             if (a.code == 200) {
                 this.myAffilliates = a.data.list;
                 this.totalAffiliatesForUser = a.data.count;
@@ -454,7 +559,8 @@ export class Affiliate {
         }, err => {
 
             var obj = JSON.parse(err._body)
-
+            console.log(obj);
+            
 
             if (obj.code == 400) {
                 this.noMyAffilliates = true;
