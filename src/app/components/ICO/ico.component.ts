@@ -12,6 +12,7 @@ import { SharedService } from '../../services/shared';
 import { NgbModal, NgbModalOptions, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { StagesComponent } from '../stages/stages.component';
 import { INFO_MODAL_CONSTANT } from './modals';
+import { DashboardService } from 'src/app/services/dashboardService';
 
 
 
@@ -20,7 +21,7 @@ declare var $: any;
 @Component({
 
   selector: 'my-wallet',
-  providers: [ICOService],
+  providers: [ICOService, DashboardService],
   styleUrls: ['./ico.component.scss'],
   templateUrl: './ico.component.html',
 })
@@ -43,7 +44,13 @@ export class IcoComponent {
   public validations :Validations;
   public isSaleStopped = false;
   public stopEditingModal: NgbModalRef;
-
+  globalInfo
+  allCountries
+  currentILOStage;
+  previousILOStage
+  founderPPTL = 0
+  founderAudValue = 0
+  noFounder : boolean = false
   text: any = {
     Year: 'Year',
     Month: 'Month',
@@ -56,7 +63,11 @@ export class IcoComponent {
   };
 
 
-  constructor(public _icoService: ICOService, public _sharedService: SharedService, public modalService: NgbModal) {
+  constructor(public _icoService: ICOService, 
+    public _sharedService: SharedService, 
+    public modalService: NgbModal,
+    public  _dashboardService: DashboardService
+    ) {
      this.validations = new Validations();
   }
   public ngOnInit() {
@@ -64,7 +75,6 @@ export class IcoComponent {
     this._sharedService.showHideLoader(true);
 
     this.userObject = JSON.parse(localStorage.getItem("userObject"));
-
     this.getICOInformation();
     this.getIcoStagesBars();
 
@@ -167,7 +177,8 @@ export class IcoComponent {
     this._icoService.getICOInformaion().subscribe(a => {
       
       if (a.code == 200) {
-
+        console.log(a);
+        
 
         this.ICOInformation = a.data;
         
@@ -206,7 +217,7 @@ export class IcoComponent {
         }
         this.showTimer();
 
-
+        this.getILOStages()
 
       }
 
@@ -221,7 +232,39 @@ export class IcoComponent {
     })
 
   }
-  
+  getILOStages() {
+    this._sharedService.showHideLoader(true);
+
+    this._dashboardService.getILOStages().subscribe(a => {
+      this._sharedService.showHideLoader(false);
+
+        console.log(a);
+        this.globalInfo = a['data']['globalInfo']
+        console.log(this.globalInfo);
+        this.allCountries = this.globalInfo.countries
+        const previousILOStage = a['data']['stagesInfo']
+        console.log(previousILOStage);
+        const index = previousILOStage.findIndex(data => data.StageName == this.ICOStageInfoLeft.stageName)
+        console.log(index);
+        this.previousILOStage = previousILOStage[index - 1]
+        console.log(this.previousILOStage);
+        if(this.previousILOStage == undefined){
+          this.noFounder = true
+          return
+        }
+        this.founderPPTL = this.previousILOStage['TotalAmountSold']
+        this.founderAudValue = this.previousILOStage['TotalAmountSold'] * this.previousILOStage['StageRate']
+
+
+    }, err => {
+      this._sharedService.showHideLoader(false);
+
+        var obj = JSON.parse(err._body)
+        console.log(obj);
+        
+    })
+
+}
   public invokeInfoModal(stagevalue) {
     const modalConfig: NgbModalOptions = {
       // windowClass: 'info-modal-sm',
@@ -255,5 +298,7 @@ export class IcoComponent {
       console.log('Perform operation here!');
     }
   }
-
+  closeModal(){
+    $("#view-instructions").modal("hide");
+  }
 }  

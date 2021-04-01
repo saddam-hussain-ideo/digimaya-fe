@@ -3,11 +3,35 @@
     <toaster-container [toasterconfig]="config"></toaster-container>
 
     <div class="dashboard-upper-sec mb-3">
-        <div class="d-flex content-flex">
-            <!-- <img src="../../../assets/img/PIPTLE-DashboardICON.png" alt=""> -->
-            <span class="img-borders"> <img src="../../../assets/img/PIPTLE-DashboardICON.png" class="sidebar-img" alt="">
-            </span>
-            <h1 class="page-title text-left">{{ 'Dashboard' | translate }}</h1>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center content-flex">
+                <!-- <img src="../../../assets/img/PIPTLE-DashboardICON.png" alt=""> -->
+                <span class="img-borders"> <img src="../../../assets/img/PIPTLE-DashboardICON.png" class="sidebar-img" alt="">
+                </span>
+                <h1 class="ml-2 page-title text-left">PIPTLE (PPTL Coin) {{ 'Dashboard' | translate }}</h1>
+            </div>
+            <div class="no-padding center-select dashboard-dropdown">
+                <div class="form-group">
+                    <label class="black-labels hidden-above-sm " style="visibility: hidden;    padding-bottom: 5px;">PUC</label>
+                    <span class="custom-dropdown big">
+                        <img class="custom-arrow" src="../../../assets/img/drop-down-arrow.png" alt="" srcset="">
+                        <select (change)="convertCurrencyToPPTL($event.target.value)">
+                            <option value="mxn">AUD</option>
+                            <option value="btc">BTC</option>
+                            <option value="ltc">LTC</option>
+                            <option value="eth">ETH</option>
+                            <!-- <option value="bch">BCH</option> -->
+                            <!--  <option value="neo">NEO</option>-->
+                            <!-- <option value="btg">BTG</option> -->
+                            <!-- <option value="dash">DASH</option> -->
+                            <!-- <option value="mxnp">MXNP</option> -->
+                            <option value="usd">USDT</option>
+                            <option value="bch">BCH</option>
+                            <!-- <option value="eur">EURO</option> -->
+                        </select>
+                    </span>
+                </div>
+            </div>
         </div>
 
     <!-- Earn and XCHGE-->
@@ -44,7 +68,23 @@
         <div class="col-lg-2 col-md-4 pl-0 mb-3">
             <div class="info-custom-card">
                 <div class="content">
-                    <span class="heading">{{'ILO SALE STAGE' | translate }}</span>
+                    <span class="heading">Total PPTLs:</span>
+                    <span class="pulper-color"> {{totalCapacity}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card">
+                <div class="content">
+                    <span class="heading">Issued PPTLs:</span>
+                    <span class="pulper-color"> {{totalIssued.toString().split('.')[0]}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card">
+                <div class="content">
+                    <span class="heading">ILO Award Stage:</span>
                     <span class="pulper-color"> {{RatesModel.stageName.split(" ")[2]}} </span>
                 </div>
             </div>
@@ -52,35 +92,47 @@
         <div class="col-lg-3 col-md-4 pl-0 mb-3">
             <div class="info-custom-card">
                 <div class="content">
-                    <span class="heading">{{'Current Price' | translate }} AUD</span>
-                    <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span>
+                    <span class="heading">Total Piptle Licensees:</span>
+                    <span class="pulper-color"> {{totalLicesees}} </span>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-4 pl-0 mb-3">
             <div class="info-custom-card">
                 <div class="content">
-                    <span class="heading">{{'Total Piptlers' | translate }}</span>
-                    <span class="pulper-color"> 125 </span>
+                    <span class="heading">Current PPTL Value: </span>
+                    <!-- <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span> -->
+                    <span class="pulper-color"> {{selectedCurrencyAUD}} {{selectedCurrencyValue | currency : 'crypto'}} </span>
+
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-5 pl-0 mb-3">
+        
+        <div class="col-lg-3 col-md-4 pl-0 mb-3">
             <div class="info-custom-card dark-bg">
                 <div class="content">
-                    <span class="heading prp-text">{{'Your Total Piptlers' | translate }}</span>
+                    <span class="heading prp-text">Your Total PPTL:</span>
                     <span class="heading prp-text"> {{totalPiptles | currency: 'crypto'}} PPTL </span>
                 </div>
             </div>
         </div>
-
-        <div class="payment-card">
+        <div class="col-lg-3 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card dark-bg">
                 <div class="content">
-                    <span class="heading prp-text">PAYMENTS ACCEPTED FOR :</span>     
+                    <span class="heading prp-text">Your Total PPTL Value:</span>
+                    <span class="heading prp-text"> AUD$ {{totalValueAud | currency: 'crypto'}} PPTL </span>
                 </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    <div class="payment-card">
+        <div class="content">
+            <span class="heading prp-text">PAYMENTS ACCEPTED FOR :</span>     
         </div>
     </div>
-    
     <!-- Earn and XCHGE-->
 
 
