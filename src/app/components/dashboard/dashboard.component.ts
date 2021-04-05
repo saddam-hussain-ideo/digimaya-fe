@@ -237,6 +237,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
             if (a.code == 200) {
                 this.pagination = [];
+                console.log(a);
+                
                 this.recentTransactions = a.data.list;                                
                 this.paginationNumber = a.data.count;
 

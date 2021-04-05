@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="pptl-btns d-flex justify-content-between mt-2">
-          <button class="btn custom-small-btn" disabled>{{'SENDTEXT' | translate}}</button>
+          <button class="btn custom-small-btn" (click)="openModal(withDraw)">{{'SENDTEXT' | translate}}</button>
           <button class="btn custom-small-btn" disabled>{{'RECIEVETEXT' | translate}}</button>
           <button class="btn custom-small-btn" disabled>{{'STAKETEXT' | translate}}</button>
 
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="mt-2">
-          <button class="btn custom-draw-btn btn-block" (click)="openModal(withDraw)" >{{'Withdraw' | translate}}</button>
+          <button class="btn custom-draw-btn btn-block" disabled >{{'Withdraw' | translate}}</button>
         </div>
       </div>
       <!-- <div class="">
