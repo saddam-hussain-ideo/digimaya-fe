@@ -5,16 +5,16 @@
 
     <div class="d-flex head-title">
       <img src="./../../../assets/img//PIPTLE-ILO-sideicon.png" />
-         <h1 class="page-title">
-          {{'My Piptle Wallet' | translate}}
-         </h1>
+      <h1 class="page-title">
+        {{'My Piptle Wallet' | translate}}
+      </h1>
     </div>
     <div class="wallet-new-cards">
       <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Total Issued Piptles' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards" >
+            <div class="d-flex justify-content-center wallet-cards">
               <p class="wallet-val">{{totalPiptles | currency}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
@@ -29,7 +29,7 @@
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Available Piptles' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards" >
+            <div class="d-flex justify-content-center wallet-cards">
               <p class="wallet-val">{{availablePiptles | currency}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
@@ -47,7 +47,7 @@
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Locked Piptles' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards" >
+            <div class="d-flex justify-content-center wallet-cards">
               <p class="wallet-val">{{lockedPiptles | currency}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
@@ -62,7 +62,7 @@
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Staked Piptles' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards" >
+            <div class="d-flex justify-content-center wallet-cards">
               <p class="wallet-val">{{stakedPiptles | currency}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
@@ -70,7 +70,7 @@
           </div>
         </div>
         <div class="mt-2">
-          <button class="btn custom-draw-btn btn-block" disabled >{{'Withdraw' | translate}}</button>
+          <button class="btn custom-draw-btn btn-block" disabled>{{'Withdraw' | translate}}</button>
         </div>
       </div>
       <!-- <div class="">
@@ -117,16 +117,16 @@
 
     <div class="d-flex head-title">
       <img src="./../../../assets/img/PIPTLE-DOLLAR-ICON.png" />
-         <h1 class="page-title">
-          {{'Total Piptles Earned' | translate}}
-         </h1>
+      <h1 class="page-title">
+        {{'Total Piptles Earned' | translate}}
+      </h1>
     </div>
     <div class="wallet-new-cards">
       <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'Referral Bonuses' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards" >
+            <div class="d-flex justify-content-center wallet-cards">
               <p class="wallet-val">0</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
@@ -138,7 +138,7 @@
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'ACTIVITY BONUSES' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards" >
+            <div class="d-flex justify-content-center wallet-cards">
               <p class="wallet-val">0</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
@@ -150,7 +150,7 @@
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'Staking Bonuses' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards" >
+            <div class="d-flex justify-content-center wallet-cards">
               <p class="wallet-val">0</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
@@ -162,7 +162,7 @@
         <div class="inner-w-box">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'MERCHANT BONUSES' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards" >
+            <div class="d-flex justify-content-center wallet-cards">
               <p class="wallet-val">0</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
@@ -170,7 +170,7 @@
           </div>
         </div>
       </div>
-     
+
     </div>
   </div>
 </section>
@@ -335,11 +335,12 @@
                   <td class="text-center">{{data.CreatedOnUTC}}</td>
                   <td class="text-center">
                     <div *ngIf="data.TransactionHash?.length > 15">
-                        {{data.TransactionHash.slice(0,6)}}...{{data.TransactionHash.slice(data.TransactionHash.length - 6)}}
+                      {{data.TransactionHash.slice(0,6)}}...{{data.TransactionHash.slice(data.TransactionHash.length -
+                      6)}}
                     </div>
                     <div *ngIf="data.TransactionHash?.length <= 15">
                       {{data.TransactionHash}}
-                  </div>
+                    </div>
                   </td>
                   <td class="text-center">N/A</td>
                   <td class="text-center">{{data.TotalTokens | currency:'crypto'}}</td>
@@ -375,10 +376,39 @@
 
 
                 </tr>
-                
+
               </tbody>
             </table>
+            <div class='pagination-bottom mb-2' *ngIf="paginationNumber>recentTransactionsPSize">
+
+              <pagination-controls *ngIf="recentTransactionsPSize < paginationNumber" responsive="true" previousLabel=""
+                nextLabel="" (pageChange)="changePage($event)"></pagination-controls>
+
+              
+              <ul class="no-visibility-2 d-none">
+                <li
+                  *ngFor="let item of transactionDetails | paginate: { itemsPerPage: recentTransactionsPSize, currentPage: currentPage, totalItems: paginationNumber }">
+                  {{item}}
+                </li>
+              </ul>
+  
+            </div>
           </div>
+
+          
+
+
+          <!-- <div *ngIf="paginationNumber>recentTransactionsPSize" class='pagination-bottom'>
+            <ul class="pagination">
+              <li *ngFor="let page of pagination;" [ngClass]="{'active': page==recentTransactionsPNumber}"
+                (click)="getPageForPagination(page)">
+                {{page + 1}}
+              </li>
+            </ul>
+          </div> -->
+
+
+
         </div>
       </div>
     </div>
@@ -388,36 +418,37 @@
 
 <ng-template #withDraw let-modal>
   <div class="modal-heading d-flex justify-content-between align-items-center">
-      <div class="text-upercase" >
-          <p>Send Details</p>
-      </div>
-      <button class="close" (click)="closeModal()">
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <div class="text-upercase">
+      <p>Send Details</p>
+    </div>
+    <button class="close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <div class="modal-body">
-    <form [formGroup] = "withDrawForm">
+    <form [formGroup]="withDrawForm">
       <div class="form-group">
         <label>Address</label>
-        <input type="text" class="form-control" placeholder="wallet address"
-        formControlName = "address">
+        <input type="text" class="form-control" placeholder="wallet address" formControlName="address">
 
         <div *ngIf="w.address.errors">
           <span class="text-danger" *ngIf="w.address.errors.required && w.address.touched">field is required</span>
 
-          <span class="text-danger" *ngIf="w.address.errors?.invalidAddress && !(w.address.errors.required) && w.address.touched ">invalid address</span>
+          <span class="text-danger"
+            *ngIf="w.address.errors?.invalidAddress && !(w.address.errors.required) && w.address.touched ">invalid
+            address</span>
         </div>
 
       </div>
 
       <div class="form-group">
-          <label>Amount</label>
-          <input type="number" (click)="getValue($event)" (keyup)="getValue($event)" class="form-control" placeholder="0.00" name="amount"
-            formControlName = "amount">
-            <div *ngIf="w.amount.invalid && w.amount.touched">
-              <span class="text-danger">field is required</span>
-            </div>
-            
+        <label>Amount</label>
+        <input type="number" (click)="getValue($event)" (keyup)="getValue($event)" class="form-control"
+          placeholder="0.00" name="amount" formControlName="amount">
+        <div *ngIf="w.amount.invalid && w.amount.touched">
+          <span class="text-danger">field is required</span>
+        </div>
+
       </div>
 
       <!--loader-->
@@ -426,8 +457,9 @@
         <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
           <g transform="rotate(208.756 50 50)">
-            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="360 50 50;0 50 50"
-              keyTimes="0;1" dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
+              values="360 50 50;0 50 50" keyTimes="0;1" dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+            </animateTransform>
             <path fill="#85ffbd"
               d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
             </path>
@@ -443,7 +475,8 @@
 
       <!---->
       <div class="form-group mt-2 mb-2" *ngIf="!isSubmitted">
-          <button type="submit" [disabled]="w.amount.invalid || w.address.invalid" class="submit-btn" (click)="submitDetails(withDrawForm)">Send</button>
+        <button type="submit" [disabled]="w.amount.invalid || w.address.invalid" class="submit-btn"
+          (click)="submitDetails(withDrawForm)">Send</button>
       </div>
     </form>
   </div>
@@ -451,52 +484,53 @@
 
 <div class="modal" id="with-Draw">
   <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header with-draw-header">
-          <p class="with-draw-txt">Withdrawal Details</p>
-          <button type="button"  aria-label="Close"  class="close" (click)="closeModal()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-          <div class="modal-body">
-              <hr class="custom-2" />
-              <div class="form-fields">
-                  <form [formGroup] = "withDrawForm">
-                    <div class="form-group">
-                      <label>Address</label>
-                      <input type="text" class="form-control" placeholder="wallet address"
-                      formControlName = "address">
-        
-                      <div *ngIf="w.address.errors">
-                        <span class="text-danger" *ngIf="w.address.errors.required && w.address.touched">field is required</span>
+    <div class="modal-content">
+      <div class="modal-header with-draw-header">
+        <p class="with-draw-txt">Withdrawal Details</p>
+        <button type="button" aria-label="Close" class="close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <hr class="custom-2" />
+        <div class="form-fields">
+          <form [formGroup]="withDrawForm">
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" class="form-control" placeholder="wallet address" formControlName="address">
 
-                        <span class="text-danger" *ngIf="w.address.errors?.invalidAddress && !(w.address.errors.required) && w.address.touched ">invalid address</span>
-                      </div>
-          
-                    </div>
+              <div *ngIf="w.address.errors">
+                <span class="text-danger" *ngIf="w.address.errors.required && w.address.touched">field is
+                  required</span>
 
-                    <div class="form-group">
-                        <label>Amount</label>
-                        <input type="number" class="form-control" placeholder="amount" name="amount"
-                          formControlName = "amount">
-                          <div *ngIf="w.amount.invalid && w.amount.touched">
-                            <span class="text-danger">field is required</span>
-                          </div>
-                          
-                    </div>
-
-                    <div class="form-group mt-2">
-                        <button class="submit-btn" (click)="submitDetails(withDrawForm)">withdraw</button>
-                    </div>
-                  </form>
-
+                <span class="text-danger"
+                  *ngIf="w.address.errors?.invalidAddress && !(w.address.errors.required) && w.address.touched ">invalid
+                  address</span>
               </div>
 
+            </div>
 
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="number" class="form-control" placeholder="amount" name="amount" formControlName="amount">
+              <div *ngIf="w.amount.invalid && w.amount.touched">
+                <span class="text-danger">field is required</span>
+              </div>
 
-          </div>
+            </div>
+
+            <div class="form-group mt-2">
+              <button class="submit-btn" (click)="submitDetails(withDrawForm)">withdraw</button>
+            </div>
+          </form>
+
+        </div>
+
 
 
       </div>
+
+
+    </div>
   </div>
 </div>

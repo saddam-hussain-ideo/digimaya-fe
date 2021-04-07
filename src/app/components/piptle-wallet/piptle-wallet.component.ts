@@ -28,6 +28,10 @@ export class PiptleWalletComponent implements OnInit {
   isSubmitted: boolean = false;
   transactionDetails = []
   walletInfo;
+  paginationNumber = 1;
+  recentTransactionsPSize = 5
+  currentPage = 1;
+
   public config: ToasterConfig =
   new ToasterConfig({ animation: 'flyRight' });
   constructor(private userService: UserService 
@@ -57,8 +61,8 @@ export class PiptleWalletComponent implements OnInit {
     this._sharedService.showHideLoader(true);
     const data = {
       userid : this.userId ,
-      pagenumber: 1,
-      pagesize: 10
+      pagenumber: this.currentPage,
+      pagesize: this.recentTransactionsPSize
     }
     this.walletService.transactionDetails(data).subscribe(res => {
       if(res){
@@ -67,6 +71,8 @@ export class PiptleWalletComponent implements OnInit {
         this.getWalletAddresses()
         console.log(res);
         this.transactionDetails = res.data.list
+        this.paginationNumber = res.data.count;
+
       }
     }, err => {
       this._sharedService.showHideLoader(false);
@@ -75,7 +81,12 @@ export class PiptleWalletComponent implements OnInit {
       console.log(obj);
     })
   }
+  changePage(value) {
+    console.log(value);
 
+    this.currentPage = value;
+    this.walletDetails();
+}
   getWalletAddresses() {
     this._sharedService.showHideLoader(true);
 
