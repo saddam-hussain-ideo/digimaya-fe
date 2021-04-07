@@ -75,6 +75,21 @@ export class Affiliate {
     }
     networkIssuedPPTL = 0;
     referredCountries = 0;
+    referralPSize = 5
+    paginationNumber = 1
+    topReferalCurrentPage = 1
+    tableOneCurrentPage = 1
+    tableOneSize = 5
+    tableOneCount = 1;
+
+    tableTwoCurrentPage = 1
+    tableTwoSize = 5
+    tableTwoCount = 1;
+
+    tableThreeCurrentPage = 1
+    tableThreeSize = 5
+    tableThreeCount = 1;
+
     constructor(public router: Router, 
         public _affilliateService: AffilliateService, 
         public _sharedService: SharedService
@@ -188,7 +203,25 @@ export class Affiliate {
         this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
     }
 
+    changePageForTopReferrals(value){
+        this.topReferalCurrentPage = value
+        this.getTopReferrals()
+    }
+    changePageForTable1(value){
+        this.tableOneCurrentPage = value
+        this.levelOneReferrals()
+    }
 
+    changePageForTable2(value){
+        this.tableTwoCurrentPage = value
+        this.levelTwoReferrals()
+
+    }
+    changePageForTable3(value){
+        this.tableThreeCurrentPage = value
+        this.levelThreeReferrals()
+
+    }
 
     public ctx;
 
@@ -206,7 +239,11 @@ export class Affiliate {
         this.getTopAffiliates();
         this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
         this.affiliateGraph();
-        this.getReferrals()
+        // this.getReferrals()
+        this.levelOneReferrals()
+        this.levelTwoReferrals()
+        this.levelThreeReferrals()
+
 
 
         $(".list-unstyled li").removeClass("active");
@@ -259,68 +296,130 @@ export class Affiliate {
 
     }
 
-    getReferrals(){
-        this._sharedService.showHideLoader(true);
-        console.log(this.levelOneData);
-                    console.log(this.levelTwoData);
-                    console.log(this.levelThreeData);
-                    this.tableLoader1 = true
-            this.tableLoader2 = true
+    // getReferrals(){
+    //     this._sharedService.showHideLoader(true);
+    //     console.log(this.levelOneData);
+    //                 console.log(this.levelTwoData);
+    //                 console.log(this.levelThreeData);
+    //                 this.tableLoader1 = true
+    //         this.tableLoader2 = true
 
-            this.tableLoader3 = true
-        for(let i = 1; i <= 3 ; i++) {
+    //         this.tableLoader3 = true
+    //     for(let i = 1; i <= 3 ; i++) {
             
 
-            this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = i,this.pageNo = 1, this.pageSize= 10 )
-            .subscribe(res => {
-                console.log(res);
-                if(res){
-                    this._sharedService.showHideLoader(false);
-                    this.referredCountries = res['data']['referred_countries']
-                    this.obj = {
-                        level : i,
-                        data : res['data']
-                    }
-                    this.dataArr.push(this.obj)
-                    console.log(this.dataArr);
+    //         this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = i,this.pageNo = 1, this.pageSize= 10 )
+    //         .subscribe(res => {
+    //             console.log(res);
+    //             if(res){
+    //                 this._sharedService.showHideLoader(false);
+    //                 this.referredCountries = res['data']['referred_countries']
+    //                 this.obj = {
+    //                     level : i,
+    //                     data : res['data']
+    //                 }
+    //                 this.dataArr.push(this.obj)
+    //                 console.log(this.dataArr);
                     
-                    this.levelOneData = this.dataArr.find(result => result.level == 1)
+    //                 this.levelOneData = this.dataArr.find(result => result.level == 1)
                     
-                    this.levelTwoData = this.dataArr.find(result => result.level == 2)
-                    this.levelThreeData = this.dataArr.find(result => result.level == 3)
-                    console.log(this.levelOneData);
-                    console.log(this.levelTwoData);
-                    console.log(this.levelThreeData);
+    //                 this.levelTwoData = this.dataArr.find(result => result.level == 2)
+    //                 this.levelThreeData = this.dataArr.find(result => result.level == 3)
+    //                 console.log(this.levelOneData);
+    //                 console.log(this.levelTwoData);
+    //                 console.log(this.levelThreeData);
 
-                    if(this.levelOneData){
-                        this.tableLoader1 = false
-                        // this.referredCountries = this.levelOneData['data']['referred_countries']
-                    }
-                    if(this.levelTwoData){
-                        this.tableLoader2 = false
-                    }
-                    if(this.levelThreeData){
-                        this.tableLoader3 = false
-                    }
-                    
-                }   
-            }, err => {
-                this.tableLoader1 = false
-                this.tableLoader2 = false
+    //                 if(this.levelOneData){
+    //                     this.tableLoader1 = false
+    //                     this.tableOneCount = this.levelOneData.data.totalRecords
+    //                     console.log(this.tableOneCount);
+                        
+    //                     // this.referredCountries = this.levelOneData['data']['referred_countries']
+    //                 }
+    //                 if(this.levelTwoData){
+    //                     this.tableLoader2 = false
+    //                     this.tableTwoCount = this.levelTwoData.data.totalRecords
 
-                this.tableLoader3 = false
-                this._sharedService.showHideLoader(false);
-                console.log(err);
-                const obj = JSON.parse(err._body);
-                console.log('Level' , i ,obj);
+    //                 }
+    //                 if(this.levelThreeData){
+    //                     this.tableLoader3 = false
+    //                     this.tableThreeCount = this.levelThreeData.data.totalRecords
+
+    //                 }
+                    
+    //             }   
+    //         }, err => {
+    //             this.tableLoader1 = false
+    //             this.tableLoader2 = false
+
+    //             this.tableLoader3 = false
+    //             this._sharedService.showHideLoader(false);
+    //             console.log(err);
+    //             const obj = JSON.parse(err._body);
+    //             console.log('Level' , i ,obj);
                 
                 
-            })
-        }
+    //         })
+    //     }
         
+    // }
+
+    levelOneReferrals(){
+        this.tableLoader1 = true
+        this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = 1,this.tableOneCurrentPage, this.tableOneSize )
+        .subscribe(res => {
+            console.log(res);
+            if(res){
+                this.tableLoader1 = false
+                this.referredCountries = res['data']['referred_countries']
+                this.levelOneData = res
+                console.log(this.levelOneData);
+                
+                this.tableOneCount = this.levelOneData.data.totalRecords
+            }
+        }, err => {
+            this.tableLoader1 = false
+            const obj = JSON.parse(err._body);
+            console.log(obj);
+            
+        })
     }
 
+    levelTwoReferrals(){
+        this.tableLoader2 = true
+        this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = 2,this.tableTwoCurrentPage, this.tableTwoSize )
+        .subscribe(res => {
+            console.log(res);
+            if(res){
+                this.tableLoader2 = false
+                this.levelTwoData = res
+                this.tableTwoCount = this.levelTwoData.data.totalRecords
+            }
+        }, err => {
+            this.tableLoader2 = false
+            const obj = JSON.parse(err._body);
+            console.log(obj);
+            
+        })
+    }
 
+    levelThreeReferrals(){
+        this.tableLoader3 = true
+        this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = 3,this.tableThreeCurrentPage, this.tableThreeSize )
+        .subscribe(res => {
+            console.log(res);
+            if(res){
+                this.tableLoader3 = false
+                this.levelThreeData = res
+                this.tableThreeCount = this.levelThreeData.data.totalRecords
+            }
+        }, err => {
+            this.tableLoader3 = false
+            const obj = JSON.parse(err._body);
+            console.log(obj);
+            
+        })
+    }
 
     affiliateGraph() {
 
@@ -486,13 +585,13 @@ export class Affiliate {
 
     getTopReferrals() {
         this.topRefersLoader = true
-        this._affilliateService.getTopReferrals(1,5).subscribe(a => {
+        this._affilliateService.getTopReferrals(this.topReferalCurrentPage,this.referralPSize).subscribe(a => {
             console.log(a);
             
             if (a.code == 200) {
                 this.topRefersLoader = false
                 this.topReferrals = a.data.rows;
-
+                this.paginationNumber = a.data.totalRecords
 
                 // this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
 

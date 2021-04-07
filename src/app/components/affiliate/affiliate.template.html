@@ -353,13 +353,13 @@
                                     <table class="table table-striped affiliates-detail" *ngIf="!noTopAffilliates">
                                         <thead>
                                             <tr>
-                                                <td class="text-uppercase ">
+                                                <td class="text-uppercase text-center">
                                                     <p>Username</p>
                                                 </td>
-                                                <td class="text-uppercase ">
+                                                <td class="text-uppercase text-center">
                                                     <p>Country</p>
                                                 </td>
-                                                <td class="text-uppercase ">
+                                                <td class="text-uppercase text-center">
                                                     <p>Total Licensee's Referred</p>
                                                 </td>
                                             </tr>
@@ -367,13 +367,13 @@
                                         <tbody *ngIf="!topRefersLoader">
                                             
                                             <tr *ngFor="let referral of topReferrals">
-                                                <td>
+                                                <td class="text-center">
                                                     <p class="earners-name">{{referral?.name}}</p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p class="earnings">{{referral?.country}}</p>
                                                 </td>
-                                                <td>
+                                                <td class="text-center">
                                                     <p class="earnings">{{referral?.referred}}</p>
                                                 </td>
                                                 <!-- <td>
@@ -425,7 +425,20 @@
 
                                     </table>
 
+                                    <div class='pagination-bottom pt-2' *ngIf="!topRefersLoader">
 
+                                        <pagination-controls *ngIf="referralPSize < paginationNumber" responsive="true" previousLabel=""
+                                          nextLabel="" (pageChange)="changePageForTopReferrals($event)"></pagination-controls>
+                          
+                                        
+                                        <ul class="no-visibility-2 d-none">
+                                          <li
+                                            *ngFor="let item of topReferrals | paginate: { itemsPerPage: referralPSize, currentPage: topReferalCurrentPage, totalItems: paginationNumber }">
+                                            {{item}}
+                                          </li>
+                                        </ul>
+                            
+                                      </div>
                                 </div>
 
 
@@ -553,12 +566,12 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tbody *ngIf="!tableLoader1 && !levelOneData" >
+                                <tbody *ngIf="!tableLoader1 && levelOneData?.data.rows.length == 0" >
                                     <tr>
                                         <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
                                 </tbody>
-                                <tbody *ngIf="!tableLoader1 && levelOneData">
+                                <tbody *ngIf="!tableLoader1 && levelOneData?.data.rows.length > 0">
                                     <tr *ngFor="let data of levelOneData?.data.rows">
                                         <td>{{data.name}}</td>
                                         <td>{{data.username}}</td>
@@ -572,6 +585,22 @@
                                     </tr>   
                                 </tbody>
                             </table>
+
+                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader1">
+
+                                <pagination-controls *ngIf="tableOneSize < tableOneCount" responsive="true" previousLabel=""
+                                  nextLabel="" (pageChange)="changePageForTable1($event)"></pagination-controls>
+                  
+                                
+                                <ul class="no-visibility-2 d-none">
+                                  <li
+                                    *ngFor="let item of levelOneData | paginate: { itemsPerPage: tableOneSize, currentPage: tableOneCurrentPage, totalItems: tableOneCount }">
+                                    {{item}}
+                                  </li>
+                                </ul>
+                    
+                              </div>
+
                         </div>
                     </div>
                 </div>
@@ -626,12 +655,12 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tbody *ngIf="!tableLoader2 && !levelTwoData" >
+                                <tbody *ngIf="!tableLoader2 && levelTwoData?.data.rows.length == 0" >
                                     <tr>
                                         <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
                                 </tbody>
-                                <tbody *ngIf="!tableLoader2  && levelTwoData" >
+                                <tbody *ngIf="!tableLoader2  && levelTwoData?.data.rows.length > 0" >
                                    
                                     
                                     <tr *ngFor="let data of levelTwoData?.data.rows">
@@ -648,6 +677,22 @@
                                     </tr>     
                                 </tbody>
                             </table>
+
+                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader2">
+
+                                <pagination-controls *ngIf="tableTwoSize < tableTwoCount" responsive="true" previousLabel=""
+                                  nextLabel="" (pageChange)="changePageForTable2($event)"></pagination-controls>
+                  
+                                
+                                <ul class="no-visibility-2 d-none">
+                                  <li
+                                    *ngFor="let item of levelTwoData | paginate: { itemsPerPage: tabletwoSize, currentPage: tableTwoCurrentPage, totalItems: tableTwoCount }">
+                                    {{item}}
+                                  </li>
+                                </ul>
+                    
+                              </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -702,12 +747,12 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tbody *ngIf="!tableLoader3 && !levelThreeData" >
+                                <tbody *ngIf="!tableLoader3 && levelThreeData?.data.rows.length == 0" >
                                     <tr>
                                         <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
                                 </tbody>
-                                <tbody *ngIf="!tableLoader3 && levelThreeData">
+                                <tbody *ngIf="!tableLoader3 && levelThreeData?.data.rows.length > 0">
                                     <tr *ngFor="let data of levelThreeData?.data.rows">
                                         <td class="tbl-row-pd">{{data.referrer}}</td>
                                         <td class="tbl-row-pd">{{data.name}}</td>
@@ -722,6 +767,22 @@
                                     </tr>     
                                 </tbody>
                             </table>
+
+                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader3">
+
+                                <pagination-controls *ngIf="tableThreeSize < tableThreeCount" responsive="true" previousLabel=""
+                                  nextLabel="" (pageChange)="changePageForTable3($event)"></pagination-controls>
+                  
+                                
+                                <ul class="no-visibility-2 d-none">
+                                  <li
+                                    *ngFor="let item of levelThreeData | paginate: { itemsPerPage: tablethreeSize, currentPage: tableThreeCurrentPage, totalItems: tableThreeCount }">
+                                    {{item}}
+                                  </li>
+                                </ul>
+                    
+                              </div>
+
                         </div>
                     </div>
                 </div>
