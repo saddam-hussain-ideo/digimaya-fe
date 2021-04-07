@@ -8,7 +8,7 @@
                 <!-- <img src="../../../assets/img/PIPTLE-DashboardICON.png" alt=""> -->
                 <span class="img-borders"> <img src="../../../assets/img/PIPTLE-DashboardICON.png" class="sidebar-img" alt="">
                 </span>
-                <h1 class="ml-2 page-title text-left">PIPTLE (PPTL Coin) {{ 'Dashboard' | translate }}</h1>
+                <h1 class="ml-2 page-title text-left text-class">PIPTLE (PPTL Coin) {{ 'Dashboard' | translate }}</h1>
             </div>
             <div class="no-padding center-select dashboard-dropdown">
                 <div class="form-group">
@@ -68,7 +68,7 @@
         <div class="col-lg-2 col-md-4 pl-0 mb-3">
             <div class="info-custom-card">
                 <div class="content">
-                    <span class="heading">Total PPTLs:</span>
+                    <span class="heading text-class">Total PPTLs:</span>
                     <span class="pulper-color"> {{totalCapacity}} </span>
                 </div>
             </div>
@@ -76,7 +76,7 @@
         <div class="col-lg-2 col-md-4 pl-0 mb-3">
             <div class="info-custom-card">
                 <div class="content">
-                    <span class="heading">Issued PPTLs:</span>
+                    <span class="heading text-class">Issued PPTLs:</span>
                     <span class="pulper-color"> {{totalIssued.toString().split('.')[0]}} </span>
                 </div>
             </div>
@@ -84,7 +84,7 @@
         <div class="col-lg-2 col-md-4 pl-0 mb-3">
             <div class="info-custom-card">
                 <div class="content">
-                    <span class="heading">ILO Award Stage:</span>
+                    <span class="heading text-class">ILO Award Stage:</span>
                     <span class="pulper-color"> {{RatesModel.stageName.split(" ")[2]}} </span>
                 </div>
             </div>
@@ -92,7 +92,7 @@
         <div class="col-lg-3 col-md-4 pl-0 mb-3">
             <div class="info-custom-card">
                 <div class="content">
-                    <span class="heading">Total Piptle Licensees:</span>
+                    <span class="heading text-class">Total Piptle Licensees:</span>
                     <span class="pulper-color"> {{totalLicesees}} </span>
                 </div>
             </div>
@@ -100,7 +100,7 @@
         <div class="col-lg-3 col-md-4 pl-0 mb-3">
             <div class="info-custom-card">
                 <div class="content">
-                    <span class="heading">Current PPTL Value: </span>
+                    <span class="heading text-class">Current PPTL Value: </span>
                     <!-- <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span> -->
                     <span class="pulper-color"> {{selectedCurrencyAUD}} {{selectedCurrencyValue | currency : 'crypto'}} </span>
 
@@ -111,16 +111,16 @@
         <div class="col-lg-3 col-md-4 pl-0 mb-3">
             <div class="info-custom-card dark-bg">
                 <div class="content">
-                    <span class="heading prp-text">Your Total PPTL:</span>
-                    <span class="heading prp-text"> {{totalPiptles | currency: 'crypto'}} PPTL </span>
+                    <span class="heading prp-text text-class">Your Total PPTL:</span>
+                    <span class="heading prp-text"> {{totalPiptles | currency: 'crypto'}}  </span>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-4 pl-0 mb-3">
             <div class="info-custom-card dark-bg">
                 <div class="content">
-                    <span class="heading prp-text">Your Total PPTL Value:</span>
-                    <span class="heading prp-text"> AUD$ {{totalValueAud | currency: 'crypto'}} PPTL </span>
+                    <span class="heading prp-text text-class">Your Total PPTL Value:</span>
+                    <span class="heading prp-text"> AUD$ {{totalValueAud | currency: 'crypto'}}  </span>
                 </div>
             </div>
         </div>

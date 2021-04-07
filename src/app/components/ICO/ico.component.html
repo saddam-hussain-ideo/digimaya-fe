@@ -194,18 +194,26 @@
                     </div> -->
   
                     <div class="d-flex flex-column justify-content-center mt-3">
-                      <p class="ico-top-text mb-3 p-0">Founder</p>
+                      <p class="ico-top-text mb-1 p-0">Founder</p>
                       <div class="d-flex flex-row justify-content-center mb-0">
                         <p class="number pt-0" *ngIf="noFounder">N/A</p>
-                        <p class="number pt-0" *ngIf="!noFounder">{{founderPPTL | currency: 'crypto'}}</p>
+                        <div *ngIf="!noFounder">
+                          <div class="ico-top-text p-0">
+                            Total PPTLs Issued
+                          </div>
+                          <div>
+                            <p class="number pt-0" >{{founderPPTL | currency: 'crypto'}}</p>
 
-                        <p class="ml-2 dollar pt-0">PPTL</p>
+                            <p class="ml-2 dollar pt-0">PPTL</p>
+                          </div>
+                       
+                        </div>
                       </div>
-                      <div class="d-flex flex-row justify-content-center">
+                      <!-- <div class="d-flex flex-row justify-content-center">
                         <p class="number pt-0" *ngIf="noFounder">N/A</p>
                         <p class="number pt-0" *ngIf="!noFounder">{{founderAudValue | currency: 'crypto'}}</p>
                         <p class="ml-2 dollar pt-0">AUD$</p>
-                      </div>
+                      </div> -->
                       <!-- <p class="number"> {{ICOInformation?.softCap}}
                         <span class="dollar">PPTL</span>
                       </p>
