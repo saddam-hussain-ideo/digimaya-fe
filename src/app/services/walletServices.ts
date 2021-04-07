@@ -64,7 +64,6 @@ export class WalletServices {
 
     getAddressesForWallets(userId, currencyType) {
 
-
         var data;
         
         data = { userid: userId, currencytype: currencyType };
@@ -88,6 +87,12 @@ export class WalletServices {
         return this.http.post(environment.BaseUrl + "user/withdrawal", data, { headers: headers })
             .map(res => res.json());
     }
-
-
+    transactionDetails(data){
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append("authorization", this.userToken);
+        
+        return this.http.post(environment.BaseUrl + "user/gettransactiondetails", data , { headers: headers })
+            .map(res => res.json());
+    }
 }

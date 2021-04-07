@@ -5,6 +5,7 @@ import { UserService } from 'src/app/services/userService';
 import {tronValidator} from '../../tronValidator';
 import { WalletServices } from 'src/app/services/walletServices';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
+import { SharedService } from 'src/app/services/shared';
 declare var $: any;
 
 @Component({
@@ -25,6 +26,8 @@ export class PiptleWalletComponent implements OnInit {
   modalReference: NgbModalRef;
   withDrawModal : NgbModalRef;
   isSubmitted: boolean = false;
+  transactionDetails = []
+  walletInfo;
   public config: ToasterConfig =
   new ToasterConfig({ animation: 'flyRight' });
   constructor(private userService: UserService 
@@ -32,6 +35,7 @@ export class PiptleWalletComponent implements OnInit {
     private modalService: NgbModal, 
     private walletService : WalletServices,
     private toasterService: ToasterService,
+    private _sharedService: SharedService
     ) { }
 
   ngOnInit() {    
@@ -46,7 +50,52 @@ export class PiptleWalletComponent implements OnInit {
 		if (this.userObj) {
       this.userId = this.userObj['UserId']
       this.getTokens();
+      this.walletDetails()
     }
+  }
+  walletDetails(){
+    this._sharedService.showHideLoader(true);
+    const data = {
+      userid : this.userId ,
+      pagenumber: 1,
+      pagesize: 10
+    }
+    this.walletService.transactionDetails(data).subscribe(res => {
+      if(res){
+        this._sharedService.showHideLoader(false);
+
+        this.getWalletAddresses()
+        console.log(res);
+        this.transactionDetails = res.data.list
+      }
+    }, err => {
+      this._sharedService.showHideLoader(false);
+
+      var obj = JSON.parse(err._body)
+      console.log(obj);
+    })
+  }
+
+  getWalletAddresses() {
+    this._sharedService.showHideLoader(true);
+
+    this.walletService.getAddressesForWallets(this.userId, '').subscribe(a => {
+      console.log(a);
+      
+      if (a.code == 200) {
+        this._sharedService.showHideLoader(false);
+
+        this.walletInfo = a.data;        
+        console.log(this.walletInfo);
+        
+      }
+    }, err => {
+      this._sharedService.showHideLoader(false);
+
+      var obj = JSON.parse(err._body)
+      console.log(obj);
+      
+    })
   }
 
   openModal(content){
@@ -63,6 +112,8 @@ export class PiptleWalletComponent implements OnInit {
   }
 
   getTokens(){
+    this._sharedService.showHideLoader(true);
+
 		this.userService.getTokens(this.userId, this.userToken).subscribe(res => {
 			if (res) {
         this.totalPiptles = res['data']['totalTokens'];
@@ -71,6 +122,8 @@ export class PiptleWalletComponent implements OnInit {
         this.stakedPiptles = 0;
 			}
 		}, err => {
+      this._sharedService.showHideLoader(false);
+
 			console.log(err);
 		  })		
     }
@@ -95,6 +148,7 @@ export class PiptleWalletComponent implements OnInit {
             this.toasterService.pop('success','Success', "Amount Withdrawn Successfully");
             this.isSubmitted = false;
             this.modalReference.close();
+            this.walletDetails()
           }
         });
       } else{

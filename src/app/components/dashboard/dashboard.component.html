@@ -1329,8 +1329,15 @@
                                     </td> -->
 
 
-                                    <td class="tx-hash-width v-middle table-head" *ngIf="transactions.TransactionType=='WIRETRANSFER' || transactions.TransactionType=='CREDITCARD' || transactions.TransactionType =='PRIVATESALE' || transactions.TransactionType =='ADMIN SENT' ">
-                                        <a class="no-underline" target="_blank">{{transactions.TransactionHash}}</a>
+                                    <td class="tx-hash-width v-middle table-head" *ngIf="transactions.TransactionType=='WIRETRANSFER' || transactions.TransactionType=='CREDITCARD' || transactions.TransactionType =='PRIVATESALE' || transactions.TransactionType =='ADMIN SENT' || transactions.TransactionType == 'WITHDRAWAL' || transactions.TransactionType == 'REFERRAL REWARD' ">
+                                        <div *ngIf="transactions.TransactionHash.length > 15">
+                                            <a class="no-underline" target="_blank">
+                                                {{transactions.TransactionHash.slice(0,6)}}...{{transactions.TransactionHash.slice(transactions.TransactionHash.length - 6)}}
+                                            </a>
+                                        </div>
+                                        <div  *ngIf="transactions.TransactionHash.length <= 15">
+                                            <a class="no-underline" target="_blank">{{transactions.TransactionHash}}</a>
+                                        </div>
                                     </td>
 
 

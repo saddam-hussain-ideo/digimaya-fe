@@ -327,41 +327,55 @@
                   <th>{{'Wallet transferred to' | translate}}</th> -->
                 </tr>
               </thead>
+              <!-- <tr>
+                <td colspan="12" class="content">No Content Available</td>
+              </tr> -->
               <tbody>
-                <tr>
-                  <td colspan="12" class="content">No Content Available</td>
-                </tr>
-                <!-- <tr class="bg-lght">
-                  <td>20/11/2020</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
+                <tr class="bg-lght" *ngFor="let data of transactionDetails">
+                  <td class="text-center">{{data.CreatedOnUTC}}</td>
+                  <td class="text-center">
+                    <div *ngIf="data.TransactionHash?.length > 15">
+                        {{data.TransactionHash.slice(0,6)}}...{{data.TransactionHash.slice(data.TransactionHash.length - 6)}}
+                    </div>
+                    <div *ngIf="data.TransactionHash?.length <= 15">
+                      {{data.TransactionHash}}
+                  </div>
+                  </td>
+                  <td class="text-center">N/A</td>
+                  <td class="text-center">{{data.TotalTokens | currency:'crypto'}}</td>
+                  <td class="text-center">{{data.TokenRate * data.TotalTokens | currency:'crypto'}}</td>
+                  <td class="text-center">
+                    <div *ngIf="data.TransactionType == 'PPTL' || data.TransactionType != 'INCOMING'  ">
+                      N/A
+                    </div>
+                    <div *ngIf="data.TransactionType == 'INCOMING' ">
+                      <div *ngIf="data.TransactionCurrencyType == 'BTC' ">
+                        {{walletInfo?.BtcFundReceiverAddress}}
+                      </div>
+                      <div *ngIf="data.TransactionCurrencyType == 'BCH' ">
+                        {{walletInfo?.BchFundReceiverAddress}}
+                      </div>
+                      <div *ngIf="data.TransactionCurrencyType == 'LTC' ">
+                        {{walletInfo?.LtcFundReceiverAddress}}
+                      </div>
+                      <div *ngIf="data.TransactionCurrencyType == 'ETH' ">
+                        {{walletInfo?.EthFundReceiverAddress}}
+                      </div>
+                    </div>
+                  </td>
+
+                  <td class="text-center">
+                    <div *ngIf="data.TransactionType == 'WITHDRAWAL'">
+                      <button class="btn action-btn">Debit</button>
+                    </div>
+                    <div *ngIf="data.TransactionType != 'WITHDRAWAL'">
+                      <button class="btn action-btn">Credit</button>
+                    </div>
+                  </td>
 
 
                 </tr>
-                <tr >
-                  <td>20/11/2020</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-
-                </tr>
-                <tr>
-                  <td>20/11/2020</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-                  <td>sample only</td>
-
-                </tr> -->
+                
               </tbody>
             </table>
           </div>
@@ -375,7 +389,7 @@
 <ng-template #withDraw let-modal>
   <div class="modal-heading d-flex justify-content-between align-items-center">
       <div class="text-upercase" >
-          <p>Withdrawal Details</p>
+          <p>Send Details</p>
       </div>
       <button class="close" (click)="closeModal()">
         <span aria-hidden="true">&times;</span>
@@ -429,7 +443,7 @@
 
       <!---->
       <div class="form-group mt-2 mb-2" *ngIf="!isSubmitted">
-          <button type="submit" [disabled]="w.amount.invalid || w.address.invalid" class="submit-btn" (click)="submitDetails(withDrawForm)">withdraw</button>
+          <button type="submit" [disabled]="w.amount.invalid || w.address.invalid" class="submit-btn" (click)="submitDetails(withDrawForm)">Send</button>
       </div>
     </form>
   </div>

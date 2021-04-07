@@ -324,10 +324,18 @@ button:disabled {
 }
 .f-bold{
   font-weight: bold;
+  text-align: center;
 }
 .content{
   font-size: 25px !important;
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
   text-align: center !important;
+}
+.action-btn{
+  background-color: $dashboard-purple-clr;
+  color: #fff;
+  font-family: "LatoWebBold";
+  text-transform: uppercase;
+  width: 5rem;
 }
