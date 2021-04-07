@@ -1080,14 +1080,18 @@ export class DashboardComponent implements OnDestroy, OnInit {
 			console.log(err);
 		})		
 	  }
-
+    numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     getILOStages() {
         this._dashboardService.getILOStages().subscribe(a => {
             console.log(a);
             
             if (a.code == 200) {
                 this.stageData = a['data'].stagesInfo;
-                this.totalCapacity = a['data'].totalCapacity;
+                let number = a['data'].totalCapacity
+                this.totalCapacity = this.numberWithCommas(number);
+
                 this.totalIssued = a['data'].totalIssued
                 console.log(this.totalIssued);
                 
