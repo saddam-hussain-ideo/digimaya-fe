@@ -179,9 +179,9 @@ export class MyWalletComponent implements OnInit, OnDestroy {
 
 
   getWalletAddresses() {
-
+    
     this._walletService.getAddressesForWallets(this.userObject.UserId, this.currencyType).subscribe(a => {
-
+      
       if (a.code == 200) {
         let userObj = JSON.parse(localStorage.getItem('userObject'));        
         if(userObj['twoFAStatus']){
