@@ -1,0 +1,1421 @@
+@import './../../../variables';
+
+$theme-blue: $dashboard-purple-clr;
+$theme-green: $dashboard-purple-clr;
+$theme-orange: $dashboard-purple-clr;
+$bg-color-for-ilo : #d5cff533;
+
+.mywallet-head-txt{
+    font-family: 'LatoWeb';
+    color: #26497b;
+    text-transform: uppercase;
+}
+
+
+.content-flex{
+    margin-bottom: 0;
+    .img-borders{
+        border-radius: 50%;
+        height: 52px;
+        width: 54px;
+        position: relative;
+        background-color: #643E8D;
+        display: inline-block;
+        .sidebar-img{
+
+            width: 49px;
+            height: 45px;
+            position: absolute;
+            padding: 3px;
+            right: 2px;
+            top: 3px;
+        }
+      }
+      .page-title{
+        color: $dashboard-purple-clr;
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width: 400px){
+    .content-flex{
+        .img-borders{
+            width: 68px;
+        }
+    }
+}
+
+
+.background{
+    .head-section {
+        background-color: white;
+        padding: 10px;
+        .heading{
+            img{
+                border: 1px solid #d3d3d352;
+                border-radius: 50px;
+                width: 40px;
+                height: 40px;
+                padding: 5px;
+                margin-right: 8px;
+            }
+            .page-title{
+                // color: white;
+                color: $dashboard-purple-clr;
+            }
+        }
+        .top-left-ico-text{
+            width: 100%;
+        }
+        .ico-top-text{
+            color: $dashboard-purple-clr;
+            text-align: center;
+        }
+    }
+}
+
+.ico-content-div{
+    margin-top: 10px ;
+    background-color: $bg-color-for-ilo ;
+    padding: 20px;
+}
+
+
+.genral-sett-div{
+    background-color: white !important;
+    padding: 25px;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    @media (max-width:640px) {
+        min-height: auto;
+    }
+}
+
+.softcap-img{
+    margin-right: 25px;
+    margin-top: 5px;
+
+    @media (max-width:1600px) and (min-width:1201px) {
+        margin-right: 5px;
+        width: 50px;
+    }
+
+    @media (max-width:1200px) and (min-width:992px) {
+        width: 35px;
+        margin-right:0;
+        margin-top:8px;
+    }
+
+    @media (max-width:768px) {
+        margin-right:0;
+    }
+}
+
+.float-left{
+    position: relative;
+    padding-left: 10px;
+    float:left;
+    @media (max-width:767px) {
+            text-align: center;
+    }
+}
+
+.hardcap-img{
+    margin-right: 25px;
+    margin-top: 5px;
+
+    @media (max-width:1600px) and (min-width:1201px) {
+        margin-right: 5px;
+        width: 80px;
+    }
+
+    @media (max-width:1200px) and (min-width:992px) {
+        width: 60px;
+        margin-right:0;
+        margin-top:8px;
+    }
+
+    @media (max-width:768px) {
+        margin-right:0;
+    }
+}
+
+.show-on-mobiles{
+    display: none;
+
+    @media (max-width:640px) {
+        display: block;
+    }
+
+}
+
+.show-on-desktops{
+    display: block;
+    @media (max-width:640px) {
+        display: none;
+    }
+}
+.genral-sett-div-head{
+    position: relative;
+    .participation-btn{
+        background-color: $theme-blue;
+        color: $white-color;
+        font-family: 'LatoWeb';
+        font-size: 14px;
+    }
+}
+.leftside{
+    position: relative;
+    // float: left;
+}
+.gnrl-sett-txt{
+    color: $theme-green;
+    font-family: 'LatoWeb';
+    text-transform: uppercase;
+    font-size: 17px;
+    text-align: center;
+}
+
+
+
+.table-div{
+    background:white;
+    .gnrl-sett-txt{
+        padding: 25px 0 0 25px;
+    }
+}
+
+
+.fancy-progress {
+    width: 85%;
+    margin:6px auto 0;
+    position: relative;
+    .progress{
+        height:10px;
+        border-radius: 0;
+        background-image: linear-gradient(to left, $dashboard-purple-clr, #010102);
+        position: relative;
+    }
+
+
+    .seagreen-progress{
+        height:10px;
+        border-radius: 0;
+        background-color: #7DE2D6;
+        position: relative;
+    }
+
+    .seagreen-progress .progress-bar{
+        background-color: #5DC6BA;
+    }
+
+    .progress-bar{
+        background-color: #5DC6BA;
+    }
+
+
+
+}
+
+.center-heading{
+    font-family: 'LatoWebBold';
+    font-size:18px;
+    color: $theme-blue;
+    margin-bottom: 0;
+    margin-top: -3px;
+}
+
+.progress-bottom{
+    padding-left:0;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin: 50px 0;
+
+    li{
+        float: left;
+        margin: 0;
+        width: 33.33333%;
+        text-align: center;
+
+    }
+
+    .top-heading{
+        font-family: 'LatoWebMedium';
+        font-size:14px;
+        color: $theme-blue;
+    }
+}
+
+
+
+.border-left-cap{
+    position: absolute;
+    left: -5px;
+    top: -15px;
+}
+
+.border-right-cap{
+    position: absolute;
+    right: -5px;
+    top: -15px;
+}
+
+.starting-price-div{
+    text-align: center;
+}
+
+.st-price{
+    font-family: 'LatoWebMedium';
+    font-size: 14px;
+    color: #26497b;
+    margin-bottom: 25px;
+}
+
+.time-block{
+    width: 230px;
+    margin: 0px auto;
+    min-height: 50px;
+}
+
+.time-block-down{
+    width: 220px;
+    margin: 20px auto 10px auto;
+    min-height: 50px;
+}
+
+.right-15{
+    padding-right: 15px;
+}
+
+
+.progress-table-wrap .progress .progress-bar{
+    border-right: 6px solid #fff;
+    border-top: 8px solid transparent;
+    background-color: #52BDEB;
+}
+
+
+.time-icon,.ico-small-head{
+    position: relative;
+    float:left;
+}
+
+.time-icon img{
+    width:55px;
+}
+
+.blue-sett-head-div{
+    margin-left: 15px;
+    position: relative;
+    margin-top: -5px;
+}
+
+.ico-small-head{
+    padding-left:35px;
+}
+
+.ico-small-head-upper{
+    padding-left:35px;
+}
+
+.token-sale-h{
+    font-family: 'LatoWebHeavy';
+    font-size:24px;
+    color:#26497b;
+    text-align: center;
+    margin-bottom:25px;
+}
+
+.no-data-box{
+    background: white;
+    padding: 40px;
+    position: relative;
+    width: 100%;
+    margin-bottom:15px;
+}
+
+.no-data {
+    p{
+        margin:0;
+    }
+}
+
+
+.clock-wrap {
+    text-align: center;
+    padding-top: 10px;
+    width: 60%;
+    margin: 0 auto;
+    @media (max-width:640px) {
+        width:88%; 
+    }
+
+    @media (max-width:360px) {
+        width:100%; 
+    }
+
+    @media (max-width:1200px) and (min-width:992px) {
+        width:100%;
+    }
+}
+
+.clock-ul {
+    list-style-type: none;
+    padding-left: 0px !important;
+    position: relative;
+    padding: 5px 0;
+    // background-color: #F9F9F9;
+   
+}
+
+.clock-ul li {
+    display: inline-block;
+    width: 70px;
+    margin-right: 10px;
+    position: relative;
+    width: 20%;
+    list-style-type: none;
+}
+
+.clock-ul li {
+    p{
+        color: $dashboard-purple-clr !important;
+    }
+}
+
+
+.clock-names-ul{
+    margin-bottom:0;
+    li{
+        display: inline-block;
+        width: 70px;
+        margin-right: 10px;
+        position: relative;
+        width: 20%;
+        list-style-type: none;
+        padding-bottom:10px;
+    }
+    .days-t{
+        margin-bottom:0;
+        color:$theme-blue;
+    }
+}
+
+.visibility-none{
+    visibility: hidden;
+}
+
+
+
+.clock-ul li:last-child:after {
+   display: none;
+  }
+
+#days, #hrs, #mins, #sec {
+    color: #46A8D9;
+    text-align: center;
+    font-family: 'LatoWebBold';
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0px !important;
+}
+
+
+
+.days-t {
+    font-family: 'LatoWeb'; 
+    font-size: 14px;   
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.till-pIco-Stge-txt{
+    color: $theme-blue;	
+    font-family: 'LatoWeb';	
+    font-size: 28px;	
+    font-weight: 600;	
+    line-height: 39px;	
+    text-align: center;
+    margin-bottom:0;
+}
+
+.till-pIco-Stge-small{
+    color: $theme-blue;	
+    font-family: 'LatoWebLight';	
+    font-size: 13px;	
+    font-weight: bold;	
+    // font-weight: 300;	
+    line-height: 16px;	
+    margin-bottom:0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+.till-pIco-Stge-txt2{
+    padding-top: 10px;
+    color: $theme-blue;
+    font-size: 14px;
+    font-family: 'LatoWebLight'; 
+    text-align: center;
+    font-style: italic;	
+    line-height: 18px;	
+    text-align: center;
+}
+.nn-xchge-bg{
+    background-image:url("../../../assets/img/nn-xchge-bg.png");
+    width: 180px;
+    height: 36px;
+    background-size: cover;
+    background-repeat: no-repeat;
+   }
+
+
+
+   .ico-top-divs{
+    margin-left: -15px;
+
+    
+    li {
+        position: relative;
+        width: 25%;
+        padding-left: 15px;
+        float: left;
+        list-style-type: none;
+        height:160px;
+
+        @media (max-width: 991px) { 
+            width: 50%;
+            padding-left: 15px;
+            margin-bottom: 15px;        
+        }
+        @media (max-width: 767px) and (min-width:641px) { 
+            width: 50%;
+        }
+
+        @media (max-width: 640px){ 
+            width: 100%;
+        }
+
+    }
+
+
+    @media (max-width: 991px) { 
+        margin-left: -15px;
+    }
+
+}
+
+
+ 
+
+
+
+   .big-amount{
+    font-family: 'LatoWeb';
+    font-size: 18px;
+    font-weight: 500;
+       color:$theme-green;
+       @media (max-width:640px) {
+        font-size: 15px;
+       }
+   }
+   
+
+   $ico-view-height:185px;
+   $ico-color:#47CCC6;
+   $ico-font:26px;
+   $ico-total-text:18px;
+
+    .table-type{
+        display: table;
+        width:100%;
+        height: $ico-view-height;
+    }
+
+
+    .inner-box{
+        height:  $ico-view-height;
+        position: relative;
+        margin-bottom: 15px;
+        // background:white;
+        // background: #C2B5D3;
+
+        background-color: #e0d7d7;
+        @media (min-width:992px) and (max-width:1199px) {
+           height: 140px;
+
+           .left-stat-icon,.table-type,.right-icon-stats{
+            height: 140px;
+           }
+        }
+    }
+
+    .stages-row{
+        margin:30px 0 10px 0;
+    }
+
+    .stages-row-bottom{
+        margin:0 0 40px 0;
+    }
+
+
+   .left-stat-icon{
+       display: table-cell;
+       vertical-align: middle;
+       min-height: 100%;
+       height:$ico-view-height;
+       text-align: center;
+
+       img{
+        max-width: 85%;
+       }
+       @media (min-width:768px) and (max-width:1199px){
+            img{
+                width: 75px;
+                padding-left: 15px;
+            }
+       }
+
+       @media (min-width:1200px) and (max-width:1350px){
+            img{
+                width: 80px;
+                padding-left: 15px;
+            }
+        }
+   }
+
+   .right-icon-stats{
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 100%;
+    margin-right: 15px;
+    height:$ico-view-height;
+    text-align: left;
+
+   }
+   
+
+   .stage-name{
+       text-transform: uppercase;
+       font-family: 'LatoWeb';
+       font-weight: 600;
+       text-align: center;
+       margin-bottom:10px;
+       color: $theme-blue;
+   }
+
+   .stage-disc{
+       text-align: center;
+       color: $theme-blue;	
+       font-family: 'LatoWebLight';	
+       font-size: 14px;
+       margin:0;
+       padding:10px 0;
+   }
+   .just-ico{
+    padding-left:0;
+    margin:0;
+    list-style-type: none;
+    list-style: none;
+    width:8%;
+    float:left;
+
+    @media (max-width: 767px) { 
+        width:100% !important;
+        margin-bottom: 15px;
+    }
+
+    li{
+
+        position: relative;
+        width: 100%; 
+        padding-left: 5px;
+        float: left;
+
+        @media (max-width: 991px) and (min-width:768px) { 
+            .stage-name{
+                min-height: 50px;
+            }
+        }
+
+        @media (max-width: 1200px) and (min-width:992px) { 
+            .stage-name{
+                min-height: 50px;
+            }
+        }
+
+    }
+
+    
+    .inner-progresses{
+        background:#E3E3E3;
+       .progress-bar{
+        height: 44px;	
+        background-color: rgba(44,209,156,0.86)
+       }
+   }
+
+   }
+
+   .stages-progress-horizontal{
+       float:left;
+       padding-left:0;
+       margin:0;
+       list-style-type: none;
+       list-style: none;
+       margin-left: -5px;
+        // width:92%;
+       width:100%;
+
+       @media (max-width: 767px) { 
+        width:100%;
+        }
+
+       li{
+
+                position: relative;
+                width: 16.66666666666667%; 
+                padding-left: 5px;
+                float: left;
+
+        @media (max-width: 991px) and (min-width:768px) { 
+            .stage-name{
+                min-height: 50px;
+            }
+        }
+
+       
+
+        @media (max-width: 1200px) and (min-width:992px) { 
+            .stage-name{
+                min-height: 50px;
+            }
+        }
+           
+    
+            @media (max-width: 991px) { 
+               /*  width: 33.33%; */
+                padding-left: 5px;
+                margin-bottom: 15px;        
+            }
+            @media (max-width: 767px) { 
+                width: 50%;
+            }
+    
+       }
+
+       .inner-progresses{
+            background:#328CB8;
+           .progress-bar{
+          
+            height: 44px;	
+            background-color: rgba(44,209,156,0.86)
+           }
+       }
+   }
+
+   .earn-left-ul{
+    position: relative;
+        float:left;
+        padding-left:0;
+        margin:0;
+        list-style-type: none;
+        list-style: none;
+        margin-left: 0px;
+        width:92%;
+
+        @media (max-width: 767px) { 
+            width:50%;
+            margin-bottom: 15px;
+        }
+
+        .inner-progresses{
+            background:#FFFFFF;
+            height: 32px;
+
+            .progress-bar{
+                height: 32px;
+            }
+
+            .text{
+                font-family: 'LatoWebBold';
+                font-size:14px;
+                color: #1D2939;
+                text-align: center;
+                position: absolute;
+                left:0;
+                right: 0;
+            }
+
+            .earn-text{
+                color:#2097D4;
+                text-transform: uppercase;
+
+            }
+        }
+
+
+   }
+
+   .earn-tokens-ul{
+    position: relative;
+    float:left;
+    padding-left:0;
+    margin:0;
+    list-style-type: none;
+    list-style: none;
+    margin-left: 0px;
+    width:8%;
+
+    @media (max-width: 767px) { 
+        width:50%;
+        margin-bottom: 15px;
+    }
+
+   
+    .inner-progresses{
+        background:#E3E3E3;
+        height: 32px;
+        white-space: pre-wrap;
+
+        .progress-bar{
+            height: 32px;
+            background: #E3E3E3;
+            white-space: pre-wrap;
+        }
+
+        .text{
+            font-family: 'LatoWebBold';
+            font-size:10px;
+            line-height: 10px;
+            padding-top:15px;
+            color: #1D2939;
+            text-align: center;
+         
+        }
+
+        .earn-text{
+            color:#2097D4;
+            text-transform: uppercase;
+
+        }
+    }
+
+   }
+
+   .status{
+
+    text-transform: uppercase;
+    color:white;
+    font-family: 'LatoWebLight';
+    // font-size:14px;
+    font-size: 20px;
+    margin:0;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    font-weight: bold;
+   }
+
+
+ .bold-text{
+    margin-left:20px;
+ }
+
+
+
+   .number{
+    font-family: 'LatoWeb';
+    font-weight: 800;
+    color:  $dashboard-purple-clr;
+    font-size: 25px;
+    margin: 0;
+    padding-top: 5px;
+
+        @media (min-width:768px) and (max-width:991px) {
+            font-size: 26px; 
+        }
+
+        @media (min-width:992px) and (max-width:1199px) {
+            font-size: 16px; 
+        }
+
+        @media (min-width:1200px) and (max-width:1600px){
+            font-size: 20px;
+            padding-top: 4px;
+        }
+
+
+        @media (min-width:1601px) and (max-width:1800px){
+            font-size: 18px;
+            padding-top: 15px;
+        }
+
+        
+
+   }
+
+
+   .greenish-gradient{
+       border-top:3px solid $theme-green;
+   }
+
+
+   .deep-blue{
+       border-top:3px solid $theme-blue;
+       .number,.dollar{
+        color: $theme-blue;
+      }
+   }
+
+
+   .bluish-gradient{
+    border-top:3px solid $theme-blue;
+
+      .number{
+        color: $theme-blue;
+      }
+   }
+
+
+ 
+
+   .total-text{
+    font-family: 'LatoWeb';
+    font-weight: 400;
+    text-transform: uppercase;
+    color:$theme-blue;
+    font-size: 14px;
+    margin: 0;
+    @media (min-width:992px) and (max-width:1199px) {
+        font-size: 13px; 
+    }
+   }
+
+   .left-stat-icon img{
+
+    opacity: 0.4;
+
+   }
+
+   .dollar{
+    font-family: 'LatoWebLight';
+    font-weight:400;
+    color:  $theme-blue;
+    font-size: $ico-font;
+    text-transform:uppercase;
+
+    @media (min-width:992px) and (max-width:1199px){
+       font-size: 16px; 
+    }
+    @media (min-width:1200px) and (max-width:1600px){
+        font-size: 20px;
+    }
+
+    @media (max-width: 1800px) and (min-width: 1601px)
+    {
+    font-size: 18px;
+    padding-top: 5px;
+    }
+
+
+   }
+
+   .nn-centered-div{
+    width:180px;
+    margin:0 auto;
+   }
+
+   .centering-row{
+    padding-top: 40px;
+
+    @media (max-width:1199px) and (min-width:992px) {
+            padding-top:15px;
+    }
+   }
+
+  
+
+   .soft-hard-box .row{
+       margin:0;
+   }
+
+ 
+
+   .bg-row{
+    padding-top: 30px;
+    @media (max-width:1200px) and (min-width:992px) {
+        padding-top: 35px;
+    }
+
+    @media (min-width:1800px) {
+        padding-top: 30px;
+    }
+
+    @media (min-width:1201px) and (max-width:1600px) {
+        padding-top: 35px;
+    }
+
+    @media (min-width:1601) and (max-width:1799px) {
+        padding-top: 65px;
+    }
+
+ 
+
+   }
+   
+   .nn-xchge-text{
+    font-family: 'LatoWebBold';
+    font-size:19px;
+    color:#26497b;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top:5px;
+   }
+   
+.table td, .table th{
+    border-top: none !important;
+}
+.nn-tbl{
+    margin-bottom: 0 !important;
+}
+.centerAlgn{
+    text-align: center;
+}
+.tble-txt-bold{
+    font-family: 'LatoWebBold';
+    color:#26497b;
+    font-size:14px;
+}
+.tble-txt-reg{
+    font-family: 'LatoWeb';
+    color:#26497b;
+    font-size:14px;
+}
+.mar-top30{
+    margin-top: 30px;
+}
+
+.topp{
+    padding-top: 10px;
+ }
+ 
+ .rects{
+    width: 100%;
+    height: 35px;
+ }
+ .email{
+    position: absolute;
+    color: white;
+    font-family: 'LatoWebBold';
+    font-size: 13px;
+    top: 8px;
+    left: 15px;
+    text-transform: uppercase;
+ }
+ .time{
+    position: absolute;
+    color: white;
+    font-family: 'LatoWebBold';
+    font-size: 13px;
+    top: 8px;
+    left: 35px;
+    text-transform: uppercase;  
+ }
+ .bonus{
+    position: absolute;
+    color: white;
+    font-family: 'LatoWebBold';
+    font-size: 13px;
+    top: 8px;
+    left: 23px;
+    text-transform: uppercase;  
+ }
+ .my-tbl{
+    margin-bottom: 15px;
+    // height: 200px;
+    overflow-y: scroll;
+ }
+ .my-tbl td{
+    padding: 7px 0px ;
+    position: relative;
+ }
+
+ .my-tbl th{
+     text-transform: uppercase
+ }
+
+ .center-line{
+    position: absolute;
+    left: 0px;
+    right: 15px;
+    width: 110px;
+    top: -35px;
+    margin: auto;
+    transform: rotate(-6deg);
+ }
+
+.visibility-hidden{
+    visibility: hidden;
+}
+
+
+
+.different-padding{
+    padding: 25px;
+}
+
+.token-progress{
+    padding-left:0;
+    margin-bottom:0;
+    list-style-type: none;
+    width: 100%;
+    li{
+        display: inline-block;
+        width:100%;
+
+    }
+
+    @media (max-width:767px) {
+        width: 100%;
+    }
+}
+
+.font-13{
+    font-size: 13px;
+}
+
+.piptle-font{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+ .tbl-img{
+    width: 100%;
+    height: 101px;
+ }
+ .pd-btmm{
+    padding-bottom: 0px !important;
+ }
+
+ .table thead th{
+     border:none;
+ }
+
+ .td-name{
+     font-family: 'LatoWebMedium';
+     font-size:14px;
+     color: $theme-blue;
+     padding-left: 10px !important;
+     text-transform: capitalize;
+ }
+ .trname{
+    color: violet;
+ }
+ .td-token{
+    font-family: 'LatoWebBold';
+    font-size:12px;
+    color : $dashboard-purple-clr;
+ }
+
+ .td-total{
+    font-family: 'LatoWebBold';
+    font-size:12px;
+    color: $theme-blue;
+ }
+
+ 
+ .pos-rltv{
+    position: relative;
+ }
+ .tbl-head-txt{
+    font-family: 'LatoWebBold';
+    color: $theme-blue;
+    font-size: 14px;
+    // text-align: centers;
+    margin-bottom:0;
+ }
+
+
+ @media only screen and (min-width:768px) and (max-width:991px){
+
+  
+    .inner-box{
+        height: 210px;
+        position: relative;
+        margin-bottom: 15px;
+    }
+   
+    .genral-sett-div{
+        margin-bottom:15px;
+    }
+
+    .right-bottom-grey{
+        bottom: 8px;
+        right: 2px;
+    }
+
+    .right-bottom-blue{
+        right: 2px;
+        height: 10px;
+    }
+
+
+ }
+
+ @media only screen and (max-width:640px){
+   
+
+    .token-progress .progress-table-wrap{
+        display: none;
+    }
+
+    .different-padding .genral-sett-div-head{
+        padding-left:10px;
+    }
+
+    .no-wrap-640 .my-tbl{
+        white-space: initial;
+    }
+
+    .right-bottom-grey {
+        bottom: -30px;
+        right: -8px;
+    }
+
+    .right-bottom-blue {
+        bottom: -3px;
+        right: 15px;
+    }
+
+    .top-heading,.center-heading{
+        font-size:10px !important;
+        margin:0;
+    }
+
+    .tbl-head-txt{
+        text-align: center;
+    }
+
+    .token-progress li{
+        width:100%;
+    }
+
+    .different-padding{
+        padding: 25px 0;
+    }
+
+    .fancy-progress{
+        width:80%;
+        .progress{
+            height:18px;
+        }
+    }
+
+    .clock-ul:after{
+        display: none;
+    }
+
+    .center-line{
+        left: 0px;
+        right: 21px;
+        width: 110px;
+        top: -35px;
+        margin: auto;
+        transform: rotate(-14deg);
+    }
+
+    .bg-row .number,.bg-row .dollar{
+        font-size:14px;
+    }
+
+
+    .days-t{
+        font-size: 12px;
+    }
+
+
+    .my-tbl td{
+        
+        white-space: nowrap;
+    }
+    .genral-sett-div{
+        margin-bottom:15px;
+    }
+
+    
+ }
+
+
+ @media (max-width:1300px) and (min-width:1000px){
+    .number,.dollar{
+        font-size:14px;
+    }
+ }
+
+ @media (max-width:1600px){
+     .greenish-gradient .number,.greenish-gradient .dollar{
+         font-size:16px
+     }
+ }
+
+
+ .ico-top-divs{
+     .no-right{
+         @media (max-width:992px) {
+                padding-right:15px;
+         }
+     }
+ }
+
+
+ .ico-content-div{
+    .no-right{
+        @media (max-width:992px) {
+               padding-right:15px;
+        }
+
+        @media (max-width:992px) and (min-width:640px) {
+            margin-bottom:15px;
+        }
+    }
+ }
+
+ @media (max-width:640px){
+    
+    .responsive-stages{
+        width:100% !important;
+    }
+
+    // .col-12{
+    //     max-width: 50% !important;
+    //  }
+ }
+
+ .UPCOMING{
+    background: #C2B5D3 !important;
+ }
+
+ .DONE{
+    background: #00AF78 !important;
+ }
+
+ .RUNNING{
+    background: $dashboard-purple-clr !important;
+ }
+
+ .sale-stopped{
+    float: right;
+    color: #e80101;
+    font-weight: bold;
+ }
+
+.stages{
+    // color: $dashboard-purple-clr;
+    .pl-left{
+        padding-left: 1rem;
+    }
+    color: #616A75;
+    .stage-heading{
+        text-transform: uppercase;
+        font-family: 'LatoWebBold';
+    }
+    .stage-text{
+        font-size: 14px;
+        color: black;
+        list-style: decimal;
+    }
+    .ordered-list{
+        list-style: lower-alpha;
+        padding-left: 1rem;
+    }
+}
+.mt-10{
+    margin-top: 5px;
+}
+.bonus-btn{
+    background-color: #643E8D !important;
+    border: none;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-family: 'LatoWeb';
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    width: 28%;
+}
+@media screen and (max-width: 480px){
+    .bonus-btn{
+        width: 50%;
+    }
+}
+.p-top{
+    padding-top: 13px;
+}
+.paddingbtn{
+    padding-top: 4.2rem;
+}
+.stage-padding{
+    padding-top: 10px;
+}
+.margin-top{
+    margin-top: 5px;
+}
+
+.btn-country{
+    background-color: #643E8D !important;
+    border: none;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-family: 'LatoWeb';
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.scroll-div{
+    overflow:auto;
+
+    height: 70vh;
+
+}
+
+
+.instructions{
+    color: black;
+    .instructions-text-heading{
+        font-size: 20px;
+        color: #616A75;
+        font-family: 'LatoWebBold';
+        
+    }
+    .instructions-text{
+        font-size: 16px;
+        color: #616A75;
+    }
+
+}
+
+.instruction-close{
+    img{
+        height: 15px;
+        cursor: pointer;
+
+    }
+    padding: 20px 20px 0 20px;
+    .instruction-txt{
+        color: #616A75;
+        font-family: 'LatoWebBold';
+        font-size: 26px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+}

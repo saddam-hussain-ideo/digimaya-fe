@@ -1,0 +1,161 @@
+<div class="d-flex justify-content-between">
+    <h1 class="page-title change-btm">{{'WIRE TRANSFER CLAIMS' | translate}}</h1>
+    <!-- <div > 
+        <button class="btn btn-primary" (click) ="printPage()" >Instructions</button>
+    </div> -->
+</div>
+
+
+<div class='table-section'>
+
+
+    <div class="table-responsive">
+
+
+        <h1 *ngIf="noRecords" class="no-data" style="margin-top:10px">{{'NO RECORDS FOUND' | translate}}</h1>
+
+        <table *ngIf="!noRecords" class="table table-striped wire-table">
+
+            <tbody>
+
+                <tr class='first'>
+                    <th>{{'Instrument Id' | translate}}</th>
+                    <th>{{'Bank Name' | translate}}</th>
+                    <th class="pointer" (click)="sort()">{{'Claim status' | translate}}
+                        <img *ngIf="sortToAsc" class="sorter" src="../../../assets/img/arrow.svg" />
+                        <img *ngIf="!sortToAsc" class="sorter-turned" src="../../../assets/img/arrow.svg" />
+                    </th>
+                    <th class="text-centered">{{'Deposit Slip' | translate}}</th>
+                    <th class="text-centered">{{'Currency type' | translate}}</th>
+                    <th class="text-centered">{{'Date' | translate}}</th>
+                </tr>
+
+                <tr *ngFor="let claims of claims">
+
+
+                    <td>{{claims?.InstrumentId}}</td>
+                    <td>{{claims?.BankName}}</td>
+                    <td>
+                        <p class="status" [ngClass]="{'submitted': claims.Status=='SUBMITTED','accepted':claims.Status=='ACCEPTED','rejected':claims.Status=='REJECTED'}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{claims?.Status | translate}}</p>
+                    </td>
+                    <td class="text-centered">
+                        <a target="_blank" href="{{claims.ImageUrl}}" class="eye-image">
+                            <svg width="22px" height="12px" viewBox="0 0 22 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Wire-transfer-" transform="translate(-1574.000000, -247.000000)" fill="#2097D4" fill-rule="nonzero">
+                                        <g id="eye" transform="translate(1574.000000, 247.000000)">
+                                            <g id="Group-5">
+                                                <g id="eye">
+                                                    <path d="M21.6221221,5.51862318 C21.5776205,5.46195922 20.5116541,4.11497738 18.6842487,2.76256201 C16.2421053,0.955282531 13.5849192,0 10.9999759,0 C8.41498447,0 5.75779839,0.955282531 3.31570317,2.76256201 C1.4882496,4.11492887 0.422283179,5.46195922 0.377829783,5.51862318 L0,5.99997574 L0.377829783,6.48137682 C0.422283179,6.53804078 1.4882496,7.88507113 3.31570317,9.23748651 C5.75784655,11.0447175 8.41498447,12 10.9999759,12 C13.5849192,12 16.2421053,11.0447175 18.6842487,9.23748651 C20.5116541,7.88507113 21.5776205,6.53804078 21.6221221,6.48137682 L22,5.99997574 L21.6221221,5.51862318 Z M17.7367123,8.01222544 C16.2266453,9.12318832 13.832134,10.4475628 10.9999759,10.4475628 C8.16781781,10.4475628 5.77325835,9.12318832 4.26323959,8.01222544 C3.22698903,7.24983323 2.45037906,6.47875708 2.00762709,5.99997574 C2.4505717,5.52104887 3.22708535,4.75006974 4.26319142,3.98772604 C5.77325835,2.87671465 8.16776965,1.55234018 10.9999278,1.55234018 C13.8320377,1.55234018 16.2266935,2.87671465 17.7366159,3.98772604 C18.7728665,4.75011825 19.5494765,5.52119441 19.9922284,5.99992723 C19.5493801,6.47890262 18.7727702,7.24993026 17.7367123,8.01222544 Z"
+                                                        id="Shape"></path>
+                                                    <path d="M11.0000591,2 C10.0296886,2 9.14012325,2.34574177 8.44745748,2.92048057 C8.99559621,3.08096765 9.39613412,3.5871965 9.39613412,4.18729403 C9.39613412,4.91637234 8.80508061,5.50742585 8.07600231,5.50742585 C7.6928431,5.50742585 7.347988,5.34404232 7.10681405,5.08336166 C7.0377721,5.37785397 7,5.68446408 7,6 C7,8.2091652 8.79089391,10 11.0000591,10 C13.2091652,10 15,8.2091652 15,6 C15,3.7908348 13.2092834,2 11.0000591,2 Z"
+                                                        id="Shape"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                    </td>
+                    <!-- <td class="text-centered">{{claims?.CurrencyType}}</td> -->
+                    <td class="text-centered">AUD</td> 
+                    <td class="text-centered">{{claims?.Date}}</td>
+
+
+                </tr>
+
+
+
+
+
+            </tbody>
+
+
+        </table>
+
+
+
+
+
+    </div>
+
+    <div class='pagination-bottom'>
+
+        <pagination-controls *ngIf="pageSize < totalCount" responsive="true" previousLabel="" nextLabel="" (pageChange)="pageNumber = $event;changePage($event)"></pagination-controls>
+
+
+        <ul class="no-visibility-2">
+            <li *ngFor="let item of claims | paginate: { itemsPerPage: pageSize, currentPage: pageNumber, totalItems: totalCount }">{{item}}</li>
+        </ul>
+
+    </div>
+
+
+</div>
+
+
+<!--print instructions-->
+
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="instructions">
+            <p class="instructions-heading">INSTRUCTIONS</p>
+            <p class="instructions-text">Payment by Bank Wire Cash:</p>
+            <p class="instructions-text">Thank you for your selection to pay cash by direct bank deposit.</p>
+            <p class="instructions-text">You have locked in the pricing of your Piptle Utility Coins (PUCs) account will be held for 7 working days.  </p>
+            <p class="instructions-text">After which if your payment is not confirmed as received, any funds then subsequently received will have Piptles (PUCs) issued at the current value.  </p>
+            <p class="instructions-text">The issue of any bonus Piptle Utility Coins will only be done after confirmation of your payment.  </p>
+            <p class="instructions-text">Please follow the banking instructions on your tax invoice for the payment to be sent to our bank account that is held with the Commonwealth Bank in Australia.   Please endeavour to remit your payment within 5 working days:</p>
+            <p class="instructions-text">Please transfer funds to:</p>
+               
+        </div>
+        <div class="instruction-list">
+            <ol>
+                <li class="list-group-item-light">Account Name: Piptle Wealth Management </li>
+                <li class="list-group-item-light">Branch Number (BSB):  064 475 </li>
+                <li class="list-group-item-light">Account Number:  1043 6665 </li>
+                <li class="list-group-item-light">Bank Name:  Commonwealth Bank of Australia  </li>
+                <li class="list-group-item-light">Bank Address:  Shop 60, Stocklands Shopping Centre, 149 West Burleigh Rd, Burleigh Waters, QLD, 4220, Australia  </li>
+                <li class="list-group-item-light">Bank Swift Code:  CTBAAU2S</li>
+            </ol>
+        </div>
+        <div class="instructions">
+            <p class="instructions-text">Additional Instructions:</p>
+            <ol>
+                <li class="list-group-item-light">
+                    Please include your Order number as the reference for us to find your payment.  
+                </li>
+                <li class="list-group-item-light">
+                    Please save a PDF copy of your bank transfer receipt or a take a photo or scan of your bank deposit slip 
+                    and email to us at <a href="mailto:accounts@piptle.com">accounts@piptle.com</a>.
+                </li>
+            </ol>
+        </div>
+            
+    </div>
+</div>
+
+
+
+<!-- The Modal -->
+<div class="modal" id="image-modal">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="close-modal" (click)="closeModal()"><img src="../../../assets/img/close.png"></div>
+            <div class="modal-body">
+
+
+
+                <img class="receiptImg" src="{{receiptImg}}" alt="Receipt Image" />
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

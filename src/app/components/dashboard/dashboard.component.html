@@ -1,0 +1,1527 @@
+
+<div class="dashboard-section">
+    <toaster-container [toasterconfig]="config"></toaster-container>
+
+    <div class="dashboard-upper-sec mb-3">
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center content-flex">
+                <!-- <img src="../../../assets/img/PIPTLE-DashboardICON.png" alt=""> -->
+                <span class="img-borders"> <img src="../../../assets/img/PIPTLE-DashboardICON.png" class="sidebar-img" alt="">
+                </span>
+                <h1 class="ml-2 page-title text-left text-class">PIPTLE (PPTL Coin) {{ 'Dashboard' | translate }}</h1>
+            </div>
+            <div class="no-padding center-select dashboard-dropdown">
+                <div class="form-group">
+                    <label class="black-labels hidden-above-sm " style="visibility: hidden;    padding-bottom: 5px;">PUC</label>
+                    <span class="custom-dropdown big">
+                        <img class="custom-arrow" src="../../../assets/img/drop-down-arrow.png" alt="" srcset="">
+                        <select (change)="convertCurrencyToPPTL($event.target.value)">
+                            <option value="mxn">AUD</option>
+                            <option value="btc">BTC</option>
+                            <option value="ltc">LTC</option>
+                            <option value="eth">ETH</option>
+                            <!-- <option value="bch">BCH</option> -->
+                            <!--  <option value="neo">NEO</option>-->
+                            <!-- <option value="btg">BTG</option> -->
+                            <!-- <option value="dash">DASH</option> -->
+                            <!-- <option value="mxnp">MXNP</option> -->
+                            <option value="usd">USDT</option>
+                            <option value="bch">BCH</option>
+                            <!-- <option value="eur">EURO</option> -->
+                        </select>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    <!-- Earn and XCHGE-->
+
+
+    <!-- <ul class="earn-boxes-list xchge-earn-list clearfix"> -->
+
+
+        <!-- <li>
+            <div class="inner-box xchge-top min-hg background-green">
+                <p class="earns-label color-blue" style="font-weight: bold;margin-top: 19px;font-size: 20px;">
+                    <img class="fru-width" style="margin-bottom: 11px;" src="../../../assets//img//fru.png" alt="">
+                    FRU:
+                    <strong class="earn-bold">{{investedValues.TokenBalance | currency:'crypto'}}</strong>
+                </p>
+
+            </div>
+        </li> -->
+
+
+        <!-- <li>
+            <div class="inner-box earn-top">
+
+                <p class="earns-label">Earn:
+                    <strong class="earn-bold">{{investedValues.EARNTokenBalance}}</strong>
+                </p>
+
+            </div>
+        </li> -->
+
+    <!-- </ul> -->
+
+    <div class="row m-0 dash-info-row">
+        <div class="col-lg-2 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card">
+                <div class="content">
+                    <span class="heading text-class">Total PPTLs:</span>
+                    <span class="pulper-color"> {{totalCapacity}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card">
+                <div class="content">
+                    <span class="heading text-class">Issued PPTLs:</span>
+                    <span class="pulper-color"> {{totalIssued.toString().split('.')[0]}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card">
+                <div class="content">
+                    <span class="heading text-class">ILO Award Stage:</span>
+                    <span class="pulper-color"> {{RatesModel.stageName.split(" ")[2]}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card">
+                <div class="content">
+                    <span class="heading text-class">Total Piptle Licensees:</span>
+                    <span class="pulper-color"> {{totalLicesees}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card">
+                <div class="content">
+                    <span class="heading text-class">Current PPTL Value: </span>
+                    <!-- <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span> -->
+                    <span class="pulper-color"> {{selectedCurrencyAUD}} {{selectedCurrencyValue | currency : 'crypto'}} </span>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card dark-bg">
+                <div class="content">
+                    <span class="heading prp-text text-class">Your Total PPTL:</span>
+                    <span class="heading prp-text"> {{totalPiptles | currency: 'crypto'}}  </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 pl-0 mb-3">
+            <div class="info-custom-card dark-bg">
+                <div class="content">
+                    <span class="heading prp-text text-class">Your Total PPTL Value:</span>
+                    <span class="heading prp-text"> AUD$ {{totalValueAud | currency: 'crypto'}}  </span>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+    <div class="payment-card">
+        <div class="content">
+            <span class="heading prp-text">PAYMENTS ACCEPTED FOR :</span>     
+        </div>
+    </div>
+    <!-- Earn and XCHGE-->
+
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <ul class="earn-boxes-list clearfix">
+
+                <li>
+                    <div class="inner-box" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img style="width: 20px" src="../../../assets/img/dollar-icon.png" alt="eth-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img style="width: 22px" src="../../../assets/img/dollar-icon.png" alt="eth-icon">
+        
+                                    <p class="balance" title="{{investedValues?.MXNContributed}}">{{investedValues?.MXNContributed | currency:'fait'}}
+                                        <span class="currency">AUD</span>
+                                    </p>
+                                    <p class="currency-heading">AUD {{ 'Invested' | translate}}</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </li>
+        
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img style="width: 20px" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img style="width: 22px" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
+        
+                                    <p class="balance">{{investedValues.USDContributes | currency:'fait'}}
+                                        <span class="currency">USDT</span>
+                                    </p>
+                                    <p class="currency-heading">USDT {{ 'Invested' | translate}}</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </li>
+        
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+        
+                                    <p class="balance" title="{{investedValues.ETHContributed}}">{{investedValues.ETHContributed | currency:'crypto'}}
+                                        <span class="currency">eth</span>
+                                    </p>
+                                    <p class="currency-heading">eth {{ 'Invested' | translate}}</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </li>
+        
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/btc-left.png" alt="btc-icon">
+        
+                                </div>
+                            </div> -->
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/btc-left.png" alt="btc-icon" width="40px">
+        
+                                    <p class="balance" title="{{investedValues.BTCContributed}}">{{investedValues.BTCContributed | currency:'crypto'}}
+                                        <span class="currency">btc</span>
+                                    </p>
+                                    <p class="currency-heading">Btc {{ 'Invested' | translate }}</p>
+        
+                                </div>
+                            </div>
+        
+        
+        
+                        </div>
+        
+        
+        
+                    </div>
+                </li>
+                <!-- <li>
+                    <div class="inner-box">
+        
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+        
+                                    <img src="../../../assets/img/dash-left.png" alt="dash-icon">
+        
+        
+                                </div>
+                            </div>
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+        
+                                    <p class="balance" title="{{investedValues.DASHContributes}}">{{investedValues.DASHContributes}}
+                                        <span class="currency">dash</span>
+                                    </p>
+                                    <p class="currency-heading">dash Invested</p>
+        
+                                </div>
+                            </div>
+        
+        
+                        </div>
+        
+                    </div>
+                </li> -->
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/ltc-left.png" alt="ltc-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+        
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/litecoin-ltc-logo.png" style="width: 38px;" alt="ltc-icon">
+        
+                                    <p class="balance" title="{{investedValues.LTCContributed}}">{{investedValues.LTCContributed | currency:'crypto'}}
+                                        <span class="currency">ltc</span>
+                                    </p>
+                                    <p class="currency-heading">ltc {{ 'Invested' | translate }}</p>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </li>
+        
+        
+                <!-- <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/eth-left.png" alt="eth-icon">
+                                </div>
+                            </div>
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+        
+                                    <p class="balance" title="{{investedValues.MXNPContributed}}">{{investedValues.MXNPContributed}}
+                                        <span class="currency">MXNP</span>
+                                    </p>
+                                    <p class="currency-heading">MXNP Invested</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </li> -->
+                <!-- <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/neo-left.png" alt="neo-icon">
+                                </div>
+                            </div>
+        
+        
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+        
+                                    <p class="balance">{{investedValues.NEOContributes}}
+                                        <span class="currency">neo</span>
+                                    </p>
+                                    <p class="currency-heading">neo Invested</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </li> -->
+                <!-- <li>
+                    <div class="inner-box">
+        
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/btg-left.png" alt="btg-icon">
+                                </div>
+                            </div>
+        
+                            <div class="grey-bottom-line">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+        
+                                    <p class="balance" title="{{investedValues.BTGContributes}}">{{investedValues.BTGContributes}}
+                                        <span class="currency">btg</span>
+                                    </p>
+                                    <p class="currency-heading">btg Invested</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+        
+        
+                    </div>
+                </li> -->
+        
+        
+                <li>
+                    <div class="inner-box">
+        
+        
+                        <div class="clearfix centering-content">
+        <!-- 
+                            <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/bch-left.png" alt="bch-icon">
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line ">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/bitcoin-cash-bch-logo.png" width="40px" alt="bch-icon">
+        
+                                    <p class="balance">{{investedValues.BCHContributed | currency}}
+                                        <span class="currency">Bch</span>
+                                    </p>
+                                    <p class="currency-heading">bch Invested</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </li>
+        
+                <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <i class="fab fa-quora" ></i>
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <i class="fab fa-quora" ></i>
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">QOIN</span>
+                                    </p>
+                                    <p class="currency-heading">QOIN Invested</p>
+        
+                                </div>
+                            </div>
+        
+                        </div>
+        
+                    </div>
+                </li>
+        
+        
+                <!-- <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content"> -->
+        
+                            <!--commented before-->
+
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/Contracoin-symbol.png" alt="" srcset="" width="100px" height="50px">
+                                </div>
+                            </div> -->
+                            <!---->
+
+                            <!-- <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/cctn.png" class="curr-logo" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">CTCN</span>
+                                    </p>
+                                    <p class="currency-heading">CTCN Invested</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </li> -->
+
+                <li>
+                    <div class="inner-box mb-0" disabled="disabled" >
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/tron-trx-logo.png" alt="" srcset="" >
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/tron-trx-logo.png"  class="curr-logo" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">Tron</span>
+                                    </p>
+                                    <p class="currency-heading">Tron Invested</p>
+        
+                                </div>
+                            </div>
+        
+                        </div>
+        
+                    </div>
+                </li>
+        
+                <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content">
+        
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/dash-logo-circle.svg" alt="" srcset="" >
+                                </div>
+                            </div> -->
+        
+                            <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img class="curr-logo" src="../../../assets/img/dash-logo-circle.svg" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">Dash</span>
+                                    </p>
+                                    <p class="currency-heading">Dash Invested</p>
+        
+                                </div>
+                            </div>
+        
+                        </div>
+        
+                    </div>
+                </li>
+        
+               
+        
+                <!-- <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content"> -->
+                            <!--comented before-->
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/xrp-xrp-logo.png" alt="" srcset="" >
+                                </div>
+                            </div> -->
+                            <!---->
+                            <!-- <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/xrp-xrp-logo.png" class="curr-logo" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">XRP</span>
+                                    </p>
+                                    <p class="currency-heading">XRP Invested</p>
+        
+                                </div>
+                            </div>
+        
+                        </div>
+        
+                    </div>
+                </li> -->
+        
+                <!-- <li>
+                    <div class="inner-box mb-0" disabled="disabled">
+        
+        
+                        <div class="clearfix centering-content"> -->
+        
+                            <!--commented before-->
+                            <!-- <div class="left-svg">
+                                <div class="left-svg-inner">
+                                    <img src="../../../assets/img/eos-eos-logo.png" alt="" srcset="" >
+                                </div>
+                            </div> -->
+                            <!---->
+                            <!-- <div class="grey-bottom-line disable-coins">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                                    <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                                    />
+                                </svg>
+                            </div>
+                            <div class="right-stats">
+                                <div class="stats">
+                                    <img src="../../../assets/img/eos-eos-logo.png" class="curr-logo" alt="" srcset="" >
+        
+                                    <p class="balance">{{"0"}}
+                                        <span class="currency">EOS</span>
+                                    </p>
+                                    <p class="currency-heading">EOS Invested</p>
+        
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center coins-graph">
+            <p class="graph-text">PIPTLE PRICING AND TOTAL PARTICIPANTS</p>    
+            <p class="graph-inner-text">launching soon</p>
+        </div>
+    </div>
+
+
+    <ul class="earn-boxes-list clearfix d-none">
+
+
+
+
+
+        <!-- <li>
+            <div class="inner-box">
+
+
+                <div class="clearfix centering-content">
+
+                    <div class="left-svg">
+                        <div class="left-svg-inner">
+                            <img width="30px" src="../../../assets/img/coin-euro.png" alt="Euro-icon">
+                        </div>
+                    </div>
+
+                    <div class="grey-bottom-line">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="153px" height="6px">
+                            <image x="0px" y="0px" width="153px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAGCAMAAADnssweAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAP1BMVEX////O19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19zO19z///+7pn4TAAAAE3RSTlMAACPK7e/7/v3cNeDyRE70cWDwgg7LXAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBwMQHjDZc8/UAAAAX0lEQVQoz2NgYGBgZGRiZkEHrGzsqIADU46DGOUIGQ5izIYBTgaQy7i4hQcd4AG5jJdloJ2BBbAAHcbHP9CuwOEygYF2A3bAwyAoxIqe+PjZsQEOTDkOAsr5CQrhyQEAGGozVYFNo2UAAAAASUVORK5CYII="
+                            />
+                        </svg>
+                    </div>
+                    <div class="right-stats">
+                        <div class="stats">
+
+                            <p class="balance">{{investedValues.EURContributes}}
+                                <span class="currency">Euro</span>
+                            </p>
+                            <p class="currency-heading">Euro Invested</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </li> -->
+
+    </ul>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row d-block m-b-20">
+            <div class="row row-eq-height">
+                <!--col col-xl-4 col-lg-6 mar-btm20 left-box -->
+                <div class="col-lg-6 col-xl-6 mar-btm20 left-box">
+                    <div class="calculator-box clearfix">
+                        <ul class="nav nav-pills calculator-tabs" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+                                  {{ 'Calculator' | translate }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+                                    {{'ILO STAGES' | translate }}
+                                </a>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="inner-calc">
+                                    <p class="advised-txt">Please be advised that the minimum purchase amount is AUD $50.</p>
+
+                                    <div class="header-box m-b-20 clearfix">
+
+                                        <div class="calculator-left">
+                                            <!-- <h2 class="sub-title color-green">{{ 'Calculator' | translate }}
+                                                <span class="sub-title-dash">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                                                        <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAMAAABkWjdgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAANlBMVEX///8gl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9T///+ffR1AAAAAEHRSTlMA7f3+9O/wYHFOROA1+8ojSqzE/AAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBhsLFicqx9pKAAAAOUlEQVQY02NgBAEmZmyAhRENsLKxMwiQAjgYSFHPwslAinpGLgZS1HPzgJQzYPUvLyu6Vxn5+MHKAb8aC8h9RInbAAAAAElFTkSuQmCC"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                            </h2> -->
+
+                                        </div>
+                                        <div class="calculator-center d-none hidden-l1600 d-sm-block d-lg-none">
+                                        </div>
+
+                                    </div>
+                                    <div class="row in-calculator">
+                                        <div class="col-md-5 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="black-labels hidden-above-sm p-b-5">{{selectedCurrencyActual}}</label>
+                                                <!-- <div class="spin-hider"></div> -->
+                                                    <div id="inc-button" class="spinner-button"><img src="../../../assets/img/drop-up-arrow.png" alt="" srcset=""></div>
+                                                    <div id="dec-button" class="spinner-button"><img src="../../../assets/img/drop-down-arrow.png" alt="" srcset=""></div> 
+                                                <label class="black-labels d-block d-sm-none d-none d-sm-block d-md-none">{{selectedCurrencyActual}}</label>
+                                                <input type="number" name="coinsWanted" placeholder="0.00" [(ngModel)]="coinsWanted" class="black-bg-inputs" (keyup)='byPasserFunction($event.target.value)'
+                                                   (click)="changeOnClick($event.target.value)"  id="coinsWanted" (input)="checkLength()">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 col-xs-12 no-padding center-select">
+                                            <div class="form-group">
+                                                <label class="black-labels hidden-above-sm " style="visibility: hidden;    padding-bottom: 5px;">PUC</label>
+                                                <span class="custom-dropdown big">
+                                                    <img class="custom-arrow" src="../../../assets/img/drop-down-arrow.png" alt="" srcset="">
+                                                    <select (change)="getCurrencySelected($event.target.value)">
+                                                        <option value="btc">BTC</option>
+                                                        <option value="ltc">LTC</option>
+                                                        <option value="eth">ETH</option>
+                                                        <!-- <option value="bch">BCH</option> -->
+                                                        <!--  <option value="neo">NEO</option>-->
+                                                        <!-- <option value="btg">BTG</option> -->
+                                                        <!-- <option value="dash">DASH</option> -->
+                                                        <option value="mxn">AUD</option>
+                                                        <!-- <option value="mxnp">MXNP</option> -->
+                                                        <option value="usd">USDT</option>
+                                                        <option value="bch">BCH</option>
+                                                        <!-- <option value="eur">EURO</option> -->
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-5 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="black-labels p-b-5 hidden-above-sm">PPTL</label>
+                                                <!-- <div class="spin-hider"></div> -->
+                                                <div id="inc-button" class="spinner-button"><img src="../../../assets/img/drop-up-arrow.png" alt="" srcset=""></div>
+                                                <div id="dec-button" class="spinner-button"><img src="../../../assets/img/drop-down-arrow.png" alt="" srcset=""></div> 
+                                                <label class="black-labels d-block d-sm-none d-none d-sm-block d-md-none">PUC</label>
+                                                <input type="number" name="coinsCalculated" placeholder="0.00" [(ngModel)]="coinsCalculated" (keyup)='byPasserReverseFunction($event.target.value)'
+                                                 (click)="changeOnReverse($event.target.value)" id="coinsCalculated" (input)="checkLengthForCoinsCalculated()" class="black-bg-inputs">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="table-wrapper">
+                                            <div class="table-responsive">
+
+                                                <table class="table calc-bottom-table">
+
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="left-header">{{'Current ICO Stage' | translate}}</td>
+                                                            <td class="">{{RatesModel.stageName}}</td>
+                                                            <!-- <td class="right-aligned text-uppercase">FRU</td> -->
+                                                        </tr>
+
+                                                        <tr>
+                                                            <!-- <td class="left-header">{{'Stage Discount' | translate}}</td> -->
+                                                            <td class="left-header">Bonus</td>
+
+                                                            <!-- <td class="">{{bonusTokens}}</td> -->
+                                                            <!-- <td class="">{{RatesModel.bonus}}%</td> -->
+                                                            <td>{{bonusPercentage}} %</td>
+                                                            <!-- <td class="right-aligned text-uppercase">FRU</td> -->
+                                                        </tr>
+
+                                                        <tr>
+                                                            <!-- <td class="left-header">{{'Stage Discount' | translate}}</td> -->
+                                                            <td class="left-header">Bonus Coins</td>
+
+                                                            <!-- <td class="">{{bonusTokens}}</td> -->
+                                                            <!-- <td class="">{{RatesModel.bonus}}%</td> -->
+                                                            <td>{{bonusCoins | currency}}</td>
+                                                            <!-- <td class="right-aligned text-uppercase">FRU</td> -->
+                                                        </tr>
+                                                        <!-- <tr> -->
+                                                            <!-- <td class=" left-header">{{'Total' | translate}}</td> -->
+                                                            <!-- <td class="final-price">{{totalCoinToPayFor}}</td> -->
+                                                            <!-- <td class="">{{coinsCalculatedBottom | currency:'crypto'}} PUC</td> -->
+                                                            <!-- <td class="right-aligned final-price text-uppercase"></td> -->
+                                                        <!-- </tr> -->
+
+                                                    </tbody>
+                                                    <tfoot class="d-none">
+                                                        <tr>
+                                                            <td class="final-price left-header">{{'Total' | translate}}</td>
+                                                            <!-- <td class="final-price">{{totalCoinToPayFor}}</td> -->
+                                                            <td class="final-price">{{coinsCalculatedBottom | currency:'crypto'}} PUC</td>
+                                                            <!-- <td class="right-aligned final-price text-uppercase"></td> -->
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="footer-bottom">
+
+                                    <div class="blck-elems">
+                                        <div class="left width100 width40 ipad-adjstmnt1 adjst1 left-pgram-buy ">
+                                            <!-- <p class="buy-xchge ">
+                                                <span class="buy-text">{{'Buy' | translate}} </span>{{coinsCalculatedBottom | currency:'crypto'}} PUC</p>
+                                            <p class="btc-price">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p> -->
+                                            <div class="d-flex">
+                                                <div class="flex-column">
+                                                <p class="buy-txt text-white pb-0">{{'Buy' | translate}} </p>
+                                                <p class="buy-txt text-white pt-0">With</p>
+                                                </div>
+                                                <p class="vert-line"></p>
+                                                <div class="d-flex flex-column text-white">
+                                                    <p class="puc-txt">{{coinsCalculatedBottom | currency:'crypto'}} PPTL</p>
+                                                    <p class="curr-txt mb-0">{{coinsWantedBottom | currency:'crypto'}} {{selectedCurrencyActual | currency:'crypto'}}</p>
+                                                    <p class="curr-txt">(AUD ${{totalCalulatedValue | currency:'crypto'}})</p>
+
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        
+
+                                        <div class="left width100 width30 ipad-adjstmnt3 adjst3 right-pgram-buy">
+                                            <button class="pay-btn bg-small" (click)="navigateToBuyTokens()">{{'pay' | translate}}</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                <div class="stage-table-div">
+                                    <table class="stage-table table-responsives table-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="color-green">{{'Total Supply' | translate}} : </span>  <span class="color-pulper" >{{totalCapacity}} PPTLs</span></td>
+                                                <td><span class="color-green">{{'Total Issued' | translate }} : </span> <span class="color-pulper" >{{totalIssued | currency}} </span></td>
+                                                <td class="color-pulper">PPTLs</td>
+                                            </tr>
+                                            <tr *ngFor = "let sData of stageData">
+                                                <td><span class="color-green">{{sData.StageName}} : </span>  <span class="color-pulper">{{sData.TotalSaleAmount}} PPTLs</span></td>
+                                                <td><span class="color-green">{{'Total Issued' | translate }} : </span> <span class="color-pulper">{{sData.TotalAmountSold | currency}} </span></td>
+                                                <td class="color-pulper">PPTLs</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
+
+                    </div>
+
+                </div>
+                <!--col col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12-->
+                <div class="col-lg-6 col-xl-6 mar-btm20 centered-div">
+
+
+
+                    <div class="calculator-box clearfix">
+
+
+                        <div class="header-box padding-20 clearfix">
+
+
+
+                            <!-- <div class="calculator-left">
+
+                                <h2 class="sub-title color-green">{{'live rates' | translate}}
+
+
+                                <p style="float: right;font-size: 12px;" class="color-green">{{'Graph Display Currencies Rate In PUCCoin' | translate}}</p>
+                                </h2>
+
+                            </div> -->
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="rates-title-sec w-50">
+                                <h2 class="rates-title mr-1 ">{{'live rates' | translate}}</h2>
+                                <p class="rates-title">(feed from <a href="https://coinmarketcap.com/" class="link-clr" target="_blank">CoinMarketcap.com</a>)</p>
+                              </div>
+                              <!-- <p style="font-size: 14px; text-transform: uppercase;" >{{'Graph Display Currencies Rate In PUCCoin' | translate}}</p> -->
+                              <div class=" d-flex flex-row  w-50 text-center" >
+                                <p class="tbl-value" >Value in AUD</p>
+                                <p class="tbl-value">PPTL Coins</p>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+
+
+                        <div class="">
+                            <div class="dotted-table-wrap">
+
+                                <div class="over_flow_table">
+                                  <table class="table table-striped rates-table" id="rates-table">
+
+                                    <tbody>
+                                        
+
+                                        <tr>
+                                            <td class="rates-table-currency no-left liveRateWidth">1 BTC</td>
+                                            <td>
+                                                <div class="chart-widgets make-grp-cntr">
+
+                                                    <canvas id="myChart" width="100" height="30px"></canvas>
+                                                </div>
+
+                                            </td>
+                                            <td class="rates-table-value">$ {{liveRates?.btc | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInBtc | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="rates-table-currency no-left liveRateWidth">1 BCH</td>
+                                            <td>
+                                                <div class="chart-widgets make-grp-cntr">
+
+                                                    <canvas id="myChart3" width="100" height="30px"></canvas>
+                                                </div>
+
+                                            </td>
+                                            <td class="rates-table-value">$ {{liveRates?.bch | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInBch | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="rates-table-currency no-left liveRateWidth">1 ltc</td>
+                                            <td>
+                                                <div class="chart-widgets make-grp-cntr">
+                                                    <canvas id="myChart2" width="100" height="35px"></canvas>
+                                                </div>
+                                            </td>
+                                            <td class="rates-table-value">$ {{liveRates?.ltc | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInLtc | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="rates-table-currency no-left liveRateWidth">1 eth</td>
+                                            <td>
+                                                <div class="chart-widgets make-grp-cntr">
+                                                    <canvas id="myChart5" width="100" height="35px"></canvas>
+                                                </div>
+                                            </td>
+                                            <td class="rates-table-value">$ {{liveRates?.eth | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInEth | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="rates-table-currency no-left liveRateWidth">1 USDT</td>
+                                            <td>
+                                                <div class="chart-widgets make-grp-cntr">
+                                                    <canvas id="myChart8" width="100" height="35px"></canvas>
+                                                </div>
+                                            </td>
+                                            <td class="rates-table-value">$ {{liveRates?.usd | currency:'fait'}} <span class="mxn-rate">AUD</span></td>
+                                            <td class="rates-table-value">{{liveRates?.tokenInUsd | currency:'fait'}} <span class="mxn-rate">PPTL</span></td>
+
+                                        </tr>
+
+                                        <!-- <tr>
+                                            <td class="rates-table-currency no-left">mxnp</td>
+                                            <td>
+                                                <div class="chart-widgets">
+                                                    <canvas id="myChart9" width="100" height="35px"></canvas>
+                                                </div>
+                                            </td>
+                                            <td class="rates-table-value">{{liveRates?.mxnp}}</td>
+                                        </tr> -->
+
+                                        <!-- <tr>
+                                            <td class="rates-table-currency no-left">bch</td>
+                                            <td>
+                                                <div class="chart-widgets">
+                                                    <canvas id="myChart3" width="100" height="35px"></canvas>
+                                                </div>
+                                            </td>
+                                            <td class="rates-table-value">{{liveRates?.bch}}</td>
+                                        </tr> -->
+
+<!--
+                                        <tr>
+                                            <td class="rates-table-currency no-left">dash</td>
+                                            <td>
+                                                <div class="chart-widgets">
+                                                    <canvas id="myChart4" width="100" height="35px"></canvas>
+                                                </div>
+                                            </td>
+                                            <td class="rates-table-value">{{liveRates?.dash}}</td>
+                                        </tr> -->
+
+
+
+
+
+                                        <!--  <tr>
+                                            <td class="rates-table-currency no-left">neo</td>
+                                            <td>
+                                                <div width="50px" height="35px">
+                                                    <canvas id="myChart6" width="100" height="35px"></canvas>
+                                                </div>
+                                            </td>
+                                            <td class="rates-table-value">$ {{RatesModel.neo}}</td>
+                                        </tr> -->
+
+                                        <!-- <tr>
+                                            <td class="rates-table-currency no-left">btg</td>
+                                            <td>
+
+                                                <div class="chart-widgets">
+                                                    <canvas id="myChart7" width="100" height="35px"></canvas>
+                                                </div>
+
+
+                                            </td>
+                                            <td class="rates-table-value">{{liveRates?.btg}}</td>
+                                        </tr> -->
+
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- col-xl-4 -->
+                <!-- <div class="col-md-6 col-lg-12 col-xl-4 right-box">
+                    <div class="content-box p-0">
+
+                        <div class="absolute-blog">
+                            <span class="border-separator"></span>
+
+                            <h4 class="section-title ">Crypto News
+                            </h4>
+                        </div>
+                        <div id="carouselExampleIndicators" class="carousel slide carousel-custom" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li *ngFor="let blog of Blogs;let i=index" data-target="#carouselExampleIndicators" [attr.data-slide-to]="i" [ngClass]="{'active': i==0}"></li>
+
+                            </ol>
+
+                            <div class="carousel-inner">
+
+                                <div class="carousel-item" [ngClass]="{'active': i==0}" *ngFor="let blog of Blogs;let i=index">
+                                    <div class='carousel-overlay'></div>
+                                    <img *ngIf="blog.ImageUrl!='' && blog.ImageUrl!=null && blog.ImageUrl!=undefined " class="d-block w-100" src="{{blog.ImageUrl}}"
+                                        alt="{{blog.Title}}">
+                                    <img *ngIf="blog.ImageUrl  == null || blog.ImageUrl == undefined || blog.ImageUrl == ''" class="d-block w-100" src="../../../assets/img/blog.png"
+                                        alt="{{blog.Title}}">
+                                    <div class="carousel-caption">
+                                        <a class="blog-links" href="{{blog.BlogUrl}}" target="_blank">
+
+
+                                            <h5>{{blog.Title}}</h5>
+                                            <p>
+                                                <span class="post-date">{{blog.CreatedOnUTC}}</span>
+
+                                            </p>
+
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <img src="../../../assets/img/arr-left.png" alt="">
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <img src="../../../assets/img/arr-right.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+
+        <div class="row row-eq-height">
+
+
+
+            <div class="bottom-complete-table col-lg-8">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="full-width-table">
+
+
+                    <div class="table-responsive">
+
+
+
+                        <div class="header-box clearfix">
+
+
+
+                            <div class="calculator-left">
+                                <h2 class="sub-title ">MY PIPTLE PURCHASE TRANSACTION
+                                    <span class="sub-title-dash">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                                            <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAMAAABkWjdgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAANlBMVEX///8gl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9T///+ffR1AAAAAEHRSTlMA7f3+9O/wYHFOROA1+8ojSqzE/AAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBhsLFicqx9pKAAAAOUlEQVQY02NgBAEmZmyAhRENsLKxMwiQAjgYSFHPwslAinpGLgZS1HPzgJQzYPUvLyu6Vxn5+MHKAb8aC8h9RInbAAAAAElFTkSuQmCC"
+                                            />
+                                        </svg>
+                                    </span>
+                                </h2>
+
+                            </div>
+
+                            <div class="calculator-center phn-font-adjust">
+
+                            </div>
+
+
+                        </div>
+
+
+                        <p *ngIf="noTransactions" class="no-data">{{ 'No Data Found' | translate}}</p>
+
+
+                        <table  *ngIf="!noTransactions" class="table table-striped transactions-new-design">
+
+                            <thead>
+                                <tr>
+
+                                    <th class="img-width-table table-head "></th>
+                                    <!-- <th class="img-width-table-2"></th> -->
+                                    <th class="rates-table-currency  table-head special-padded left-aligned tx-hash-width">Transaction</th>
+                                    <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Tokens' | translate}}</th>
+                                    <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Discount' | translate}}%</th>
+                                    <th class="rates-table-currency  table-head text-centered no-top-padding">{{'Total Tokens' | translate}}</th>
+                                    <th class="rates-table-currency  table-head text-centered no-top-padding">Currency used</th>
+                                    <th class="rates-table-currency  table-head text-centered no-top-padding">Piptle Value AUD</th>
+
+                                    <th class="rates-table-currency text-centered  table-head">{{'Date' | translate}}</th>
+
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+
+                                <tr *ngFor="let transactions of recentTransactions">
+
+
+                                    <td  class="img-width-table v-middle table-head">
+
+                                        <div class="coin-image">
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='PPTL'" src="../../../assets/img/Piptle logo.png" alt="dollar-icon">
+
+                                            <img *ngIf="transactions.TransactionCurrencyType=='USD'" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='MXN'" src="../../../assets/img/dollar-icon.png" alt="dollar-icon"> -->
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='EUR'" src="../../../assets/img/coin-euro.png" alt="euro-icon"> -->
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='LTC'" src="../../../assets/img/litecoin-ltc-logo.png" alt="ltc-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='BTC'" src="../../../assets/img/btc-left.png" alt="btc-icon"> -->
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='DASH'" src="../../../assets/img/dash-left.png" alt="dash-icon"> -->
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='ETH'" src="../../../assets/img/eth-left.png" alt="eth-icon">
+                                            <img *ngIf="transactions.TransactionCurrencyType=='BCH'" src="../../../assets/img/bitcoin-cash-bch-logo.png" alt="bch-icon"> -->
+                                            <!-- <img *ngIf="transactions.TransactionCurrencyType=='BTG'" src="../../../assets/img/btg-left.png" alt="btg-icon"> -->
+                                            <!-- <img style="padding-top: 12px;" *ngIf="transactions.TransactionCurrencyType=='FRU'" src="../../../assets/img/fav.png" alt="xchge-icon"> -->
+                                            <img src="../../../assets/img/Recieve international payments.png" alt="dollar-icon">
+                                        </div>
+
+
+
+                                    </td>
+                                    <!-- <td class="img-width-table-2 v-middle">
+
+
+
+                                        <div class="coin-image" *ngIf="transactions.TransactionType == 'INCOMING'|| transactions.TransactionType=='WIRETRANSFER' || transactions.TransactionType=='CREDITCARD'  || transactions.TransactionType =='PRIVATESALE'">
+                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="Dashboard" transform="translate(-374.000000, -1063.000000)">
+                                                        <g id="arrow-copy-3" transform="translate(374.000000, 1063.000000)">
+                                                            <circle id="Oval-2" fill="#3AB4E5" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                            <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                id="Fill-1" fill="#FFFFFF"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                        <div class="coin-image inverted" *ngIf="transactions.TransactionType == 'OUTGOING'  ">
+                                            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="Dashboard" transform="translate(-374.000000, -1063.000000)">
+                                                        <g id="arrow-copy-3" transform="translate(374.000000, 1063.000000)">
+                                                            <circle id="Oval-2" fill="green" fill-rule="nonzero" cx="10" cy="10" r="10"></circle>
+                                                            <path d="M13.7593135,10.5093781 C13.7334225,10.4500378 13.6730205,10.4113156 13.605959,10.4113156 L11.7872855,10.4113156 L11.7872855,6.44439641 C11.7872855,6.35680661 11.7129266,6.28571429 11.6213122,6.28571429 L8.96583264,6.28571429 C8.87421824,6.28571429 8.79985933,6.35680661 8.79985933,6.44439641 L8.79985933,10.4113156 L6.9742152,10.4113156 C6.90715371,10.4113156 6.84675169,10.4500378 6.82086066,10.5090657 C6.79529638,10.568406 6.8092377,10.6366421 6.85670977,10.6820287 L10.1677738,13.8581108 C10.1989706,13.8879372 10.2411213,13.9047619 10.2852792,13.9047619 C10.3294215,13.9047619 10.3715722,13.8879372 10.4027846,13.8584232 L13.7234644,10.6823411 C13.7709365,10.6369545 13.7852045,10.5687332 13.7593135,10.5093781"
+                                                                id="Fill-1" fill="#FFFFFF"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+
+                                    </td> -->
+
+
+                                    <td class="tx-hash-width v-middle table-head" *ngIf="transactions.TransactionType=='WIRETRANSFER' || transactions.TransactionType=='CREDITCARD' || transactions.TransactionType =='PRIVATESALE' || transactions.TransactionType =='ADMIN SENT' || transactions.TransactionType == 'WITHDRAWAL' || transactions.TransactionType == 'REFERRAL REWARD' ">
+                                        <div *ngIf="transactions.TransactionHash.length > 15">
+                                            <a class="no-underline" target="_blank">
+                                                {{transactions.TransactionHash.slice(0,6)}}...{{transactions.TransactionHash.slice(transactions.TransactionHash.length - 6)}}
+                                            </a>
+                                        </div>
+                                        <div  *ngIf="transactions.TransactionHash.length <= 15">
+                                            <a class="no-underline" target="_blank">{{transactions.TransactionHash}}</a>
+                                        </div>
+                                    </td>
+
+
+                                    <td class="tx-hash-width v-middle table-head" *ngIf="transactions.TransactionType=='INCOMING' || transactions.TransactionType=='OUTGOING'">
+                                        <a class="no-underline" href="{{transactions.TransactionURL}}" target="_blank">{{transactions.TransactionHash}}</a>
+                                    </td>
+
+                                    <!-- <td class="v-middle">
+                                        <p class="stacked-text">{{'Tokens' | translate}}: {{transactions.CalculatedTokens | currency:'crypto'}}</p>
+                                        <p class="stacked-text">{{'Discount' | translate}}: {{transactions.BonusPercentage}}%</p>
+                                        <p class="stacked-text">
+                                            <strong>{{'Total Tokens' | translate}}: {{transactions.TotalTokens | currency}} </strong>
+                                        </p>
+
+                                    </td> -->
+
+                                    <td class="text-centered v-middle stacked-text table-head">
+                                        {{transactions.CalculatedTokens | currency:'crypto'}}
+                                    </td>
+                                    <td class="text-centered v-middle stacked-text table-head">
+                                        {{transactions.BonusPercentage}}
+                                    </td>
+                                    <td class="text-centered v-middle stacked-text table-head">
+                                        {{transactions.TotalTokens | currency}}
+                                    </td>
+                                    <td class="text-centered v-middle stacked-text table-head">
+                                        <!-- {{transactions.CryptoAmountReceive | currency:'crypto'}} -->
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='BTC'" >{{transactions.TransactionCurrencyType}}</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='PPTL'" >{{transactions.TransactionCurrencyType}}</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='USD'" >USDT</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='MXN'" >AUD</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='LTC'" >{{transactions.TransactionCurrencyType}}</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='ETH'" >{{transactions.TransactionCurrencyType}}</p>
+                                            <p class="mb-0" *ngIf="transactions.TransactionCurrencyType=='BCH'" >{{transactions.TransactionCurrencyType}}</p>
+
+                                    </td>
+                                    <td class="text-centered v-middle stacked-text table-head">
+                                        ${{transactions.AmountInMxn | currency}}
+                                    </td>
+                                    <td class="v-middle stacked-text table-head">
+                                        {{transactions.CreatedOnUTC}}
+                                    </td>
+
+
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                    <!-- <div class='pagination-bottom' *ngIf="paginationNumber>recentTransactionsPSize">
+
+                        <pagination-controls *ngIf="recentTransactionsPSize < paginationNumber" responsive="true" previousLabel="" nextLabel="" (pageChange)="changePage($event)"></pagination-controls>
+
+
+                        <ul class="no-visibility-2">
+                            <li *ngFor="let item of recentTransactions | paginate: { itemsPerPage: recentTransactionsPSize, currentPage: currentPage, totalItems: paginationNumber }">{{item}}</li>
+                        </ul>
+
+                    </div> -->
+
+
+                    <!-- <div *ngIf="paginationNumber>recentTransactionsPSize" class='pagination-bottom'>
+                        <ul class="pagination">
+                            <li *ngFor="let page of pagination;" [ngClass]="{'active': page==recentTransactionsPNumber}" (click)="getPageForPagination(page)">
+                                {{page + 1}}
+                            </li>
+                        </ul>
+                    </div> -->
+
+                    <div class="clear"></div>
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="col-lg-4 chart-div">
+
+                <div class="white-outer">
+
+                    <div class="header-box clearfix">
+
+
+
+                        <div class="calculator-left">
+                            <h2 class="sub-title  aligned-test title-values">{{ 'Global Transaction' | translate}}: <span class="piptleissued">{{date | date}}</span> 
+                            <p  class="sub-title title-values">PIPTLES ISSUED: <span class="piptleissued">{{piptleIssued | currency}}</span></p>
+                            <p  class="sub-title title-values">PURCHASE VALUE: <span class="piptleissued">{{purchaseValue | currency}}</span></p>
+                                <span class="sub-title-dash">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                                        <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAMAAABkWjdgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAANlBMVEX///8gl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9T///+ffR1AAAAAEHRSTlMA7f3+9O/wYHFOROA1+8ojSqzE/AAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBhsLFicqx9pKAAAAOUlEQVQY02NgBAEmZmyAhRENsLKxMwiQAjgYSFHPwslAinpGLgZS1HPzgJQzYPUvLyu6Vxn5+MHKAb8aC8h9RInbAAAAAElFTkSuQmCC"
+                                        />
+                                    </svg>
+                                </span>
+                            </h2>
+
+                        </div>
+
+                        <div class="calculator-center phn-font-adjust">
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="clearfix" >
+                        <p *ngIf="noLatestTransactions" class="no-data" style="margin-top: 3px">{{ 'No Data Found' | translate}}</p>
+
+                        <div *ngIf="!noLatestTransactions">
+                            <div class="left-chart">
+                                <div style="display: block;margin-top:30px;">
+                                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [options]="pieChartOptions" [chartType]="doughnutChartType"
+                                        [colors]="chartColors"></canvas>
+                                </div>
+                            </div>
+                            <div class="right-legends" id="js-legend">
+                                <ul class="legends-ul">
+                                    <li>
+                                        <div class="colors-box bg-color-btc"></div>
+                                        <div class="colors-text">
+                                            <p class="legend-text">BTC</p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="colors-box bg-color-ltc"></div>
+                                        <div class="colors-text">
+                                            <p class="legend-text">LTC</p>
+                                        </div>
+                                    </li>
+
+
+                                    <li>
+                                        <div class="colors-box bg-color-eth"></div>
+                                        <div class="colors-text">
+                                            <p class="legend-text">ETH</p>
+                                        </div>
+                                    </li>
+
+
+
+                                    <li>
+                                        <div class="colors-box bg-color-usd"></div>
+                                        <div class="colors-text">
+                                            <p class="legend-text">usd</p>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="colors-box bg-color-euro"></div>
+                                        <div class="colors-text">
+                                            <p class="legend-text">AUD</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="colors-box bg-color-bch"></div>
+                                        <div class="colors-text">
+                                            <p class="legend-text">BCH</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>

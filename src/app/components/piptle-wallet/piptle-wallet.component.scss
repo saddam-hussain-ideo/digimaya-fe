@@ -1,0 +1,345 @@
+@import "../../../_variables";
+
+.withDrawLoader{
+  height: 35px;
+}
+
+.bg{
+  background-color: $white-color;
+  padding: 10px;
+  .head-title{
+    img{
+      border: 1px solid $dashboard-purple-clr;
+      background-color: $dashboard-purple-clr;
+      border-radius: 50px;
+      width: 40px;
+      height: 40px;
+      padding: 5px;
+      margin-right: 8px;
+    }
+    .page-title{
+    color: $dashboard-purple-clr;
+    }
+  }
+  .custom-draw-btn{
+    // background: #997bb5;
+    background-color: $dashboard-purple-clr;
+    color: #fff;
+    height: 43px;
+    font-family: "LatoWebBold";
+    // min-width: 200px;
+    text-transform: uppercase;
+    border-radius: unset;
+  }
+  .custom-draw-btn:disabled{
+    // background: #997bb5;
+    opacity: 0.6;
+  }
+  .custom-small-btn{
+    // background: #997bb5;
+    background-color: $dashboard-purple-clr;
+    color: #fff;
+    height: 43px;
+    font-family: "LatoWebBold";
+    // min-width: 200px;
+    // min-width: 93px;
+    text-transform: uppercase;
+    border-radius: unset;
+  }
+  .custom-small-btn:disabled{
+    opacity: 0.6;
+  }
+}
+
+.wallet-new-cards{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  .cards-inner-width{
+    width: 23%;
+  }
+}
+@media screen and (max-width:1280px){
+  .custom-draw-btn{
+    font-size: 11px;
+
+  }
+  .custom-btns{
+    width: 60px;
+    font-size: 11px;
+    padding: 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width:1047px){
+  .wallet-new-cards{
+    flex-direction: column;
+    .cards-inner-width{
+      width: unset;
+      margin-bottom: 10px;
+    }
+  }
+  .custom-draw-btn{
+    font-size: 16px;
+
+  }
+  .custom-btns{
+    width: 30%;
+    font-size: 16px;
+
+  }
+}
+
+// @media screen and (max-width:1280px){
+//   .custom-small-btn{
+//     font-size: 12px;
+//   }
+//   .custom-draw-btn{
+//     font-size: 12px;
+
+//   }
+//   .send{
+//     width: 30%;
+
+//   }
+//   .recieve{
+//     width: 30%;
+
+//   }
+//   .stake{
+//     width: 30%;
+
+//   }
+// }
+@media (max-width:1500px) {
+  .wallet-cards{
+    display: flex;
+    flex-direction: column;
+  }
+}
+.inner-w-box {
+  background-color:#e0d7d7;
+  text-align: center;
+  .wallet-cards{
+    .wallet-val{
+      font-family: 'LatoWeb';
+      font-weight: 800;
+      color: #643E8D;
+      font-size: 25px;
+
+    }
+    .wallet-puc{
+      font-family: 'LatoWebLight';
+      font-weight: 400;
+      color: #643E8D;
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+  }
+}
+.wallet-inner-t{
+    color: $dashboard-purple-clr;
+    font-size: 14px;
+    font-family: "LatoWeb";
+    text-transform: uppercase;
+    margin-top: 12px;
+}
+
+.background{
+  background-color: #F2F1F7;
+}
+.transaction-txt{
+  text-transform: uppercase;
+  font-size: 25px;
+  font-family: "LatoWeb";
+  color: $dashboard-purple-clr;
+  padding: 10px 0 0 12px;
+}
+
+.header-whte{
+  background-color: white;
+}
+.piptle-tbl{
+  background-color: white;
+}
+.piptle-wallet {
+  .card-content {
+    padding: 13px 14px 9px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0;
+    font-family: "LatoWebBold";
+  }
+  .withdraw-btn {
+    background: $light-pulper-color;
+    color: $white-color;
+    height: 43px;
+    font-family: "LatoWebBold";
+    min-width: 200px;
+    text-transform: uppercase;
+    border-radius: unset;
+  }
+
+  .piptel-transaction-history {
+    padding: 13px 14px;
+    .header {
+      h2 {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: "LatoWeb";
+      }
+    }
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > thead > tr > td,
+    .table > thead > tr > th {
+      vertical-align: middle !important;
+      border-top: none;
+      font-family: "LatoWeb", sans-serif;
+      font-size: 14px;
+      // color: #34519d !important;
+      color:  $dashboard-purple-clr;
+      /*   color: #26497b; */
+    }
+    .table td,
+    .table th {
+      padding: 12px 15px;
+      border: none !important;
+      font-size: 14px;
+      color: $theme-blue;
+    }
+  }
+}
+
+
+button:disabled {
+  opacity: 0.6;
+}
+
+::ng-deep .modal-content {
+  padding: 16px 30px;
+  border-radius: 5px !important;
+  box-sizing: border-box;
+  border: 1px solid #e1dddd;
+
+  .modal-heading{
+    .text-upercase{
+      color: $dashboard-purple-clr;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+  .modal-body{
+    padding:0;
+    position: relative;
+  
+  
+  
+    .header-inside{
+        padding-bottom: 25px;
+        width: 72%;
+        margin: 0 auto;
+  
+  
+  
+        @media (max-width:640px){
+            width:100%;
+        }
+  
+        .no-of-coins{
+            color: $theme-blue;
+            font-family: 'LatoWeb';
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 22px;
+        }
+    }
+  
+    .form-group{
+        margin-bottom: 15px;
+        &:last-child{
+            margin-bottom:0;
+        }
+    }
+  
+    .custom-2{
+        margin:0;
+        // border-top:4px solid #F6F6F6;
+        margin-bottom: 25px;
+    }
+  
+  
+    label,span{
+        color: $dashboard-purple-clr;
+        font-family: 'LatoWeb';
+        font-size: 13px;
+        line-height: 15px;
+        margin-bottom: 8px;
+    }
+  
+  
+    input,select{
+        height: 42px;
+        background-color: #F0F0F0;
+        font-family: 'LatoWeb';
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 22px;
+        border:none;
+        box-shadow: none;
+    }
+  
+    .w-25{
+        width:25%;
+        padding-top: 1px;
+    }
+  
+    .w-75{
+        width:75%;
+    }
+  
+    .submit-btn{
+      height: 52px;
+      background-color: $dashboard-purple-clr;
+      width: 100%;
+      border: none;
+      text-transform: uppercase;
+      color: $white-color;
+      font-family: 'LatoWeb';
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+  
+        @media (max-width:640px) {
+            width:100%;
+        }
+        img{
+            padding-left: 10px;
+            margin-top: -10px;
+        }
+    }
+  
+  }
+}
+.f-bold{
+  font-weight: bold;
+  text-align: center;
+}
+.content{
+  font-size: 25px !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+  text-align: center !important;
+}
+.action-btn{
+  background-color: $dashboard-purple-clr;
+  color: #fff;
+  font-family: "LatoWebBold";
+  text-transform: uppercase;
+  width: 5rem;
+}
+.no-visibility-2{
+  visibility: hidden;
+  margin:0;
+}

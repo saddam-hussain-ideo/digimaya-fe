@@ -1,0 +1,32 @@
+<section>
+  <div class="modal-header stages">
+    <h5 class="modal-title stage-heading">{{modalData?.modalContent}} </h5>
+    <button type="button" class="close" *ngIf="modalData.secondaryText.showButton" (click)="dismissModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="stages">
+      <ol class="pl-left">
+        <li class="list-group-item-light " *ngIf="modalData.primaryText.startingtext">{{modalData?.primaryText?.startingtext}} <b>{{modalData?.primaryText?.value}}</b></li>
+        <li class="list-group-item-light mt-10">{{modalData?.primaryText?.bonus}}</li>
+      </ol>
+      <ol type="a" class="">
+        <li class="list-group-item-light">{{modalData?.primaryText?.bonus0}}</li>
+        <li class="list-group-item-light mt-10">{{modalData?.primaryText?.bonus1}}</li>
+        <li class="list-group-item-light mt-10">{{modalData?.primaryText?.bonus2}}</li>
+      </ol>
+      <ol class="pl-left" start="3" *ngIf="modalData.primaryText.startingtext">
+        <li class="list-group-item-light">{{modalData?.primaryText?.bonus3}}</li>
+        <li class="list-group-item-light mt-10">{{modalData?.primaryText?.bonus4}}</li>
+        <li class="list-group-item-light mt-10">{{modalData?.primaryText?.bonus5}}</li>
+      </ol>
+      <ol class="pl-left" start="2" *ngIf="!modalData.primaryText.startingtext">
+        <li class="list-group-item-light">{{modalData?.primaryText?.bonus3}}</li>
+        <li class="list-group-item-light mt-10">{{modalData?.primaryText?.bonus4}}</li>
+        <li class="list-group-item-light mt-10">{{modalData?.primaryText?.bonus5}}</li>
+      </ol>
+  
+  </div> 
+  </div>
+</section>
