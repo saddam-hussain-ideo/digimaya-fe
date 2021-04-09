@@ -586,7 +586,7 @@
                                 </tbody>
                             </table>
 
-                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader1">
+                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader1  && levelOneData?.data.rows.length > 0">
 
                                 <pagination-controls *ngIf="tableOneSize < tableOneCount" responsive="true" previousLabel=""
                                   nextLabel="" (pageChange)="changePageForTable1($event)"></pagination-controls>
@@ -678,7 +678,7 @@
                                 </tbody>
                             </table>
 
-                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader2">
+                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader2 && levelTwoData?.data.rows.length > 0">
 
                                 <pagination-controls *ngIf="tableTwoSize < tableTwoCount" responsive="true" previousLabel=""
                                   nextLabel="" (pageChange)="changePageForTable2($event)"></pagination-controls>
@@ -768,7 +768,7 @@
                                 </tbody>
                             </table>
 
-                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader3">
+                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader3 && levelThreeData?.data.rows.length > 0">
 
                                 <pagination-controls *ngIf="tableThreeSize < tableThreeCount" responsive="true" previousLabel=""
                                   nextLabel="" (pageChange)="changePageForTable3($event)"></pagination-controls>

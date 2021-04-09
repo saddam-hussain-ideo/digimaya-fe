@@ -330,7 +330,12 @@
               <!-- <tr>
                 <td colspan="12" class="content">No Content Available</td>
               </tr> -->
-              <tbody>
+              <tbody *ngIf="transactionDetails.length == 0">
+              <tr>
+                <td colspan="12" class="content">No Content Available</td>
+              </tr>
+              </tbody>
+              <tbody  *ngIf="transactionDetails.length != 0">
                 <tr class="bg-lght" *ngFor="let data of transactionDetails">
                   <td class="text-center">{{data.CreatedOnUTC}}</td>
                   <td class="text-center">
@@ -379,19 +384,21 @@
 
               </tbody>
             </table>
-            <div class='pagination-bottom mb-2' *ngIf="paginationNumber>recentTransactionsPSize">
+            <div *ngIf="transactionDetails.length != 0">
+              <div class='pagination-bottom mb-2' *ngIf="paginationNumber>recentTransactionsPSize">
 
-              <pagination-controls *ngIf="recentTransactionsPSize < paginationNumber" responsive="true" previousLabel=""
-                nextLabel="" (pageChange)="changePage($event)"></pagination-controls>
-
-              
-              <ul class="no-visibility-2 d-none">
-                <li
-                  *ngFor="let item of transactionDetails | paginate: { itemsPerPage: recentTransactionsPSize, currentPage: currentPage, totalItems: paginationNumber }">
-                  {{item}}
-                </li>
-              </ul>
+                <pagination-controls *ngIf="recentTransactionsPSize < paginationNumber" responsive="true" previousLabel=""
+                  nextLabel="" (pageChange)="changePage($event)"></pagination-controls>
   
+                
+                <ul class="no-visibility-2 d-none">
+                  <li
+                    *ngFor="let item of transactionDetails | paginate: { itemsPerPage: recentTransactionsPSize, currentPage: currentPage, totalItems: paginationNumber }">
+                    {{item}}
+                  </li>
+                </ul>
+    
+              </div>
             </div>
           </div>
 
