@@ -57,9 +57,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
     private _alive: boolean = true;
 
     public stageData = [];
-    public totalCapacity = ''
-    public totalIssued = ''
-    totalLicesees
+    public totalCapacity = 0
+    public totalIssued = 0
+    totalLicesees = 0
 
     public userObject: any;
     public investedValues: AmountInvestedModel;
