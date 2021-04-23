@@ -161,6 +161,10 @@ export class PiptleWalletComponent implements OnInit {
             this.modalReference.close();
             this.walletDetails()
           }
+        }, err => {
+          var obj = JSON.parse(err._body)
+          this.toasterService.pop('error','Error', obj.message);
+          this.isSubmitted = false;
         });
       } else{
         this.toasterService.pop('error','Error', "Insufficient Amount");
