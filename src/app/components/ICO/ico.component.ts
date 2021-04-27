@@ -50,7 +50,13 @@ export class IcoComponent {
   previousILOStage
   founderPPTL = 0
   founderAudValue = 0
+  pptlDetails;
+  pptlLoader: boolean = false
   noFounder : boolean = false
+  referralPSize = 5
+  paginationNumber = 1
+  currentPage = 1
+  topReferalCurrentPage = 1
   text: any = {
     Year: 'Year',
     Month: 'Month',
@@ -77,13 +83,34 @@ export class IcoComponent {
     this.userObject = JSON.parse(localStorage.getItem("userObject"));
     this.getICOInformation();
     this.getIcoStagesBars();
-
+    this.piptleDetails()
     $(".list-unstyled li").removeClass("active");
     $("#ico-nav").addClass("active");
 
   }
 
+  piptleDetails() {
+    this.pptlLoader = true
 
+    this._dashboardService.icoPiptleDetails(this.referralPSize,this.topReferalCurrentPage - 1).subscribe(res => {
+        this.pptlLoader = false
+        console.log(res);
+        this.pptlDetails = res['data']['piptles']
+        this.paginationNumber = res['data']['count']
+     
+    }, err => {
+      this.pptlLoader = false
+      var obj = JSON.parse(err._body)
+      console.log(obj);
+        
+    })
+
+}
+
+  changePageForDetails(value){        
+    this.topReferalCurrentPage = value
+    this.piptleDetails()
+  }
   getIcoStagesBars(){
     this._icoService.getStagesForBars().subscribe(a=>{      
       if(a.code == 200){

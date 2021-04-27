@@ -1125,6 +1125,10 @@ $bg-color-for-ilo : #d5cff533;
     font-size:12px;
     color: $theme-blue;
  }
+ .last-td{
+     text-align: left !important;
+     padding-left: .75rem !important;
+ }
 
  
  .pos-rltv{
@@ -1248,7 +1252,16 @@ $bg-color-for-ilo : #d5cff533;
     
  }
 
-
+ .custom-loader{
+    text-align: center;
+    svg{
+        width: 100px;
+    }
+}
+.no-data-found{
+    color: #643E8D;
+    padding: 2rem 0;
+}
  @media (max-width:1300px) and (min-width:1000px){
     .number,.dollar{
         font-size:14px;
