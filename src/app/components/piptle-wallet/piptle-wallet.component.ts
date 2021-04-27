@@ -18,6 +18,8 @@ export class PiptleWalletComponent implements OnInit {
   userObj: any;
   userId: string;
   totalPiptles: number = 0;
+  referalBonus : number = 0;
+  activityBonus: number = 0
   availablePiptles: number = 0;
   lockedPiptles: number = 0;
   stakedPiptles: number = 0;
@@ -131,6 +133,8 @@ export class PiptleWalletComponent implements OnInit {
         this.availablePiptles = res['data']['availableTokens'];
         this.lockedPiptles = res['data']['blockedTokens'];
         this.stakedPiptles = 0;
+        this.referalBonus = res['data']['referalBonus']
+        this.activityBonus = res['data']['activityBonus']
 			}
 		}, err => {
       this._sharedService.showHideLoader(false);
