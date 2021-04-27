@@ -567,7 +567,7 @@
                         </th>
                       </tr>
                     </thead>
-                    <tbody class="" *ngIf="!pptlLoader && pageNumber != 0">
+                    <tbody class="" *ngIf="!pptlLoader && paginationNumber != 0">
 
                       <tr class="trname" *ngFor="let data of pptlDetails">
                         <td class="td-name">{{data.userName}}</td>
@@ -639,10 +639,10 @@
 
 
                   </table>
-                  <div *ngIf="!pptlLoader && pageNumber == 0" class="text-center no-data-found">
+                  <div *ngIf="!pptlLoader && paginationNumber == 0" class="text-center no-data-found">
                     No Data Found
                   </div>
-                  <div class='pagination-bottom pt-2' *ngIf="!pptlLoader && pageNumber != 0">
+                  <div class='pagination-bottom pt-2' *ngIf="!pptlLoader && paginationNumber != 0">
 
                     <pagination-controls *ngIf="referralPSize < paginationNumber" responsive="true" previousLabel=""
                       nextLabel="" (pageChange)="changePageForDetails($event)"></pagination-controls>
