@@ -116,4 +116,16 @@ export class DashboardService {
         return this.http.get(environment.BaseUrl + "user/geticostages", { headers: headers })
             .map(res => res.json());
     }
+
+    icoPiptleDetails(pageSize,pageNumber){
+        const params = `pageSize=${pageSize}&pageNumber=${pageNumber}`
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append('accept-language', getLanguage())
+        headers.append("authorization", this.userToken);
+
+        return this.http.get(environment.BaseUrl + `user/iloPiptlesDetails?${params}`, { headers: headers })
+            .map(res => res.json());
+    }
+
 }
