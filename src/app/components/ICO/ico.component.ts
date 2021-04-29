@@ -53,7 +53,7 @@ export class IcoComponent {
   pptlDetails;
   pptlLoader: boolean = false
   noFounder : boolean = false
-  referralPSize = 5
+  referralPSize = 20
   paginationNumber = 1
   currentPage = 1
   topReferalCurrentPage = 1
@@ -67,6 +67,7 @@ export class IcoComponent {
     Seconds: "Seconds",
     MilliSeconds: "MilliSeconds"
   };
+  currentICOStageValue = 0
 
 
   constructor(public _icoService: ICOService, 
@@ -106,6 +107,9 @@ export class IcoComponent {
     })
 
 }
+numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
 
   changePageForDetails(value){        
     this.topReferalCurrentPage = value
@@ -223,12 +227,16 @@ export class IcoComponent {
           this.ICOStageInfoRight = [];
           this.noPendingStages = false;
           this.hideSecondBox = true;
-          this.ICOStageInfoLeft = a.data.icoInformation[0];          
+          this.ICOStageInfoLeft = a.data.icoInformation[0];  
+          console.log(this.ICOStageInfoLeft);
+                  
           this.calculateLeftProgressBar()
 
         }
         else {
-          this.ICOStageInfoLeft = a.data.icoInformation[0];        
+          this.ICOStageInfoLeft = a.data.icoInformation[0];   
+          console.log(this.ICOStageInfoLeft);
+     
           this.ICOStageInfoRight = a.data.icoInformation[1];          
           this.noPendingStages = false;
           this.calculateLeftProgressBar();
@@ -275,6 +283,10 @@ export class IcoComponent {
         console.log(index);
         this.previousILOStage = previousILOStage[index - 1]
         console.log(this.previousILOStage);
+        const num =  this.ICOStageInfoLeft.totalSaleAmount - this.ICOStageInfoLeft.amountSold        
+        if(num){
+          this.currentICOStageValue = this.numberWithCommas(num)
+        }
         if(this.previousILOStage == undefined){
           this.noFounder = true
           return
