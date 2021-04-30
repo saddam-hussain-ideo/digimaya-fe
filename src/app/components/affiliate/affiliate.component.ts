@@ -482,6 +482,7 @@ export class Affiliate {
 
             }
         }, err => {
+            this._sharedService.showHideLoader(false);
             this.affiliatesLoader = false
             var obj = JSON.parse(err._body);
             console.log(obj);
