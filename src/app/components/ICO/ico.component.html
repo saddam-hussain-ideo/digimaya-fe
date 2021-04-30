@@ -304,7 +304,9 @@
               <strong>{{ICOStageInfoLeft?.stageRate | currency: 'stageRate'}}</strong>
             </p>
             <p class="till-pIco-Stge-small p-top"> {{ 'REMAINING TOKENS:' | translate}}
-              <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold | currency}}</strong>
+              <!-- <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold | currency}}</strong> -->
+              <strong>{{currentICOStageValue | currency}}</strong>
+
             </p>
 
             <p class="till-pIco-Stge-small p-top" *ngIf="!hideSecondBox">{{'Till' | translate}}
@@ -541,21 +543,26 @@
                       <tr>
                         <th>
                           <div class="pos-rltv gap-blw">
-                            <p class="tbl-head-txt">{{'UsernameIco' | translate}}</p>
+                            <p class="tbl-head-txt">Date Issued</p>
                           </div>
                         </th>
                         <th>
                           <div class="pos-rltv gap-blw">
-                            <p class="tbl-head-txt">{{'Country' | translate}}</p>
+                            <p class="tbl-head-txt">Username</p>
+                          </div>
+                        </th>
+                        <th>
+                          <div class="pos-rltv gap-blw">
+                            <p class="tbl-head-txt">Country</p>
                           </div>
                         </th>
                         <th>
 
-                          <p class="tbl-head-txt">{{ 'PIPTLES ISSUED' | translate }}</p>
+                          <p class="tbl-head-txt">Piptles Issued</p>
                         </th>
 
                         <th class="">
-                          <p class="tbl-head-txt">{{ 'ILO STAGE' | translate }}</p>
+                          <p class="tbl-head-txt">Stage Type</p>
                         </th>
                         <!-- <th class="">
                           <p class="tbl-head-txt centerAlgn">{{ 'PARTICIPATION RANK' | translate }}</p>
@@ -563,13 +570,15 @@
 
                         <th>
 
-                          <p class="tbl-head-txt ">{{ 'VALUE' | translate }}</p>
+                          <p class="tbl-head-txt ">Coin Value (AUD)</p>
                         </th>
                       </tr>
                     </thead>
                     <tbody class="" *ngIf="!pptlLoader && paginationNumber != 0">
 
                       <tr class="trname" *ngFor="let data of pptlDetails">
+                        <td class="td-name">{{data.date | date : 'dd/MM/yyyy'}}</td>
+
                         <td class="td-name">{{data.userName}}</td>
                         <td class="td-name">{{data.country}} </td>
                         <td class="td-token pl-3">
