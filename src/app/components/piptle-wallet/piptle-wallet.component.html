@@ -449,12 +449,29 @@
       </div>
 
       <div class="form-group">
-        <label>Amount</label>
+        <label>Amount PPTL</label>
         <input type="number" (click)="getValue($event)" (keyup)="getValue($event)" class="form-control"
           placeholder="0.00" name="amount" formControlName="amount">
         <div *ngIf="w.amount.invalid && w.amount.touched">
           <span class="text-danger">field is required</span>
         </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>PPTL Value (AUD)</label>
+        <input type="number" readonly value="{{convertedValue|currency : 'crypto'}}" class="form-control"
+          placeholder="0.00" name="amount" formControlName="amount">
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+          <textarea type="text"  class="form-control description-field"
+          placeholder="Enter description" name="amount" formControlName="description" rows="3">
+          </textarea>
+        <!-- <div *ngIf="w.description.touched">
+          <span class="text-danger">field is required</span>
+        </div> -->
 
       </div>
 

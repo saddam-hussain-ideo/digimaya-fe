@@ -45,6 +45,7 @@ export class IcoComponent {
   public isSaleStopped = false;
   public stopEditingModal: NgbModalRef;
   globalInfo
+  currentStagePPTL = 0
   allCountries
   currentILOStage;
   previousILOStage
@@ -283,15 +284,17 @@ numberWithCommas(x) {
         console.log(index);
         this.previousILOStage = previousILOStage[index - 1]
         console.log(this.previousILOStage);
+        console.log(this.ICOStageInfoLeft);
+        this.currentStagePPTL = this.numberWithCommas(this.ICOStageInfoLeft.amountSold)
         const num =  this.ICOStageInfoLeft.totalSaleAmount - this.ICOStageInfoLeft.amountSold        
         if(num){
-          this.currentICOStageValue = this.numberWithCommas(num)
+          this.currentICOStageValue = this.numberWithCommas(num)          
         }
         if(this.previousILOStage == undefined){
           this.noFounder = true
           return
         }
-        this.founderPPTL = this.previousILOStage['TotalAmountSold']
+        this.founderPPTL = this.numberWithCommas(this.previousILOStage['TotalAmountSold'])
         this.founderAudValue = this.previousILOStage['TotalAmountSold'] * this.previousILOStage['StageRate']
 
 

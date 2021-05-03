@@ -25,7 +25,7 @@ export class HeadComponent implements OnInit {
 
   public imgSpanish = '../../../assets/img/esp.png';
   public imgEnglish = '../../../assets/img/eng.png';
-
+  userName: string
   public notificationList = [];
   constructor(private translate: TranslateService, public changeDet: ChangeDetectorRef, public router: Router, public _sharedService: SharedService, public userService: UserService, private _ngZone: NgZone) { 
   }
@@ -50,7 +50,9 @@ export class HeadComponent implements OnInit {
 
 
 
-    this.userObject = JSON.parse(localStorage.getItem("userObject"));    
+    this.userObject = JSON.parse(localStorage.getItem("userObject"));  
+    console.log(this.userObject);
+    this.userName = this.userObject['Name']
     if(this.userObject){
       this._ngZone.run(() => {
         if(this.userObject.Language == 'en') {

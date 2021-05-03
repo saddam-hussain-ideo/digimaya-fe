@@ -430,6 +430,8 @@ export class Affiliate {
           
             if (a.code == 200) {
                 this.graphLoader = false;
+                console.log(a);
+                
                 this.lineChartData[0].data = a.data.values;
                 this.lineChartLabels = a.data.dates;
                 this.noGraphData = false;
