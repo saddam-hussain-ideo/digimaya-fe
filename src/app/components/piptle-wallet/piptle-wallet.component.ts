@@ -6,13 +6,15 @@ import {tronValidator} from '../../tronValidator';
 import { WalletServices } from 'src/app/services/walletServices';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
 import { SharedService } from 'src/app/services/shared';
+import { DashboardService } from 'src/app/services/dashboardService';
+import { Router } from '@angular/router';
 declare var $: any;
 
 @Component({
   selector: 'crypto-piptle-wallet',
   templateUrl: './piptle-wallet.component.html',
   styleUrls: ['./piptle-wallet.component.scss'],
-  providers: [WalletServices]
+  providers: [WalletServices, DashboardService]
 })
 export class PiptleWalletComponent implements OnInit {
   userObj: any;
@@ -33,7 +35,8 @@ export class PiptleWalletComponent implements OnInit {
   paginationNumber = 1;
   recentTransactionsPSize = 5
   currentPage = 1;
-
+  convertedValue
+  RatesModel
   public config: ToasterConfig =
   new ToasterConfig({ animation: 'flyRight' });
   constructor(private userService: UserService 
@@ -41,13 +44,16 @@ export class PiptleWalletComponent implements OnInit {
     private modalService: NgbModal, 
     private walletService : WalletServices,
     private toasterService: ToasterService,
-    private _sharedService: SharedService
+    private _sharedService: SharedService,
+    private _dashboardService: DashboardService,
+    private router: Router
     ) { }
 
   ngOnInit() {    
     this.withDrawForm = this.fb.group({
       address: ['',Validators.compose([Validators.required , tronValidator])],
       amount: ['' ,Validators.required],
+      description: ['']
     });
     $(".list-unstyled li").removeClass("active");
     $("#piptle-wallet-nav").addClass("active");
@@ -57,6 +63,7 @@ export class PiptleWalletComponent implements OnInit {
       this.userId = this.userObj['UserId']
       this.getTokens();
       this.walletDetails()
+      this.getRates()
     }
   }
   walletDetails(){
@@ -115,20 +122,45 @@ export class PiptleWalletComponent implements OnInit {
     this.modalReference = this.modalService.open(content, { centered: true , backdrop: 'static' }  );
   }
   getValue(event){
+
     if(event.target.value < 0){
       this.w.amount.setValue(0);
+    } else{
+      const liveRate = this.RatesModel.liveRate
+      this.convertedValue = +event.target.value * liveRate
     }
   }
   closeModal(){
+    this.convertedValue = ''
     this.modalReference.close();
     this.withDrawForm.reset()
   }
+
+  getRates() {
+
+    this._dashboardService.getRates().subscribe(a => { 
+        console.log(a);
+                           
+        if (a.code == 200) {
+            this.RatesModel = a.data;            
+        }
+
+    }, err => {
+        var obj = JSON.parse(err._body)
+        if (obj.code == 401) {
+            localStorage.clear();
+            this.router.navigate(['/']);
+        }
+    })
+}
+
 
   getTokens(){
     this._sharedService.showHideLoader(true);
 
 		this.userService.getTokens(this.userId, this.userToken).subscribe(res => {
 			if (res) {
+        
         this.totalPiptles = res['data']['totalTokens'];
         this.availablePiptles = res['data']['availableTokens'];
         this.lockedPiptles = res['data']['blockedTokens'];
@@ -163,7 +195,10 @@ export class PiptleWalletComponent implements OnInit {
             this.toasterService.pop('success','Success', "Amount Withdrawn Successfully");
             this.isSubmitted = false;
             this.modalReference.close();
+            this.convertedValue = ''
+            this.getTokens()
             this.walletDetails()
+            this.withDrawForm.reset()
           }
         }, err => {
           var obj = JSON.parse(err._body)

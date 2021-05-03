@@ -709,9 +709,16 @@
                 </li> -->
             </ul>
         </div>
-        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center coins-graph">
-            <p class="graph-text">PIPTLE PRICING AND TOTAL PARTICIPANTS</p>    
-            <p class="graph-inner-text">launching soon</p>
+        <div class="col-md-6 graphcontent">
+            <!-- <p class="graph-text">PIPTLE PRICING AND TOTAL PARTICIPANTS</p>    
+            <p class="graph-inner-text">launching soon</p> -->
+            <canvas baseChart [data]="lineChartData" [labels]="lineChartLabels" [options]="pieChartOptions" [chartType]="lineChartType"
+                    [colors]="lineChartColors"></canvas>
+                    <div class="salegraph-text">Piptle Sale Graph (Per day)</div>
+
+            <!-- <div style="display: block;margin-top:30px;">
+                
+            </div> -->
         </div>
     </div>
 

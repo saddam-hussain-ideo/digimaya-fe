@@ -44,7 +44,9 @@
 
                 <p class="number">
                   <!-- {{ICOInformation?.Sale}} -->
-                  {{ICOStageInfoLeft?.amountSold | currency: 'crypto'}}
+                  <!-- {{ICOStageInfoLeft?.amountSold | currency: 'crypto'}} -->
+                  {{currentStagePPTL}}
+
                   <span class="dollar">PPTL</span>
                 </p>
                 <p class="total-text">{{ 'ISSUED VALUE ' | translate}}</p>
@@ -199,10 +201,10 @@
                         <p class="number pt-0" *ngIf="noFounder">N/A</p>
                         <div *ngIf="!noFounder">
                           <div class="ico-top-text p-0">
-                            Total PPTLs Issued
+                            Total PPTL Issued
                           </div>
                           <div>
-                            <p class="number pt-0">{{founderPPTL | currency: 'crypto'}}</p>
+                            <p class="number pt-0">{{founderPPTL}}</p>
 
                             <p class="ml-2 dollar pt-0">PPTL</p>
                           </div>
@@ -305,7 +307,7 @@
             </p>
             <p class="till-pIco-Stge-small p-top"> {{ 'REMAINING TOKENS:' | translate}}
               <!-- <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold | currency}}</strong> -->
-              <strong>{{currentICOStageValue | currency}}</strong>
+              <strong>{{currentICOStageValue}}</strong>
 
             </p>
 

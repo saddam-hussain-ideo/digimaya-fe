@@ -29,6 +29,7 @@ declare var $: any;
 })
 export class DashboardComponent implements OnDestroy, OnInit {
     public pieChartOptions: any;
+    lineChartOptions: any
     valid = false;
     userToken : string;
     userId;
@@ -133,7 +134,18 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
 
+    public lineChartData: number[] = [33, 3, 4, 3, 5, 2];
+    public lineChartLabels: string[] = ['12-8-12', '12-8-12', '12-8-12', '12-8-12', '12-8-12', '12-8-12'];
+    public lineChartType: string = 'line';
+    public lineChartColors: Array<any> = [
+        { // grey
+            backgroundColor: '#997bb5',
+            // borderColor: 'rgba(74,193,180,1)'
+            borderColor: '#643E8D'
 
+        }
+
+    ];
     // Doughnut
     public doughnutChartLabels: string[] = ['ETH', 'BTC', 'LTC', 'USD', 'AUD', 'BCH'];
     public doughnutChartData: number[] = [0, 0, 0, 0, 0, 0];
@@ -316,7 +328,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
     calculate_reverse(selectedCurrency) {
-
 
         let valueForCurrencySelected = this.RatesModel[selectedCurrency];
 
@@ -1004,7 +1015,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
         $(".list-unstyled li").removeClass("active");
         $("#dash-nav").addClass("active");
 
-
+        this.lineChartOptions = {
+            
+        }
+        
         this.pieChartOptions = {
             segmentShowStroke: false,
             legend: { display: false },
