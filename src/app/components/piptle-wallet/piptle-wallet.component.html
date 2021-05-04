@@ -38,7 +38,7 @@
         </div>
         <div class="pptl-btns d-flex justify-content-between mt-2">
           <button class="btn custom-small-btn" (click)="openModal(withDraw)">{{'SENDTEXT' | translate}}</button>
-          <button class="btn custom-small-btn" disabled>{{'RECIEVETEXT' | translate}}</button>
+          <button class="btn custom-small-btn" disabled>RECEIVE</button>
           <button class="btn custom-small-btn" disabled>{{'STAKETEXT' | translate}}</button>
 
         </div>
@@ -340,19 +340,38 @@
                   <td class="text-center">{{data.CreatedOnUTC}}</td>
                   <td class="text-center">
                     <div *ngIf="data.TransactionHash?.length > 15">
-                      {{data.TransactionHash.slice(0,6)}}...{{data.TransactionHash.slice(data.TransactionHash.length -
-                      6)}}
+                      <a class="transactionurl" href="{{data.TransactionURL}}" target="_blank">
+                        {{data.TransactionHash.slice(0,6)}}...{{data.TransactionHash.slice(data.TransactionHash.length -
+                          6)}}
+                      </a>
                     </div>
                     <div *ngIf="data.TransactionHash?.length <= 15">
-                      {{data.TransactionHash}}
+                      <a class="transactionurl" href="{{data.TransactionURL}}" target="_blank">
+                        {{data.TransactionHash}}
+                      </a>
                     </div>
                   </td>
-                  <td class="text-center">N/A</td>
+                  <td class="text-center">
+                    <div tooltip="{{data.Note}}" placement="bottom" *ngIf="data.Note !== '' " >
+                      <div *ngIf="data.Note?.length > 20">
+                        {{data.Note.slice(0,8)}}...{{data.Note.slice(data.Note.length - 7)}}
+                      </div>
+                      <div *ngIf="data.Note?.length <= 20">
+                        {{data.Note}}
+                      </div>
+                    </div>
+                    <div *ngIf="data.Note == '' ">
+                      N/A
+                    </div>
+                  </td>
                   <td class="text-center">{{data.TotalTokens | currency:'crypto'}}</td>
                   <td class="text-center">{{data.TokenRate * data.TotalTokens | currency:'crypto'}}</td>
                   <td class="text-center">
-                    <div *ngIf="data.TransactionType == 'PPTL' || data.TransactionType != 'INCOMING'  ">
-                      N/A
+                    <div *ngIf="data.TransactionType != 'INCOMING' && data.TransactionType != 'WITHDRAWAL'">
+                      INTERNAL
+                    </div>
+                    <div *ngIf="data.TransactionType == 'WITHDRAWAL'">
+                      PIPEZI
                     </div>
                     <div *ngIf="data.TransactionType == 'INCOMING' ">
                       <div *ngIf="data.TransactionCurrencyType == 'BTC' ">
@@ -449,12 +468,29 @@
       </div>
 
       <div class="form-group">
-        <label>Amount</label>
+        <label>Amount PPTL</label>
         <input type="number" (click)="getValue($event)" (keyup)="getValue($event)" class="form-control"
           placeholder="0.00" name="amount" formControlName="amount">
         <div *ngIf="w.amount.invalid && w.amount.touched">
           <span class="text-danger">field is required</span>
         </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>PPTL Value (AUD)</label>
+        <input type="number" readonly value="{{convertedValue|currency : 'crypto'}}" class="form-control"
+          placeholder="0.00" name="amount" formControlName="amount">
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+          <textarea type="text"  class="form-control description-field"
+          placeholder="Enter description" name="amount" formControlName="description" rows="3">
+          </textarea>
+        <!-- <div *ngIf="w.description.touched">
+          <span class="text-danger">field is required</span>
+        </div> -->
 
       </div>
 

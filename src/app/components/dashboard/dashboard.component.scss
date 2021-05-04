@@ -1955,6 +1955,20 @@ div[disabled=disabled] {
       
     }
 }
+.graphcontent{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    .salegraph-text{
+        text-align: center;
+        color: #643E8D;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 10px 0;
+
+    }
+    
+}
 .coins-graph{
     box-shadow: 1px 0px 4px grey;
     color: $dashboard-purple-clr;

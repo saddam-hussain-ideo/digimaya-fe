@@ -36,6 +36,7 @@
     "ng-recaptcha": "^3.0.5",
     "ng-socket-io": "^0.2.4",
     "ng2-charts": "^1.6.0",
+    "ng2-tooltip-directive": "^2.9.22",
     "ngx-pagination": "^3.2.1",
     "ngx-scroll-event": "^1.0.8",
     "ngx-ui-switch": "^6.0.3",

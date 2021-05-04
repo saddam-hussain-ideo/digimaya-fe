@@ -29,6 +29,7 @@ declare var $: any;
 })
 export class DashboardComponent implements OnDestroy, OnInit {
     public pieChartOptions: any;
+    lineChartOptions: any
     valid = false;
     userToken : string;
     userId;
@@ -133,7 +134,22 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
 
+    // public lineChartData: number[] = [];
+    public lineChartData: Array<any> = [
+        { data: [], label: 'Series A' }
 
+    ];
+    public lineChartLabels: Array<any> = [];
+    public lineChartType: string = 'line';
+    public lineChartColors: Array<any> = [
+        { // grey
+            backgroundColor: '#997bb5',
+            // borderColor: 'rgba(74,193,180,1)'
+            borderColor: '#643E8D'
+
+        }
+
+    ];
     // Doughnut
     public doughnutChartLabels: string[] = ['ETH', 'BTC', 'LTC', 'USD', 'AUD', 'BCH'];
     public doughnutChartData: number[] = [0, 0, 0, 0, 0, 0];
@@ -315,8 +331,23 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
     }
 
-    calculate_reverse(selectedCurrency) {
+    saleGraph(){
+        this._dashboardService.salesGraph().subscribe(res => {
+            if(res){
+                this.lineChartLabels = res.data['dates']
+                this.lineChartData[0] = res.data['values']
+            }
+        }, err => {
+            var obj = JSON.parse(err._body)
+            console.log(obj);
+            if (obj.code == 401) {
+                localStorage.clear();
+                this.router.navigate(['/']);
+            }
+        })
+    }
 
+    calculate_reverse(selectedCurrency) {
 
         let valueForCurrencySelected = this.RatesModel[selectedCurrency];
 
@@ -994,7 +1025,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
             this.getTokens();
         }
         this.date = new Date();
-
+        this.saleGraph()
         this.getAmountInvested();
         this.getRates();
         this.getILOStages();
@@ -1004,7 +1035,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
         $(".list-unstyled li").removeClass("active");
         $("#dash-nav").addClass("active");
 
-
+        this.lineChartOptions = {
+            
+        }
+        
         this.pieChartOptions = {
             segmentShowStroke: false,
             legend: { display: false },

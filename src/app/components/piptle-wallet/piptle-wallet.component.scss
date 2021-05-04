@@ -339,7 +339,21 @@ button:disabled {
   text-transform: uppercase;
   width: 5rem;
 }
+.description-field{
+  background-color: #F0F0F0;
+  border: none;
+}
 .no-visibility-2{
   visibility: hidden;
   margin:0;
+}
+
+
+textarea::placeholder {
+  font-family: "LatoWeb";
+  font-size: 14px;
+  color: rgb(190, 187, 187);
+}
+.transactionurl{
+  color: $dashboard-purple-clr;
 }
