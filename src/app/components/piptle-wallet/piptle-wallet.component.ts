@@ -189,7 +189,13 @@ export class PiptleWalletComponent implements OnInit {
       this.isSubmitted = true;
       let amount = this.w.amount.value;
       if(amount > 0 && amount <= this.availablePiptles){
-        let data = form.value;
+        let data = {
+          address: form.value.address,
+          amount: form.value.amount,
+          note: form.value.description
+        };
+        console.log(data);
+        
         this.walletService.withDrawWallet(data).subscribe(res => {
           if(res){
             this.toasterService.pop('success','Success', "Amount Withdrawn Successfully");

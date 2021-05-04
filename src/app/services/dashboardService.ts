@@ -35,7 +35,17 @@ export class DashboardService {
 
     }
 
+    salesGraph()
+    {
 
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append('accept-language', getLanguage())
+        headers.append("authorization", this.userToken);
+
+        return this.http.get(environment.BaseUrl + "user/getPiptleIssuedGraph", { headers: headers })
+            .map(res => res.json());
+    }
     getRates() {
 
         let headers = new Headers();

@@ -134,8 +134,12 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
 
-    public lineChartData: number[] = [33, 3, 4, 3, 5, 2];
-    public lineChartLabels: string[] = ['12-8-12', '12-8-12', '12-8-12', '12-8-12', '12-8-12', '12-8-12'];
+    // public lineChartData: number[] = [];
+    public lineChartData: Array<any> = [
+        { data: [], label: 'Series A' }
+
+    ];
+    public lineChartLabels: Array<any> = [];
     public lineChartType: string = 'line';
     public lineChartColors: Array<any> = [
         { // grey
@@ -325,6 +329,22 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
         // this.totalCoinToPayFor = Number(coinWithDiscount)
 
+    }
+
+    saleGraph(){
+        this._dashboardService.salesGraph().subscribe(res => {
+            if(res){
+                this.lineChartLabels = res.data['dates']
+                this.lineChartData[0] = res.data['values']
+            }
+        }, err => {
+            var obj = JSON.parse(err._body)
+            console.log(obj);
+            if (obj.code == 401) {
+                localStorage.clear();
+                this.router.navigate(['/']);
+            }
+        })
     }
 
     calculate_reverse(selectedCurrency) {
@@ -1005,7 +1025,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
             this.getTokens();
         }
         this.date = new Date();
-
+        this.saleGraph()
         this.getAmountInvested();
         this.getRates();
         this.getILOStages();
