@@ -36,6 +36,7 @@ import { AuthenticateComponent } from './auth/authenticate/authenticate.componen
 import { ScrollEventModule } from 'ngx-scroll-event';
 import {  HttpClient } from '@angular/common/http';
 import { SafePipe } from './safePipe';
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserSetup } from './auth/user-setup/user-setup.component';
@@ -93,6 +94,7 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     NoopAnimationsModule,
     NgxPaginationModule,
+    TooltipModule,
     RecaptchaModule.forRoot(),
     NgbModule.forRoot(),
     ToasterModule.forRoot(),
