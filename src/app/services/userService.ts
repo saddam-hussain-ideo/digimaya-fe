@@ -19,7 +19,7 @@ export class UserService {
 
         var data;
 
-        data = { name: signupObject.fullName, email: signupObject.email, username: signupObject.username, password: signupObject.password, refferalcode: signupObject.referralCode, captchaKey: captcha };
+        data = { name: signupObject.fullName, email: signupObject.email, username: signupObject.username, password: signupObject.password, refferalcode: signupObject.referralCode, captchaKey: captcha, country:signupObject.country };
 
 
         let headers = new Headers();

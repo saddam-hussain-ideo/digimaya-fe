@@ -312,7 +312,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this.toasterService.pop('error', 'Error', 'Full Name is required') :
       this.toasterService.pop('error', 'Error', 'Se requiere nombre completo ');
     }
-
+    if (!this.ValidationsClass.verifyNameInputs(this.SignUpObject.country)) {
+      error = true;
+      this.toasterService.pop('error', 'Error', 'Country is required') 
+    }
 
     if (!this.ValidationsClass.verifyUserNameLength(this.SignUpObject.fullName)) {
       error = true;
