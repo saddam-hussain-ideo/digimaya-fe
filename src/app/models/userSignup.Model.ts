@@ -10,4 +10,5 @@ export class UserSignupModel {
     ETHWalleRecieverData:any;
     Language: any;
     country: string
+    mobile: string
 }
