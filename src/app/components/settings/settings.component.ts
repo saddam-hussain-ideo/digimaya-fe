@@ -145,6 +145,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   public showDetails = false;u
   public userToken : string
   kycInfo;
+  isExist: boolean
   @ViewChild('currentpassword') currentpassword : ElementRef;
   @ViewChild('newpassword') newpassword: ElementRef;
   @ViewChild('confirmpassword') confirmpassword: ElementRef;
@@ -243,10 +244,17 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.userObject.memberType = res['membership_type']
       if(!this.userObject.memberType){
         this.userObject.memberType = 'N/A'
-      }
+      } 
       this.userObject.licenseCode = res['licence_code']
+
+      if(!this.userObject.licenseCode ){
+        this.userObject.licenseCode = 'N/A'
+      }
       this.userObject.licenseNo = res['licence_number']
 
+      if(!this.userObject.licenseNo ){
+        this.userObject.licenseNo = 'N/A'
+      }
       
     }, err => {
       var obj = JSON.parse(err._body);
@@ -257,14 +265,20 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   retrieveKycInfo(){
     this._userService.kycDetails(this.userObject.Email).subscribe(res => {
-      console.log(res);
+      if(res){
+        this.isExist = true
+        console.log(res);
       debugger
       this.kycInfo = res
       console.log(this.kycInfo);
+      }
       
     }, err => {
+
       var obj = JSON.parse(err._body);
-      console.log(obj);
+      if(obj.code == 'USER_NOT_FOUND'){
+        this.isExist = false
+      }
     })
   }
 
