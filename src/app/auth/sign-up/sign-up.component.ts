@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { takeWhile } from 'rxjs/operators';
 import { SharedService } from 'src/app/services/shared';
-
+import file from '../../../assets/countries/countries'
 declare var $: any;
 
 @Component({
@@ -79,7 +79,11 @@ export class SignUpComponent implements OnInit, OnDestroy {
   public lang;
   isShow : boolean = false;
   isConfirm : boolean = false;
-
+  countriesList : Array<Object> = file['list']['countries']
+  countryCode: string
+  countryName: string
+  patt1 = /[0-9]/g;
+  patt2 = /[a-zA-Z]/g;
   @ViewChild('passwordField') passwordInput : ElementRef;
   @ViewChild('confirmPasswordField') passwordConfirm: ElementRef;
   constructor(
@@ -97,6 +101,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
+    console.log(this.countriesList)
     this.userObject = JSON.parse(localStorage.getItem("userObject"));
 
     if(localStorage.getItem('userToken')){
@@ -146,6 +151,20 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   }
 
+  oncountrychange(e) {
+    console.log(e);
+    
+    console.log(e.target.value);
+    const value = e.target.value;
+    const code = (value.match(this.patt1)).join('')
+    console.log(code);
+    const country = (value.match(this.patt2)).join('')
+    console.log(country);
+
+    this.countryCode = `+${code}`;
+    this.countryName = country
+    this.SignUpObject.country = this.countryName
+  }
 
 
   resendVerificationCode() {
@@ -262,8 +281,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   signUp() {
 
-
-
+    console.log(this.SignUpObject);
+    // if(this.SignUpObject.mobile){
+    //   this.SignUpObject.mobile = `${this.SignUpObject.mobile}`
+    // }
     var error = false;
 
     this.toasterService.clear();
@@ -315,6 +336,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
     if (!this.ValidationsClass.verifyNameInputs(this.SignUpObject.country)) {
       error = true;
       this.toasterService.pop('error', 'Error', 'Country is required') 
+    }
+    if (!this.ValidationsClass.verifyNameInputs(this.SignUpObject.mobile)) {
+      error = true;
+      this.toasterService.pop('error', 'Error', 'Mobile Number is required') 
     }
 
     if (!this.ValidationsClass.verifyUserNameLength(this.SignUpObject.fullName)) {
@@ -375,9 +400,15 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 
     if (error) {
+      // this.SignUpObject.mobile = 
 
     } else {
-
+      if(this.SignUpObject.mobile){
+        this.SignUpObject.mobile = `${this.countryCode} ${this.SignUpObject.mobile}`
+      }
+      console.log(this.SignUpObject.mobile);
+      console.log(this.SignUpObject);
+      
       this.reCaptcha.execute();
 
 
