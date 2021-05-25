@@ -43,6 +43,9 @@ export class PiptleWalletComponent implements OnInit {
   currentPage = 1;
   convertedValue
   RatesModel
+  tronAddress : string
+  tronRef: string
+  saveLoader: boolean = false
   public config: ToasterConfig =
   new ToasterConfig({ animation: 'flyRight' });
   constructor(private userService: UserService 
@@ -58,11 +61,7 @@ export class PiptleWalletComponent implements OnInit {
 
   ngOnInit() {    
     
-    console.log(this.getAddresses('Addresses'));
-    this.arr = this.getAddresses('Addresses')
-    if(!this.arr){
-      this.arr = []
-    }
+    
     this.withDrawForm = this.fb.group({
       address: ['',Validators.compose([Validators.required , tronValidator])],
       amount: ['' ,Validators.required],
@@ -116,6 +115,8 @@ export class PiptleWalletComponent implements OnInit {
     this.currentPage = value;
     this.walletDetails();
 }
+
+
   getWalletAddresses() {
     this._sharedService.showHideLoader(true);
 
@@ -144,6 +145,7 @@ export class PiptleWalletComponent implements OnInit {
   openWithdraw(content){
 
     this.modalRef = this.modalService.open(content, { centered: true , backdrop: 'static' }  );
+    this.retrieveWallet()
   }
   getValue(event){
 
@@ -157,7 +159,6 @@ export class PiptleWalletComponent implements OnInit {
   closeModal(){
     this.convertedValue = ''
     this.modalReference.close();
-    this.withDrawForm.reset()
   }
   close(){
     this.modalRef.close()
@@ -241,6 +242,7 @@ export class PiptleWalletComponent implements OnInit {
             this.getTokens()
             this.walletDetails()
             this.withDrawForm.reset()
+            this.isChecked = false
           }
         }, err => {
           var obj = JSON.parse(err._body)
@@ -252,24 +254,59 @@ export class PiptleWalletComponent implements OnInit {
         this.isSubmitted = false;
       }
     }
-    saveAddress(event){
+    retrieveWallet(){
+      this.userService.retrieveWallet(this.userToken).subscribe(res => {
+        console.log(res);
+        
+        
+        this.tronAddress = res['data']['TronWalletAddress']
+        this.tronRef = res['data']['TronWalletReference']
+        this.w.address.setValue(this.tronAddress)
+        this.w.reference.setValue(this.tronRef)
+      }, err => {
+        console.log(err);
+        this.toasterService.pop('error','Error', "Insufficient Amount");
+
+      })
+    }
+    saveAddress(event, reference){
+      
       console.log(event)
+      console.log(reference.value);
+      
       if(event.status == 'INVALID'){
         console.log('invalid');
-        
         return
       }
-      console.log(event.value);
-      this.arr.push(event.value)
-      console.log(this.arr);
-      this.setAddresses(this.arr)
+      this.saveLoader = true
+      let data
+      if(!reference.value){
+        data = {
+          tronAddress: event.value,
+        }
+      } else {
+        data = {
+          tronAddress: event.value,
+          reference: reference.value
+        }
+      }
+      console.log(data);
       
-    }
-    setAddresses(obj){
-      return localStorage.setItem('Addresses', JSON.stringify(obj) )
-    }
-    getAddresses(key){
-      return JSON.parse(localStorage.getItem(key))
+      this.userService.saveWallet(data, this.userToken).subscribe(res => {
+        console.log(res);
+        if(res){
+          this.saveLoader = false
+          this.toasterService.pop('success','Success', 'Wallet added successfully');
+        }
+        
+      }, err => {
+        let obj = JSON.parse(err._body)
+        console.log(obj);
+        this.saveLoader = false
+        this.toasterService.pop('error','Error', obj.message);
+      })
+
+      
     }
     checked(value){
       console.log(value);

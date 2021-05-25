@@ -8,6 +8,8 @@ export const environment = {
   // documentUrl:"http://localhost:3000/",
 
   BaseUrl: "http://coin.piptleapp.store:3000/api/",
+  storeUrl : 'https://api-stg.piptleapp.store/api/pipezi',
+  bearerToken: 'lDIUD1uXQhSJSF3QoVC5WiC54iLG1FpV748Pxqdzp2PG5tkffgIDVRObhMBMYNUxr2tt6188HQ04hkgxjwiLzpXikdAvpZkqP3vG',
   // BaseUrl: "https://api.mypiptles.com/api/",
   captchaKey: '6LcY8zIaAAAAAJrc0THvOOZyjIdJKLYAl3tHnITp',
   // captchaKey: '6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX',

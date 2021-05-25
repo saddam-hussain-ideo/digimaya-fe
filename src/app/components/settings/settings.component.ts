@@ -142,7 +142,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
   public isShow: boolean = false;
   public isNew: boolean = false;
   public isConfirm: boolean = false;
-  public showDetails = false;
+  public showDetails = false;u
+  public userToken : string
+  kycInfo;
   @ViewChild('currentpassword') currentpassword : ElementRef;
   @ViewChild('newpassword') newpassword: ElementRef;
   @ViewChild('confirmpassword') confirmpassword: ElementRef;
@@ -183,7 +185,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this._sharedService.showHideLoader(true);
 
     this.userObject = JSON.parse(localStorage.getItem("userObject"));
-
+    this.userToken = JSON.parse(localStorage.getItem('userToken'))
+    console.log(this.userToken);
+    this.getUserInfo()
+    this.retrieveKycInfo()
     this._sharedService.updateAppLang$
     .pipe(takeWhile(() => this.isAlive))
     .subscribe(res => {
@@ -230,6 +235,37 @@ export class SettingsComponent implements OnInit, OnDestroy {
     return this.http.get('/assets/custom/country-code.json')
     .map((res:any) => res.json())
     .catch(res => res);
+  }
+
+  getUserInfo(){
+    this._userService.userDetails(this.userObject.Email).subscribe(res => {
+      console.log(res);
+      this.userObject.memberType = res['membership_type']
+      if(!this.userObject.memberType){
+        this.userObject.memberType = 'N/A'
+      }
+      this.userObject.licenseCode = res['licence_code']
+      this.userObject.licenseNo = res['licence_number']
+
+      
+    }, err => {
+      var obj = JSON.parse(err._body);
+
+      console.log(obj);
+    })
+  }
+
+  retrieveKycInfo(){
+    this._userService.kycDetails(this.userObject.Email).subscribe(res => {
+      console.log(res);
+      debugger
+      this.kycInfo = res
+      console.log(this.kycInfo);
+      
+    }, err => {
+      var obj = JSON.parse(err._body);
+      console.log(obj);
+    })
   }
 
   getkycstatus() {
@@ -520,11 +556,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
           this.state = true;
         }
       }, err => {
-
-
-
-
-
 
         var obj = JSON.parse(err._body);
         this.toasterService.pop('error', 'Error', obj.message);

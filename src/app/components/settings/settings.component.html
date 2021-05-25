@@ -62,7 +62,7 @@
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
                       <label for="name" class="nn-lbl-sett">Member Type:</label>
-                      <input type="text" class="form-control nn-input-sett" id="name" name="userObject.Name"
+                      <input type="text" [(ngModel)]="userObject.memberType" class="form-control nn-input-sett" readonly id="membertype" name="userObject.memberType"
                         >
 
                     </div>
@@ -70,7 +70,7 @@
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
                       <label for="name" class="nn-lbl-sett">License Code:</label>
-                      <input readonly type="text" class="form-control nn-input-sett" id="username" name="userObject.UserName"
+                      <input readonly type="text" [(ngModel)]="userObject.licenseCode" class="form-control nn-input-sett" id="code" name="userObject.licenseCode"
                        >
 
                     </div>
@@ -78,7 +78,7 @@
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
                       <label for="email" class="nn-lbl-sett">License No:</label>
-                      <input readonly type="email" class="form-control nn-input-sett" id="email" name="userObject.Email"
+                      <input readonly type="text" [(ngModel)]="userObject.licenseNo" class="form-control nn-input-sett" id="licenseNo" name="userObject.licenseNo"
                         value="">
                     </div>
                   </div>
@@ -538,6 +538,27 @@
                 </table>
 
               </div>
+              
+              <div class="identification">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="d-flex flex-column  ">
+                      <div class="m-tb tbl-col3-txt">Country</div>
+                      <div class="m-tb tbl-col3-txt">Expiry Date</div>
+                      <div class="m-tb tbl-col3-txt">Identification Type</div>
+                      <div class="m-tb tbl-col3-txt">Issued Date</div>
+                      <div class="m-tb tbl-col3-txt">State</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="tbl-col3-txt m-tb" *ngFor="let item of kycInfo | keyvalue">
+                      {{item.value}}
+                 </div>
+                  </div>
+                </div>
+                
+              </div>
+
             </div>
           </div>
 
@@ -860,7 +881,7 @@
                         </div>
                       </td>
                     </tr>
-                    <!-- <tr>
+                    <tr>
                       <td>
                         <div>
                           <img src="../../../assets/img/step2.png">
@@ -893,11 +914,11 @@
 
                         </div>
                       </td>
-                    </tr> -->
+                    </tr>
                     <tr>
                       <td class="custom-bor-btm">
                         <div>
-                          <img src="../../../assets/img/step2.png">
+                          <img src="../../../assets/img/step3.png">
                         </div>
                       </td>
                       <td class="custom-bor-btm custom-bor-btm">
@@ -909,7 +930,7 @@
                       <td class="padding-top35 custom-bor-btm hiding-on-fone">
 
                         <p class="tbl-col3-txt ">
-                          ETH {{'Address' | translate}}
+                          TRON {{'Address' | translate}}
                         </p>
 
                       </td>
@@ -918,7 +939,7 @@
 
                           <div class="leftside clearfix">
                             <p class="tbl-col3-txt hiding-on-large">
-                              ETH {{'Address' | translate}}
+                              TRON {{'Address' | translate}}
                             </p>
                             <div class="verified-btn-wrapper">
                               <button class="table-verified" *ngIf="userObject.WalletAddress">
@@ -936,6 +957,25 @@
                   </tbody>
                 </table>
 
+              </div>
+              <div class="identification">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="d-flex flex-column  ">
+                      <div class="m-tb tbl-col3-txt">Country</div>
+                      <div class="m-tb tbl-col3-txt">Expiry Date</div>
+                      <div class="m-tb tbl-col3-txt">Identification Type</div>
+                      <div class="m-tb tbl-col3-txt">Issued Date</div>
+                      <div class="m-tb tbl-col3-txt">State</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="tbl-col3-txt m-tb" *ngFor="let item of kycInfo | keyvalue">
+                      {{item.value}}
+                 </div>
+                  </div>
+                </div>
+                
               </div>
             </div>
           </div>
