@@ -214,6 +214,7 @@
 
 button:disabled {
   opacity: 0.6;
+  pointer-events: none;
 }
 
 ::ng-deep .modal-content {
@@ -227,14 +228,28 @@ button:disabled {
       color: $dashboard-purple-clr;
       font-weight: bold;
       font-size: 16px;
+      .conditions-maintext{
+        margin-top: 1rem;
+      }
     }
   }
   .modal-body{
     padding:0;
     position: relative;
+
+    .verify-text{
+      margin: 0;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #20292f;
+      font-family: 'LatoWebLight';
+    }
   
-  
-  
+    .scroll{
+      overflow-y: scroll;
+      height: 80vh;
+    }
     .header-inside{
         padding-bottom: 25px;
         width: 72%;
@@ -257,6 +272,15 @@ button:disabled {
   
     .form-group{
         margin-bottom: 15px;
+        .doc-link{
+          text-decoration: underline;
+          font-weight: bold;
+          margin-left: 5px;
+          cursor: pointer;
+        }
+        .twoFaField{
+          text-align: center;
+        }
         &:last-child{
             margin-bottom:0;
         }
@@ -297,7 +321,13 @@ button:disabled {
     .w-75{
         width:75%;
     }
-  
+    .w-67{
+      width: 67%;
+    }
+    .name-field{
+      opacity: 0.6;
+      pointer-events: none;
+    }
     .submit-btn{
       height: 52px;
       background-color: $dashboard-purple-clr;
@@ -318,6 +348,17 @@ button:disabled {
             padding-left: 10px;
             margin-top: -10px;
         }
+    }
+    .save-wallet{
+      background-color: #643E8D;
+      border: none;
+      text-transform: uppercase;
+      color: #fff;
+      font-family: 'LatoWeb';
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
     }
   
   }
@@ -356,4 +397,7 @@ textarea::placeholder {
 }
 .transactionurl{
   color: $dashboard-purple-clr;
+}
+input[type='checkbox']{
+  position: initial;
 }
