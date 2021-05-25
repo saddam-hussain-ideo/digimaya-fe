@@ -57,8 +57,36 @@
                 </div>
 
 
+                <div class="row">
+                  <!--   <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6"> -->
+                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group">
+                      <label for="name" class="nn-lbl-sett">Member Type:</label>
+                      <input type="text" class="form-control nn-input-sett" id="name" name="userObject.Name"
+                        >
 
-                <div class="row mar-top10">
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group">
+                      <label for="name" class="nn-lbl-sett">License Code:</label>
+                      <input readonly type="text" class="form-control nn-input-sett" id="username" name="userObject.UserName"
+                       >
+
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group">
+                      <label for="email" class="nn-lbl-sett">License No:</label>
+                      <input readonly type="email" class="form-control nn-input-sett" id="email" name="userObject.Email"
+                        value="">
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <!-- <div class="row mar-top10">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div class="form-group">
                       <label for="pass" class="nn-lbl-sett">Eth {{'Address' | translate}}:</label>
@@ -69,9 +97,19 @@
 
                     </div>
                   </div>
+                </div> -->
 
-
+                <div class="row mar-top10">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <p  class="nn-lbl-sett">Account Withdrawal Status:</p>
+                    <ul  class="nn-lbl-sett ml-3">
+                      <li>Active 1 (Up to $1000 per day)</li>
+                      <li>Active 2 ($1,001+ per day)</li>
+                      <li>Suspended (Not able to withdraw)</li>
+                    </ul>
+                  </div>
                 </div>
+
                 <div class="btm-btns-div clearfix float-r-inside" *ngIf="changeGeneralBtn">
                   <div class="leftside clearfix">
                     <button class="update-buttons" (click)="updateGeneralSettings()">
@@ -449,7 +487,7 @@
                         </div>
                       </td>
                     </tr>
-                    <!-- <tr>
+                    <tr>
                       <td>
                         <div class="step-images">
                           <img src="../../../assets/img/step2.png">
@@ -470,11 +508,11 @@
                           </button>
                         </div>
                       </td>
-                    </tr> -->
+                    </tr>
                     <tr>
                       <td class="custom-bor-btm">
                         <div class="step-images">
-                          <img src="../../../assets/img/step2.png">
+                          <img src="../../../assets/img/step3.png">
                         </div>
                       </td>
                       <td class="custom-bor-btm custom-bor-btm">
@@ -482,7 +520,7 @@
                       </td>
                       <td class="padding-top35 custom-bor-btm">
                         <p class="tbl-col3-txt ">
-                          ETH {{'Address' | translate}}
+                          TRON {{'Address' | translate}}
                         </p>
                       </td>
                       <td class="custom-bor-btm w-25">
