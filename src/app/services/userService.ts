@@ -19,8 +19,7 @@ export class UserService {
 
         var data;
 
-        data = { name: signupObject.fullName, email: signupObject.email, username: signupObject.username, password: signupObject.password, refferalcode: signupObject.referralCode, captchaKey: captcha, country:signupObject.country, phone: signupObject.mobile };
-
+        data = { name: signupObject.fullName, email: signupObject.email, username: signupObject.username, password: signupObject.password, refferalcode: signupObject.referralCode, captchaKey: captcha, country:signupObject.country, mobile: signupObject.mobile };        
 
         let headers = new Headers();
 
@@ -45,6 +44,51 @@ export class UserService {
         return this.http.post(environment.BaseUrl + "user/resendcode", data, { headers: headers })
             .map(res => res.json());
 
+    }
+    saveWallet(data, token){
+       
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append('accept-language', getLanguage());
+        headers.append("authorization", token);
+
+        return this.http.post(environment.BaseUrl + "user/walletAddress", data, { headers: headers })
+            .map(res => res.json());
+    }
+    retrieveWallet(token){
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append('accept-language', getLanguage());
+        headers.append("authorization", token);
+
+        return this.http.get(environment.BaseUrl + "user/walletAddress", { headers: headers })
+            .map(res => res.json());
+    }
+
+    kycDetails(email){
+        const query = `?username=${email}`
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append('accept-language', getLanguage());
+        headers.append("authorization", 'Bearer ' + environment.bearerToken);
+
+        return this.http.get(environment.storeUrl + `/kyc${query}`, { headers: headers })
+            .map(res => res.json());
+    }
+
+    userDetails(email){
+        const query = `?username=${email}`
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append('accept-language', getLanguage());
+        headers.append("authorization", 'Bearer ' + environment.bearerToken);
+
+        return this.http.get(environment.storeUrl + `/information${query}`, { headers: headers })
+            .map(res => res.json());
     }
 
     signIn(email, password, captchaKey) {
@@ -318,7 +362,7 @@ export class UserService {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append("authorization", token);
-        return this.http.get(`${environment.BaseUrl}user/getUserBalance/${queryParams}`, { headers: headers })
+        return this.http.get(`${environment.BaseUrl}user/getUserBalance${queryParams}`, { headers: headers })
         .map(res => res.json());
     }
     singleSignOn(token, value){
