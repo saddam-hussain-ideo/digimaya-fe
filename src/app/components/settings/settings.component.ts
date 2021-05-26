@@ -239,18 +239,18 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   getUserInfo(){
-    this._userService.userDetails(this.userObject.Email).subscribe(res => {
+    this._userService.userDetails(this.userObject.Email, this.userToken).subscribe(res => {
       console.log(res);
-      this.userObject.memberType = res['membership_type']
+      this.userObject.memberType = res['data']['membership_type']
       if(!this.userObject.memberType){
         this.userObject.memberType = 'N/A'
       } 
-      this.userObject.licenseCode = res['licence_code']
+      this.userObject.licenseCode = res['data']['licence_code']
 
       if(!this.userObject.licenseCode ){
         this.userObject.licenseCode = 'N/A'
       }
-      this.userObject.licenseNo = res['licence_number']
+      this.userObject.licenseNo = res['data']['licence_number']
 
       if(!this.userObject.licenseNo ){
         this.userObject.licenseNo = 'N/A'
@@ -264,21 +264,18 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   retrieveKycInfo(){
-    this._userService.kycDetails(this.userObject.Email).subscribe(res => {
+    this._userService.kycDetails(this.userObject.Email, this.userToken).subscribe(res => {
       if(res){
         this.isExist = true
         console.log(res);
-      debugger
-      this.kycInfo = res
-      console.log(this.kycInfo);
+        this.kycInfo = res['data']
       }
       
     }, err => {
 
       var obj = JSON.parse(err._body);
-      if(obj.code == 'USER_NOT_FOUND'){
-        this.isExist = false
-      }
+      console.log(obj);
+      this.isExist = false
     })
   }
 

@@ -67,27 +67,27 @@ export class UserService {
             .map(res => res.json());
     }
 
-    kycDetails(email){
+    kycDetails(email, token){
         const query = `?username=${email}`
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage());
-        headers.append("authorization", 'Bearer ' + environment.bearerToken);
+        headers.append("authorization", token);
 
-        return this.http.get(environment.storeUrl + `/kyc${query}`, { headers: headers })
+        return this.http.get(environment.BaseUrl + `user/userKycFromStore${query}`, { headers: headers })
             .map(res => res.json());
     }
 
-    userDetails(email){
+    userDetails(email, token){
         const query = `?username=${email}`
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage());
-        headers.append("authorization", 'Bearer ' + environment.bearerToken);
+        headers.append("authorization", token);
 
-        return this.http.get(environment.storeUrl + `/information${query}`, { headers: headers })
+        return this.http.get(environment.BaseUrl + `user/userInformationFromStore${query}`, { headers: headers })
             .map(res => res.json());
     }
 
