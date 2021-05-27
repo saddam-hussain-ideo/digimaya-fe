@@ -503,9 +503,15 @@
                       </td>
                       <td class="w-25">
                         <div class="verified-btn-wrapper">
-                          <button class="table-verified" [ngClass]="userKycStatus">
-                            {{AcutalStatus | translate}}
+                          <button class="table-verified" *ngIf="kycInfo?.status == 'SUBMITTED' || kycInfo?.status == 'ACCEPTED'">
+                            {{kycInfo?.status}}
                           </button>
+                          <button class="table-verified NOT_SUBMITTED" *ngIf="!kycInfo">
+                            NOT SUBMITTED
+                          </button>
+                          <!-- <button class="table-verified" [ngClass]="userKycStatus">
+                            {{AcutalStatus | translate}}
+                          </button> -->
                         </div>
                       </td>
                     </tr>
@@ -548,6 +554,8 @@
                       <div class="m-tb tbl-col3-txt">Identification Type</div>
                       <div class="m-tb tbl-col3-txt">Issued Date</div>
                       <div class="m-tb tbl-col3-txt">State</div>
+                      <div class="m-tb tbl-col3-txt">Kyc Status</div>
+
                     </div>
                   </div>
                   <div class="col-md-6">
@@ -972,7 +980,7 @@
                   <div class="col-md-6">
                     <div class="tbl-col3-txt m-tb" *ngFor="let item of kycInfo | keyvalue">
                       {{item.value}}
-                 </div>
+                  </div>
                   </div>
                 </div>
                 
