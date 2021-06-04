@@ -188,11 +188,10 @@ export class PiptleWalletComponent implements OnInit {
 
 		this.userService.getTokens(this.userId, this.userToken).subscribe(res => {
 			if (res) {
-        
         this.totalPiptles = res['data']['totalTokens'];
         this.availablePiptles = res['data']['availableTokens'];
         this.lockedPiptles = res['data']['blockedTokens'];
-        this.stakedPiptles = 0;
+        this.stakedPiptles = res['data']['stakingBonus'];
         this.referalBonus = res['data']['referalBonus']
         this.activityBonus = res['data']['activityBonus']
 			}
