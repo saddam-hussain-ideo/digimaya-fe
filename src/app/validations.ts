@@ -22,6 +22,13 @@ export class Validations {
         return checkresult
     }
 
+    validatePhone(phone){
+        
+        let re =/^\+?([0-9]{2})\)?([0-9]{10})$/;
+        let checkresult = re.test(phone);        
+        return checkresult
+    }
+
 
     verifyNameRegex(name) {
 
