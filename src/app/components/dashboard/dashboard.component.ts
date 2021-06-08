@@ -1126,7 +1126,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 let number = a['data'].totalCapacity
                 this.totalCapacity = this.numberWithCommas(number);
 
-                this.totalIssued = a['data'].totalIssued
+                let total = a['data'].totalIssued
+                let totalNumber = total.toString().split('.')[0]
+                this.totalIssued = this.numberWithCommas(totalNumber);
+
                 console.log(this.totalIssued);
                 
                 this.totalLicesees = a['data']['globalInfo']['total_licences']

@@ -57,8 +57,36 @@
                 </div>
 
 
+                <div class="row">
+                  <!--   <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6"> -->
+                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group">
+                      <label for="name" class="nn-lbl-sett">Member Type:</label>
+                      <input type="text" [(ngModel)]="userObject.memberType" class="form-control nn-input-sett" readonly id="membertype" name="userObject.memberType"
+                        >
 
-                <div class="row mar-top10">
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group">
+                      <label for="name" class="nn-lbl-sett">License Code:</label>
+                      <input readonly type="text" [(ngModel)]="userObject.licenseCode" class="form-control nn-input-sett" id="code" name="userObject.licenseCode"
+                       >
+
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                    <div class="form-group">
+                      <label for="email" class="nn-lbl-sett">License No:</label>
+                      <input readonly type="text" [(ngModel)]="userObject.licenseNo" class="form-control nn-input-sett" id="licenseNo" name="userObject.licenseNo"
+                        value="">
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <!-- <div class="row mar-top10">
                   <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div class="form-group">
                       <label for="pass" class="nn-lbl-sett">Eth {{'Address' | translate}}:</label>
@@ -69,9 +97,19 @@
 
                     </div>
                   </div>
+                </div> -->
 
-
+                <div class="row mar-top10">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <p  class="nn-lbl-sett">Account Withdrawal Status:</p>
+                    <ul  class="nn-lbl-sett ml-3">
+                      <li>Active 1 (Up to $1000 per day)</li>
+                      <li>Active 2 ($1,001+ per day)</li>
+                      <li>Suspended (Not able to withdraw)</li>
+                    </ul>
+                  </div>
                 </div>
+
                 <div class="btm-btns-div clearfix float-r-inside" *ngIf="changeGeneralBtn">
                   <div class="leftside clearfix">
                     <button class="update-buttons" (click)="updateGeneralSettings()">
@@ -449,7 +487,7 @@
                         </div>
                       </td>
                     </tr>
-                    <!-- <tr>
+                    <tr>
                       <td>
                         <div class="step-images">
                           <img src="../../../assets/img/step2.png">
@@ -465,16 +503,22 @@
                       </td>
                       <td class="w-25">
                         <div class="verified-btn-wrapper">
-                          <button class="table-verified" [ngClass]="userKycStatus">
-                            {{AcutalStatus | translate}}
+                          <button class="table-verified" *ngIf="kycInfo?.status == 'SUBMITTED' || kycInfo?.status == 'ACCEPTED'">
+                            {{kycInfo?.status}}
                           </button>
+                          <button class="table-verified NOT_SUBMITTED" *ngIf="!kycInfo">
+                            NOT SUBMITTED
+                          </button>
+                          <!-- <button class="table-verified" [ngClass]="userKycStatus">
+                            {{AcutalStatus | translate}}
+                          </button> -->
                         </div>
                       </td>
-                    </tr> -->
+                    </tr>
                     <tr>
                       <td class="custom-bor-btm">
                         <div class="step-images">
-                          <img src="../../../assets/img/step2.png">
+                          <img src="../../../assets/img/step3.png">
                         </div>
                       </td>
                       <td class="custom-bor-btm custom-bor-btm">
@@ -482,7 +526,7 @@
                       </td>
                       <td class="padding-top35 custom-bor-btm">
                         <p class="tbl-col3-txt ">
-                          ETH {{'Address' | translate}}
+                          TRON {{'Address' | translate}}
                         </p>
                       </td>
                       <td class="custom-bor-btm w-25">
@@ -500,6 +544,29 @@
                 </table>
 
               </div>
+              
+              <div class="identification" *ngIf="isExist">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="d-flex flex-column  ">
+                      <div class="m-tb tbl-col3-txt">Country</div>
+                      <div class="m-tb tbl-col3-txt">Expiry Date</div>
+                      <div class="m-tb tbl-col3-txt">Identification Type</div>
+                      <div class="m-tb tbl-col3-txt">Issued Date</div>
+                      <div class="m-tb tbl-col3-txt">State</div>
+                      <div class="m-tb tbl-col3-txt">Kyc Status</div>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="tbl-col3-txt m-tb" *ngFor="let item of kycInfo | keyvalue">
+                      {{item.value}}
+                 </div>
+                  </div>
+                </div>
+                
+              </div>
+
             </div>
           </div>
 
@@ -822,7 +889,7 @@
                         </div>
                       </td>
                     </tr>
-                    <!-- <tr>
+                    <tr>
                       <td>
                         <div>
                           <img src="../../../assets/img/step2.png">
@@ -855,11 +922,11 @@
 
                         </div>
                       </td>
-                    </tr> -->
+                    </tr>
                     <tr>
                       <td class="custom-bor-btm">
                         <div>
-                          <img src="../../../assets/img/step2.png">
+                          <img src="../../../assets/img/step3.png">
                         </div>
                       </td>
                       <td class="custom-bor-btm custom-bor-btm">
@@ -871,7 +938,7 @@
                       <td class="padding-top35 custom-bor-btm hiding-on-fone">
 
                         <p class="tbl-col3-txt ">
-                          ETH {{'Address' | translate}}
+                          TRON {{'Address' | translate}}
                         </p>
 
                       </td>
@@ -880,7 +947,7 @@
 
                           <div class="leftside clearfix">
                             <p class="tbl-col3-txt hiding-on-large">
-                              ETH {{'Address' | translate}}
+                              TRON {{'Address' | translate}}
                             </p>
                             <div class="verified-btn-wrapper">
                               <button class="table-verified" *ngIf="userObject.WalletAddress">
@@ -898,6 +965,25 @@
                   </tbody>
                 </table>
 
+              </div>
+              <div class="identification" *ngIf="isExist">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="d-flex flex-column  ">
+                      <div class="m-tb tbl-col3-txt">Country</div>
+                      <div class="m-tb tbl-col3-txt">Expiry Date</div>
+                      <div class="m-tb tbl-col3-txt">Identification Type</div>
+                      <div class="m-tb tbl-col3-txt">Issued Date</div>
+                      <div class="m-tb tbl-col3-txt">State</div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="tbl-col3-txt m-tb" *ngFor="let item of kycInfo | keyvalue">
+                      {{item.value}}
+                  </div>
+                  </div>
+                </div>
+                
               </div>
             </div>
           </div>

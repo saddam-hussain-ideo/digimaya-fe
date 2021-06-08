@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from 'src/app/services/userService';
 import {tronValidator} from '../../tronValidator';
 import { WalletServices } from 'src/app/services/walletServices';
@@ -14,10 +14,14 @@ declare var $: any;
   selector: 'crypto-piptle-wallet',
   templateUrl: './piptle-wallet.component.html',
   styleUrls: ['./piptle-wallet.component.scss'],
-  providers: [WalletServices, DashboardService]
+  providers: [WalletServices, DashboardService, UserService]
 })
 export class PiptleWalletComponent implements OnInit {
   userObj: any;
+  arr = []
+  isChecked: boolean = false
+  twoFaStatus: boolean
+  twoFaLoader: boolean = false
   userId: string;
   totalPiptles: number = 0;
   referalBonus : number = 0;
@@ -27,7 +31,9 @@ export class PiptleWalletComponent implements OnInit {
   stakedPiptles: number = 0;
   userToken : string;
   withDrawForm: FormGroup;
-  modalReference: NgbModalRef;
+  twoFaForm: FormGroup
+  modalReference;
+  modalRef
   withDrawModal : NgbModalRef;
   isSubmitted: boolean = false;
   transactionDetails = []
@@ -37,6 +43,9 @@ export class PiptleWalletComponent implements OnInit {
   currentPage = 1;
   convertedValue
   RatesModel
+  tronAddress : string
+  tronRef: string
+  saveLoader: boolean = false
   public config: ToasterConfig =
   new ToasterConfig({ animation: 'flyRight' });
   constructor(private userService: UserService 
@@ -46,14 +55,21 @@ export class PiptleWalletComponent implements OnInit {
     private toasterService: ToasterService,
     private _sharedService: SharedService,
     private _dashboardService: DashboardService,
-    private router: Router
+    private router: Router,
+    private _userService: UserService
     ) { }
 
   ngOnInit() {    
+    
+    
     this.withDrawForm = this.fb.group({
       address: ['',Validators.compose([Validators.required , tronValidator])],
       amount: ['' ,Validators.required],
-      description: ['']
+      description: [''],
+      reference: [''],
+    });
+    this.twoFaForm = this.fb.group({
+      twoFa: ['', [Validators.required, Validators.minLength(6)]]
     });
     $(".list-unstyled li").removeClass("active");
     $("#piptle-wallet-nav").addClass("active");
@@ -61,6 +77,9 @@ export class PiptleWalletComponent implements OnInit {
     this.userToken = JSON.parse(localStorage.getItem('userToken'));     
 		if (this.userObj) {
       this.userId = this.userObj['UserId']
+      this.twoFaStatus = this.userObj['twoFAStatus']
+      
+
       this.getTokens();
       this.walletDetails()
       this.getRates()
@@ -96,6 +115,8 @@ export class PiptleWalletComponent implements OnInit {
     this.currentPage = value;
     this.walletDetails();
 }
+
+
   getWalletAddresses() {
     this._sharedService.showHideLoader(true);
 
@@ -121,6 +142,11 @@ export class PiptleWalletComponent implements OnInit {
   openModal(content){
     this.modalReference = this.modalService.open(content, { centered: true , backdrop: 'static' }  );
   }
+  openWithdraw(content){
+
+    this.modalRef = this.modalService.open(content, { centered: true , backdrop: 'static' }  );
+    this.retrieveWallet()
+  }
   getValue(event){
 
     if(event.target.value < 0){
@@ -133,7 +159,9 @@ export class PiptleWalletComponent implements OnInit {
   closeModal(){
     this.convertedValue = ''
     this.modalReference.close();
-    this.withDrawForm.reset()
+  }
+  close(){
+    this.modalRef.close()
   }
 
   getRates() {
@@ -160,11 +188,10 @@ export class PiptleWalletComponent implements OnInit {
 
 		this.userService.getTokens(this.userId, this.userToken).subscribe(res => {
 			if (res) {
-        
         this.totalPiptles = res['data']['totalTokens'];
         this.availablePiptles = res['data']['availableTokens'];
         this.lockedPiptles = res['data']['blockedTokens'];
-        this.stakedPiptles = 0;
+        this.stakedPiptles = res['data']['stakingBonus'];
         this.referalBonus = res['data']['referalBonus']
         this.activityBonus = res['data']['activityBonus']
 			}
@@ -174,10 +201,15 @@ export class PiptleWalletComponent implements OnInit {
 			console.log(err);
 		  })		
     }
+    get withDrawform(){
+      return this.withDrawForm
+    }
     get w(){
       return this.withDrawForm.controls;
     }
-
+    get t(){
+      return this.twoFaForm.controls;
+    }
     open(content){
       this.withDrawModal = this.modalService.open(content,{ centered: true, backdrop: 'static' })
     }
@@ -200,11 +232,16 @@ export class PiptleWalletComponent implements OnInit {
           if(res){
             this.toasterService.pop('success','Success', "Amount Withdrawn Successfully");
             this.isSubmitted = false;
-            this.modalReference.close();
+            this.modalRef.close();
+            if(this.twoFaLoader){
+              this.modalReference.close()
+              this.twoFaLoader = false
+            }
             this.convertedValue = ''
             this.getTokens()
             this.walletDetails()
             this.withDrawForm.reset()
+            this.isChecked = false
           }
         }, err => {
           var obj = JSON.parse(err._body)
@@ -215,5 +252,103 @@ export class PiptleWalletComponent implements OnInit {
         this.toasterService.pop('error','Error', "Insufficient Amount");
         this.isSubmitted = false;
       }
+    }
+    retrieveWallet(){
+      this.userService.retrieveWallet(this.userToken).subscribe(res => {
+        console.log(res);
+        
+        
+        this.tronAddress = res['data']['TronWalletAddress']
+        this.tronRef = res['data']['TronWalletReference']
+        this.w.address.setValue(this.tronAddress)
+        this.w.reference.setValue(this.tronRef)
+      }, err => {
+        console.log(err);
+        this.toasterService.pop('error','Error', "Insufficient Amount");
+
+      })
+    }
+    saveAddress(event, reference){
+      
+      console.log(event)
+      console.log(reference.value);
+      
+      if(event.status == 'INVALID'){
+        console.log('invalid');
+        return
+      }
+      this.saveLoader = true
+      let data
+      if(!reference.value){
+        data = {
+          tronAddress: event.value,
+        }
+      } else {
+        data = {
+          tronAddress: event.value,
+          reference: reference.value
+        }
+      }
+      console.log(data);
+      
+      this.userService.saveWallet(data, this.userToken).subscribe(res => {
+        console.log(res);
+        if(res){
+          this.saveLoader = false
+          this.toasterService.pop('success','Success', 'Wallet added successfully');
+        }
+        
+      }, err => {
+        let obj = JSON.parse(err._body)
+        console.log(obj);
+        this.saveLoader = false
+        this.toasterService.pop('error','Error', obj.message);
+      })
+
+      
+    }
+    checked(value){
+      console.log(value);
+      if(value){
+        this.isChecked = true
+      } else{
+        this.isChecked = false
+      }
+      
+    }
+    submitCode(form){
+      if(form.invalid){
+        console.log('invalid');
+      }
+      const code = form.value.twoFa
+      console.log(code);
+      
+      this.twoFaVerification(code)
+      console.log(this.userObj);
+      
+    }
+
+    twoFaVerification(code){
+      this.twoFaLoader = true
+      this._userService.authenticate2FALogin(this.userObj.Email,code).subscribe(a=>{
+        console.log(a);
+        
+        if(a.code == 200){
+
+          localStorage.setItem('userObject', JSON.stringify(a.data));
+          localStorage.setItem('userToken', JSON.stringify(a.data.token));
+          const obj = this.withDrawform          
+          this.submitDetails(obj)        
+        }
+
+      }, err => {
+        
+        var obj = JSON.parse(err._body)
+        console.log(obj);
+
+        this.toasterService.pop('error', 'Error', obj.message);
+        this.twoFaLoader = false;
+
+      })
     }
 }
