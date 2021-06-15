@@ -237,8 +237,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 
       var obj = JSON.parse(err._body)
-
-
       this.toasterService.pop('error', 'Error', obj.message);
 
       this.signUpLoaderShow = false;
@@ -280,8 +278,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 
   signUp() {
-    debugger
-    console.log(this.SignUpObject);
+
     // if(this.SignUpObject.mobile){
     //   this.SignUpObject.mobile = `${this.SignUpObject.mobile}`
     // }
@@ -337,10 +334,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
       error = true;
       this.toasterService.pop('error', 'Error', 'Country is required') 
     }
-    // if (!this.ValidationsClass.verifyNameInputs(this.SignUpObject.mobile)) {
-    //   error = true;
-    //   this.toasterService.pop('error', 'Error', 'Mobile Number is required') 
-    // }
+    if (!this.ValidationsClass.validatePhone(`${this.countryCode}${this.SignUpObject.mobile}`)) {
+      error = true;
+      this.toasterService.pop('error', 'Error', 'Invalid mobile number') 
+    }
 
     if (!this.ValidationsClass.verifyUserNameLength(this.SignUpObject.fullName)) {
       error = true;
@@ -404,7 +401,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
       
     } else {
       if(this.SignUpObject.mobile){
-        this.SignUpObject.mobile = `${this.countryCode} ${this.SignUpObject.mobile}`
+        this.SignUpObject.mobile = `${this.countryCode}${this.SignUpObject.mobile}`
       }
 
       this.reCaptcha.execute();
