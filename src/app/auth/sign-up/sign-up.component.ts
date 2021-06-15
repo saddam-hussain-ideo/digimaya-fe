@@ -237,8 +237,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 
       var obj = JSON.parse(err._body)
-      console.log(obj);
-
       this.toasterService.pop('error', 'Error', obj.message);
 
       this.signUpLoaderShow = false;
