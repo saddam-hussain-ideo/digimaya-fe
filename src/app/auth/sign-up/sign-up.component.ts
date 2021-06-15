@@ -279,7 +279,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   signUp() {
 
-    console.log(this.SignUpObject);
     // if(this.SignUpObject.mobile){
     //   this.SignUpObject.mobile = `${this.SignUpObject.mobile}`
     // }
