@@ -49,6 +49,7 @@ import { Currency } from './pipes/currency.pipe';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
 import { StagesComponent } from './components/stages/stages.component';
 import { environment } from 'src/environments/environment';
+import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -79,7 +80,8 @@ export function createTranslateLoader(http: HttpClient) {
     SafePipe,
     WireTransferComponent,
     PiptleWalletComponent,
-    StagesComponent
+    StagesComponent,
+    StakinghistoryComponent
   ],
   imports: [
     BrowserModule,
