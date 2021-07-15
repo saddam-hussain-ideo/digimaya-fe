@@ -29,7 +29,7 @@ export class PiptleWalletComponent implements OnInit {
   availablePiptles: number = 0;
   lockedPiptles: number = 0;
   stakedPiptles: number = 0;
-  stakeTokens: number;
+  stakeTokens: number = 0;
   userToken : string;
   withDrawForm: FormGroup;
   stakingForm: FormGroup;

@@ -128,7 +128,7 @@ export class WalletServices {
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append("authorization", this.userToken);
         
-        return this.http.get(environment.BaseUrl + "user/rewardHistory", { headers: headers })
+        return this.http.get(environment.BaseUrl + "user/stakingRewardHistory", { headers: headers })
             .map(res => res.json());
     }
 }
