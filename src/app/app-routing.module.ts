@@ -23,6 +23,7 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
+import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
       { path: 'faqs', component: FaqsComponent, canActivate: [AuthGuard] },
       { path: 'wire-transfer', component: WireTransferComponent, canActivate: [AuthGuard] },
       { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
+      { path: 'stakinghistory', component: StakinghistoryComponent, canActivate: [AuthGuard] },
     ]
   },
 

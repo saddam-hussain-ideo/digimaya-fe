@@ -29,8 +29,11 @@ export class PiptleWalletComponent implements OnInit {
   availablePiptles: number = 0;
   lockedPiptles: number = 0;
   stakedPiptles: number = 0;
+  stakeTokens: number = 0;
   userToken : string;
   withDrawForm: FormGroup;
+  stakingForm: FormGroup;
+  transferForm: FormGroup
   twoFaForm: FormGroup
   modalReference;
   modalRef
@@ -46,6 +49,15 @@ export class PiptleWalletComponent implements OnInit {
   tronAddress : string
   tronRef: string
   saveLoader: boolean = false
+  STAKING_PERIODS = { 
+    60: 0.6, 
+    90: 0.65, 
+    120: 0.7, 
+    180: 0.75, 
+    360: 0.8, 
+    480: 1.0 
+  }
+  stakingDuration
   public config: ToasterConfig =
   new ToasterConfig({ animation: 'flyRight' });
   constructor(private userService: UserService 
@@ -60,14 +72,26 @@ export class PiptleWalletComponent implements OnInit {
     ) { }
 
   ngOnInit() {    
-    
-    
     this.withDrawForm = this.fb.group({
       address: ['',Validators.compose([Validators.required , tronValidator])],
       amount: ['' ,Validators.required],
       description: [''],
       reference: [''],
     });
+    this.transferForm = this.fb.group({
+      username: ['',Validators.required],
+      amount: ['' ,Validators.required],
+    });
+    this.stakingForm = this.fb.group({
+      amount: ['',Validators.compose([Validators.required])],
+      days: [''],
+    },{
+      validator: (group) => {
+        let duration = group.controls['days']
+        this.stakeTokens == 0 ? duration.setErrors({required:true}) : null
+      }
+    });
+
     this.twoFaForm = this.fb.group({
       twoFa: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -161,6 +185,8 @@ export class PiptleWalletComponent implements OnInit {
     this.modalReference.close();
   }
   close(){
+    this.stakingForm.reset()
+    this.transferForm.reset()
     this.modalRef.close()
   }
 
@@ -188,12 +214,16 @@ export class PiptleWalletComponent implements OnInit {
 
 		this.userService.getTokens(this.userId, this.userToken).subscribe(res => {
 			if (res) {
+        console.log(res);
+        
         this.totalPiptles = res['data']['totalTokens'];
         this.availablePiptles = res['data']['availableTokens'];
         this.lockedPiptles = res['data']['blockedTokens'];
         this.stakedPiptles = res['data']['stakingBonus'];
         this.referalBonus = res['data']['referalBonus']
         this.activityBonus = res['data']['activityBonus']
+        this.stakeTokens = res['data']['stakedTokens'];
+        this._sharedService.showHideLoader(true);
 			}
 		}, err => {
       this._sharedService.showHideLoader(false);
@@ -203,6 +233,12 @@ export class PiptleWalletComponent implements OnInit {
     }
     get withDrawform(){
       return this.withDrawForm
+    }
+    get s(){
+      return this.stakingForm.controls
+    }
+    get tt(){
+      return this.transferForm.controls
     }
     get w(){
       return this.withDrawForm.controls;
@@ -351,4 +387,80 @@ export class PiptleWalletComponent implements OnInit {
 
       })
     }
+    duration(e){
+      console.log(e.target.value);
+      console.log(this.stakingForm);
+      this.s.days.setValue(e.target.value)
+      console.log(this.s.days);
+      
+      
+    }
+    stakeCoins(form){
+      if(form.invalid){
+        return false
+      }
+      this.isSubmitted = true;
+      let amount = this.s.amount.value;
+      let duration = this.s.days.value;
+      console.log(duration);
+      
+      if(amount > 0 && amount <= this.availablePiptles){
+        let data = {
+          amount: amount,
+          period: duration == '' ? undefined : duration
+        };
+        console.log(data);
+        
+        this.walletService.stakeCoins(data).subscribe(res => {
+          if(res){
+            this.toasterService.pop('success','Success', "Amount Staked Successfully");
+            this.isSubmitted = false;
+            this.modalRef.close();
+            this.getTokens()
+            this.stakingForm.reset()
+          }
+        }, err => {
+          this.isSubmitted = false;
+          var obj = JSON.parse(err._body)
+          this.toasterService.pop('error','Error', obj.message);
+        });
+      } else{
+        this.toasterService.pop('error','Error', "Insufficient Amount");
+        this.isSubmitted = false;
+      }
+    }
+
+
+    transferCoins(form){
+      if(form.invalid){
+        return false
+      }
+      this.isSubmitted = true;
+      let amount = this.tt.amount.value;
+      let username = this.tt.username.value;
+      
+      if(amount > 0 && amount <= this.availablePiptles){
+        let data = {
+          amount: amount,
+          userName: username
+        };        
+        this.walletService.transferCoins(data).subscribe(res => {
+          if(res){
+            this.toasterService.pop('success','Success', "Amount Transfered Successfully");
+            this.isSubmitted = false;
+            this.modalRef.close();
+            this.getTokens()
+            this.transferForm.reset()
+          }
+        }, err => {
+          this.isSubmitted = false;
+          var obj = JSON.parse(err._body)
+          this.toasterService.pop('error','Error', obj.message);
+        });
+      } else{
+        this.toasterService.pop('error','Error', "Insufficient Amount");
+        this.isSubmitted = false;
+      }
+    }
+
 }

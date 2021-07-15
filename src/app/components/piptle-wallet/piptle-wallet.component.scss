@@ -272,6 +272,16 @@ button:disabled {
   
     .form-group{
         margin-bottom: 15px;
+        .dropdownlist{
+          .styled-select{
+            width: 100%;
+            padding: 0 8px;
+            color: #495057;
+          }
+          option:first-child{
+            display: none;
+          }
+        }
         .doc-link{
           text-decoration: underline;
           font-weight: bold;
@@ -395,9 +405,22 @@ textarea::placeholder {
   font-size: 14px;
   color: rgb(190, 187, 187);
 }
+select::placeholder{
+  color: rgb(190, 187, 187);
+}
 .transactionurl{
   color: $dashboard-purple-clr;
 }
 input[type='checkbox']{
   position: initial;
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

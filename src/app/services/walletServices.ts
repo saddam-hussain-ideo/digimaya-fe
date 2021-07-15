@@ -95,4 +95,40 @@ export class WalletServices {
         return this.http.post(environment.BaseUrl + "user/gettransactiondetails", data , { headers: headers })
             .map(res => res.json());
     }
+    stakeCoins(data) {
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append("authorization", this.userToken);
+        
+        return this.http.post(environment.BaseUrl + "user/stakeTokens", data, { headers: headers })
+            .map(res => res.json());
+    }
+    transferCoins(data) {
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append("authorization", this.userToken);
+        
+        return this.http.post(environment.BaseUrl + "user/transfer/tokens", data, { headers: headers })
+            .map(res => res.json());
+    }
+    stakingHistory(){
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append("authorization", this.userToken);
+        
+        return this.http.get(environment.BaseUrl + "user/stakingHistory", { headers: headers })
+            .map(res => res.json());
+    }
+    rewardHistory(){
+        let headers = new Headers();
+
+        headers.append('Content-Type', 'application/json; charset=UTF-8');
+        headers.append("authorization", this.userToken);
+        
+        return this.http.get(environment.BaseUrl + "user/stakingRewardHistory", { headers: headers })
+            .map(res => res.json());
+    }
 }
