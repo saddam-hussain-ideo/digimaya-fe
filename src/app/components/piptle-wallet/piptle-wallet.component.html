@@ -608,7 +608,7 @@
 
       <!---->
       <div class="form-group mt-2 mb-2"  *ngIf="!isSubmitted" >
-        <button type="submit" [disabled]="s.amount.invalid || s.days.errors?.required" class="submit-btn"
+        <button type="submit" [disabled]="s.amount.invalid || s.days.errors?.required " class="submit-btn"
           (click)="stakeCoins(stakingForm)">Send</button>
       </div>
     </form>

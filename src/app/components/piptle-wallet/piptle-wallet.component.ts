@@ -91,6 +91,7 @@ export class PiptleWalletComponent implements OnInit {
         this.stakeTokens == 0 ? duration.setErrors({required:true}) : null
       }
     });
+    console.log(this.stakingForm);
 
     this.twoFaForm = this.fb.group({
       twoFa: ['', [Validators.required, Validators.minLength(6)]]
@@ -223,7 +224,7 @@ export class PiptleWalletComponent implements OnInit {
         this.referalBonus = res['data']['referalBonus']
         this.activityBonus = res['data']['activityBonus']
         this.stakeTokens = res['data']['stakedTokens'];
-        this._sharedService.showHideLoader(true);
+        this._sharedService.showHideLoader(false);
 			}
 		}, err => {
       this._sharedService.showHideLoader(false);
@@ -391,9 +392,10 @@ export class PiptleWalletComponent implements OnInit {
       console.log(e.target.value);
       console.log(this.stakingForm);
       this.s.days.setValue(e.target.value)
+      if(e.target.value != ''){
+        this.s.days.setErrors(null)
+      }
       console.log(this.s.days);
-      
-      
     }
     stakeCoins(form){
       if(form.invalid){
@@ -403,6 +405,7 @@ export class PiptleWalletComponent implements OnInit {
       let amount = this.s.amount.value;
       let duration = this.s.days.value;
       console.log(duration);
+      
       
       if(amount > 0 && amount <= this.availablePiptles){
         let data = {
