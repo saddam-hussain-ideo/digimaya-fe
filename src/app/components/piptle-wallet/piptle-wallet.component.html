@@ -38,8 +38,8 @@
         </div>
         <div class="pptl-btns d-flex justify-content-between mt-2">
           <button class="btn custom-small-btn" (click)="openWithdraw(withDraw)">{{'SENDTEXT' | translate}}</button>
-          <button class="btn custom-small-btn" disabled>RECEIVE</button>
-          <button class="btn custom-small-btn" disabled>{{'STAKETEXT' | translate}}</button>
+          <button class="btn custom-small-btn" (click)="openWithdraw(transfer)">Transfer</button>
+          <button class="btn custom-small-btn" (click)="openWithdraw(staking)">{{'STAKETEXT' | translate}}</button>
 
         </div>
       </div>
@@ -63,14 +63,14 @@
           <div class="d-flex flex-column">
             <p class="wallet-inner-t">{{ 'My Staked Piptles' | translate }}</p>
             <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">0</p>
+              <p class="wallet-val">{{stakeTokens}}</p>
               <p class="wallet-puc ml-2">PPTL</p>
             </div>
 
           </div>
         </div>
         <div class="mt-2">
-          <button class="btn custom-draw-btn btn-block" disabled>{{'Withdraw' | translate}}</button>
+          <button class="btn custom-draw-btn btn-block" [routerLink]="['/home/stakinghistory']" routerLinkActive="router-link-active" >Staking History</button>
         </div>
       </div>
       <!-- <div class="">
@@ -544,6 +544,133 @@
           (click)="submitDetails(withDrawForm)">Send</button>
         <button [disabled]="w.amount.invalid || w.address.invalid" *ngIf="twoFaStatus" class="submit-btn"
           (click)="openModal(twoFa)">Send</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+
+
+<ng-template #staking let-modal>
+  <div class="modal-heading d-flex justify-content-between align-items-center">
+    <div class="text-upercase">
+      <p>Staking Details</p>
+    </div>
+    <button class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="stakingForm">
+      <div class="form-group">
+        <label>Amount</label>
+        <input class="form-control" type="number" placeholder="Enter Amount" formControlName="amount" 
+          name="addresses" />
+        <div *ngIf="s.amount.errors">
+          <span class="text-danger" *ngIf="s.amount.errors.required && s.amount.touched">field is required</span>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>Duration/Percentage</label>
+        <div class="dropdownlist" >
+          <select class="styled-select" [disabled]="stakeTokens != 0" (change)="duration($event)" >
+            <option value="">Duration</option>
+            <option *ngFor="let duration of STAKING_PERIODS | keyvalue" value="{{duration.key}}">{{duration.value}} % for {{duration.key}} days</option>
+          </select>
+       </div>
+        <div *ngIf="s.days.invalid && s.days.touched">
+          <span class="text-danger">field is required</span>
+        </div>
+
+      </div>
+
+      <div class="withDrawLoader mt-2 mb-2" *ngIf="isSubmitted">
+        <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+          <g transform="rotate(208.756 50 50)">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
+              values="360 50 50;0 50 50" keyTimes="0;1" dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+            </animateTransform>
+            <path fill="#85ffbd"
+              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+            </path>
+            <path fill="#316598"
+              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+            </path>
+            <path fill="#a4bcc2"
+              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+            </path>
+          </g>
+        </svg>
+      </div>
+
+      <!---->
+      <div class="form-group mt-2 mb-2"  *ngIf="!isSubmitted" >
+        <button type="submit" [disabled]="s.amount.invalid || s.days.errors?.required " class="submit-btn"
+          (click)="stakeCoins(stakingForm)">Send</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+
+<ng-template #transfer let-modal>
+  <div class="modal-heading d-flex justify-content-between align-items-center">
+    <div class="text-upercase">
+      <p>Transfer Details</p>
+    </div>
+    <button class="close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="transferForm">
+
+      <div class="form-group">
+        <label>User Name</label>
+        <input class="form-control" type="text" placeholder="Enter User Name" formControlName="username" 
+          />
+        <div *ngIf="tt.username.errors">
+          <span class="text-danger" *ngIf="tt.username.errors.required && tt.username.touched">field is required</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Amount</label>
+        <input class="form-control" type="number" placeholder="Enter Amount" formControlName="amount" 
+       />
+        <div *ngIf="tt.amount.errors">
+          <span class="text-danger" *ngIf="tt.amount.errors.required && tt.amount.touched">field is required</span>
+        </div>
+      </div>
+
+
+      <div class="withDrawLoader mt-2 mb-2" *ngIf="isSubmitted">
+        <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+          <g transform="rotate(208.756 50 50)">
+            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
+              values="360 50 50;0 50 50" keyTimes="0;1" dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
+            </animateTransform>
+            <path fill="#85ffbd"
+              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
+            </path>
+            <path fill="#316598"
+              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
+            </path>
+            <path fill="#a4bcc2"
+              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
+            </path>
+          </g>
+        </svg>
+      </div>
+
+      <!---->
+      <div class="form-group mt-2 mb-2"  *ngIf="!isSubmitted" >
+        <button type="submit" [disabled]="tt.amount.invalid || tt.username.invalid" class="submit-btn"
+          (click)="transferCoins(transferForm)">Transfer</button>
       </div>
     </form>
   </div>
