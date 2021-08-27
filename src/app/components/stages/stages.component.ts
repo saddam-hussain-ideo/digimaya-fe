@@ -27,6 +27,7 @@ export class StagesComponent implements OnInit {
   constructor(private _activeModal: NgbActiveModal ) { }
 
   ngOnInit() {    
+     
   }
   public emitUserApprovalStatus() {
     this.emitUserOp.emit({ opStatus: 'confirmed' });

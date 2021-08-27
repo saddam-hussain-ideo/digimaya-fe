@@ -58,6 +58,10 @@ export class IcoComponent {
   paginationNumber = 1
   currentPage = 1
   topReferalCurrentPage = 1
+  levelOneBonus = 0
+  levelTwoBonus = 0
+  levelThreeBonus = 0
+  allStages
   text: any = {
     Year: 'Year',
     Month: 'Month',
@@ -279,6 +283,7 @@ numberWithCommas(x) {
         console.log(this.globalInfo);
         this.allCountries = this.globalInfo.countries
         const previousILOStage = a['data']['stagesInfo']
+        this.allStages = a['data']['stagesInfo']
         console.log(previousILOStage);
         const index = previousILOStage.findIndex(data => data.StageName == this.ICOStageInfoLeft.stageName)
         console.log(index);
@@ -308,6 +313,11 @@ numberWithCommas(x) {
 
 }
   public invokeInfoModal(stagevalue) {
+    let stage = this.allStages.find(stage => stage.StageName == stagevalue)
+    console.log(stage);
+    this.levelOneBonus = stage.ReferralLevelOneBonuse
+    this.levelTwoBonus = stage.ReferralLevelTwoBonuse
+    this.levelThreeBonus = stage.ReferralLevelThreeBonuse
     const modalConfig: NgbModalOptions = {
       // windowClass: 'info-modal-sm',
       // size: 'md',
@@ -317,14 +327,28 @@ numberWithCommas(x) {
     };
     this.stopEditingModal = this.modalService.open(StagesComponent, modalConfig);
     if(stagevalue == 'ILO Stage 1'){
+      console.log(INFO_MODAL_CONSTANT.STAGE_1);
+      INFO_MODAL_CONSTANT.STAGE_1.primaryText.bonus0 = `${this.levelOneBonus}% of any PPTLs issued on Level 1`
+      INFO_MODAL_CONSTANT.STAGE_1.primaryText.bonus1 = `${this.levelTwoBonus}% of any PPTLs issued on Level 2`
+      INFO_MODAL_CONSTANT.STAGE_1.primaryText.bonus2 = `${this.levelThreeBonus}% of any PPTLs issued on Level 3`
       this.stopEditingModal.componentInstance.modalData = INFO_MODAL_CONSTANT.STAGE_1;
     } else if(stagevalue == 'ILO Stage 2'){
+      INFO_MODAL_CONSTANT.STAGE_2.primaryText.bonus0 = `${this.levelOneBonus}% of any PPTLs issued on Level 1`
+      INFO_MODAL_CONSTANT.STAGE_2.primaryText.bonus1 = `${this.levelTwoBonus}% of any PPTLs issued on Level 2`
+      INFO_MODAL_CONSTANT.STAGE_2.primaryText.bonus2 = `${this.levelThreeBonus}% of any PPTLs issued on Level 3`
+ 
       this.stopEditingModal.componentInstance.modalData = INFO_MODAL_CONSTANT.STAGE_2;
     }
     else if(stagevalue == 'ILO Stage 3'){
+      INFO_MODAL_CONSTANT.STAGE_3.primaryText.bonus0 = `${this.levelOneBonus}% of any PPTLs issued on Level 1`
+      INFO_MODAL_CONSTANT.STAGE_3.primaryText.bonus1 = `${this.levelTwoBonus}% of any PPTLs issued on Level 2`
+      INFO_MODAL_CONSTANT.STAGE_3.primaryText.bonus2 = `${this.levelThreeBonus}% of any PPTLs issued on Level 3`
       this.stopEditingModal.componentInstance.modalData = INFO_MODAL_CONSTANT.STAGE_3;
     }
     else if(stagevalue == 'ILO Stage 4'){
+      INFO_MODAL_CONSTANT.STAGE_4.primaryText.bonus0 = `${this.levelOneBonus}% of any PPTLs issued on Level 1`
+      INFO_MODAL_CONSTANT.STAGE_4.primaryText.bonus1 = `${this.levelTwoBonus}% of any PPTLs issued on Level 2`
+      INFO_MODAL_CONSTANT.STAGE_4.primaryText.bonus2 = `${this.levelThreeBonus}% of any PPTLs issued on Level 3`
       this.stopEditingModal.componentInstance.modalData = INFO_MODAL_CONSTANT.STAGE_4;
     }
 
