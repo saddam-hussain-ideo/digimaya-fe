@@ -236,7 +236,7 @@ export class HeadComponent implements OnInit {
 
   }
   navigateToICO() {
-    this.router.navigate(['/home/ico']);
+    this.router.navigate(['/home/ilo']);
   }
 
   navigateToDashboard() {
