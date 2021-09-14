@@ -50,7 +50,7 @@ const routes: Routes = [
       { path: 'piptle-wallet', component: PiptleWalletComponent, canActivate: [AuthGuard] },
       { path: 'my-wallet', component: MyWalletComponent, canActivate: [AuthGuard] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
-      { path: 'ico', component: IcoComponent, canActivate: [AuthGuard] },
+      { path: 'ilo', component: IcoComponent, canActivate: [AuthGuard] },
       { path: 'faqs', component: FaqsComponent, canActivate: [AuthGuard] },
       { path: 'wire-transfer', component: WireTransferComponent, canActivate: [AuthGuard] },
       { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
