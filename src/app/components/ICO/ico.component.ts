@@ -73,7 +73,25 @@ export class IcoComponent {
     MilliSeconds: "MilliSeconds"
   };
   currentICOStageValue = 0
-
+  stagesNewData = [
+    {
+      name: 'ILO Stage 2',
+      startingPoint: 501 ,
+      target: 1000
+    },
+    {
+      name: 'ILO Stage 3',
+      startingPoint: 1001,
+      target: 2000
+    },
+    {
+      name: 'ILO Stage 4',
+      startingPoint: 2001 ,
+      target: 3000
+    }
+  ]
+  stageLeftData
+  stageRightData
 
   constructor(public _icoService: ICOService, 
     public _sharedService: SharedService, 
@@ -247,6 +265,20 @@ numberWithCommas(x) {
           this.calculateLeftProgressBar();
           this.calculateRightProgressBar();
         }
+        const stageLeft = this.stagesNewData.find(result => result.name == this.ICOStageInfoLeft.stageName )
+        if(stageLeft){
+            this.stageLeftData = stageLeft
+        }
+        const stageRight = this.stagesNewData.find(result => result.name == this.ICOStageInfoRight.stageName )
+        if(stageRight){
+          this.stageRightData = stageRight
+
+        }
+        console.log(this.stageLeftData);
+        console.log(this.stageRightData);
+        console.log(this.ICOStageInfoRight);
+        console.log(this.ICOStageInfoLeft);
+
 
 
         this.investorsList = a.data.investorList;

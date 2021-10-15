@@ -302,19 +302,25 @@
 
             </div>
 
-            <p class="till-pIco-Stge-small p-top"> {{ 'STARTING PRICE:' | translate}}
-              <strong>{{ICOStageInfoLeft?.stageRate | currency: 'stageRate'}}</strong>
+            <p class="till-pIco-Stge-small p-top"> PPTL Starting Value:
+              <strong>{{ICOStageInfoLeft?.stageRate }} (AUD)</strong>
             </p>
-            <p class="till-pIco-Stge-small p-top"> {{ 'REMAINING TOKENS:' | translate}}
-              <!-- <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold | currency}}</strong> -->
-              <strong>{{currentICOStageValue}}</strong>
+            <!-- <p class="till-pIco-Stge-small p-top"> {{ 'REMAINING TOKENS:' | translate}}
+               <strong>{{currentICOStageValue}}</strong>
 
-            </p>
+            </p> -->
+
+
 
             <p class="till-pIco-Stge-small p-top" *ngIf="!hideSecondBox">{{'Till' | translate}}
               {{ICOStageInfoRight?.stageName}}</p>
             <p class="till-pIco-Stge-small p-top" *ngIf="hideSecondBox">{{'ICO will end after the current stage' |
               translate}}</p>
+            <p class="till-pIco-Stge-small p-top"> Target:
+              <!-- <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold | currency}}</strong> -->
+              <strong>{{stageLeftData?.target}} <span class="gpal-text">GPALs</span> Registered</strong>
+
+            </p>
             <div class="text-center p-top">
               <!-- <button class="submit-btn" data-toggle="modal"
               data-target="#stage1">Bonuses</button> -->
@@ -336,7 +342,44 @@
             </div>
 
 
-            <div class="clock-wrap">
+            <div class="bottom-columns">
+
+              <ul class="progress-bottom clearfix">
+                <li>
+                  <p class="top-heading text-uppercase">{{ICOStageInfoLeft?.stageName}} Starting Point:</p>
+                  <p class="top-heading text-uppercase">
+                    <strong>{{stageLeftData?.startingPoint}} <span class="gpal-text">GPALs</span> </strong>
+                  </p>
+                </li>
+                <li>
+                  <p class="top-heading text-uppercase">Total Allocated {{ICOStageInfoLeft?.stageName}} Tokens:</p>
+                  <p class="top-heading text-uppercase">
+                    <strong>Up to {{ICOStageInfoLeft?.amountSold | currency: 'fait'}}</strong>
+                  </p>
+                </li>
+                <li *ngIf="stageRightData">
+                  <p class="top-heading text-uppercase">{{ICOStageInfoRight?.stageName}} Preview :</p>
+                  <p class="top-heading text-uppercase">
+                    <strong>Starting at {{stageRightData?.startingPoint}} <span class="gpal-text">GPALs</span>
+                      PPTL Value: {{ICOStageInfoRight?.stageRate}} (AUD)</strong>
+                  </p>
+                </li>
+                <li *ngIf="!stageRightData">
+                  <p class="top-heading text-uppercase">{{ICOStageInfoLeft?.stageName}}</p>
+                  <p class="top-heading text-uppercase">
+                    <strong>
+                      PPTL Value: {{ICOStageInfoLeft?.stageRate}} (AUD)</strong>
+                  </p>
+                </li>
+              </ul>
+
+
+            </div>
+
+
+
+
+            <!-- <div class="clock-wrap">
               <ul class="clock-names-ul">
                 <li>
                   <p class="days-t">{{ 'DAYS' | translate}}</p>
@@ -376,7 +419,7 @@
 
                 </li>
               </ul>
-            </div>
+            </div> -->
 
 
 
@@ -398,9 +441,28 @@
             <div class="clearfix time-block-down">
               <div class="ico-small-head" style="padding-top: 5px;">
                 <h1 class="till-pIco-Stge-txt text-uppercase"> {{ICOStageInfoRight?.stageName | translate}}</h1>
-                <p class="till-pIco-Stge-small p-top">{{ 'STARTING PRICE:' | translate}}
-                  <strong>{{ICOStageInfoRight?.stageRate}}</strong>
+
+                <p class="till-pIco-Stge-small p-top"> PPTL Starting Value:
+                  <strong>{{ICOStageInfoRight?.stageRate}} (AUD)</strong>
                 </p>
+                <!-- <p class="till-pIco-Stge-small p-top"> {{ 'REMAINING TOKENS:' | translate}}
+                   <strong>{{currentICOStageValue}}</strong>
+    
+                </p> -->
+    
+    
+    
+                <p class="till-pIco-Stge-small p-top" *ngIf="!stageRightData?.name == 'ILO Stage 4'">{{'Till' | translate}}
+                  {{ICOStageInfoRight?.stageName}}</p>
+    
+                <p class="till-pIco-Stge-small p-top"> Target:
+                  <!-- <strong>{{ICOStageInfoLeft?.totalSaleAmount - ICOStageInfoLeft?.amountSold | currency}}</strong> -->
+                  <strong>{{stageRightData?.target}}  <span class="gpal-text">GPALs</span> Registered</strong>
+    
+                </p>
+                <!-- <p class="till-pIco-Stge-small p-top">{{ 'STARTING PRICE:' | translate}}
+                  <strong>{{ICOStageInfoRight?.stageRate}}</strong>
+                </p> -->
               </div>
             </div>
 
@@ -415,21 +477,35 @@
 
               <ul class="progress-bottom clearfix">
                 <li>
-                  <p class="top-heading text-uppercase">{{ 'STARTING DATE' | translate }}</p>
+                  <p class="top-heading text-uppercase">{{ICOStageInfoRight?.stageName}} Starting Point:</p>
                   <p class="top-heading text-uppercase">
-                    <strong>{{ICOStageInfoRight?.startDate}}</strong>
+                    <strong>{{stageRightData?.startingPoint}} <span class="gpal-text">GPALs</span> </strong>
                   </p>
                 </li>
-                <li>
+                <!-- <li>
                   <p class="center-heading text-uppercase">{{ 'TOKEN AMOUNT' | translate}}</p>
                   <p class="big-amount text-uppercase">
                     <strong>{{ICOStageInfoRight?.totalSaleAmount}}</strong>
                   </p>
-                </li>
+                </li> -->
                 <li>
-                  <p class="top-heading text-uppercase">{{ 'END DATE' | translate}}</p>
+                  <p class="top-heading text-uppercase">Total Allocated {{ICOStageInfoRight?.stageName}} Tokens:</p>
                   <p class="top-heading text-uppercase">
-                    <strong>{{ICOStageInfoRight?.endDate}}</strong>
+                    <strong>Up to {{ICOStageInfoRight?.amountSold | currency: 'fait'}}</strong>
+                  </p>
+                </li>
+                <li *ngIf="!stageRightData?.name == 'ILO Stage 4'">
+                  <p class="top-heading text-uppercase">{{ICOStageInfoRight?.stageName}} Preview :</p>
+                  <p class="top-heading text-uppercase">
+                    <strong>Starting at {{stageRightData?.startingPoint}}  <span class="gpal-text">GPALs</span>
+                      PPTL Value: {{ICOStageInfoRight?.stageRate}} (AUD)</strong>
+                  </p>
+                </li>
+                <li *ngIf="stageRightData?.name == 'ILO Stage 4'">
+                  <p class="top-heading text-uppercase">{{ICOStageInfoRight?.stageName}} :</p>
+                  <p class="top-heading text-uppercase">
+                    <strong> Starting at {{stageRightData?.startingPoint}}  <span class="gpal-text">GPALs</span>
+                      PPTL Value: {{ICOStageInfoRight?.stageRate}} (AUD)</strong>
                   </p>
                 </li>
               </ul>
