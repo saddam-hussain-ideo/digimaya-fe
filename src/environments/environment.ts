@@ -4,12 +4,12 @@
 
 export const environment = {
   production: false,
-  // BaseUrl:"http://192.168.100.65:9000/api/",
-  // documentUrl:"http://localhost:3000/",
+   BaseUrl:"http://localhost:3000/api/",
+  //documentUrl:"http://localhost:3000/",
 
-  BaseUrl: "http://coin.piptleapp.store:3000/api/",
+  //BaseUrl: "http://coin.piptleapp.store:3000/api/",
   // BaseUrl: "https://api.mypiptles.com/api/",
-  captchaKey: '6LcY8zIaAAAAAJrc0THvOOZyjIdJKLYAl3tHnITp',
+  captchaKey: '6LetiHwqAAAAAK9KsfWqNqaS9YbncP1cbLci6YU_',
   // captchaKey: '6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX',
   //old captchakey : 6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX
   documentUrl: "https://pipezi.com/wp-content/uploads/2021/04/Pipezi-Terms-and-Conditions.pdf",
