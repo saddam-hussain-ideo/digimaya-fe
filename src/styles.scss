@@ -156,23 +156,78 @@ input:-webkit-autofill {
   outline: none !important;
 }
 .outer-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  width: 100%;
   position: relative;
   background: transparent;
-  min-height: 100vh;
-  width: 60%;
   margin: 0 auto;
   padding: 20px;
 }
 .inner-wrapper {
+  display: flex;
+  width: 96%;
+  height: 92%;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 100%;
   background: transparent;
-  color: transparent;
-  width: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
   left: 50%;
   // padding: 20px;
 }
+
+.left-panel {
+  flex: 3;
+  background: linear-gradient(
+    to bottom right,
+    $maaya-orange-dawn,
+    $maaya-purple-dusk
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out the logo and text */
+  align-items: flex-start; /* Align both the logo and text to the left */
+  color: white;
+  padding: 20px;
+  border-radius: 16px; /* Add rounded corners for style */
+}
+
+.left-panel p {
+  font-size: 40px;
+  text-align: left; /* Align text to the left */
+  line-height: 1.5;
+  margin: 0; /* Remove default margins */
+  font-weight: bold;
+}
+
+.right-panel {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.right-panel h2 {
+  font-family: "CenturyRetrospective", serif;
+  text-align: left;
+  width: 100%;
+  text-align: left;
+  color: #191919;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 40px;
+}
+
 .f-z-12 {
   font-size: 14px;
   font-family: "LatoWebLight" !important;
@@ -202,11 +257,12 @@ input:-webkit-autofill {
 
 .logo-top {
   text-align: center;
-  margin-bottom: 50px;
+  margin: 20px;
+  .ico-logo {
+    width: 350px;
+  }
 }
-.logo-top img {
-  // width: 85%;
-}
+
 .top-heading {
   font-family: LatoWebLight, Helvetica, sans-serif;
   font-size: 36px;
@@ -217,6 +273,15 @@ input:-webkit-autofill {
 .uppercase {
   text-transform: uppercase;
 }
+
+.ico-inputs {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
 .blue-inputs {
   font-family: "LatoWebLight";
   // border: 1px solid rgb(121, 226, 226);
@@ -234,9 +299,23 @@ input:-webkit-autofill {
 
   padding: 0px 10px;
 }
+
+.form-div {
+  width: 60%;
+}
+
 .form-div .form-group {
   margin: 0;
   margin-top: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.ico-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #11111399;
 }
 
 .hidden-above-sm {
@@ -337,22 +416,36 @@ input:-webkit-autofill {
   width: 50px;
   margin: 20px auto;
 }
+
 .bottom-text {
   color: black;
-  text-align: center;
-  font-family: "LatoWebLight";
-  font-size: 15px;
-  font-weight: 600;
+  text-align: left;
+  font-family: "MavenPro";
+  font-weight: 400;
   letter-spacing: 1px;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.bottom-text a {
+  text-decoration: none;
+  color: $maaya-purple-dusk;
+}
+
+.bottom-text a:hover {
+  text-decoration: underline;
 }
 
 .links {
-  // color: #14599d !important;
-  color: white;
+  color: $maaya-purple-dusk;
   text-decoration: underline;
   font-weight: 600;
-  font-family: "LatoWebLight";
+  font-family: "MavenPro";
   cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 10px 0;
 }
 /*check box */
 /* Base for label styling */
@@ -436,32 +529,31 @@ label:hover:before {
   text-decoration: none;
 }
 
-.piptle-links{
-  color:$dashboard-purple-clr;
+.piptle-links {
+  color: $dashboard-purple-clr;
 }
 
-.pwd-rel{
+.pwd-rel {
   position: relative;
-  .toggle-password{
+  .toggle-password {
     position: absolute;
-    color:$dashboard-purple-clr;
+    color: $maaya-purple-dusk;
     right: 15px;
     cursor: pointer;
     z-index: 9999;
   }
-  .toggle-settings{
-    background-color:  #F0F0F0;
+  .toggle-settings {
+    background-color: #f0f0f0;
     bottom: 11px;
     right: 7px;
   }
-  .toggle-signin{
+  .toggle-signin {
     top: 9px;
   }
-  .toggle-signup{
+  .toggle-signup {
     top: 22px;
   }
 }
-
 
 /* QR Code */
 
@@ -527,7 +619,7 @@ label:hover:before {
   padding-top: 8px;
   margin-right: 10px;
 }
-.my-custom-size{
+.my-custom-size {
   img {
     width: 150px;
     height: 150px;
@@ -535,19 +627,19 @@ label:hover:before {
 }
 
 @media print {
-	.no-printme  {
-		display: none;
-	}
-	.printme  {
+  .no-printme {
+    display: none;
+  }
+  .printme {
     display: block;
     width: 100%;
   }
-  .scroll-div{
+  .scroll-div {
     overflow: unset !important;
   }
-  .modal-dialog{
+  .modal-dialog {
     max-width: 100% !important;
-  } 
+  }
 }
 
 .custom-size {
@@ -1192,10 +1284,29 @@ blue-submit .back-btn {
   color: white;
   font-family: "LatoWebBold";
   font-size: 20px;
-  background:$dashboard-purple-clr;
+  background: $dashboard-purple-clr;
   width: 100%;
   border: none;
   cursor: pointer;
+}
+
+.ico-submit {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(
+    to bottom right,
+    $maaya-orange-dawn,
+    $maaya-purple-dusk
+  );
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.ico-submit:hover {
+  background: linear-gradient(to right, $maaya-orange-dawn, $maaya-purple-dusk);
 }
 
 .slick-dots li.slick-active {
@@ -1897,8 +2008,76 @@ blue-submit .back-btn {
   background: $white-color;
 }
 
-.pp{
+.pp {
   color: $dashboard-purple-clr;
   font-size: 100px;
   letter-spacing: 15px;
+}
+
+@font-face {
+  font-family: "CenturyRetrospective";
+  src: url("assets/fonts/maaya/CenturyRetrospectiveBlackSSiBold.ttf")
+    format("truetype");
+  font-weight: bold; /* Adjusted to reflect "Bold" */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-Black.ttf") format("truetype");
+  font-weight: 900; /* Black weight is typically 900 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold weight is typically 700 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-ExtraBold.ttf") format("truetype");
+  font-weight: 800; /* Extra Bold weight is typically 800 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium weight is typically 500 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular weight is typically 400 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-SemiBold.ttf") format("truetype");
+  font-weight: 600; /* SemiBold weight is typically 600 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900; /* Variable font range */
+  font-style: normal;
+}
+
+h1 {
+  font-family: "CenturyRetrospective", serif; /* Use CenturyRetrospective for headings */
+  font-weight: bold;
+}
+
+p {
+  font-family: "MavenPro";
+  font-weight: 400; /* Regular */
 }

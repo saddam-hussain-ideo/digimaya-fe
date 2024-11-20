@@ -246,7 +246,7 @@ export class HeadComponent implements OnInit {
     this.router.navigate(['/home/my-wallet']);
   }
   navigateToPiptleWallet() {
-    this.router.navigate(['/home/piptle-wallet']);
+    this.router.navigate(['/home/wallet']);
   }
 
   navigateToWireTransfer() {

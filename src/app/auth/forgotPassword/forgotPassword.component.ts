@@ -22,7 +22,7 @@ declare var $: any;
 
   selector: 'forgot-password',
   providers:[UserService],
-  styleUrls: ['./forgotPassword.component.css'/*  './demo.css', './normalize.css', 'revealer.css', './pater.css' */],
+  styleUrls: ['./forgotPassword.component.scss'/*  './demo.css', './normalize.css', 'revealer.css', './pater.css' */],
   templateUrl: './forgotPassword.component.html',
 })
 export class ForgotPasswordComponent implements OnInit, OnDestroy {

@@ -47,7 +47,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
       { path: 'dashboard/:id', component: DashboardComponent, },
       { path: 'affiliate', component: Affiliate, canActivate: [AuthGuard] },
-      { path: 'piptle-wallet', component: PiptleWalletComponent, canActivate: [AuthGuard] },
+      { path: 'wallet', component: PiptleWalletComponent, canActivate: [AuthGuard] },
       { path: 'my-wallet', component: MyWalletComponent, canActivate: [AuthGuard] },
       { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
       { path: 'ilo', component: IcoComponent, canActivate: [AuthGuard] },
