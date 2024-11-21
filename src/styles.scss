@@ -58,38 +58,21 @@ ul {
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
   visibility: hidden;
-  /* Hidden by default. Visible on click */
   min-width: 250px;
-  /* Set a default minimum width */
   margin-left: -125px;
-  /* Divide value of min-width by 2 */
   background-color: #075a8d;
-  /* Black background color */
   color: #fff;
-  /* White text color */
   text-align: center;
-  /* Centered text */
   border-radius: 2px;
-  /* Rounded borders */
   padding: 16px;
-  /* Padding */
   position: fixed;
-  /* Sit on top of the screen */
   z-index: 1;
-  /* Add a z-index if needed */
-
-  margin: 0 auto;
-
-  /* Center the snackbar */
   bottom: 30px;
-  /* 30px from the bottom */
   font-family: "LatoWebLight";
-
   left: 50%;
-
   transform: translate(-50%, -50%);
 }
-/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
 #snackbar.show {
   visibility: visible;
   /* Show the snackbar */
@@ -118,7 +101,8 @@ ul {
     opacity: 1;
   }
 }
-@-webkit-keyframes fadeout {
+
+@keyframes fadeout {
   from {
     bottom: 30px;
     opacity: 1;
@@ -145,6 +129,7 @@ input:-webkit-autofill {
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 45px white inset;
 }
+
 .cursor {
   cursor: pointer;
 }
@@ -156,23 +141,280 @@ input:-webkit-autofill {
   outline: none !important;
 }
 .outer-wrapper {
-  position: relative;
-  background: transparent;
-  min-height: 100vh;
-  width: 60%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  background-size: cover;
+}
+
+.outer-wrapper {
   margin: 0 auto;
   padding: 20px;
-}
-.inner-wrapper {
   background: transparent;
-  color: transparent;
-  width: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  // padding: 20px;
 }
+
+.inner-wrapper {
+  display: flex;
+  width: 96%;
+  height: 92%;
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+/* Left Panel */
+.left-panel {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 16px;
+  background: linear-gradient(
+    to bottom right,
+    $maaya-orange-dawn,
+    $maaya-purple-dusk
+  );
+  color: white;
+
+  @media (max-width: 768px) {
+    flex: unset;
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    background: #ffffff;
+  }
+}
+
+.left-panel p {
+  font-size: 40px;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+/* Right Panel */
+.right-panel {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+.right-panel h2 {
+  font-family: "CenturyRetrospective", serif;
+  color: #191919;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
+}
+
+/* Logo Styles */
+.logo-top {
+  text-align: center;
+  margin: 20px;
+
+  @media (max-width: 768px) {
+    margin: 20px 0;
+  }
+}
+
+.ico-logo {
+  width: 350px;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 480px) {
+    content: url("./assets/img/maaya_gradient.svg");
+    width: 150px;
+  }
+}
+
+/* Form Styles */
+.form-div {
+  width: 60%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.ico-label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #11111399;
+}
+
+.ico-inputs {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group-row {
+  display: flex;
+  gap: 16px;
+
+  .form-group {
+    flex: 1;
+  }
+}
+
+/* Links */
+.links {
+  color: $maaya-purple-dusk;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "MavenPro";
+  font-size: 14px;
+  margin: 10px 0;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Submit Button */
+.ico-submit {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(
+    to bottom right,
+    $maaya-orange-dawn,
+    $maaya-purple-dusk
+  );
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  &:hover {
+    background: linear-gradient(
+      to right,
+      $maaya-orange-dawn,
+      $maaya-purple-dusk
+    );
+  }
+}
+
+/* Bottom Text */
+.bottom-text {
+  color: black;
+  font-family: "MavenPro";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  margin-top: 20px;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+
+  a {
+    color: $maaya-purple-dusk;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+.input-container .toggle-password {
+  font-size: 16px;
+  color: $maaya-purple-dusk;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
 .f-z-12 {
   font-size: 14px;
   font-family: "LatoWebLight" !important;
@@ -188,25 +430,11 @@ input:-webkit-autofill {
   float: left;
   width: 25%;
 }
-.bg-wrapper {
-  background-color: white;
-  background-size: cover;
-  // height: 100vh;
-  @media (max-width: 992px) and (min-width: 768px) {
-    // min-height: 1500px;
-  }
-}
+
 .min-hg {
   min-height: 100px;
 }
 
-.logo-top {
-  text-align: center;
-  margin-bottom: 50px;
-}
-.logo-top img {
-  // width: 85%;
-}
 .top-heading {
   font-family: LatoWebLight, Helvetica, sans-serif;
   font-size: 36px;
@@ -217,6 +445,7 @@ input:-webkit-autofill {
 .uppercase {
   text-transform: uppercase;
 }
+
 .blue-inputs {
   font-family: "LatoWebLight";
   // border: 1px solid rgb(121, 226, 226);
@@ -233,10 +462,6 @@ input:-webkit-autofill {
   font-weight: 500;
 
   padding: 0px 10px;
-}
-.form-div .form-group {
-  margin: 0;
-  margin-top: 20px;
 }
 
 .hidden-above-sm {
@@ -313,10 +538,7 @@ input:-webkit-autofill {
     border: none;
     margin: 0 auto;
   }
-  .inner-wrapper {
-    width: 75%;
-    padding: 20px;
-  }
+
   .top-bar {
     margin: 60px -10px !important;
   }
@@ -328,32 +550,8 @@ input:-webkit-autofill {
   .skew-bg img {
     transform: skew(0deg) !important;
   }
-  .outer-wrapper {
-    width: 80%;
-    min-height: 800px;
-  }
-}
-.loader {
-  width: 50px;
-  margin: 20px auto;
-}
-.bottom-text {
-  color: black;
-  text-align: center;
-  font-family: "LatoWebLight";
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 1px;
 }
 
-.links {
-  // color: #14599d !important;
-  color: white;
-  text-decoration: underline;
-  font-weight: 600;
-  font-family: "LatoWebLight";
-  cursor: pointer;
-}
 /*check box */
 /* Base for label styling */
 [type="checkbox"]:not(:checked),
@@ -436,32 +634,9 @@ label:hover:before {
   text-decoration: none;
 }
 
-.piptle-links{
-  color:$dashboard-purple-clr;
+.piptle-links {
+  color: $dashboard-purple-clr;
 }
-
-.pwd-rel{
-  position: relative;
-  .toggle-password{
-    position: absolute;
-    color:$dashboard-purple-clr;
-    right: 15px;
-    cursor: pointer;
-    z-index: 9999;
-  }
-  .toggle-settings{
-    background-color:  #F0F0F0;
-    bottom: 11px;
-    right: 7px;
-  }
-  .toggle-signin{
-    top: 9px;
-  }
-  .toggle-signup{
-    top: 22px;
-  }
-}
-
 
 /* QR Code */
 
@@ -527,7 +702,7 @@ label:hover:before {
   padding-top: 8px;
   margin-right: 10px;
 }
-.my-custom-size{
+.my-custom-size {
   img {
     width: 150px;
     height: 150px;
@@ -535,19 +710,19 @@ label:hover:before {
 }
 
 @media print {
-	.no-printme  {
-		display: none;
-	}
-	.printme  {
+  .no-printme {
+    display: none;
+  }
+  .printme {
     display: block;
     width: 100%;
   }
-  .scroll-div{
+  .scroll-div {
     overflow: unset !important;
   }
-  .modal-dialog{
+  .modal-dialog {
     max-width: 100% !important;
-  } 
+  }
 }
 
 .custom-size {
@@ -1192,7 +1367,7 @@ blue-submit .back-btn {
   color: white;
   font-family: "LatoWebBold";
   font-size: 20px;
-  background:$dashboard-purple-clr;
+  background: $dashboard-purple-clr;
   width: 100%;
   border: none;
   cursor: pointer;
@@ -1552,13 +1727,6 @@ blue-submit .back-btn {
   }
 }
 @media only screen and (max-width: 640px) {
-  .outer-wrapper {
-    width: 100%;
-  }
-
-  // .page-title {
-  //   margin: 0 0 20px 0px;
-  // }
   .blck-elems {
     position: relative;
   }
@@ -1897,8 +2065,76 @@ blue-submit .back-btn {
   background: $white-color;
 }
 
-.pp{
+.pp {
   color: $dashboard-purple-clr;
   font-size: 100px;
   letter-spacing: 15px;
+}
+
+@font-face {
+  font-family: "CenturyRetrospective";
+  src: url("assets/fonts/maaya/CenturyRetrospectiveBlackSSiBold.ttf")
+    format("truetype");
+  font-weight: bold; /* Adjusted to reflect "Bold" */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-Black.ttf") format("truetype");
+  font-weight: 900; /* Black weight is typically 900 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold weight is typically 700 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-ExtraBold.ttf") format("truetype");
+  font-weight: 800; /* Extra Bold weight is typically 800 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium weight is typically 500 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-Regular.ttf") format("truetype");
+  font-weight: 400; /* Regular weight is typically 400 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-SemiBold.ttf") format("truetype");
+  font-weight: 600; /* SemiBold weight is typically 600 */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MavenPro";
+  src: url("assets/fonts/maaya/MavenPro-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900; /* Variable font range */
+  font-style: normal;
+}
+
+h1 {
+  font-family: "CenturyRetrospective", serif; /* Use CenturyRetrospective for headings */
+  font-weight: bold;
+}
+
+p {
+  font-family: "MavenPro";
+  font-weight: 400; /* Regular */
 }
