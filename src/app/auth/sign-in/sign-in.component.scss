@@ -4,25 +4,3 @@
   width: 32px !important;
   height: 32px !important;
 }
-
-.signin-links {
-  a:hover {
-    color: white;
-  }
-}
-
-@media screen and (max-width: 1210px) {
-  .logo-top {
-    .ico-logo {
-      width: 284px;
-    }
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .logo-top {
-    .ico-logo {
-      width: 215px;
-    }
-  }
-}

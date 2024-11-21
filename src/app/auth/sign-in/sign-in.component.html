@@ -37,29 +37,32 @@
               [(ngModel)]="email"
             />
           </div>
-          <label class="ico-label" for="password">Password</label>
-          <div class="form-group pwd-rel">
-            <input
-              id="password"
-              autocomplete="off"
-              #passwordField
-              type="password"
-              class="ico-inputs"
-              placeholder="{{ 'Password' | translate }}"
-              name="password"
-              (keydown)="loginWithEnter($event)"
-              [(ngModel)]="password"
-            />
-            <span
-              *ngIf="!isShow"
-              class="toggle-password toggle-signin fa fa-eye-slash"
-              (click)="showPassword()"
-            ></span>
-            <span
-              *ngIf="isShow"
-              class="fa fa-eye toggle-password toggle-signin"
-              (click)="hidePassword()"
-            ></span>
+
+          <div class="form-group">
+            <label class="ico-label" for="password">Password</label>
+            <div class="input-container">
+              <input
+                id="password"
+                autocomplete="off"
+                #passwordField
+                type="password"
+                class="ico-inputs"
+                placeholder="{{ 'Password' | translate }}"
+                name="password"
+                (keydown)="loginWithEnter($event)"
+                [(ngModel)]="password"
+              />
+              <span
+                *ngIf="!isShow"
+                class="toggle-password toggle-signin fa fa-eye-slash"
+                (click)="showPassword()"
+              ></span>
+              <span
+                *ngIf="isShow"
+                class="fa fa-eye toggle-password toggle-signin"
+                (click)="hidePassword()"
+              ></span>
+            </div>
           </div>
 
           <a class="links" (click)="navigateToforgot()">{{
