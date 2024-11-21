@@ -156,8 +156,9 @@ a, a:hover, a:focus {
 }
 
 .nav-clr{
-  // background-color: #643E8D;
-  background-image: linear-gradient(to left,  #643E8D,#010102 );
+  background-image:url('../../../assets//img/nav_background.svg') ;
+  background-repeat: no-repeat;
+  background-position:right ;
 
 }
 
@@ -283,7 +284,7 @@ a, a:hover, a:focus {
   // max-width: 35%;
   // width: 200px;
   width: 153px;
-  margin-left: 2rem;
+  margin-left: 2.5rem;
   z-index: 23;
   position: relative;
   // margin-top: 3px;
@@ -1136,6 +1137,8 @@ a.article, a.article:hover {
 
 .right-aligned{
   justify-content: flex-end;
+  margin-right: 2.5rem;
+  gap: 24px;
 }
 
 .right-content{
@@ -1209,4 +1212,17 @@ a.article, a.article:hover {
 .disabled {
   pointer-events:none;
   opacity:0.6;         
+}
+.avatar_section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:8px ;
+}
+.avatar-name{
+  font-size: 20px;
+}
+.my_setting{
+  font-size: 14px;
+line-height: 14px;
 }
