@@ -18,18 +18,24 @@
       margin-right: 8px;
     }
     .page-title{
-    color: $dashboard-purple-clr;
+      color: #191919;
+      font-family: "CenturyRetrospective", serif;
+      font-size: 40px;
+      line-height: 40px;
+      text-transform: capitalize;
     }
   }
   .custom-draw-btn{
     // background: #997bb5;
-    background-color: $dashboard-purple-clr;
+    background: radial-gradient(107.63% 220.06% at 0.17% 0.51%, #FF7F2C 0%, #FF0082 100%);
     color: #fff;
-    height: 43px;
-    font-family: "LatoWebBold";
+    font-size: 16px;
+    font-family: "MavenPro";
     // min-width: 200px;
     text-transform: uppercase;
-    border-radius: unset;
+    border-radius: 8px;
+    padding: 8px 0;
+    font-weight: 600;
   }
   .custom-draw-btn:disabled{
     // background: #997bb5;
@@ -37,18 +43,23 @@
   }
   .custom-small-btn{
     // background: #997bb5;
-    background-color: $dashboard-purple-clr;
+    background: radial-gradient(107.63% 220.06% at 0.17% 0.51%, #FF7F2C 0%, #FF0082 100%);
     color: #fff;
-    height: 43px;
-    font-family: "LatoWebBold";
-    // min-width: 200px;
-    // min-width: 93px;
-    text-transform: uppercase;
-    border-radius: unset;
+    font-family: "MavenPro";
+    font-weight: 600;
+   padding: 8px 0;
+    border-radius: 8px;
+    width: 100%;
   }
   .custom-small-btn:disabled{
     opacity: 0.6;
   }
+}
+
+.bg-colored{
+  background-color: #F6F6F6 !important;
+  padding: 20px;
+  border-radius: 8px;
 }
 
 .wallet-new-cards{
@@ -118,15 +129,18 @@
   }
 }
 .inner-w-box {
-  background-color:#e0d7d7;
-  text-align: center;
+  background-color:#F6F6F6;
+  padding: 16px;
+  border-radius: 8px;
   .wallet-cards{
     .wallet-val{
-      font-family: 'LatoWeb';
-      font-weight: 800;
-      color: #643E8D;
-      font-size: 25px;
-
+      font-family: 'MavenPro';
+      font-weight: 600;
+      color:#191919 ;
+      font-size: 32px;
+      &.light{
+        color:white !important;
+      }
     }
     .wallet-puc{
       font-family: 'LatoWebLight';
@@ -136,20 +150,25 @@
       text-transform: uppercase;
     }
   }
+  &.dark-bg{
+   background-color: #191919 !important; 
+  }
 }
 .wallet-inner-t{
-    color: $dashboard-purple-clr;
-    font-size: 14px;
-    font-family: "LatoWeb";
-    text-transform: uppercase;
-    margin-top: 12px;
-}
+    color: #191919;
+    font-size: 16px;
+    font-family: "CenturyRetrospective", serif;
+    text-transform: capitalize;
+    line-height: 16px;
+    &.light{
+      color:white !important;
+    }
+  }
 
 .background{
   background-color: #F2F1F7;
 }
 .transaction-txt{
-  text-transform: uppercase;
   font-size: 25px;
   font-family: "LatoWeb";
   color: $dashboard-purple-clr;
@@ -181,7 +200,8 @@
   }
 
   .piptel-transaction-history {
-    padding: 13px 14px;
+    padding: 20px;
+    background-color: #F6F6F6;
     .header {
       h2 {
         text-transform: uppercase;
@@ -195,18 +215,19 @@
     .table > thead > tr > th {
       vertical-align: middle !important;
       border-top: none;
-      font-family: "LatoWeb", sans-serif;
-      font-size: 14px;
+      font-family:'MavenPro';
+      font-size: 16px;
       // color: #34519d !important;
-      color:  $dashboard-purple-clr;
+      color:#191919;
+      font-weight: 600;
       /*   color: #26497b; */
     }
     .table td,
     .table th {
-      padding: 12px 15px;
+      padding: 0;
       border: none !important;
       font-size: 14px;
-      color: $theme-blue;
+      color: #191919;
     }
   }
 }
@@ -378,7 +399,7 @@ button:disabled {
   text-align: center;
 }
 .content{
-  font-size: 25px !important;
+  font-size: 16px !important;
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
   text-align: center !important;
@@ -423,4 +444,13 @@ input[type='checkbox']{
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+.sub-heading{
+  color: #191919;
+  font-family: "CenturyRetrospective", serif;
+  text-transform: capitalize;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 40px;
 }
