@@ -1231,23 +1231,22 @@ $label-color: #2097d4;
   background: transparent;
 }
 
-.top-left-ico-text {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
+// .top-left-ico-text {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+// }
 
 .logo-box {
   margin: 0 !important;
 }
 
 .ico-top-text {
-  color: $theme-green;
-  font-size: 14px;
-  font-family: "LatoWeb";
-  text-transform: $title-case;
+  color:white;
+  font-size: 16px;
+  font-family: "CenturyRetrospective", serif;
+  text-transform: capitalize;
   margin: 0;
-  padding: 15px 0 0 25px;
   @media (max-width: 1200px) and (min-width: 992px) {
     font-size: 11px;
   }
