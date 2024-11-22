@@ -2,75 +2,103 @@
   <toaster-container [toasterconfig]="config"></toaster-container>
 
   <div class="bg">
-
     <div class="d-flex head-title">
-      <img src="./../../../assets/img//PIPTLE-ILO-sideicon.png" />
       <h1 class="page-title">
-        {{'My Piptle Wallet' | translate}}
+        {{ "My Piptle Wallet" | translate }}
       </h1>
     </div>
     <div class="wallet-new-cards">
       <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'My Total Issued Piptles' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">{{totalPiptles | currency}}</p>
-              <p class="wallet-puc ml-2">PPTL</p>
+            <p class="wallet-inner-t">
+              {{ "My Total Issued Piptles" | translate }}
+            </p>
+            <div class="d-flex wallet-cards">
+              <p class="wallet-val">
+                {{ totalPiptles ? (totalPiptles | currency) : 0 }}
+              </p>
+              <p class="wallet-val ml-2">PPTL</p>
             </div>
-
           </div>
-        </div>
-        <div class="mt-2">
-          <button class="btn custom-draw-btn btn-block" disabled>{{'LINKWALLETS' | translate}}</button>
+          <div class="mt-2">
+            <button class="btn custom-draw-btn btn-block" disabled>
+              {{ "LINKWALLETS" | translate }}
+            </button>
+          </div>
         </div>
       </div>
       <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'My Available Piptles' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">{{availablePiptles | currency}}</p>
-              <p class="wallet-puc ml-2">PPTL</p>
+            <p class="wallet-inner-t">
+              {{ "My Available Piptles" | translate }}
+            </p>
+            <div class="d-flex wallet-cards">
+              <p class="wallet-val">
+                {{ availablePiptles ? (availablePiptles | currency) : 0 }}
+              </p>
+              <p class="wallet-val ml-2">PPTL</p>
             </div>
-
           </div>
-        </div>
-        <div class="pptl-btns d-flex justify-content-between mt-2">
-          <button class="btn custom-small-btn" (click)="openWithdraw(withDraw)">{{'SENDTEXT' | translate}}</button>
-          <button class="btn custom-small-btn" (click)="openWithdraw(transfer)">Transfer</button>
-          <button class="btn custom-small-btn" (click)="openWithdraw(staking)">{{'STAKETEXT' | translate}}</button>
-
+          <div class="pptl-btns d-flex justify-content-between mt-2">
+            <button
+              class="btn custom-small-btn mr-1"
+              (click)="openWithdraw(withDraw)"
+            >
+              {{ "SENDTEXT" | translate }}
+            </button>
+            <button
+              class="btn custom-small-btn mr-1"
+              (click)="openWithdraw(transfer)"
+            >
+              Transfer
+            </button>
+            <button
+              class="btn custom-small-btn"
+              (click)="openWithdraw(staking)"
+            >
+              {{ "STAKETEXT" | translate }}
+            </button>
+          </div>
         </div>
       </div>
       <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'My Locked Piptles' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">{{lockedPiptles | currency}}</p>
-              <p class="wallet-puc ml-2">PPTL</p>
+            <p class="wallet-inner-t">{{ "My Locked Piptles" | translate }}</p>
+            <div class="d-flex wallet-cards">
+              <p class="wallet-val">
+                {{ lockedPiptles ? (lockedPiptles | currency) : 0 }}
+              </p>
+              <p class="wallet-val ml-2">PPTL</p>
             </div>
-
           </div>
-        </div>
-        <div class="mt-2">
-          <button class="btn btn-block custom-draw-btn" disabled>{{'SCHEDULETEXT' | translate}}</button>
+          <div class="mt-2">
+            <button class="btn btn-block custom-draw-btn" disabled>
+              {{ "SCHEDULETEXT" | translate }}
+            </button>
+          </div>
         </div>
       </div>
       <div class="cards-inner-width">
         <div class="inner-w-box">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'My Staked Piptles' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">{{stakeTokens}}</p>
-              <p class="wallet-puc ml-2">PPTL</p>
+            <p class="wallet-inner-t">{{ "My Staked Piptles" | translate }}</p>
+            <div class="d-flex wallet-cards">
+              <p class="wallet-val">{{ stakeTokens ? stakeTokens : 0 }}</p>
+              <p class="wallet-val ml-2">PPTL</p>
             </div>
-
           </div>
-        </div>
-        <div class="mt-2">
-          <button class="btn custom-draw-btn btn-block" [routerLink]="['/home/stakinghistory']" routerLinkActive="router-link-active" >Staking History</button>
+          <div class="mt-2">
+            <button
+              class="btn custom-draw-btn btn-block"
+              [routerLink]="['/home/stakinghistory']"
+              routerLinkActive="router-link-active"
+            >
+              Staking History
+            </button>
+          </div>
         </div>
       </div>
       <!-- <div class="">
@@ -112,69 +140,74 @@
     </div> -->
   </div>
 
-
-  <div class=" mt-3 bg">
-
+  <div class="mt-3 bg bg-colored">
     <div class="d-flex head-title">
-      <img src="./../../../assets/img/PIPTLE-DOLLAR-ICON.png" />
-      <h1 class="page-title">
-        {{'Total Piptles Earned' | translate}}
+      <h1 class="sub-heading">
+        {{ "Total Piptles Earned" | translate }}
       </h1>
     </div>
     <div class="wallet-new-cards">
       <div class="cards-inner-width">
-        <div class="inner-w-box">
+        <div class="inner-w-box dark-bg">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'Referral Bonuses' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">{{referalBonus | currency}}</p>
-              <p class="wallet-puc ml-2">PPTL</p>
+            <p class="wallet-inner-t light">
+              {{ "Referral Bonuses" | translate }}
+            </p>
+            <div class="d-flex wallet-cards">
+              <p class="wallet-val light mb-0">
+                {{ referalBonus ? (referalBonus | currency) : 0 }}
+              </p>
+              <p class="wallet-val light ml-2 mb-0">PPTL</p>
             </div>
-
           </div>
         </div>
       </div>
       <div class="cards-inner-width">
-        <div class="inner-w-box">
+        <div class="inner-w-box dark-bg">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'ACTIVITY BONUSES' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">{{activityBonus | currency}}</p>
-              <p class="wallet-puc ml-2">PPTL</p>
+            <p class="wallet-inner-t light">
+              {{ "ACTIVITY BONUSES" | translate }}
+            </p>
+            <div class="d-flex wallet-cards">
+              <p class="wallet-val light mb-0">
+                {{ activityBonus ? (activityBonus | currency) : 0 }}
+              </p>
+              <p class="wallet-val light ml-2 mb-0">PPTL</p>
             </div>
-
           </div>
         </div>
       </div>
       <div class="cards-inner-width">
-        <div class="inner-w-box">
+        <div class="inner-w-box dark-bg">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'Staking Bonuses' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">{{stakedPiptles | currency}}</p>
-              <p class="wallet-puc ml-2">PPTL</p>
+            <p class="wallet-inner-t light">
+              {{ "Staking Bonuses" | translate }}
+            </p>
+            <div class="d-flex wallet-cards">
+              <p class="wallet-val light mb-0">
+                {{ stakedPiptles ? (stakedPiptles | currency) : 0 }}
+              </p>
+              <p class="wallet-val light ml-2 mb-0">PPTL</p>
             </div>
-
           </div>
         </div>
       </div>
       <div class="cards-inner-width">
-        <div class="inner-w-box">
+        <div class="inner-w-box dark-bg">
           <div class="d-flex flex-column">
-            <p class="wallet-inner-t">{{ 'MERCHANT BONUSES' | translate }}</p>
-            <div class="d-flex justify-content-center wallet-cards">
-              <p class="wallet-val">0</p>
-              <p class="wallet-puc ml-2">PPTL</p>
+            <p class="wallet-inner-t light">
+              {{ "MERCHANT BONUSES" | translate }}
+            </p>
+            <div class="d-flex wallet-cards">
+              <p class="wallet-val light mb-0">0</p>
+              <p class="wallet-val light mb-0 ml-2">PPTL</p>
             </div>
-
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
 
 <section class="myWallet-section">
   <div id="snackbar"></div>
@@ -306,21 +339,23 @@
         </div>
       </div> -->
 
-      <div class="piptel-transaction-history ">
-        <div class="header header-whte">
-          <p class="transaction-txt">{{'YOUR PIPTLES TRANSACTION HISTORY' | translate}}</p>
+      <div class="piptel-transaction-history">
+        <div class="header">
+          <p class="sub-heading">
+            {{ "YOUR PIPTLES TRANSACTION HISTORY" | translate }}
+          </p>
 
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table">
               <thead>
                 <tr>
-                  <th class="f-bold">{{'Date' | translate}}</th>
+                  <th class="f-bold">{{ "Date" | translate }}</th>
                   <th class="f-bold">Transaction</th>
-                  <th class="f-bold">{{'Description' | translate}}</th>
+                  <th class="f-bold">{{ "Description" | translate }}</th>
                   <th class="f-bold">PPTL Tokens</th>
                   <th class="f-bold">PPTL Value (AUD)</th>
                   <th class="f-bold">Wallet</th>
-                  <th class="f-bold">{{'Action' | translate}}</th>
+                  <th class="f-bold">{{ "Action" | translate }}</th>
 
                   <!-- <th>{{'Wallet Transferred from' | translate}}</th>
                   <th>{{'Amount Debited' | translate}}</th>
@@ -337,54 +372,80 @@
               </tbody>
               <tbody *ngIf="transactionDetails.length != 0">
                 <tr class="bg-lght" *ngFor="let data of transactionDetails">
-                  <td class="text-center">{{data.CreatedOnUTC}}</td>
+                  <td class="text-center">{{ data.CreatedOnUTC }}</td>
                   <td class="text-center">
                     <div *ngIf="data.TransactionHash?.length > 15">
-                      <a class="transactionurl" href="{{data.TransactionURL}}" target="_blank">
-                        {{data.TransactionHash.slice(0,6)}}...{{data.TransactionHash.slice(data.TransactionHash.length -
-                        6)}}
+                      <a
+                        class="transactionurl"
+                        href="{{ data.TransactionURL }}"
+                        target="_blank"
+                      >
+                        {{ data.TransactionHash.slice(0, 6) }}...{{
+                          data.TransactionHash.slice(
+                            data.TransactionHash.length - 6
+                          )
+                        }}
                       </a>
                     </div>
                     <div *ngIf="data.TransactionHash?.length <= 15">
-                      <a class="transactionurl" href="{{data.TransactionURL}}" target="_blank">
-                        {{data.TransactionHash}}
+                      <a
+                        class="transactionurl"
+                        href="{{ data.TransactionURL }}"
+                        target="_blank"
+                      >
+                        {{ data.TransactionHash }}
                       </a>
                     </div>
                   </td>
                   <td class="text-center">
-                    <div tooltip="{{data.Note}}" placement="bottom" *ngIf="data.Note !== '' ">
+                    <div
+                      tooltip="{{ data.Note }}"
+                      placement="bottom"
+                      *ngIf="data.Note !== ''"
+                    >
                       <div *ngIf="data.Note?.length > 20">
-                        {{data.Note.slice(0,8)}}...{{data.Note.slice(data.Note.length - 7)}}
+                        {{ data.Note.slice(0, 8) }}...{{
+                          data.Note.slice(data.Note.length - 7)
+                        }}
                       </div>
                       <div *ngIf="data.Note?.length <= 20">
-                        {{data.Note}}
+                        {{ data.Note }}
                       </div>
                     </div>
-                    <div *ngIf="data.Note == '' ">
-                      N/A
-                    </div>
+                    <div *ngIf="data.Note == ''">N/A</div>
                   </td>
-                  <td class="text-center">{{data.TotalTokens | currency:'crypto'}}</td>
-                  <td class="text-center">{{data.TokenRate * data.TotalTokens | currency:'crypto'}}</td>
                   <td class="text-center">
-                    <div *ngIf="data.TransactionType != 'INCOMING' && data.TransactionType != 'WITHDRAWAL'">
+                    {{ data.TotalTokens | currency : "crypto" }}
+                  </td>
+                  <td class="text-center">
+                    {{
+                      data.TokenRate * data.TotalTokens | currency : "crypto"
+                    }}
+                  </td>
+                  <td class="text-center">
+                    <div
+                      *ngIf="
+                        data.TransactionType != 'INCOMING' &&
+                        data.TransactionType != 'WITHDRAWAL'
+                      "
+                    >
                       INTERNAL
                     </div>
                     <div *ngIf="data.TransactionType == 'WITHDRAWAL'">
                       PIPEZI
                     </div>
-                    <div *ngIf="data.TransactionType == 'INCOMING' ">
-                      <div *ngIf="data.TransactionCurrencyType == 'BTC' ">
-                        {{walletInfo?.BtcFundReceiverAddress}}
+                    <div *ngIf="data.TransactionType == 'INCOMING'">
+                      <div *ngIf="data.TransactionCurrencyType == 'BTC'">
+                        {{ walletInfo?.BtcFundReceiverAddress }}
                       </div>
-                      <div *ngIf="data.TransactionCurrencyType == 'BCH' ">
-                        {{walletInfo?.BchFundReceiverAddress}}
+                      <div *ngIf="data.TransactionCurrencyType == 'BCH'">
+                        {{ walletInfo?.BchFundReceiverAddress }}
                       </div>
-                      <div *ngIf="data.TransactionCurrencyType == 'LTC' ">
-                        {{walletInfo?.LtcFundReceiverAddress}}
+                      <div *ngIf="data.TransactionCurrencyType == 'LTC'">
+                        {{ walletInfo?.LtcFundReceiverAddress }}
                       </div>
-                      <div *ngIf="data.TransactionCurrencyType == 'ETH' ">
-                        {{walletInfo?.EthFundReceiverAddress}}
+                      <div *ngIf="data.TransactionCurrencyType == 'ETH'">
+                        {{ walletInfo?.EthFundReceiverAddress }}
                       </div>
                     </div>
                   </td>
@@ -397,32 +458,40 @@
                       <button class="btn action-btn">Credit</button>
                     </div>
                   </td>
-
-
                 </tr>
-
               </tbody>
             </table>
             <div *ngIf="transactionDetails.length != 0">
-              <div class='pagination-bottom mb-2' *ngIf="paginationNumber>recentTransactionsPSize">
-
-                <pagination-controls *ngIf="recentTransactionsPSize < paginationNumber" responsive="true"
-                  previousLabel="" nextLabel="" (pageChange)="changePage($event)"></pagination-controls>
-
+              <div
+                class="pagination-bottom mb-2"
+                *ngIf="paginationNumber > recentTransactionsPSize"
+              >
+                <pagination-controls
+                  *ngIf="recentTransactionsPSize < paginationNumber"
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePage($event)"
+                ></pagination-controls>
 
                 <ul class="no-visibility-2 d-none">
                   <li
-                    *ngFor="let item of transactionDetails | paginate: { itemsPerPage: recentTransactionsPSize, currentPage: currentPage, totalItems: paginationNumber }">
-                    {{item}}
+                    *ngFor="
+                      let item of transactionDetails
+                        | paginate
+                          : {
+                              itemsPerPage: recentTransactionsPSize,
+                              currentPage: currentPage,
+                              totalItems: paginationNumber
+                            }
+                    "
+                  >
+                    {{ item }}
                   </li>
                 </ul>
-
               </div>
             </div>
           </div>
-
-
-
 
           <!-- <div *ngIf="paginationNumber>recentTransactionsPSize" class='pagination-bottom'>
             <ul class="pagination">
@@ -432,13 +501,9 @@
               </li>
             </ul>
           </div> -->
-
-
-
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -455,60 +520,107 @@
     <form [formGroup]="withDrawForm">
       <div class="form-group">
         <label>PPTL Wallet</label>
-        <input class="form-control" placeholder="Enter Wallet Address" formControlName="address" list="addresses"
-          name="addresses" />
+        <input
+          class="form-control"
+          placeholder="Enter Wallet Address"
+          formControlName="address"
+          list="addresses"
+          name="addresses"
+        />
         <datalist id="addresses">
           <option>
-            {{tronAddress}}
+            {{ tronAddress }}
           </option>
         </datalist>
         <div *ngIf="w.address.errors">
-          <span class="text-danger" *ngIf="w.address.errors.required && w.address.touched">field is required</span>
+          <span
+            class="text-danger"
+            *ngIf="w.address.errors.required && w.address.touched"
+            >field is required</span
+          >
 
-          <span class="text-danger"
-            *ngIf="w.address.errors?.invalidAddress && !(w.address.errors.required) && w.address.touched ">invalid
-            address</span>
+          <span
+            class="text-danger"
+            *ngIf="
+              w.address.errors?.invalidAddress &&
+              !w.address.errors.required &&
+              w.address.touched
+            "
+            >invalid address</span
+          >
         </div>
       </div>
 
-
       <div class="form-group">
         <label>Amount PPTL</label>
-        <input type="number" (click)="getValue($event)" (keyup)="getValue($event)" class="form-control"
-          placeholder="0.00" name="amount" formControlName="amount">
+        <input
+          type="number"
+          (click)="getValue($event)"
+          (keyup)="getValue($event)"
+          class="form-control"
+          placeholder="0.00"
+          name="amount"
+          formControlName="amount"
+        />
         <div *ngIf="w.amount.invalid && w.amount.touched">
           <span class="text-danger">field is required</span>
         </div>
-
       </div>
 
       <div class="form-group">
         <label>PPTL Value (AUD)</label>
-        <input type="number" readonly value="{{convertedValue|currency : 'crypto'}}" class="form-control"
-          placeholder="0.00" name="amount" formControlName="amount">
+        <input
+          type="number"
+          readonly
+          value="{{ convertedValue | currency : 'crypto' }}"
+          class="form-control"
+          placeholder="0.00"
+          name="amount"
+          formControlName="amount"
+        />
       </div>
 
       <div class="form-group">
         <label>Description</label>
-        <textarea type="text" class="form-control description-field" placeholder="Enter description" name="amount"
-          formControlName="description" rows="3">
-          </textarea>
+        <textarea
+          type="text"
+          class="form-control description-field"
+          placeholder="Enter description"
+          name="amount"
+          formControlName="description"
+          rows="3"
+        >
+        </textarea>
         <!-- <div *ngIf="w.description.touched">
           <span class="text-danger">field is required</span>
         </div> -->
-
       </div>
 
       <div class="form-group">
-        <div class="d-flex justify-content-between" >
-          <input type="checkbox" (change)=checked($event.target.checked) />
-          <button class="btn save-wallet" [disabled]="!isChecked" (click)="saveAddress(w.address, w.reference)">Save Wallet</button>
-          <input class="form-control w-67" [ngClass]="{'name-field': !isChecked}" placeholder="Name/Reference" formControlName="reference" 
-          name="reference" />
+        <div class="d-flex justify-content-between">
+          <input type="checkbox" (change)="checked($event.target.checked)" />
+          <button
+            class="btn save-wallet"
+            [disabled]="!isChecked"
+            (click)="saveAddress(w.address, w.reference)"
+          >
+            Save Wallet
+          </button>
+          <input
+            class="form-control w-67"
+            [ngClass]="{ 'name-field': !isChecked }"
+            placeholder="Name/Reference"
+            formControlName="reference"
+            name="reference"
+          />
         </div>
-        <span class="mt-3 d-inline-block"><b>Notice:</b> Withdrawal Conditions <span class="doc-link" (click)="openModal(conditions)">(click to read)</span></span>
+        <span class="mt-3 d-inline-block"
+          ><b>Notice:</b> Withdrawal Conditions
+          <span class="doc-link" (click)="openModal(conditions)"
+            >(click to read)</span
+          ></span
+        >
       </div>
-
 
       <!-- <div class="form-group">
         <label (click)="openModal(twoFa)">Two Factor Code</label>
@@ -519,37 +631,65 @@
       <!--loader-->
 
       <div class="withDrawLoader mt-2 mb-2" *ngIf="isSubmitted || saveLoader">
-        <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+        <svg
+          class="lds-comets"
+          width="100%"
+          height="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+        >
           <g transform="rotate(208.756 50 50)">
-            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
-              values="360 50 50;0 50 50" keyTimes="0;1" dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-            </animateTransform>
-            <path fill="#85ffbd"
-              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-            </path>
-            <path fill="#316598"
-              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-            </path>
-            <path fill="#a4bcc2"
-              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-            </path>
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              repeatCount="indefinite"
+              values="360 50 50;0 50 50"
+              keyTimes="0;1"
+              dur="2.3s"
+              keySplines="0.5 0.5 0.5 0.5"
+              calcMode="spline"
+            ></animateTransform>
+            <path
+              fill="#85ffbd"
+              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+            ></path>
+            <path
+              fill="#316598"
+              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+            ></path>
+            <path
+              fill="#a4bcc2"
+              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+            ></path>
           </g>
         </svg>
       </div>
 
       <!---->
       <div class="form-group mt-2 mb-2" *ngIf="!isSubmitted && !saveLoader">
-        <button *ngIf="!twoFaStatus" type="submit" [disabled]="w.amount.invalid || w.address.invalid" class="submit-btn"
-          (click)="submitDetails(withDrawForm)">Send</button>
-        <button [disabled]="w.amount.invalid || w.address.invalid" *ngIf="twoFaStatus" class="submit-btn"
-          (click)="openModal(twoFa)">Send</button>
+        <button
+          *ngIf="!twoFaStatus"
+          type="submit"
+          [disabled]="w.amount.invalid || w.address.invalid"
+          class="submit-btn"
+          (click)="submitDetails(withDrawForm)"
+        >
+          Send
+        </button>
+        <button
+          [disabled]="w.amount.invalid || w.address.invalid"
+          *ngIf="twoFaStatus"
+          class="submit-btn"
+          (click)="openModal(twoFa)"
+        >
+          Send
+        </button>
       </div>
     </form>
   </div>
 </ng-template>
-
-
 
 <ng-template #staking let-modal>
   <div class="modal-heading d-flex justify-content-between align-items-center">
@@ -564,57 +704,95 @@
     <form [formGroup]="stakingForm">
       <div class="form-group">
         <label>Amount</label>
-        <input class="form-control" type="number" placeholder="Enter Amount" formControlName="amount" 
-          name="addresses" />
+        <input
+          class="form-control"
+          type="number"
+          placeholder="Enter Amount"
+          formControlName="amount"
+          name="addresses"
+        />
         <div *ngIf="s.amount.errors">
-          <span class="text-danger" *ngIf="s.amount.errors.required && s.amount.touched">field is required</span>
+          <span
+            class="text-danger"
+            *ngIf="s.amount.errors.required && s.amount.touched"
+            >field is required</span
+          >
         </div>
       </div>
-
 
       <div class="form-group">
         <label>Duration/Percentage</label>
-        <div class="dropdownlist" >
-          <select class="styled-select" [disabled]="stakeTokens != 0" (change)="duration($event)" >
+        <div class="dropdownlist">
+          <select
+            class="styled-select"
+            [disabled]="stakeTokens != 0"
+            (change)="duration($event)"
+          >
             <option value="">Duration</option>
-            <option *ngFor="let duration of STAKING_PERIODS | keyvalue" value="{{duration.key}}">{{duration.value}} % for {{duration.key}} days</option>
+            <option
+              *ngFor="let duration of STAKING_PERIODS | keyvalue"
+              value="{{ duration.key }}"
+            >
+              {{ duration.value }} % for {{ duration.key }} days
+            </option>
           </select>
-       </div>
+        </div>
         <div *ngIf="s.days.invalid && s.days.touched">
           <span class="text-danger">field is required</span>
         </div>
-
       </div>
 
       <div class="withDrawLoader mt-2 mb-2" *ngIf="isSubmitted">
-        <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+        <svg
+          class="lds-comets"
+          width="100%"
+          height="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+        >
           <g transform="rotate(208.756 50 50)">
-            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
-              values="360 50 50;0 50 50" keyTimes="0;1" dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-            </animateTransform>
-            <path fill="#85ffbd"
-              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-            </path>
-            <path fill="#316598"
-              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-            </path>
-            <path fill="#a4bcc2"
-              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-            </path>
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              repeatCount="indefinite"
+              values="360 50 50;0 50 50"
+              keyTimes="0;1"
+              dur="2.3s"
+              keySplines="0.5 0.5 0.5 0.5"
+              calcMode="spline"
+            ></animateTransform>
+            <path
+              fill="#85ffbd"
+              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+            ></path>
+            <path
+              fill="#316598"
+              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+            ></path>
+            <path
+              fill="#a4bcc2"
+              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+            ></path>
           </g>
         </svg>
       </div>
 
       <!---->
-      <div class="form-group mt-2 mb-2"  *ngIf="!isSubmitted" >
-        <button type="submit" [disabled]="s.amount.invalid || s.days.errors?.required " class="submit-btn"
-          (click)="stakeCoins(stakingForm)">Send</button>
+      <div class="form-group mt-2 mb-2" *ngIf="!isSubmitted">
+        <button
+          type="submit"
+          [disabled]="s.amount.invalid || s.days.errors?.required"
+          class="submit-btn"
+          (click)="stakeCoins(stakingForm)"
+        >
+          Send
+        </button>
       </div>
     </form>
   </div>
 </ng-template>
-
 
 <ng-template #transfer let-modal>
   <div class="modal-heading d-flex justify-content-between align-items-center">
@@ -627,50 +805,87 @@
   </div>
   <div class="modal-body">
     <form [formGroup]="transferForm">
-
       <div class="form-group">
         <label>User Name</label>
-        <input class="form-control" type="text" placeholder="Enter User Name" formControlName="username" 
-          />
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Enter User Name"
+          formControlName="username"
+        />
         <div *ngIf="tt.username.errors">
-          <span class="text-danger" *ngIf="tt.username.errors.required && tt.username.touched">field is required</span>
+          <span
+            class="text-danger"
+            *ngIf="tt.username.errors.required && tt.username.touched"
+            >field is required</span
+          >
         </div>
       </div>
 
       <div class="form-group">
         <label>Amount</label>
-        <input class="form-control" type="number" placeholder="Enter Amount" formControlName="amount" 
-       />
+        <input
+          class="form-control"
+          type="number"
+          placeholder="Enter Amount"
+          formControlName="amount"
+        />
         <div *ngIf="tt.amount.errors">
-          <span class="text-danger" *ngIf="tt.amount.errors.required && tt.amount.touched">field is required</span>
+          <span
+            class="text-danger"
+            *ngIf="tt.amount.errors.required && tt.amount.touched"
+            >field is required</span
+          >
         </div>
       </div>
 
-
       <div class="withDrawLoader mt-2 mb-2" *ngIf="isSubmitted">
-        <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+        <svg
+          class="lds-comets"
+          width="100%"
+          height="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+        >
           <g transform="rotate(208.756 50 50)">
-            <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite"
-              values="360 50 50;0 50 50" keyTimes="0;1" dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-            </animateTransform>
-            <path fill="#85ffbd"
-              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-            </path>
-            <path fill="#316598"
-              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-            </path>
-            <path fill="#a4bcc2"
-              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-            </path>
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              repeatCount="indefinite"
+              values="360 50 50;0 50 50"
+              keyTimes="0;1"
+              dur="2.3s"
+              keySplines="0.5 0.5 0.5 0.5"
+              calcMode="spline"
+            ></animateTransform>
+            <path
+              fill="#85ffbd"
+              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+            ></path>
+            <path
+              fill="#316598"
+              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+            ></path>
+            <path
+              fill="#a4bcc2"
+              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+            ></path>
           </g>
         </svg>
       </div>
 
       <!---->
-      <div class="form-group mt-2 mb-2"  *ngIf="!isSubmitted" >
-        <button type="submit" [disabled]="tt.amount.invalid || tt.username.invalid" class="submit-btn"
-          (click)="transferCoins(transferForm)">Transfer</button>
+      <div class="form-group mt-2 mb-2" *ngIf="!isSubmitted">
+        <button
+          type="submit"
+          [disabled]="tt.amount.invalid || tt.username.invalid"
+          class="submit-btn"
+          (click)="transferCoins(transferForm)"
+        >
+          Transfer
+        </button>
       </div>
     </form>
   </div>
@@ -688,15 +903,28 @@
     </button>
   </div>
   <div class="modal-body">
-    <p class="verify-text">{{'You have 2 factor authentication enabled.' | translate}}
+    <p class="verify-text">
+      {{ "You have 2 factor authentication enabled." | translate }}
     </p>
-    <p class="verify-text">{{'Please Enter Your Google Authenticator Six-Digit Code' | translate}}</p>
-    
+    <p class="verify-text">
+      {{ "Please Enter Your Google Authenticator Six-Digit Code" | translate }}
+    </p>
+
     <form [formGroup]="twoFaForm">
       <div class="form-group">
-        <input type="text" formControlName="twoFa"  maxlength="6"   class="form-control twoFaField" placeholder=" - - - - -" name="twoFa">       
+        <input
+          type="text"
+          formControlName="twoFa"
+          maxlength="6"
+          class="form-control twoFaField"
+          placeholder=" - - - - -"
+          name="twoFa"
+        />
         <div *ngIf="t.twoFa.errors">
-          <span class="text-danger" *ngIf="t.twoFa.errors.required && t.twoFa.touched">
+          <span
+            class="text-danger"
+            *ngIf="t.twoFa.errors.required && t.twoFa.touched"
+          >
             Please enter your code
           </span>
           <span class="text-danger" *ngIf="t.twoFa.errors.minlength">
@@ -705,19 +933,49 @@
         </div>
       </div>
       <div *ngIf="twoFaLoader" class="loader">
-        <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-            <g transform="rotate(208.756 50 50)">
-                <animateTransform attributeName="transform" type="rotate" repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
-                    dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
-                <path fill="#85ffbd" d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"></path>
-                <path fill="#316598" d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"></path>
-                <path fill="#a4bcc2" d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"></path>
-            </g>
+        <svg
+          class="lds-comets"
+          width="100%"
+          height="100%"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid"
+        >
+          <g transform="rotate(208.756 50 50)">
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              repeatCount="indefinite"
+              values="360 50 50;0 50 50"
+              keyTimes="0;1"
+              dur="2.3s"
+              keySplines="0.5 0.5 0.5 0.5"
+              calcMode="spline"
+            ></animateTransform>
+            <path
+              fill="#85ffbd"
+              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+            ></path>
+            <path
+              fill="#316598"
+              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+            ></path>
+            <path
+              fill="#a4bcc2"
+              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+            ></path>
+          </g>
         </svg>
-    </div>
+      </div>
       <div class="form-group" *ngIf="!twoFaLoader">
-        <button class="submit-btn" [disabled]="t.twoFa.invalid" (click)="submitCode(twoFaForm)" >Send</button>
+        <button
+          class="submit-btn"
+          [disabled]="t.twoFa.invalid"
+          (click)="submitCode(twoFaForm)"
+        >
+          Send
+        </button>
       </div>
     </form>
   </div>
@@ -730,7 +988,9 @@
 <ng-template #conditions let-modal>
   <div class="modal-heading d-flex justify-content-between align-items-center">
     <div class="text-upercase">
-      <p class="conditions-maintext">Withdrawal Conditions and Timeframes Notice:</p>
+      <p class="conditions-maintext">
+        Withdrawal Conditions and Timeframes Notice:
+      </p>
     </div>
     <button class="close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
@@ -739,44 +999,67 @@
   <div class="modal-body">
     <div class="scroll">
       <p>
-        It is important to understand that you please input the correct wallet address for sending your coins or tokenstoo.  
+        It is important to understand that you please input the correct wallet
+        address for sending your coins or tokenstoo.
       </p>
       <p>
-        Please ensure you have correctly checked all characters and the amount you are wishing to send prior tosending. There should be no spaces after the last character in your wallet address as this will impede theability to finalise your transaction.
-      </p>
-      <p>In most cases your coins or tokens will be sent immediately after you have approved the withdrawalconfirmation email.</p>
-      <p>
-        Although most coin and token withdrawals are processed immediately, withdrawals can take up to 12 hours.We endeavour to process your withdrawals and have them broadcast on the blockchain as soon as possible.However, we are unable to guarantee instant withdrawals.
-      </p>
-      <p>
-        If you intend to have time-sensitive withdrawals, we strongly advise that you store your coins and tokens ona private wallet. 
+        Please ensure you have correctly checked all characters and the amount
+        you are wishing to send prior tosending. There should be no spaces after
+        the last character in your wallet address as this will impede theability
+        to finalise your transaction.
       </p>
       <p>
-        Most automatically processed coin and token withdrawals from your ILO wallet will be processed within afew minutes, but if manual approval is required or our hot wallet has insufficient funds and requires to berefilled via manual intervention.
+        In most cases your coins or tokens will be sent immediately after you
+        have approved the withdrawalconfirmation email.
       </p>
       <p>
-        In situations where there is maintenance on a wallet, our wallets are syncing or we have an unexpectedoutage, the withdrawal may be longer than 12 hours.
+        Although most coin and token withdrawals are processed immediately,
+        withdrawals can take up to 12 hours.We endeavour to process your
+        withdrawals and have them broadcast on the blockchain as soon as
+        possible.However, we are unable to guarantee instant withdrawals.
       </p>
       <p>
-        You can check the status of your transactions via the "Transaction" Tab on each wallet page. If the status is"pending", please check you email inbox for any correspondence from us.
+        If you intend to have time-sensitive withdrawals, we strongly advise
+        that you store your coins and tokens ona private wallet.
       </p>
       <p>
-        If your withdrawal has been pending for an extended period of time, we may be able to cancel yourwithdrawal and return the funds to your wallet. Please contact support for further information.
+        Most automatically processed coin and token withdrawals from your ILO
+        wallet will be processed within afew minutes, but if manual approval is
+        required or our hot wallet has insufficient funds and requires to
+        berefilled via manual intervention.
+      </p>
+      <p>
+        In situations where there is maintenance on a wallet, our wallets are
+        syncing or we have an unexpectedoutage, the withdrawal may be longer
+        than 12 hours.
+      </p>
+      <p>
+        You can check the status of your transactions via the "Transaction" Tab
+        on each wallet page. If the status is"pending", please check you email
+        inbox for any correspondence from us.
+      </p>
+      <p>
+        If your withdrawal has been pending for an extended period of time, we
+        may be able to cancel yourwithdrawal and return the funds to your
+        wallet. Please contact support for further information.
       </p>
     </div>
   </div>
 </ng-template>
 
-
 <!---->
-
 
 <div class="modal" id="with-Draw">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header with-draw-header">
         <p class="with-draw-txt">Withdrawal Details</p>
-        <button type="button" aria-label="Close" class="close" (click)="closeModal()">
+        <button
+          type="button"
+          aria-label="Close"
+          class="close"
+          (click)="closeModal()"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -786,40 +1069,54 @@
           <form [formGroup]="withDrawForm">
             <div class="form-group">
               <label>Address</label>
-              <input type="text" class="form-control" placeholder="wallet address" formControlName="address">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="wallet address"
+                formControlName="address"
+              />
 
               <div *ngIf="w.address.errors">
-                <span class="text-danger" *ngIf="w.address.errors.required && w.address.touched">field is
-                  required</span>
+                <span
+                  class="text-danger"
+                  *ngIf="w.address.errors.required && w.address.touched"
+                  >field is required</span
+                >
 
-                <span class="text-danger"
-                  *ngIf="w.address.errors?.invalidAddress && !(w.address.errors.required) && w.address.touched ">invalid
-                  address</span>
+                <span
+                  class="text-danger"
+                  *ngIf="
+                    w.address.errors?.invalidAddress &&
+                    !w.address.errors.required &&
+                    w.address.touched
+                  "
+                  >invalid address</span
+                >
               </div>
-
             </div>
 
             <div class="form-group">
               <label>Amount</label>
-              <input type="number" class="form-control" placeholder="amount" name="amount" formControlName="amount">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="amount"
+                name="amount"
+                formControlName="amount"
+              />
               <div *ngIf="w.amount.invalid && w.amount.touched">
                 <span class="text-danger">field is required</span>
               </div>
-
             </div>
 
             <div class="form-group mt-2">
-              <button class="submit-btn" (click)="submitDetails(withDrawForm)">withdraw</button>
+              <button class="submit-btn" (click)="submitDetails(withDrawForm)">
+                withdraw
+              </button>
             </div>
           </form>
-
         </div>
-
-
-
       </div>
-
-
     </div>
   </div>
 </div>
