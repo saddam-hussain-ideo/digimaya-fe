@@ -1103,12 +1103,10 @@ $label-color: #2097d4;
 }
 
 .sub-title {
-  color: $dashboard-purple-clr;
-  text-transform: $title-case;
-  font-size: $font-14;
-  font-family: "LatoWebLight";
-  margin: $title-margin;
-  font-weight: 600;
+  color:#191919;
+  font-size: 24px;
+  font-family: "CenturyRetrospective", serif;
+  font-weight: 400;
 }
 .aligned-test {
   margin-top: -15px !important;
@@ -2172,7 +2170,10 @@ blue-submit .back-btn {
 }
 
 .color-blue {
-  color: #34519d !important;
+  color: #8C8C8C !important;
+  font-size: 14px;
+  font-family: 'MavenPro';
+  
 }
 
 .background-green {

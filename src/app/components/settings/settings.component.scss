@@ -1,6 +1,11 @@
 @import '../../../_variables';
 .myWallet-section{
-    height: calc(100vh - 842px);
+    background-color: white;
+    padding: 40px 20px;
+}
+.background{
+    background-color: white;
+
 }
 .mywallet-head-txt{
     font-family: 'LatoWeb';
@@ -14,8 +19,9 @@
     }
 }
 .genral-sett-div{
-    background-color: white;
-    padding: 25px 40px;
+    background-color: #F6F6F6;
+    padding: 20px;
+    border-radius: 8px;
 
     @media (max-width:767px) {
         margin: 0px 0 20px 0;
@@ -67,7 +73,7 @@
 }
 
 .NOT_SUBMITTED{
-    background-color: #C9302C !important;
+color: #FF0082 !important;
 }
 
 .NOT_SUBMITTED:after{
@@ -76,7 +82,7 @@
     transform:none !important;
     top: 11px !important;
     right: 8px !important;
-
+display: none;
 }
 
 
@@ -108,8 +114,9 @@
 
 .update-password{
     margin:25px 0;
-    background:white;
-    padding:25px 40px
+    background:#F6F6F6;
+    padding:20px;
+    border-radius: 8px;
 }
 .proof-buttons{
     height: 45px;	
@@ -135,18 +142,21 @@
 }
 .update-buttons{
     height: 45px;	
-    width: 160px;	
-    background-color: $dashboard-purple-clr;
-    border:none;
-    font-family: 'LatoWebBold';
-    font-size:14px;
+    width: 240px;	
+    background: linear-gradient(
+        to bottom right,
+        $maaya-orange-dawn,
+        $maaya-purple-dusk
+      );
+    font-family: 'MavenPro';
+    font-size:16px;
+    font-weight: 600;
     color:white;
-    text-transform: uppercase;
     transition:all 0.3s;
+    border-radius: 8px;
     cursor: pointer;
 
     @media (max-width:1600px) {
-        width:auto;
         padding:5px 25px;
     }
 
@@ -235,12 +245,14 @@ width: 50px;
     width: 93%;
 }
 .nn-input-sett{
-    height: 38px;
-    background-color: #F0F0F0;
-    border-radius: 0px !important;
-    border: none !important;
-    color: $theme-blue;
+    height: 48px;
+    background-color: transparent;
+    border-radius: 8px !important;
+    color:  #11111399;
     box-shadow: none;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
 }
 .auth-sett-text2{
     color: $theme-blue;
@@ -355,10 +367,10 @@ width: 50px;
 
 
 .acc-conf-div{
-    background-color: white;
-    padding: 25px 20px;
+    background-color: #F6F6F6;
+    padding: 20px;
     margin-top: 20px;
-
+    border-radius: 8px;
 }
 
 .width15{
@@ -369,16 +381,31 @@ width: 50px;
 }
 
 .nn-lbl-sett{
-    color: $theme-blue
+    color: #11111399;
+    font-family: 'MavenPro';
+    font-size: 16px;
+    font-weight: 500;
+&.status{
+    font-size: 14px;
+    color: #8C8C8C;
+}
 }
 .tbl-col3-txt{
 
-    font-family: 'LatoWeb';
-    color: $theme-blue;	
-    text-transform: uppercase;
+    font-family: 'MavenPro';
+    color:#8C8C8C;	
     font-size: 14px;
     margin-bottom: 5px;
-   	font-weight: 300;	
+   	font-weight: 500;	
+
+}
+.tbl-col3-step{
+
+    font-family: 'MavenPro';
+    color:#FF0082;	
+    font-size: 20px;
+    margin-bottom: 5px;
+   	font-weight: 500;	
 
 }
 .checkmark {
@@ -402,11 +429,9 @@ width: 50px;
     height: 35px;	
     width: 165px;	
     max-width: 165px;
-    background-color: #6CDED0;
-    color:white;
-    color: #FFFFFF;	
-    text-transform: uppercase;
-    font-family: 'LatoWeb';
+    background-color: transparent;
+    color: #45B13C;	
+    font-family: 'MavenPro';
     border:none;	
     font-size: 12px;	
     font-weight: bold;	
@@ -418,7 +443,7 @@ width: 50px;
 
 .table-verified:after{
     content: "L";
-    font-family: 'LatoWebLight';
+    font-family: 'MavenPro';
     -webkit-transform: scaleX(-1) rotate(-45deg);
     transform: scaleX(-1) rotate(-45deg);
     font-size: 20px;
@@ -426,7 +451,7 @@ width: 50px;
     font-weight: 300;
     top: 8px;
     right: 15px;
-    color: white;
+    color: #45B13C;
 }
 
 .padding-top35{
@@ -436,9 +461,9 @@ width: 50px;
     padding-top: 25px;
 }
 .authentication-sett-div{
-    background-color: white;
-    padding: 25px 25px; 
-
+    background-color: #F6F6F6;
+    padding: 20px; 
+    border-radius: 8px;
     @media (max-width:991px) {
         margin:25px 0 0px 0;
     }
@@ -1239,4 +1264,23 @@ width: 50px;
 
 .m-tb{
     margin: 1rem 0 0 0;
+}
+.show-password-btn{
+    position: absolute;
+    right: 15%;
+    top: 55%;
+}
+
+.enable2fa{
+    ::ng-deep .switch{
+        background-color: #D9D9D9 !important;
+    }
+    ::ng-deep .switch-medium{
+        height: 20px !important;
+        width: 40px !important;
+        small{
+            width: 20px !important;
+            height: 20px !important;
+        }
+    }
 }
