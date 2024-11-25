@@ -15,18 +15,17 @@
     visibility: hidden;
 }
 .buy-txt{
-    font-size: 14px;
+    font-size: 24px;
     font-weight: bold;
-    font-family: 'LatoWebBold';
-    text-transform: uppercase;
+    font-family: "CenturyRetrospective", serif;
+    text-transform: capitalize;
     margin-bottom: 0;
-    padding: 10px;
+    padding: 10px 0;
 
 }
 .puc-txt{
     font-size: 14px;
     font-weight: bold;
-    font-family: 'LatoWebBold';
     text-transform: uppercase;
     padding-top: 10px;
     margin-bottom: 0;
@@ -44,7 +43,6 @@
 .curr-txt{
     font-size: 14px;
     font-weight: bold;
-    font-family: 'LatoWebBold';
     text-transform: uppercase;
 }
 .buy-text{
@@ -157,11 +155,11 @@
 }
 
 .rates-table-currency{
-    font-family: 'LatoWeb' !important;
+    font-family: 'MavenPro' !important;
     text-transform: $title-case !important;
     // color: #1D2939 !important;
-    color: $dashboard-purple-clr;
-    font-size: 14px !important;
+    color: #8C8C8C;
+    font-size: 12px !important;
     text-align: left;
    
 }
@@ -245,7 +243,6 @@
 
 .earn-boxes-list {
 
-    margin: 0px 0 20px;
     padding: 0;
     list-style: none;
    /*  margin-left: -4px; */
@@ -320,20 +317,19 @@
 }
 
 .pay-btn{
-    background: $light-pulper-color;
-    border: 2px solid $white-color;
+    background:  linear-gradient(to bottom right, #ff7f2c, #ff0082);
     font-size:16px;
-    text-transform:uppercase;
     color:white;
-    font-family: 'LatoWeb';
-    font-weight: 400;
-    // width:80%;
-    width: 130%;
+    font-family: 'MavenPro';
+    font-weight: 600;
+    width:200px;
     height: 45.13px;
-    margin-top: 20px;
+    margin-top: 70px;
     float: right;
     margin-right:15px;
     cursor: pointer;
+    text-transform: capitalize;
+    border-radius: 8px;
 }
 
 .chart-div{
@@ -349,7 +345,7 @@
 }
 
 .white-outer{
-    background:white;
+    background:#F6F6F6;
     padding:20px;
     height: 100%;
 }
@@ -484,11 +480,11 @@
 
 
 .sub-title{
-    color: $dashboard-purple-clr;
-    text-transform: $title-case;
-    font-size: $font-14;
+    color:#191919;
+    text-transform:capitalize;
+    font-size:24px;
     // font-family: 'LatoWebLight';
-    font-family: 'LatoWebBold';
+    font-family: "CenturyRetrospective", serif;
     margin: $title-margin;
     font-weight: bold;
     .piptleissued{
@@ -509,8 +505,9 @@
 }
 .rates-title{
 //   color:#616A75;
-  color: $white-color;
-  text-transform: $title-case;
+color: #191919;
+  font-family: 'MavenPro';
+  text-transform: capitalize;
 //   font-size: $font-14;
 font-size: 12px;
 // font-family: 'LatoWebLight';
@@ -530,13 +527,12 @@ font-size: 12px;
 }
 
 .advised-txt{
-    color: #643E8D;
+    color: #8C8C8C;
     padding-left: 0;
-    font-size: 12px;
+    font-size: 14px;
     margin: 0 ;
     font-weight: bold;
-    font-family: helvetica;
-    text-transform: uppercase;
+    font-family: 'MavenPro';
 }
 
 .main-calculator{
@@ -556,17 +552,32 @@ font-size: 12px;
 .black-bg-inputs{
     width:100%;
     border:none;
-    background: #F5F5F5;
+    background: transparent;
+    border-radius: 8px;
     height:35px;
-    padding-left:15px;
-    color:#333;
-    font-family: 'LatoWeb';
+    color:#666666;
+    font-family: 'MavenPro';
     box-shadow: none;
+    padding: 16px 13px;
+    border: 2px solid #11111333;
 }
 
 .left-header{
     width:48%;
+    color: #8C8C8C !important;
+    font-size: 14px !important;
+    font-family: 'MavenPro' !important;
+    font-weight: 500 !important;
 }
+.right-header{
+    width:48%;
+    color: #8C8C8C !important;
+    font-size: 14px !important;
+    font-family: 'MavenPro' !important;
+    font-weight: 500 !important;
+    text-align: end;
+}
+
 
 /* .centering-content{
     width:60%;
@@ -591,19 +602,25 @@ font-size: 12px;
 }
 
 .custom-dropdown select {
-    background-color: #F5F5F5;
-    color: $dashboard-purple-clr;
-    font-size: 14px;
+    background-color: transparent;
+    color: #666666;
+    font-size: 16px;
     font-weight: bold;
-    font-family: Helvetica, sans-serif;
-    padding: 3px 0 2px 10px;
-    border: 0;
+    font-family: 'MavenPro';
+    padding: 16px 13px;
     margin: 0;
     text-indent: 0.01px;
     width: 100%;
     height: 35px;
     text-overflow: '';
+    border: 2px solid #11111333;
+    border-radius: 8px;
     -webkit-appearance: button;
+    -o-appearance: none;
+    -ms-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     /* hide default arrow in chrome OSX */
 }
 
@@ -668,10 +685,8 @@ font-size: 12px;
 }
 
 .footer-bottom{
-    position: relative;
-    min-height: 82px;
-    // background:$dashboard-purple-clr;
-    background-image: linear-gradient(to left,  #643E8D,#010102 420px );
+    min-height: 140px;
+    background:black;
 
 }
 .blck-elems{
@@ -695,20 +710,21 @@ font-size: 12px;
 .custom-arrow{
     position: absolute;
     right: 7px;
-    top: 11px;
+    top: 7px;
     pointer-events: none;
 } 
 .custom-dropdown::after {
     /*  Custom dropdown arrow */
     // content: "\25BC";
-    height: 0.2em;
-    font-size: 0.5em;
-    line-height: 1;
-    right: 11px;
-    top: 54%;
-    color: #333 !important;
-    margin-top: -.5em;
-    font-weight: bold;
+    // height: 0.2em;
+    // font-size: 0.5em;
+    // line-height: 1;
+    // right: 11px;
+    // top: 54%;
+    // color: #666666 !important;
+    // margin-top: -.5em;
+    // font-weight: bold;
+    display: none;
 }
 
 .custom-dropdown::before {
@@ -720,19 +736,19 @@ font-size: 12px;
     /*  border-radius: 0 8px 8px 0; */
 }
 .custom-dropdown select[disabled] {
-    color: rgba(0, 0, 0, .3);
+    color: #666666;
 }
 
 .custom-dropdown select[disabled]::after {
-    color: rgba(0, 0, 0, .1);
+    color: #666666;
 }
 
 .custom-dropdown::before {
-    background-color: #f5f5f5;
+     background-color: transparent;
 }
 
 .custom-dropdown::after {
-    color: rgba(0, 0, 0, .4);
+    color:#666666;
 }
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>thead>tr>td, .table>thead>tr>th {
@@ -962,26 +978,33 @@ font-size: 12px;
 /* NEW CSS */
 
 .calculator-box{
-    background: white;
+    background: #F6F6F6;
  /*    min-height:100%; */
     height: 394px;
-    position: relative;
-    padding-bottom: 0px !important;
+    padding: 20px;
+    border-radius: 8px;
     .calculator-tabs{
         // padding: 18px 0 0 18px;
-        background: #f0f0f0;
-        border: 1px solid $light-pulper-color;
+        border: 1px solid #F6F6F6;
+        border-radius:8px ;
         .nav-item{
             width: 50%;
             text-align: center;
             .nav-link{
-                font-family: 'LatoWebBold';
-                color: $light-pulper-color;
+                font-family: "MavenPro";
+                color: black;
+                border: 1px solid #B3B3B3;
+                font-size: 16px;
+            padding: 16px 0;
+font-weight: 600px;
+margin:0 20px 0 0;
             }
             .active{
-                background-color: $dashboard-purple-clr;
-                border-radius: 0px;
+                background: linear-gradient(to bottom right, #ff7f2c, #ff0082);
                 color: $white-color;
+                margin:0 20px;
+                font-size: 16px;
+                font-family: "MavenPro";
             }
         }
     }
@@ -1023,13 +1046,19 @@ font-size: 12px;
     background-color: $dashboard-purple-clr;
     color: $white-color;
 }
+.padding-16 {
+    padding:20px;
+    background-color:transparent;
+    color: #191919;
+}
+
 
 .black-labels{
-    color:$dashboard-purple-clr;
+    color:#666666;
     padding-left:0;
-    font-size:15px;
-    font-weight: bold;
-    font-family: helvetica;
+    font-size:16px;
+    font-weight: 500;
+    font-family: 'MavenPro';
     text-transform: uppercase;
     margin:0;
 
@@ -1046,11 +1075,11 @@ font-size: 12px;
 
 }
 
-@media only screen and (max-width:767px) {
-    .pay-btn{
-        height: unset;
-    }
-}
+// @media only screen and (max-width:767px) {
+//     .pay-btn{
+//         height: unset;
+//     }
+// }
 
 @media only screen and (max-width:640px) {
 
@@ -1061,12 +1090,12 @@ font-size: 12px;
         margin-bottom:10px
     }
 
-    .pay-btn{
-        width: 100%;
-        float:none !important;
-        margin:0 auto;
-        height: unset;
-    }
+    // .pay-btn{
+    //     width: 100%;
+    //     float:none !important;
+    //     margin:0 auto;
+    //     height: unset;
+    // }
 
     .row-eq-height{
          .left-box,.centered-div,.carousel-box{
@@ -1405,11 +1434,11 @@ font-size: 12px;
     }
 
 
-    .footer-bottom {
-        position: absolute;
-        bottom: 0px;
-        width: 100%;
-    }
+    // .footer-bottom {
+    //     position: absolute;
+    //     bottom: 0px;
+    //     width: 100%;
+    // }
 
     .buy-xchge{
         padding-top:15px;
@@ -1476,11 +1505,11 @@ font-size: 12px;
 
 
 @media only screen and (min-width:1800px) and (max-width:2100px){
-    .footer-bottom{
-        bottom: 0 !important;
-        position: absolute;
-        width: 100%;
-    }
+    // .footer-bottom{
+    //     bottom: 0 !important;
+    //     position: absolute;
+    //     width: 100%;
+    // }
 }
 
 @media only screen and (min-width:1201px) and (max-width:1460px){
@@ -1490,11 +1519,11 @@ font-size: 12px;
 
 
 
-    .footer-bottom {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-    }
+    // .footer-bottom {
+    //     position: absolute;
+    //     width: 100%;
+    //     bottom: 0;
+    // }
 
     .buy-xchge{
         padding-top: 16px;
@@ -1551,9 +1580,9 @@ font-size: 12px;
         margin-bottom:30px;
     }
 
-    .footer-bottom {
-        height: 55px;
-   }
+//     .footer-bottom {
+//         height: 55px;
+//    }
 
    .buy-xchge {
     padding-top: 15px;
@@ -1668,9 +1697,9 @@ font-size: 12px;
         width: 30%;
    }
 
-    .footer-bottom {
-        min-height: 114px;
-   }
+//     .footer-bottom {
+//         min-height: 114px;
+//    }
 
    .btc-price {
     color: $theme-blue;
@@ -1709,13 +1738,13 @@ font-size: 12px;
         float: left;
    }
 
-   .footer-bottom {
-    position: absolute;
-    bottom:0;
-    height: 82px;
-    width: 100%;
-    // background:#EAF4FA;
-}
+//    .footer-bottom {
+//     position: absolute;
+//     bottom:0;
+//     height: 82px;
+//     width: 100%;
+//     // background:#EAF4FA;
+// }
 
     .buy-xchge{
         margin:0;
@@ -1766,18 +1795,18 @@ font-size: 12px;
 @media only screen and (min-width:1200px){
 
 
-   .footer-bottom {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    position: absolute;
-    width:100%;
-    bottom:0;
-    height: 35px;
-}
+//    .footer-bottom {
+//     background-size: 100% 100%;
+//     background-repeat: no-repeat;
+//     position: absolute;
+//     width:100%;
+//     bottom:0;
+//     height: 35px;
+// }
 .adjst1{
-    width: 80%;
     position: relative;
     float: left;
+    margin-left: 20px;
 }
 .adjst2{
     width: 20%;
@@ -1835,6 +1864,7 @@ font-size: 12px;
 @media only screen and (max-width:767px){
     .header-box{
         margin-bottom:30px;
+     
     }
 }
 
@@ -1854,45 +1884,63 @@ font-size: 12px;
 .dash-info-row{
     
     .info-custom-card{
-        background: $dashboard-purple-clr;
-        border: 3px solid $white-color;
+        background: linear-gradient(to bottom right, #ff7f2c, #ff0082);
+        border: 3px solid white !important;
+        border-radius: 8px;
         .content{
-            padding: 13px 14px 9px;
-            // padding: 7px 6px 6px;
-
+            padding: 16px;
             text-transform: uppercase;
-            font-size: $font-14;
             margin: 0;
-            font-family: 'LatoWebBold';
+            font-family: "MavenPro";
             display: flex;
             flex-direction: column;
+            gap: 16px;
             .heading{
                 color: $white-color;
+                &.prp-text-ppt{
+                    font-size: 32px;
+                    line-height: 32px;
+                    font-weight: 600;
+                    font-family: 'MavenPro';
+                    color: black;
+                }
             }
             .prp-text{
-                color: $dashboard-purple-clr;
+                color: black;
             }
             .pulper-color{
                 color: $white-color;
+                font-size: 32px;
+                line-height: 32px;
+                font-weight: 600;
+                font-family: 'MavenPro';
             }
         }
     }
     .dark-bg{
-        background-color: $white-color;
-        border: 3px solid $dashboard-purple-clr;
+        background:#F6F6F6 !important;
+        border: 3px solid $white-color;
     }
 }
 .payment-card{
     margin-top: -13px;
     margin-left: 3px;
+    background-color: #F6F6F6;
+    padding: 20px;
     .content{
-        padding: 13px 9px 9px 0px;
+        padding-bottom:20px ;
         // padding: 10px 7px;
         .prp-text{
             color: $dashboard-purple-clr;
             font-size: $font-14;
             font-weight: bold;
         }
+    }
+    .logos-spacing{
+        margin-bottom: 20px;
+    }
+    .payments-spacing{
+        padding-bottom: 70px;
     }
 }
 .fa-quora{
@@ -1940,19 +1988,21 @@ div[disabled=disabled] {
                 bottom: 0;
             }
           }
-        img{
-            height: 33px;
-            width: 33px;
-            margin-top: 6px;
-            margin-right: 3px;
-        }
+        // img{
+        //     height: 33px;
+        //     width: 33px;
+        //     margin-top: 6px;
+        //     margin-right: 3px;
+        // }
         .page-title{
-            color: $dashboard-purple-clr;
-            font-weight: unset;
-            // margin-left: 10px;
+            color:#191919;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 40px;
+            font-family: "CenturyRetrospective", serif;
             margin: auto;
         }
-      
+      margin-bottom: 40px;
     }
 }
 .graphcontent{
@@ -1987,4 +2037,43 @@ div[disabled=disabled] {
 }
 .text-class{
     text-transform: capitalize;
+    font-family: "CenturyRetrospective", serif;
+    font-size: 16px;
+    line-height: 16px;
+    color: white;
+}
+.text-class-prp{
+    font-family: "CenturyRetrospective", serif;
+    font-size: 16px;
+    line-height: 16px;
+    color: white;
+}
+.payments-accepted-for{
+    font-family: "CenturyRetrospective", serif;
+    color: #191919;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.no-data-found{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #191919;
+    font-family: 'MavenPro';
+    padding-top: 40px;
+}
+.global-transaction-heading{
+    font-size: 14px;
+    font-family: 'MavenPro';
+    color: #8C8C8C;
+}
+.global-transaction-heading-two{
+    font-size: 14px;
+    font-family: 'MavenPro';
+    color: #191919;
+}
+.padding-bottom-40{
+    padding-bottom: 40px;
 }
