@@ -180,11 +180,8 @@ input:-webkit-autofill {
   align-items: flex-start;
   padding: 20px;
   border-radius: 16px;
-  background: linear-gradient(
-    to bottom right,
-    $maaya-orange-dawn,
-    $maaya-purple-dusk
-  );
+  background: radial-gradient(107.63% 220.06% at 0.17% 0.51%, #FF7F2C 0%, #FF0082 100%);
+
   color: white;
 
   @media (max-width: 768px) {
