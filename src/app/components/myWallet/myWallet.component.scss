@@ -7,17 +7,21 @@
 }
 
 .submit-btn{
-    height: 52px;
-    background-color: #643E8D !important;
+    padding: 8px 0;
+    background: linear-gradient(
+        to bottom right,
+        $maaya-orange-dawn,
+        $maaya-purple-dusk
+      );
     width: 100%;
     border: none;
-    text-transform: uppercase;
     color: #FFFFFF;
-    font-family: 'LatoWeb';
+    font-family: 'MavenPro';
     font-size: 14px;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
+    border-radius: 8px;
 }
 .submit-btn:disabled {
     opacity: 0.5;
@@ -54,20 +58,19 @@
     .nn-input{
         color: $theme-blue;
     }
-    .twoFaText{
-        color: #34519d;
-        font-family: 'LatoWeb';
-        font-size: 13px;
-        font-weight: bold;
-        text-transform: uppercase;
-        @media screen and (max-width: 1230px){
-            font-size: 10px;
-
-        }
-    }
+   
 
  }
+ .twoFaText{
+    color: #8C8C8C;
+    font-family: 'MavenPro';
+    font-size: 14px;
+    font-weight: 500;
+    @media screen and (max-width: 1230px){
+        font-size: 10px;
 
+    }
+}
  .addressRates{
     display: flex;
     justify-content: center;
@@ -649,11 +652,11 @@ cursor: pointer;
                 }
 
                 .no-of-coins{
-                    color: $theme-blue;
-                    font-family: 'LatoWeb';
-                    font-size: 22px;
-                    font-weight: bold;
-                    line-height: 22px;
+                    color: #191919;
+                    font-family: 'MAvenPro';
+                    font-size: 24px;
+                    font-weight: 600;
+                    line-height: 24px;
                 }
             }
 
@@ -1009,7 +1012,7 @@ cursor: pointer;
 
 .no-of-coins{
     margin-bottom:5px;
-    color: #616A75;
+    color: #191919;
     font-family: 'LatoWebBold';
     font-size: 26px;
     text-transform: uppercase;
@@ -1037,14 +1040,12 @@ cursor: pointer;
 
 
 .top-head{
-    height: 135px;
-    display: table;
+    display: flex;
     width:100%;
     text-align: center;
-    width: 40%;
-    margin: 0 auto;
-    text-align: center;
-
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .allowed{
@@ -1062,11 +1063,12 @@ cursor: pointer;
 }
 
 .wallet-type-wrap{
-    background:white;
-    position: relative;
-    overflow: hidden;
-    height:  410px;
+    background:#F6F6F6;
+    max-height: 240px;
+    min-height: 240px;
     margin-bottom:30px;
+    padding: 20px;
+    border-radius: 8px;
     // @media (max-width:1600px) and (min-width:1156px) {
     //     height: 455px;
     // }
@@ -1129,9 +1131,7 @@ cursor: pointer;
     margin-bottom:10px;
 }
 .padding10{
-    margin: 0px 25px 50px 25px;
     padding-top:40px;
-    border-top: 3px solid #F6F6F6;
 }
 @media screen and (max-width:1150px){
     .instruction-section{
@@ -1385,3 +1385,24 @@ cursor: pointer;
 // .printme {
 // 	display: none;
 // }
+
+.background{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+.page-title-buy-piptles{
+    color: #191919;
+    font-family: "CenturyRetrospective", serif;
+    font-size: 40px;
+    line-height: 40px;
+    text-transform: capitalize;
+    padding-bottom: 40px;
+}
+.edit-eth-text{
+    font-family: 'MavenPro';
+    font-size: 14px;
+    color: #8C8C8C;
+    font-weight: 500;
+
+}
