@@ -13,25 +13,24 @@ export class AffilliateService {
     constructor(private http: Http) {
 
         this.userToken = JSON.parse(localStorage.getItem("userToken"));
-       
+
 
     }
 
 
-    getAffiliatesGraph(userid,filter){
+    getAffiliatesGraph(userid, filter) {
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
         headers.append("authorization", this.userToken);
 
-        return this.http.get(environment.BaseUrl + "user/getAffiliatesGraph/"+userid+"/"+ filter, { headers: headers })
+        return this.http.get(environment.BaseUrl + "user/getAffiliatesGraph/" + userid + "/" + filter, { headers: headers })
             .map(res => res.json());
     }
 
 
-    getAffiliateEarnings(userid,pageNo,PageSize){
-        debugger
+    getAffiliateEarnings(userid, pageNo, PageSize) {
         const queryParams = `userId=${userid}&pageSize=${PageSize}&pageNumber=${pageNo}`
         let headers = new Headers();
 
@@ -43,19 +42,19 @@ export class AffilliateService {
             .map(res => res.json());
     }
 
-    getCsvData(userid){
-        
+    getCsvData(userid) {
+
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
         headers.append("authorization", this.userToken);
 
-        return this.http.get(environment.BaseUrl + "user/getaffiliatescsv/"+userid, { headers: headers })
+        return this.http.get(environment.BaseUrl + "user/getaffiliatescsv/" + userid, { headers: headers })
             .map(res => res.json());
     }
 
-    getTopReferrals(pageNumber,pageSize) {
+    getTopReferrals(pageNumber, pageSize) {
 
         const queryParams = `?pageNumber=${pageNumber}&pageSize=${pageSize}`
         let headers = new Headers();
@@ -69,17 +68,17 @@ export class AffilliateService {
 
     }
 
-    getMyAffiliates(userId,pageNumber,pageSize) {
+    getMyAffiliates(userId, pageNumber, pageSize) {
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json; charset=UTF-8');
         headers.append('accept-language', getLanguage())
         headers.append("authorization", this.userToken);
 
-        return this.http.get(environment.BaseUrl + "user/allreferrals/"+userId+"/"+pageNumber+"/"+pageSize, { headers: headers })
+        return this.http.get(environment.BaseUrl + "user/allreferrals/" + userId + "/" + pageNumber + "/" + pageSize, { headers: headers })
             .map(res => res.json());
     }
-    
+
     /* getMyAffiliates(userId) {
         let headers = new Headers();
 
@@ -90,7 +89,7 @@ export class AffilliateService {
         return this.http.get(environment.BaseUrl + "user/allreferrals/"+userId, { headers: headers })
             .map(res => res.json());
     } */
-    levelReferrals(userId, level, pageNo, pageSize){
+    levelReferrals(userId, level, pageNo, pageSize) {
         const params = `?userId=${userId}&level=${level}&pageNumber=${pageNo}&pageSize=${pageSize}`
         let headers = new Headers();
 
