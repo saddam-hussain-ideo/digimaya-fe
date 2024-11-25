@@ -2,16 +2,17 @@
 
 .header-side-border{
     height:40px;
-    background: #f4fafd;
-    border-left:3px solid $dashboard-purple-clr;
-    margin-bottom:15px;
+    background: #F6F6F6;
+    // border-left:3px solid $dashboard-purple-clr;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     h1{
-        color: $dashboard-purple-clr;	
-        font-family: 'LatoWeb';	
-        font-size: 13px;	
-        font-weight: 600;	
-        line-height: 42px;
-        padding-left: 40px;
+        color: #191919;	
+        font-family: "CenturyRetrospective", serif;
+        font-size: 24px;	
+        font-weight: 400;	
+        line-height: 24px;
+        padding: 20px;
     }
 }
 
@@ -45,23 +46,30 @@
     padding-left:15px;
     font-weight: 600;	
     .faq-points{  
-        color: $dashboard-purple-clr;
+        color:#404040;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'MavenPro';
     }
 }
 
 
 .faq-main-2{
-    background-color: white;
+    background-color: #F6F6F6;
     padding: 20px;
     margin-bottom:60px;
 
     .panel{
-        background-color: #EFF1F3;
+        background-color: #EDEDED;
         margin-top: -1px;
         padding-left:15px;
         transition:all 0.6s;
         p{
-            line-height: 26px;
+            font-size: 14px;
+            font-family: 'MavenPro';
+            font-weight: 500;
+            line-height: 18px;
+            color: #8C8C8C;
         }
     }
 
@@ -86,7 +94,7 @@
         width: 20px;
 
         .fas{
-            color:$theme-blue;
+            color:#404040;
         }
     }
 }
@@ -113,4 +121,9 @@
     .icon-telegram{
       height: 30px;
     }
+  }
+
+  .faqs-section-top{
+    background-color: white;
+    padding: 40px 20px;
   }
