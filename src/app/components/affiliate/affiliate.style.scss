@@ -15,15 +15,19 @@ $ico-font:26px;
     padding-left: 20px;
     font-weight: 600;
 }
-
+.aff-sec{
+    background-color: white;
+    padding: 20px;
+}
 .referral-pd{
     padding: 2rem 20px !important;
 }
 
 .white-back{
-    background-color: white;
-    padding: 20px;
+    background-color: #F6F6F6;
+    padding: 13px 20px;
     height: auto;
+    border-radius: 8px;
 
     @media (min-width:1200px) and (max-width:1350px) {
         height: auto;
@@ -89,12 +93,12 @@ $ico-font:26px;
 }
 
 .aff-h2{
-    text-transform: uppercase;
-    font-family: 'LatoWeb';
-    color: $dashboard-purple-clr;
-    font-size: 14px !important;
+    font-family: 'MavenPro';
+    color: #191919;
+    font-size: 16px !important;
     margin: 0px !important;
     padding-bottom: 20px;
+    font-weight: 600;
 }
 
 .small--crypt{
@@ -134,11 +138,12 @@ $ico-font:26px;
 
 
 .download-csv{
-    color: $theme-blue;	
-    font-family: 'LatoWebBold';	
-    font-size: 13px;	
-    line-height: 15px;
+    color:#191919;	
+    font-family: 'MavenPro';	
+    font-size: 16px;	
+    line-height: 16px;
     cursor: pointer;
+    font-weight: 700;
 }
 
 
@@ -256,10 +261,10 @@ $ico-font:26px;
     padding-bottom: 2px;
 }
 .aff-link{
-    color: $dashboard-purple-clr;
-    font-family: 'LatoWebMedium';
-    padding-top: 20px;
-    font-size: 14px;
+    font-family: "CenturyRetrospective", serif;
+    padding: 20px 0 0 0;
+    font-size: 16px;
+    color: #191919;
 }
 
 .some-extra-margin{
@@ -271,15 +276,16 @@ $ico-font:26px;
     margin-right:-20px;
 }
 .aff-link-in{
-    background-color: #F0F0F0;
-    // color: $theme-blue;
-    color: $dashboard-purple-clr;
-    padding: 5px 10px;
-    border: none;
+    background-color: #FFFFFF;
+    color: #11111399;
+    padding: 14px 12px;
+     border: 2px solid #11111333;
     width: 95%;
-    font-size: 13px;
+    font-size: 16px;
+    font-family: 'MavenPro';
     margin-right: 10px;
     margin-top: 15px;
+    border-radius: 8px;
 }
 .arrow-blue{
     width: 19px;
@@ -392,12 +398,11 @@ $ico-font:26px;
 
 
 .no-record{
-    color: $dashboard-purple-clr;
-    font-size: 18px;
+    color: #191919;
+    font-size: 16px;
     text-align: center;
 
-    font-family: 'LatoWebBold';
-    text-transform: uppercase;
+    font-family: 'MavenPro';
 }
 
 
@@ -921,16 +926,15 @@ $ico-font:26px;
  .aff-earnings{
      padding:20px;
      h6{
-         text-transform: uppercase;
-        color: $dashboard-purple-clr;	
-        font-family: 'LatoWeb';	
-        font-size: 14px;	
-        line-height: 15px;
+        color: #191919;	
+        font-family: "CenturyRetrospective", serif;
+        font-size: 24px;	
+        line-height: 24px;
      }
  }
 
  .all-white{
-     background: white;
+     background: #F6F6F6;
      margin-top:20px;
  }
 
@@ -945,12 +949,10 @@ $ico-font:26px;
                 border:none;
                 vertical-align: middle;
                 p{
-                    color: $theme-blue;	
-                    font-family: 'LatoWeb';	
-                    font-size: 14px;	
-                    font-weight: 600;	
-                    line-height: 14px;
-                    margin-bottom:0;
+                    font-family: 'MavenPro';
+                    font-size: 16px;
+                    color: #191919;
+                    font-weight: 600;
                 }
             }
         }
@@ -1044,7 +1046,7 @@ $ico-font:26px;
 }
 
 .bg-table{
-    background-color: $dashboard-purple-clr;
+    background-color:#D9D9D9;
     .total-row{
         list-style-type:none;
         width: 40%;
@@ -1061,25 +1063,26 @@ $ico-font:26px;
 
         li{
             .total-head{
-                color: #FFFFFF;	
-                font-family: 'LatoWebLight';	
-                font-size: 16px;	
+                color: #191919;	
+                font-family: 'MavenPro';	
+                font-size: 24px;	
                 font-weight: 600;	
                 line-height: 20px;
-                text-transform: uppercase;
                 margin:0;
                 width: 100%;
                 text-align: right;
+                padding-top: 10px;
             }
 
             .total-values{
-                color: #FFFFFF;	
-                font-family: 'LatoWebBold';	
-                font-size: 16px;	
+                color: #191919;	
+                font-family: 'MavenPro';	
+                font-size: 24px;	
                 margin:0;
                 width: 100%;
                 text-align: right;
                 padding-right: 20px;
+                font-weight:800 ;
             }
 
             float:left;
@@ -1161,14 +1164,25 @@ $ico-font:26px;
  }
  .marryt20{
     margin-right: 20px;
+    font-size: 16px;
+    font-family: 'MAvenPro';
+    color: #191919;
  }
  .rytAlgnmnt{
     float: right;
     display: inline-flex;
  }
  .affiliate-active-li{
-    background-color:  $dashboard-purple-clr;
+    background: linear-gradient(
+        to bottom right,
+        $maaya-orange-dawn,
+        $maaya-purple-dusk
+      );
     color: white;
+    font-family: 'MavenPro';
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
  }
 
  .graph-wrapper{
@@ -1204,7 +1218,7 @@ $ico-font:26px;
     position: relative;
     .copy-link-section{
         position: absolute;
-        top: 1px;
+        top: 12px;
         right: -4px;
     }
 }
@@ -1231,8 +1245,11 @@ $ico-font:26px;
         width: 100%;
     }
     .ico-top-text{
-        color: $dashboard-purple-clr;
-        text-align: center;
+        color:#FFFFFF ;
+        text-align: start;
+        font-family: "CenturyRetrospective", serif;
+        font-size: 16px;
+
     }
     
 }
@@ -1294,13 +1311,14 @@ $ico-font:26px;
 
    }
 .inner-box{
-    height:  $ico-view-height;
-    position: relative;
+    height: 120px;
     margin-bottom: 15px;
-    // background:white;
-    // background: #C2B5D3;
-
-    background-color: #e0d7d7;
+    background: radial-gradient(107.63% 220.06% at 0.17% 0.51%, #FF7F2C 0%, #FF0082 100%);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     @media (min-width:992px) and (max-width:1199px) {
        height: 140px;
 
@@ -1319,10 +1337,9 @@ $ico-font:26px;
     }
 }
 .total-text{
-    font-family: 'LatoWebLight';
+    font-family: "CenturyRetrospective", serif;
     font-weight: 400;
-    text-transform: uppercase;
-    color:$theme-blue;
+    color:#fff;
     font-size: 14px;
     margin: 0;
     @media (min-width:992px) and (max-width:1199px) {
@@ -1330,12 +1347,11 @@ $ico-font:26px;
     }
    }
    .number{
-    font-family: 'LatoWeb';
-    font-weight: 800;
-    color:  $dashboard-purple-clr;
-    font-size: 25px;
+    font-family: 'MavenPro';
+    font-weight: 600;
+    color:  #FFFFFF;
+    font-size: 32px;
     margin: 0;
-    padding-top: 5px;
 
         @media (min-width:768px) and (max-width:991px) {
             font-size: 26px; 
@@ -1407,9 +1423,8 @@ $ico-font:26px;
     padding: 13px 14px;
     .header {
       h2 {
-        text-transform: uppercase;
         font-size: 14px;
-        font-family: "LatoWeb";
+        font-family: "MavenPro";
       }
     }
     .table > tbody > tr > td,
@@ -1418,10 +1433,10 @@ $ico-font:26px;
     .table > thead > tr > th {
       vertical-align: middle !important;
       border-top: none;
-      font-family: "LatoWeb", sans-serif;
+      font-family: 'MavenPro';
       font-size: 14px;
       // color: #34519d !important;
-      color:  $dashboard-purple-clr;
+      color:  #191919;
       /*   color: #26497b; */
     }
     .table td,
@@ -1429,21 +1444,23 @@ $ico-font:26px;
       padding: 12px 15px;
       border: none !important;
       font-size: 14px;
-      color: $theme-blue;
+      color:#191919;
+      font-family: "MavenPro";
     }
   }
   .table-section{
       margin-top: 1rem;
+      background-color: #F6F6F6;
+      border-radius: 8px;
   }  
   .table-section,.header-whte{
-      background-color: white;
+    background-color: #F6F6F6;
   }
   .transaction-txt{
-    text-transform: uppercase;
-    font-size: 20px;
-    font-family: "LatoWeb";
-    color: $dashboard-purple-clr;
-    padding: 10px 0 0 12px;
+    font-size: 24px;
+    font-family: "CenturyRetrospective", serif;
+    color: #191919;
+    padding-bottom: 4x;
   }
   .custom-loader{
       text-align: center;
@@ -1459,4 +1476,11 @@ $ico-font:26px;
     font-size: 16px;
     padding: 2rem 0 !important;
     text-align: center;
+}
+
+.referrers-field{
+    font-family: 'MavenPro';
+    font-size: 16px;
+    color: #191919;
+    font-weight: 600;
 }

@@ -1,225 +1,179 @@
 <section class="aff-sec">
-    <div class="aff-wrap">
-        <div class="aff-back">
-            <h1 class="page-title">{{'Referral Program' | translate}}</h1>
+  <div class="aff-wrap">
+    <div class="aff-back">
+      <h1 class="page-title mb-4">{{'Referral Program' | translate}}</h1>
 
-            <!--referal changes-->
+      <!--referal changes-->
 
-            <div class="head-section">
-                <div class="clearfix ico-top-divs row">
-                    <div class="col-sm-6 col-md-4 col-lg-3 no-right">
-                        <div class="inner-box ">
-
-
-                            <div class="top-left-ico-text">
-                                <p class="ico-top-text">My Referral Network Issued PPTL
-                                    <!-- <span class="white-right">
+      <div class="head-section">
+        <div class="clearfix ico-top-divs row">
+          <div class="col-sm-6 col-md-4 col-lg-3 no-right">
+            <div class="inner-box">
+              <div class="top-left-ico-text">
+                <p class="ico-top-text">
+                  My Referral Network Issued PPTL
+                  <!-- <span class="white-right">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                               <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
                             </svg>
                           </span> -->
-                                </p>
-                            </div>
-
-
-                            <div class="clearfix table-type">
-
-
-                                <div class="left-stat-icon">
-
-                                    <img src="../../../assets/img/left-cash-icon.png">
-
-
-                                </div>
-
-                                <div class="right-icon-stats">
-
-
-                                    <p class="number">
-                                        <!-- {{ICOInformation?.Sale}} -->
-                                        {{networkIssuedPPTL | currency : 'crypto'}}
-                                        <span class="dollar">PPTL</span>
-                                    </p>
-                                    <!-- <p class="total-text">{{ 'ISSUED VALUE ' | translate}}</p> -->
-
-
-                                </div>
-
-
-                            </div>
-
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-lg-3 no-right">
-                        <div class="inner-box ">
-
-
-
-                            <div class="top-left-ico-text">
-                                <p class="ico-top-text">My Referral Network Licensees
-                                    <!-- <span class="white-right">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
-                              <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
-                            </svg>
-                          </span> -->
-                                </p>
-                            </div>
-
-                            <div class="clearfix table-type">
-
-
-                                <div class="left-stat-icon">
-
-                                    <img src="../../../assets/img/globe.png" width="100">
-
-
-                                </div>
-
-                                <div class="right-icon-stats">
-
-                                    <div class="d-flex align-items-center">
-                                        <p class="total-text">
-                                            GPA Licensees
-                                        </p>
-                                        <p class="number pt-0  pl-1"> {{referalLicencesCount.gpa}}
-                                        </p>
-                                    </div>
-                                    <div class="d-flex align-items-center mt-2">
-                                        <p class="total-text">
-                                            Other Licensees
-                                        </p>
-                                        <p class="number pt-0 pl-1">{{referalLicencesCount.other}}
-                                        </p>
-                                    </div>
-
-                                    <!-- <p class="number">100
-            
-                          </p>
-                          <p class="total-text">{{ 'Registered Piptlers' | translate}}
-                          </p> -->
-
-
-                                </div>
-
-
-                            </div>
-
-
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-4 col-lg-3 no-right">
-                        <div class="inner-box">
-                            <div class="top-left-ico-text">
-                                <p class="ico-top-text">Countries in My Referral Network
-                                    <!-- <span class="white-right">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
-                              <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
-                            </svg>
-                          </span> -->
-                                </p>
-                            </div>
-
-                            <div class="clearfix table-type">
-
-
-                                <div class="left-stat-icon">
-
-                                    <img src="../../../assets/img/globe.png" width="100">
-
-
-                                </div>
-
-                                <div class="right-icon-stats">
-
-
-                                    <p class="number">{{referredCountries}}
-
-                                    </p>
-                                    <p class="total-text" *ngIf="referredCountries <= 1">COUNTRY
-                                    </p>
-                                    <p class="total-text" *ngIf="referredCountries > 1">{{ 'Countries' | translate}}
-                                    </p>
-
-
-                                </div>
-
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3">
-                        <div class="inner-box ">
-
-                            <div class="top-left-ico-text">
-                                <p class="ico-top-text">My Referral PPTL Bonuses
-                                </p>
-                            </div>
-
-                            <div class="clearfix table-type soft-hard-box">
-                                <div class="row bg-row">
-                                    <div class="col some-padding text-centered">
-                                        <div class="mt-4">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <div class="d-flex flex-row justify-content-center mb-0 mt-3">
-                                                    <p class="number pt-0">{{earningValues('pptl') | currency : 'crypto'}}</p>
-                                                </div>
-                                                <div class="d-flex flex-row justify-content-center">
-                                                    <p class="ml-2 dollar pt-0">PPTL</p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="col  text-centered">
-                                        <div class="d-flex flex-column justify-content-center mt-4">
-                                            <div class="d-flex flex-row justify-content-center mb-0 mt-3">
-                                                <p class="number pt-0">$  
-                                                    {{earningValues('usdt') | currency:'crypto'}}
-                                                </p>
-                                            </div>
-                                            <div class="d-flex flex-row justify-content-center">
-                                                <p class="ml-2 dollar pt-0">AUD VALUE</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-
-                            </div>
-
-
-
-
-                        </div>
-                    </div>
-
-
-
+                </p>
+              </div>
+
+              <!-- <div class="clearfix table-type">
+                <div class="left-stat-icon">
+                  <img src="../../../assets/img/left-cash-icon.png" />
                 </div>
+
+                <div class="right-icon-stats">
+                  <p class="number">
+                    {{ICOInformation?.Sale}}
+                    {{networkIssuedPPTL | currency : 'crypto'}}
+                    <span class="dollar">PPTL</span>
+                  </p>
+                  <p class="total-text">{{ 'ISSUED VALUE ' | translate}}</p>
+                </div>
+              </div> -->
+              <p class="number">
+                {{networkIssuedPPTL | currency : 'crypto'}} PPTL
+              </p>
             </div>
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3 no-right">
+            <div class="inner-box">
+              <div class="top-left-ico-text">
+                <p class="ico-top-text">
+                  My Referral Network Licensees
+                  <!-- <span class="white-right">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                              <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
+                            </svg>
+                          </span> -->
+                </p>
+              </div>
 
-            <!---->
+              <!-- <div class="clearfix table-type">
+                <div class="left-stat-icon">
+                  <img src="../../../assets/img/globe.png" width="100" />
+                </div>
 
+                <div class="right-icon-stats">
+                  <div class="d-flex align-items-center">
+                    <p class="total-text">GPA Licensees</p>
+                    <p class="number pt-0 pl-1">{{referalLicencesCount.gpa}}</p>
+                  </div>
+                  <div class="d-flex align-items-center mt-2">
+                    <p class="total-text">Other Licensees</p>
+                    <p class="number pt-0 pl-1">
+                      {{referalLicencesCount.other}}
+                    </p>
+                  </div>
+                </div>
+              </div> -->
+              <div class="d-flex flex-column">
+                <p class="total-text">
+                  GPA Licensees {{referalLicencesCount.gpa}}
+                </p>
+                <p class="total-text">
+                  Other Licensees {{referalLicencesCount.other}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4 col-lg-3 no-right">
+            <div class="inner-box">
+              <div class="top-left-ico-text">
+                <p class="ico-top-text">
+                  Countries in My Referral Network
+                  <!-- <span class="white-right">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
+                              <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
+                            </svg>
+                          </span> -->
+                </p>
+              </div>
 
+              <!-- <div class="clearfix table-type">
+                <div class="left-stat-icon">
+                  <img src="../../../assets/img/globe.png" width="100" />
+                </div>
 
+                <div class="right-icon-stats">
+                  <p class="number">{{referredCountries}}</p>
+                  <p class="total-text" *ngIf="referredCountries <= 1">
+                    COUNTRY
+                  </p>
+                  <p class="total-text" *ngIf="referredCountries > 1">
+                    {{ 'Countries' | translate}}
+                  </p>
+                </div>
+              </div> -->
+              <p class="number" *ngIf="referredCountries <= 1">
+                {{ 'Countries' | translate}} Country
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-3">
+            <div class="inner-box">
+              <div class="top-left-ico-text">
+                <p class="ico-top-text">My Referral PPTL Bonuses</p>
+              </div>
 
+              <!-- <div class="clearfix table-type soft-hard-box">
+                <div class="row bg-row">
+                  <div class="col some-padding text-centered">
+                    <div class="mt-4">
+                      <div class="d-flex flex-column justify-content-center">
+                        <div
+                          class="d-flex flex-row justify-content-center mb-0 mt-3"
+                        >
+                          <p class="number pt-0">
+                            {{earningValues('pptl') | currency : 'crypto'}}
+                          </p>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center">
+                          <p class="ml-2 dollar pt-0">PPTL</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-            <div class="row1">
-                <div class="row">
-                    <div class="col-lg-6 right-7">
-                        <div class="white-back referral-pd">
-                            <!-- <div class="pos-rltv">
+                  <div class="col text-centered">
+                    <div class="d-flex flex-column justify-content-center mt-4">
+                      <div
+                        class="d-flex flex-row justify-content-center mb-0 mt-3"
+                      >
+                        <p class="number pt-0">
+                          $ {{earningValues('usdt') | currency:'crypto'}}
+                        </p>
+                      </div>
+                      <div class="d-flex flex-row justify-content-center">
+                        <p class="ml-2 dollar pt-0">AUD VALUE</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="d-flex flex-column">
+                <p class="total-text" *ngIf="referredCountries <= 1">
+                  PPTL {{earningValues('pptl') | currency : 'crypto'}}
+                </p>
+                <p class="total-text" *ngIf="referredCountries <= 1">
+                  AUD VALUE $ {{earningValues('usdt') | currency:'crypto'}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!---->
+
+      <div class="row1">
+        <div class="row">
+          <div class="col-lg-6 right-7">
+            <div class="white-back referral-pd">
+              <!-- <div class="pos-rltv">
 
                                 <div class="pos-left">
                                     <h6 class="aff-h2">{{'Discription' | translate}}
@@ -238,10 +192,9 @@
                                 </p>
                             </div> -->
 
+              <!-- <hr class="saperator" /> -->
 
-                            <!-- <hr class="saperator" /> -->
-
-                            <!-- <div class="pos-rltv negate-margin">
+              <!-- <div class="pos-rltv negate-margin">
 
                                 <h6 class="aff-h2 some-extra-margin">select commission type</h6>
                                 <div class="checksimg ">
@@ -266,52 +219,118 @@
                                 </div>
                             </div> -->
 
-                            <div>
-                                <div class="">
-                                    <div class="padding-change">
-                                        <p class="aff-link pt-0 mb-0">{{'Your Referral link:'| translate}}</p>
-                                    </div>
-                                    <div class=" padding-change2 affiliate-text-field">
-                                        <input id="aff-link-1" class="aff-link-in" type="text" readonly
-                                            value="{{affiliateLink}}">
-                                        <div class="copy-link-section">
-                                            <button class="copy-af-link" (click)="copyToClipboard('aff-link-1')">
-
-
-                                                <p class="p-15 copy-add">
-                                                    <i class="far fa-copy"></i>
-
-                                                </p>
-
-
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
+              <div>
+                <div class="">
+                  <div class="padding-change">
+                    <p class="aff-link pt-0 mb-0">
+                      {{'Your Referral link:'| translate}}
+                    </p>
+                  </div>
+                  <div class="padding-change2 affiliate-text-field">
+                    <input
+                      id="aff-link-1"
+                      class="aff-link-in"
+                      type="text"
+                      readonly
+                      value="{{affiliateLink}}"
+                    />
+                    <div class="copy-link-section">
+                      <button
+                        class="copy-af-link"
+                        (click)="copyToClipboard('aff-link-1')"
+                      >
+                        <p class="p-15 copy-add">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M15 3V7C15 7.26522 15.1054 7.51957 15.2929 7.70711C15.4804 7.89464 15.7348 8 16 8H20"
+                              stroke="#191919"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M18 17H11C10.4696 17 9.96086 16.7893 9.58579 16.4142C9.21071 16.0391 9 15.5304 9 15V5C9 4.46957 9.21071 3.96086 9.58579 3.58579C9.96086 3.21071 10.4696 3 11 3H15L20 8V15C20 15.5304 19.7893 16.0391 19.4142 16.4142C19.0391 16.7893 18.5304 17 18 17Z"
+                              stroke="#191919"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M16 17V19C16 19.5304 15.7893 20.0391 15.4142 20.4142C15.0391 20.7893 14.5304 21 14 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V9C5 8.46957 5.21071 7.96086 5.58579 7.58579C5.96086 7.21071 6.46957 7 7 7H9"
+                              stroke="#191919"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </p>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
                                         
                                     </div> -->
-                                </div>
-                                <div class="">
-                                    <div class="padding-change">
-                                        <p class="aff-link mb-0">{{ 'Your Referral Code:' | translate}}</p>
-                                    </div>
-                                    <div class=" padding-change2 affiliate-text-field">
-                                        <input id="aff-code-1" class="aff-link-in" type="text" readonly
-                                            value="{{affiliateCode}}">
-                                        <div class="copy-link-section">
-                                            <button class="copy-af-link" (click)="copyToClipboard('aff-code-1')">
-
-
-                                                <p class="p-15 copy-add">
-                                                    <i class="far fa-copy"></i>
-
-                                                </p>
-
-
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
+                </div>
+                <div class="">
+                  <div class="padding-change">
+                    <p class="aff-link mb-0">
+                      {{ 'Your Referral Code:' | translate}}
+                    </p>
+                  </div>
+                  <div class="padding-change2 affiliate-text-field">
+                    <input
+                      id="aff-code-1"
+                      class="aff-link-in"
+                      type="text"
+                      readonly
+                      value="{{affiliateCode}}"
+                    />
+                    <div class="copy-link-section">
+                      <button
+                        class="copy-af-link"
+                        (click)="copyToClipboard('aff-code-1')"
+                      >
+                        <p class="p-15 copy-add">
+                          <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M15 3V7C15 7.26522 15.1054 7.51957 15.2929 7.70711C15.4804 7.89464 15.7348 8 16 8H20"
+                              stroke="#191919"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M18 17H11C10.4696 17 9.96086 16.7893 9.58579 16.4142C9.21071 16.0391 9 15.5304 9 15V5C9 4.46957 9.21071 3.96086 9.58579 3.58579C9.96086 3.21071 10.4696 3 11 3H15L20 8V15C20 15.5304 19.7893 16.0391 19.4142 16.4142C19.0391 16.7893 18.5304 17 18 17Z"
+                              stroke="#191919"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M16 17V19C16 19.5304 15.7893 20.0391 15.4142 20.4142C15.0391 20.7893 14.5304 21 14 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V9C5 8.46957 5.21071 7.96086 5.58579 7.58579C5.96086 7.21071 6.46957 7 7 7H9"
+                              stroke="#191919"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </p>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
                                             <button class="copy-af-link" (click)="copyToClipboard('aff-code-1')">
     
     
@@ -323,60 +342,53 @@
     
                                             </button>
                                         </div> -->
-                                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 left-7">
+            <div class="">
+              <div class="white-back">
+                <div class="pos-rltv">
+                  <div class="pos-left">
+                    <h6 class="aff-link">Top Referrers Globally</h6>
+                  </div>
+                </div>
 
-                            </div>
+                <div class="table-responsive">
+                  <p class="no-record" *ngIf="noTopAffilliates">
+                    No Data Found
+                  </p>
 
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 left-7">
-                        <div class="">
-                            <div class="white-back">
-
-                                <div class="pos-rltv">
-
-                                    <div class="pos-left">
-                                        <h6 class="aff-h2">TOP REFERRERS GLOBALLY
-
-                                        </h6>
-                                    </div>
-
-
-
-                                </div>
-
-                                <div class="table-responsive">
-
-
-                                    <p class="no-record" *ngIf="noTopAffilliates">No Data Found</p>
-
-                                    <table class="table table-striped affiliates-detail" *ngIf="!noTopAffilliates">
-                                        <thead>
-                                            <tr>
-                                                <td class="text-uppercase text-center">
-                                                    <p>Username</p>
-                                                </td>
-                                                <td class="text-uppercase text-center">
-                                                    <p>Country</p>
-                                                </td>
-                                                <td class="text-uppercase text-center">
-                                                    <p>Total Licensee's Referred</p>
-                                                </td>
-                                            </tr>
-                                        </thead>
-                                        <tbody *ngIf="!topRefersLoader">
-                                            
-                                            <tr *ngFor="let referral of topReferrals">
-                                                <td class="text-center">
-                                                    <p class="earners-name">{{referral?.name}}</p>
-                                                </td>
-                                                <td class="text-center">
-                                                    <p class="earnings">{{referral?.country}}</p>
-                                                </td>
-                                                <td class="text-center">
-                                                    <p class="earnings">{{referral?.referred}}</p>
-                                                </td>
-                                                <!-- <td>
+                  <table
+                    class="table table-striped affiliates-detail"
+                    *ngIf="!noTopAffilliates"
+                  >
+                    <thead>
+                      <tr>
+                        <td class="text-uppercase text-center">
+                          <p>Username</p>
+                        </td>
+                        <td class="text-uppercase text-center">
+                          <p>Country</p>
+                        </td>
+                        <td class="text-uppercase text-center">
+                          <p>Total Licensee's Referred</p>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="!topRefersLoader">
+                      <tr *ngFor="let referral of topReferrals">
+                        <td class="text-center">
+                          <p class="earners-name">{{referral?.name}}</p>
+                        </td>
+                        <td class="text-center">
+                          <p class="earnings">{{referral?.country}}</p>
+                        </td>
+                        <td class="text-center">
+                          <p class="earnings">{{referral?.referred}}</p>
+                        </td>
+                        <!-- <td>
                                                     <p class="earnings">{{referral?.AmountInUsd | currency:'crypto'}}
                                                         PPTL </p>
                                                     <div class="progress-table-wrap">
@@ -390,539 +402,630 @@
                                                         </div>
                                                     </div>
                                                 </td> -->
-                                            </tr>
+                      </tr>
+                    </tbody>
 
+                    <tbody *ngIf="topRefersLoader">
+                      <tr>
+                        <td colspan="12">
+                          <div class="custom-loader">
+                            <svg
+                              class="lds-comets"
+                              width="100%"
+                              height="100%"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              viewBox="0 0 100 100"
+                              preserveAspectRatio="xMidYMid"
+                            >
+                              <g transform="rotate(208.756 50 50)">
+                                <animateTransform
+                                  attributeName="transform"
+                                  type="rotate"
+                                  repeatCount="indefinite"
+                                  values="360 50 50;0 50 50"
+                                  keyTimes="0;1"
+                                  dur="2.3s"
+                                  keySplines="0.5 0.5 0.5 0.5"
+                                  calcMode="spline"
+                                ></animateTransform>
+                                <path
+                                  fill="#85ffbd"
+                                  d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                                ></path>
+                                <path
+                                  fill="#316598"
+                                  d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                                ></path>
+                                <path
+                                  fill="#a4bcc2"
+                                  d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                                ></path>
+                              </g>
+                            </svg>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
 
-                                        </tbody>
+                  <div class="pagination-bottom pt-2" *ngIf="!topRefersLoader">
+                    <pagination-controls
+                      *ngIf="referralPSize < paginationNumber"
+                      responsive="true"
+                      previousLabel=""
+                      nextLabel=""
+                      (pageChange)="changePageForTopReferrals($event)"
+                    ></pagination-controls>
 
-                                        <tbody *ngIf="topRefersLoader">
-                                            <tr >
-                                                <td colspan="12">
-                                                    <div  class="custom-loader">
-                                                        <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                                                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
-                                                        preserveAspectRatio="xMidYMid">
-                                                        <g transform="rotate(208.756 50 50)">
-                                                            <animateTransform attributeName="transform" type="rotate"
-                                                                repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
-                                                                dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-                                                            </animateTransform>
-                                                            <path fill="#85ffbd"
-                                                                d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-                                                            </path>
-                                                            <path fill="#316598"
-                                                                d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-                                                            </path>
-                                                            <path fill="#a4bcc2"
-                                                                d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-                                                            </path>
-                                                        </g>
-                                                    </svg>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                    <ul class="no-visibility-2 d-none">
+                      <li
+                        *ngFor="let item of topReferrals | paginate: { itemsPerPage: referralPSize, currentPage: topReferalCurrentPage, totalItems: paginationNumber }"
+                      >
+                        {{item}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-                                    </table>
+          <div class="col-lg-6 col-md-6 d-md-block d-lg-none d-xl-none left-7">
+            <div class="height-div">
+              <div class="white-back2">
+                <div class="pos-rltv">
+                  <div class="pos-left">
+                    <h6 class="aff-h2">my affiliates</h6>
+                  </div>
+                </div>
+                <div class="clear"></div>
 
-                                    <div class='pagination-bottom pt-2' *ngIf="!topRefersLoader">
+                <div class="topp">
+                  <div class="table-responsive">
+                    <p class="no-record" *ngIf="noMyAffilliates">
+                      No Data Found
+                    </p>
+                    <table
+                      class="table my-tbl table-striped"
+                      *ngIf="!noMyAffilliates"
+                    >
+                      <thead>
+                        <tr>
+                          <td>
+                            <p class="top-aff-th left-aligned">Name</p>
+                          </td>
+                          <td>
+                            <p class="top-aff-th center-aligned">time</p>
+                          </td>
+                        </tr>
+                      </thead>
+                      <tbody class="">
+                        <tr *ngFor="let affiliate of myAffilliates">
+                          <td class="text-capitalize">
+                            {{affiliate?.UserName}}
+                          </td>
+                          <td class="center-aligned">
+                            {{affiliate?.CreatedOnUTC}}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
 
-                                        <pagination-controls *ngIf="referralPSize < paginationNumber" responsive="true" previousLabel=""
-                                          nextLabel="" (pageChange)="changePageForTopReferrals($event)"></pagination-controls>
-                          
-                                        
-                                        <ul class="no-visibility-2 d-none">
-                                          <li
-                                            *ngFor="let item of topReferrals | paginate: { itemsPerPage: referralPSize, currentPage: topReferalCurrentPage, totalItems: paginationNumber }">
-                                            {{item}}
-                                          </li>
-                                        </ul>
-                            
-                                      </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 d-md-block d-lg-none d-xl-none left-7">
-
-
-
-                        <div class="height-div">
-                            <div class="white-back2">
-                                <div class="pos-rltv">
-
-                                    <div class="pos-left">
-                                        <h6 class="aff-h2">my affiliates
-
-                                        </h6>
-
-                                    </div>
-
-
-                                </div>
-                                <div class="clear"></div>
-
-                                <div class="topp">
-                                    <div class="table-responsive">
-                                        <p class="no-record" *ngIf="noMyAffilliates">No Data Found</p>
-                                        <table class="table my-tbl table-striped" *ngIf="!noMyAffilliates">
-                                            <thead>
-                                                <tr>
-                                                    <td>
-
-                                                        <p class="top-aff-th left-aligned">Name</p>
-
-
-                                                    </td>
-                                                    <td>
-
-                                                        <p class="top-aff-th  center-aligned">time</p>
-
-
-                                                    </td>
-                                                </tr>
-                                            </thead>
-                                            <tbody class="">
-
-                                                <tr *ngFor="let affiliate of myAffilliates">
-                                                    <td class="text-capitalize">{{affiliate?.UserName}}</td>
-                                                    <td class="center-aligned">{{affiliate?.CreatedOnUTC}} </td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-
-
-
-
-                            </div>
-
-                            <!-- <div>
+              <!-- <div>
                                 <img class="tbl-img" src="../../../assets/img/tbl-img.png">
                             </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <!--tables section-->
 
-                        </div>
+      <h1 class="page-title">My Referral Network</h1>
 
+      <div class="table-section">
+        <div class="piptel-transaction-history">
+          <div class="header header-whte">
+            <p class="transaction-txt">
+              Level 1: My Direct Referrals including any Placement
+            </p>
 
-                    </div>
-                </div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="f-bold">Member Full name</th>
+                    <th class="f-bold">Member Username</th>
+                    <th class="f-bold">Join Date</th>
+                    <th class="f-bold">Licence Type</th>
+                    <th class="f-bold">Registration Country</th>
+                    <th class="f-bold">Amount of Direct Referrals</th>
+                    <th class="f-bold">Total AUD Purchase Value</th>
+                    <th class="f-bold">Piptles Issued</th>
+                    <th class="f-bold">My Bonus Piptles Earned</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="tableLoader1">
+                  <tr>
+                    <td colspan="12">
+                      <div class="custom-loader">
+                        <svg
+                          class="lds-comets"
+                          width="100%"
+                          height="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 100 100"
+                          preserveAspectRatio="xMidYMid"
+                        >
+                          <g transform="rotate(208.756 50 50)">
+                            <animateTransform
+                              attributeName="transform"
+                              type="rotate"
+                              repeatCount="indefinite"
+                              values="360 50 50;0 50 50"
+                              keyTimes="0;1"
+                              dur="2.3s"
+                              keySplines="0.5 0.5 0.5 0.5"
+                              calcMode="spline"
+                            ></animateTransform>
+                            <path
+                              fill="#85ffbd"
+                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                            ></path>
+                            <path
+                              fill="#316598"
+                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                            ></path>
+                            <path
+                              fill="#a4bcc2"
+                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody
+                  *ngIf="!tableLoader1 && levelOneData?.data.rows.length == 0"
+                >
+                  <tr>
+                    <td colspan="12" class="no-data-tbl">no data to display</td>
+                  </tr>
+                </tbody>
+                <tbody
+                  *ngIf="!tableLoader1 && levelOneData?.data.rows.length > 0"
+                >
+                  <tr *ngFor="let data of levelOneData?.data.rows">
+                    <td>{{data.name}}</td>
+                    <td>{{data.username}}</td>
+                    <td>{{data.join_date}}</td>
+                    <td>{{data.licence}}</td>
+                    <td>{{data.country}}</td>
+                    <td>{{levelOneData?.data.totalRecords}}</td>
+                    <td>{{data.audPurchase | currency:'crypto'}}</td>
+                    <td>{{data.pptlIssued | currency:'crypto'}}</td>
+                    <td>{{data.bonusEarned | currency:'crypto'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div
+                class="pagination-bottom pt-2"
+                *ngIf="!tableLoader1  && levelOneData?.data.rows.length > 0"
+              >
+                <pagination-controls
+                  *ngIf="tableOneSize < tableOneCount"
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePageForTable1($event)"
+                ></pagination-controls>
+
+                <ul class="no-visibility-2 d-none">
+                  <li
+                    *ngFor="let item of levelOneData | paginate: { itemsPerPage: tableOneSize, currentPage: tableOneCurrentPage, totalItems: tableOneCount }"
+                  >
+                    {{item}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-section">
+        <div class="piptel-transaction-history">
+          <div class="header header-whte">
+            <p class="transaction-txt">Level 2: Team Referrals</p>
+
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="f-bold tbl-row-head-pd">Referrer Full name</th>
+                    <th class="f-bold tbl-row-head-pd">Member Full name</th>
+                    <th class="f-bold tbl-row-head-pd">Member Username</th>
+                    <th class="f-bold tbl-row-head-pd">Join Date</th>
+                    <th class="f-bold tbl-row-head-pd">Licence Type</th>
+                    <th class="f-bold tbl-row-head-pd">Registration Country</th>
+                    <th class="f-bold tbl-row-head-pd">
+                      Amount of Direct Referrals
+                    </th>
+                    <th class="f-bold tbl-row-head-pd">
+                      Total AUD Purchase Value
+                    </th>
+                    <th class="f-bold tbl-row-head-pd">Piptles Issued</th>
+                    <th class="f-bold tbl-row-head-pd">
+                      My Bonus Piptles Earned
+                    </th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="tableLoader2">
+                  <tr>
+                    <td colspan="12">
+                      <div class="custom-loader">
+                        <svg
+                          class="lds-comets"
+                          width="100%"
+                          height="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 100 100"
+                          preserveAspectRatio="xMidYMid"
+                        >
+                          <g transform="rotate(208.756 50 50)">
+                            <animateTransform
+                              attributeName="transform"
+                              type="rotate"
+                              repeatCount="indefinite"
+                              values="360 50 50;0 50 50"
+                              keyTimes="0;1"
+                              dur="2.3s"
+                              keySplines="0.5 0.5 0.5 0.5"
+                              calcMode="spline"
+                            ></animateTransform>
+                            <path
+                              fill="#85ffbd"
+                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                            ></path>
+                            <path
+                              fill="#316598"
+                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                            ></path>
+                            <path
+                              fill="#a4bcc2"
+                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody
+                  *ngIf="!tableLoader2 && levelTwoData?.data.rows.length == 0"
+                >
+                  <tr>
+                    <td colspan="12" class="no-data-tbl">no data to display</td>
+                  </tr>
+                </tbody>
+                <tbody
+                  *ngIf="!tableLoader2  && levelTwoData?.data.rows.length > 0"
+                >
+                  <tr *ngFor="let data of levelTwoData?.data.rows">
+                    <td>{{data.referrer}}</td>
+                    <td>{{data.name}}</td>
+                    <td>{{data.username}}</td>
+                    <td>{{data.join_date}}</td>
+                    <td>{{data.licence}}</td>
+                    <td>{{data.country}}</td>
+                    <td>{{levelTwoData?.data.totalRecords}}</td>
+                    <td>{{data.audPurchase | currency:'crypto'}}</td>
+                    <td>{{data.pptlIssued | currency:'crypto'}}</td>
+                    <td>{{data.bonusEarned | currency:'crypto'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div
+                class="pagination-bottom pt-2"
+                *ngIf="!tableLoader2 && levelTwoData?.data.rows.length > 0"
+              >
+                <pagination-controls
+                  *ngIf="tableTwoSize < tableTwoCount"
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePageForTable2($event)"
+                ></pagination-controls>
+
+                <ul class="no-visibility-2 d-none">
+                  <li
+                    *ngFor="let item of levelTwoData | paginate: { itemsPerPage: tabletwoSize, currentPage: tableTwoCurrentPage, totalItems: tableTwoCount }"
+                  >
+                    {{item}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-section">
+        <div class="piptel-transaction-history">
+          <div class="header header-whte">
+            <p class="transaction-txt">Level 3: Team Referrals</p>
+
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="f-bold tbl-row-head-pd">Sponsor Full name</th>
+                    <th class="f-bold tbl-row-head-pd">Member Full name</th>
+                    <th class="f-bold tbl-row-head-pd">Member Username</th>
+                    <th class="f-bold tbl-row-head-pd">Join Date</th>
+                    <th class="f-bold tbl-row-head-pd">Licence Type</th>
+                    <th class="f-bold tbl-row-head-pd">Registration Country</th>
+                    <th class="f-bold tbl-row-head-pd">
+                      Amount of Direct Referrals
+                    </th>
+                    <th class="f-bold tbl-row-head-pd">
+                      Total AUD Purchase Value
+                    </th>
+                    <th class="f-bold tbl-row-head-pd">Piptles Issued</th>
+                    <th class="f-bold tbl-row-head-pd">
+                      My Bonus Piptles Earned
+                    </th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="tableLoader3">
+                  <tr>
+                    <td colspan="12">
+                      <div class="custom-loader">
+                        <svg
+                          class="lds-comets"
+                          width="100%"
+                          height="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 100 100"
+                          preserveAspectRatio="xMidYMid"
+                        >
+                          <g transform="rotate(208.756 50 50)">
+                            <animateTransform
+                              attributeName="transform"
+                              type="rotate"
+                              repeatCount="indefinite"
+                              values="360 50 50;0 50 50"
+                              keyTimes="0;1"
+                              dur="2.3s"
+                              keySplines="0.5 0.5 0.5 0.5"
+                              calcMode="spline"
+                            ></animateTransform>
+                            <path
+                              fill="#85ffbd"
+                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                            ></path>
+                            <path
+                              fill="#316598"
+                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                            ></path>
+                            <path
+                              fill="#a4bcc2"
+                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody
+                  *ngIf="!tableLoader3 && levelThreeData?.data.rows.length == 0"
+                >
+                  <tr>
+                    <td colspan="12" class="no-data-tbl">no data to display</td>
+                  </tr>
+                </tbody>
+                <tbody
+                  *ngIf="!tableLoader3 && levelThreeData?.data.rows.length > 0"
+                >
+                  <tr *ngFor="let data of levelThreeData?.data.rows">
+                    <td class="tbl-row-pd">{{data.referrer}}</td>
+                    <td class="tbl-row-pd">{{data.name}}</td>
+                    <td class="tbl-row-pd">{{data.username}}</td>
+                    <td class="tbl-row-pd">{{data.join_date}}</td>
+                    <td class="tbl-row-pd">{{data.licence}}</td>
+                    <td class="tbl-row-pd">{{data.country}}</td>
+                    <td class="tbl-row-pd">
+                      {{levelThreeData?.data.totalRecords}}
+                    </td>
+                    <td class="tbl-row-pd">
+                      {{data.audPurchase | currency:'crypto'}}
+                    </td>
+                    <td class="tbl-row-pd">
+                      {{data.pptlIssued | currency:'crypto'}}
+                    </td>
+                    <td class="tbl-row-pd">
+                      {{data.bonusEarned | currency:'crypto'}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div
+                class="pagination-bottom pt-2"
+                *ngIf="!tableLoader3 && levelThreeData?.data.rows.length > 0"
+              >
+                <pagination-controls
+                  *ngIf="tableThreeSize < tableThreeCount"
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePageForTable3($event)"
+                ></pagination-controls>
+
+                <ul class="no-visibility-2 d-none">
+                  <li
+                    *ngFor="let item of levelThreeData | paginate: { itemsPerPage: tablethreeSize, currentPage: tableThreeCurrentPage, totalItems: tableThreeCount }"
+                  >
+                    {{item}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--end table section-->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="all-white">
+            <div class="pos-rltv heading-left">
+              <div class="aff-earnings">
+                <h6>{{'REFER EARNINGS' | translate}}</h6>
+              </div>
             </div>
 
-            <!--tables section-->
-
-            <h1 class="page-title">My Referral Network </h1>
-
-            <div class="table-section">
-                <div class="piptel-transaction-history ">
-                    <div class="header header-whte">
-                        <p class="transaction-txt">Level 1: My Direct Referrals including any Placement</p>
-
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="f-bold">Member Full name</th>
-                                        <th class="f-bold">Member Username</th>
-                                        <th class="f-bold">Join Date</th>
-                                        <th class="f-bold">Licence Type</th>
-                                        <th class="f-bold">Registration Country</th>
-                                        <th class="f-bold">Amount of Direct Referrals</th>
-                                        <th class="f-bold">Total AUD Purchase Value</th>
-                                        <th class="f-bold">Piptles Issued </th>
-                                        <th class="f-bold">My Bonus Piptles Earned</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody *ngIf="tableLoader1">
-                                    <tr >
-                                        <td colspan="12">
-                                            <div  class="custom-loader">
-                                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
-                                                preserveAspectRatio="xMidYMid">
-                                                <g transform="rotate(208.756 50 50)">
-                                                    <animateTransform attributeName="transform" type="rotate"
-                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
-                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-                                                    </animateTransform>
-                                                    <path fill="#85ffbd"
-                                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-                                                    </path>
-                                                    <path fill="#316598"
-                                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-                                                    </path>
-                                                    <path fill="#a4bcc2"
-                                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody *ngIf="!tableLoader1 && levelOneData?.data.rows.length == 0" >
-                                    <tr>
-                                        <td colspan="12" class="no-data-tbl">no data to display</td>
-                                    </tr>
-                                </tbody>
-                                <tbody *ngIf="!tableLoader1 && levelOneData?.data.rows.length > 0">
-                                    <tr *ngFor="let data of levelOneData?.data.rows">
-                                        <td>{{data.name}}</td>
-                                        <td>{{data.username}}</td>
-                                        <td>{{data.join_date}}</td>
-                                        <td>{{data.licence}}</td>
-                                        <td>{{data.country}}</td>
-                                        <td>{{levelOneData?.data.totalRecords}}</td>
-                                        <td>{{data.audPurchase  | currency:'crypto'}}</td>
-                                        <td>{{data.pptlIssued   | currency:'crypto'}}</td>
-                                        <td>{{data.bonusEarned  | currency:'crypto'}}</td>
-                                    </tr>   
-                                </tbody>
-                            </table>
-
-                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader1  && levelOneData?.data.rows.length > 0">
-
-                                <pagination-controls *ngIf="tableOneSize < tableOneCount" responsive="true" previousLabel=""
-                                  nextLabel="" (pageChange)="changePageForTable1($event)"></pagination-controls>
-                  
-                                
-                                <ul class="no-visibility-2 d-none">
-                                  <li
-                                    *ngFor="let item of levelOneData | paginate: { itemsPerPage: tableOneSize, currentPage: tableOneCurrentPage, totalItems: tableOneCount }">
-                                    {{item}}
-                                  </li>
-                                </ul>
-                    
-                              </div>
-
-                        </div>
-                    </div>
-                </div>
+            <div class="download-csv" *ngIf="!noAffiliateEarners">
+              <div class="heading-right right-aligned" (click)="downloadCSV()">
+                <h1 class="download-csv">
+                  {{'Download as' | translate}} CSV
+                  <span class="download-image">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.6665 11.3335V12.6668C2.6665 13.0205 2.80698 13.3596 3.05703 13.6096C3.30708 13.8597 3.64622 14.0002 3.99984 14.0002H11.9998C12.3535 14.0002 12.6926 13.8597 12.9426 13.6096C13.1927 13.3596 13.3332 13.0205 13.3332 12.6668V11.3335"
+                        stroke="#191919"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.6665 7.3335L7.99984 10.6668L11.3332 7.3335"
+                        stroke="#191919"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M8 2.6665V10.6665"
+                        stroke="#191919"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </h1>
+              </div>
             </div>
 
-            <div class="table-section">
-                <div class="piptel-transaction-history ">
-                    <div class="header header-whte">
-                        <p class="transaction-txt">Level 2:  Team Referrals</p>
+            <div class="clear"></div>
 
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="f-bold tbl-row-head-pd">Referrer Full name</th>
-                                        <th class="f-bold tbl-row-head-pd">Member Full name</th>
-                                        <th class="f-bold tbl-row-head-pd">Member Username</th>
-                                        <th class="f-bold tbl-row-head-pd">Join Date</th>
-                                        <th class="f-bold tbl-row-head-pd">Licence Type</th>
-                                        <th class="f-bold tbl-row-head-pd">Registration Country</th>
-                                        <th class="f-bold tbl-row-head-pd">Amount of Direct Referrals</th>
-                                        <th class="f-bold tbl-row-head-pd">Total AUD Purchase Value</th>
-                                        <th class="f-bold tbl-row-head-pd">Piptles Issued </th>
-                                        <th class="f-bold tbl-row-head-pd">My Bonus Piptles Earned</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody *ngIf="tableLoader2">
-                                    <tr >
-                                        <td colspan="12">
-                                            <div  class="custom-loader">
-                                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
-                                                preserveAspectRatio="xMidYMid">
-                                                <g transform="rotate(208.756 50 50)">
-                                                    <animateTransform attributeName="transform" type="rotate"
-                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
-                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-                                                    </animateTransform>
-                                                    <path fill="#85ffbd"
-                                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-                                                    </path>
-                                                    <path fill="#316598"
-                                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-                                                    </path>
-                                                    <path fill="#a4bcc2"
-                                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody *ngIf="!tableLoader2 && levelTwoData?.data.rows.length == 0" >
-                                    <tr>
-                                        <td colspan="12" class="no-data-tbl">no data to display</td>
-                                    </tr>
-                                </tbody>
-                                <tbody *ngIf="!tableLoader2  && levelTwoData?.data.rows.length > 0" >
-                                   
-                                    
-                                    <tr *ngFor="let data of levelTwoData?.data.rows">
-                                        <td>{{data.referrer}}</td>
-                                        <td>{{data.name}}</td>
-                                        <td>{{data.username}}</td>
-                                        <td>{{data.join_date}}</td>
-                                        <td>{{data.licence}}</td>
-                                        <td>{{data.country}}</td>
-                                        <td>{{levelTwoData?.data.totalRecords}}</td>
-                                        <td>{{data.audPurchase  | currency:'crypto'}}</td>
-                                        <td>{{data.pptlIssued  | currency:'crypto'}}</td>
-                                        <td>{{data.bonusEarned  | currency:'crypto'}}</td>
-                                    </tr>     
-                                </tbody>
-                            </table>
-
-                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader2 && levelTwoData?.data.rows.length > 0">
-
-                                <pagination-controls *ngIf="tableTwoSize < tableTwoCount" responsive="true" previousLabel=""
-                                  nextLabel="" (pageChange)="changePageForTable2($event)"></pagination-controls>
-                  
-                                
-                                <ul class="no-visibility-2 d-none">
-                                  <li
-                                    *ngFor="let item of levelTwoData | paginate: { itemsPerPage: tabletwoSize, currentPage: tableTwoCurrentPage, totalItems: tableTwoCount }">
-                                    {{item}}
-                                  </li>
-                                </ul>
-                    
-                              </div>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="table-section">
-                <div class="piptel-transaction-history ">
-                    <div class="header header-whte">
-                        <p class="transaction-txt">Level 3:  Team Referrals</p>
-
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="f-bold tbl-row-head-pd">Sponsor Full name</th>
-                                        <th class="f-bold tbl-row-head-pd">Member Full name</th>
-                                        <th class="f-bold tbl-row-head-pd">Member Username</th>
-                                        <th class="f-bold tbl-row-head-pd">Join Date</th>
-                                        <th class="f-bold tbl-row-head-pd">Licence Type</th>
-                                        <th class="f-bold tbl-row-head-pd">Registration Country</th>
-                                        <th class="f-bold tbl-row-head-pd">Amount of Direct Referrals</th>
-                                        <th class="f-bold tbl-row-head-pd">Total AUD Purchase Value</th>
-                                        <th class="f-bold tbl-row-head-pd">Piptles Issued </th>
-                                        <th class="f-bold tbl-row-head-pd">My Bonus Piptles Earned</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody *ngIf="tableLoader3">
-                                    <tr >
-                                        <td colspan="12">
-                                            <div  class="custom-loader">
-                                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
-                                                preserveAspectRatio="xMidYMid">
-                                                <g transform="rotate(208.756 50 50)">
-                                                    <animateTransform attributeName="transform" type="rotate"
-                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
-                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-                                                    </animateTransform>
-                                                    <path fill="#85ffbd"
-                                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-                                                    </path>
-                                                    <path fill="#316598"
-                                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-                                                    </path>
-                                                    <path fill="#a4bcc2"
-                                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tbody *ngIf="!tableLoader3 && levelThreeData?.data.rows.length == 0" >
-                                    <tr>
-                                        <td colspan="12" class="no-data-tbl">no data to display</td>
-                                    </tr>
-                                </tbody>
-                                <tbody *ngIf="!tableLoader3 && levelThreeData?.data.rows.length > 0">
-                                    <tr *ngFor="let data of levelThreeData?.data.rows">
-                                        <td class="tbl-row-pd">{{data.referrer}}</td>
-                                        <td class="tbl-row-pd">{{data.name}}</td>
-                                        <td class="tbl-row-pd">{{data.username}}</td>
-                                        <td class="tbl-row-pd">{{data.join_date}}</td>
-                                        <td class="tbl-row-pd">{{data.licence}}</td>
-                                        <td class="tbl-row-pd">{{data.country}}</td>
-                                        <td class="tbl-row-pd">{{levelThreeData?.data.totalRecords}}</td>
-                                        <td class="tbl-row-pd">{{data.audPurchase  | currency:'crypto'}}</td>
-                                        <td class="tbl-row-pd">{{data.pptlIssued  | currency:'crypto'}}</td>
-                                        <td class="tbl-row-pd">{{data.bonusEarned  | currency:'crypto'}}</td>
-                                    </tr>     
-                                </tbody>
-                            </table>
-
-                            <div class='pagination-bottom pt-2' *ngIf="!tableLoader3 && levelThreeData?.data.rows.length > 0">
-
-                                <pagination-controls *ngIf="tableThreeSize < tableThreeCount" responsive="true" previousLabel=""
-                                  nextLabel="" (pageChange)="changePageForTable3($event)"></pagination-controls>
-                  
-                                
-                                <ul class="no-visibility-2 d-none">
-                                  <li
-                                    *ngFor="let item of levelThreeData | paginate: { itemsPerPage: tablethreeSize, currentPage: tableThreeCurrentPage, totalItems: tableThreeCount }">
-                                    {{item}}
-                                  </li>
-                                </ul>
-                    
-                              </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--end table section-->
-
-
-            <div class="row">
-
-                <div class="col-md-12">
-
-                    <div class="all-white">
-
-
-                        <div class="pos-rltv heading-left">
-
-                            <div class="aff-earnings">
-
-                                <h6>{{'REFER EARNINGS' | translate}}
-
-                                </h6>
-
-                            </div>
-
-
-                        </div>
-
-
-                        <div class="download-csv" *ngIf="!noAffiliateEarners">
-                            <div class="heading-right right-aligned" (click)="downloadCSV()">
-                                <h1 class="download-csv">{{'Download as' | translate}} CSV
-                                    <span class="download-image">
-                                        <svg width="10px" height="12px" viewBox="0 0 10 12" version="1.1"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            xmlns:xlink="http://www.w3.org/1999/xlink">
-
-                                            <defs></defs>
-                                            <g id="Page-1" stroke="none" stroke-width="1" fill="none"
-                                                fill-rule="evenodd">
-                                                <g id="Buy-tokens" transform="translate(-1020.000000, -856.000000)"
-                                                    fill="#2097D4">
-                                                    <g id="Activity" transform="translate(277.000000, 820.000000)">
-                                                        <path
-                                                            d="M753,40.2355536 L750.143495,40.2355536 L750.143495,36 L745.856505,36 L745.856505,40.2355536 L743,40.2355536 L748.002232,45.1733569 L753,40.2355536 Z M743,48 L753,48 L753,46.5866784 L743,46.5866784 L743,48 Z"
-                                                            id="download-button"></path>
-                                                    </g>
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </span>
-                                </h1>
-                            </div>
-                        </div>
-
-
-                        <div class="clear"></div>
-
-
-
-                        <div class="table-responsive aff-earners-div">
-
-
-
-                            <table class="table table-striped affiliates-detail">
-
-                                <thead>
-                                    <tr>
-                                        <td class="text-uppercase text-center">
-                                            <p>{{'Currency' | translate}}</p>
-                                        </td>
-                                        <td class="text-uppercase text-center">
-                                            <p>{{'AMOUNT CONTRIBUTED' | translate}}</p>
-                                        </td>
-                                        <!-- <td class="text-uppercase text-right">
+            <div class="table-responsive aff-earners-div">
+              <table class="table table-striped affiliates-detail">
+                <thead>
+                  <tr>
+                    <td class="text-uppercase text-center">
+                      <p>{{'Currency' | translate}}</p>
+                    </td>
+                    <td class="text-uppercase text-center">
+                      <p>{{'AMOUNT CONTRIBUTED' | translate}}</p>
+                    </td>
+                    <!-- <td class="text-uppercase text-right">
                                             <p>{{'AMOUNT INVESTED IN MXN' | translate}}</p>
                                         </td> -->
-                                        <td class="text-uppercase text-center">
-                                            <p>{{'USERNAME' | translate}}</p>
-                                        </td>
-                                        <td class="text-uppercase text-center">
-                                            <p>{{'TIME' | translate}}</p>
-                                        </td>
-                                        <!-- <td class="text-uppercase text-right">
+                    <td class="text-uppercase text-center">
+                      <p>{{'USERNAME' | translate}}</p>
+                    </td>
+                    <td class="text-uppercase text-center">
+                      <p>{{'TIME' | translate}}</p>
+                    </td>
+                    <!-- <td class="text-uppercase text-right">
                                             <p>{{'EARNING IN MXN' | translate}} (2%)</p>
                                         </td> -->
-                                        <td class="text-uppercase text-center">
-                                            <p>{{'EARNING IN FRU' | translate}}</p>
-                                        </td>
+                    <td class="text-uppercase text-center">
+                      <p>{{'EARNING IN FRU' | translate}}</p>
+                    </td>
+                  </tr>
+                </thead>
 
-
-                                    </tr>
-                                </thead>
-
-                                <tbody *ngIf="affiliatesLoader">
-                                    <tr >
-                                        <td colspan="12">
-                                            <div  class="custom-loader">
-                                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
-                                                preserveAspectRatio="xMidYMid">
-                                                <g transform="rotate(208.756 50 50)">
-                                                    <animateTransform attributeName="transform" type="rotate"
-                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
-                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-                                                    </animateTransform>
-                                                    <path fill="#85ffbd"
-                                                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-                                                    </path>
-                                                    <path fill="#316598"
-                                                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-                                                    </path>
-                                                    <path fill="#a4bcc2"
-                                                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <!-- <tbody *ngIf="!affiliatesLoader && !levelTwoData" >
+                <tbody *ngIf="affiliatesLoader">
+                  <tr>
+                    <td colspan="12">
+                      <div class="custom-loader">
+                        <svg
+                          class="lds-comets"
+                          width="100%"
+                          height="100%"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          viewBox="0 0 100 100"
+                          preserveAspectRatio="xMidYMid"
+                        >
+                          <g transform="rotate(208.756 50 50)">
+                            <animateTransform
+                              attributeName="transform"
+                              type="rotate"
+                              repeatCount="indefinite"
+                              values="360 50 50;0 50 50"
+                              keyTimes="0;1"
+                              dur="2.3s"
+                              keySplines="0.5 0.5 0.5 0.5"
+                              calcMode="spline"
+                            ></animateTransform>
+                            <path
+                              fill="#85ffbd"
+                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                            ></path>
+                            <path
+                              fill="#316598"
+                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                            ></path>
+                            <path
+                              fill="#a4bcc2"
+                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                            ></path>
+                          </g>
+                        </svg>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <!-- <tbody *ngIf="!affiliatesLoader && !levelTwoData" >
                                     <tr>
                                         <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
                                 </tbody> -->
-                                <tbody *ngIf="!affiliatesLoader && !totalAffiliatesArray">
-                                    <tr>
-                                        <td colspan="12" class="text-center">
-                                            <p class="no-record">{{'No Refer Earners!' | translate}}</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
+                <tbody *ngIf="!affiliatesLoader && !totalAffiliatesArray">
+                  <tr>
+                    <td colspan="12" class="text-center">
+                      <p class="no-record">
+                        {{'No Refer Earners!' | translate}}
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
 
-                                <tbody *ngIf="!affiliatesLoader && totalAffiliatesArray">
-                                 
-
-                                    <tr *ngFor="let affiliate of totalAffiliatesArray">
-
-                                        <!-- <td class="img-width-table v-middle text-center">
+                <tbody *ngIf="!affiliatesLoader && totalAffiliatesArray">
+                  <tr *ngFor="let affiliate of totalAffiliatesArray">
+                    <!-- <td class="img-width-table v-middle text-center">
 
                                             <div class="coin-image">
                                                 <img *ngIf="affiliate.CurrencyType=='USD'"
@@ -944,288 +1047,267 @@
 
                                         </td> -->
 
-                                        <td class="text-uppercase text-center">
-                                            <p class="amounts-text">{{affiliate.currency | currency:'crypto'}}</p>
-                                        </td>
-                                        <td class="text-center">
-                                            <p class="amounts-text">{{affiliate.amountInvested | currency: 'crypto'}}</p>
-                                        </td>
-                                        <!-- <td class="text-uppercase text-right">
+                    <td class="text-uppercase text-center">
+                      <p class="amounts-text">
+                        {{affiliate.currency | currency:'crypto'}}
+                      </p>
+                    </td>
+                    <td class="text-center">
+                      <p class="amounts-text">
+                        {{affiliate.amountInvested | currency: 'crypto'}}
+                      </p>
+                    </td>
+                    <!-- <td class="text-uppercase text-right">
                                             <p class="amounts-text">${{affiliate.AmountInMexican}}</p>
                                         </td> -->
 
-                                        <td class="text-center">
-                                            <p class="amounts-text">{{affiliate.userName}}</p>
-                                        </td>
+                    <td class="text-center">
+                      <p class="amounts-text">{{affiliate.userName}}</p>
+                    </td>
 
-                                        <td class="text-center">
-                                            <p class="amounts-text">{{affiliate.time | date : 'yyyy-MM-dd'}}</p>
-                                        </td>
+                    <td class="text-center">
+                      <p class="amounts-text">
+                        {{affiliate.time | date : 'yyyy-MM-dd'}}
+                      </p>
+                    </td>
 
-                                        <!-- <td class="text-right">
+                    <!-- <td class="text-right">
                                             <p class="amounts-text-black">{{affiliate.EarningInMexican}} MXN</p>
                                         </td> -->
 
-                                        <td class="text-center">
-                                            <p class="amounts-text-black">{{affiliate.earningInPPTL | currency:'crypto'}}
-                                                PPTL</p>
-                                        </td>
+                    <td class="text-center">
+                      <p class="amounts-text-black">
+                        {{affiliate.earningInPPTL | currency:'crypto'}} PPTL
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
 
-                                    </tr>
+              <div
+                class="pagination-table clearfix"
+                *ngIf="affiliateEarningsPageSize < totalAffiliateEarningsRecords"
+              >
+                <ul class="no-visibility">
+                  <li
+                    *ngFor="let item of totalAffiliatesArray | paginate: { itemsPerPage: affiliateEarningsPageSize, currentPage: affiliateEarningsPageNumber, totalItems: totalAffiliateEarningsRecords }"
+                  >
+                    {{item}}
+                  </li>
+                </ul>
 
+                <pagination-controls
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePageNumber($event)"
+                ></pagination-controls>
+              </div>
+            </div>
 
+            <div
+              class="bg-table clearfix"
+              *ngIf="!affiliatesLoader && totalAffiliatesArray"
+            >
+              <ul class="clearfix total-row">
+                <li>
+                  <p class="total-head">{{'Total'|translate}} :</p>
+                </li>
 
-                                </tbody>
-
-
-
-                            </table>
-
-
-
-                            <div class='pagination-table clearfix'
-                                *ngIf="affiliateEarningsPageSize < totalAffiliateEarningsRecords">
-
-                                <ul class="no-visibility">
-                                    <li
-                                        *ngFor="let item of totalAffiliatesArray | paginate: { itemsPerPage: affiliateEarningsPageSize, currentPage: affiliateEarningsPageNumber, totalItems: totalAffiliateEarningsRecords }">
-                                        {{item}}</li>
-                                </ul>
-
-                                <pagination-controls responsive="true" previousLabel="" nextLabel=""
-                                    (pageChange)="changePageNumber($event)"></pagination-controls>
-
-                            </div>
-
-
-                        </div>
-
-                        <div class="bg-table clearfix" *ngIf="!affiliatesLoader && totalAffiliatesArray">
-
-
-                            <ul class="clearfix total-row">
-
-                                <li>
-                                    <p class="total-head">{{'Total'|translate}} :</p>
-                                </li>
-
-                                <!-- <li>
+                <!-- <li>
                                     <p class="total-values">$ {{totalEarningInUSD  | currency:'fait'}}</p>
                                 </li> -->
 
-                                <li>
-                                    <p class="total-values">{{totalEarningInPPTL | currency:'crypto'}} PPTL </p>
-                                </li>
+                <li>
+                  <p class="total-values">
+                    {{totalEarningInPPTL | currency:'crypto'}} PPTL
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                            </ul>
-
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
+      <div class="row">
+        <div class="col-md-8 col-lg-8 col-sm-7 col-xs-12">
+          <div class="graph-wrapper">
+            <div class="graph-loader" id="graphLoader">
+              <div class="center-loader">
+                <svg
+                  class="lds-comets"
+                  width="100%"
+                  height="100%"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="xMidYMid"
+                >
+                  <g transform="rotate(208.756 50 50)">
+                    <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      repeatCount="indefinite"
+                      values="360 50 50;0 50 50"
+                      keyTimes="0;1"
+                      dur="2.3s"
+                      keySplines="0.5 0.5 0.5 0.5"
+                      calcMode="spline"
+                    ></animateTransform>
+                    <path
+                      fill="#85ffbd"
+                      d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                    ></path>
+                    <path
+                      fill="#316598"
+                      d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                    ></path>
+                    <path
+                      fill="#a4bcc2"
+                      d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
             </div>
 
-            <div class="row">
+            <div class="posReltv">
+              <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <p class="aff-h2">
+                    {{'REVENUE FROM THE REFERRAL FOR THE RESPECTIVE USERS' |
+                    translate}}
+                  </p>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 scndHlf">
+                  <div class="rytAlgnmnt">
+                    <label class="marryt20"> {{'Show' | translate}}: </label>
+                    <ul class="affiliate-graph-ul">
+                      <li
+                        class="affiliate-active-li"
+                        (click)="getGraphByFilter('DAY')"
+                      >
+                        {{ 'DAYS' | translate}}
+                      </li>
+                      <li class="" (click)="getGraphByFilter('WEEK')">
+                        {{ 'WEEKS' | translate}}
+                      </li>
+                      <li class="" (click)="getGraphByFilter('MONTH')">
+                        {{ 'MONTHS' | translate}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
 
-                <div class="col-md-8 col-lg-8 col-sm-7 col-xs-12">
+              <div class="relative" *ngIf="noGraphData">
+                <p class="no-record">{{'NO DATA FOUND' | translate}}</p>
+              </div>
 
-                    <div class="graph-wrapper">
-
-                        <div class="graph-loader" id="graphLoader">
-                            <div class="center-loader">
-                                <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
-                                    preserveAspectRatio="xMidYMid">
-                                    <g transform="rotate(208.756 50 50)">
-                                        <animateTransform attributeName="transform" type="rotate"
-                                            repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
-                                            dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline">
-                                        </animateTransform>
-                                        <path fill="#85ffbd"
-                                            d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z">
-                                        </path>
-                                        <path fill="#316598"
-                                            d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z">
-                                        </path>
-                                        <path fill="#a4bcc2"
-                                            d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z">
-                                        </path>
-                                    </g>
-                                </svg>
-                            </div>
-                        </div>
-
-
-                        <div class="posReltv">
-                            <div class="row">
-
-                                <div class="col-lg-6 col-md-12 col-sm-12">
-                                    <p class="aff-h2">
-                                        {{'REVENUE FROM THE REFERRAL FOR THE RESPECTIVE USERS' | translate}}
-                                    </p>
-                                </div>
-                                <div class="col-lg-6 col-md-12 col-sm-12  scndHlf">
-                                    <div class="rytAlgnmnt">
-                                        <label class="marryt20">
-                                            {{'Show' | translate}}:
-                                        </label>
-                                        <ul class="affiliate-graph-ul">
-
-                                            <li class="affiliate-active-li" (click)="getGraphByFilter('DAY')">
-                                                {{ 'DAYS' | translate}}
-                                            </li>
-                                            <li class="" (click)="getGraphByFilter('WEEK')">
-                                                {{ 'WEEKS' | translate}}
-                                            </li>
-                                            <li class="" (click)="getGraphByFilter('MONTH')">
-                                                {{ 'MONTHS' | translate}}
-                                            </li>
-                                        </ul>
-                                    </div>
-
-
-
-                                </div>
-
-
-
-                            </div>
-
-                            <div class="relative" *ngIf="noGraphData">
-                                <p class="no-data">{{'NO DATA FOUND' | translate}}</p>
-                            </div>
-
-
-                            <div class="graph-div" *ngIf="!noGraphData">
-
-
-                                <div class="">
-                                    <p class="affiliate-chart-lft-lbl">
-                                        {{ 'EARNING' | translate}} ($)
-                                    </p>
-                                </div>
-
-
-                                <canvas id="aff-chart" baseChart [datasets]="lineChartData" [labels]="lineChartLabels"
-                                    [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend"
-                                    [chartType]="lineChartType"></canvas>
-
-
-                                <p class="affiliate-chart-btm-lbl">
-                                    {{ 'TIME' | translate}}
-                                </p>
-
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-
-
+              <div class="graph-div" *ngIf="!noGraphData">
+                <div class="">
+                  <p class="affiliate-chart-lft-lbl">
+                    {{ 'EARNING' | translate}} ($)
+                  </p>
                 </div>
 
+                <canvas
+                  id="aff-chart"
+                  baseChart
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [colors]="lineChartColors"
+                  [legend]="lineChartLegend"
+                  [chartType]="lineChartType"
+                ></canvas>
 
-                <div class="col-md-4 col-lg-4 col-sm-5 col-xs-12">
-
-
-                    <div class="height-div">
-                        <div class="white-back2">
-                            <div class="pos-rltv">
-
-                                <div class="pos-left">
-                                    <h6 class="aff-h2">{{'MY REFERRALS' | translate}}
-
-                                    </h6>
-
-                                </div>
-
-
-                            </div>
-                            <div class="clear"></div>
-
-                            <div class="topp">
-                                <div class="table-responsive">
-                                    <p class="no-record" *ngIf="noMyAffilliates">{{ 'No Data Found' | translate}}</p>
-                                    <table class="table my-tbl table-striped" *ngIf="!noMyAffilliates">
-                                        <thead>
-                                            <tr>
-                                                <td>
-
-                                                    <p class="top-aff-th left-aligned">{{'Name' | translate}}</p>
-
-
-                                                </td>
-                                                <td>
-
-                                                    <p class="top-aff-th left-aligned">{{'Time' | translate}}</p>
-
-
-                                                </td>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="">
-
-                                            <tr *ngFor="let affiliate of myAffilliates">
-                                                <td class="text-capitalize blue-text"
-                                                    style="text-align: left !important">{{affiliate?.UserName}}</td>
-                                                <td class="text-capitalize blue-text"
-                                                    style="text-align: left !important">{{affiliate?.CreatedOnUTC}}</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-
-
-
-                                <div class='pagination-bottom'>
-
-                                    <ul class="no-visibility">
-                                        <li
-                                            *ngFor="let item of myAffilliates | paginate: { itemsPerPage: myAffiliatesPageSize, currentPage: myAffiliatesPageNumber, totalItems: totalAffiliatesForUser }">
-                                            {{item}}</li>
-                                    </ul>
-
-                                    <pagination-controls *ngIf="myAffiliatesPageSize < totalAffiliatesForUser"
-                                        responsive="true" previousLabel="" nextLabel=""
-                                        (pageChange)="changePageNumberForMyAffiliates($event)"></pagination-controls>
-
-
-
-
-                                </div>
-
-                                <div class="clear"></div>
-
-                            </div>
-
-
-
-
-                        </div>
-
-
-
-
-                    </div>
-
-
-                </div>
-
-
+                <p class="affiliate-chart-btm-lbl">{{ 'TIME' | translate}}</p>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="row2">
-                <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-5 col-xs-12">
+          <div class="height-div">
+            <div class="white-back2">
+              <div class="pos-rltv">
+                <div class="pos-left">
+                  <h6 class="aff-h2">{{'MY REFERRALS' | translate}}</h6>
+                </div>
+              </div>
+              <div class="clear"></div>
 
-                    <!-- <div class="col-lg-6 ">    d-md-none d-sm-none d-xs-none d-lg-block d-none left-7
+              <div class="topp">
+                <div class="table-responsive">
+                  <p class="no-record" *ngIf="noMyAffilliates">
+                    {{ 'No Data Found' | translate}}
+                  </p>
+                  <table
+                    class="table my-tbl table-striped"
+                    *ngIf="!noMyAffilliates"
+                  >
+                    <thead>
+                      <tr>
+                        <td>
+                          <p class="top-aff-th left-aligned">
+                            {{'Name' | translate}}
+                          </p>
+                        </td>
+                        <td>
+                          <p class="top-aff-th left-aligned">
+                            {{'Time' | translate}}
+                          </p>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody class="">
+                      <tr *ngFor="let affiliate of myAffilliates">
+                        <td
+                          class="text-capitalize blue-text"
+                          style="text-align: left !important"
+                        >
+                          {{affiliate?.UserName}}
+                        </td>
+                        <td
+                          class="text-capitalize blue-text"
+                          style="text-align: left !important"
+                        >
+                          {{affiliate?.CreatedOnUTC}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="pagination-bottom">
+                  <ul class="no-visibility">
+                    <li
+                      *ngFor="let item of myAffilliates | paginate: { itemsPerPage: myAffiliatesPageSize, currentPage: myAffiliatesPageNumber, totalItems: totalAffiliatesForUser }"
+                    >
+                      {{item}}
+                    </li>
+                  </ul>
+
+                  <pagination-controls
+                    *ngIf="myAffiliatesPageSize < totalAffiliatesForUser"
+                    responsive="true"
+                    previousLabel=""
+                    nextLabel=""
+                    (pageChange)="changePageNumberForMyAffiliates($event)"
+                  ></pagination-controls>
+                </div>
+
+                <div class="clear"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="row">
+          <!-- <div class="col-lg-6 ">    d-md-none d-sm-none d-xs-none d-lg-block d-none left-7
                     
                         <div class="height-div">
                             <div class="white-back2">
@@ -1292,10 +1374,8 @@
 
                         </div>
                     </div> -->
-                </div>
-            </div>
-
-
         </div>
+      </div>
     </div>
+  </div>
 </section>

@@ -1074,13 +1074,12 @@ $label-color: #2097d4;
 }
 
 .page-title {
-  // color: $theme-orange;
-  color: $dashboard-purple-clr;
-  font-family: "LatoWeb";
-  font-size: $title-size;
-  text-transform: $title-case;
-  margin: $title-margin;
-  // font-weight: 600;
+  color:#191919;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  font-family: "CenturyRetrospective", serif;
+  margin: auto;
   @media (max-width: 991px) {
     text-align: center;
   }
