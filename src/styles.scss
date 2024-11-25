@@ -815,13 +815,10 @@ label:hover:before {
 }
 
 .no-of-btc {
-  color: $theme-blue;
-  font-family: "LatoWeb";
-  font-size: 11px;
-  margin-bottom: 8px !important;
-  @media (max-width: 1600px) and (min-width: 1200px) {
-    font-size: 9px;
-  }
+  color:#191919;
+  font-family: "MavenPro";
+  font-size: 16px;
+  font-weight: 500;
 
   @media (max-width: 640px) {
     font-size: 10px;
