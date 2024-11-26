@@ -13,7 +13,7 @@
                     <label class="black-labels hidden-above-sm " style="visibility: hidden;    padding-bottom: 5px;">PUC</label>
                     <span class="custom-dropdown big">
                         <img class="custom-arrow" src="../../../assets/img/drop-down-arrow.png" alt="" srcset="">
-                        <select (change)="convertCurrencyToPPTL($event.target.value)">
+                        <select (change)="convertCurrencyToeMy($event.target.value)">
                             <option value="mxn">AUD</option>
                             <option value="btc">BTC</option>
                             <option value="ltc">LTC</option>
@@ -57,7 +57,7 @@
       <div class="col-lg-3 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Total PPTLs:</span>
+            <span class="heading text-class">Total eMy:</span>
             <span class="pulper-color"> {{ totalCapacity }} </span>
           </div>
         </div>
@@ -65,7 +65,7 @@
       <div class="col-lg-3 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Issued PPTLs:</span>
+            <span class="heading text-class">Issued eMy:</span>
             <span class="pulper-color"> {{ totalIssued }} </span>
           </div>
         </div>
@@ -84,7 +84,7 @@
       <div class="col-lg-3 col-md-4 pl-0 pr-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Total Piptle Licensees:</span>
+            <span class="heading text-class">Total eMaaya Licensees:</span>
             <span class="pulper-color"> {{ totalLicesees }} </span>
           </div>
         </div>
@@ -92,7 +92,7 @@
       <div class="col-lg-4 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Current PPTL Value: </span>
+            <span class="heading text-class">Current eMy Value: </span>
             <!-- <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span> -->
             <span class="pulper-color">
               {{ selectedCurrencyAUD }}
@@ -105,9 +105,9 @@
       <div class="col-lg-4 col-md-4 pl-0 mb-3">
         <div class="info-custom-card dark-bg">
           <div class="content">
-            <span class="heading prp-text text-class">Your Total PPTL:</span>
+            <span class="heading prp-text text-class">Your Total eMy:</span>
             <span class="heading prp-text-ppt">
-              {{ totalPiptles ? (totalPiptles | currency : "crypto") : 0 }}
+              {{ totaleMaayas ? (totaleMaayas | currency : "crypto") : 0 }}
             </span>
           </div>
         </div>
@@ -116,7 +116,7 @@
         <div class="info-custom-card dark-bg">
           <div class="content">
             <span class="heading prp-text text-class"
-              >Your Total PPTL Value:</span
+              >Your Total eMy Value:</span
             >
             <span class="heading prp-text-ppt">
               <!-- AUD$ {{ totalValueAud | currency : "crypto" }} -->
@@ -663,10 +663,10 @@
         <div class="payment-card">
           <div class="content">
             <span class="payments-accepted-for"
-              >Piptle Sale Graph (Per Day) :</span
+              >eMaaya Sale Graph (Per Day) :</span
             >
           </div>
-          <!-- <p class="graph-text">PIPTLE PRICING AND TOTAL PARTICIPANTS</p>    
+          <!-- <p class="graph-text">eMaaya PRICING AND TOTAL PARTICIPANTS</p>    
             <p class="graph-inner-text">launching soon</p> -->
           <canvas
             baseChart
@@ -864,7 +864,7 @@
                       <div class="col-md-4 col-xs-12 p-0">
                         <div class="form-group">
                           <label class="black-labels p-b-5 hidden-above-sm"
-                            >PPTL</label
+                            >eMy</label
                           >
                           <!-- <div class="spin-hider"></div> -->
 
@@ -967,7 +967,7 @@
                           <div class="d-flex flex-column text-white">
                             <p class="puc-txt">
                               {{ coinsCalculatedBottom | currency : "crypto" }}
-                              PPTL
+                              eMy
                             </p>
                             <p class="curr-txt mb-0">
                               {{ coinsWantedBottom | currency : "crypto" }}
@@ -1006,7 +1006,7 @@
                               >{{ "Total Supply" | translate }} :
                             </span>
                             <span class="color-pulper"
-                              >{{ totalCapacity }} PPTLs</span
+                              >{{ totalCapacity }} eMy</span
                             >
                           </td>
                           <td>
@@ -1017,7 +1017,7 @@
                               >{{ totalIssued | currency }}
                             </span>
                           </td>
-                          <td class="color-pulper">PPTLs</td>
+                          <td class="color-pulper">eMy</td>
                         </tr>
                         <tr *ngFor="let sData of stageData">
                           <td>
@@ -1025,7 +1025,7 @@
                               >{{ sData.StageName }} :
                             </span>
                             <span class="color-pulper"
-                              >{{ sData.TotalSaleAmount }} PPTLs</span
+                              >{{ sData.TotalSaleAmount }} eMy</span
                             >
                           </td>
                           <td>
@@ -1036,7 +1036,7 @@
                               >{{ sData.TotalAmountSold | currency }}
                             </span>
                           </td>
-                          <td class="color-pulper">PPTLs</td>
+                          <td class="color-pulper">eMy</td>
                         </tr>
                       </tbody>
                     </table>
@@ -1077,7 +1077,7 @@
                   <!-- <p style="font-size: 14px; text-transform: uppercase;" >{{'Graph Display Currencies Rate In PUCCoin' | translate}}</p> -->
                   <div class="d-flex flex-row w-50 text-center">
                     <p class="tbl-value">Value in AUD</p>
-                    <p class="tbl-value">PPTL Coins</p>
+                    <p class="tbl-value">eMy Coins</p>
                   </div>
                 </div>
               </div>
@@ -1111,7 +1111,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInBtc | currency : "fait" }}
-                            <span class="mxn-rate">PPTL</span>
+                            <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
 
@@ -1136,7 +1136,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInBch | currency : "fait" }}
-                            <span class="mxn-rate">PPTL</span>
+                            <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
 
@@ -1161,7 +1161,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInLtc | currency : "fait" }}
-                            <span class="mxn-rate">PPTL</span>
+                            <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
 
@@ -1186,7 +1186,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInEth | currency : "fait" }}
-                            <span class="mxn-rate">PPTL</span>
+                            <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
 
@@ -1211,7 +1211,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInUsd | currency : "fait" }}
-                            <span class="mxn-rate">PPTL</span>
+                            <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
 
@@ -1334,7 +1334,7 @@
               <div class="header-box clearfix">
                 <div class="calculator-left">
                   <h2 class="sub-title">
-                    My Piptle Purchase Transaction
+                    My eMaaya Purchase Transaction
                     <span class="sub-title-dash">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -1397,7 +1397,7 @@
                     <th
                       class="rates-table-currency table-head text-centered no-top-padding"
                     >
-                      Piptle Value AUD
+                      eMaaya Value AUD
                     </th>
 
                     <th class="rates-table-currency text-centered table-head">
@@ -1410,7 +1410,7 @@
                   <tr *ngFor="let transactions of recentTransactions">
                     <td class="img-width-table v-middle table-head">
                       <div class="coin-image">
-                        <!-- <img *ngIf="transactions.TransactionCurrencyType=='PPTL'" src="../../../assets/img/Piptle logo.png" alt="dollar-icon">
+                        <!-- <img *ngIf="transactions.TransactionCurrencyType=='eMy'" src="../../../assets/img/eMaaya logo.png" alt="dollar-icon">
 
                                             <img *ngIf="transactions.TransactionCurrencyType=='USD'" src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
                                             <img *ngIf="transactions.TransactionCurrencyType=='MXN'" src="../../../assets/img/dollar-icon.png" alt="dollar-icon"> -->
@@ -1541,7 +1541,7 @@
                       </p>
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == 'PPTL'"
+                        *ngIf="transactions.TransactionCurrencyType == 'eMy'"
                       >
                         {{ transactions.TransactionCurrencyType }}
                       </p>
@@ -1616,16 +1616,16 @@
               <div class="calculator-left">
                 <!-- <h2 class="sub-title aligned-test title-values">
                   {{ "Global Transaction" | translate }}:
-                  <span class="piptleissued">{{ date | date }}</span>
+                  <span class="eMaayaissued">{{ date | date }}</span>
                   <p class="sub-title title-values">
-                    PIPTLES ISSUED:
-                    <span class="piptleissued">{{
-                      piptleIssued | currency
+                    eMaayaS ISSUED:
+                    <span class="eMaayaissued">{{
+                      eMaayaIssued | currency
                     }}</span>
                   </p>
                   <p class="sub-title title-values">
                     PURCHASE VALUE:
-                    <span class="piptleissued">{{
+                    <span class="eMaayaissued">{{
                       purchaseValue | currency
                     }}</span>
                   </p>
@@ -1661,10 +1661,10 @@
                     class="d-flex align-items-center justify-content-between padding-bottom-40"
                   >
                     <span class="global-transaction-heading">
-                      Piptles Issues
+                      eMaayas Issues
                     </span>
                     <span class="global-transaction-heading-two"
-                      >{{ piptleIssued | currency }}
+                      >{{ eMaayaIssued | currency }}
                     </span>
                   </div>
                   <div

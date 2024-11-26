@@ -4,7 +4,7 @@
   <div class="background">
     <div class="head-section">
       <div class="page-title d-flex content-flex">
-        <h1 class="page-title text-left">
+        <h1 class="page-title">
           {{ "ICO Tracker" | translate }}
         </h1>
       </div>
@@ -13,7 +13,7 @@
           <div class="inner-box d-flex justify-content-between flex-column">
             <div class="top-left-ico-text">
               <p class="ico-top-text">
-                Current PPTL Value
+                Current eMy Value
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -22,7 +22,7 @@
               </p>
             </div>
             <div class="d-flex flex-column">
-              <p class="number">{{ currentStagePPTL }} PPTL</p>
+              <p class="number">{{ currentStageeMy }} eMy</p>
               <p class="sub-text">Issue Value</p>
             </div>
           </div>
@@ -87,10 +87,10 @@
                 </span> -->
               </p>
               <p class="ico-top-text mt-2">Founder</p>
-              <p class="ico-top-text">Total PPTL Issued</p>
+              <p class="ico-top-text">Total eMy Issued</p>
             </div>
             <div class="d-flex flex-column">
-              <p class="number">{{ founderPPTL }}PPTL</p>
+              <p class="number">{{ foundereMy }} eMy</p>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
             >
               <div class="d-flex my-3 flex-row">
                 <p class="till-pIco-Stge-small mr-1">
-                  PPTL Starting Value:
+                  eMy Starting Value:
                   <strong>{{ ICOStageInfoLeft?.stageRate }} (AUD)</strong>
                 </p>
                 <p class="till-pIco-Stge-small mr-1" *ngIf="!hideSecondBox">
@@ -154,7 +154,7 @@
               </div>
               <div class="d-flex flex-column">
                 <p class="till-pIco-Stge-txt">
-                  PPTL starting Value: {{ ICOStageInfoLeft?.stageRate }} (AUD)
+                  eMy starting Value: {{ ICOStageInfoLeft?.stageRate }} (AUD)
                 </p>
               </div>
             </div>
@@ -173,7 +173,7 @@
             >
               <div class="d-flex my-3 flex-row">
                 <p class="till-pIco-Stge-small mr-1">
-                  PPTL Starting Value:
+                  eMy Starting Value:
                   <strong>{{ ICOStageInfoLeft?.stageRate }} (AUD)</strong>
                 </p>
                 <p class="till-pIco-Stge-small mr-1" *ngIf="!hideSecondBox">
@@ -250,8 +250,8 @@
           <div class="table-div">
             <div class="genral-sett-div-head clearfix width100 p-3">
               <div class="leftside">
-                <p class="gnrl-sett-txt p-0 mb-0 text-left piptle-font">
-                  {{ "ILO PIPTLERS" | translate }}
+                <p class="gnrl-sett-txt p-0 mb-0 text-left eMaaya-font">
+                  {{ "ILO eMaayaRS" | translate }}
                 </p>
               </div>
               <!-- <div class="d-flex justify-content-end">
@@ -282,7 +282,7 @@
                           </div>
                         </th>
                         <th>
-                          <p class="tbl-head-txt">Piptles Issued</p>
+                          <p class="tbl-head-txt">eMaayas Issued</p>
                         </th>
 
                         <th class="">
@@ -297,11 +297,8 @@
                         </th>
                       </tr>
                     </thead>
-                    <tbody
-                      class=""
-                      *ngIf="!pptlLoader && paginationNumber != 0"
-                    >
-                      <tr class="trname" *ngFor="let data of pptlDetails">
+                    <tbody class="" *ngIf="!eMyLoader && paginationNumber != 0">
+                      <tr class="trname" *ngFor="let data of eMyDetails">
                         <td class="td-name">
                           {{ data.date | date : "dd/MM/yyyy" }}
                         </td>
@@ -313,9 +310,9 @@
                             <ul class="token-progress">
                               <li>
                                 <span class="font-13">{{
-                                  data.piptles | currency : "crypto"
+                                  data.eMaayas | currency : "crypto"
                                 }}</span>
-                                <!-- <strong class="bold-text">PPTL </strong> -->
+                                <!-- <strong class="bold-text">eMy </strong> -->
                               </li>
                             </ul>
                           </div>
@@ -341,7 +338,7 @@
                       </tr>
                     </tbody>
 
-                    <tbody *ngIf="pptlLoader">
+                    <tbody *ngIf="eMyLoader">
                       <tr>
                         <td colspan="12">
                           <div class="custom-loader">
@@ -385,14 +382,14 @@
                     </tbody>
                   </table>
                   <div
-                    *ngIf="!pptlLoader && paginationNumber == 0"
+                    *ngIf="!eMyLoader && paginationNumber == 0"
                     class="text-center no-data-found"
                   >
                     No Data Found
                   </div>
                   <div
                     class="pagination-bottom pt-2"
-                    *ngIf="!pptlLoader && paginationNumber != 0"
+                    *ngIf="!eMyLoader && paginationNumber != 0"
                   >
                     <pagination-controls
                       *ngIf="referralPSize < paginationNumber"
@@ -405,7 +402,7 @@
                     <ul class="no-visibility-2 d-none">
                       <li
                         *ngFor="
-                          let item of pptlDetails
+                          let item of eMyDetails
                             | paginate
                               : {
                                   itemsPerPage: referralPSize,
