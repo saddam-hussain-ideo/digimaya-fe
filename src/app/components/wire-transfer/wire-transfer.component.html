@@ -45,7 +45,7 @@
               [ngClass]="{
                 submitted: claims.Status == 'SUBMITTED',
                 accepted: claims.Status == 'ACCEPTED',
-                rejected: claims.Status == 'REJECTED',
+                rejected: claims.Status == 'REJECTED'
               }"
             >
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{
@@ -120,7 +120,7 @@
               : {
                   itemsPerPage: pageSize,
                   currentPage: pageNumber,
-                  totalItems: totalCount,
+                  totalItems: totalCount
                 }
         "
       >
