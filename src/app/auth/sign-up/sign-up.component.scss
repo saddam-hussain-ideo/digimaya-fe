@@ -1,4 +1,4 @@
-@import "../../../variables";
+@import '../../../variables';
 
 .email-strong {
   color: #20292f;
@@ -11,7 +11,7 @@
   margin-bottom: 15px;
   font-size: 18px;
   color: #20292f;
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
 }
 
 option:first-child {
@@ -19,7 +19,7 @@ option:first-child {
 }
 
 .codearea {
-  border: 1px solid #643e8d;
+  background: transparent;
 }
 
 .error {
@@ -41,7 +41,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 select {

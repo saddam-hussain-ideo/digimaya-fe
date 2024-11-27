@@ -4,7 +4,7 @@
     <div id="snackbar"></div>
     <div class="background">
       <div class="mywallet-head">
-        <h1 class="page-title-buy-piptles">{{ "Buy Tokens" | translate }}</h1>
+        <h1 class="page-title-buy-piptles">{{ 'Buy Tokens' | translate }}</h1>
 
         <!-- <ul class="earn-boxes-list xchge-earn-list clearfix">
 
@@ -89,7 +89,7 @@
               <div class="padding10">
                 <div>
                   <p class="wallet-address-txt" *ngIf="isTwoFa">
-                    {{ "WALLET ADDRESS" | translate }}
+                    {{ 'WALLET ADDRESS' | translate }}
                   </p>
                 </div>
                 <div *ngIf="isTwoFa">
@@ -113,7 +113,7 @@
                 <div *ngIf="!isTwoFa">
                   <div class="d-flex align-items-start">
                     <p class="twoFaText">
-                      {{ "Enable 2Fa for addresses" | translate }}
+                      {{ 'Enable 2Fa for addresses' | translate }}
                     </p>
                   </div>
                 </div>
@@ -182,7 +182,7 @@
                     </div> -->
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 BTC = {{ walletInfo?.btc | currency : "crypto" }} eMy
+                        1 BTC = {{ walletInfo?.btc | currency: 'crypto' }} eMy
                       </p>
                     </div>
                   </div>
@@ -349,7 +349,7 @@
               <div class="padding10">
                 <div>
                   <p class="wallet-address-txt" *ngIf="isTwoFa">
-                    {{ "WALLET ADDRESS" | translate }}
+                    {{ 'WALLET ADDRESS' | translate }}
                   </p>
                 </div>
                 <div *ngIf="isTwoFa">
@@ -373,7 +373,7 @@
                 <div *ngIf="!isTwoFa">
                   <div class="relative-div">
                     <p class="twoFaText">
-                      {{ "Enable 2Fa for addresses" | translate }}
+                      {{ 'Enable 2Fa for addresses' | translate }}
                     </p>
                   </div>
                 </div>
@@ -442,7 +442,7 @@
                     </div> -->
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 LTC = {{ walletInfo?.ltc | currency : "crypto" }} eMy
+                        1 LTC = {{ walletInfo?.ltc | currency: 'crypto' }} eMy
                       </p>
                     </div>
                   </div>
@@ -506,7 +506,7 @@
               <div class="padding10" *ngIf="noEthAddress">
                 <p class="no-eth-text">
                   {{
-                    "In order to proceed with your ETH investment, you need to provide a valid ETH Wallet Address"
+                    'In order to proceed with your ETH investment, you need to provide a valid ETH Wallet Address'
                       | translate
                   }}
                 </p>
@@ -560,7 +560,7 @@
                     (click)="updateGeneralSettings()"
                     *ngIf="updateEth"
                   >
-                    {{ "Update" | translate }}
+                    {{ 'Update' | translate }}
                   </button>
                 </div>
               </div>
@@ -573,7 +573,7 @@
                     class="wallet-address-txt"
                     *ngIf="isTwoFa && isWalletAddress"
                   >
-                    {{ "WALLET ADDRESS" | translate }}
+                    {{ 'WALLET ADDRESS' | translate }}
                   </p>
                 </div>
                 <div *ngIf="isTwoFa && isWalletAddress">
@@ -598,13 +598,13 @@
                 <div *ngIf="!isTwoFa">
                   <div class="relative-div">
                     <p class="twoFaText mb-0">
-                      {{ "Enable 2Fa for addresses" | translate }}
+                      {{ 'Enable 2Fa for addresses' | translate }}
                     </p>
                   </div>
                 </div>
                 <div *ngIf="!isWalletAddress && isTwoFa">
                   <div class="relative-div">
-                    <p class="twoFaText">{{ "Set ETH Address" | translate }}</p>
+                    <p class="twoFaText">{{ 'Set ETH Address' | translate }}</p>
                   </div>
                 </div>
                 <div
@@ -670,7 +670,7 @@
                     </div> -->
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font pt-0">
-                        1 ETH = {{ walletInfo?.eth | currency : "crypto" }} eMy
+                        1 ETH = {{ walletInfo?.eth | currency: 'crypto' }} eMy
                       </p>
                     </div>
                   </div>
@@ -745,7 +745,7 @@
 
                 <div class="right-text">
                   <p class="no-of-coins">
-                    {{ "AUD" | translate }}
+                    {{ 'AUD' | translate }}
                   </p>
                 </div>
               </div>
@@ -834,7 +834,7 @@
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
                         1 {{ wireCurrencySelected }} =
-                        {{ currencyRate | currency : "crypto" }} eMy
+                        {{ currencyRate | currency: 'crypto' }} eMy
                       </p>
                     </div>
                   </div>
@@ -1277,7 +1277,7 @@
             <div class="padding10">
               <div>
                 <p class="wallet-address-txt" *ngIf="isTwoFa">
-                  {{ "WALLET ADDRESS" | translate }}
+                  {{ 'WALLET ADDRESS' | translate }}
                 </p>
               </div>
               <div *ngIf="isTwoFa">
@@ -1301,7 +1301,7 @@
               <div *ngIf="!isTwoFa">
                 <div class="relative-div">
                   <p class="twoFaText">
-                    {{ "Enable 2Fa for addresses" | translate }}
+                    {{ 'Enable 2Fa for addresses' | translate }}
                   </p>
                 </div>
               </div>
@@ -2103,7 +2103,7 @@
           class="d-flex justify-content-between align-items-center instruction-close"
         >
           <p class="instruction-txt">
-            {{ "scan Banking details" | translate }}
+            {{ 'scan Banking details' | translate }}
           </p>
           <img
             src="../../../assets/img/close.png"
@@ -2139,7 +2139,7 @@
         <div
           class="d-flex justify-content-between align-items-center instruction-close"
         >
-          <p class="instruction-txt">{{ "Instructions" | translate }}</p>
+          <p class="instruction-txt">{{ 'Instructions' | translate }}</p>
           <img
             src="../../../assets/img/close.png"
             alt="close-image"
@@ -2281,9 +2281,9 @@
 
             <div class="right-text">
               <p class="no-of-coins">
-                {{ "WIRE TRANSFER" | translate }}
+                {{ 'WIRE TRANSFER' | translate }}
                 <br />
-                {{ "claim submission" | translate }}
+                {{ 'claim submission' | translate }}
               </p>
             </div>
           </div>
@@ -2292,7 +2292,7 @@
 
           <div class="form-fields" *ngIf="userObject">
             <div class="form-group">
-              <label>{{ "Username" | translate }}</label>
+              <label>{{ 'Username' | translate }}</label>
               <input
                 type="text"
                 class="form-control"
@@ -2303,7 +2303,7 @@
             </div>
 
             <div class="form-group">
-              <label>{{ "Email" | translate }}</label>
+              <label>{{ 'Email' | translate }}</label>
               <input
                 type="text"
                 class="form-control"
@@ -2314,7 +2314,7 @@
             </div>
 
             <div class="form-group">
-              <label>{{ "Select Currency" | translate }}:</label>
+              <label>{{ 'Select Currency' | translate }}:</label>
               <label for="currency-mxn" class="aud ml-3">AUD</label>
               <!--                  <select class="select-box form-control" [(ngModel)]="currencyTypeUserPaidIn">
                                 <option disabled selected>Select Currency</option>
@@ -2339,7 +2339,7 @@
             </div>
 
             <div class="form-group">
-              <label>{{ "Instrument Id" | translate }}</label>
+              <label>{{ 'Instrument Id' | translate }}</label>
               <input
                 type="text"
                 maxlength="40"
@@ -2351,7 +2351,7 @@
             </div>
 
             <div class="form-group">
-              <label>{{ "Bank Name" | translate }}</label>
+              <label>{{ 'Bank Name' | translate }}</label>
               <input
                 type="text"
                 maxlength="40"
@@ -2364,7 +2364,7 @@
 
             <div class="form-group clearfix">
               <div class="float-left left-slip w-25">
-                <span>{{ "Deposit Slip" | translate }}:</span>
+                <span>{{ 'Deposit Slip' | translate }}:</span>
               </div>
 
               <div class="float-left right-upload w-75">
@@ -2374,7 +2374,7 @@
                     (change)="changeimage($event)"
                     id="imgInp"
                     style="visibility: hidden; width: 0; height: 0"
-                  />{{ fileName ? fileName : ("Image Upload" | translate) }}
+                  />{{ fileName ? fileName : ('Image Upload' | translate) }}
                   <img src="../../../assets/img/upload-icon.svg" />
                 </button>
               </div>
@@ -2382,7 +2382,7 @@
               <div class="clear"></div>
 
               <small class="allowed"
-                >{{ "Allowed Types" | translate }}: JPG, PNG & PDF</small
+                >{{ 'Allowed Types' | translate }}: JPG, PNG & PDF</small
               >
             </div>
 
@@ -2425,7 +2425,7 @@
 
             <div class="form-group" *ngIf="submitClaimBtn">
               <button class="submit-btn" (click)="submitClaim()">
-                {{ "Submit Claim" | translate }}
+                {{ 'Submit Claim' | translate }}
               </button>
             </div>
           </div>
@@ -2497,7 +2497,7 @@
                   RestrictionModalMessage == 'You must enable 2FA to buy tokens'
                 "
               >
-                {{ "Enable 2FA" | translate }}
+                {{ 'Enable 2FA' | translate }}
               </span>
               <span
                 *ngIf="
@@ -2505,7 +2505,7 @@
                   'In order to buy Token please submit KYC'
                 "
               >
-                {{ "Submit Kyc" | translate }}
+                {{ 'Submit Kyc' | translate }}
               </span>
             </button>
           </div>

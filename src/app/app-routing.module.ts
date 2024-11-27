@@ -19,21 +19,22 @@ import { AuthenticateComponent } from './auth/authenticate/authenticate.componen
 import { UserSetup } from './auth/user-setup/user-setup.component';
 import { NewUserVerify } from './auth/new-user-verification/new-user-verify';
 import { WireTransferComponent } from './components/wire-transfer/wire-transfer.component';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient} from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
-
 
 const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'api', 
+  {
+    path: 'api',
     children: [
       { path: '', redirectTo: 'referral/[refferedToken]', pathMatch: 'full' },
-      { path: 'referral/:ref', component: SignUpComponent,}
-    ] },
+      { path: 'referral/:ref', component: SignUpComponent },
+    ],
+  },
   { path: 'verification', component: VerifyEmail },
   { path: 'new-user-verification', component: NewUserVerify },
   { path: 'user-setup', component: UserSetup },
@@ -41,27 +42,56 @@ const routes: Routes = [
   { path: 'reset-password', component: ResetPassword },
   { path: 'authenticate', component: AuthenticateComponent },
   {
-    path: 'home', component: HomeComponent,
+    path: 'home',
+    component: HomeComponent,
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-      { path: 'dashboard/:id', component: DashboardComponent, },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AuthGuard],
+      },
+      { path: 'dashboard/:id', component: DashboardComponent },
       { path: 'affiliate', component: Affiliate, canActivate: [AuthGuard] },
-      { path: 'wallet', component: PiptleWalletComponent, canActivate: [AuthGuard] },
-      { path: 'my-wallet', component: MyWalletComponent, canActivate: [AuthGuard] },
-      { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+      {
+        path: 'wallet',
+        component: PiptleWalletComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'my-wallet',
+        component: MyWalletComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        canActivate: [AuthGuard],
+      },
       { path: 'ilo', component: IcoComponent, canActivate: [AuthGuard] },
       { path: 'faqs', component: FaqsComponent, canActivate: [AuthGuard] },
-      { path: 'wire-transfer', component: WireTransferComponent, canActivate: [AuthGuard] },
-      { path: 'notifications', component: NotificationsComponent, canActivate: [AuthGuard] },
-      { path: 'stakinghistory', component: StakinghistoryComponent, canActivate: [AuthGuard] },
-    ]
+      {
+        path: 'wire-transfer',
+        component: WireTransferComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'notifications',
+        component: NotificationsComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'stakinghistory',
+        component: StakinghistoryComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
   },
 
   //Should be at last in routes
   { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent }
-]
+  { path: '**', component: NotFoundComponent },
+];
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -69,13 +99,16 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true }), TranslateModule.forRoot({
-    loader: {
+  imports: [
+    RouterModule.forRoot(routes, { useHash: true }),
+    TranslateModule.forRoot({
+      loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
-    }
-})],
-  exports: [RouterModule]
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

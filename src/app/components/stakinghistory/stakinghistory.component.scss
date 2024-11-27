@@ -1,73 +1,73 @@
-@import "../../../_variables";
+@import '../../../_variables';
 
 .piptle-wallet {
-    .card-content {
-      padding: 13px 14px 9px;
-      text-transform: uppercase;
-      font-size: 14px;
-      margin: 0;
-      font-family: "LatoWebBold";
-    }
-    .withdraw-btn {
-      background: $light-pulper-color;
-      color: $white-color;
-      height: 43px;
-      font-family: "LatoWebBold";
-      min-width: 200px;
-      text-transform: uppercase;
-      border-radius: unset;
-    }
-  
-    .piptel-transaction-history {
-      padding: 13px 14px;
-      .header {
-        h2 {
-          text-transform: uppercase;
-          font-size: 14px;
-          font-family: "LatoWeb";
-        }
-      }
-      .table > tbody > tr > td,
-      .table > tbody > tr > th,
-      .table > thead > tr > td,
-      .table > thead > tr > th {
-        vertical-align: middle !important;
-        border-top: none;
-        font-family: "LatoWeb", sans-serif;
-        font-size: 14px;
-        // color: #34519d !important;
-        color:  $dashboard-purple-clr;
-        /*   color: #26497b; */
-      }
-      .table td,
-      .table th {
-        padding: 12px 15px;
-        border: none !important;
-        font-size: 14px;
-        color: $theme-blue;
-      }
-    }
-  }
-  .f-bold{
-    font-weight: bold;
-    text-align: center;
-  }
-  .header-whte{
-    background-color: white;
-  }
-  .transaction-txt{
+  .card-content {
+    padding: 13px 14px 9px;
     text-transform: uppercase;
-    font-size: 25px;
-    font-family: "LatoWeb";
-    color: $dashboard-purple-clr;
-    padding: 10px 0 0 12px;
+    font-size: 14px;
+    margin: 0;
+    font-family: 'LatoWebBold';
   }
-  .content{
-    font-size: 25px !important;
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important;
-    text-align: center !important;
+  .withdraw-btn {
+    background: $light-pulper-color;
+    color: $white-color;
+    height: 43px;
+    font-family: 'LatoWebBold';
+    min-width: 200px;
+    text-transform: uppercase;
+    border-radius: unset;
   }
-  .transactionurl{
-    color: $dashboard-purple-clr;
+
+  .piptel-transaction-history {
+    padding: 13px 14px;
+    .header {
+      h2 {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: 'LatoWeb';
+      }
+    }
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > thead > tr > td,
+    .table > thead > tr > th {
+      vertical-align: middle !important;
+      border-top: none;
+      font-family: 'LatoWeb', sans-serif;
+      font-size: 14px;
+      // color: #34519d !important;
+      color: $dashboard-purple-clr;
+      /*   color: #26497b; */
+    }
+    .table td,
+    .table th {
+      padding: 12px 15px;
+      border: none !important;
+      font-size: 14px;
+      color: $theme-blue;
+    }
   }
+}
+.f-bold {
+  font-weight: bold;
+  text-align: center;
+}
+.header-whte {
+  background-color: white;
+}
+.transaction-txt {
+  text-transform: uppercase;
+  font-size: 25px;
+  font-family: 'LatoWeb';
+  color: $dashboard-purple-clr;
+  padding: 10px 0 0 12px;
+}
+.content {
+  font-size: 25px !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+  text-align: center !important;
+}
+.transactionurl {
+  color: $dashboard-purple-clr;
+}

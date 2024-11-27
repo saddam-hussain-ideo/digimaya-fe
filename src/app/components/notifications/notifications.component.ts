@@ -1,9 +1,9 @@
 import {
-    Component,
-    OnInit,
-    OnDestroy,
-    HostListener,
-    ChangeDetectorRef
+  Component,
+  OnInit,
+  OnDestroy,
+  HostListener,
+  ChangeDetectorRef,
 } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,127 +21,95 @@ import { ScrollEvent } from 'ngx-scroll-event';
 
 declare var $: any;
 @Component({
-
-    selector: 'notifications',
-    providers: [WalletServices, UserService, DashboardService],
-    styleUrls: ['./notifications.component.scss'],
-    templateUrl: './notifications.component.html',
+  selector: 'notifications',
+  providers: [WalletServices, UserService, DashboardService],
+  styleUrls: ['./notifications.component.scss'],
+  templateUrl: './notifications.component.html',
 })
 export class NotificationsComponent {
-    public notificationCount = 0;
-    public notificationsLoader: boolean = true;
-    public notificationList = [];
-    public pageNumber: number = 1;
-    public pageSize = 25;
-    public totalRecords: any;
-    public maximumPagination: number;
+  public notificationCount = 0;
+  public notificationsLoader = true;
+  public notificationList = [];
+  public pageNumber = 1;
+  public pageSize = 25;
+  public totalRecords: any;
+  public maximumPagination: number;
 
-    constructor(public changeDet: ChangeDetectorRef, public _userSerivce: UserService, public _sharedService: SharedService) {
+  constructor(
+    public changeDet: ChangeDetectorRef,
+    public _userSerivce: UserService,
+    public _sharedService: SharedService
+  ) {}
 
+  getNotificationsOnScroll() {
+    this.notificationsLoader = true;
+    this._userSerivce
+      .getAllNotifications(this.pageNumber, this.pageSize)
+      .subscribe((response) => {
+        console.log(response);
+        this.totalRecords = response.data.count;
+        this.maximumPagination = Math.ceil(this.totalRecords / this.pageSize);
+        console.log(this.maximumPagination);
+        this.notificationsLoader = false;
+        for (let i = 0; i < response.data.list.length; i++) {
+          this.notificationList.push(response.data.list[i]);
+        }
+      });
+  }
 
+  updateNotifications(notificationId) {
+    const notitificationObj = this.notificationList.find(
+      (x) => x._id == notificationId
+    );
 
-
-    }
-
-
-    getNotificationsOnScroll() {
-
-        this.notificationsLoader = true;
-        this._userSerivce.getAllNotifications(this.pageNumber, this.pageSize)
-            .subscribe((response) => {
-                console.log(response);
-                this.totalRecords = response.data.count;
-                this.maximumPagination = Math.ceil(this.totalRecords / this.pageSize);
-                console.log(this.maximumPagination);
-                this.notificationsLoader = false;
-                for (var i = 0; i < response.data.list.length; i++) {
-                    this.notificationList.push(response.data.list[i]);
-                }
-            })
-    }
-
-
-
-
-    updateNotifications(notificationId) {
-
-        var notitificationObj = this.notificationList.find(x => x._id == notificationId);
-
-
-        if (notitificationObj) {
-            if (notitificationObj.IsRead == false) {
-
-                if (this.notificationCount > 0) {
-
-                    this.notificationCount = this.notificationCount - 1;
-                    this._sharedService.changeNotificationsCount(this.notificationCount);
-                }
-
-
-                this._userSerivce.updateNotificationStatus(notificationId)
-                    .subscribe((response) => {
-
-                        var index = this.notificationList.findIndex(x => x._id == notificationId);
-                        this.notificationList[index].IsRead = true;
-
-                    })
-
-            }
-
+    if (notitificationObj) {
+      if (notitificationObj.IsRead == false) {
+        if (this.notificationCount > 0) {
+          this.notificationCount = this.notificationCount - 1;
+          this._sharedService.changeNotificationsCount(this.notificationCount);
         }
 
-
-
+        this._userSerivce
+          .updateNotificationStatus(notificationId)
+          .subscribe((response) => {
+            const index = this.notificationList.findIndex(
+              (x) => x._id == notificationId
+            );
+            this.notificationList[index].IsRead = true;
+          });
+      }
     }
+  }
 
+  ngOnInit() {
+    const self = this;
+    $(window).scroll(function () {
+      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+        if (self.pageNumber == self.maximumPagination) {
+          ++self.pageNumber;
+        } else {
+          if (self.pageNumber < self.maximumPagination) {
+            ++self.pageNumber;
+            self.getNotificationsOnScroll();
+          }
+        }
+      }
+    });
 
+    this._sharedService.changeEmittedFornotificationsCountHeader$.subscribe(
+      (a) => {
+        this.notificationCount = a;
+      }
+    );
 
-    ngOnInit() {
+    this.getNotificationsOnScroll();
 
-
-        var self = this;
-        $(window).scroll(function () {
-            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-
-           
-                if (self.pageNumber == self.maximumPagination) {
-             
-                    ++self.pageNumber;
-                    
-                } else {
-
-
-                    if (self.pageNumber < self.maximumPagination) {
-                        ++self.pageNumber;
-                        self.getNotificationsOnScroll();
-                    }
-
-                }
-
-
-
-            }
-        });
-
-
-        this._sharedService.changeEmittedFornotificationsCountHeader$.subscribe(a => {
-            this.notificationCount = a;
-        })
-
+    this._sharedService.callSeeAllNotificationsFunction$.subscribe((a) => {
+      if (a) {
+        this.pageNumber = 1;
+        this.notificationList = [];
         this.getNotificationsOnScroll();
-
-        this._sharedService.callSeeAllNotificationsFunction$.subscribe(a => {
-
-            if (a) {
-                this.pageNumber = 1;
-                this.notificationList = [];
-                this.getNotificationsOnScroll();
-            }
-        })
-    }
-
-
-
-
-
-}  
+      }
+    });
+  }
+}

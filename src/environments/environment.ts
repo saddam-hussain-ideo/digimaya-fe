@@ -12,9 +12,11 @@ export const environment = {
   // BaseUrl: "http://coin.piptleapp.store:3000/api/",
   captchaKey: '6LetiHwqAAAAAK9KsfWqNqaS9YbncP1cbLci6YU_',
   // captchaKey: '6LcgA_kZAAAAAJznrH215_iDu-E7qp1F4GrY5cAX',
-  documentUrl: 'https://pipezi.com/wp-content/uploads/2021/04/Pipezi-Terms-and-Conditions.pdf',
-  privacyPolicy: 'https://pipezi.com/wp-content/uploads/2021/04/Pipez-Privacy-Policy.pdf',
-  defaultLanguage: 'en'
+  documentUrl:
+    'https://pipezi.com/wp-content/uploads/2021/04/Pipezi-Terms-and-Conditions.pdf',
+  privacyPolicy:
+    'https://pipezi.com/wp-content/uploads/2021/04/Pipez-Privacy-Policy.pdf',
+  defaultLanguage: 'en',
 };
 
 /*

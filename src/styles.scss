@@ -1,6 +1,6 @@
 /* this file will be extracted to main dist folder and is imported in index.html */
 /* This file is for setting global styles */
-@import "_variables";
+@import '_variables';
 
 * {
   margin: 0;
@@ -88,7 +88,7 @@ select {
   border-radius: 8px;
   overflow: hidden;
   background: transparent;
-padding: 40px;
+  padding: 40px;
   @media (max-width: 1024px) {
     height: 85%;
   }
@@ -113,7 +113,11 @@ padding: 40px;
   align-items: flex-start;
   padding: 20px;
   border-radius: 16px;
-  background: radial-gradient(107.63% 220.06% at 0.17% 0.51%, #FF7F2C 0%, #FF0082 100%);
+  background: radial-gradient(
+    107.63% 220.06% at 0.17% 0.51%,
+    #ff7f2c 0%,
+    #ff0082 100%
+  );
 
   color: white;
 
@@ -180,7 +184,7 @@ padding: 40px;
 }
 
 .right-panel h2 {
-  font-family: "CenturyRetrospective", serif;
+  font-family: 'CenturyRetrospective', serif;
   color: #191919;
   font-weight: 400;
   font-size: 40px;
@@ -226,7 +230,7 @@ padding: 40px;
   }
 
   @media (max-width: 480px) {
-    content: url("./assets/img/maaya_gradient.svg");
+    content: url('./assets/img/maaya_gradient.svg');
     width: 150px;
   }
 }
@@ -279,6 +283,7 @@ padding: 40px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
+  background: transparent;
 
   @media (max-width: 480px) {
     font-size: 12px;
@@ -305,7 +310,7 @@ padding: 40px;
   color: $maaya-purple-dusk;
   text-decoration: none;
   font-weight: 600;
-  font-family: "MavenPro";
+  font-family: 'MavenPro';
   font-size: 14px;
   margin: 10px 0;
   cursor: pointer;
@@ -358,7 +363,7 @@ padding: 40px;
 /* Bottom Text */
 .bottom-text {
   color: black;
-  font-family: "MavenPro";
+  font-family: 'MavenPro';
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
@@ -473,7 +478,7 @@ ul {
   position: fixed;
   z-index: 1;
   bottom: 30px;
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -482,8 +487,12 @@ ul {
   visibility: visible;
   /* Show the snackbar */
   /* Add animation: Take 0.5 seconds to fade in and out the snackbar. However, delay the fade out process for 2.5 seconds */
-  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  -webkit-animation:
+    fadein 0.5s,
+    fadeout 0.5s 2.5s;
+  animation:
+    fadein 0.5s,
+    fadeout 0.5s 2.5s;
 }
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
@@ -548,7 +557,7 @@ input:-webkit-autofill {
 
 .f-z-12 {
   font-size: 14px;
-  font-family: "LatoWebLight" !important;
+  font-family: 'LatoWebLight' !important;
 }
 .left-calc {
   position: relative;
@@ -578,7 +587,7 @@ input:-webkit-autofill {
 }
 
 .blue-inputs {
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
   // border: 1px solid rgb(121, 226, 226);
   border: 1px solid $dashboard-purple-clr;
   border-radius: 2px;
@@ -607,7 +616,7 @@ input:-webkit-autofill {
 
 .no-data {
   text-align: center;
-  font-family: "LatoWebBold";
+  font-family: 'LatoWebBold';
   text-transform: uppercase;
   position: absolute;
   top: 60%;
@@ -685,23 +694,23 @@ input:-webkit-autofill {
 
 /*check box */
 /* Base for label styling */
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
+[type='checkbox']:not(:checked),
+[type='checkbox']:checked {
   position: absolute;
   left: -9999px;
 }
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
+[type='checkbox']:not(:checked) + label,
+[type='checkbox']:checked + label {
   position: relative;
   padding-left: 1.95em;
   cursor: pointer;
   color: #0d0d0d;
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
 }
 /* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
-  content: "";
+[type='checkbox']:not(:checked) + label:before,
+[type='checkbox']:checked + label:before {
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -714,9 +723,9 @@ input:-webkit-autofill {
     */
 }
 /* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  content: "\2713";
+[type='checkbox']:not(:checked) + label:after,
+[type='checkbox']:checked + label:after {
+  content: '\2713';
   position: absolute;
   top: 0.1em;
   left: 0.05em;
@@ -725,33 +734,33 @@ input:-webkit-autofill {
   // color: #09ad7e;
   color: $dashboard-purple-clr;
   transition: all 0.2s;
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
 }
 /* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
+[type='checkbox']:not(:checked) + label:after {
   opacity: 0;
   transform: scale(0);
 }
-[type="checkbox"]:checked + label:after {
+[type='checkbox']:checked + label:after {
   opacity: 1;
   transform: scale(1);
 }
 /* disabled checkbox */
-[type="checkbox"]:disabled:not(:checked) + label:before,
-[type="checkbox"]:disabled:checked + label:before {
+[type='checkbox']:disabled:not(:checked) + label:before,
+[type='checkbox']:disabled:checked + label:before {
   box-shadow: none;
   border-color: #bbb;
   background-color: #ddd;
 }
-[type="checkbox"]:disabled:checked + label:after {
+[type='checkbox']:disabled:checked + label:after {
   color: #999;
 }
-[type="checkbox"]:disabled + label {
+[type='checkbox']:disabled + label {
   color: #aaa;
 }
 /* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
+[type='checkbox']:checked:focus + label:before,
+[type='checkbox']:not(:checked):focus + label:before {
   border: 2px dotted blue;
 }
 /* hover style just for information */
@@ -812,8 +821,8 @@ label:hover:before {
 }
 
 .no-of-btc {
-  color:#191919;
-  font-family: "MavenPro";
+  color: #191919;
+  font-family: 'MavenPro';
   font-size: 16px;
   font-weight: 500;
 
@@ -901,7 +910,7 @@ label:hover:before {
   font-size: 16px;
   text-align: center;
   font-size: 14px;
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
   font-weight: bold;
   line-height: 1.2;
   letter-spacing: 1px;
@@ -927,7 +936,7 @@ a:hover {
 }
 body {
   overflow: auto;
-  background-image: url("./assets/img/bg3.png");
+  background-image: url('./assets/img/bg3.png');
   background-size: cover;
 }
 /* Overlay Loader */
@@ -995,7 +1004,7 @@ body {
   line-height: 1.42857143;
   color: #2097d4;
   padding: 2px 10px;
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -1010,25 +1019,25 @@ body {
 
 input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
   font-size: 14px;
   color: rgb(101, 135, 144);
 }
 input::-moz-placeholder {
   /* Firefox 19+ */
-  font-family: "LatoWeb";
+  font-family: 'LatoWeb';
   font-size: 14px;
   color: rgb(101, 135, 144);
 }
 input:-ms-input-placeholder {
   /* IE 10+ */
-  font-family: "LatoWeb";
+  font-family: 'LatoWeb';
   font-size: 14px;
   color: rgb(101, 135, 144);
 }
 input:-moz-placeholder {
   /* Firefox 18- */
-  font-family: "LatoWeb";
+  font-family: 'LatoWeb';
   font-size: 14px;
   color: rgb(101, 135, 144);
 }
@@ -1040,7 +1049,7 @@ $title-color: #1d2939;
 $lightblue-color: #b3e5ff;
 $grey-color: #ececec;
 $turquiose: #57dfee;
-$title-family: "LatoWeb";
+$title-family: 'LatoWeb';
 $title-size: 18px;
 $title-case: uppercase;
 $title-margin: 15px 0 30px 0px;
@@ -1071,11 +1080,11 @@ $label-color: #2097d4;
 }
 
 .page-title {
-  color:#191919;
+  color: #191919;
   font-weight: 400;
   font-size: 40px;
   line-height: 40px;
-  font-family: "CenturyRetrospective", serif;
+  font-family: 'CenturyRetrospective', serif;
   margin: auto;
   @media (max-width: 991px) {
     text-align: center;
@@ -1091,18 +1100,18 @@ $label-color: #2097d4;
 
 .bolded {
   font-weight: bold;
-  font-family: "LatoWebBold" !important;
+  font-family: 'LatoWebBold' !important;
 }
 
 .blue-color {
   color: #2097d4 !important;
-  font-family: "LatoWebBold" !important;
+  font-family: 'LatoWebBold' !important;
 }
 
 .sub-title {
-  color:#191919;
+  color: #191919;
   font-size: 24px;
-  font-family: "CenturyRetrospective", serif;
+  font-family: 'CenturyRetrospective', serif;
   font-weight: 400;
 }
 .aligned-test {
@@ -1115,7 +1124,7 @@ $label-color: #2097d4;
   color: $title-color;
   text-transform: $title-case;
   font-size: $font-12;
-  font-family: "LatoWebBold";
+  font-family: 'LatoWebBold';
   margin: 30px 20px 0 20px;
 }
 .sub-title-dash {
@@ -1124,7 +1133,7 @@ $label-color: #2097d4;
 }
 .earn-box {
   min-height: 100px;
-  background-image: url("assets/img/earn-back.png");
+  background-image: url('assets/img/earn-back.png');
   background-size: cover;
   position: relative;
   min-width: 220px;
@@ -1233,9 +1242,9 @@ $label-color: #2097d4;
 }
 
 .ico-top-text {
-  color:white;
+  color: white;
   font-size: 16px;
-  font-family: "CenturyRetrospective", serif;
+  font-family: 'CenturyRetrospective', serif;
   text-transform: capitalize;
   margin: 0;
   @media (max-width: 1200px) and (min-width: 992px) {
@@ -1267,7 +1276,7 @@ $label-color: #2097d4;
 }
 
 .final-price {
-  font-family: "LatoWeb";
+  font-family: 'LatoWeb';
   font-weight: 400;
   font-size: 14px;
   color: #1d2939;
@@ -1297,7 +1306,7 @@ $label-color: #2097d4;
   background: #96f5ff;
 }
 .left-parellogram:after {
-  content: " ";
+  content: ' ';
   position: absolute;
   display: block;
   width: 100%;
@@ -1323,7 +1332,7 @@ $label-color: #2097d4;
   background: #239ddb;
 }
 .right-parellogram:after {
-  content: " ";
+  content: ' ';
   position: absolute;
   display: block;
   width: 100%;
@@ -1346,7 +1355,7 @@ $label-color: #2097d4;
   transform: translate(-49%, -49%);
 }
 .centered-inverted {
-  background-image: url("assets/img/pay-div.png");
+  background-image: url('assets/img/pay-div.png');
   background-size: contain;
   width: 150px;
   height: 60px;
@@ -1355,14 +1364,14 @@ $label-color: #2097d4;
 
 .table-striped tbody tr:nth-of-type(odd) {
   // background-color: #f9f9f9;
-  background-color: #EDEDED;
+  background-color: #ededed;
 }
 .table-striped tbody tr:nth-of-type(even) {
   // background-color: #f9f9f9;
   background-color: transparent;
 }
 .pay-centered {
-  font-family: "LatoWebHeavy";
+  font-family: 'LatoWebHeavy';
   font-size: 21px;
   text-align: center;
   text-transform: $title-case;
@@ -1370,7 +1379,7 @@ $label-color: #2097d4;
   color: $title-color;
 }
 .xchge-bg {
-  background-image: url("assets/img/xchge-bg.png");
+  background-image: url('assets/img/xchge-bg.png');
   width: 145px;
   height: 30px;
   margin-top: 25px;
@@ -1382,7 +1391,7 @@ $label-color: #2097d4;
   padding: 0 7px;
 }
 .xchge-text {
-  font-family: "LatoWebBold";
+  font-family: 'LatoWebBold';
   font-size: 19px;
   color: $title-color;
   text-transform: $title-case;
@@ -1436,14 +1445,14 @@ $label-color: #2097d4;
 }
 .blog-heading {
   font-size: 24px;
-  font-family: "LatoWeb";
+  font-family: 'LatoWeb';
   color: $title-color;
   text-transform: $title-case;
 }
 .blog-date,
 .blog-time {
   font-size: 18px;
-  font-family: "LatoWeb";
+  font-family: 'LatoWeb';
 }
 .abs-ellipsis {
   position: absolute;
@@ -1485,7 +1494,7 @@ blue-submit .back-btn {
   height: 50px;
   border-radius: 3px;
   color: white;
-  font-family: "LatoWebBold";
+  font-family: 'LatoWebBold';
   font-size: 20px;
   background: $dashboard-purple-clr;
   width: 100%;
@@ -1499,7 +1508,7 @@ blue-submit .back-btn {
 
 .bottom-complete-table {
   width: 100%;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   position: relative;
   padding: 20px;
   min-height: 150px;
@@ -1608,7 +1617,7 @@ blue-submit .back-btn {
   outline: none;
   font-size: 14px;
   transition: 0.4s;
-  font-family: "os-regular";
+  font-family: 'os-regular';
   padding-left: 15px;
   padding-top: 20px;
 }
@@ -1654,24 +1663,24 @@ blue-submit .back-btn {
 
 .faq-points {
   color: #326e97;
-  font-family: "LatoWebMedium";
+  font-family: 'LatoWebMedium';
   margin-bottom: 0px;
   font-size: 16px;
 }
 .panel p {
   padding-top: 0px;
   font-size: 14px;
-  font-family: "LatoWebMedium";
+  font-family: 'LatoWebMedium';
 }
 .panel ul li {
   padding-top: 0px;
-  font-family: "LatoWebMedium";
+  font-family: 'LatoWebMedium';
 }
 .panel {
   padding: 15px 15px;
   border: none !important;
   color: #326e97;
-  font-family: "LatoWebMedium";
+  font-family: 'LatoWebMedium';
   background-color: transparent;
   transition: max-height 0.2s ease-out;
   display: none;
@@ -1871,7 +1880,7 @@ blue-submit .back-btn {
     text-align: center;
   }
   .pay-centered {
-    font-family: "LatoWebHeavy";
+    font-family: 'LatoWebHeavy';
     font-size: 21px;
     text-align: center;
     text-transform: uppercase;
@@ -2124,7 +2133,7 @@ blue-submit .back-btn {
 
 .ngx-pagination a,
 .ngx-pagination button {
-  font-family: "LatoWebLight";
+  font-family: 'LatoWebLight';
   font-size: 14px;
   color: $theme-blue;
 }
@@ -2167,10 +2176,9 @@ blue-submit .back-btn {
 }
 
 .color-blue {
-  color: #8C8C8C !important;
+  color: #8c8c8c !important;
   font-size: 14px;
   font-family: 'MavenPro';
-  
 }
 
 .background-green {
@@ -2195,69 +2203,69 @@ blue-submit .back-btn {
 }
 
 @font-face {
-  font-family: "CenturyRetrospective";
-  src: url("assets/fonts/maaya/CenturyRetrospectiveBlackSSiBold.ttf")
-    format("truetype");
+  font-family: 'CenturyRetrospective';
+  src: url('assets/fonts/maaya/CenturyRetrospectiveBlackSSiBold.ttf')
+    format('truetype');
   font-weight: bold; /* Adjusted to reflect "Bold" */
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MavenPro";
-  src: url("assets/fonts/maaya/MavenPro-Black.ttf") format("truetype");
+  font-family: 'MavenPro';
+  src: url('assets/fonts/maaya/MavenPro-Black.ttf') format('truetype');
   font-weight: 900; /* Black weight is typically 900 */
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MavenPro";
-  src: url("assets/fonts/maaya/MavenPro-Bold.ttf") format("truetype");
+  font-family: 'MavenPro';
+  src: url('assets/fonts/maaya/MavenPro-Bold.ttf') format('truetype');
   font-weight: 700; /* Bold weight is typically 700 */
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MavenPro";
-  src: url("assets/fonts/maaya/MavenPro-ExtraBold.ttf") format("truetype");
+  font-family: 'MavenPro';
+  src: url('assets/fonts/maaya/MavenPro-ExtraBold.ttf') format('truetype');
   font-weight: 800; /* Extra Bold weight is typically 800 */
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MavenPro";
-  src: url("assets/fonts/maaya/MavenPro-Medium.ttf") format("truetype");
+  font-family: 'MavenPro';
+  src: url('assets/fonts/maaya/MavenPro-Medium.ttf') format('truetype');
   font-weight: 500; /* Medium weight is typically 500 */
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MavenPro";
-  src: url("assets/fonts/maaya/MavenPro-Regular.ttf") format("truetype");
+  font-family: 'MavenPro';
+  src: url('assets/fonts/maaya/MavenPro-Regular.ttf') format('truetype');
   font-weight: 400; /* Regular weight is typically 400 */
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MavenPro";
-  src: url("assets/fonts/maaya/MavenPro-SemiBold.ttf") format("truetype");
+  font-family: 'MavenPro';
+  src: url('assets/fonts/maaya/MavenPro-SemiBold.ttf') format('truetype');
   font-weight: 600; /* SemiBold weight is typically 600 */
   font-style: normal;
 }
 
 @font-face {
-  font-family: "MavenPro";
-  src: url("assets/fonts/maaya/MavenPro-VariableFont_wght.ttf")
-    format("truetype");
+  font-family: 'MavenPro';
+  src: url('assets/fonts/maaya/MavenPro-VariableFont_wght.ttf')
+    format('truetype');
   font-weight: 100 900; /* Variable font range */
   font-style: normal;
 }
 
 h1 {
-  font-family: "CenturyRetrospective", serif; /* Use CenturyRetrospective for headings */
+  font-family: 'CenturyRetrospective', serif; /* Use CenturyRetrospective for headings */
   font-weight: bold;
 }
 
 p {
-  font-family: "MavenPro";
+  font-family: 'MavenPro';
   font-weight: 400; /* Regular */
 }

@@ -180,23 +180,23 @@
               <input type="checkbox" id="TermsCheck" />
               <label for="TermsCheck"
                 >{{
-                  "I confirm that I have read, accepted and agreed to all"
+                  'I confirm that I have read, accepted and agreed to all'
                     | translate
                 }}
                 <a
                   class="links no-underline"
                   target="_blank"
                   [(href)]="documentUrl"
-                  >{{ "Terms & Conditions" | translate }}</a
+                  >{{ 'Terms & Conditions' | translate }}</a
                 >
                 &
                 <a
                   class="links no-underline"
                   target="_blank"
                   [(href)]="privacyPolicy"
-                  >{{ "Privacy Policy" | translate }}</a
+                  >{{ 'Privacy Policy' | translate }}</a
                 >
-                {{ "and that I am of legal age" | translate }}
+                {{ 'and that I am of legal age' | translate }}
               </label>
             </p>
           </div>
@@ -239,14 +239,14 @@
           </div>
           <div class="centered-text" *ngIf="actionBtnShow">
             <button class="ico-submit" (click)="signUp()">
-              {{ "Sign Up" | translate }}
+              {{ 'Sign Up' | translate }}
             </button>
           </div>
           <div class="form-group">
             <p class="bottom-text">
-              {{ "Already have an account?" | translate }}
+              {{ 'Already have an account?' | translate }}
               <a class="links" (click)="routeToLogin()">{{
-                "Login" | translate
+                'Login' | translate
               }}</a>
             </p>
           </div>
@@ -261,13 +261,13 @@
 
           <div class="form-div">
             <p class="verify-text">
-              {{ "A verification link has been sent to" | translate }}
+              {{ 'A verification link has been sent to' | translate }}
               <strong class="email-strong">{{ SignUpObject.email }}</strong>
             </p>
 
             <p class="verify-text">
               {{
-                "If you did not receive our email, click below to receive verification link."
+                'If you did not receive our email, click below to receive verification link.'
                   | translate
               }}
             </p>
@@ -309,14 +309,14 @@
             </div>
             <div class="centered-text" *ngIf="actionBtnShow">
               <button class="ico-submit" (click)="resendVerificationCode()">
-                {{ "Resend Verification Link" | translate }}
+                {{ 'Resend Verification Link' | translate }}
               </button>
             </div>
             <div class="form-group">
               <p class="bottom-text">
-                {{ "Already have an account?" | translate }}
+                {{ 'Already have an account?' | translate }}
                 <a class="links" (click)="routeToLogin()">{{
-                  "Login" | translate
+                  'Login' | translate
                 }}</a>
               </p>
             </div>

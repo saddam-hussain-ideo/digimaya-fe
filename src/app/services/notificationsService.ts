@@ -4,9 +4,8 @@ import { WebsocketService } from './websocketService';
 
 @Injectable()
 export class NotificationsService {
-  
   messages: Subject<any>;
-  
+
   // Our constructor calls our wsService connect method
   constructor() {}
 
@@ -19,13 +18,10 @@ export class NotificationsService {
   //       return response;
   //     })
   //  }
-  
+
   // Our simplified interface for sending
   // messages back to our socket.io server
   sendMsg(msg) {
     this.messages.next(msg);
   }
-
-  
-
 }

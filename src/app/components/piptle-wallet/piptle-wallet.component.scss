@@ -1,14 +1,14 @@
-@import "../../../_variables";
+@import '../../../_variables';
 
-.withDrawLoader{
+.withDrawLoader {
   height: 35px;
 }
 
-.bg{
+.bg {
   background-color: $white-color;
   padding: 10px;
-  .head-title{
-    img{
+  .head-title {
+    img {
       border: 1px solid $dashboard-purple-clr;
       background-color: $dashboard-purple-clr;
       border-radius: 50px;
@@ -17,88 +17,93 @@
       padding: 5px;
       margin-right: 8px;
     }
-    .page-title{
+    .page-title {
       color: #191919;
-      font-family: "CenturyRetrospective", serif;
+      font-family: 'CenturyRetrospective', serif;
       font-size: 40px;
       line-height: 40px;
       text-transform: capitalize;
       margin: 0 0 40px 0;
     }
   }
-  .custom-draw-btn{
+  .custom-draw-btn {
     // background: #997bb5;
-    background: radial-gradient(107.63% 220.06% at 0.17% 0.51%, #FF7F2C 0%, #FF0082 100%);
+    background: radial-gradient(
+      107.63% 220.06% at 0.17% 0.51%,
+      #ff7f2c 0%,
+      #ff0082 100%
+    );
     color: #fff;
     font-size: 16px;
-    font-family: "MavenPro";
+    font-family: 'MavenPro';
     // min-width: 200px;
     text-transform: uppercase;
     border-radius: 8px;
     padding: 8px 0;
     font-weight: 600;
   }
-  .custom-draw-btn:disabled{
+  .custom-draw-btn:disabled {
     // background: #997bb5;
     opacity: 0.6;
   }
-  .custom-small-btn{
+  .custom-small-btn {
     // background: #997bb5;
-    background: radial-gradient(107.63% 220.06% at 0.17% 0.51%, #FF7F2C 0%, #FF0082 100%);
+    background: radial-gradient(
+      107.63% 220.06% at 0.17% 0.51%,
+      #ff7f2c 0%,
+      #ff0082 100%
+    );
     color: #fff;
-    font-family: "MavenPro";
+    font-family: 'MavenPro';
     font-weight: 600;
-   padding: 8px 0;
+    padding: 8px 0;
     border-radius: 8px;
     width: 100%;
   }
-  .custom-small-btn:disabled{
+  .custom-small-btn:disabled {
     opacity: 0.6;
   }
 }
 
-.bg-colored{
-  background-color: #F6F6F6 !important;
+.bg-colored {
+  background-color: #f6f6f6 !important;
   padding: 20px;
   border-radius: 8px;
 }
 
-.wallet-new-cards{
+.wallet-new-cards {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  .cards-inner-width{
+  .cards-inner-width {
     width: 23%;
   }
 }
-@media screen and (max-width:1280px){
-  .custom-draw-btn{
+@media screen and (max-width: 1280px) {
+  .custom-draw-btn {
     font-size: 11px;
-
   }
-  .custom-btns{
+  .custom-btns {
     width: 60px;
     font-size: 11px;
     padding: 0;
     text-align: center;
   }
 }
-@media screen and (max-width:1047px){
-  .wallet-new-cards{
+@media screen and (max-width: 1047px) {
+  .wallet-new-cards {
     flex-direction: column;
-    .cards-inner-width{
+    .cards-inner-width {
       width: unset;
       margin-bottom: 10px;
     }
   }
-  .custom-draw-btn{
+  .custom-draw-btn {
     font-size: 16px;
-
   }
-  .custom-btns{
+  .custom-btns {
     width: 30%;
     font-size: 16px;
-
   }
 }
 
@@ -123,63 +128,63 @@
 
 //   }
 // }
-@media (max-width:1500px) {
-  .wallet-cards{
+@media (max-width: 1500px) {
+  .wallet-cards {
     display: flex;
     flex-direction: column;
   }
 }
 .inner-w-box {
-  background-color:#F6F6F6;
+  background-color: #f6f6f6;
   padding: 16px;
   border-radius: 8px;
-  .wallet-cards{
-    .wallet-val{
+  .wallet-cards {
+    .wallet-val {
       font-family: 'MavenPro';
       font-weight: 600;
-      color:#191919 ;
+      color: #191919;
       font-size: 32px;
-      &.light{
-        color:white !important;
+      &.light {
+        color: white !important;
       }
     }
-    .wallet-puc{
+    .wallet-puc {
       font-family: 'LatoWebLight';
       font-weight: 400;
-      color: #643E8D;
+      color: #643e8d;
       font-size: 26px;
       text-transform: uppercase;
     }
   }
-  &.dark-bg{
-   background-color: #191919 !important; 
+  &.dark-bg {
+    background-color: #191919 !important;
   }
 }
-.wallet-inner-t{
-    color: #191919;
-    font-size: 16px;
-    font-family: "CenturyRetrospective", serif;
-    text-transform: capitalize;
-    line-height: 16px;
-    &.light{
-      color:white !important;
-    }
+.wallet-inner-t {
+  color: #191919;
+  font-size: 16px;
+  font-family: 'CenturyRetrospective', serif;
+  text-transform: capitalize;
+  line-height: 16px;
+  &.light {
+    color: white !important;
   }
+}
 
-.background{
-  background-color: #F2F1F7;
+.background {
+  background-color: #f2f1f7;
 }
-.transaction-txt{
+.transaction-txt {
   font-size: 25px;
-  font-family: "LatoWeb";
+  font-family: 'LatoWeb';
   color: $dashboard-purple-clr;
   padding: 10px 0 0 12px;
 }
 
-.header-whte{
+.header-whte {
   background-color: white;
 }
-.piptle-tbl{
+.piptle-tbl {
   background-color: white;
 }
 .piptle-wallet {
@@ -188,13 +193,13 @@
     text-transform: uppercase;
     font-size: 14px;
     margin: 0;
-    font-family: "LatoWebBold";
+    font-family: 'LatoWebBold';
   }
   .withdraw-btn {
     background: $light-pulper-color;
     color: $white-color;
     height: 43px;
-    font-family: "LatoWebBold";
+    font-family: 'LatoWebBold';
     min-width: 200px;
     text-transform: uppercase;
     border-radius: unset;
@@ -202,12 +207,12 @@
 
   .piptel-transaction-history {
     padding: 20px;
-    background-color: #F6F6F6;
+    background-color: #f6f6f6;
     .header {
       h2 {
         text-transform: uppercase;
         font-size: 14px;
-        font-family: "LatoWeb";
+        font-family: 'LatoWeb';
       }
     }
     .table > tbody > tr > td,
@@ -216,10 +221,10 @@
     .table > thead > tr > th {
       vertical-align: middle !important;
       border-top: none;
-      font-family:'MavenPro';
+      font-family: 'MavenPro';
       font-size: 16px;
       // color: #34519d !important;
-      color:#191919;
+      color: #191919;
       font-weight: 600;
       /*   color: #26497b; */
     }
@@ -233,7 +238,6 @@
   }
 }
 
-
 button:disabled {
   opacity: 0.6;
   pointer-events: none;
@@ -245,21 +249,21 @@ button:disabled {
   box-sizing: border-box;
   border: 1px solid #e1dddd;
 
-  .modal-heading{
-    .text-upercase{
+  .modal-heading {
+    .text-upercase {
       color: $dashboard-purple-clr;
       font-weight: bold;
       font-size: 16px;
-      .conditions-maintext{
+      .conditions-maintext {
         margin-top: 1rem;
       }
     }
   }
-  .modal-body{
-    padding:0;
+  .modal-body {
+    padding: 0;
     position: relative;
 
-    .verify-text{
+    .verify-text {
       margin: 0;
       text-align: center;
       margin-bottom: 15px;
@@ -267,100 +271,98 @@ button:disabled {
       color: #20292f;
       font-family: 'LatoWebLight';
     }
-  
-    .scroll{
+
+    .scroll {
       overflow-y: scroll;
       height: 80vh;
     }
-    .header-inside{
-        padding-bottom: 25px;
-        width: 72%;
-        margin: 0 auto;
-  
-  
-  
-        @media (max-width:640px){
-            width:100%;
-        }
-  
-        .no-of-coins{
-            color: $theme-blue;
-            font-family: 'LatoWeb';
-            font-size: 22px;
-            font-weight: bold;
-            line-height: 22px;
-        }
-    }
-  
-    .form-group{
-        margin-bottom: 15px;
-        .dropdownlist{
-          .styled-select{
-            width: 100%;
-            padding: 0 8px;
-            color: #495057;
-          }
-          option:first-child{
-            display: none;
-          }
-        }
-        .doc-link{
-          text-decoration: underline;
-          font-weight: bold;
-          margin-left: 5px;
-          cursor: pointer;
-        }
-        .twoFaField{
-          text-align: center;
-        }
-        &:last-child{
-            margin-bottom:0;
-        }
-    }
-  
-    .custom-2{
-        margin:0;
-        // border-top:4px solid #F6F6F6;
-        margin-bottom: 25px;
-    }
-  
-  
-    label,span{
-        color: $dashboard-purple-clr;
+    .header-inside {
+      padding-bottom: 25px;
+      width: 72%;
+      margin: 0 auto;
+
+      @media (max-width: 640px) {
+        width: 100%;
+      }
+
+      .no-of-coins {
+        color: $theme-blue;
         font-family: 'LatoWeb';
-        font-size: 13px;
-        line-height: 15px;
-        margin-bottom: 8px;
-    }
-  
-  
-    input,select{
-        height: 42px;
-        background-color: #F0F0F0;
-        font-family: 'LatoWeb';
-        font-size: 14px;
-        font-weight: 300;
+        font-size: 22px;
+        font-weight: bold;
         line-height: 22px;
-        border:none;
-        box-shadow: none;
+      }
     }
-  
-    .w-25{
-        width:25%;
-        padding-top: 1px;
+
+    .form-group {
+      margin-bottom: 15px;
+      .dropdownlist {
+        .styled-select {
+          width: 100%;
+          padding: 0 8px;
+          color: #495057;
+        }
+        option:first-child {
+          display: none;
+        }
+      }
+      .doc-link {
+        text-decoration: underline;
+        font-weight: bold;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+      .twoFaField {
+        text-align: center;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
-  
-    .w-75{
-        width:75%;
+
+    .custom-2 {
+      margin: 0;
+      // border-top:4px solid #F6F6F6;
+      margin-bottom: 25px;
     }
-    .w-67{
+
+    label,
+    span {
+      color: $dashboard-purple-clr;
+      font-family: 'LatoWeb';
+      font-size: 13px;
+      line-height: 15px;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select {
+      height: 42px;
+      background-color: #f0f0f0;
+      font-family: 'LatoWeb';
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 22px;
+      border: none;
+      box-shadow: none;
+    }
+
+    .w-25 {
+      width: 25%;
+      padding-top: 1px;
+    }
+
+    .w-75 {
+      width: 75%;
+    }
+    .w-67 {
       width: 67%;
     }
-    .name-field{
+    .name-field {
       opacity: 0.6;
       pointer-events: none;
     }
-    .submit-btn{
+    .submit-btn {
       height: 52px;
       background-color: $dashboard-purple-clr;
       width: 100%;
@@ -372,17 +374,17 @@ button:disabled {
       font-weight: bold;
       text-align: center;
       cursor: pointer;
-  
-        @media (max-width:640px) {
-            width:100%;
-        }
-        img{
-            padding-left: 10px;
-            margin-top: -10px;
-        }
+
+      @media (max-width: 640px) {
+        width: 100%;
+      }
+      img {
+        padding-left: 10px;
+        margin-top: -10px;
+      }
     }
-    .save-wallet{
-      background-color: #643E8D;
+    .save-wallet {
+      background-color: #643e8d;
       border: none;
       text-transform: uppercase;
       color: #fff;
@@ -392,48 +394,46 @@ button:disabled {
       text-align: center;
       cursor: pointer;
     }
-  
   }
 }
-.f-bold{
+.f-bold {
   font-weight: bold;
   text-align: center;
 }
-.content{
+.content {
   font-size: 16px !important;
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
   text-align: center !important;
 }
-.action-btn{
+.action-btn {
   background-color: $dashboard-purple-clr;
   color: #fff;
-  font-family: "LatoWebBold";
+  font-family: 'LatoWebBold';
   text-transform: uppercase;
   width: 5rem;
 }
-.description-field{
-  background-color: #F0F0F0;
+.description-field {
+  background-color: #f0f0f0;
   border: none;
 }
-.no-visibility-2{
+.no-visibility-2 {
   visibility: hidden;
-  margin:0;
+  margin: 0;
 }
 
-
 textarea::placeholder {
-  font-family: "LatoWeb";
+  font-family: 'LatoWeb';
   font-size: 14px;
   color: rgb(190, 187, 187);
 }
-select::placeholder{
+select::placeholder {
   color: rgb(190, 187, 187);
 }
-.transactionurl{
+.transactionurl {
   color: $dashboard-purple-clr;
 }
-input[type='checkbox']{
+input[type='checkbox'] {
   position: initial;
 }
 .arrow {
@@ -446,9 +446,9 @@ input[type='checkbox']{
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-.sub-heading{
+.sub-heading {
   color: #191919;
-  font-family: "CenturyRetrospective", serif;
+  font-family: 'CenturyRetrospective', serif;
   text-transform: capitalize;
   font-size: 24px;
   font-weight: 400;
