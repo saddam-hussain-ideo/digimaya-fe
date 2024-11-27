@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Maaya</title>
@@ -38,27 +38,27 @@
     <script type="text/javascript">
       var _html = document.documentElement,
         isTouch =
-          "ontouchstart" in _html ||
+          'ontouchstart' in _html ||
           navigator.msMaxTouchPoints > 0 ||
           navigator.maxTouchPoints;
 
-      _html.className = _html.className.replace("no-js", "js");
+      _html.className = _html.className.replace('no-js', 'js');
 
-      isTouch ? _html.classList.add("touch") : _html.classList.add("no-touch");
+      isTouch ? _html.classList.add('touch') : _html.classList.add('no-touch');
     </script>
     <script>
-      window.addEventListener("load", function () {
+      window.addEventListener('load', function () {
         window.cookieconsent.initialise({
           palette: {
             popup: {
-              background: "#34519d",
+              background: '#34519d',
             },
             button: {
-              background: "#95d358",
+              background: '#95d358',
             },
           },
-          theme: "classic",
-          type: "opt-out",
+          theme: 'classic',
+          type: 'opt-out',
         });
       });
     </script>

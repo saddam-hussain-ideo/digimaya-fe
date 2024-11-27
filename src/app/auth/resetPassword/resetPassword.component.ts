@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild,
   OnDestroy,
-  ElementRef
+  ElementRef,
 } from '@angular/core';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -26,7 +26,6 @@ declare var $: any;
   templateUrl: './resetPassword.component.html',
 })
 export class ResetPassword implements OnInit, OnDestroy {
-
   @ViewChild(RecaptchaComponent) reCaptcha: RecaptchaComponent;
 
   public isAlive = true;
@@ -34,114 +33,102 @@ export class ResetPassword implements OnInit, OnDestroy {
 
   public email: string;
 
-  public noPasswordMatch: boolean = false;
+  public noPasswordMatch = false;
 
-  public noPassword: boolean = false;
+  public noPassword = false;
 
   public confrimPassword: string;
 
-  public noCpassword: boolean = false;
+  public noCpassword = false;
 
   public ValidationsClass: Validations;
 
-  public signUpLoaderShow: boolean = false;
+  public signUpLoaderShow = false;
 
-  public noCode: boolean = false;
+  public noCode = false;
 
   public password: string;
 
   public code: string;
 
-  public actionBtnShow: boolean = true;
+  public actionBtnShow = true;
 
   public tokenForUser: any;
 
-  public captchaKey:any;
+  public captchaKey: any;
 
-  public config: ToasterConfig =
-  new ToasterConfig({animation: 'flyRight'});
+  public config: ToasterConfig = new ToasterConfig({ animation: 'flyRight' });
   public lang;
-  public userObject:any;
-  isShow : boolean = false;
-  isConfirm : boolean = false;
+  public userObject: any;
+  isShow = false;
+  isConfirm = false;
 
-  @ViewChild('passwordField') passwordInput : ElementRef;
+  @ViewChild('passwordField') passwordInput: ElementRef;
   @ViewChild('confirmPasswordField') passwordConfirm: ElementRef;
-  constructor(public activatedRoute: ActivatedRoute, public router: Router, public _userService: UserService,private toasterService: ToasterService,private translate: TranslateService, private _sharedService: SharedService) {
-
+  constructor(
+    public activatedRoute: ActivatedRoute,
+    public router: Router,
+    public _userService: UserService,
+    private toasterService: ToasterService,
+    private translate: TranslateService,
+    private _sharedService: SharedService
+  ) {
     this.ValidationsClass = new Validations();
 
-
     this.toasterService = toasterService;
-
   }
 
-
-
-
   submitCaptcha(captchaResponse: string) {
-
     this.captchaKey = null;
 
     this.captchaKey = captchaResponse;
 
-
-
-
     if (this.captchaKey == null || this.captchaKey == undefined) {
-
     } else {
-
       this.actualCode();
-
     }
-
   }
 
-
-
-
-  actualCode(){
-
+  actualCode() {
     this.signUpLoaderShow = true;
     this.actionBtnShow = false;
 
-    this._userService.ResetPassword(this.tokenForUser, this.password, this.captchaKey).subscribe(a => {
+    this._userService
+      .ResetPassword(this.tokenForUser, this.password, this.captchaKey)
+      .subscribe(
+        (a) => {
+          if (a.code == 200) {
+            this.signUpLoaderShow = false;
+            getLanguage();
+            this.lang == 'en'
+              ? this.toasterService.pop('success', 'Success', a.message)
+              : this.toasterService.pop(
+                  'success',
+                  'Satisfactorioamente',
+                  a.message
+                );
+            this.actionBtnShow = true;
+            grecaptcha.reset();
+            setTimeout(() => {
+              this.router.navigate(['/']);
+            }, 1500);
+          }
+        },
+        (err) => {
+          grecaptcha.reset();
+          const obj = JSON.parse(err._body);
 
+          this.toasterService.pop('error', 'Error', obj.message);
 
-      if (a.code == 200) {
-
-        this.signUpLoaderShow = false;
-        getLanguage();
-        this.lang == 'en' ?
-        this.toasterService.pop('success', 'Success', a.message):
-        this.toasterService.pop('success', 'Satisfactorioamente', a.message);
-        this.actionBtnShow = true;
-        grecaptcha.reset();
-        setTimeout(() => {
-          this.router.navigate(['/']);
-        }, 1500);
-
-      }
-
-    }, err => {
-
-      grecaptcha.reset();
-      var obj = JSON.parse(err._body);
-
-      this.toasterService.pop('error', 'Error', obj.message);
-
-      this.signUpLoaderShow = false;
-      this.actionBtnShow = true;
-    });
-
+          this.signUpLoaderShow = false;
+          this.actionBtnShow = true;
+        }
+      );
   }
 
   routeToLogin() {
     this.router.navigate(['/']);
   }
-
-
 
   submitResetPasswordRequestWithEnter(event) {
     if (event.keyCode == 13) {
@@ -149,116 +136,109 @@ export class ResetPassword implements OnInit, OnDestroy {
     }
   }
 
-
   submitResetPasswordRequest() {
-
-
-    var error = false;
+    let error = false;
     this.toasterService.clear();
 
-
-
     if (!this.ValidationsClass.verifyNameInputs(this.password)) {
-      this.lang == 'en' ?
-      this.toasterService.pop('error', 'Error', "Please enter a password"):
-      this.toasterService.pop('error', 'Error', "favor de ingresar su contraseña");
+      this.lang == 'en'
+        ? this.toasterService.pop('error', 'Error', 'Please enter a password')
+        : this.toasterService.pop(
+            'error',
+            'Error',
+            'favor de ingresar su contraseña'
+          );
       error = true;
     }
 
-
     if (!this.ValidationsClass.verifyNameInputs(this.confrimPassword)) {
-      this.lang == 'en' ?
-      this.toasterService.pop('error', 'Error', "Please enter confirm password"):
-      this.toasterService.pop('error', 'Error', "favor de confirmar su contraseña");
+      this.lang == 'en'
+        ? this.toasterService.pop(
+            'error',
+            'Error',
+            'Please enter confirm password'
+          )
+        : this.toasterService.pop(
+            'error',
+            'Error',
+            'favor de confirmar su contraseña'
+          );
       error = true;
     }
 
     if (this.password != this.confrimPassword) {
-      this.lang == 'en' ?
-      this.toasterService.pop('error', 'Error', "Your passwords do not match") :
-      this.toasterService.pop('error', 'Error', "Ambas contraseñas no coinciden");
+      this.lang == 'en'
+        ? this.toasterService.pop(
+            'error',
+            'Error',
+            'Your passwords do not match'
+          )
+        : this.toasterService.pop(
+            'error',
+            'Error',
+            'Ambas contraseñas no coinciden'
+          );
       error = true;
     }
 
-
-
     if (error) {
-
     } else {
-
-     grecaptcha.execute();
-
+      grecaptcha.execute();
     }
-
-
-
-
   }
-
 
   resetErrors() {
     this.noPassword = false;
     this.noCpassword = false;
     this.noPasswordMatch = false;
     this.noCode = false;
-
   }
 
-
-
-
   public ngOnInit() {
-
-    this.userObject = JSON.parse(localStorage.getItem("userObject"));
-
+    this.userObject = JSON.parse(localStorage.getItem('userObject'));
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-
       this.tokenForUser = params['token'];
-
-    })
+    });
 
     this._sharedService.updateLanguage$
-    .pipe(takeWhile(() => this.isAlive))
-    .subscribe(res => {
-      this.lang = localStorage.getItem('language');
-      if(this.lang) {
-        this.translate.use(this.lang)
-      }else {
-        this.translate.use('es')
-      }
-    })
+      .pipe(takeWhile(() => this.isAlive))
+      .subscribe((res) => {
+        this.lang = localStorage.getItem('language');
+        if (this.lang) {
+          this.translate.use(this.lang);
+        } else {
+          this.translate.use('es');
+        }
+      });
 
     this.lang = localStorage.getItem('language');
-      if(this.lang) {
-        this.translate.use(this.lang)
-      }else {
-        this.translate.use('es')
-      }
+    if (this.lang) {
+      this.translate.use(this.lang);
+    } else {
+      this.translate.use('es');
+    }
   }
 
   ngOnDestroy() {
     this.isAlive = false;
   }
-  hidePassword(value){   
-    if(value == 'confirm'){
-      this.isConfirm = false
+  hidePassword(value) {
+    if (value == 'confirm') {
+      this.isConfirm = false;
       this.passwordConfirm.nativeElement.setAttribute('type', 'password');
-      return
+      return;
     }
-    this.isShow = false
+    this.isShow = false;
     this.passwordInput.nativeElement.setAttribute('type', 'password');
   }
-  showPassword(value){
-    
-    if(value == 'confirm'){
-      this.isConfirm = true
+  showPassword(value) {
+    if (value == 'confirm') {
+      this.isConfirm = true;
       this.passwordConfirm.nativeElement.setAttribute('type', 'text');
-      return
+      return;
     }
-    this.isShow = true
+    this.isShow = true;
     this.passwordInput.nativeElement.setAttribute('type', 'text');
-
   }
-
 }

@@ -9,12 +9,12 @@
 
       <div class="form-div">
         <p class="verify-text">
-          {{ "You have 2 factor authentication enabled." | translate }}
+          {{ 'You have 2 factor authentication enabled.' | translate }}
         </p>
 
         <p class="verify-text">
           {{
-            "Please Enter Your Google Authenticator Six-Digit Code" | translate
+            'Please Enter Your Google Authenticator Six-Digit Code' | translate
           }}
         </p>
 
@@ -75,15 +75,15 @@
 
         <div class="form-button centered-text" *ngIf="actionBtnShow">
           <button class="blue-submit" (click)="authenticate2Fa()">
-            {{ "Submit" | translate }}
+            {{ 'Submit' | translate }}
           </button>
         </div>
 
         <div class="form-group">
           <p class="bottom-text">
-            {{ "Not a user?" | translate }}
+            {{ 'Not a user?' | translate }}
             <a class="links" (click)="routeToSignUp()">{{
-              "Sign up Now" | translate
+              'Sign up Now' | translate
             }}</a>
           </p>
         </div>

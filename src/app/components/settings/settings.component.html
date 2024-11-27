@@ -3,14 +3,14 @@
   <div class="background">
     <div class="mywallet-head">
       <h1 style="display: inline-block" class="page-title setting-txt">
-        {{ "SETTINGS" | translate }}
+        {{ 'SETTINGS' | translate }}
       </h1>
       <a
         class="helpbtn d-none"
         style="float: right; margin-top: 35px; margin-right: auto"
         href="https://fruture.org/twoFactorInfo.html"
         target="_blank"
-        >{{ "Help" | translate }}</a
+        >{{ 'Help' | translate }}</a
       >
       <toaster-container [toasterconfig]="config"></toaster-container>
     </div>
@@ -19,7 +19,7 @@
         <div class="col-lg-6">
           <div class="genral-sett-div">
             <h2 class="sub-title no-left-margin">
-              {{ "GENERAL SETTINGS" | translate }}
+              {{ 'GENERAL SETTINGS' | translate }}
             </h2>
 
             <div class="genral-sett-div-content">
@@ -37,7 +37,7 @@
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
                       <label for="name" class="nn-lbl-sett"
-                        >{{ "Name" | translate }}:</label
+                        >{{ 'Name' | translate }}:</label
                       >
                       <input
                         type="text"
@@ -51,7 +51,7 @@
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
                       <label for="name" class="nn-lbl-sett"
-                        >{{ "Username" | translate }}:</label
+                        >{{ 'Username' | translate }}:</label
                       >
                       <input
                         readonly
@@ -66,7 +66,7 @@
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
                       <label for="email" class="nn-lbl-sett"
-                        >{{ "Email" | translate }}:</label
+                        >{{ 'Email' | translate }}:</label
                       >
                       <input
                         readonly
@@ -157,7 +157,7 @@
                         class="update-buttons"
                         (click)="updateGeneralSettings()"
                       >
-                        {{ "UPDATE" | translate }}
+                        {{ 'UPDATE' | translate }}
                       </button>
                     </div>
                   </div>
@@ -171,7 +171,7 @@
           <div class="update-password">
             <div class="gnrl-setting-form">
               <h2 class="sub-title no-left-margin">
-                {{ "UPDATE PASSWORD" | translate }}
+                {{ 'UPDATE PASSWORD' | translate }}
               </h2>
 
               <div class="row mar-top10">
@@ -179,7 +179,7 @@
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                   <div class="form-group pwd-rel">
                     <label for="pass" class="nn-lbl-sett">{{
-                      "Old Password:" | translate
+                      'Old Password:' | translate
                     }}</label>
                     <input
                       type="password"
@@ -207,7 +207,7 @@
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                   <div class="form-group pwd-rel">
                     <label for="pass" class="nn-lbl-sett"
-                      >{{ "Password" | translate }}:</label
+                      >{{ 'Password' | translate }}:</label
                     >
                     <input
                       type="password"
@@ -236,7 +236,7 @@
                 <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                   <div class="form-group pwd-rel">
                     <label for="cpass" class="nn-lbl-sett"
-                      >{{ "Confirm Password" | translate }}:</label
+                      >{{ 'Confirm Password' | translate }}:</label
                     >
                     <input
                       type="password"
@@ -327,7 +327,7 @@
               >
                 <div class="leftside clearfix">
                   <button class="update-buttons" (click)="updatePassword()">
-                    {{ "UPDATE" | translate }}
+                    {{ 'UPDATE' | translate }}
                   </button>
                 </div>
               </div>
@@ -430,7 +430,7 @@
         <div class="col-lg-6">
           <div class="authentication-sett-div">
             <h2 class="sub-title no-left-margin">
-              {{ "Google Authentication" | translate }}
+              {{ 'Google Authentication' | translate }}
             </h2>
             <div class="floated-right">
               <ui-switch
@@ -444,7 +444,7 @@
             <div class="clear"></div>
             <p class="color-blue">
               {{
-                "Two-Factor Authentication (2FA) increases the security of your eMaaya ILO account. We therefore recommend to activate 2FA."
+                'Two-Factor Authentication (2FA) increases the security of your eMaaya ILO account. We therefore recommend to activate 2FA.'
                   | translate
               }}
             </p>
@@ -502,10 +502,10 @@
               >
                 <div class="">
                   <p class="auth-sett-text1">
-                    {{ "Two - Factor Authentication" | translate }}
+                    {{ 'Two - Factor Authentication' | translate }}
                   </p>
                   <p class="auth-sett-text2">
-                    {{ "Enter code to enable 2FA" | translate }}
+                    {{ 'Enter code to enable 2FA' | translate }}
                   </p>
                   <div class="auth-sett-seagreen-div">
                     <div class="twoFa-btns clearfix">
@@ -568,7 +568,7 @@
                           *ngIf="authBtn"
                           (click)="authenticate2Fa()"
                         >
-                          {{ "authenticate" | translate }}
+                          {{ 'authenticate' | translate }}
                         </button>
                       </div>
                     </div>
@@ -588,7 +588,7 @@
                 <div class="">
                   <p class="auth-sett-text2">
                     {{
-                      "You have two factor authentication enabled, Enter code to disable 2FA"
+                      'You have two factor authentication enabled, Enter code to disable 2FA'
                         | translate
                     }}
                   </p>
@@ -651,7 +651,7 @@
                           *ngIf="authBtn"
                           (click)="disable2FAFunction()"
                         >
-                          {{ "Disable" | translate }}
+                          {{ 'Disable' | translate }}
                         </button>
                       </div>
                     </div>
@@ -665,7 +665,7 @@
 
           <div class="acc-conf-div d-none d-lg-block">
             <h2 class="sub-title no-left-margin">
-              {{ "ACCOUNT CONFIRMATION" | translate }}
+              {{ 'ACCOUNT CONFIRMATION' | translate }}
               <span class="sub-title-dash">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -694,13 +694,13 @@
                       </td>
                       <td class="noBordertop width55 padding-top35">
                         <p class="tbl-col3-txt">
-                          {{ "E-MAIL VERIFICATION" | translate }}
+                          {{ 'E-MAIL VERIFICATION' | translate }}
                         </p>
                       </td>
                       <td class="noBordertop w-25">
                         <div class="verified-btn-wrapper">
                           <button class="table-verified">
-                            {{ "Verified" | translate }}
+                            {{ 'Verified' | translate }}
                           </button>
                         </div>
                       </td>
@@ -741,7 +741,7 @@
                       </td>
                       <td class="padding-top35 custom-bor-btm">
                         <p class="tbl-col3-txt">
-                          TRON {{ "Address" | translate }}
+                          TRON {{ 'Address' | translate }}
                         </p>
                       </td>
                       <td class="custom-bor-btm w-25">
@@ -750,7 +750,7 @@
                             class="table-verified"
                             *ngIf="userObject.WalletAddress"
                           >
-                            {{ "Submitted" | translate }}
+                            {{ 'Submitted' | translate }}
                           </button>
                           <button
                             class="table-verified NOT_SUBMITTED"
@@ -795,19 +795,19 @@
 
             <div *ngIf="userKycStatus == 'SUBMITTED'">
               <p class="accepted-text">
-                {{ "Your KYC is under review" | translate }}
+                {{ 'Your KYC is under review' | translate }}
               </p>
             </div>
 
             <div *ngIf="userKycStatus == 'ACCEPTED'">
               <p class="accepted-text">
-                {{ "Your KYC has been accepted by fruture team" | translate }}
+                {{ 'Your KYC has been accepted by fruture team' | translate }}
               </p>
             </div>
 
             <div *ngIf="userKycStatus == 'REJECTED'">
               <p class="rejected-text">
-                {{ "Your KYC was rejected please resubmit" | translate }}
+                {{ 'Your KYC was rejected please resubmit' | translate }}
               </p>
             </div>
 
@@ -826,7 +826,7 @@
                   class="nn-lbl-sett"
                   style="margin-bottom: 10px !important"
                   for="name"
-                  >Select {{ "Select ID Type" | translate }}:</label
+                  >Select {{ 'Select ID Type' | translate }}:</label
                 >
                 <div *ngIf="!showDetails" class="clear"></div>
                 <span *ngIf="!showDetails" class="checkp btm-marg">
@@ -849,13 +849,13 @@
                     value="PASSPORT"
                     (change)="getIDType($event.target.value)"
                   />
-                  <label for="passport">{{ "Passport" | translate }}</label>
+                  <label for="passport">{{ 'Passport' | translate }}</label>
                 </span>
 
                 <div class="row margin-top">
                   <div class="col-md-4 col-xl-4 col-xs-6">
                     <p class="text-center font-size-14 color-blue">
-                      {{ img_type | translate }} {{ "FRONT" | translate }}
+                      {{ img_type | translate }} {{ 'FRONT' | translate }}
                     </p>
                     <div class="img-box" style="text-align: center">
                       <img
@@ -874,7 +874,7 @@
                   </div>
                   <div class="col-md-4 col-xl-4 col-xs-6">
                     <p class="text-center font-size-14 color-blue">
-                      {{ img_type | translate }} {{ "BACK" | translate }}
+                      {{ img_type | translate }} {{ 'BACK' | translate }}
                     </p>
                     <div class="img-box" style="text-align: center">
                       <img
@@ -897,12 +897,12 @@
                     *ngIf="!showDetails"
                     class="nn-lbl-sett color-blue"
                     style="margin-bottom: 10px !important"
-                    >{{ "Proof of Address" | translate }}</label
+                    >{{ 'Proof of Address' | translate }}</label
                   >
                   <!-- <h6>Proof of Address</h6> -->
                   <p style="margin-bottom: 0px !important" class="color-blue">
                     {{
-                      "Please upload either electricity or phone bill to provide proof of address"
+                      'Please upload either electricity or phone bill to provide proof of address'
                         | translate
                     }}
                   </p>
@@ -913,7 +913,7 @@
                   class="nn-lbl-sett"
                   style="margin-bottom: 10px !important"
                   for="billtype"
-                  >Select {{ "Select Bill Type" | translate }}:</label
+                  >Select {{ 'Select Bill Type' | translate }}:</label
                 >
                 <div *ngIf="!showDetails" class="clear"></div>
 
@@ -927,7 +927,7 @@
                     (change)="getBillType($event.target.value)"
                   />
                   <label for="phone" class="color-blue">{{
-                    "Phone" | translate
+                    'Phone' | translate
                   }}</label>
                 </span>
                 <span *ngIf="!showDetails" class="checkp pad-btm m-l-30">
@@ -940,14 +940,14 @@
                     (change)="getBillType($event.target.value)"
                   />
                   <label for="electricity" class="color-blue">{{
-                    "Electricity" | translate
+                    'Electricity' | translate
                   }}</label>
                 </span>
 
                 <div class="row margin-top">
                   <div class="col-md-4 col-xl-4 col-xs-6">
                     <p class="text-center font-size-14" class="color-blue">
-                      {{ billTypeImage | translate }} {{ "BILL" | translate }}
+                      {{ billTypeImage | translate }} {{ 'BILL' | translate }}
                     </p>
                     <div class="img-box" style="text-align: center">
                       <img
@@ -999,7 +999,7 @@
                 <div class="col-4">
                   <div class="form-group">
                     <label class="nn-lbl-sett" for="ccode">{{
-                      "Country Code" | translate
+                      'Country Code' | translate
                     }}</label>
                     <input
                       type="tel"
@@ -1020,7 +1020,7 @@
                 <div class="col-8">
                   <div class="form-group">
                     <label class="nn-lbl-sett" for="Country">{{
-                      "Phone Number" | translate
+                      'Phone Number' | translate
                     }}</label>
                     <input
                       type="tel"
@@ -1043,7 +1043,7 @@
                 >
                   <div class="leftside clearfix">
                     <button class="update-buttons" (click)="submitKyc()">
-                      {{ "SUBMIT" | translate }}
+                      {{ 'SUBMIT' | translate }}
                     </button>
                   </div>
                 </div>
@@ -1177,7 +1177,7 @@
 
           <div class="acc-conf-div d-block d-lg-none">
             <h2 class="sub-title no-left-margin">
-              {{ "ACCOUNT CONFIRMATION" | translate }}
+              {{ 'ACCOUNT CONFIRMATION' | translate }}
               <span class="sub-title-dash">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -1225,19 +1225,19 @@
                         class="noBordertop width55 padding-top35 hiding-on-fone"
                       >
                         <p class="tbl-col3-txt">
-                          {{ "E-MAIL VERIFICATION" | translate }}
+                          {{ 'E-MAIL VERIFICATION' | translate }}
                         </p>
                       </td>
                       <td class="noBordertop width15 padding-top25">
                         <div class="btm-btns-div clearfix">
                           <div class="leftside clearfix">
                             <p class="tbl-col3-txt hiding-on-large">
-                              {{ "E-MAIL VERIFICATION" | translate }}
+                              {{ 'E-MAIL VERIFICATION' | translate }}
                             </p>
 
                             <div class="verified-btn-wrapper">
                               <button class="table-verified">
-                                {{ "Verified" | translate }}
+                                {{ 'Verified' | translate }}
                               </button>
                             </div>
                           </div>
@@ -1309,27 +1309,27 @@
                       </td>
                       <td class="padding-top35 custom-bor-btm hiding-on-fone">
                         <p class="tbl-col3-txt">
-                          TRON {{ "Address" | translate }}
+                          TRON {{ 'Address' | translate }}
                         </p>
                       </td>
                       <td class="padding-top25 custom-bor-btm">
                         <div class="btm-btns-div clearfix">
                           <div class="leftside clearfix">
                             <p class="tbl-col3-txt hiding-on-large">
-                              TRON {{ "Address" | translate }}
+                              TRON {{ 'Address' | translate }}
                             </p>
                             <div class="verified-btn-wrapper">
                               <button
                                 class="table-verified"
                                 *ngIf="userObject.WalletAddress"
                               >
-                                {{ "Submitted" | translate }}
+                                {{ 'Submitted' | translate }}
                               </button>
                               <button
                                 class="table-verified NOT_SUBMITTED"
                                 *ngIf="!userObject.WalletAddress"
                               >
-                                {{ "Not Submitted" | translate }}
+                                {{ 'Not Submitted' | translate }}
                               </button>
                             </div>
                           </div>

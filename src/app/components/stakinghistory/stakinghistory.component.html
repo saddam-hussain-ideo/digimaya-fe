@@ -1,6 +1,6 @@
 <div class="background">
   <div class="piptle-wallet">
-    <div class="piptel-transaction-history ">
+    <div class="piptel-transaction-history">
       <div class="header header-whte">
         <p class="transaction-txt">Staking history</p>
 
@@ -8,7 +8,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th class="f-bold">{{'Date' | translate}}</th>
+                <th class="f-bold">{{ 'Date' | translate }}</th>
                 <th class="f-bold">Transaction</th>
                 <th class="f-bold">Total Tokens</th>
                 <th class="f-bold">Staking Period</th>
@@ -22,32 +22,38 @@
             </tbody>
             <tbody *ngIf="transactionDetails.length != 0">
               <tr class="bg-lght" *ngFor="let data of transactionDetails">
-                <td class="text-center">{{data.CreatedOnUTC | date : 'short' }}</td>
+                <td class="text-center">
+                  {{ data.CreatedOnUTC | date: 'short' }}
+                </td>
                 <td class="text-center">
                   <div *ngIf="data.TransactionHash?.length > 15">
-                    <a class="transactionurl"  target="_blank">
-                      {{data.TransactionHash.slice(0,6)}}...{{data.TransactionHash.slice(data.TransactionHash.length -
-                      6)}}
+                    <a class="transactionurl" target="_blank">
+                      {{ data.TransactionHash.slice(0, 6) }}...{{
+                        data.TransactionHash.slice(
+                          data.TransactionHash.length - 6
+                        )
+                      }}
                     </a>
                   </div>
                   <div *ngIf="data.TransactionHash?.length <= 15">
                     <a class="transactionurl" target="_blank">
-                      {{data.TransactionHash}}
+                      {{ data.TransactionHash }}
                     </a>
                   </div>
                 </td>
-                <td class="text-center">{{data.TotalTokens | currency:'crypto'}}</td>
-                <td class="text-center">{{data.StakingPeriod}}</td>
-                <td class="text-center">{{data.TransactionType}}</td>
+                <td class="text-center">
+                  {{ data.TotalTokens | currency: 'crypto' }}
+                </td>
+                <td class="text-center">{{ data.StakingPeriod }}</td>
+                <td class="text-center">{{ data.TransactionType }}</td>
               </tr>
-
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <div class="piptel-transaction-history ">
+    <div class="piptel-transaction-history">
       <div class="header header-whte">
         <p class="transaction-txt">Reward history</p>
 
@@ -55,7 +61,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th class="f-bold">{{'Date' | translate}}</th>
+                <th class="f-bold">{{ 'Date' | translate }}</th>
                 <th class="f-bold">Transaction</th>
                 <th class="f-bold">Total Tokens</th>
                 <th class="f-bold">Transaction Type</th>
@@ -68,30 +74,34 @@
             </tbody>
             <tbody *ngIf="rewardDetails.length != 0">
               <tr class="bg-lght" *ngFor="let data of rewardDetails">
-                <td class="text-center">{{data.CreatedOnUTC | date : 'short' }}</td>
+                <td class="text-center">
+                  {{ data.CreatedOnUTC | date: 'short' }}
+                </td>
                 <td class="text-center">
                   <div *ngIf="data.TransactionHash?.length > 15">
-                    <a class="transactionurl"  target="_blank">
-                      {{data.TransactionHash.slice(0,6)}}...{{data.TransactionHash.slice(data.TransactionHash.length -
-                      6)}}
+                    <a class="transactionurl" target="_blank">
+                      {{ data.TransactionHash.slice(0, 6) }}...{{
+                        data.TransactionHash.slice(
+                          data.TransactionHash.length - 6
+                        )
+                      }}
                     </a>
                   </div>
                   <div *ngIf="data.TransactionHash?.length <= 15">
                     <a class="transactionurl" target="_blank">
-                      {{data.TransactionHash}}
+                      {{ data.TransactionHash }}
                     </a>
                   </div>
                 </td>
-                <td class="text-center">{{data.TotalTokens | currency:'crypto'}}</td>
-                <td class="text-center">{{data.TransactionType}}</td>
+                <td class="text-center">
+                  {{ data.TotalTokens | currency: 'crypto' }}
+                </td>
+                <td class="text-center">{{ data.TransactionType }}</td>
               </tr>
-
             </tbody>
           </table>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>

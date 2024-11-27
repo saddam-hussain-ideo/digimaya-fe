@@ -1,10 +1,6 @@
-
-
 export class BlogModel {
-    BlogUrl:any;
-    CreatedOnUTC:any;
-    ImageUrl:any;
-    Title:any;
-    
-    
+  BlogUrl: any;
+  CreatedOnUTC: any;
+  ImageUrl: any;
+  Title: any;
 }

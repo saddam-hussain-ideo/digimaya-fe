@@ -5,7 +5,7 @@
     <div class="head-section">
       <div class="page-title d-flex content-flex">
         <h1 class="page-title">
-          {{ "ICO Tracker" | translate }}
+          {{ 'ICO Tracker' | translate }}
         </h1>
       </div>
       <div class="clearfix ico-top-divs row">
@@ -102,7 +102,7 @@
         <div class="col-lg-6 col-sm-12">
           <div class="d-flex flex-column stage-div">
             <p class="gnrl-sett-txt">
-              {{ "CURRENT STAGE" | translate }}
+              {{ 'CURRENT STAGE' | translate }}
               <!-- <span class="sale-stopped" *ngIf="isSaleStopped">{{ -->
               <!-- "Currently Sale Is Stopped" | translate
               }}</span> -->
@@ -116,7 +116,7 @@
                   <strong>{{ ICOStageInfoLeft?.stageRate }} (AUD)</strong>
                 </p>
                 <p class="till-pIco-Stge-small mr-1" *ngIf="!hideSecondBox">
-                  {{ "Till" | translate }} {{ ICOStageInfoRight?.stageName }}
+                  {{ 'Till' | translate }} {{ ICOStageInfoRight?.stageName }}
                 </p>
                 <p class="till-pIco-Stge-small">
                   Target:
@@ -149,7 +149,7 @@
                   Tokens:
                 </p>
                 <p class="till-pIco-Stge-sub-txt pt-1">
-                  Up to {{ ICOStageInfoLeft?.amountSold | currency : "fait" }}
+                  Up to {{ ICOStageInfoLeft?.amountSold | currency: 'fait' }}
                 </p>
               </div>
               <div class="d-flex flex-column">
@@ -163,7 +163,7 @@
         <div class="col-lg-6 col-sm-12">
           <div class="d-flex flex-column stage-div">
             <p class="gnrl-sett-txt">
-              {{ "UPCOMING ILO STAGE" | translate }}
+              {{ 'UPCOMING ILO STAGE' | translate }}
               <!-- <span class="sale-stopped" *ngIf="isSaleStopped">{{ -->
               <!-- "Currently Sale Is Stopped" | translate
               }}</span> -->
@@ -177,7 +177,7 @@
                   <strong>{{ ICOStageInfoLeft?.stageRate }} (AUD)</strong>
                 </p>
                 <p class="till-pIco-Stge-small mr-1" *ngIf="!hideSecondBox">
-                  {{ "Till" | translate }} {{ ICOStageInfoRight?.stageName }}
+                  {{ 'Till' | translate }} {{ ICOStageInfoRight?.stageName }}
                 </p>
                 <p class="till-pIco-Stge-small">
                   Target:
@@ -210,7 +210,7 @@
                   Tokens:
                 </p>
                 <p class="till-pIco-Stge-sub-txt pt-1">
-                  Up to {{ ICOStageInfoLeft?.amountSold | currency : "fait" }}
+                  Up to {{ ICOStageInfoLeft?.amountSold | currency: 'fait' }}
                 </p>
               </div>
             </div>
@@ -251,7 +251,7 @@
             <div class="genral-sett-div-head clearfix width100 p-3">
               <div class="leftside">
                 <p class="gnrl-sett-txt p-0 mb-0 text-left eMaaya-font">
-                  {{ "ILO eMaayaRS" | translate }}
+                  {{ 'ILO eMaayaRS' | translate }}
                 </p>
               </div>
               <!-- <div class="d-flex justify-content-end">
@@ -300,7 +300,7 @@
                     <tbody class="" *ngIf="!eMyLoader && paginationNumber != 0">
                       <tr class="trname" *ngFor="let data of eMyDetails">
                         <td class="td-name">
-                          {{ data.date | date : "dd/MM/yyyy" }}
+                          {{ data.date | date: 'dd/MM/yyyy' }}
                         </td>
 
                         <td class="td-name">{{ data.userName }}</td>
@@ -310,7 +310,7 @@
                             <ul class="token-progress">
                               <li>
                                 <span class="font-13">{{
-                                  data.eMaayas | currency : "crypto"
+                                  data.eMaayas | currency: 'crypto'
                                 }}</span>
                                 <!-- <strong class="bold-text">eMy </strong> -->
                               </li>
@@ -332,7 +332,7 @@
                         <td class="td-total last-td">
                           $
                           <span class="font-13">{{
-                            data.value | currency : "fait"
+                            data.value | currency: 'fait'
                           }}</span>
                         </td>
                       </tr>
@@ -407,7 +407,7 @@
                               : {
                                   itemsPerPage: referralPSize,
                                   currentPage: topReferalCurrentPage,
-                                  totalItems: paginationNumber
+                                  totalItems: paginationNumber,
                                 }
                         "
                       >
@@ -466,7 +466,7 @@
                   class="w-50 text-center instructions-text"
                   *ngIf="country.key.includes('_')"
                 >
-                  {{ country.key.split("_").join(" ").toUpperCase() }}
+                  {{ country.key.split('_').join(' ').toUpperCase() }}
                 </p>
                 <p
                   class="w-50 text-center instructions-text"
