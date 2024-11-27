@@ -521,8 +521,8 @@ export class Affiliate {
           const blob = new Blob([parsedResponse], { type: 'text/csv' });
           const url = window.URL.createObjectURL(blob);
           const d = new Date().getTime();
-          if (navigator.msSaveOrOpenBlob) {
-            navigator.msSaveBlob(blob, d + '.csv');
+          if ((window.navigator as any).msSaveOrOpenBlob) {
+            (window.navigator as any).msSaveBlob(blob, d + '.csv');
           } else {
             const a = document.createElement('a');
             a.href = url;

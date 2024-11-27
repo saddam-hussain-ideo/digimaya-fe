@@ -29,16 +29,9 @@ import { ForgotPasswordComponent } from './auth/forgotPassword/forgotPassword.co
 import { ResetPassword } from './auth/resetPassword/resetPassword.component';
 import { SharedService } from './services/shared';
 import { UiSwitchModule } from 'ngx-ui-switch';
-import {
-  RecaptchaModule,
-  RECAPTCHA_SETTINGS,
-  RecaptchaSettings,
-} from 'ng-recaptcha';
+import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { ToasterModule, ToasterService } from 'angular2-toaster';
-import {
-  BrowserAnimationsModule,
-  NoopAnimationsModule,
-} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticateComponent } from './auth/authenticate/authenticate.component';
 import { ScrollEventModule } from 'ngx-scroll-event';
 import { HttpClient } from '@angular/common/http';
@@ -50,17 +43,14 @@ import { UserSetup } from './auth/user-setup/user-setup.component';
 import { NewUserVerify } from './auth/new-user-verification/new-user-verify';
 import { WireTransferComponent } from './components/wire-transfer/wire-transfer.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import {
-  TranslateModule,
-  TranslateLoader,
-  TranslateService,
-} from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Currency } from './pipes/currency.pipe';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
 import { StagesComponent } from './components/stages/stages.component';
 import { environment } from 'src/environments/environment';
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
+import { LandingPageComponent } from './components/landing/landing.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -93,6 +83,7 @@ export function createTranslateLoader(http: HttpClient) {
     PiptleWalletComponent,
     StagesComponent,
     StakinghistoryComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
@@ -133,5 +124,5 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [StagesComponent],
 })
 export class AppModule {
-  constructor(public _sharedService: SharedService) {}
+  constructor(public _sharedService: SharedService) { }
 }

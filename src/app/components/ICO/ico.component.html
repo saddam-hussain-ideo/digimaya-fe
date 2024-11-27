@@ -285,7 +285,7 @@
                           <p class="tbl-head-txt">eMaayas Issued</p>
                         </th>
 
-                        <th class="">
+                        <th class>
                           <p class="tbl-head-txt">Stage Type</p>
                         </th>
                         <!-- <th class="">
@@ -297,7 +297,7 @@
                         </th>
                       </tr>
                     </thead>
-                    <tbody class="" *ngIf="!eMyLoader && paginationNumber != 0">
+                    <tbody class *ngIf="!eMyLoader && paginationNumber != 0">
                       <tr class="trname" *ngFor="let data of eMyDetails">
                         <td class="td-name">
                           {{ data.date | date: 'dd/MM/yyyy' }}
@@ -352,7 +352,7 @@
                               preserveAspectRatio="xMidYMid"
                             >
                               <g transform="rotate(208.756 50 50)">
-                                <animateTransform
+                                <animatetransform
                                   attributeName="transform"
                                   type="rotate"
                                   repeatCount="indefinite"
@@ -361,7 +361,7 @@
                                   dur="2.3s"
                                   keySplines="0.5 0.5 0.5 0.5"
                                   calcMode="spline"
-                                ></animateTransform>
+                                ></animatetransform>
                                 <path
                                   fill="#85ffbd"
                                   d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
@@ -394,8 +394,8 @@
                     <pagination-controls
                       *ngIf="referralPSize < paginationNumber"
                       responsive="true"
-                      previousLabel=""
-                      nextLabel=""
+                      previousLabel
+                      nextLabel
                       (pageChange)="changePageForDetails($event)"
                     ></pagination-controls>
 
@@ -407,7 +407,7 @@
                               : {
                                   itemsPerPage: referralPSize,
                                   currentPage: topReferalCurrentPage,
-                                  totalItems: paginationNumber,
+                                  totalItems: paginationNumber
                                 }
                         "
                       >

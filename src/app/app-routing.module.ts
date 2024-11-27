@@ -24,8 +24,10 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
+import { LandingPageComponent } from './components/landing/landing.component';
 
 const routes: Routes = [
+  { path: 'landing', component: LandingPageComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   {
@@ -89,9 +91,9 @@ const routes: Routes = [
   },
 
   //Should be at last in routes
-  { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent },
-];
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent }
+]
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -111,4 +113,4 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

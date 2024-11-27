@@ -167,9 +167,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
   ];
 
   // events
-  public chartClicked(e: any): void {}
+  public chartClicked(e: any): void { }
 
-  public chartHovered(e: any): void {}
+  public chartHovered(e: any): void { }
 
   getAmountInvested() {
     this._sharedService.showHideLoader(true);
@@ -726,7 +726,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
               enabled: false,
               yAlign: 'bottom',
               callbacks: {
-                title: function () {},
+                title: function () { },
               },
               custom: function (tooltipModel) {
                 // Tooltip Element
@@ -870,22 +870,22 @@ export class DashboardComponent implements OnDestroy, OnInit {
                   data: XchangeWidgetData,
                   options: graphWidgetOptions
               }); */
-
-          let myChart = new Chart(this.ctx, {
+          let myChart
+          myChart = new Chart(this.ctx, {
             type: 'line',
             lineColor: '#0FB8FA',
             data: bitcoinWidgetData,
             options: graphWidgetOptions,
           });
 
-          let myChart = new Chart(this.ctx2, {
+          myChart = new Chart(this.ctx2, {
             type: 'line',
             lineColor: '#0FB8FA',
             data: LiteCoinnWidgetData,
             options: graphWidgetOptions,
           });
 
-          let myChart = new Chart(this.ctx3, {
+          myChart = new Chart(this.ctx3, {
             type: 'line',
             lineColor: '#0FB8FA',
             data: BitcoinCashWidgetData,
@@ -899,7 +899,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
           //     options: graphWidgetOptions
           // });
 
-          let myChart = new Chart(this.ctx5, {
+          myChart = new Chart(this.ctx5, {
             type: 'line',
             lineColor: '#0FB8FA',
             data: EthereumWidgetData,
@@ -913,7 +913,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
           //     options: graphWidgetOptions
           // });
 
-          const myChart = new Chart(this.ctx8, {
+          myChart = new Chart(this.ctx8, {
             type: 'line',
             lineColor: '#0FB8FA',
             data: MXNWidgetData,
