@@ -19,21 +19,25 @@ import { AuthenticateComponent } from './auth/authenticate/authenticate.componen
 import { UserSetup } from './auth/user-setup/user-setup.component';
 import { NewUserVerify } from './auth/new-user-verification/new-user-verify';
 import { WireTransferComponent } from './components/wire-transfer/wire-transfer.component';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient} from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
+import { LandingPageComponent } from "./components/landing/landing.component"
 
 
 const routes: Routes = [
+  { path: 'landing', component: LandingPageComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'api', 
+  {
+    path: 'api',
     children: [
       { path: '', redirectTo: 'referral/[refferedToken]', pathMatch: 'full' },
-      { path: 'referral/:ref', component: SignUpComponent,}
-    ] },
+      { path: 'referral/:ref', component: SignUpComponent, }
+    ]
+  },
   { path: 'verification', component: VerifyEmail },
   { path: 'new-user-verification', component: NewUserVerify },
   { path: 'user-setup', component: UserSetup },
@@ -59,7 +63,7 @@ const routes: Routes = [
   },
 
   //Should be at last in routes
-  { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ]
 
@@ -71,11 +75,11 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true }), TranslateModule.forRoot({
     loader: {
-        provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
-        deps: [HttpClient]
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [HttpClient]
     }
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
