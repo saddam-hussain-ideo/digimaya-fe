@@ -72,11 +72,11 @@ const routes: Routes = [
       },
       { path: 'ilo', component: IcoComponent, canActivate: [AuthGuard] },
       { path: 'faqs', component: FaqsComponent, canActivate: [AuthGuard] },
-      {
-        path: 'wire-transfer',
-        component: WireTransferComponent,
-        canActivate: [AuthGuard],
-      },
+      // TODO: Commenting as per demand of Project Manager{
+      //   path: 'wire-transfer',
+      //   component: WireTransferComponent,
+      //   canActivate: [AuthGuard],
+      // },
       {
         path: 'notifications',
         component: NotificationsComponent,
