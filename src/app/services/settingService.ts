@@ -6,15 +6,9 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class SettingService {
+  public userToken: any;
 
-    public userToken:any;
-
-    constructor(private http: Http) {
-        this.userToken = JSON.parse(localStorage.getItem("userToken"));
-
-    }
-
-  
-
-
+  constructor(private http: Http) {
+    this.userToken = JSON.parse(localStorage.getItem('userToken'));
+  }
 }

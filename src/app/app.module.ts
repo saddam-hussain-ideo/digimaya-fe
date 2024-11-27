@@ -108,21 +108,21 @@ export function createTranslateLoader(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
   ],
-  providers: [SharedService,
+  providers: [
+    SharedService,
     TranslateService,
     {
       provide: RECAPTCHA_SETTINGS,
       useValue: { siteKey: environment.captchaKey } as RecaptchaSettings,
-    }], //shared service being injected into modules
+    },
+  ], //shared service being injected into modules
   bootstrap: [AppComponent],
-  entryComponents: [StagesComponent]
+  entryComponents: [StagesComponent],
 })
 export class AppModule {
-  constructor(public _sharedService: SharedService) {
-
-  }
+  constructor(public _sharedService: SharedService) { }
 }

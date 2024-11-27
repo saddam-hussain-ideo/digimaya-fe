@@ -6,136 +6,134 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { getLanguage } from './utils';
 @Injectable()
 export class DashboardService {
+  public userToken: any;
 
+  constructor(private http: Http) {
+    this.userToken = JSON.parse(localStorage.getItem('userToken'));
+  }
 
+  getAmountInvested(userId) {
+    const token = JSON.parse(localStorage.getItem('userToken'));
+    let data;
 
-    public userToken: any;
+    data = { userid: userId };
 
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', token);
 
-    constructor(private http: Http) {
+    return this.http
+      .post(environment.BaseUrl + 'user/amountinvested', data, {
+        headers: headers,
+      })
+      .map((res) => res.json());
+  }
 
-        this.userToken = JSON.parse(localStorage.getItem("userToken"));
-    }
+  salesGraph() {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', this.userToken);
 
+    return this.http
+      .get(environment.BaseUrl + 'user/getPiptleIssuedGraph', {
+        headers: headers,
+      })
+      .map((res) => res.json());
+  }
+  getRates() {
+    const headers = new Headers();
 
-    getAmountInvested(userId) {
-        let token = JSON.parse(localStorage.getItem("userToken"));        
-        var data;
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', this.userToken);
 
-        data = { userid: userId };
+    return this.http
+      .get(environment.BaseUrl + 'user/getRates', { headers: headers })
+      .map((res) => res.json());
+  }
 
+  getTransactionDetails(userId, pageNumber, pageSize) {
+    const token = JSON.parse(localStorage.getItem('userToken'));
+    let data;
 
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", token);
+    data = { userid: userId, pagenumber: pageNumber, pagesize: pageSize };
 
-        return this.http.post(environment.BaseUrl + "user/amountinvested", data, { headers: headers })
-            .map(res => res.json());
+    const headers = new Headers();
 
-    }
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', token);
 
-    salesGraph()
-    {
+    return this.http
+      .post(environment.BaseUrl + 'user/gettransactiondetails', data, {
+        headers: headers,
+      })
+      .map((res) => res.json());
+  }
 
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
+  getLiveStats() {
+    const token = JSON.parse(localStorage.getItem('userToken'));
 
-        return this.http.get(environment.BaseUrl + "user/getPiptleIssuedGraph", { headers: headers })
-            .map(res => res.json());
-    }
-    getRates() {
+    const headers = new Headers();
 
-        let headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', token);
 
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
+    return this.http
+      .get(environment.BaseUrl + 'user/getlastdaytansactionsstats/', {
+        headers: headers,
+      })
+      .map((res) => res.json());
+  }
 
-        return this.http.get(environment.BaseUrl + "user/getRates", { headers: headers })
-            .map(res => res.json());
+  getLiveStatsForWidgets() {
+    const headers = new Headers();
 
-    }
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    return this.http
+      .get(environment.BaseUrl + 'livegraph', { headers: headers })
+      .map((res) => res.json());
+  }
 
+  getBlogs() {
+    const token = JSON.parse(localStorage.getItem('userToken'));
+    const headers = new Headers();
 
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', token);
 
-    getTransactionDetails(userId, pageNumber, pageSize) {
-        let token = JSON.parse(localStorage.getItem("userToken"));        
-        var data;
+    return this.http
+      .get(environment.BaseUrl + 'user/getblogDetails', { headers: headers })
+      .map((res) => res.json());
+  }
 
-        data = { userid: userId, pagenumber: pageNumber, pagesize: pageSize };
+  getILOStages() {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', this.userToken);
 
-        let headers = new Headers();
+    return this.http
+      .get(environment.BaseUrl + 'user/geticostages', { headers: headers })
+      .map((res) => res.json());
+  }
 
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", token);
+  icoPiptleDetails(pageSize, pageNumber) {
+    const params = `pageSize=${pageSize}&pageNumber=${pageNumber}`;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', this.userToken);
 
-        return this.http.post(environment.BaseUrl + "user/gettransactiondetails", data, { headers: headers })
-            .map(res => res.json());
-    }
-
-
-    getLiveStats() {
-        let token = JSON.parse(localStorage.getItem("userToken"));        
-
-        let headers = new Headers();
-
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", token);
-
-        return this.http.get(environment.BaseUrl + "user/getlastdaytansactionsstats/", { headers: headers })
-            .map(res => res.json());
-    }
-
-
-    getLiveStatsForWidgets() {
-
-        let headers = new Headers();
-
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        return this.http.get(environment.BaseUrl + "livegraph", { headers: headers })
-            .map(res => res.json());
-    }
-
-
-    
-
-    getBlogs() {
-        let token = JSON.parse(localStorage.getItem("userToken"));        
-        let headers = new Headers();
-
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", token);
-
-        return this.http.get(environment.BaseUrl + "user/getblogDetails", { headers: headers })
-            .map(res => res.json());
-    }
-
-    getILOStages() {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
-
-        return this.http.get(environment.BaseUrl + "user/geticostages", { headers: headers })
-            .map(res => res.json());
-    }
-
-    icoPiptleDetails(pageSize,pageNumber){
-        const params = `pageSize=${pageSize}&pageNumber=${pageNumber}`
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
-
-        return this.http.get(environment.BaseUrl + `user/iloPiptlesDetails?${params}`, { headers: headers })
-            .map(res => res.json());
-    }
-
+    return this.http
+      .get(environment.BaseUrl + `user/iloPiptlesDetails?${params}`, {
+        headers: headers,
+      })
+      .map((res) => res.json());
+  }
 }

@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-between">
       <div class="d-flex align-items-center content-flex">
         <h1 class="ml-2 page-title text-left text-class">
-          {{ "Dashboard" | translate }}
+          {{ 'Dashboard' | translate }}
         </h1>
       </div>
       <!-- <div class="no-padding center-select dashboard-dropdown">
@@ -75,7 +75,7 @@
           <div class="content">
             <span class="heading text-class">ILO Award Stage:</span>
             <span class="pulper-color" *ngIf="RatesModel.stageName">
-              {{ RatesModel.stageName.split(" ")[2] }}
+              {{ RatesModel.stageName.split(' ')[2] }}
             </span>
             <span class="pulper-color" *ngIf="!RatesModel.stageName"> 0 </span>
           </div>
@@ -96,7 +96,7 @@
             <!-- <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span> -->
             <span class="pulper-color">
               {{ selectedCurrencyAUD }}
-              {{ selectedCurrencyValue | currency : "crypto" }}
+              {{ selectedCurrencyValue | currency: 'crypto' }}
             </span>
           </div>
         </div>
@@ -107,7 +107,7 @@
           <div class="content">
             <span class="heading prp-text text-class">Your Total eMy:</span>
             <span class="heading prp-text-ppt">
-              {{ totaleMaayas ? (totaleMaayas | currency : "crypto") : 0 }}
+              {{ totaleMaayas ? (totaleMaayas | currency: 'crypto') : 0 }}
             </span>
           </div>
         </div>
@@ -120,7 +120,7 @@
             >
             <span class="heading prp-text-ppt">
               <!-- AUD$ {{ totalValueAud | currency : "crypto" }} -->
-              {{ totalValueAud ? (totalValueAud | currency : "crypto") : 0 }}
+              {{ totalValueAud ? (totalValueAud | currency: 'crypto') : 0 }}
             </span>
           </div>
         </div>
@@ -741,7 +741,7 @@
                     aria-controls="pills-home"
                     aria-selected="true"
                   >
-                    {{ "Calculator" | translate }}
+                    {{ 'Calculator' | translate }}
                   </a>
                 </li>
                 <li class="nav-item">
@@ -754,7 +754,7 @@
                     aria-controls="pills-profile"
                     aria-selected="false"
                   >
-                    {{ "ILO STAGES" | translate }}
+                    {{ 'ILO STAGES' | translate }}
                   </a>
                 </li>
               </ul>
@@ -896,7 +896,7 @@
                             <tbody>
                               <tr>
                                 <td class="left-header">
-                                  {{ "Current ICO Stage" | translate }}
+                                  {{ 'Current ICO Stage' | translate }}
                                 </td>
                                 <td class="right-header">
                                   {{ RatesModel.stageName }}
@@ -937,12 +937,12 @@
                             <tfoot class="d-none">
                               <tr>
                                 <td class="final-price left-header">
-                                  {{ "Total" | translate }}
+                                  {{ 'Total' | translate }}
                                 </td>
                                 <!-- <td class="final-price">{{totalCoinToPayFor}}</td> -->
                                 <td class="final-price">
                                   {{
-                                    coinsCalculatedBottom | currency : "crypto"
+                                    coinsCalculatedBottom | currency: 'crypto'
                                   }}
                                   PUC
                                 </td>
@@ -962,20 +962,20 @@
                       >
                         <div class="d-flex flex-column">
                           <p class="buy-txt text-white pb-0">
-                            {{ "Buy" | translate }} With
+                            {{ 'Buy' | translate }} With
                           </p>
                           <div class="d-flex flex-column text-white">
                             <p class="puc-txt">
-                              {{ coinsCalculatedBottom | currency : "crypto" }}
+                              {{ coinsCalculatedBottom | currency: 'crypto' }}
                               eMy
                             </p>
                             <p class="curr-txt mb-0">
-                              {{ coinsWantedBottom | currency : "crypto" }}
-                              {{ selectedCurrencyActual | currency : "crypto" }}
+                              {{ coinsWantedBottom | currency: 'crypto' }}
+                              {{ selectedCurrencyActual | currency: 'crypto' }}
                             </p>
                             <p class="curr-txt">
                               (AUD ${{
-                                totalCalulatedValue | currency : "crypto"
+                                totalCalulatedValue | currency: 'crypto'
                               }})
                             </p>
                           </div>
@@ -986,7 +986,7 @@
                         class="pay-btn bg-small"
                         (click)="navigateToBuyTokens()"
                       >
-                        {{ "pay" | translate }}
+                        {{ 'pay' | translate }}
                       </button>
                     </div>
                   </div>
@@ -1003,7 +1003,7 @@
                         <tr>
                           <td>
                             <span class="color-green"
-                              >{{ "Total Supply" | translate }} :
+                              >{{ 'Total Supply' | translate }} :
                             </span>
                             <span class="color-pulper"
                               >{{ totalCapacity }} eMy</span
@@ -1011,7 +1011,7 @@
                           </td>
                           <td>
                             <span class="color-green"
-                              >{{ "Total Issued" | translate }} :
+                              >{{ 'Total Issued' | translate }} :
                             </span>
                             <span class="color-pulper"
                               >{{ totalIssued | currency }}
@@ -1030,7 +1030,7 @@
                           </td>
                           <td>
                             <span class="color-green"
-                              >{{ "Total Issued" | translate }} :
+                              >{{ 'Total Issued' | translate }} :
                             </span>
                             <span class="color-pulper"
                               >{{ sData.TotalAmountSold | currency }}
@@ -1061,7 +1061,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="rates-title-sec w-50">
                     <h2 class="rates-title">
-                      {{ "live rates" | translate }}(feed CoinMarketcap.com
+                      {{ 'live rates' | translate }}(feed CoinMarketcap.com
                       from)
                     </h2>
                     <!-- <p class="rates-title">
@@ -1106,11 +1106,11 @@
                             </div>
                           </td> -->
                           <td class="rates-table-value">
-                            $ {{ liveRates?.btc | currency : "fait" }}
+                            $ {{ liveRates?.btc | currency: 'fait' }}
                             <span class="mxn-rate">AUD</span>
                           </td>
                           <td class="rates-table-value">
-                            {{ liveRates?.tokenInBtc | currency : "fait" }}
+                            {{ liveRates?.tokenInBtc | currency: 'fait' }}
                             <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
@@ -1131,11 +1131,11 @@
                             </div>
                           </td> -->
                           <td class="rates-table-value">
-                            $ {{ liveRates?.bch | currency : "fait" }}
+                            $ {{ liveRates?.bch | currency: 'fait' }}
                             <span class="mxn-rate">AUD</span>
                           </td>
                           <td class="rates-table-value">
-                            {{ liveRates?.tokenInBch | currency : "fait" }}
+                            {{ liveRates?.tokenInBch | currency: 'fait' }}
                             <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
@@ -1156,11 +1156,11 @@
                             </div>
                           </td> -->
                           <td class="rates-table-value">
-                            $ {{ liveRates?.ltc | currency : "fait" }}
+                            $ {{ liveRates?.ltc | currency: 'fait' }}
                             <span class="mxn-rate">AUD</span>
                           </td>
                           <td class="rates-table-value">
-                            {{ liveRates?.tokenInLtc | currency : "fait" }}
+                            {{ liveRates?.tokenInLtc | currency: 'fait' }}
                             <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
@@ -1181,11 +1181,11 @@
                             </div>
                           </td> -->
                           <td class="rates-table-value">
-                            $ {{ liveRates?.eth | currency : "fait" }}
+                            $ {{ liveRates?.eth | currency: 'fait' }}
                             <span class="mxn-rate">AUD</span>
                           </td>
                           <td class="rates-table-value">
-                            {{ liveRates?.tokenInEth | currency : "fait" }}
+                            {{ liveRates?.tokenInEth | currency: 'fait' }}
                             <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
@@ -1206,11 +1206,11 @@
                             </div>
                           </td> -->
                           <td class="rates-table-value">
-                            $ {{ liveRates?.usd | currency : "fait" }}
+                            $ {{ liveRates?.usd | currency: 'fait' }}
                             <span class="mxn-rate">AUD</span>
                           </td>
                           <td class="rates-table-value">
-                            {{ liveRates?.tokenInUsd | currency : "fait" }}
+                            {{ liveRates?.tokenInUsd | currency: 'fait' }}
                             <span class="mxn-rate">eMy</span>
                           </td>
                         </tr>
@@ -1358,7 +1358,7 @@
               </div>
 
               <div *ngIf="noTransactions" class="no-data-found">
-                {{ "No Data Found" | translate }}
+                {{ 'No Data Found' | translate }}
               </div>
 
               <table
@@ -1377,17 +1377,17 @@
                     <th
                       class="rates-table-currency table-head text-centered no-top-padding"
                     >
-                      {{ "Tokens" | translate }}
+                      {{ 'Tokens' | translate }}
                     </th>
                     <th
                       class="rates-table-currency table-head text-centered no-top-padding"
                     >
-                      {{ "Discount" | translate }}%
+                      {{ 'Discount' | translate }}%
                     </th>
                     <th
                       class="rates-table-currency table-head text-centered no-top-padding"
                     >
-                      {{ "Total Tokens" | translate }}
+                      {{ 'Total Tokens' | translate }}
                     </th>
                     <th
                       class="rates-table-currency table-head text-centered no-top-padding"
@@ -1401,7 +1401,7 @@
                     </th>
 
                     <th class="rates-table-currency text-centered table-head">
-                      {{ "Date" | translate }}
+                      {{ 'Date' | translate }}
                     </th>
                   </tr>
                 </thead>
@@ -1523,7 +1523,7 @@
                                     </td> -->
 
                     <td class="text-centered v-middle stacked-text table-head">
-                      {{ transactions.CalculatedTokens | currency : "crypto" }}
+                      {{ transactions.CalculatedTokens | currency: 'crypto' }}
                     </td>
                     <td class="text-centered v-middle stacked-text table-head">
                       {{ transactions.BonusPercentage }}
@@ -1651,7 +1651,7 @@
                     class="d-flex align-items-center justify-content-between padding-bottom-40"
                   >
                     <span class="global-transaction-heading">
-                      {{ "Global Transaction" | translate }}:
+                      {{ 'Global Transaction' | translate }}:
                     </span>
                     <span class="global-transaction-heading-two"
                       >{{ date | date }}

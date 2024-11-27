@@ -6,41 +6,37 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { getLanguage } from './utils';
 @Injectable()
 export class ICOService {
+  public userToken: any;
 
-    public userToken:any;
+  constructor(private http: Http) {
+    this.userToken = JSON.parse(localStorage.getItem('userToken'));
+  }
 
-    constructor(private http: Http) {
+  getStagesForBars() {
+    const headers = new Headers();
 
-        this.userToken = JSON.parse(localStorage.getItem("userToken"));
-    
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', this.userToken);
 
-    }
+    return this.http
+      .get(environment.BaseUrl + 'user/getIndividualStage', {
+        headers: headers,
+      })
+      .map((res) => res.json());
+  }
 
-    getStagesForBars(){
-        let headers = new Headers();
+  getICOInformaion() {
+    const headers = new Headers();
 
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', this.userToken);
 
-        return this.http.get(environment.BaseUrl + "user/getIndividualStage", { headers: headers })
-            .map(res => res.json());
-       
-    }
-
-    getICOInformaion(){
-
-
-        let headers = new Headers();
-
-        headers.append('Content-Type', 'application/json; charset=UTF-8');
-        headers.append('accept-language', getLanguage())
-        headers.append("authorization", this.userToken);
-
-        return this.http.get(environment.BaseUrl + "user/getcomplateicoinfo", { headers: headers })
-            .map(res => res.json());
-
-    }
-
-
+    return this.http
+      .get(environment.BaseUrl + 'user/getcomplateicoinfo', {
+        headers: headers,
+      })
+      .map((res) => res.json());
+  }
 }
