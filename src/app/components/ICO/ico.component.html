@@ -22,7 +22,7 @@
               </p>
             </div>
             <div class="d-flex flex-column">
-              <p class="number">{{ currentStageeMy }} eMy</p>
+              <p class="number">{{ currentStagePPTL }} eMy</p>
               <p class="sub-text">Issue Value</p>
             </div>
           </div>
@@ -85,7 +85,7 @@
               <p class="ico-top-text">Total eMy Issued</p>
             </div>
             <div class="d-flex flex-column">
-              <p class="number">{{ foundereMy }} eMy</p>
+              <p class="number">{{ founderPPTL }} eMy</p>
             </div>
           </div>
         </div>
@@ -292,7 +292,7 @@
                         </th>
                       </tr>
                     </thead>
-                    <tbody class *ngIf="!eMyLoader && paginationNumber != 0">
+                    <tbody class *ngIf="!pptlLoader && paginationNumber != 0">
                       <tr class="trname" *ngFor="let data of eMyDetails">
                         <td class="td-name">
                           {{ data.date | date: 'dd/MM/yyyy' }}
@@ -333,7 +333,7 @@
                       </tr>
                     </tbody>
 
-                    <tbody *ngIf="eMyLoader">
+                    <tbody *ngIf="pptlLoader">
                       <tr>
                         <td colspan="12">
                           <div class="custom-loader">
@@ -377,14 +377,14 @@
                     </tbody>
                   </table>
                   <div
-                    *ngIf="!eMyLoader && paginationNumber == 0"
+                    *ngIf="!pptlLoader && paginationNumber == 0"
                     class="text-center no-data-found"
                   >
                     No Data Found
                   </div>
                   <div
                     class="pagination-bottom pt-2"
-                    *ngIf="!eMyLoader && paginationNumber != 0"
+                    *ngIf="!pptlLoader && paginationNumber != 0"
                   >
                     <pagination-controls
                       *ngIf="referralPSize < paginationNumber"
