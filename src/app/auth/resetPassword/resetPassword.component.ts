@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild,
   OnDestroy,
-  ElementRef,
+  ElementRef
 } from '@angular/core';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -23,7 +23,7 @@ declare var $: any;
   selector: 'reset-password',
   providers: [UserService],
   styleUrls: ['./resetPassword.component.css'],
-  templateUrl: './resetPassword.component.html',
+  templateUrl: './resetPassword.component.html'
 })
 export class ResetPassword implements OnInit, OnDestroy {
   @ViewChild(RecaptchaComponent) reCaptcha: RecaptchaComponent;

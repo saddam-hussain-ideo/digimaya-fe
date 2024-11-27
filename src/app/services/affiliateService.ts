@@ -42,7 +42,7 @@ export class AffilliateService {
 
     return this.http
       .get(`${environment.BaseUrl}user/affiliateearning?${queryParams}`, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -56,7 +56,7 @@ export class AffilliateService {
 
     return this.http
       .get(environment.BaseUrl + 'user/getaffiliatescsv/' + userid, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -71,7 +71,7 @@ export class AffilliateService {
 
     return this.http
       .get(environment.BaseUrl + `user/gettopreferrals${queryParams}`, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -117,7 +117,7 @@ export class AffilliateService {
 
     return this.http
       .get(environment.BaseUrl + `user/getreferrals${params}`, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }

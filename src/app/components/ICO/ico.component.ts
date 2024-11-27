@@ -9,7 +9,7 @@ import { SharedService } from '../../services/shared';
 import {
   NgbModal,
   NgbModalOptions,
-  NgbModalRef,
+  NgbModalRef
 } from '@ng-bootstrap/ng-bootstrap';
 import { StagesComponent } from '../stages/stages.component';
 import { INFO_MODAL_CONSTANT } from './modals';
@@ -20,7 +20,7 @@ declare var $: any;
   selector: 'my-wallet',
   providers: [ICOService, DashboardService],
   styleUrls: ['./ico.component.scss'],
-  templateUrl: './ico.component.html',
+  templateUrl: './ico.component.html'
 })
 export class IcoComponent {
   public userObject: any;
@@ -42,13 +42,16 @@ export class IcoComponent {
   public stopEditingModal: NgbModalRef;
   globalInfo;
   currentStagePPTL = 0;
+  currentStageeMy = 0;
   allCountries;
   currentILOStage;
   previousILOStage;
   founderPPTL = 0;
+  foundereMy = 0;
   founderAudValue = 0;
   pptlDetails;
   pptlLoader = false;
+  eMyLoader = false;
   noFounder = false;
   referralPSize = 20;
   paginationNumber = 1;
@@ -66,25 +69,25 @@ export class IcoComponent {
     Hours: 'Hours',
     Minutes: 'Minutes',
     Seconds: 'Seconds',
-    MilliSeconds: 'MilliSeconds',
+    MilliSeconds: 'MilliSeconds'
   };
   currentICOStageValue = 0;
   stagesNewData = [
     {
       name: 'ILO Stage 2',
       startingPoint: 501,
-      target: 1000,
+      target: 1000
     },
     {
       name: 'ILO Stage 3',
       startingPoint: 1001,
-      target: 2000,
+      target: 2000
     },
     {
       name: 'ILO Stage 4',
       startingPoint: 2001,
-      target: 3000,
-    },
+      target: 3000
+    }
   ];
   stageLeftData;
   stageRightData;
@@ -373,7 +376,7 @@ export class IcoComponent {
       // size: 'md',
       // ariaLabelledBy: 'info-modal',
       backdrop: 'static',
-      centered: true,
+      centered: true
     };
     this.stopEditingModal = this.modalService.open(
       StagesComponent,
@@ -408,7 +411,7 @@ export class IcoComponent {
     }
 
     this.stopEditingModal.componentInstance.emitUserOp.subscribe({
-      next: this._confirmToStop,
+      next: this._confirmToStop
     });
   }
 

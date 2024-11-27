@@ -12,9 +12,9 @@ declare var $: any;
   selector: 'verify-email',
   providers: [UserService],
   styleUrls: [
-    './verifyEmail.component.css' /*  './demo.css', './normalize.css', 'revealer.css', './pater.css' */,
+    './verifyEmail.component.css' /*  './demo.css', './normalize.css', 'revealer.css', './pater.css' */
   ],
-  templateUrl: './verifyEmail.component.html',
+  templateUrl: './verifyEmail.component.html'
 })
 export class VerifyEmail implements OnInit, OnDestroy {
   public isAlive = true;

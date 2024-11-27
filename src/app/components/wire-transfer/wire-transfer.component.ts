@@ -7,7 +7,7 @@ declare var $: any;
   selector: 'wire-transfer',
   providers: [WalletServices],
   styleUrls: ['wire-transfer.component.scss'],
-  templateUrl: 'wire-transfer.component.html',
+  templateUrl: 'wire-transfer.component.html'
 })
 export class WireTransferComponent {
   public userObject: any;

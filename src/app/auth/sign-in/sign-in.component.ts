@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild,
   OnDestroy,
-  ElementRef,
+  ElementRef
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Validations } from '../../validations';
@@ -19,7 +19,7 @@ declare var $: any;
   selector: 'crypto-sign-in',
   providers: [UserService],
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss'],
+  styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit, OnDestroy {
   public isAlive = true;

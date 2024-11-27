@@ -34,8 +34,8 @@ const routes: Routes = [
     path: 'api',
     children: [
       { path: '', redirectTo: 'referral/[refferedToken]', pathMatch: 'full' },
-      { path: 'referral/:ref', component: SignUpComponent },
-    ],
+      { path: 'referral/:ref', component: SignUpComponent }
+    ]
   },
   { path: 'verification', component: VerifyEmail },
   { path: 'new-user-verification', component: NewUserVerify },
@@ -51,24 +51,24 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
       { path: 'dashboard/:id', component: DashboardComponent },
       { path: 'affiliate', component: Affiliate, canActivate: [AuthGuard] },
       {
         path: 'wallet',
         component: PiptleWalletComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
       {
         path: 'my-wallet',
         component: MyWalletComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
       {
         path: 'settings',
         component: SettingsComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
       { path: 'ilo', component: IcoComponent, canActivate: [AuthGuard] },
       { path: 'faqs', component: FaqsComponent, canActivate: [AuthGuard] },
@@ -80,20 +80,20 @@ const routes: Routes = [
       {
         path: 'notifications',
         component: NotificationsComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard]
       },
       {
         path: 'stakinghistory',
         component: StakinghistoryComponent,
-        canActivate: [AuthGuard],
-      },
-    ],
+        canActivate: [AuthGuard]
+      }
+    ]
   },
 
   //Should be at last in routes
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
-]
+];
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -107,10 +107,10 @@ export function createTranslateLoader(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
-        deps: [HttpClient],
-      },
-    }),
+        deps: [HttpClient]
+      }
+    })
   ],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

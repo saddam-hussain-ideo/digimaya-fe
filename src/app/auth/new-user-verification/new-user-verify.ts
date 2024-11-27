@@ -12,9 +12,9 @@ declare var $: any;
   selector: 'new-user-verify',
   providers: [UserService],
   styleUrls: [
-    './new-user-verify.component.scss' /*  './demo.css', './normalize.css', 'revealer.css', './pater.css' */,
+    './new-user-verify.component.scss' /*  './demo.css', './normalize.css', 'revealer.css', './pater.css' */
   ],
-  templateUrl: './new-user-verify.component.html',
+  templateUrl: './new-user-verify.component.html'
 })
 export class NewUserVerify implements OnInit, OnDestroy {
   public isAlive = true;

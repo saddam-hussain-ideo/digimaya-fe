@@ -13,12 +13,12 @@ export const INFO_MODAL_CONSTANT = {
       bonus4:
         'Directly Receive 15% Extra PPTL Bonus on purchases over AUD $2,000',
       bonus5:
-        'Directly Receive 20% Extra PPTL Bonus on purchases over AUD $5,000',
+        'Directly Receive 20% Extra PPTL Bonus on purchases over AUD $5,000'
     },
     secondaryText: {
       showButton: true,
-      buttonText: 'No',
-    },
+      buttonText: 'No'
+    }
   },
   STAGE_2: {
     modalContent: 'stage 2 Bonuses',
@@ -32,12 +32,12 @@ export const INFO_MODAL_CONSTANT = {
       bonus4:
         'Directly Receive 10% Extra PPTL Bonus on purchases over AUD $2,000',
       bonus5:
-        'Directly Receive 10% Extra PPTL Bonus on purchases over AUD $5,000',
+        'Directly Receive 10% Extra PPTL Bonus on purchases over AUD $5,000'
     },
     secondaryText: {
       showButton: true,
-      buttonText: 'No',
-    },
+      buttonText: 'No'
+    }
   },
   STAGE_3: {
     modalContent: 'stage 3 Bonuses',
@@ -51,12 +51,12 @@ export const INFO_MODAL_CONSTANT = {
       bonus4:
         'Directly Receive 10% Extra PPTL Bonus on purchases over AUD$2,000',
       bonus5:
-        'Directly Receive 10% Extra PPTL Bonus on purchases over AUD$5,000',
+        'Directly Receive 10% Extra PPTL Bonus on purchases over AUD$5,000'
     },
     secondaryText: {
       showButton: true,
-      buttonText: 'No',
-    },
+      buttonText: 'No'
+    }
   },
   STAGE_4: {
     modalContent: 'stage 4 Bonuses',
@@ -70,11 +70,11 @@ export const INFO_MODAL_CONSTANT = {
       bonus4:
         'Directly Receive 10% Extra PPTL Bonus on purchases over AUD$2,000',
       bonus5:
-        'Directly Receive 15% Extra PPTL Bonus on purchases over AUD$5,000',
+        'Directly Receive 15% Extra PPTL Bonus on purchases over AUD$5,000'
     },
     secondaryText: {
       showButton: true,
-      buttonText: 'No',
-    },
-  },
+      buttonText: 'No'
+    }
+  }
 };

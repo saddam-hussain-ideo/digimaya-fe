@@ -2,13 +2,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   NgbActiveModal,
   NgbModal,
-  NgbModalRef,
+  NgbModalRef
 } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'crypto-stages',
   templateUrl: './stages.component.html',
-  styleUrls: ['./stages.component.scss'],
+  styleUrls: ['./stages.component.scss']
 })
 export class StagesComponent implements OnInit {
   @Input() modalData: {

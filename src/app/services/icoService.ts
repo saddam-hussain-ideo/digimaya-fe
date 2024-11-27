@@ -21,7 +21,7 @@ export class ICOService {
 
     return this.http
       .get(environment.BaseUrl + 'user/getIndividualStage', {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -35,7 +35,7 @@ export class ICOService {
 
     return this.http
       .get(environment.BaseUrl + 'user/getcomplateicoinfo', {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }

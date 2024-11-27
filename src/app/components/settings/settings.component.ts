@@ -4,7 +4,7 @@ import {
   NgZone,
   OnDestroy,
   ViewChild,
-  ElementRef,
+  ElementRef
 } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,16 +30,16 @@ declare var $: any;
     trigger('enterAnimation', [
       transition(':enter', [
         style({ transform: 'translateX(100%)', opacity: 0 }),
-        animate('500ms', style({ transform: 'translateX(0)', opacity: 1 })),
+        animate('500ms', style({ transform: 'translateX(0)', opacity: 1 }))
       ]),
       transition(':leave', [
         style({ transform: 'translateX(0)', opacity: 1 }),
-        animate('500ms', style({ transform: 'translateX(100%)', opacity: 0 })),
-      ]),
-    ]),
+        animate('500ms', style({ transform: 'translateX(100%)', opacity: 0 }))
+      ])
+    ])
   ],
   styleUrls: ['./settings.component.scss'],
-  templateUrl: './settings.component.html',
+  templateUrl: './settings.component.html'
 })
 export class SettingsComponent implements OnInit, OnDestroy {
   public isAlive = true;

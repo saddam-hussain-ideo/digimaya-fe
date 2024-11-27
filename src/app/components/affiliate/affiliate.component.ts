@@ -11,7 +11,7 @@ declare var $: any;
   selector: 'affiliate',
   providers: [AffilliateService],
   styleUrls: ['./affiliate.style.scss'],
-  templateUrl: './affiliate.template.html',
+  templateUrl: './affiliate.template.html'
 })
 export class Affiliate {
   public userObject: any;
@@ -61,7 +61,7 @@ export class Affiliate {
   dataArr = [];
   referalLicencesCount = {
     gpa: 0,
-    other: 0,
+    other: 0
   };
   networkIssuedPPTL = 0;
   referredCountries = 0;
@@ -94,7 +94,7 @@ export class Affiliate {
   public lineChartOptions: any = {
     responsive: true,
     legend: {
-      display: false,
+      display: false
     },
 
     scales: {
@@ -103,31 +103,31 @@ export class Affiliate {
           gridLines: {
             color: 'rgba(187, 220, 216,0.3)',
             opacity: 0.3,
-            borderDash: [8, 4],
+            borderDash: [8, 4]
           },
           ticks: {
             beginAtZero: true,
             fontColor: '#616A75',
             fontSize: 13,
-            fontFamily: 'LatoWeb',
-          },
-        },
+            fontFamily: 'LatoWeb'
+          }
+        }
       ],
 
       xAxes: [
         {
           gridLines: {
             color: 'transparent',
-            borderDash: [8, 4],
+            borderDash: [8, 4]
           },
           ticks: {
             beginAtZero: true,
             fontColor: '#616A75',
             fontSize: 13,
-            fontFamily: 'LatoWeb',
-          },
-        },
-      ],
+            fontFamily: 'LatoWeb'
+          }
+        }
+      ]
     },
 
     tooltips: {
@@ -146,28 +146,28 @@ export class Affiliate {
         // remove title
         title: function (tooltipItem, data) {
           return;
-        },
+        }
       },
       titleFontFamily: 'LatoWebBold',
       bodyFontFamily: 'LatoWebLight',
-      titleFontColor: '#0066ff',
+      titleFontColor: '#0066ff'
     },
     elements: {
       line: {
-        tension: 0,
+        tension: 0
       },
       point: {
-        radius: 0,
-      },
-    },
+        radius: 0
+      }
+    }
   };
   public lineChartColors: Array<any> = [
     {
       // grey
       backgroundColor: 'rgba(74,193,180,0.2)',
       // borderColor: 'rgba(74,193,180,1)'
-      borderColor: '#643E8D',
-    },
+      borderColor: '#643E8D'
+    }
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
@@ -457,7 +457,7 @@ export class Affiliate {
             this.totalAffiliatesArray = a.data.earningList;
             this.referalLicencesCount = {
               gpa: a.data.referralLicencesCount['gpa'],
-              other: a.data.referralLicencesCount['other'],
+              other: a.data.referralLicencesCount['other']
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
           }

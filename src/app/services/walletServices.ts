@@ -77,7 +77,7 @@ export class WalletServices {
 
     return this.http
       .post(environment.BaseUrl + 'user/getAddresses', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -99,7 +99,7 @@ export class WalletServices {
 
     return this.http
       .post(environment.BaseUrl + 'user/gettransactiondetails', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -111,7 +111,7 @@ export class WalletServices {
 
     return this.http
       .post(environment.BaseUrl + 'user/stakeTokens', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -123,7 +123,7 @@ export class WalletServices {
 
     return this.http
       .post(environment.BaseUrl + 'user/transfer/tokens', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -145,7 +145,7 @@ export class WalletServices {
 
     return this.http
       .get(environment.BaseUrl + 'user/stakingRewardHistory', {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }

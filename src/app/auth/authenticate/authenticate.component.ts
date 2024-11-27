@@ -15,7 +15,7 @@ declare var $: any;
   selector: 'crypto-authenticate',
   providers: [UserService],
   templateUrl: './authenticate.component.html',
-  styleUrls: ['./authenticate.component.scss'],
+  styleUrls: ['./authenticate.component.scss']
 })
 export class AuthenticateComponent implements OnInit, OnDestroy {
   public isAlive = true;

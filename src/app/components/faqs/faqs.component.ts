@@ -4,7 +4,7 @@ declare var $: any;
 @Component({
   selector: 'no-content',
   styleUrls: ['faqs.component.scss'],
-  templateUrl: 'faqs.component.html',
+  templateUrl: 'faqs.component.html'
 })
 export class FaqsComponent {
   public ngOnInit() {

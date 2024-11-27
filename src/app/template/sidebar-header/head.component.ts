@@ -10,7 +10,7 @@ declare var $: any;
   selector: 'crypto-head',
   templateUrl: './head.component.html',
   styleUrls: ['./head.component.scss'],
-  providers: [UserService],
+  providers: [UserService]
 })
 export class HeadComponent implements OnInit {
   public mainLoader = false;

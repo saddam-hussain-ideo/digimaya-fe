@@ -25,7 +25,7 @@ export class DashboardService {
 
     return this.http
       .post(environment.BaseUrl + 'user/amountinvested', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -38,7 +38,7 @@ export class DashboardService {
 
     return this.http
       .get(environment.BaseUrl + 'user/getPiptleIssuedGraph', {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -68,7 +68,7 @@ export class DashboardService {
 
     return this.http
       .post(environment.BaseUrl + 'user/gettransactiondetails', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -84,7 +84,7 @@ export class DashboardService {
 
     return this.http
       .get(environment.BaseUrl + 'user/getlastdaytansactionsstats/', {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -132,7 +132,7 @@ export class DashboardService {
 
     return this.http
       .get(environment.BaseUrl + `user/iloPiptlesDetails?${params}`, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }

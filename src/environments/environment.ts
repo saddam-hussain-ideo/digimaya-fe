@@ -16,7 +16,7 @@ export const environment = {
     'https://pipezi.com/wp-content/uploads/2021/04/Pipezi-Terms-and-Conditions.pdf',
   privacyPolicy:
     'https://pipezi.com/wp-content/uploads/2021/04/Pipez-Privacy-Policy.pdf',
-  defaultLanguage: 'en',
+  defaultLanguage: 'en'
 };
 
 /*

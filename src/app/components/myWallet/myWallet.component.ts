@@ -18,7 +18,7 @@ declare var $: any;
   selector: 'my-wallet',
   providers: [WalletServices, UserService, DashboardService],
   styleUrls: ['./myWallet.component.scss'],
-  templateUrl: './myWallet.component.html',
+  templateUrl: './myWallet.component.html'
 })
 export class MyWalletComponent implements OnInit, OnDestroy {
   bankObj: object;
@@ -654,7 +654,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
       BankAddress:
         'Shop 60, Stocklands Shopping Centre, 149 West Burleigh Rd, Burleigh Waters, QLD, 4220, Australia',
       Piptleaddressdetails:
-        'Unit 36, 15 Jackman Street, Southport, Qld 4215 Australia',
+        'Unit 36, 15 Jackman Street, Southport, Qld 4215 Australia'
     };
     this.bankdetails = JSON.stringify(this.bankObj);
 

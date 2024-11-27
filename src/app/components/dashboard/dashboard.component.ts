@@ -3,7 +3,7 @@ import {
   OnInit,
   OnDestroy,
   ChangeDetectorRef,
-  NgZone,
+  NgZone
 } from '@angular/core';
 import Chart from 'chart.js';
 import { DashboardService } from '../../services/dashboardService';
@@ -27,7 +27,7 @@ declare var $: any;
   selector: 'crypto-dashboard',
   providers: [DashboardService],
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnDestroy, OnInit {
   public pieChartOptions: any;
@@ -37,8 +37,10 @@ export class DashboardComponent implements OnDestroy, OnInit {
   userId;
   date;
   piptleIssued = 0;
+  eMaayaIssued = 0;
   purchaseValue = 0;
   totalPiptles = 0;
+  totaleMaayas = 0;
   public config: ToasterConfig = new ToasterConfig({ animation: 'flyRight' });
   public ctx: any;
   public ctx2: any;
@@ -138,8 +140,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
       // grey
       backgroundColor: '#997bb5',
       // borderColor: 'rgba(74,193,180,1)'
-      borderColor: '#643E8D',
-    },
+      borderColor: '#643E8D'
+    }
   ];
   // Doughnut
   public doughnutChartLabels: string[] = [
@@ -148,7 +150,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     'LTC',
     'USD',
     'AUD',
-    'BCH',
+    'BCH'
   ];
   public doughnutChartData: number[] = [0, 0, 0, 0, 0, 0];
   public options: any;
@@ -161,15 +163,15 @@ export class DashboardComponent implements OnDestroy, OnInit {
         '#B7B6BC',
         '#34519D',
         '#00694B',
-        '#62c7be',
-      ],
-    },
+        '#62c7be'
+      ]
+    }
   ];
 
   // events
-  public chartClicked(e: any): void { }
+  public chartClicked(e: any): void {}
 
-  public chartHovered(e: any): void { }
+  public chartHovered(e: any): void {}
 
   getAmountInvested() {
     this._sharedService.showHideLoader(true);
@@ -567,9 +569,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 // borderColor: "#0FB8FA",
                 borderColor: '#643E8D',
                 borderWidth: 1,
-                fontSize: 7,
-              },
-            ],
+                fontSize: 7
+              }
+            ]
           };
 
           const LiteCoinnWidgetData = {
@@ -582,9 +584,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 label: false,
                 data: this.LiteCoinnWidgetData,
                 borderColor: '#643E8D',
-                borderWidth: 1,
-              },
-            ],
+                borderWidth: 1
+              }
+            ]
           };
 
           const BitcoinCashWidgetData = {
@@ -597,9 +599,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 label: false,
                 data: this.BitcoinCashWidgetData,
                 borderColor: '#643E8D',
-                borderWidth: 1,
-              },
-            ],
+                borderWidth: 1
+              }
+            ]
           };
 
           const DashWidgetData = {
@@ -612,9 +614,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 label: false,
                 data: this.DashWidgetData,
                 borderColor: '#643E8D',
-                borderWidth: 1,
-              },
-            ],
+                borderWidth: 1
+              }
+            ]
           };
 
           const EthereumWidgetData = {
@@ -627,9 +629,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 label: false,
                 data: this.EthereumWidgetData,
                 borderColor: '#643E8D',
-                borderWidth: 1,
-              },
-            ],
+                borderWidth: 1
+              }
+            ]
           };
 
           const MXNWidgetData = {
@@ -642,9 +644,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 label: false,
                 data: this.MXNWidgetData,
                 borderColor: '#643E8D',
-                borderWidth: 1,
-              },
-            ],
+                borderWidth: 1
+              }
+            ]
           };
 
           this.ref.detectChanges();
@@ -685,9 +687,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 label: false,
                 data: this.BitcoinGoldWidgetData,
                 borderColor: '#0FB8FA',
-                borderWidth: 1,
-              },
-            ],
+                borderWidth: 1
+              }
+            ]
           };
 
           const XchangeWidgetData = {
@@ -700,9 +702,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 label: false,
                 data: this.XchangeWidgetData,
                 borderColor: '#0FB8FA',
-                borderWidth: 1,
-              },
-            ],
+                borderWidth: 1
+              }
+            ]
           };
 
           $(window).scroll(function (event) {
@@ -718,7 +720,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
             gridLines: false,
             responsive: true,
             legend: {
-              display: false,
+              display: false
             },
             tooltips: {
               // Disable the on-canvas tooltip
@@ -726,7 +728,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
               enabled: false,
               yAlign: 'bottom',
               callbacks: {
-                title: function () { },
+                title: function () {}
               },
               custom: function (tooltipModel) {
                 // Tooltip Element
@@ -815,26 +817,26 @@ export class DashboardComponent implements OnDestroy, OnInit {
                 tooltipEl.style.zIndex = '600';
                 tooltipEl.style.padding =
                   tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
-              },
+              }
             },
             chartArea: {
-              backgroundColor: 'red',
+              backgroundColor: 'red'
             },
 
             label: {
-              display: false,
+              display: false
             },
             scales: {
               yAxes: [
                 {
                   gridLines: {
-                    color: 'transparent',
+                    color: 'transparent'
                   },
 
                   ticks: {
-                    display: false,
-                  },
-                },
+                    display: false
+                  }
+                }
               ],
 
               xAxes: [
@@ -842,15 +844,15 @@ export class DashboardComponent implements OnDestroy, OnInit {
                   display: false,
                   gridLines: {
                     color: 'transparent',
-                    display: false,
+                    display: false
                   },
 
                   ticks: {
-                    display: false,
-                  },
-                },
-              ],
-            },
+                    display: false
+                  }
+                }
+              ]
+            }
           };
 
           /*  this.exchangeRate = document.getElementById("exchangeRate"); */
@@ -870,26 +872,26 @@ export class DashboardComponent implements OnDestroy, OnInit {
                   data: XchangeWidgetData,
                   options: graphWidgetOptions
               }); */
-          let myChart
+          let myChart;
           myChart = new Chart(this.ctx, {
             type: 'line',
             lineColor: '#0FB8FA',
             data: bitcoinWidgetData,
-            options: graphWidgetOptions,
+            options: graphWidgetOptions
           });
 
           myChart = new Chart(this.ctx2, {
             type: 'line',
             lineColor: '#0FB8FA',
             data: LiteCoinnWidgetData,
-            options: graphWidgetOptions,
+            options: graphWidgetOptions
           });
 
           myChart = new Chart(this.ctx3, {
             type: 'line',
             lineColor: '#0FB8FA',
             data: BitcoinCashWidgetData,
-            options: graphWidgetOptions,
+            options: graphWidgetOptions
           });
 
           // var myChart = new Chart(this.ctx4, {
@@ -903,7 +905,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
             type: 'line',
             lineColor: '#0FB8FA',
             data: EthereumWidgetData,
-            options: graphWidgetOptions,
+            options: graphWidgetOptions
           });
 
           // var myChart = new Chart(this.ctx9, {
@@ -917,7 +919,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
             type: 'line',
             lineColor: '#0FB8FA',
             data: MXNWidgetData,
-            options: graphWidgetOptions,
+            options: graphWidgetOptions
           });
 
           /*
@@ -1051,13 +1053,13 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
         outsidePadding: 4,
 
-        textMargin: 4,
+        textMargin: 4
       },
       elements: {
         arc: {
           borderColor: '#000',
-          borderWidth: 0,
-        },
+          borderWidth: 0
+        }
       },
 
       tooltips: {
@@ -1067,7 +1069,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
           },
           label: function (tooltipItem, data) {
             return data['datasets'][0]['data'][tooltipItem['index']];
-          },
+          }
         },
         backgroundColor: '#FFF',
         titleFontSize: 12,
@@ -1076,9 +1078,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
         titleFontColor: '#0066ff',
         bodyFontColor: '#000',
         bodyFontSize: 10,
-        displayColors: false,
+        displayColors: false
       },
-      tooltipTemplate: '<%= value %>%',
+      tooltipTemplate: '<%= value %>%'
     };
   }
 

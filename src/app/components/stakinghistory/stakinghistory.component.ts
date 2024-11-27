@@ -6,7 +6,7 @@ import { WalletServices } from 'src/app/services/walletServices';
   selector: 'crypto-stakinghistory',
   templateUrl: './stakinghistory.component.html',
   styleUrls: ['./stakinghistory.component.scss'],
-  providers: [WalletServices],
+  providers: [WalletServices]
 })
 export class StakinghistoryComponent implements OnInit {
   transactionDetails = [];

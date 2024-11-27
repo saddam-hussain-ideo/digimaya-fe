@@ -14,7 +14,7 @@ declare var $: any;
   selector: 'crypto-piptle-wallet',
   templateUrl: './piptle-wallet.component.html',
   styleUrls: ['./piptle-wallet.component.scss'],
-  providers: [WalletServices, DashboardService, UserService],
+  providers: [WalletServices, DashboardService, UserService]
 })
 export class PiptleWalletComponent implements OnInit {
   userObj: any;
@@ -55,7 +55,7 @@ export class PiptleWalletComponent implements OnInit {
     120: 0.7,
     180: 0.75,
     360: 0.8,
-    480: 1.0,
+    480: 1.0
   };
   stakingDuration;
   public config: ToasterConfig = new ToasterConfig({ animation: 'flyRight' });
@@ -76,28 +76,28 @@ export class PiptleWalletComponent implements OnInit {
       address: ['', Validators.compose([Validators.required, tronValidator])],
       amount: ['', Validators.required],
       description: [''],
-      reference: [''],
+      reference: ['']
     });
     this.transferForm = this.fb.group({
       username: ['', Validators.required],
-      amount: ['', Validators.required],
+      amount: ['', Validators.required]
     });
     this.stakingForm = this.fb.group(
       {
         amount: ['', Validators.compose([Validators.required])],
-        days: [''],
+        days: ['']
       },
       {
         validator: (group) => {
           const duration = group.controls['days'];
           this.stakeTokens == 0 ? duration.setErrors({ required: true }) : null;
-        },
+        }
       }
     );
     console.log(this.stakingForm);
 
     this.twoFaForm = this.fb.group({
-      twoFa: ['', [Validators.required, Validators.minLength(6)]],
+      twoFa: ['', [Validators.required, Validators.minLength(6)]]
     });
     $('.list-unstyled li').removeClass('active');
     $('#piptle-wallet-nav').addClass('active');
@@ -117,7 +117,7 @@ export class PiptleWalletComponent implements OnInit {
     const data = {
       userid: this.userId,
       pagenumber: this.currentPage,
-      pagesize: this.recentTransactionsPSize,
+      pagesize: this.recentTransactionsPSize
     };
     this.walletService.transactionDetails(data).subscribe(
       (res) => {
@@ -171,13 +171,13 @@ export class PiptleWalletComponent implements OnInit {
   openModal(content) {
     this.modalReference = this.modalService.open(content, {
       centered: true,
-      backdrop: 'static',
+      backdrop: 'static'
     });
   }
   openWithdraw(content) {
     this.modalRef = this.modalService.open(content, {
       centered: true,
-      backdrop: 'static',
+      backdrop: 'static'
     });
     this.retrieveWallet();
   }
@@ -261,7 +261,7 @@ export class PiptleWalletComponent implements OnInit {
   open(content) {
     this.withDrawModal = this.modalService.open(content, {
       centered: true,
-      backdrop: 'static',
+      backdrop: 'static'
     });
   }
 
@@ -275,7 +275,7 @@ export class PiptleWalletComponent implements OnInit {
       const data = {
         address: form.value.address,
         amount: form.value.amount,
-        note: form.value.description,
+        note: form.value.description
       };
       console.log(data);
 
@@ -339,12 +339,12 @@ export class PiptleWalletComponent implements OnInit {
     let data;
     if (!reference.value) {
       data = {
-        tronAddress: event.value,
+        tronAddress: event.value
       };
     } else {
       data = {
         tronAddress: event.value,
-        reference: reference.value,
+        reference: reference.value
       };
     }
     console.log(data);
@@ -431,7 +431,7 @@ export class PiptleWalletComponent implements OnInit {
     if (amount > 0 && amount <= this.availablePiptles) {
       const data = {
         amount: amount,
-        period: duration == '' ? undefined : duration,
+        period: duration == '' ? undefined : duration
       };
       console.log(data);
 
@@ -472,7 +472,7 @@ export class PiptleWalletComponent implements OnInit {
     if (amount > 0 && amount <= this.availablePiptles) {
       const data = {
         amount: amount,
-        userName: username,
+        userName: username
       };
       this.walletService.transferCoins(data).subscribe(
         (res) => {

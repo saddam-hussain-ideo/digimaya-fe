@@ -16,7 +16,7 @@ declare var $: any;
   selector: 'user-setup',
   providers: [UserService],
   styleUrls: ['./user-setup.component.scss'],
-  templateUrl: './user-setup.component.html',
+  templateUrl: './user-setup.component.html'
 })
 export class UserSetup implements OnInit, OnDestroy {
   @ViewChild(RecaptchaComponent) reCaptcha: RecaptchaComponent;

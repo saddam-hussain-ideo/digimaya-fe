@@ -3,7 +3,7 @@ import {
   OnInit,
   ViewChild,
   OnDestroy,
-  ElementRef,
+  ElementRef
 } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
@@ -23,7 +23,7 @@ declare var $: any;
   selector: 'crypto-sign-up',
   providers: [UserService],
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss'],
+  styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit, OnDestroy {
   @ViewChild(RecaptchaComponent) reCaptcha: RecaptchaComponent;

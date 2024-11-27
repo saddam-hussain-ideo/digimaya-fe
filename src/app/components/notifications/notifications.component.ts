@@ -3,7 +3,7 @@ import {
   OnInit,
   OnDestroy,
   HostListener,
-  ChangeDetectorRef,
+  ChangeDetectorRef
 } from '@angular/core';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,7 +24,7 @@ declare var $: any;
   selector: 'notifications',
   providers: [WalletServices, UserService, DashboardService],
   styleUrls: ['./notifications.component.scss'],
-  templateUrl: './notifications.component.html',
+  templateUrl: './notifications.component.html'
 })
 export class NotificationsComponent {
   public notificationCount = 0;

@@ -24,7 +24,7 @@ export class UserService {
       refferalcode: signupObject.referralCode,
       captchaKey: captcha,
       country: signupObject.country,
-      phone: signupObject.mobile,
+      phone: signupObject.mobile
     };
 
     const headers = new Headers();
@@ -58,7 +58,7 @@ export class UserService {
 
     return this.http
       .post(environment.BaseUrl + 'user/walletAddress', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -84,7 +84,7 @@ export class UserService {
 
     return this.http
       .get(environment.BaseUrl + `user/userKycFromStore${query}`, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -99,7 +99,7 @@ export class UserService {
 
     return this.http
       .get(environment.BaseUrl + `user/userInformationFromStore${query}`, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -143,7 +143,7 @@ export class UserService {
 
     return this.http
       .post(environment.BaseUrl + 'user/enabledisabletwofa', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -160,7 +160,7 @@ export class UserService {
 
     return this.http
       .post(environment.BaseUrl + 'user/verifytwofa', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -174,7 +174,7 @@ export class UserService {
       code: code,
       twoFaKey: formattedKey,
       toTpUri: ToTpUri,
-      userid,
+      userid
     };
 
     const headers = new Headers();
@@ -185,7 +185,7 @@ export class UserService {
 
     return this.http
       .post(environment.BaseUrl + 'user/enabledisabletwofa', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -215,7 +215,7 @@ export class UserService {
 
     return this.http
       .post(environment.BaseUrl + 'user/verifyforgot', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -226,7 +226,7 @@ export class UserService {
     data = {
       oldpassword: oldPassword,
       newpassword: newPassword,
-      userid: UserId,
+      userid: UserId
     };
 
     const headers = new Headers();
@@ -237,7 +237,7 @@ export class UserService {
 
     return this.http
       .post(environment.BaseUrl + 'user/changepassword', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -255,7 +255,7 @@ export class UserService {
 
     return this.http
       .post(environment.BaseUrl + 'user/edituserprofile', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -316,7 +316,7 @@ export class UserService {
 
     return this.http
       .post(environment.BaseUrl + 'admin/verifyadminuser', data, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -328,7 +328,7 @@ export class UserService {
     headers.append('accept-language', getLanguage());
     return this.http
       .get(environment.BaseUrl + 'admin/adminuserresendemail/' + email, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -388,7 +388,7 @@ export class UserService {
     headers.append('accept-language', getLanguage());
     return this.http
       .get(environment.BaseUrl + 'user/kycstatus/' + userId, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -415,7 +415,7 @@ export class UserService {
     headers.append('authorization', token);
     return this.http
       .get(`${environment.BaseUrl}user/getUserBalance${queryParams}`, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
@@ -426,7 +426,7 @@ export class UserService {
     headers.append('authorization', token);
     return this.http
       .get(`${environment.BaseUrl}user/getLoginCredentials/${queryParams}`, {
-        headers: headers,
+        headers: headers
       })
       .map((res) => res.json());
   }
