@@ -82,12 +82,12 @@
     @media screen and (max-width: 600px) {
       padding: 11px 22px;
       font-size: 14px;
+      min-width: auto;
     }
   }
   @media screen and (max-width: 600px) {
     height: 100%;
     background-size: cover;
-    min-width: auto;
   }
 }
 .experience-text {
