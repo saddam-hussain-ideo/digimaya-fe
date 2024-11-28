@@ -73,8 +73,8 @@
 
 .wallet-new-cards {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
+  gap: 20px;
   .cards-inner-width {
     width: 23%;
   }
