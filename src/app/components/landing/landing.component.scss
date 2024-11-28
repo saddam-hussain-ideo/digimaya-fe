@@ -50,7 +50,8 @@
     font-family: 'MavenPro';
     font-size: 16px;
     color: white;
-    padding: 12px 40px;
+    padding: 12px;
+    min-width: 120px;
     font-weight: 600;
     position: relative;
     &::before {
@@ -86,6 +87,7 @@
   @media screen and (max-width: 600px) {
     height: 100%;
     background-size: cover;
+    min-width: auto;
   }
 }
 .experience-text {
