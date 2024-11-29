@@ -1049,6 +1049,7 @@
 }
 .bch-img {
   width: 45px;
+  height: 45px;
 }
 .line-before {
   height: 4px;
@@ -1215,6 +1216,13 @@
 }
 
 .no-of-btc {
+  color: #191919;
+  font-family: 'MavenPro';
+  font-size: 14px;
+  font-weight: 500;
+  @media (max-width: 640px) {
+    font-size: 10px;
+  }
   @media (max-width: 400px) {
     font-size: 12px !important;
   }

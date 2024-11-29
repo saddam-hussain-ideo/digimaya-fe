@@ -108,6 +108,15 @@
     width: 20px;
   }
 }
+
+.coin-logo {
+  width: 100%; /* Ensures the image fits inside the column */
+  max-width: 100px; /* Optional: Set a max width for the images */
+  height: auto; /* Maintain aspect ratio */
+  // width: 56px;
+  // height: 56px;
+}
+
 .right-stats {
   position: relative;
   // margin-left: 60px;
@@ -1817,6 +1826,7 @@
     border: 3px solid $white-color;
   }
 }
+
 .payment-card {
   margin-top: -13px;
   margin-left: 3px;
@@ -1838,6 +1848,7 @@
     padding-bottom: 70px;
   }
 }
+
 .fa-quora {
   // font-size: 30px;
   font-size: 38px;
@@ -1968,4 +1979,69 @@ div[disabled='disabled'] {
 }
 .padding-bottom-40 {
   padding-bottom: 40px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 columns for smaller images */
+  gap: 0.8rem; /* Reduced gap for tighter spacing */
+  max-width: 1000px; /* Restrict overall width */
+  margin: 0 auto;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /* Lighter shadow */
+}
+
+/* Sizes for the images */
+.gallery-item.medium {
+  grid-column: span 2; /* Medium spans 2 columns */
+}
+
+.gallery-item.small {
+  grid-column: span 1; /* Small spans 1 column */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr); /* Smaller screens: 4 columns */
+  }
+
+  .gallery-item.medium {
+    grid-column: span 2; /* Medium spans 2 columns */
+  }
+
+  .gallery-item.small {
+    grid-column: span 1; /* Small remains 1 column */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* Mobile screens: 2 columns */
+  }
+
+  .gallery-item.medium {
+    grid-column: span 2;
+  }
+
+  .gallery-item.small {
+    grid-column: span 1;
+  }
 }
