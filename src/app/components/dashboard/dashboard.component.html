@@ -57,7 +57,7 @@
       <div class="col-lg-3 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Total eMy:</span>
+            <span class="heading text-class">Total $EMYA:</span>
             <span class="pulper-color"> {{ totalCapacity }} </span>
           </div>
         </div>
@@ -65,7 +65,7 @@
       <div class="col-lg-3 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Issued eMy:</span>
+            <span class="heading text-class">Issued $EMYA:</span>
             <span class="pulper-color"> {{ totalIssued }} </span>
           </div>
         </div>
@@ -92,7 +92,7 @@
       <div class="col-lg-4 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Current eMy Value: </span>
+            <span class="heading text-class">Current $EMYA Value: </span>
             <!-- <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span> -->
             <span class="pulper-color">
               {{ selectedCurrencyUSD }}
@@ -105,7 +105,7 @@
       <div class="col-lg-4 col-md-4 pl-0 mb-3">
         <div class="info-custom-card dark-bg">
           <div class="content">
-            <span class="heading prp-text text-class">Your Total eMy:</span>
+            <span class="heading prp-text text-class">Your Total $EMYA:</span>
             <span class="heading prp-text-ppt">
               {{ totalPiptles ? (totalPiptles | currency: 'crypto') : 0 }}
             </span>
@@ -116,7 +116,7 @@
         <div class="info-custom-card dark-bg">
           <div class="content">
             <span class="heading prp-text text-class"
-              >Your Total eMy Value:</span
+              >Your Total $EMYA Value:</span
             >
             <span class="heading prp-text-ppt">
               <!-- USD$ {{ totalValueAud | currency : "crypto" }} -->
@@ -670,7 +670,7 @@
                       <div class="col-md-4 col-xs-12 p-0">
                         <div class="form-group">
                           <label class="black-labels p-b-5 hidden-above-sm"
-                            >eMy</label
+                            >$EMYA</label
                           >
                           <!-- <div class="spin-hider"></div> -->
 
@@ -773,7 +773,7 @@
                           <div class="d-flex flex-column text-white">
                             <p class="puc-txt">
                               {{ coinsCalculatedBottom | currency: 'crypto' }}
-                              eMy
+                              $EMYA
                             </p>
                             <p class="curr-txt mb-0">
                               {{ coinsWantedBottom | currency: 'crypto' }}
@@ -812,7 +812,7 @@
                               >{{ 'Total Supply' | translate }} :
                             </span>
                             <span class="color-pulper"
-                              >{{ totalCapacity }} eMy</span
+                              >{{ totalCapacity }} $EMYA</span
                             >
                           </td>
                           <td>
@@ -823,7 +823,7 @@
                               >{{ totalIssued | currency }}
                             </span>
                           </td>
-                          <td class="color-pulper">eMy</td>
+                          <td class="color-pulper">$EMYA</td>
                         </tr>
                         <tr *ngFor="let sData of stageData">
                           <td>
@@ -831,7 +831,7 @@
                               >{{ sData.StageName }} :
                             </span>
                             <span class="color-pulper"
-                              >{{ sData.TotalSaleAmount }} eMy</span
+                              >{{ sData.TotalSaleAmount }} $EMYA</span
                             >
                           </td>
                           <td>
@@ -842,7 +842,7 @@
                               >{{ sData.TotalAmountSold | currency }}
                             </span>
                           </td>
-                          <td class="color-pulper">eMy</td>
+                          <td class="color-pulper">$EMYA</td>
                         </tr>
                       </tbody>
                     </table>
@@ -883,7 +883,7 @@
                   <!-- <p style="font-size: 14px; text-transform: uppercase;" >{{'Graph Display Currencies Rate In PUCCoin' | translate}}</p> -->
                   <div class="d-flex flex-row w-50 text-center">
                     <p class="tbl-value">Value in USD</p>
-                    <p class="tbl-value">eMy Coins</p>
+                    <p class="tbl-value">$EMYA Coins</p>
                   </div>
                 </div>
               </div>
@@ -917,7 +917,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInBtc | currency: 'fait' }}
-                            <span class="mxn-rate">eMy</span>
+                            <span class="mxn-rate">$EMYA</span>
                           </td>
                         </tr>
 
@@ -942,7 +942,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInBch | currency: 'fait' }}
-                            <span class="mxn-rate">eMy</span>
+                            <span class="mxn-rate">$EMYA</span>
                           </td>
                         </tr>
 
@@ -967,7 +967,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInLtc | currency: 'fait' }}
-                            <span class="mxn-rate">eMy</span>
+                            <span class="mxn-rate">$EMYA</span>
                           </td>
                         </tr>
 
@@ -992,7 +992,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInEth | currency: 'fait' }}
-                            <span class="mxn-rate">eMy</span>
+                            <span class="mxn-rate">$EMYA</span>
                           </td>
                         </tr>
 
@@ -1017,7 +1017,7 @@
                           </td>
                           <td class="rates-table-value">
                             {{ liveRates?.tokenInUsd | currency: 'fait' }}
-                            <span class="mxn-rate">eMy</span>
+                            <span class="mxn-rate">$EMYA</span>
                           </td>
                         </tr>
 
@@ -1347,7 +1347,7 @@
                       </p>
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == 'eMy'"
+                        *ngIf="transactions.TransactionCurrencyType == '$EMYA'"
                       >
                         {{ transactions.TransactionCurrencyType }}
                       </p>
