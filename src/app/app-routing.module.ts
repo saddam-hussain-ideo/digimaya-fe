@@ -25,9 +25,11 @@ import { HttpClient } from '@angular/common/http';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
 import { LandingPageComponent } from './components/landing/landing.component';
+import { CookiePolicyComponent } from './components/cookie-policy/cookie-policy.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingPageComponent },
+  { path: 'cookie-policy', component: CookiePolicyComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   {
@@ -113,4 +115,4 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

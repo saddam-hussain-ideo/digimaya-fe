@@ -62,6 +62,7 @@ import { StagesComponent } from './components/stages/stages.component';
 import { environment } from 'src/environments/environment';
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
 import { LandingPageComponent } from './components/landing/landing.component';
+import { CookiePolicyComponent } from './components/cookie-policy/cookie-policy.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
@@ -94,7 +95,8 @@ export function createTranslateLoader(http: HttpClient) {
     PiptleWalletComponent,
     StagesComponent,
     StakinghistoryComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    CookiePolicyComponent
   ],
   imports: [
     BrowserModule,
@@ -135,5 +137,5 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [StagesComponent]
 })
 export class AppModule {
-  constructor(public _sharedService: SharedService) {}
+  constructor(public _sharedService: SharedService) { }
 }
