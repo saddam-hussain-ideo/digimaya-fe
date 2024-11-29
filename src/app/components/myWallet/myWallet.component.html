@@ -35,6 +35,7 @@
 
       <div class="mywallet-content">
         <div class="row">
+          <!-- BtcFundReceiverAddress -->
           <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
             <div class="wallet-type-wrap">
               <div class="box-loader" id="box-loader-BTC">
@@ -78,11 +79,15 @@
 
               <div class="top-head clearfix">
                 <div class="left-icon">
-                  <img src="../../../assets/img/btc-left.png" alt="bitcoin" />
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/btc-left.png"
+                    alt="bitcoin"
+                  />
                 </div>
 
                 <div class="right-text">
-                  <p class="no-of-coins">BTc</p>
+                  <p class="no-of-coins">BTC</p>
                 </div>
               </div>
 
@@ -122,7 +127,7 @@
                   class="block-elems refresh-value clearfix"
                   [ngClass]="!isTwoFa ? 'addressRates' : ''"
                 >
-                  <!-- <div *ngIf="isTwoFa">
+                  <div *ngIf="isTwoFa">
                     <div class="left-qr">
                       <qr-code
                         class="custom-size"
@@ -130,7 +135,7 @@
                         [size]="100"
                       ></qr-code>
                     </div>
-                  </div> -->
+                  </div>
 
                   <div class="right-refresh clearfix">
                     <!-- <div
@@ -191,7 +196,1114 @@
             </div>
           </div>
 
-          <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+          <!-- EthFundReceiverAddress -->
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-ETH">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/eth-logo.png"
+                    alt="eth-icon"
+                  />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">Eth</p>
+                </div>
+              </div>
+
+              <div class="padding10">
+                <div>
+                  <p class="wallet-address-txt" *ngIf="isTwoFa">
+                    {{ 'WALLET ADDRESS' | translate }}
+                  </p>
+                </div>
+                <div *ngIf="isTwoFa">
+                  <div class="relative-div">
+                    <input
+                      readonly
+                      id="wallet-address2"
+                      type="text"
+                      class="nn-input"
+                      value="{{ walletInfo?.EthFundReceiverAddress }}"
+                    />
+
+                    <button
+                      class="copy-btn"
+                      (click)="copyToClipboard('wallet-address2')"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!isTwoFa">
+                  <div class="relative-div">
+                    <p class="twoFaText mb-0">
+                      {{ 'Enable 2Fa for addresses' | translate }}
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="block-elems refresh-value clearfix"
+                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
+                >
+                  <div *ngIf="isTwoFa">
+                    <div class="left-qr">
+                      <qr-code
+                        class="custom-size"
+                        [value]="walletInfo?.EthFundReceiverAddress"
+                        [size]="100"
+                      ></qr-code>
+                    </div>
+                  </div>
+
+                  <div class="right-refresh clearfix">
+                    <!-- <div
+                      class="left-side mar-ryt clearfix"
+                      (click)="getWalletAddressOnly('ETH')"
+                    >
+                      <svg
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 18 18"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <g
+                          id="Page-1"
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <g
+                            id="Buy-tokens"
+                            transform="translate(-442.000000, -400.000000)"
+                            fill="#1B91E0"
+                          >
+                            <g
+                              id="box1"
+                              transform="translate(279.000000, 164.000000)"
+                            >
+                              <g
+                                id="reload-icon"
+                                transform="translate(163.000000, 236.000000)"
+                              >
+                                <path
+                                  d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                  id="Fill-1"
+                                ></path>
+                                <path
+                                  d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                  id="Fill-2"
+                                ></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div> -->
+                    <div class="right-side clearfix">
+                      <p class="no-of-btc adjusting-font pt-0">
+                        1 ETH = {{ walletInfo?.eth | currency: 'crypto' }} eMy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SolFundReceiverAddress -->
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-LTC">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/solana-sol-logo.png"
+                    alt="ltc-icon"
+                  />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">sol</p>
+                </div>
+              </div>
+
+              <div class="padding10">
+                <div>
+                  <p class="wallet-address-txt" *ngIf="isTwoFa">
+                    {{ 'WALLET ADDRESS' | translate }}
+                  </p>
+                </div>
+                <div *ngIf="isTwoFa">
+                  <div class="relative-div">
+                    <input
+                      readonly
+                      id="wallet-address3"
+                      type="text"
+                      class="nn-input"
+                      value="{{ walletInfo?.SolFundReceiverAddress }}"
+                    />
+
+                    <button
+                      class="copy-btn"
+                      (click)="copyToClipboard('wallet-address3')"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!isTwoFa">
+                  <div class="relative-div">
+                    <p class="twoFaText">
+                      {{ 'Enable 2Fa for addresses' | translate }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="block-elems refresh-value clearfix"
+                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
+                >
+                  <div *ngIf="isTwoFa">
+                    <div class="left-qr">
+                      <qr-code
+                        class="custom-size"
+                        [value]="walletInfo?.SolFundReceiverAddress"
+                        [size]="100"
+                      ></qr-code>
+                    </div>
+                  </div>
+
+                  <div class="right-refresh clearfix">
+                    <!-- <div
+                      class="left-side mar-ryt clearfix"
+                      (click)="getWalletAddressOnly('LTC')"
+                    >
+                      <svg
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 18 18"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <defs></defs>
+                        <g
+                          id="Page-1"
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <g
+                            id="Buy-tokens"
+                            transform="translate(-442.000000, -400.000000)"
+                            fill="#1B91E0"
+                          >
+                            <g
+                              id="box1"
+                              transform="translate(279.000000, 164.000000)"
+                            >
+                              <g
+                                id="reload-icon"
+                                transform="translate(163.000000, 236.000000)"
+                              >
+                                <path
+                                  d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                  id="Fill-1"
+                                ></path>
+                                <path
+                                  d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                  id="Fill-2"
+                                ></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div> -->
+                    <div class="right-side clearfix">
+                      <p class="no-of-btc adjusting-font">
+                        1 SOL = {{ walletInfo?.ltc | currency: 'crypto' }} eMy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TonFundReceiverAddress -->
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 pl-0">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-BCH">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/toncoin-ton-logo.png"
+                    atl="bch-icon"
+                  />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">TON</p>
+                </div>
+              </div>
+
+              <div class="padding10">
+                <div>
+                  <p class="wallet-address-txt" *ngIf="isTwoFa">
+                    {{ 'WALLET ADDRESS' | translate }}
+                  </p>
+                </div>
+                <div *ngIf="isTwoFa">
+                  <div class="relative-div">
+                    <input
+                      readonly
+                      id="wallet-address4"
+                      type="text"
+                      class="nn-input"
+                      value="{{ walletInfo?.TonFundReceiverAddress }}"
+                    />
+
+                    <button
+                      class="copy-btn"
+                      (click)="copyToClipboard('wallet-address4')"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!isTwoFa">
+                  <div class="relative-div">
+                    <p class="twoFaText">
+                      {{ 'Enable 2Fa for addresses' | translate }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="block-elems refresh-value clearfix"
+                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
+                >
+                  <div *ngIf="isTwoFa">
+                    <div class="left-qr">
+                      <qr-code
+                        class="custom-size"
+                        [value]="walletInfo?.TonFundReceiverAddress"
+                        [size]="100"
+                      ></qr-code>
+                    </div>
+                  </div>
+
+                  <div class="right-refresh clearfix">
+                    <!-- <div
+                      class="left-side mar-ryt clearfix"
+                      (click)="getWalletAddressOnly('BCH')"
+                    >
+                      <svg
+                        width="18px"
+                        height="18px"
+                        viewBox="0 0 18 18"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <defs></defs>
+                        <g
+                          id="Page-1"
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                        >
+                          <g
+                            id="Buy-tokens"
+                            transform="translate(-442.000000, -400.000000)"
+                            fill="#1B91E0"
+                          >
+                            <g
+                              id="box1"
+                              transform="translate(279.000000, 164.000000)"
+                            >
+                              <g
+                                id="reload-icon"
+                                transform="translate(163.000000, 236.000000)"
+                              >
+                                <path
+                                  d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
+                                  id="Fill-1"
+                                ></path>
+                                <path
+                                  d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
+                                  id="Fill-2"
+                                ></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div> -->
+                    <div class="right-side clearfix">
+                      <p class="no-of-btc adjusting-font">
+                        1 TON = {{ walletInfo?.bch | currency }} eMy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- TronFundReceiverAddress -->
+          <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 pl-0">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-BCH">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/tron-logo.png"
+                    atl="bch-icon"
+                  />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">tron</p>
+                </div>
+              </div>
+
+              <div class="padding10">
+                <div>
+                  <p class="wallet-address-txt" *ngIf="isTwoFa">
+                    {{ 'WALLET ADDRESS' | translate }}
+                  </p>
+                </div>
+                <div *ngIf="isTwoFa">
+                  <div class="relative-div">
+                    <input
+                      readonly
+                      id="wallet-address5"
+                      type="text"
+                      class="nn-input"
+                      value="{{ walletInfo?.TronFundReceiverAddress }}"
+                    />
+
+                    <button
+                      class="copy-btn"
+                      (click)="copyToClipboard('wallet-address5')"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!isTwoFa">
+                  <div class="relative-div">
+                    <p class="twoFaText">
+                      {{ 'Enable 2Fa for addresses' | translate }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="block-elems refresh-value clearfix"
+                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
+                >
+                  <div *ngIf="isTwoFa">
+                    <div class="left-qr">
+                      <qr-code
+                        class="custom-size"
+                        [value]="walletInfo?.TronFundReceiverAddress"
+                        [size]="100"
+                      ></qr-code>
+                    </div>
+                  </div>
+
+                  <div class="right-refresh clearfix">
+                    <div class="right-side clearfix">
+                      <p class="no-of-btc adjusting-font">
+                        1 TRON = {{ walletInfo?.bch | currency }} eMy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- BnbFundReceiverAddress -->
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-BTC">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/bnb-logo.png"
+                    alt="bitcoin"
+                  />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">BNB</p>
+                </div>
+              </div>
+
+              <div class="padding10">
+                <div>
+                  <p class="wallet-address-txt" *ngIf="isTwoFa">
+                    {{ 'WALLET ADDRESS' | translate }}
+                  </p>
+                </div>
+                <div *ngIf="isTwoFa">
+                  <div class="relative-div">
+                    <input
+                      readonly
+                      id="wallet-address6"
+                      type="text"
+                      class="nn-input"
+                      value="{{ walletInfo?.EthFundReceiverAddress }}"
+                    />
+
+                    <button
+                      class="copy-btn"
+                      (click)="copyToClipboard('wallet-address6')"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!isTwoFa">
+                  <div class="d-flex align-items-start">
+                    <p class="twoFaText">
+                      {{ 'Enable 2Fa for addresses' | translate }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="block-elems refresh-value clearfix"
+                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
+                >
+                  <div *ngIf="isTwoFa">
+                    <div class="left-qr">
+                      <qr-code
+                        class="custom-size"
+                        [value]="walletInfo?.EthFundReceiverAddress"
+                        [size]="100"
+                      ></qr-code>
+                    </div>
+                  </div>
+
+                  <div class="right-refresh clearfix">
+                    <div class="right-side clearfix">
+                      <p class="no-of-btc adjusting-font">
+                        1 BNB = {{ walletInfo?.btc | currency: 'crypto' }} eMy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- UsdcFundReceiverAddress -->
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-BTC">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/usdc-logo.png"
+                    alt="bitcoin"
+                  />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">USDC</p>
+                </div>
+              </div>
+
+              <div class="padding10">
+                <div>
+                  <p class="wallet-address-txt" *ngIf="isTwoFa">
+                    {{ 'WALLET ADDRESS' | translate }}
+                  </p>
+                </div>
+                <div *ngIf="isTwoFa">
+                  <div class="relative-div">
+                    <input
+                      readonly
+                      id="wallet-address7"
+                      type="text"
+                      class="nn-input"
+                      value="{{ walletInfo?.EthFundReceiverAddress }}"
+                    />
+
+                    <button
+                      class="copy-btn"
+                      (click)="copyToClipboard('wallet-address7')"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!isTwoFa">
+                  <div class="d-flex align-items-start">
+                    <p class="twoFaText">
+                      {{ 'Enable 2Fa for addresses' | translate }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="block-elems refresh-value clearfix"
+                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
+                >
+                  <div *ngIf="isTwoFa">
+                    <div class="left-qr">
+                      <qr-code
+                        class="custom-size"
+                        [value]="walletInfo?.EthFundReceiverAddress"
+                        [size]="100"
+                      ></qr-code>
+                    </div>
+                  </div>
+                  <div class="right-refresh clearfix">
+                    <div class="right-side clearfix">
+                      <p class="no-of-btc adjusting-font">
+                        1 USDC = {{ walletInfo?.btc | currency: 'crypto' }} eMy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- USDT TRC20 Fund Reciever Address -->
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 pl-0">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-BCH">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/usdttrc20.png"
+                    atl="bch-icon"
+                  />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">USDT (TRC20)</p>
+                </div>
+              </div>
+
+              <div class="padding10">
+                <div>
+                  <p class="wallet-address-txt" *ngIf="isTwoFa">
+                    {{ 'WALLET ADDRESS' | translate }}
+                  </p>
+                </div>
+                <div *ngIf="isTwoFa">
+                  <div class="relative-div">
+                    <input
+                      readonly
+                      id="wallet-address8"
+                      type="text"
+                      class="nn-input"
+                      value="{{ walletInfo?.TronFundReceiverAddress }}"
+                    />
+
+                    <button
+                      class="copy-btn"
+                      (click)="copyToClipboard('wallet-address8')"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!isTwoFa">
+                  <div class="relative-div">
+                    <p class="twoFaText">
+                      {{ 'Enable 2Fa for addresses' | translate }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="block-elems refresh-value clearfix"
+                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
+                >
+                  <div *ngIf="isTwoFa">
+                    <div class="left-qr">
+                      <qr-code
+                        class="custom-size"
+                        [value]="walletInfo?.TronFundReceiverAddress"
+                        [size]="100"
+                      ></qr-code>
+                    </div>
+                  </div>
+
+                  <div class="right-refresh clearfix">
+                    <div class="right-side clearfix">
+                      <p class="no-of-btc adjusting-font">
+                        1 USDT = {{ walletInfo?.bch | currency }} eMy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- USDT ERC20 Fund Reciever Address -->
+          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 pl-0">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-BCH">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img
+                    class="bch-img"
+                    src="../../../assets/img/usdterc20.png"
+                    atl="bch-icon"
+                  />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">USDT (ERC20)</p>
+                </div>
+              </div>
+
+              <div class="padding10">
+                <div>
+                  <p class="wallet-address-txt" *ngIf="isTwoFa">
+                    {{ 'WALLET ADDRESS' | translate }}
+                  </p>
+                </div>
+                <div *ngIf="isTwoFa">
+                  <div class="relative-div">
+                    <input
+                      readonly
+                      id="wallet-address9"
+                      type="text"
+                      class="nn-input"
+                      value="{{ walletInfo?.EthFundReceiverAddress }}"
+                    />
+
+                    <button
+                      class="copy-btn"
+                      (click)="copyToClipboard('wallet-address9')"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
+                  </div>
+                </div>
+                <div *ngIf="!isTwoFa">
+                  <div class="relative-div">
+                    <p class="twoFaText">
+                      {{ 'Enable 2Fa for addresses' | translate }}
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="block-elems refresh-value clearfix"
+                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
+                >
+                  <div *ngIf="isTwoFa">
+                    <div class="left-qr">
+                      <qr-code
+                        class="custom-size"
+                        [value]="walletInfo?.EthFundReceiverAddress"
+                        [size]="100"
+                      ></qr-code>
+                    </div>
+                  </div>
+
+                  <div class="right-refresh clearfix">
+                    <div class="right-side clearfix">
+                      <p class="no-of-btc adjusting-font">
+                        1 USDT = {{ walletInfo?.bch | currency }} eMy
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+            <div class="wallet-type-wrap">
+              <div class="box-loader" id="box-loader-ETH">
+                <div class="center-loader">
+                  <svg
+                    class="lds-comets"
+                    width="100%"
+                    height="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="xMidYMid"
+                  >
+                    <g transform="rotate(208.756 50 50)">
+                      <animateTransform
+                        attributeName="transform"
+                        type="rotate"
+                        repeatCount="indefinite"
+                        values="360 50 50;0 50 50"
+                        keyTimes="0;1"
+                        dur="2.3s"
+                        keySplines="0.5 0.5 0.5 0.5"
+                        calcMode="spline"
+                      ></animateTransform>
+                      <path
+                        fill="#85ffbd"
+                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+                      ></path>
+                      <path
+                        fill="#316598"
+                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+                      ></path>
+                      <path
+                        fill="#a4bcc2"
+                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="top-head clearfix">
+                <div class="left-icon">
+                  <img src="../../../assets/img/eth-left.png" alt="eth-icon" />
+                </div>
+
+                <div class="right-text">
+                  <p class="no-of-coins">Eth</p>
+                </div>
+              </div>
+
+              <!-- IF Changes  for Eth  -->
+
+      <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
                         <div class="wallet-type-wrap">
 
 
@@ -291,410 +1403,7 @@
                         </div>
                     </div> -->
 
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
-            <div class="wallet-type-wrap">
-              <div class="box-loader" id="box-loader-LTC">
-                <div class="center-loader">
-                  <svg
-                    class="lds-comets"
-                    width="100%"
-                    height="100%"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 0 100 100"
-                    preserveAspectRatio="xMidYMid"
-                  >
-                    <g transform="rotate(208.756 50 50)">
-                      <animateTransform
-                        attributeName="transform"
-                        type="rotate"
-                        repeatCount="indefinite"
-                        values="360 50 50;0 50 50"
-                        keyTimes="0;1"
-                        dur="2.3s"
-                        keySplines="0.5 0.5 0.5 0.5"
-                        calcMode="spline"
-                      ></animateTransform>
-                      <path
-                        fill="#85ffbd"
-                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                      ></path>
-                      <path
-                        fill="#316598"
-                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                      ></path>
-                      <path
-                        fill="#a4bcc2"
-                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                      ></path>
-                    </g>
-                  </svg>
-                </div>
-              </div>
-
-              <div class="top-head clearfix">
-                <div class="left-icon">
-                  <img
-                    class="bch-img"
-                    src="../../../assets/img/litecoin-ltc-logo.png"
-                    alt="ltc-icon"
-                  />
-                </div>
-
-                <div class="right-text">
-                  <p class="no-of-coins">ltc</p>
-                </div>
-              </div>
-
-              <div class="padding10">
-                <div>
-                  <p class="wallet-address-txt" *ngIf="isTwoFa">
-                    {{ 'WALLET ADDRESS' | translate }}
-                  </p>
-                </div>
-                <div *ngIf="isTwoFa">
-                  <div class="relative-div">
-                    <input
-                      readonly
-                      id="wallet-address3"
-                      type="text"
-                      class="nn-input"
-                      value="{{ walletInfo?.LtcFundReceiverAddress }}"
-                    />
-
-                    <button
-                      class="copy-btn"
-                      (click)="copyToClipboard('wallet-address3')"
-                    >
-                      <i class="far fa-copy"></i>
-                    </button>
-                  </div>
-                </div>
-                <div *ngIf="!isTwoFa">
-                  <div class="relative-div">
-                    <p class="twoFaText">
-                      {{ 'Enable 2Fa for addresses' | translate }}
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  class="block-elems refresh-value clearfix"
-                  [ngClass]="!isTwoFa ? 'addressRates' : ''"
-                >
-                  <div *ngIf="isTwoFa">
-                    <div class="left-qr">
-                      <qr-code
-                        class="custom-size"
-                        [value]="walletInfo?.LtcFundReceiverAddress"
-                        [size]="100"
-                      ></qr-code>
-                    </div>
-                  </div>
-
-                  <div class="right-refresh clearfix">
-                    <!-- <div
-                      class="left-side mar-ryt clearfix"
-                      (click)="getWalletAddressOnly('LTC')"
-                    >
-                      <svg
-                        width="18px"
-                        height="18px"
-                        viewBox="0 0 18 18"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                      >
-                        <defs></defs>
-                        <g
-                          id="Page-1"
-                          stroke="none"
-                          stroke-width="1"
-                          fill="none"
-                          fill-rule="evenodd"
-                        >
-                          <g
-                            id="Buy-tokens"
-                            transform="translate(-442.000000, -400.000000)"
-                            fill="#1B91E0"
-                          >
-                            <g
-                              id="box1"
-                              transform="translate(279.000000, 164.000000)"
-                            >
-                              <g
-                                id="reload-icon"
-                                transform="translate(163.000000, 236.000000)"
-                              >
-                                <path
-                                  d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
-                                  id="Fill-1"
-                                ></path>
-                                <path
-                                  d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
-                                  id="Fill-2"
-                                ></path>
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
-                    </div> -->
-                    <div class="right-side clearfix">
-                      <p class="no-of-btc adjusting-font">
-                        1 LTC = {{ walletInfo?.ltc | currency: 'crypto' }} eMy
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
-            <div class="wallet-type-wrap">
-              <div class="box-loader" id="box-loader-ETH">
-                <div class="center-loader">
-                  <svg
-                    class="lds-comets"
-                    width="100%"
-                    height="100%"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 0 100 100"
-                    preserveAspectRatio="xMidYMid"
-                  >
-                    <g transform="rotate(208.756 50 50)">
-                      <animateTransform
-                        attributeName="transform"
-                        type="rotate"
-                        repeatCount="indefinite"
-                        values="360 50 50;0 50 50"
-                        keyTimes="0;1"
-                        dur="2.3s"
-                        keySplines="0.5 0.5 0.5 0.5"
-                        calcMode="spline"
-                      ></animateTransform>
-                      <path
-                        fill="#85ffbd"
-                        d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                      ></path>
-                      <path
-                        fill="#316598"
-                        d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                      ></path>
-                      <path
-                        fill="#a4bcc2"
-                        d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                      ></path>
-                    </g>
-                  </svg>
-                </div>
-              </div>
-
-              <div class="top-head clearfix">
-                <div class="left-icon">
-                  <img src="../../../assets/img/eth-left.png" alt="eth-icon" />
-                </div>
-
-                <div class="right-text">
-                  <p class="no-of-coins">Eth</p>
-                </div>
-              </div>
-
-              <!-- IF Changes  for Eth  -->
-
-              <div class="padding10" *ngIf="noEthAddress">
-                <p class="no-eth-text">
-                  {{
-                    'In order to proceed with your ETH investment, you need to provide a valid ETH Wallet Address'
-                      | translate
-                  }}
-                </p>
-
-                <div class="form-for-eth">
-                  <input
-                    placeholder="{{ 'Eth address here' | translate }}"
-                    class="small-input"
-                    name="userObject.WalletAddress"
-                    [(ngModel)]="userObject.WalletAddress"
-                  />
-                  <div *ngIf="updateLoader" class="loader">
-                    <svg
-                      class="lds-comets"
-                      width="100%"
-                      height="100%"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      viewBox="0 0 100 100"
-                      preserveAspectRatio="xMidYMid"
-                    >
-                      <g transform="rotate(208.756 50 50)">
-                        <animateTransform
-                          attributeName="transform"
-                          type="rotate"
-                          repeatCount="indefinite"
-                          values="360 50 50;0 50 50"
-                          keyTimes="0;1"
-                          dur="2.3s"
-                          keySplines="0.5 0.5 0.5 0.5"
-                          calcMode="spline"
-                        ></animateTransform>
-                        <path
-                          fill="#85ffbd"
-                          d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                        ></path>
-                        <path
-                          fill="#316598"
-                          d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                        ></path>
-                        <path
-                          fill="#a4bcc2"
-                          d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                        ></path>
-                      </g>
-                    </svg>
-                  </div>
-
-                  <button
-                    class="update-buttons"
-                    (click)="updateGeneralSettings()"
-                    *ngIf="updateEth"
-                  >
-                    {{ 'Update' | translate }}
-                  </button>
-                </div>
-              </div>
-
-              <!-- IF Changes  for Eth  -->
-
-              <div class="padding10" *ngIf="!noEthAddress">
-                <div>
-                  <p
-                    class="wallet-address-txt"
-                    *ngIf="isTwoFa && isWalletAddress"
-                  >
-                    {{ 'WALLET ADDRESS' | translate }}
-                  </p>
-                </div>
-                <div *ngIf="isTwoFa && isWalletAddress">
-                  <div class="relative-div">
-                    <input
-                      readonly
-                      id="wallet-address4"
-                      type="text"
-                      class="nn-input"
-                      value="{{ walletInfo?.EthFundReceiverAddress }}"
-                    />
-
-                    <button
-                      class="copy-btn"
-                      (click)="copyToClipboard('wallet-address4')"
-                    >
-                      <i class="far fa-copy"></i>
-                    </button>
-                  </div>
-                </div>
-
-                <div *ngIf="!isTwoFa">
-                  <div class="relative-div">
-                    <p class="twoFaText mb-0">
-                      {{ 'Enable 2Fa for addresses' | translate }}
-                    </p>
-                  </div>
-                </div>
-                <div *ngIf="!isWalletAddress && isTwoFa">
-                  <div class="relative-div">
-                    <p class="twoFaText">{{ 'Set ETH Address' | translate }}</p>
-                  </div>
-                </div>
-                <div
-                  class="block-elems refresh-value clearfix"
-                  [ngClass]="!isTwoFa || !isWalletAddress ? 'addressRates' : ''"
-                >
-                  <div *ngIf="isTwoFa && isWalletAddress">
-                    <div class="left-qr">
-                      <qr-code
-                        class="custom-size"
-                        [value]="walletInfo?.EthFundReceiverAddress"
-                        [size]="100"
-                      ></qr-code>
-                    </div>
-                  </div>
-
-                  <div class="right-refresh clearfix">
-                    <!-- <div
-                      class="left-side mar-ryt clearfix"
-                      (click)="getWalletAddressOnly('ETH')"
-                    >
-                      <svg
-                        width="18px"
-                        height="18px"
-                        viewBox="0 0 18 18"
-                        version="1.1"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                      >
-                        <g
-                          id="Page-1"
-                          stroke="none"
-                          stroke-width="1"
-                          fill="none"
-                          fill-rule="evenodd"
-                        >
-                          <g
-                            id="Buy-tokens"
-                            transform="translate(-442.000000, -400.000000)"
-                            fill="#1B91E0"
-                          >
-                            <g
-                              id="box1"
-                              transform="translate(279.000000, 164.000000)"
-                            >
-                              <g
-                                id="reload-icon"
-                                transform="translate(163.000000, 236.000000)"
-                              >
-                                <path
-                                  d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
-                                  id="Fill-1"
-                                ></path>
-                                <path
-                                  d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
-                                  id="Fill-2"
-                                ></path>
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
-                    </div> -->
-                    <div class="right-side clearfix">
-                      <p class="no-of-btc adjusting-font pt-0">
-                        1 ETH = {{ walletInfo?.eth | currency: 'crypto' }} eMy
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center">
-                  <p
-                    class="edit-eth-text mb-0 mt-2"
-                    (click)="navigateToSettings()"
-                  >
-                    Edit ETH address
-                  </p>
-                </div>
-                <!-- <p class="eth-add">
-                  <span
-                    class="links purple-clr"
-                    (click)="navigateToSettings()"
-                    >{{ "Click Here" | translate }}</span
-                  >
-                  {{ "to edit your ETH Address" | translate }}
-                </p> -->
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
             <div class="wallet-type-wrap">
               <div class="box-loader-2" *ngIf="LoaderWire">
                 <div class="center-loader">
@@ -745,19 +1454,18 @@
 
                 <div class="right-text">
                   <p class="no-of-coins">
-                    {{ 'AUD' | translate }}
+                    {{ 'USD' | translate }}
                   </p>
                 </div>
               </div>
 
-              <!-- <div class="padding10 less-top"> -->
               <div style="margin-top: 30px">
                 <div>
                   <p class="twoFaText mb-0">
                     Click below for Payment Instructions
                   </p>
-                </div>
-                <!-- <div>
+                </div> -->
+      <!-- <div>
                                     <p class="wallet-address-txt">
                                         {{ 'WALLET ADDRESS' | translate }}
                                     </p>
@@ -772,18 +1480,18 @@
 
 
                                 </div> -->
-                <div
+      <!-- <div
                   class="block-elems refresh-value clearfix instruction-section"
-                >
-                  <!-- <div class="left-qr" >
+                > -->
+      <!-- <div class="left-qr" >
 
                                         <qr-code class="my-custom-size" [value]="bankdetails"
                                             [size]="150"></qr-code>
                                         
 
                                     </div> -->
-                  <div class="clearfix d-flex justify-content-center">
-                    <!-- <div
+      <!-- <div class="clearfix d-flex justify-content-center"> -->
+      <!-- <div
                       class="left-side mar-ryt clearfix"
                       (click)="getBankDetails('Wire')"
                     >
@@ -831,7 +1539,7 @@
                       </svg>
                     </div> -->
 
-                    <div class="right-side clearfix">
+      <!-- <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
                         1 {{ wireCurrencySelected }} =
                         {{ currencyRate | currency: 'crypto' }} eMy
@@ -852,8 +1560,8 @@
                   <p class="edit-eth-text" (click)="navigateToSettings()">
                     Edit ETH address
                   </p>
-                </div>
-                <!-- <p class="eth-add">
+                </div> -->
+      <!-- <p class="eth-add">
                   <span
                     class="links purple-clr"
                     data-toggle="modal"
@@ -863,28 +1571,28 @@
                   {{ "to scan qr code" | translate }}
                 </p> -->
 
-                <!-- <div class="block">
+      <!-- <div class="block">
 
                                     <div class="floating-left w-40">
                                         <div class="pos-left2 clearfix">
                                             <div class="row"> -->
 
-                <!--comented before-->
-                <!-- <div class="col-4">
+      <!--comented before-->
+      <!-- <div class="col-4">
                                                     <span class="checkp floating-left">
                                                         <input type="radio" name="cpaRevenue" class='v-checkbox-wire'
                                                             id="test1" (change)="changeWireCurrency('USD')" />
                                                         <label for="test1">USD </label>
                                                     </span>
                                                 </div> -->
-                <!---->
-                <!-- <div class="ml-3" style="text-align: center">
+      <!---->
+      <!-- <div class="ml-3" style="text-align: center">
                                                     <span class="checkp"> -->
-                <!--comented before-->
-                <!-- <input type="radio" name="cpaRevenue" class='v-checkbox-wire '
+      <!--comented before-->
+      <!-- <input type="radio" name="cpaRevenue" class='v-checkbox-wire '
                                                             id="test2" checked (change)="changeWireCurrency('MXN')" /> -->
-                <!---->
-                <!-- <label for="test2" class="aud">AUD Value</label>
+      <!---->
+      <!-- <label for="test2" class="aud">USD Value</label>
                                                     </span>
                                                 </div>
 
@@ -975,19 +1683,19 @@
                                                     readonly maxlength="40" value="{{beneficiaryNomber}}">
                                             </div> -->
 
-                <!--commented before-->
+      <!--commented before-->
 
-                <!-- <input type="text" class="form-control" readonly maxlength="50" value="{{beneficiaryNomber}}"> -->
-                <!---->
-                <!-- </div> -->
-                <!--commented before-->
-                <!-- <div class='form-group'>
+      <!-- <input type="text" class="form-control" readonly maxlength="50" value="{{beneficiaryNomber}}"> -->
+      <!---->
+      <!-- </div> -->
+      <!--commented before-->
+      <!-- <div class='form-group'>
                                         <label>{{ 'Bank Name' | translate}}</label>
                                         <input type="text" class="form-control" readonly maxlength="50" value="{{merchantBankName}}">
                                         </div> -->
-                <!---->
+      <!---->
 
-                <!-- <div class='form-group'>
+      <!-- <div class='form-group'>
                                             <label class="bold_text">{{ 'Account No' | translate}}</label>
                                             <div class="abs-container">
                                                 <button class="copy-btn" (click)="copyToClipboard('bank-account')">
@@ -1006,15 +1714,14 @@
                                     </div>
 
                                 </div> -->
-              </div>
+      <!-- </div>
             </div>
-          </div>
-        </div>
+          </div>-->
 
-        <!-- <div class="row "> -->
+      <!-- <div class="row "> -->
 
-        <!--justify-content-center-->
-        <!--   <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <!--justify-content-center-->
+      <!--   <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
                         <div class="wallet-type-wrap">
 
 
@@ -1117,7 +1824,7 @@
 
                         </div>
                     </div>  -->
-        <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+      <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
                         <div class="wallet-type-wrap">
 
 
@@ -1219,167 +1926,8 @@
 
                         </div>
                     </div> -->
-        <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 pl-0">
-          <div class="wallet-type-wrap">
-            <div class="box-loader" id="box-loader-BCH">
-              <div class="center-loader">
-                <svg
-                  class="lds-comets"
-                  width="100%"
-                  height="100%"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 0 100 100"
-                  preserveAspectRatio="xMidYMid"
-                >
-                  <g transform="rotate(208.756 50 50)">
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      repeatCount="indefinite"
-                      values="360 50 50;0 50 50"
-                      keyTimes="0;1"
-                      dur="2.3s"
-                      keySplines="0.5 0.5 0.5 0.5"
-                      calcMode="spline"
-                    ></animateTransform>
-                    <path
-                      fill="#85ffbd"
-                      d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                    ></path>
-                    <path
-                      fill="#316598"
-                      d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                    ></path>
-                    <path
-                      fill="#a4bcc2"
-                      d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                    ></path>
-                  </g>
-                </svg>
-              </div>
-            </div>
 
-            <div class="top-head clearfix">
-              <div class="left-icon">
-                <img
-                  src="../../../assets/img/bitcoin-cash-bch-logo.png"
-                  class="bch-img"
-                  atl="bch-icon"
-                />
-              </div>
-
-              <div class="right-text">
-                <p class="no-of-coins">bch</p>
-              </div>
-            </div>
-
-            <div class="padding10">
-              <div>
-                <p class="wallet-address-txt" *ngIf="isTwoFa">
-                  {{ 'WALLET ADDRESS' | translate }}
-                </p>
-              </div>
-              <div *ngIf="isTwoFa">
-                <div class="relative-div">
-                  <input
-                    readonly
-                    id="wallet-address7"
-                    type="text"
-                    class="nn-input"
-                    value="{{ walletInfo?.BchFundReceiverAddress }}"
-                  />
-
-                  <button
-                    class="copy-btn"
-                    (click)="copyToClipboard('wallet-address7')"
-                  >
-                    <i class="far fa-copy"></i>
-                  </button>
-                </div>
-              </div>
-              <div *ngIf="!isTwoFa">
-                <div class="relative-div">
-                  <p class="twoFaText">
-                    {{ 'Enable 2Fa for addresses' | translate }}
-                  </p>
-                </div>
-              </div>
-
-              <div
-                class="block-elems refresh-value clearfix no-top-padding"
-                [ngClass]="!isTwoFa ? 'addressRates' : ''"
-              >
-                <div *ngIf="isTwoFa">
-                  <div class="left-qr">
-                    <qr-code
-                      class="custom-size"
-                      [value]="walletInfo?.BchFundReceiverAddress"
-                      [size]="100"
-                    ></qr-code>
-                  </div>
-                </div>
-
-                <div class="right-refresh clearfix">
-                  <!-- <div
-                    class="left-side mar-ryt clearfix"
-                    (click)="getWalletAddressOnly('BCH')"
-                  >
-                    <svg
-                      width="18px"
-                      height="18px"
-                      viewBox="0 0 18 18"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                    >
-                      <defs></defs>
-                      <g
-                        id="Page-1"
-                        stroke="none"
-                        stroke-width="1"
-                        fill="none"
-                        fill-rule="evenodd"
-                      >
-                        <g
-                          id="Buy-tokens"
-                          transform="translate(-442.000000, -400.000000)"
-                          fill="#1B91E0"
-                        >
-                          <g
-                            id="box1"
-                            transform="translate(279.000000, 164.000000)"
-                          >
-                            <g
-                              id="reload-icon"
-                              transform="translate(163.000000, 236.000000)"
-                            >
-                              <path
-                                d="M2.35482353,11 L0,11 L0,15.9982149 L1.67152941,14.6362014 C3.30917647,16.6717244 6,18 9.03247059,18 C13.6432941,18 17.4423529,14.9435916 18,11 L15.7171765,11 C15.1821176,13.836487 12.3910588,15.9982149 9.03247059,15.9982149 C6.65647059,15.9982149 4.56,14.9148518 3.35294118,13.2704391 L6.144,11 L2.35482353,11 Z"
-                                id="Fill-1"
-                              ></path>
-                              <path
-                                d="M8.96047059,0 C4.35670588,0 0.550588235,3.05016066 0,7 L2.28282353,7 C2.81788235,4.15851482 5.60752941,2.00178508 8.96047059,2.00178508 C11.4155294,2.00178508 13.56,3.1488754 14.7515294,4.87575866 L12.3529412,7 L18,7 L18,2.00178508 L16.3835294,3.43127454 C14.7515294,1.35701535 12.0324706,0 8.96047059,0 Z"
-                                id="Fill-2"
-                              ></path>
-                            </g>
-                          </g>
-                        </g>
-                      </g>
-                    </svg>
-                  </div> -->
-                  <div class="right-side clearfix">
-                    <p class="no-of-btc adjusting-font">
-                      1 BCH = {{ walletInfo?.bch | currency }} eMy
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 ">
+      <!-- <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 ">
 
                         <div class="wallet-type-wrap">
 
@@ -1550,8 +2098,7 @@
 
                     </div> -->
 
-        <!-- </div> -->
-      </div>
+      <!-- </div> -->
 
       <!-- <div class="text-center ">
                     <button class="btn instruction-btn" data-toggle="modal"
@@ -2200,10 +2747,9 @@
                 For any persons remitting funds from outside of Australia you
                 can elect to do so by bank wire or you can use other money
                 transfer providers like Western Union. Please ensure that
-                payment is being made in AUD – Australian Dollars. If you are
-                not able to send AUD you can send USDT - United States Dollars.
-                A processing fee will be required to be paid for AUD$10 for
-                overseas transfers.
+                payment is being made in USD – Dollars. If you are not able to
+                send USD you can send USDT - United States Dollars. A processing
+                fee will be required to be paid for $10 for overseas transfers.
               </p>
               <p class="instructions-text">
                 For persons overseas sending in payment we will lock in the
@@ -2315,7 +2861,7 @@
 
             <div class="form-group">
               <label>{{ 'Select Currency' | translate }}:</label>
-              <label for="currency-mxn" class="aud ml-3">AUD</label>
+              <label for="currency-mxn" class="aud ml-3">USD</label>
               <!--                  <select class="select-box form-control" [(ngModel)]="currencyTypeUserPaidIn">
                                 <option disabled selected>Select Currency</option>
                                 <option value="EUR">EURO</option>
@@ -2333,7 +2879,7 @@
               <!-- <input type="radio" name="cpaRevenue" checked
                                         class='v-checkbox-wire v-checkbox-wire-in-modal' id="currency-mxn"
                                         (change)="getValueOfCurrencyTypePaidIn('MXN')" /> -->
-              <!-- <label for="currency-mxn" class="no-bottom aud" >AUD</label> -->
+              <!-- <label for="currency-mxn" class="no-bottom aud" >USD</label> -->
               <!-- </span> -->
               <!-- </div> -->
             </div>

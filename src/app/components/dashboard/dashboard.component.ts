@@ -112,7 +112,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
   public topScrollValue = 0;
 
-  selectedCurrencyAUD = 'AUD';
+  selectedCurrencyUSD = 'USD';
   selectedCurrencyValue = 0;
   totalValueAud = 0;
   constructor(
@@ -1136,7 +1136,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   }
 
   convertCurrencyToPPTL(value) {
-    this.selectedCurrencyAUD = value;
+    this.selectedCurrencyUSD = value;
     console.log(this.RatesModel);
     const liveRate = this.RatesModel.liveRate;
     let rates;
@@ -1149,7 +1149,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     } else if (value == 'usd') {
       rates = this.validations.toConcat(this.liveRates.usd);
     } else if (value == 'mxn') {
-      this.selectedCurrencyAUD = 'AUD';
+      this.selectedCurrencyUSD = 'USD';
       rates = this.validations.toConcat(this.liveRates.mxn);
     } else if (value == 'eth') {
       rates = this.validations.toConcat(this.liveRates.eth);
