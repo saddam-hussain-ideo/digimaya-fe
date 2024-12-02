@@ -1,7 +1,7 @@
 <section class="aff-sec">
   <div class="aff-wrap">
     <div class="aff-back">
-      <h1 class="page-title mb-4">{{'Referral Program' | translate}}</h1>
+      <h1 class="page-title mb-4">{{'Link Program' | translate}}</h1>
 
       <!--referal changes-->
 
@@ -11,7 +11,7 @@
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
-                  My Referral Network Issued eMy
+                  My Link Network Issued $EMYA
                   <!-- <span class="white-right">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                               <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -35,7 +35,7 @@
                 </div>
               </div> -->
               <p class="number">
-                {{networkIssuedPPTL | currency : 'crypto'}} eMy
+                {{networkIssuedPPTL | currency : 'crypto'}} $EMYA
               </p>
             </div>
           </div>
@@ -43,7 +43,7 @@
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
-                  My Referral Network Licensees
+                  My Link Network Licensees
                   <!-- <span class="white-right">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                               <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -84,9 +84,26 @@
           <!-- <div class="col-sm-12 col-md-4 col-lg-3 no-right">
             <div class="inner-box">
               <div class="top-left-ico-text">
-                <p class="ico-top-text"> Countries in My Referral Network </p>
+                <p class="ico-top-text">
+                  Countries in My Link Network
+                  <span class="white-right">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="47px"
+                      height="6px"
+                    >
+                      <image
+                        x="0px"
+                        y="0px"
+                        width="47px"
+                        height="6px"
+                        xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg=="
+                      />
+                    </svg>
+                  </span>
+                </p>
               </div>
-
               <p class="number" *ngIf="referredCountries <= 1">
                 {{ 'Countries' | translate}} Country
               </p>
@@ -96,7 +113,7 @@
           <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="inner-box">
               <div class="top-left-ico-text">
-                <p class="ico-top-text">My Referral eMy Bonuses</p>
+                <p class="ico-top-text">My Link $EMYA Bonuses</p>
               </div>
 
               <!-- <div class="clearfix table-type soft-hard-box">
@@ -136,7 +153,7 @@
               </div> -->
               <div class="d-flex flex-column">
                 <p class="total-text">
-                  eMy {{earningValues('pptl') | currency : 'crypto'}}
+                  $EMYA {{earningValues('pptl') | currency : 'crypto'}}
                 </p>
                 <p class="total-text">
                   USD Value $ {{earningValues('usdt') | currency: 'crypto'}}
@@ -203,7 +220,7 @@
                 <div class="">
                   <div class="padding-change">
                     <p class="aff-link pt-0 mb-0">
-                      {{'Your Referral link:'| translate}}
+                      {{'Your Link:'| translate}}
                     </p>
                   </div>
                   <div class="padding-change2 affiliate-text-field">
@@ -260,7 +277,7 @@
                 <div class="">
                   <div class="padding-change">
                     <p class="aff-link mb-0">
-                      {{ 'Your Referral Code:' | translate}}
+                      {{ 'Your Link Code:' | translate}}
                     </p>
                   </div>
                   <div class="padding-change2 affiliate-text-field">
@@ -491,13 +508,13 @@
 
       <!--tables section-->
 
-      <h1 class="page-title">My Referral Network</h1>
+      <h1 class="page-title">My Link Network</h1>
 
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
             <p class="transaction-txt">
-              Level 1: My Direct Referrals including any Placement
+              Level 1: My Direct Links including any Placement
             </p>
 
             <div class="table-responsive">
@@ -509,7 +526,7 @@
                     <th class="f-bold">Join Date</th>
                     <th class="f-bold">Licence Type</th>
                     <th class="f-bold">Registration Country</th>
-                    <th class="f-bold">Amount of Direct Referrals</th>
+                    <th class="f-bold">Amount of Direct Link</th>
                     <th class="f-bold">Total USD Purchase Value</th>
                     <th class="f-bold">Emaayas Issued</th>
                     <th class="f-bold">My Bonus Emaayas Earned</th>
@@ -605,7 +622,7 @@
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
-            <p class="transaction-txt">Level 2: Team Referrals</p>
+            <p class="transaction-txt">Level 2: Team Links</p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -618,7 +635,7 @@
                     <th class="f-bold tbl-row-head-pd">Licence Type</th>
                     <th class="f-bold tbl-row-head-pd">Registration Country</th>
                     <th class="f-bold tbl-row-head-pd">
-                      Amount of Direct Referrals
+                      Amount of Direct Links
                     </th>
                     <th class="f-bold tbl-row-head-pd">
                       Total USD Purchase Value
@@ -720,7 +737,7 @@
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
-            <p class="transaction-txt">Level 3: Team Referrals</p>
+            <p class="transaction-txt">Level 3: Team Links</p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -733,7 +750,7 @@
                     <th class="f-bold tbl-row-head-pd">Licence Type</th>
                     <th class="f-bold tbl-row-head-pd">Registration Country</th>
                     <th class="f-bold tbl-row-head-pd">
-                      Amount of Direct Referrals
+                      Amount of Direct Links
                     </th>
                     <th class="f-bold tbl-row-head-pd">
                       Total USD Purchase Value
@@ -1037,7 +1054,7 @@
 
                     <td class="text-center">
                       <p class="amounts-text-black">
-                        {{affiliate.earningInPPTL | currency:'crypto'}} eMy
+                        {{affiliate.earningInPPTL | currency:'crypto'}} $EMYA
                       </p>
                     </td>
                   </tr>
@@ -1080,7 +1097,7 @@
 
                 <li>
                   <p class="total-values">
-                    {{totalEarningInPPTL | currency:'crypto'}} eMy
+                    {{totalEarningInPPTL | currency:'crypto'}} $EMYA
                   </p>
                 </li>
               </ul>
@@ -1193,7 +1210,7 @@
             <div class="white-back2">
               <div class="pos-rltv">
                 <div class="pos-left">
-                  <h6 class="aff-h2">{{'MY REFERRALS' | translate}}</h6>
+                  <h6 class="aff-h2">{{'MY LINK' | translate}}</h6>
                 </div>
               </div>
               <div class="clear"></div>

@@ -89,7 +89,7 @@
           class="icon-img"
         />
         <div class="d-flex flex-column justify-content-center">
-          <h3 class="avatar-name mb-0">John Doe</h3>
+          <h3 class="avatar-name mb-0">{{ userObject?.UserName }}</h3>
           <div class="d-flex flex-row align-items-center">
             <p class="m-0 my_setting mr-1 mt-1" (click)="NavigateToSettings()">
               My Setting
@@ -589,7 +589,7 @@
                   />
                 </svg>
               </span>
-              {{ 'Referral Program' | translate }}</a
+              {{ 'Link Program' | translate }}</a
             >
           </li>
 

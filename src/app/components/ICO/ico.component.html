@@ -13,7 +13,7 @@
           <div class="inner-box d-flex justify-content-between flex-column">
             <div class="top-left-ico-text">
               <p class="ico-top-text">
-                Current eMy Value
+                Current $EMYA Value
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -22,7 +22,7 @@
               </p>
             </div>
             <div class="d-flex flex-column">
-              <p class="number">{{ currentStagePPTL }} eMy</p>
+              <p class="number">{{ currentStagePPTL }} $EMYA</p>
               <p class="sub-text">Issue Value</p>
             </div>
           </div>
@@ -74,7 +74,7 @@
           <div class="inner-box d-flex justify-content-between flex-column">
             <div class="top-left-ico-text">
               <p class="ico-top-text">
-                Previous ILO stage
+                Previous ICO stage
                 <!-- <span class="white-right">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                     <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -82,10 +82,10 @@
                 </span> -->
               </p>
               <p class="ico-top-text mt-2">Founder</p>
-              <p class="ico-top-text">Total eMy Issued</p>
+              <p class="ico-top-text">Total $EMYA Issued</p>
             </div>
             <div class="d-flex flex-column">
-              <p class="number">{{ founderPPTL }} eMy</p>
+              <p class="number">{{ founderPPTL }} $EMYA</p>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@
             >
               <div class="d-flex my-3 flex-row">
                 <p class="till-pIco-Stge-small mr-1">
-                  eMy Starting Value:
+                  $EMYA Starting Value:
                   <strong>{{ ICOStageInfoLeft?.stageRate }} (USD)</strong>
                 </p>
                 <p class="till-pIco-Stge-small mr-1" *ngIf="!hideSecondBox">
@@ -149,7 +149,7 @@
               </div>
               <div class="d-flex flex-column">
                 <p class="till-pIco-Stge-txt">
-                  eMy starting Value: {{ ICOStageInfoLeft?.stageRate }} (USD)
+                  $EMYA starting Value: {{ ICOStageInfoLeft?.stageRate }} (USD)
                 </p>
               </div>
             </div>
@@ -158,7 +158,7 @@
         <div class="col-lg-6 col-sm-12">
           <div class="d-flex flex-column stage-div">
             <p class="gnrl-sett-txt">
-              {{ 'UPCOMING ILO STAGE' | translate }}
+              {{ 'UPCOMING ICO STAGE' | translate }}
               <!-- <span class="sale-stopped" *ngIf="isSaleStopped">{{ -->
               <!-- "Currently Sale Is Stopped" | translate
               }}</span> -->
@@ -168,7 +168,7 @@
             >
               <div class="d-flex my-3 flex-row">
                 <p class="till-pIco-Stge-small mr-1">
-                  eMy Starting Value:
+                  $EMYA Starting Value:
                   <strong>{{ ICOStageInfoLeft?.stageRate }} (USD)</strong>
                 </p>
                 <p class="till-pIco-Stge-small mr-1" *ngIf="!hideSecondBox">
@@ -246,7 +246,7 @@
             <div class="genral-sett-div-head clearfix width100 p-3">
               <div class="leftside">
                 <p class="gnrl-sett-txt p-0 mb-0 text-left eMaaya-font">
-                  {{ 'ILO eMaayaRS' | translate }}
+                  {{ 'ICO eMaayaRS' | translate }}
                 </p>
               </div>
               <!-- <div class="d-flex justify-content-end">
@@ -293,7 +293,7 @@
                       </tr>
                     </thead>
                     <tbody class *ngIf="!pptlLoader && paginationNumber != 0">
-                      <tr class="trname" *ngFor="let data of eMyDetails">
+                      <tr class="trname" *ngFor="let data of pptlDetails">
                         <td class="td-name">
                           {{ data.date | date: 'dd/MM/yyyy' }}
                         </td>

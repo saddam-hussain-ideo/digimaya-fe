@@ -18,7 +18,7 @@
               <p class="wallet-val">
                 {{ totalPiptles ? (totalPiptles | currency) : 0 }}
               </p>
-              <p class="wallet-val ml-2">eMy</p>
+              <p class="wallet-val ml-2">$EMYA</p>
             </div>
           </div>
           <div class="mt-2">
@@ -71,7 +71,7 @@
               <p class="wallet-val">
                 {{ lockedPiptles ? (lockedPiptles | currency) : 0 }}
               </p>
-              <p class="wallet-val ml-2">eMy</p>
+              <p class="wallet-val ml-2">$EMYA</p>
             </div>
           </div>
           <div class="mt-2">
@@ -87,7 +87,7 @@
             <p class="wallet-inner-t">{{ 'My Staked eMaaya' | translate }}</p>
             <div class="d-flex wallet-cards">
               <p class="wallet-val">{{ stakeTokens ? stakeTokens : 0 }}</p>
-              <p class="wallet-val ml-2">eMy</p>
+              <p class="wallet-val ml-2">$EMYA</p>
             </div>
           </div>
           <div class="mt-2">
@@ -157,7 +157,7 @@
               <p class="wallet-val light mb-0">
                 {{ referalBonus ? (referalBonus | currency) : 0 }}
               </p>
-              <p class="wallet-val light ml-2 mb-0">eMy</p>
+              <p class="wallet-val light ml-2 mb-0">$EMYA</p>
             </div>
           </div>
         </div>
@@ -187,7 +187,7 @@
               <p class="wallet-val light mb-0">
                 {{ stakedPiptles ? (stakedPiptles | currency) : 0 }}
               </p>
-              <p class="wallet-val light ml-2 mb-0">eMy</p>
+              <p class="wallet-val light ml-2 mb-0">$EMYA</p>
             </div>
           </div>
         </div>
@@ -352,8 +352,8 @@
                   <th class="f-bold">{{ 'Date' | translate }}</th>
                   <th class="f-bold">Transaction</th>
                   <th class="f-bold">{{ 'Description' | translate }}</th>
-                  <th class="f-bold">eMy Tokens</th>
-                  <th class="f-bold">eMy Value (USD)</th>
+                  <th class="f-bold">$EMYA Tokens</th>
+                  <th class="f-bold">$EMYA Value (USD)</th>
                   <th class="f-bold">Wallet</th>
                   <th class="f-bold">{{ 'Action' | translate }}</th>
 
@@ -517,7 +517,7 @@
   <div class="modal-body">
     <form [formGroup]="withDrawForm">
       <div class="form-group">
-        <label>eMy Wallet</label>
+        <label>$EMYA Wallet</label>
         <input
           class="form-control"
           placeholder="Enter Wallet Address"
@@ -550,7 +550,7 @@
       </div>
 
       <div class="form-group">
-        <label>Amount eMy</label>
+        <label>Amount $EMYA</label>
         <input
           type="number"
           (click)="getValue($event)"
@@ -566,7 +566,7 @@
       </div>
 
       <div class="form-group">
-        <label>eMy Value (USD)</label>
+        <label>$EMYA Value (USD)</label>
         <input
           type="number"
           readonly

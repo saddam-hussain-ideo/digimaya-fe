@@ -8,13 +8,16 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: 'landing.component.html'
 })
 export class LandingPageComponent implements OnInit {
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
   gotoSignin() {
     this.router.navigate(['/sign-in']);
   }
   routeToSignUp() {
     this.router.navigate(['/sign-up']);
+  }
+  routeToCookiePolicy() {
+    this.router.navigate(['/cookie-policy']);
   }
 }

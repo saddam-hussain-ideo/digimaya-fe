@@ -490,18 +490,18 @@
     class="padding-top-sides d-flex align-items-center justify-content-center flex-column py-0"
   >
     <div class="divider-two"></div>
-    <div class="d-flex">
-      <p class="experience-text lg mr-2">Work</p>
-      <p class="experience-text lg light">with Us</p>
-    </div>
     <a
       class="w-100 text-center"
       href="https://digimaaya.com/"
       target="_blank"
       rel="noreferrer"
     >
-      <button class="discover-more-button">Discover Digimaaya</button>
+      <button class="discover-more-button">Explore Digimaaya</button>
     </a>
+    <div class="d-flex">
+      <p class="experience-text lg mr-2">Work</p>
+      <p class="experience-text lg light">with Us</p>
+    </div>
   </div>
   <div
     class="padding-top-sides d-flex align-items-center flex-column py-0 w-100"
@@ -513,7 +513,9 @@
       <p class="footer-links-text">Privacy Policy</p>
       <p class="footer-links-text">Terms and Conditions</p>
       <p class="footer-links-text">Legal Disclaimer</p>
-      <p class="footer-links-text">Cookie Policy</p>
+      <p class="footer-links-text" (click)="routeToCookiePolicy()"
+        >Cookie Policy</p
+      >
     </div>
     <div class="divider-two"></div>
     <div
