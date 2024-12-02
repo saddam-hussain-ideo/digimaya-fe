@@ -852,35 +852,16 @@
             </div>
           </div>
           <!--col col-xl-4 col-lg-6 col-md-12 col-sm-12 col-12-->
-          <div class="col-lg-6 col-xl-6 mar-btm20 centered-div">
+          <!-- <div class="col-lg-6 col-xl-6 mar-btm20 centered-div">
             <div class="calculator-box clearfix">
               <div class="header-box padding-16 clearfix">
-                <!-- <div class="calculator-left">
-
-                                <h2 class="sub-title color-green">{{'live rates' | translate}}
-
-
-                                <p style="float: right;font-size: 12px;" class="color-green">{{'Graph Display Currencies Rate In PUCCoin' | translate}}</p>
-                                </h2>
-
-                            </div> -->
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="rates-title-sec w-50">
                     <h2 class="rates-title">
                       {{ 'live rates' | translate }}(feed CoinMarketcap.com
                       from)
                     </h2>
-                    <!-- <p class="rates-title">
-                      (feed from
-                      <a
-                        href="https://coinmarketcap.com/"
-                        class="link-clr"
-                        target="_blank"
-                        >CoinMarketcap.com</a
-                      >)
-                    </p> -->
                   </div>
-                  <!-- <p style="font-size: 14px; text-transform: uppercase;" >{{'Graph Display Currencies Rate In PUCCoin' | translate}}</p> -->
                   <div class="d-flex flex-row w-50 text-center">
                     <p class="tbl-value">Value in USD</p>
                     <p class="tbl-value">$EMYA Coins</p>
@@ -902,15 +883,6 @@
                           >
                             1 BTC
                           </td>
-                          <!-- <td>
-                            <div class="chart-widgets make-grp-cntr">
-                              <canvas
-                                id="myChart"
-                                width="100"
-                                height="30px"
-                              ></canvas>
-                            </div>
-                          </td> -->
                           <td class="rates-table-value">
                             $ {{ liveRates?.btc | currency: 'fait' }}
                             <span class="mxn-rate">USD</span>
@@ -927,15 +899,6 @@
                           >
                             1 BCH
                           </td>
-                          <!-- <td>
-                            <div class="chart-widgets make-grp-cntr">
-                              <canvas
-                                id="myChart3"
-                                width="100"
-                                height="30px"
-                              ></canvas>
-                            </div>
-                          </td> -->
                           <td class="rates-table-value">
                             $ {{ liveRates?.bch | currency: 'fait' }}
                             <span class="mxn-rate">USD</span>
@@ -952,15 +915,6 @@
                           >
                             1 ltc
                           </td>
-                          <!-- <td>
-                            <div class="chart-widgets make-grp-cntr">
-                              <canvas
-                                id="myChart2"
-                                width="100"
-                                height="35px"
-                              ></canvas>
-                            </div>
-                          </td> -->
                           <td class="rates-table-value">
                             $ {{ liveRates?.ltc | currency: 'fait' }}
                             <span class="mxn-rate">USD</span>
@@ -977,15 +931,6 @@
                           >
                             1 eth
                           </td>
-                          <!-- <td>
-                            <div class="chart-widgets make-grp-cntr">
-                              <canvas
-                                id="myChart5"
-                                width="100"
-                                height="35px"
-                              ></canvas>
-                            </div>
-                          </td> -->
                           <td class="rates-table-value">
                             $ {{ liveRates?.eth | currency: 'fait' }}
                             <span class="mxn-rate">USD</span>
@@ -1002,15 +947,6 @@
                           >
                             1 USDT
                           </td>
-                          <!-- <td>
-                            <div class="chart-widgets make-grp-cntr">
-                              <canvas
-                                id="myChart8"
-                                width="100"
-                                height="35px"
-                              ></canvas>
-                            </div>
-                          </td> -->
                           <td class="rates-table-value">
                             $ {{ liveRates?.usd | currency: 'fait' }}
                             <span class="mxn-rate">USD</span>
@@ -1020,67 +956,13 @@
                             <span class="mxn-rate">$EMYA</span>
                           </td>
                         </tr>
-
-                        <!-- <tr>
-                                            <td class="rates-table-currency no-left">mxnp</td>
-                                            <td>
-                                                <div class="chart-widgets">
-                                                    <canvas id="myChart9" width="100" height="35px"></canvas>
-                                                </div>
-                                            </td>
-                                            <td class="rates-table-value">{{liveRates?.mxnp}}</td>
-                                        </tr> -->
-
-                        <!-- <tr>
-                                            <td class="rates-table-currency no-left">bch</td>
-                                            <td>
-                                                <div class="chart-widgets">
-                                                    <canvas id="myChart3" width="100" height="35px"></canvas>
-                                                </div>
-                                            </td>
-                                            <td class="rates-table-value">{{liveRates?.bch}}</td>
-                                        </tr> -->
-
-                        <!--
-                                        <tr>
-                                            <td class="rates-table-currency no-left">dash</td>
-                                            <td>
-                                                <div class="chart-widgets">
-                                                    <canvas id="myChart4" width="100" height="35px"></canvas>
-                                                </div>
-                                            </td>
-                                            <td class="rates-table-value">{{liveRates?.dash}}</td>
-                                        </tr> -->
-
-                        <!--  <tr>
-                                            <td class="rates-table-currency no-left">neo</td>
-                                            <td>
-                                                <div width="50px" height="35px">
-                                                    <canvas id="myChart6" width="100" height="35px"></canvas>
-                                                </div>
-                                            </td>
-                                            <td class="rates-table-value">$ {{RatesModel.neo}}</td>
-                                        </tr> -->
-
-                        <!-- <tr>
-                                            <td class="rates-table-currency no-left">btg</td>
-                                            <td>
-
-                                                <div class="chart-widgets">
-                                                    <canvas id="myChart7" width="100" height="35px"></canvas>
-                                                </div>
-
-
-                                            </td>
-                                            <td class="rates-table-value">{{liveRates?.btg}}</td>
-                                        </tr> -->
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- col-xl-4 -->
           <!-- <div class="col-md-6 col-lg-12 col-xl-4 right-box">
                     <div class="content-box p-0">
@@ -1416,42 +1298,10 @@
           </div>
         </div>
 
-        <div class="col-lg-6 chart-div">
+        <!-- <div class="col-lg-6 chart-div">
           <div class="white-outer">
             <div class="header-box clearfix">
               <div class="calculator-left">
-                <!-- <h2 class="sub-title aligned-test title-values">
-                  {{ "Global Transaction" | translate }}:
-                  <span class="eMaayaissued">{{ date | date }}</span>
-                  <p class="sub-title title-values">
-                    eMaayaS ISSUED:
-                    <span class="eMaayaissued">{{
-                      eMaayaIssued | currency
-                    }}</span>
-                  </p>
-                  <p class="sub-title title-values">
-                    PURCHASE VALUE:
-                    <span class="eMaayaissued">{{
-                      purchaseValue | currency
-                    }}</span>
-                  </p>
-                  <span class="sub-title-dash">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                      width="47px"
-                      height="6px"
-                    >
-                      <image
-                        x="0px"
-                        y="0px"
-                        width="47px"
-                        height="6px"
-                        xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAMAAABkWjdgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAANlBMVEX///8gl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9Qgl9T///+ffR1AAAAAEHRSTlMA7f3+9O/wYHFOROA1+8ojSqzE/AAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBhsLFicqx9pKAAAAOUlEQVQY02NgBAEmZmyAhRENsLKxMwiQAjgYSFHPwslAinpGLgZS1HPzgJQzYPUvLyu6Vxn5+MHKAb8aC8h9RInbAAAAAElFTkSuQmCC"
-                      />
-                    </svg>
-                  </span>
-                </h2> -->
                 <div class="d-flex flex-column">
                   <div
                     class="d-flex align-items-center justify-content-between padding-bottom-40"
@@ -1490,13 +1340,6 @@
             </div>
 
             <div class="clearfix">
-              <!-- <p
-                *ngIf="noLatestTransactions"
-                class="no-data"
-                style="margin-top: 3px"
-              >
-                {{ "No Data Found" | translate }}
-              </p> -->
 
               <div *ngIf="!noLatestTransactions">
                 <div class="left-chart">
@@ -1558,7 +1401,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
