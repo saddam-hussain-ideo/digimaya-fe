@@ -74,17 +74,17 @@ export class IcoComponent {
   currentICOStageValue = 0;
   stagesNewData = [
     {
-      name: 'ILO Stage 2',
+      name: 'Seed',
       startingPoint: 501,
       target: 1000
     },
     {
-      name: 'ILO Stage 3',
+      name: 'Private',
       startingPoint: 1001,
       target: 2000
     },
     {
-      name: 'ILO Stage 4',
+      name: 'ILO Stage 3',
       startingPoint: 2001,
       target: 3000
     }
