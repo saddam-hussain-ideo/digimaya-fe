@@ -36,9 +36,9 @@
                   <!--   <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6"> -->
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
-                      <label for="name" class="nn-lbl-sett"
-                        >{{ 'Name' | translate }}:</label
-                      >
+                      <label for="name" class="nn-lbl-sett">{{
+                        'Name' | translate
+                      }}</label>
                       <input
                         type="text"
                         class="form-control nn-input-sett"
@@ -50,9 +50,9 @@
                   </div>
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
-                      <label for="name" class="nn-lbl-sett"
-                        >{{ 'Username' | translate }}:</label
-                      >
+                      <label for="name" class="nn-lbl-sett">{{
+                        'Username' | translate
+                      }}</label>
                       <input
                         readonly
                         type="text"
@@ -65,9 +65,9 @@
                   </div>
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
-                      <label for="email" class="nn-lbl-sett"
-                        >{{ 'Email' | translate }}:</label
-                      >
+                      <label for="email" class="nn-lbl-sett">{{
+                        'Email' | translate
+                      }}</label>
                       <input
                         readonly
                         type="email"
@@ -85,7 +85,7 @@
                   <!--   <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6"> -->
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
-                      <label for="name" class="nn-lbl-sett">Member Type:</label>
+                      <label for="name" class="nn-lbl-sett">Member Type</label>
                       <input
                         type="text"
                         [(ngModel)]="userObject.memberType"
@@ -98,9 +98,7 @@
                   </div>
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
-                      <label for="name" class="nn-lbl-sett"
-                        >License Code:</label
-                      >
+                      <label for="name" class="nn-lbl-sett">License Code</label>
                       <input
                         readonly
                         type="text"
@@ -113,7 +111,7 @@
                   </div>
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="form-group">
-                      <label for="email" class="nn-lbl-sett">License No:</label>
+                      <label for="email" class="nn-lbl-sett">License No</label>
                       <input
                         readonly
                         type="text"
@@ -192,9 +190,25 @@
                     <div class="show-password-btn">
                       <span
                         *ngIf="!isShow"
-                        class="toggle-password toggle-settings fa fa-eye-slash"
+                        class="toggle-password toggle-settings"
                         (click)="showPassword('currentpassword')"
-                      ></span>
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21 9C18.6 11.6667 15.6 13 12 13C8.4 13 5.4 11.6667 3 9M3 15L5.5 11.2M21 14.976L18.508 11.2M9 17L9.5 13M15 17L14.5 13"
+                            stroke="#FF0082"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
                       <span
                         *ngIf="isShow"
                         class="fa fa-eye toggle-password toggle-settings"
@@ -222,9 +236,25 @@
                     <div class="show-password-btn">
                       <span
                         *ngIf="!isNew"
-                        class="toggle-password toggle-settings fa fa-eye-slash"
+                        class="toggle-password toggle-settings"
                         (click)="showPassword('newpassword')"
-                      ></span>
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21 9C18.6 11.6667 15.6 13 12 13C8.4 13 5.4 11.6667 3 9M3 15L5.5 11.2M21 14.976L18.508 11.2M9 17L9.5 13M15 17L14.5 13"
+                            stroke="#FF0082"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
                       <span
                         *ngIf="isNew"
                         class="fa fa-eye toggle-password toggle-settings"
@@ -250,9 +280,25 @@
                     <div class="show-password-btn">
                       <span
                         *ngIf="!isConfirm"
-                        class="toggle-password toggle-settings fa fa-eye-slash"
+                        class="toggle-password toggle-settings"
                         (click)="showPassword('confirmpassword')"
-                      ></span>
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M21 9C18.6 11.6667 15.6 13 12 13C8.4 13 5.4 11.6667 3 9M3 15L5.5 11.2M21 14.976L18.508 11.2M9 17L9.5 13M15 17L14.5 13"
+                            stroke="#FF0082"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </span>
                       <span
                         *ngIf="isConfirm"
                         class="fa fa-eye toggle-password toggle-settings"
@@ -663,7 +709,7 @@
             <!-- Disbaled Div -->
           </div>
 
-          <div class="acc-conf-div d-none d-lg-block">
+          <!-- <div class="acc-conf-div d-none d-lg-block">
             <h2 class="sub-title no-left-margin">
               {{ 'ACCOUNT CONFIRMATION' | translate }}
               <span class="sub-title-dash">
@@ -729,9 +775,6 @@
                           >
                             Verify
                           </button>
-                          <!-- <button class="table-verified" [ngClass]="userKycStatus">
-                            {{AcutalStatus | translate}}
-                          </button> -->
                         </div>
                       </td>
                     </tr>
@@ -788,7 +831,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="upload-id-div d-none">
             <h2 class="sub-title no-left-margin">KYC</h2>
