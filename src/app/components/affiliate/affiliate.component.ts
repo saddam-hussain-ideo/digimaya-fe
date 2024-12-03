@@ -91,7 +91,6 @@ export class Affiliate {
   public lineChartData: Array<any> = [{ data: [], label: 'Series A' }];
   public lineChartLabels: Array<any> = [];
 
-
   public lineChartOptions: any = {
     responsive: true,
     legend: {
@@ -226,7 +225,7 @@ export class Affiliate {
     this.levelOneReferrals();
     this.levelTwoReferrals();
     this.levelThreeReferrals();
-    console.log(this.affiliatesLoader, "affiliatesLoader in ngonit");
+    console.log(this.affiliatesLoader, 'affiliatesLoader in ngonit');
 
     $('.list-unstyled li').removeClass('active');
     $('#aff-nav').addClass('active');
@@ -347,7 +346,7 @@ export class Affiliate {
         },
         (err) => {
           this.tableLoader1 = false;
-          let obj
+          let obj;
           if (err._body) {
             obj = JSON.parse(err._body);
           }
@@ -376,7 +375,7 @@ export class Affiliate {
         },
         (err) => {
           this.tableLoader2 = false;
-          let obj
+          let obj;
           if (err._body) {
             obj = JSON.parse(err._body);
           }
@@ -405,7 +404,7 @@ export class Affiliate {
         },
         (err) => {
           this.tableLoader3 = false;
-          let obj
+          let obj;
           if (err._body) {
             obj = JSON.parse(err._body);
           }
@@ -432,7 +431,7 @@ export class Affiliate {
         },
         (err) => {
           this.graphLoader = false;
-          let obj
+          let obj;
           if (err._body) {
             obj = JSON.parse(err._body);
           }
@@ -475,13 +474,13 @@ export class Affiliate {
               other: a.data.referralLicencesCount['other']
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
-            console.log(this.affiliatesLoader, "affiliatesLoader");
+            console.log(this.affiliatesLoader, 'affiliatesLoader');
           }
         },
         (err) => {
           this._sharedService.showHideLoader(false);
           this.affiliatesLoader = false;
-          let obj
+          let obj;
           if (err._body) {
             obj = JSON.parse(err._body);
           }
@@ -557,7 +556,7 @@ export class Affiliate {
         }
       },
       (err) => {
-        let obj
+        let obj;
         if (err._body) {
           obj = JSON.parse(err._body);
         }
@@ -607,7 +606,7 @@ export class Affiliate {
         (err) => {
           this.topRefersLoader = false;
 
-          let obj
+          let obj;
           if (err._body) {
             obj = JSON.parse(err._body);
           }
@@ -656,7 +655,7 @@ export class Affiliate {
           }
         },
         (err) => {
-          let obj
+          let obj;
           if (err._body) {
             obj = JSON.parse(err._body);
           }
