@@ -78,10 +78,11 @@ $ico-font: 26px;
 }
 
 .white-back2 {
-  background-color: white;
+  background-color: #f9f9f9;
   // padding: 20px;
   padding: 17px;
   margin-top: 20px;
+  border-radius: 8px;
 }
 @media screen and (max-width: 990px) {
   .white-back {
@@ -445,7 +446,8 @@ label:hover:before {
 }
 .height-div {
   height: auto;
-  background: white;
+  background: #f9f9f9;
+  border-radius: 8px;
 }
 @media (max-width: 991px) {
   .height-div {
@@ -472,10 +474,10 @@ label:hover:before {
 }
 
 .top-aff-th {
-  color: $theme-blue;
-  font-family: 'LatoWebLight';
+  color: #191919;
+  font-family: 'MavenPro';
+  font-weight: 600;
   font-size: 14px;
-  text-transform: uppercase;
   margin: 0;
 }
 
@@ -508,8 +510,8 @@ label:hover:before {
 }
 .my-tbl td {
   border-top: none !important;
-  color: #1d2939;
-  font-family: 'LatoWebLight';
+  color: #191919;
+  font-family: 'MavenPro';
   font-size: 14px;
   line-height: 40px;
   padding: 7px 10px;
@@ -875,12 +877,12 @@ label:hover:before {
 
 .affiliates-detail > tbody > tr:nth-child(odd) > td,
 .affiliates-detail > tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+  background-color: transparent;
 }
 
 .affiliates-detail > tbody > tr:nth-child(even) > td,
 .affiliates-detail > tbody > tr:nth-child(even) > th {
-  background-color: white;
+  background-color: transparent;
 }
 
 .aff-earnings {
@@ -905,7 +907,7 @@ label:hover:before {
     tr {
       td {
         padding: 23px 20px;
-        background: white;
+        background: transparent;
         border: none;
         vertical-align: middle;
         p {
@@ -1049,16 +1051,13 @@ label:hover:before {
 }
 
 .affiliate-chart-btm-lbl {
-  text-align: center;
   color: $dashboard-purple-clr;
   font-weight: 600;
-  text-transform: uppercase;
   font-size: 13px;
 }
 .affiliate-chart-lft-lbl {
   color: $dashboard-purple-clr;
   font-weight: 600;
-  text-transform: uppercase;
   font-size: 13px;
 }
 .posReltv {
@@ -1068,7 +1067,6 @@ label:hover:before {
   color: #616a75;
   font-size: 14px;
   font-weight: 700;
-  text-transform: uppercase;
 }
 
 .affiliate-graph-ul {
@@ -1079,7 +1077,6 @@ label:hover:before {
   li {
     list-style-type: none;
     float: left;
-    text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
     padding: 7px 20px;
@@ -1135,10 +1132,11 @@ canvas {
 }
 
 .graph-wrapper {
-  background: white;
+  background: #f9f9f9;
   padding: 20px;
   position: relative;
   margin-top: 20px;
+  border-radius: 8px;
 }
 
 .blue-text {
