@@ -1823,6 +1823,8 @@
         line-height: 32px;
         font-weight: 600;
         font-family: 'MavenPro';
+        overflow: hidden;
+        text-overflow: ellipsis; 
       }
     }
   }
@@ -1833,10 +1835,9 @@
 }
 
 .payment-card {
-  margin-top: -13px;
-  margin-left: 3px;
   background-color: #f6f6f6;
   padding: 20px;
+  height: 100%;
   .content {
     padding-bottom: 20px;
     // padding: 10px 7px;
@@ -1917,7 +1918,6 @@ div[disabled='disabled'] {
 }
 .graphcontent {
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
   .salegraph-text {
     text-align: center;

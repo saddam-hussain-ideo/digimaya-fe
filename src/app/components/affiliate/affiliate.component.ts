@@ -31,7 +31,6 @@ export class Affiliate {
   public totalAffiliateCurrentPage = 1;
   public totalAffiliatesArray = [];
   public csvData: any;
-  affiliatesLoader: boolean;
   public totalEarningInPPTL: any;
   public totalEarningInUSD: any;
 
@@ -50,6 +49,7 @@ export class Affiliate {
   tableLoader2: boolean;
   tableLoader3: boolean;
   topRefersLoader: boolean;
+  affiliatesLoader: boolean;
   referralLevel: number;
   pageNo;
   pageSize;
@@ -90,6 +90,7 @@ export class Affiliate {
 
   public lineChartData: Array<any> = [{ data: [], label: 'Series A' }];
   public lineChartLabels: Array<any> = [];
+
 
   public lineChartOptions: any = {
     responsive: true,
@@ -225,6 +226,7 @@ export class Affiliate {
     this.levelOneReferrals();
     this.levelTwoReferrals();
     this.levelThreeReferrals();
+    console.log(this.affiliatesLoader, "affiliatesLoader in ngonit");
 
     $('.list-unstyled li').removeClass('active');
     $('#aff-nav').addClass('active');
@@ -345,7 +347,10 @@ export class Affiliate {
         },
         (err) => {
           this.tableLoader1 = false;
-          const obj = JSON.parse(err._body);
+          let obj
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
           console.log(obj);
         }
       );
@@ -371,7 +376,10 @@ export class Affiliate {
         },
         (err) => {
           this.tableLoader2 = false;
-          const obj = JSON.parse(err._body);
+          let obj
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
           console.log(obj);
         }
       );
@@ -397,7 +405,10 @@ export class Affiliate {
         },
         (err) => {
           this.tableLoader3 = false;
-          const obj = JSON.parse(err._body);
+          let obj
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
           console.log(obj);
         }
       );
@@ -421,7 +432,10 @@ export class Affiliate {
         },
         (err) => {
           this.graphLoader = false;
-          const obj = JSON.parse(err._body);
+          let obj
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
           if (obj.code == 400) {
             this.noGraphData = true;
           }
@@ -446,6 +460,7 @@ export class Affiliate {
       .subscribe(
         (a) => {
           console.log(a);
+          this.affiliatesLoader = false;
 
           if (a.code == 200 || a.code == 304) {
             this.affiliatesLoader = false;
@@ -460,12 +475,16 @@ export class Affiliate {
               other: a.data.referralLicencesCount['other']
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
+            console.log(this.affiliatesLoader, "affiliatesLoader");
           }
         },
         (err) => {
           this._sharedService.showHideLoader(false);
           this.affiliatesLoader = false;
-          const obj = JSON.parse(err._body);
+          let obj
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
           console.log(obj);
 
           if (obj.code == 400) {
@@ -538,7 +557,10 @@ export class Affiliate {
         }
       },
       (err) => {
-        const obj = JSON.parse(err._body);
+        let obj
+        if (err._body) {
+          obj = JSON.parse(err._body);
+        }
 
         if (obj.code == 400) {
           this._sharedService.showHideLoader(false);
@@ -585,7 +607,10 @@ export class Affiliate {
         (err) => {
           this.topRefersLoader = false;
 
-          const obj = JSON.parse(err._body);
+          let obj
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
           console.log(obj);
 
           if (obj.code == 400) {
@@ -631,7 +656,10 @@ export class Affiliate {
           }
         },
         (err) => {
-          const obj = JSON.parse(err._body);
+          let obj
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
           console.log(obj);
 
           if (obj.code == 400) {

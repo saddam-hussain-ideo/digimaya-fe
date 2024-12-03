@@ -166,7 +166,7 @@
 
       <!---->
 
-      <div class="row1">
+      <div class="row1 mb-4">
         <div class="row">
           <div class="col-lg-12 right-7">
             <div class="white-back referral-pd">
@@ -348,7 +348,7 @@
               <div class="white-back">
                 <div class="pos-rltv">
                   <div class="pos-left">
-                    <h6 class="aff-link">Top Referrers Globally</h6>
+                    <h6 class="aff-link">Top Links Globally</h6>
                   </div>
                 </div>
 
@@ -363,14 +363,14 @@
                   >
                     <thead>
                       <tr>
-                        <td class="text-uppercase text-center">
+                        <td>
                           <p>Username</p>
                         </td>
-                        <td class="text-uppercase text-center">
+                        <td>
                           <p>Country</p>
                         </td>
-                        <td class="text-uppercase text-center">
-                          <p>Total Licensee's Referred</p>
+                        <td>
+                          <p>Total Licensee's Linked</p>
                         </td>
                       </tr>
                     </thead>
@@ -514,7 +514,7 @@
         <div class="piptel-transaction-history">
           <div class="header header-whte">
             <p class="transaction-txt">
-              Level 1: My Direct Links including any Placement
+              LEVEL 1: My Direct Links including any Placement
             </p>
 
             <div class="table-responsive">
@@ -574,13 +574,13 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader1 && levelOneData?.data.length == 0">
+                <tbody *ngIf="!tableLoader1 && levelOneData">
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader1 && levelOneData?.data.length > 0">
-                  <tr *ngFor="let data of levelOneData?.data">
+                <tbody *ngIf="!tableLoader1 && levelOneData">
+                  <tr *ngFor="let data of levelOneData?.data.rows">
                     <td>{{data.name}}</td>
                     <td>{{data.username}}</td>
                     <td>{{data.join_date}}</td>
@@ -596,7 +596,7 @@
 
               <div
                 class="pagination-bottom pt-2"
-                *ngIf="!tableLoader1  && levelOneData?.data.length > 0"
+                *ngIf="!tableLoader1  && levelOneData"
               >
                 <pagination-controls
                   *ngIf="tableOneSize < tableOneCount"
@@ -622,7 +622,7 @@
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
-            <p class="transaction-txt">Level 2: Team Links</p>
+            <p class="transaction-txt">LEVEL 2: Team Links</p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -688,13 +688,13 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader2 && levelTwoData?.data.length == 0">
+                <tbody *ngIf="!tableLoader2 && levelTwoData">
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader2  && levelTwoData?.data.length > 0">
-                  <tr *ngFor="let data of levelTwoData?.data">
+                <tbody *ngIf="!tableLoader2  && levelTwoData">
+                  <tr *ngFor="let data of levelTwoData?.data.rows">
                     <td>{{data.referrer}}</td>
                     <td>{{data.name}}</td>
                     <td>{{data.username}}</td>
@@ -711,7 +711,7 @@
 
               <div
                 class="pagination-bottom pt-2"
-                *ngIf="!tableLoader2 && levelTwoData?.data.length > 0"
+                *ngIf="!tableLoader2 && levelTwoData"
               >
                 <pagination-controls
                   *ngIf="tableTwoSize < tableTwoCount"
@@ -737,7 +737,7 @@
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
-            <p class="transaction-txt">Level 3: Team Links</p>
+            <p class="transaction-txt">LEVEL 3: Team Links</p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -803,15 +803,13 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody
-                  *ngIf="!tableLoader3 && levelThreeData?.data.length == 0"
-                >
+                <tbody *ngIf="!tableLoader3 && levelThreeData">
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader3 && levelThreeData?.data.length > 0">
-                  <tr *ngFor="let data of levelThreeData?.data">
+                <tbody *ngIf="!tableLoader3 && levelThreeData">
+                  <tr *ngFor="let data of levelThreeData?.data.rows">
                     <td class="tbl-row-pd">{{data.referrer}}</td>
                     <td class="tbl-row-pd">{{data.name}}</td>
                     <td class="tbl-row-pd">{{data.username}}</td>
@@ -836,7 +834,7 @@
 
               <div
                 class="pagination-bottom pt-2"
-                *ngIf="!tableLoader3 && levelThreeData?.data.length > 0"
+                *ngIf="!tableLoader3 && levelThreeData"
               >
                 <pagination-controls
                   *ngIf="tableThreeSize < tableThreeCount"
@@ -866,7 +864,7 @@
           <div class="all-white">
             <div class="pos-rltv heading-left">
               <div class="aff-earnings">
-                <h6>{{'REFER EARNINGS' | translate}}</h6>
+                <h6>{{'LINK EARNINGS' | translate}}</h6>
               </div>
             </div>
 
@@ -915,25 +913,25 @@
               <table class="table table-striped affiliates-detail">
                 <thead>
                   <tr>
-                    <td class="text-uppercase text-center">
+                    <td>
                       <p>{{'Currency' | translate}}</p>
                     </td>
-                    <td class="text-uppercase text-center">
-                      <p>{{'AMOUNT CONTRIBUTED' | translate}}</p>
+                    <td>
+                      <p>{{'AMOUNT INVESTED' | translate}}</p>
                     </td>
                     <!-- <td class="text-uppercase text-right">
                                             <p>{{'AMOUNT INVESTED IN MXN' | translate}}</p>
                                         </td> -->
-                    <td class="text-uppercase text-center">
-                      <p>{{'USERNAME' | translate}}</p>
+                    <td>
+                      <p>{{'UserName' | translate}}</p>
                     </td>
-                    <td class="text-uppercase text-center">
-                      <p>{{'TIME' | translate}}</p>
+                    <td>
+                      <p>{{'Time' | translate}}</p>
                     </td>
                     <!-- <td class="text-uppercase text-right">
                                             <p>{{'EARNING IN MXN' | translate}} (2%)</p>
                                         </td> -->
-                    <td class="text-uppercase text-center">
+                    <td>
                       <p>{{'EARNING IN FRU' | translate}}</p>
                     </td>
                   </tr>
@@ -986,9 +984,7 @@
                                         <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
                                 </tbody> -->
-                <tbody
-                  *ngIf="!affiliatesLoader && totalAffiliatesArray.length == 0"
-                >
+                <tbody *ngIf="!affiliatesLoader && !totalAffiliatesArray ">
                   <tr>
                     <td colspan="12" class="text-center">
                       <p class="no-record">
@@ -1152,7 +1148,7 @@
               <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
                   <p class="aff-h2">
-                    {{'REVENUE FROM THE REFERRAL FOR THE RESPECTIVE USERS' |
+                    {{'REVENUE FROM THE LINK FOR THE RESPECTIVE USERS' |
                     translate}}
                   </p>
                 </div>
@@ -1220,10 +1216,7 @@
                   <p class="no-record" *ngIf="noMyAffilliates">
                     {{ 'No Data Found' | translate}}
                   </p>
-                  <table
-                    class="table my-tbl table-striped"
-                    *ngIf="!noMyAffilliates"
-                  >
+                  <table class="table my-tbl" *ngIf="!noMyAffilliates">
                     <thead>
                       <tr>
                         <td>
@@ -1233,7 +1226,7 @@
                         </td>
                         <td>
                           <p class="top-aff-th left-aligned">
-                            {{'Time' | translate}}
+                            {{'Date & Time' | translate}}
                           </p>
                         </td>
                       </tr>
@@ -1241,13 +1234,13 @@
                     <tbody class="">
                       <tr *ngFor="let affiliate of myAffilliates">
                         <td
-                          class="text-capitalize blue-text"
+                          class="text-capitalize"
                           style="text-align: left !important"
                         >
                           {{affiliate?.UserName}}
                         </td>
                         <td
-                          class="text-capitalize blue-text"
+                          class="text-capitalize"
                           style="text-align: left !important"
                         >
                           {{affiliate?.CreatedOnUTC}}

@@ -6,7 +6,6 @@
 
 .bg {
   background-color: $white-color;
-  padding: 10px;
   .head-title {
     img {
       border: 1px solid $dashboard-purple-clr;
@@ -37,7 +36,6 @@
     font-size: 16px;
     font-family: 'MavenPro';
     // min-width: 200px;
-    text-transform: uppercase;
     border-radius: 8px;
     padding: 8px 0;
     font-weight: 600;
@@ -76,7 +74,10 @@
   flex-direction: row;
   gap: 20px;
   .cards-inner-width {
-    width: 23%;
+    width: 33.3%;
+    &.dark{
+      width: 50%;
+    }
   }
 }
 @media screen and (max-width: 1280px) {
@@ -144,6 +145,8 @@
       font-weight: 600;
       color: #191919;
       font-size: 32px;
+      overflow: hidden;
+      text-overflow: ellipsis; 
       &.light {
         color: white !important;
       }
@@ -173,6 +176,7 @@
 
 .background {
   background-color: #f2f1f7;
+  border-radius: 8px;
 }
 .transaction-txt {
   font-size: 25px;
@@ -208,6 +212,7 @@
   .piptel-transaction-history {
     padding: 20px;
     background-color: #f6f6f6;
+    border-radius: 8px;
     .header {
       h2 {
         text-transform: uppercase;
@@ -398,7 +403,6 @@ button:disabled {
 }
 .f-bold {
   font-weight: bold;
-  text-align: center;
 }
 .content {
   font-size: 16px !important;
@@ -407,11 +411,12 @@ button:disabled {
   text-align: center !important;
 }
 .action-btn {
-  background-color: $dashboard-purple-clr;
+  background: radial-gradient(107.63% 220.06% at .17% .51%, #ff7f2c 0%, #ff0082 100%);
   color: #fff;
-  font-family: 'LatoWebBold';
-  text-transform: uppercase;
+  font-family: 'MavenPro';
   width: 5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 .description-field {
   background-color: #f0f0f0;

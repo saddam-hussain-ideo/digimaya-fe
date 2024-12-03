@@ -50,6 +50,7 @@ $bg-color-for-ilo: #d5cff533;
 }
 
 .background {
+  background-color: white;
   .head-section {
     background-color: white;
     padding: 10px;
@@ -180,7 +181,10 @@ $bg-color-for-ilo: #d5cff533;
 }
 
 .table-div {
-  background: white;
+  background: #f6f6f6;
+  margin-top: 20px;
+  border-radius: 8px;
+
   .gnrl-sett-txt {
     padding: 25px 0 0 25px;
   }
