@@ -286,10 +286,10 @@ export class IcoComponent {
           if (stageRight) {
             this.stageRightData = stageRight;
           }
-          console.log(this.stageLeftData);
-          console.log(this.stageRightData);
-          console.log(this.ICOStageInfoRight);
-          console.log(this.ICOStageInfoLeft);
+          console.log({ stageLeftData: this.stageLeftData });
+          console.log({ stageRightData: this.stageRightData });
+          console.log({ ICOStageInfoRight: this.ICOStageInfoRight });
+          console.log({ ICOStageInfoLeft: this.ICOStageInfoLeft });
 
           this.investorsList = a.data.investorList;
           for (let i = 0; i < this.investorsList.length; i++) {
@@ -305,6 +305,7 @@ export class IcoComponent {
           this.showTimer();
 
           this.getILOStages();
+          console.log({ previousILOStage: this.previousILOStage });
         }
       },
       (err) => {
@@ -324,21 +325,21 @@ export class IcoComponent {
         this._sharedService.showHideLoader(false);
 
         console.log(a);
-        this.globalInfo = a['data']['globalInfo'];
-        console.log(this.globalInfo);
-        this.allCountries = this.globalInfo.countries;
+        // this.globalInfo = a['data']['globalInfo'];
+        // console.log(this.globalInfo);
+        // this.allCountries = this.globalInfo.countries;
         const previousILOStage = a['data']['stagesInfo'];
         this.allStages = a['data']['stagesInfo'];
-        console.log(previousILOStage);
+        console.log({ previousILOStage });
         const index = previousILOStage.findIndex(
           (data) => data.StageName == this.ICOStageInfoLeft.stageName
         );
         console.log(index);
         this.previousILOStage = previousILOStage[index - 1];
-        console.log(this.previousILOStage);
-        console.log(this.ICOStageInfoLeft);
+        console.log({ previousILOStage: this.previousILOStage });
+        console.log({ ICOStageInfoLeft: this.ICOStageInfoLeft });
         this.currentStagePPTL = this.numberWithCommas(
-          this.ICOStageInfoLeft.amountSold
+          parseFloat(this.ICOStageInfoLeft.amountSold.toFixed(4))
         );
         const num =
           this.ICOStageInfoLeft.totalSaleAmount -
