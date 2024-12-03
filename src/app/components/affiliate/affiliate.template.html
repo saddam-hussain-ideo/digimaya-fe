@@ -7,7 +7,7 @@
 
       <div class="head-section">
         <div class="clearfix ico-top-divs row">
-          <div class="col-sm-6 col-md-4 col-lg-3 no-right">
+          <div class="col-sm-6 col-md-4 col-lg-4 no-right">
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
@@ -39,7 +39,7 @@
               </p>
             </div>
           </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 no-right">
+          <div class="col-sm-6 col-md-4 col-lg-4 no-right">
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
@@ -80,40 +80,37 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-12 col-md-4 col-lg-3 no-right">
+
+          <!-- <div class="col-sm-12 col-md-4 col-lg-3 no-right">
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
                   Countries in My Link Network
-                  <!-- <span class="white-right">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
-                              <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
-                            </svg>
-                          </span> -->
+                  <span class="white-right">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="47px"
+                      height="6px"
+                    >
+                      <image
+                        x="0px"
+                        y="0px"
+                        width="47px"
+                        height="6px"
+                        xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg=="
+                      />
+                    </svg>
+                  </span>
                 </p>
               </div>
-
-              <!-- <div class="clearfix table-type">
-                <div class="left-stat-icon">
-                  <img src="../../../assets/img/globe.png" width="100" />
-                </div>
-
-                <div class="right-icon-stats">
-                  <p class="number">{{referredCountries}}</p>
-                  <p class="total-text" *ngIf="referredCountries <= 1">
-                    COUNTRY
-                  </p>
-                  <p class="total-text" *ngIf="referredCountries > 1">
-                    {{ 'Countries' | translate}}
-                  </p>
-                </div>
-              </div> -->
               <p class="number" *ngIf="referredCountries <= 1">
                 {{ 'Countries' | translate}} Country
               </p>
             </div>
-          </div>
-          <div class="col-sm-12 col-md-12 col-lg-3">
+          </div> -->
+
+          <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">My Link $EMYA Bonuses</p>
@@ -155,11 +152,11 @@
                 </div>
               </div> -->
               <div class="d-flex flex-column">
-                <p class="total-text" *ngIf="referredCountries <= 1">
+                <p class="total-text">
                   $EMYA {{earningValues('pptl') | currency : 'crypto'}}
                 </p>
-                <p class="total-text" *ngIf="referredCountries <= 1">
-                  USD VALUE $ {{earningValues('usdt') | currency:'crypto'}}
+                <p class="total-text">
+                  USD Value $ {{earningValues('usdt') | currency: 'crypto'}}
                 </p>
               </div>
             </div>
@@ -171,7 +168,7 @@
 
       <div class="row1">
         <div class="row">
-          <div class="col-lg-6 right-7">
+          <div class="col-lg-12 right-7">
             <div class="white-back referral-pd">
               <!-- <div class="pos-rltv">
 
@@ -223,7 +220,7 @@
                 <div class="">
                   <div class="padding-change">
                     <p class="aff-link pt-0 mb-0">
-                      {{'Your Link link:'| translate}}
+                      {{'Your Link:'| translate}}
                     </p>
                   </div>
                   <div class="padding-change2 affiliate-text-field">
@@ -346,7 +343,7 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-md-6 left-7">
+          <!-- <div class="col-lg-6 col-md-6 left-7">
             <div class="">
               <div class="white-back">
                 <div class="pos-rltv">
@@ -388,20 +385,6 @@
                         <td class="text-center">
                           <p class="earnings">{{referral?.referred}}</p>
                         </td>
-                        <!-- <td>
-                                                    <p class="earnings">{{referral?.AmountInUsd | currency:'crypto'}}
-                                                        PPTL </p>
-                                                    <div class="progress-table-wrap">
-                                                        <div class="progress">
-                                                            <div class="progress-bar" role="progressbar"
-                                                                aria-valuenow="100" aria-valuemin="0"
-                                                                aria-valuemax="100"
-                                                                [style.width.%]="referral.percentage">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td> -->
                       </tr>
                     </tbody>
 
@@ -469,7 +452,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="col-lg-6 col-md-6 d-md-block d-lg-none d-xl-none left-7">
             <div class="height-div">
@@ -591,23 +574,19 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody
-                  *ngIf="!tableLoader1 && levelOneData?.data.rows.length == 0"
-                >
+                <tbody *ngIf="!tableLoader1 && levelOneData?.data.length == 0">
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody
-                  *ngIf="!tableLoader1 && levelOneData?.data.rows.length > 0"
-                >
-                  <tr *ngFor="let data of levelOneData?.data.rows">
+                <tbody *ngIf="!tableLoader1 && levelOneData?.data.length > 0">
+                  <tr *ngFor="let data of levelOneData?.data">
                     <td>{{data.name}}</td>
                     <td>{{data.username}}</td>
                     <td>{{data.join_date}}</td>
                     <td>{{data.licence}}</td>
                     <td>{{data.country}}</td>
-                    <td>{{levelOneData?.data.totalRecords}}</td>
+                    <td>{{levelOneData?.data.length}}</td>
                     <td>{{data.audPurchase | currency:'crypto'}}</td>
                     <td>{{data.pptlIssued | currency:'crypto'}}</td>
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
@@ -617,7 +596,7 @@
 
               <div
                 class="pagination-bottom pt-2"
-                *ngIf="!tableLoader1  && levelOneData?.data.rows.length > 0"
+                *ngIf="!tableLoader1  && levelOneData?.data.length > 0"
               >
                 <pagination-controls
                   *ngIf="tableOneSize < tableOneCount"
@@ -709,24 +688,20 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody
-                  *ngIf="!tableLoader2 && levelTwoData?.data.rows.length == 0"
-                >
+                <tbody *ngIf="!tableLoader2 && levelTwoData?.data.length == 0">
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody
-                  *ngIf="!tableLoader2  && levelTwoData?.data.rows.length > 0"
-                >
-                  <tr *ngFor="let data of levelTwoData?.data.rows">
+                <tbody *ngIf="!tableLoader2  && levelTwoData?.data.length > 0">
+                  <tr *ngFor="let data of levelTwoData?.data">
                     <td>{{data.referrer}}</td>
                     <td>{{data.name}}</td>
                     <td>{{data.username}}</td>
                     <td>{{data.join_date}}</td>
                     <td>{{data.licence}}</td>
                     <td>{{data.country}}</td>
-                    <td>{{levelTwoData?.data.totalRecords}}</td>
+                    <td>{{levelTwoData?.data.length}}</td>
                     <td>{{data.audPurchase | currency:'crypto'}}</td>
                     <td>{{data.pptlIssued | currency:'crypto'}}</td>
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
@@ -736,7 +711,7 @@
 
               <div
                 class="pagination-bottom pt-2"
-                *ngIf="!tableLoader2 && levelTwoData?.data.rows.length > 0"
+                *ngIf="!tableLoader2 && levelTwoData?.data.length > 0"
               >
                 <pagination-controls
                   *ngIf="tableTwoSize < tableTwoCount"
@@ -829,16 +804,14 @@
                   </tr>
                 </tbody>
                 <tbody
-                  *ngIf="!tableLoader3 && levelThreeData?.data.rows.length == 0"
+                  *ngIf="!tableLoader3 && levelThreeData?.data.length == 0"
                 >
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody
-                  *ngIf="!tableLoader3 && levelThreeData?.data.rows.length > 0"
-                >
-                  <tr *ngFor="let data of levelThreeData?.data.rows">
+                <tbody *ngIf="!tableLoader3 && levelThreeData?.data.length > 0">
+                  <tr *ngFor="let data of levelThreeData?.data">
                     <td class="tbl-row-pd">{{data.referrer}}</td>
                     <td class="tbl-row-pd">{{data.name}}</td>
                     <td class="tbl-row-pd">{{data.username}}</td>
@@ -846,7 +819,7 @@
                     <td class="tbl-row-pd">{{data.licence}}</td>
                     <td class="tbl-row-pd">{{data.country}}</td>
                     <td class="tbl-row-pd">
-                      {{levelThreeData?.data.totalRecords}}
+                      {{levelThreeData?.data.length}}
                     </td>
                     <td class="tbl-row-pd">
                       {{data.audPurchase | currency:'crypto'}}
@@ -863,7 +836,7 @@
 
               <div
                 class="pagination-bottom pt-2"
-                *ngIf="!tableLoader3 && levelThreeData?.data.rows.length > 0"
+                *ngIf="!tableLoader3 && levelThreeData?.data.length > 0"
               >
                 <pagination-controls
                   *ngIf="tableThreeSize < tableThreeCount"
@@ -1013,7 +986,9 @@
                                         <td colspan="12" class="no-data-tbl">no data to display</td>
                                     </tr>
                                 </tbody> -->
-                <tbody *ngIf="!affiliatesLoader && !totalAffiliatesArray">
+                <tbody
+                  *ngIf="!affiliatesLoader && totalAffiliatesArray.length == 0"
+                >
                   <tr>
                     <td colspan="12" class="text-center">
                       <p class="no-record">
@@ -1023,7 +998,9 @@
                   </tr>
                 </tbody>
 
-                <tbody *ngIf="!affiliatesLoader && totalAffiliatesArray">
+                <tbody
+                  *ngIf="!affiliatesLoader && totalAffiliatesArray.length > 0"
+                >
                   <tr *ngFor="let affiliate of totalAffiliatesArray">
                     <!-- <td class="img-width-table v-middle text-center">
 
@@ -1107,7 +1084,7 @@
 
             <div
               class="bg-table clearfix"
-              *ngIf="!affiliatesLoader && totalAffiliatesArray"
+              *ngIf="!affiliatesLoader && totalAffiliatesArray.length > 0"
             >
               <ul class="clearfix total-row">
                 <li>

@@ -340,7 +340,7 @@ export class Affiliate {
             this.levelOneData = res;
             console.log(this.levelOneData);
 
-            this.tableOneCount = this.levelOneData.data.totalRecords;
+            this.tableOneCount = this.levelOneData.data.length;
           }
         },
         (err) => {
@@ -366,7 +366,7 @@ export class Affiliate {
           if (res) {
             this.tableLoader2 = false;
             this.levelTwoData = res;
-            this.tableTwoCount = this.levelTwoData.data.totalRecords;
+            this.tableTwoCount = this.levelTwoData.data.length;
           }
         },
         (err) => {
@@ -392,7 +392,7 @@ export class Affiliate {
           if (res) {
             this.tableLoader3 = false;
             this.levelThreeData = res;
-            this.tableThreeCount = this.levelThreeData.data.totalRecords;
+            this.tableThreeCount = this.levelThreeData.data.length;
           }
         },
         (err) => {
@@ -447,7 +447,7 @@ export class Affiliate {
         (a) => {
           console.log(a);
 
-          if (a.code == 200) {
+          if (a.code == 200 || a.code == 304) {
             this.affiliatesLoader = false;
             this._sharedService.showHideLoader(false);
             this.noAffiliateEarners = false;

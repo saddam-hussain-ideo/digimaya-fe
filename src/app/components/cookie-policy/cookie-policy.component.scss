@@ -1,29 +1,31 @@
-.subHeading{
-    font-family: 'MavenPro';
+.subHeading {
+  font-family: 'MavenPro';
   font-size: 60px;
   font-weight: 500;
   line-height: 60px;
   text-align: center;
   color: white;
 }
-.cookiePolicySection{
-    width: 60%;
+.cookiePolicySection {
+  width: 60%;
 }
-.cookieTypesSection{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    table,tr{
-        border: 1px solid white;
-    }
-    th,td{
-        border-right: 1px solid white;
-        font-family: 'MavenPro';
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 28.6px;
-        color: white;
-        padding: 10px 30px 10px 10px;
-        margin: 0;
-    }
+.cookieTypesSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  table,
+  tr {
+    border: 1px solid white;
+  }
+  th,
+  td {
+    border-right: 1px solid white;
+    font-family: 'MavenPro';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28.6px;
+    color: white;
+    padding: 10px 30px 10px 10px;
+    margin: 0;
+  }
 }
