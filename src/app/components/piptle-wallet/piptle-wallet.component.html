@@ -143,15 +143,15 @@
   <div class="mt-3 bg bg-colored">
     <div class="d-flex head-title">
       <h1 class="sub-heading">
-        {{ 'Total eMaaya Earned' | translate }}
+        {{ 'Total eMaayas Earned' | translate }}
       </h1>
     </div>
     <div class="wallet-new-cards">
-      <div class="cards-inner-width">
+      <div class="cards-inner-width dark">
         <div class="inner-w-box dark-bg">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t light">
-              {{ 'Referral Bonuses' | translate }}
+              {{ 'Link Bonuses' | translate }}
             </p>
             <div class="d-flex wallet-cards">
               <p class="wallet-val light mb-0">
@@ -177,7 +177,7 @@
           </div>
         </div>
       </div> -->
-      <div class="cards-inner-width">
+      <div class="cards-inner-width dark">
         <div class="inner-w-box dark-bg">
           <div class="d-flex flex-column">
             <p class="wallet-inner-t light">
@@ -349,7 +349,7 @@
             <table class="table">
               <thead>
                 <tr>
-                  <th class="f-bold">{{ 'Date' | translate }}</th>
+                  <th class="f-bold">{{ 'Date and Time' | translate }}</th>
                   <th class="f-bold">Transaction</th>
                   <th class="f-bold">{{ 'Description' | translate }}</th>
                   <th class="f-bold">$EMYA Tokens</th>
@@ -372,8 +372,8 @@
               </tbody>
               <tbody *ngIf="transactionDetails.length != 0">
                 <tr class="bg-lght" *ngFor="let data of transactionDetails">
-                  <td class="text-center">{{ data.CreatedOnUTC }}</td>
-                  <td class="text-center">
+                  <td>{{ data.CreatedOnUTC }}</td>
+                  <td>
                     <div *ngIf="data.TransactionHash?.length > 15">
                       <a
                         class="transactionurl"
@@ -397,7 +397,7 @@
                       </a>
                     </div>
                   </td>
-                  <td class="text-center">
+                  <td>
                     <div
                       tooltip="{{ data.Note }}"
                       placement="bottom"
@@ -414,13 +414,13 @@
                     </div>
                     <div *ngIf="data.Note == ''">N/A</div>
                   </td>
-                  <td class="text-center">
+                  <td>
                     {{ data.TotalTokens | currency: 'crypto' }}
                   </td>
-                  <td class="text-center">
+                  <td>
                     {{ data.TokenRate * data.TotalTokens | currency: 'crypto' }}
                   </td>
-                  <td class="text-center">
+                  <td>
                     <div
                       *ngIf="
                         data.TransactionType != 'INCOMING' &&
@@ -448,7 +448,7 @@
                     </div>
                   </td>
 
-                  <td class="text-center">
+                  <td>
                     <div *ngIf="data.TransactionType == 'WITHDRAWAL'">
                       <button class="btn action-btn">Debit</button>
                     </div>
