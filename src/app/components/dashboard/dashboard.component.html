@@ -57,7 +57,7 @@
       <div class="col-lg-3 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Purchased Tokens:</span>
+            <span class="heading text-class">Purchased Tokens</span>
             <span class="pulper-color"> {{ totalCapacity }} </span>
           </div>
         </div>
@@ -65,7 +65,7 @@
       <div class="col-lg-3 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Interest Tokens:</span>
+            <span class="heading text-class">Interest Tokens</span>
             <span class="pulper-color"> {{ totalIssued }} </span>
           </div>
         </div>
@@ -73,18 +73,18 @@
       <div class="col-lg-3 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Seed Stage:</span>
+            <span class="heading text-class">Seed Stage</span>
             <span class="pulper-color" *ngIf="RatesModel.stageName">
-              {{ RatesModel.stageName.split(' ')[2] }}
+              {{ RatesModel?.stageName ? RatesModel?.stageName : "0" }}
             </span>
-            <span class="pulper-color" *ngIf="!RatesModel.stageName"> 0 </span>
+            <span class="pulper-color" *ngIf="!RatesModel?.stageName"> 0 </span>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-4 pl-0 pr-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Total Backers:</span>
+            <span class="heading text-class">Total Backers</span>
             <span class="pulper-color"> {{ totalLicesees }} </span>
           </div>
         </div>
@@ -92,7 +92,7 @@
       <div class="col-lg-4 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Current $EMYA Value: </span>
+            <span class="heading text-class">Current $EMYA Value </span>
             <!-- <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span> -->
             <span class="pulper-color">
               {{ selectedCurrencyUSD }}
@@ -116,7 +116,7 @@
         <div class="info-custom-card dark-bg">
           <div class="content">
             <span class="heading prp-text text-class"
-              >Your Total $EMYA Value:</span
+              >Your Total $EMYA Value</span
             >
             <span class="heading prp-text-ppt">
               <!-- USD$ {{ totalValueAud | currency : "crypto" }} -->
@@ -530,7 +530,7 @@
       <div class="row d-block m-b-20">
         <div class="row row-eq-height">
           <!--col col-xl-4 col-lg-6 mar-btm20 left-box -->
-          <div class="col-lg-6 col-xl-6 mar-btm20 left-box">
+          <div class="col-lg-12 col-xl-12 mar-btm20 left-box">
             <div class="calculator-box clearfix">
               <ul
                 class="nav nav-pills calculator-tabs"
@@ -1018,7 +1018,7 @@
       </div>
 
       <div class="row row-eq-height">
-        <div class="bottom-complete-table col-lg-6">
+        <div class="bottom-complete-table col-lg-12">
           <div class="full-width-table">
             <div class="table-responsive">
               <div class="header-box clearfix">

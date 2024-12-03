@@ -407,11 +407,12 @@ button:disabled {
   text-align: center !important;
 }
 .action-btn {
-  background-color: $dashboard-purple-clr;
+  background: radial-gradient(107.63% 220.06% at .17% .51%, #ff7f2c 0%, #ff0082 100%);
   color: #fff;
-  font-family: 'LatoWebBold';
-  text-transform: uppercase;
+  font-family: 'MavenPro';
   width: 5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 .description-field {
   background-color: #f0f0f0;
