@@ -242,10 +242,7 @@ export class IcoComponent {
     this._icoService.getICOInformaion().subscribe(
       (a) => {
         if (a.code == 200) {
-          console.log(a);
-
           this.ICOInformation = a.data;
-
           this.ICOInformation.hardCap = this.validations.toCommas(
             this.ICOInformation.hardCap
           );
@@ -262,13 +259,9 @@ export class IcoComponent {
             this.noPendingStages = false;
             this.hideSecondBox = true;
             this.ICOStageInfoLeft = a.data.icoInformation[0];
-            console.log(this.ICOStageInfoLeft);
-
             this.calculateLeftProgressBar();
           } else {
             this.ICOStageInfoLeft = a.data.icoInformation[0];
-            console.log(this.ICOStageInfoLeft);
-
             this.ICOStageInfoRight = a.data.icoInformation[1];
             this.noPendingStages = false;
             this.calculateLeftProgressBar();
@@ -286,11 +279,6 @@ export class IcoComponent {
           if (stageRight) {
             this.stageRightData = stageRight;
           }
-          console.log({ stageLeftData: this.stageLeftData });
-          console.log({ stageRightData: this.stageRightData });
-          console.log({ ICOStageInfoRight: this.ICOStageInfoRight });
-          console.log({ ICOStageInfoLeft: this.ICOStageInfoLeft });
-
           this.investorsList = a.data.investorList;
           for (let i = 0; i < this.investorsList.length; i++) {
             this.investorsList[i].EARNTokenBalance = this.validations.toCommas(
@@ -303,16 +291,12 @@ export class IcoComponent {
               );
           }
           this.showTimer();
-
           this.getILOStages();
-          console.log({ previousILOStage: this.previousILOStage });
         }
       },
       (err) => {
         const obj = JSON.parse(err._body);
-
         $('#snackbar').html(obj.message);
-
         this._sharedService.showHideLoader(false);
       }
     );
@@ -323,21 +307,14 @@ export class IcoComponent {
     this._dashboardService.getILOStages().subscribe(
       (a) => {
         this._sharedService.showHideLoader(false);
-
-        console.log(a);
         // this.globalInfo = a['data']['globalInfo'];
-        // console.log(this.globalInfo);
         // this.allCountries = this.globalInfo.countries;
         const previousILOStage = a['data']['stagesInfo'];
         this.allStages = a['data']['stagesInfo'];
-        console.log({ previousILOStage });
         const index = previousILOStage.findIndex(
           (data) => data.StageName == this.ICOStageInfoLeft.stageName
         );
-        console.log(index);
         this.previousILOStage = previousILOStage[index - 1];
-        console.log({ previousILOStage: this.previousILOStage });
-        console.log({ ICOStageInfoLeft: this.ICOStageInfoLeft });
         this.currentStagePPTL = this.numberWithCommas(
           parseFloat(this.ICOStageInfoLeft.amountSold.toFixed(4))
         );
@@ -360,7 +337,6 @@ export class IcoComponent {
       },
       (err) => {
         this._sharedService.showHideLoader(false);
-
         const obj = JSON.parse(err._body);
         console.log(obj);
       }
@@ -368,7 +344,6 @@ export class IcoComponent {
   }
   public invokeInfoModal(stagevalue) {
     const stage = this.allStages.find((stage) => stage.StageName == stagevalue);
-    console.log(stage);
     this.levelOneBonus = stage.ReferralLevelOneBonuse;
     this.levelTwoBonus = stage.ReferralLevelTwoBonuse;
     this.levelThreeBonus = stage.ReferralLevelThreeBonuse;
@@ -384,7 +359,6 @@ export class IcoComponent {
       modalConfig
     );
     if (stagevalue == 'ILO Stage 1') {
-      console.log(INFO_MODAL_CONSTANT.STAGE_1);
       INFO_MODAL_CONSTANT.STAGE_1.primaryText.bonus0 = `${this.levelOneBonus}% of any PPTLs issued on Level 1`;
       INFO_MODAL_CONSTANT.STAGE_1.primaryText.bonus1 = `${this.levelTwoBonus}% of any PPTLs issued on Level 2`;
       INFO_MODAL_CONSTANT.STAGE_1.primaryText.bonus2 = `${this.levelThreeBonus}% of any PPTLs issued on Level 3`;
@@ -410,7 +384,6 @@ export class IcoComponent {
       this.stopEditingModal.componentInstance.modalData =
         INFO_MODAL_CONSTANT.STAGE_4;
     }
-
     this.stopEditingModal.componentInstance.emitUserOp.subscribe({
       next: this._confirmToStop
     });

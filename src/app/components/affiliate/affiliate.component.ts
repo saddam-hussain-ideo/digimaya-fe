@@ -225,7 +225,6 @@ export class Affiliate {
     this.levelOneReferrals();
     this.levelTwoReferrals();
     this.levelThreeReferrals();
-    console.log(this.affiliatesLoader, 'affiliatesLoader in ngonit');
 
     $('.list-unstyled li').removeClass('active');
     $('#aff-nav').addClass('active');
@@ -259,9 +258,6 @@ export class Affiliate {
 
   // getReferrals(){
   //     this._sharedService.showHideLoader(true);
-  //     console.log(this.levelOneData);
-  //                 console.log(this.levelTwoData);
-  //                 console.log(this.levelThreeData);
   //                 this.tableLoader1 = true
   //         this.tableLoader2 = true
 
@@ -270,7 +266,6 @@ export class Affiliate {
 
   //         this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = i,this.pageNo = 1, this.pageSize= 10 )
   //         .subscribe(res => {
-  //             console.log(res);
   //             if(res){
   //                 this._sharedService.showHideLoader(false);
   //                 this.referredCountries = res['data']['referred_countries']
@@ -279,21 +274,15 @@ export class Affiliate {
   //                     data : res['data']
   //                 }
   //                 this.dataArr.push(this.obj)
-  //                 console.log(this.dataArr);
 
   //                 this.levelOneData = this.dataArr.find(result => result.level == 1)
 
   //                 this.levelTwoData = this.dataArr.find(result => result.level == 2)
   //                 this.levelThreeData = this.dataArr.find(result => result.level == 3)
-  //                 console.log(this.levelOneData);
-  //                 console.log(this.levelTwoData);
-  //                 console.log(this.levelThreeData);
 
   //                 if(this.levelOneData){
   //                     this.tableLoader1 = false
   //                     this.tableOneCount = this.levelOneData.data.totalRecords
-  //                     console.log(this.tableOneCount);
-
   //                     // this.referredCountries = this.levelOneData['data']['referred_countries']
   //                 }
   //                 if(this.levelTwoData){
@@ -311,7 +300,6 @@ export class Affiliate {
   //         }, err => {
   //             this.tableLoader1 = false
   //             this.tableLoader2 = false
-
   //             this.tableLoader3 = false
   //             this._sharedService.showHideLoader(false);
   //             console.log(err);
@@ -334,13 +322,10 @@ export class Affiliate {
       )
       .subscribe(
         (res) => {
-          console.log(res);
           if (res) {
             this.tableLoader1 = false;
             this.referredCountries = res['data']['referred_countries'];
             this.levelOneData = res;
-            console.log(this.levelOneData);
-
             this.tableOneCount = this.levelOneData.data.length;
           }
         },
@@ -366,7 +351,6 @@ export class Affiliate {
       )
       .subscribe(
         (res) => {
-          console.log(res);
           if (res) {
             this.tableLoader2 = false;
             this.levelTwoData = res;
@@ -395,7 +379,6 @@ export class Affiliate {
       )
       .subscribe(
         (res) => {
-          console.log(res);
           if (res) {
             this.tableLoader3 = false;
             this.levelThreeData = res;
@@ -422,8 +405,6 @@ export class Affiliate {
         (a) => {
           if (a.code == 200) {
             this.graphLoader = false;
-            console.log(a);
-
             this.lineChartData[0].data = a.data.values;
             this.lineChartLabels = a.data.dates;
             this.noGraphData = false;
@@ -458,9 +439,7 @@ export class Affiliate {
       )
       .subscribe(
         (a) => {
-          console.log(a);
           this.affiliatesLoader = false;
-
           if (a.code == 200 || a.code == 304) {
             this.affiliatesLoader = false;
             this._sharedService.showHideLoader(false);
@@ -474,7 +453,6 @@ export class Affiliate {
               other: a.data.referralLicencesCount['other']
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
-            console.log(this.affiliatesLoader, 'affiliatesLoader');
           }
         },
         (err) => {
@@ -485,7 +463,6 @@ export class Affiliate {
             obj = JSON.parse(err._body);
           }
           console.log(obj);
-
           if (obj.code == 400) {
             // show empty error
             this._sharedService.showHideLoader(false);
@@ -503,20 +480,16 @@ export class Affiliate {
     debugger;
     const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
-
     for (let i = 0; i < array.length; i++) {
       let line = '';
       for (const index in array[i]) {
         if (line != '') {
           line += ',';
         }
-
         line += array[i][index];
       }
-
       str += line + '\r\n';
     }
-
     return str;
   }
 
@@ -525,17 +498,11 @@ export class Affiliate {
 
     this._affilliateService.getCsvData(this.userObject.UserId).subscribe(
       (a) => {
-        console.log(a);
-
         if (a.code == 200) {
           debugger;
           this.csvData = a.data.earningList;
-
           const jsonObject = JSON.stringify(this.csvData);
-
-          // Convert JSON to CSV & Display CSV
           const parsedResponse = this.ConvertToCSV(jsonObject);
-
           const blob = new Blob([parsedResponse], { type: 'text/csv' });
           const url = window.URL.createObjectURL(blob);
           const d = new Date().getTime();
@@ -549,9 +516,7 @@ export class Affiliate {
             a.click();
             document.body.removeChild(a);
           }
-
           this._sharedService.showHideLoader(false);
-
           window.URL.revokeObjectURL(url);
         }
       },
@@ -560,11 +525,9 @@ export class Affiliate {
         if (err._body) {
           obj = JSON.parse(err._body);
         }
-
         if (obj.code == 400) {
           this._sharedService.showHideLoader(false);
         }
-
         if (obj.code == 401) {
           localStorage.clear();
           this.router.navigate(['/']);
@@ -579,15 +542,11 @@ export class Affiliate {
       .getTopReferrals(this.topReferalCurrentPage, this.referralPSize)
       .subscribe(
         (a) => {
-          console.log(a);
-
           if (a.code == 200) {
             this.topRefersLoader = false;
             this.topReferrals = a.data.rows;
             this.paginationNumber = a.data.totalRecords;
-
             // this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
-
             // for (var i = 0; i < this.topReferrals.length; i++) {
             //     this.topReferrals[i].percentage = ((this.topReferrals[i].AmountInUsd / this.fivePercentOfTotalAmountInvested) * 100);
             //     if (this.topReferrals[i].percentage > 100) {
@@ -595,7 +554,6 @@ export class Affiliate {
             //     }
             //     this.topReferrals[i].AmountInUsd = this.validations.toCommas(this.topReferrals[i].AmountInUsd.toFixed(3));
             // }
-
             if (this.topReferrals.length == 0) {
               this.noTopAffilliates = true;
             } else {
@@ -610,12 +568,9 @@ export class Affiliate {
           if (err._body) {
             obj = JSON.parse(err._body);
           }
-          console.log(obj);
-
           if (obj.code == 400) {
             this.noTopAffilliates = true;
           }
-
           if (obj.code == 401) {
             localStorage.clear();
             this.router.navigate(['/']);
@@ -641,12 +596,9 @@ export class Affiliate {
       )
       .subscribe(
         (a) => {
-          console.log(a);
-
           if (a.code == 200) {
             this.myAffilliates = a.data.list;
             this.totalAffiliatesForUser = a.data.count;
-
             if (this.myAffilliates.length == 0) {
               this.noMyAffilliates = true;
             } else {
@@ -659,8 +611,6 @@ export class Affiliate {
           if (err._body) {
             obj = JSON.parse(err._body);
           }
-          console.log(obj);
-
           if (obj.code == 400) {
             this.noMyAffilliates = true;
           }
