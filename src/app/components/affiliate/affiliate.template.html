@@ -7,11 +7,11 @@
 
       <div class="head-section">
         <div class="clearfix ico-top-divs row">
-          <div class="col-sm-6 col-md-4 col-lg-4 no-right">
+          <div class="col-sm-6 col-md-6 col-lg-6 no-right">
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
-                  My Link Network Issued $EMYA
+                  Link Earnings
                   <!-- <span class="white-right">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                               <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -39,11 +39,11 @@
               </p>
             </div>
           </div>
-          <div class="col-sm-6 col-md-4 col-lg-4 no-right">
+          <div class="col-sm-6 col-md-6 col-lg-6 no-right">
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
-                  My Link Network Licensees
+                  Links Count
                   <!-- <span class="white-right">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                               <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -70,14 +70,10 @@
                   </div>
                 </div>
               </div> -->
-              <div class="d-flex flex-column">
-                <p class="total-text">
-                  GPA Licensees {{referalLicencesCount.gpa}}
-                </p>
-                <p class="total-text">
-                  Other Licensees {{referalLicencesCount.other}}
-                </p>
-              </div>
+              <p class="number">
+                <!-- {{networkIssuedPPTL | currency : 'crypto'}} $EMYA -->
+                0
+              </p>
             </div>
           </div>
 
@@ -110,47 +106,11 @@
             </div>
           </div> -->
 
-          <div class="col-sm-12 col-md-12 col-lg-4">
+          <!-- <div class="col-sm-12 col-md-12 col-lg-4">
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">My Link $EMYA Bonuses</p>
               </div>
-
-              <!-- <div class="clearfix table-type soft-hard-box">
-                <div class="row bg-row">
-                  <div class="col some-padding text-centered">
-                    <div class="mt-4">
-                      <div class="d-flex flex-column justify-content-center">
-                        <div
-                          class="d-flex flex-row justify-content-center mb-0 mt-3"
-                        >
-                          <p class="number pt-0">
-                            {{earningValues('pptl') | currency : 'crypto'}}
-                          </p>
-                        </div>
-                        <div class="d-flex flex-row justify-content-center">
-                          <p class="ml-2 dollar pt-0">PPTL</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col text-centered">
-                    <div class="d-flex flex-column justify-content-center mt-4">
-                      <div
-                        class="d-flex flex-row justify-content-center mb-0 mt-3"
-                      >
-                        <p class="number pt-0">
-                          $ {{earningValues('usdt') | currency:'crypto'}}
-                        </p>
-                      </div>
-                      <div class="d-flex flex-row justify-content-center">
-                        <p class="ml-2 dollar pt-0">USD VALUE</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
               <div class="d-flex flex-column">
                 <p class="total-text">
                   $EMYA {{earningValues('pptl') | currency : 'crypto'}}
@@ -160,7 +120,7 @@
                 </p>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -220,7 +180,7 @@
                 <div class="">
                   <div class="padding-change">
                     <p class="aff-link pt-0 mb-0">
-                      {{'Your Link:'| translate}}
+                      {{'My Link:'| translate}}
                     </p>
                   </div>
                   <div class="padding-change2 affiliate-text-field">
@@ -276,9 +236,7 @@
                 </div>
                 <div class="">
                   <div class="padding-change">
-                    <p class="aff-link mb-0">
-                      {{ 'Your Link Code:' | translate}}
-                    </p>
+                    <p class="aff-link mb-0"> {{ 'My Code:' | translate}} </p>
                   </div>
                   <div class="padding-change2 affiliate-text-field">
                     <input
@@ -513,23 +471,18 @@
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
-            <p class="transaction-txt">
-              LEVEL 1: My Direct Links including any Placement
-            </p>
+            <p class="transaction-txt"> LEVEL 1: My Direct Links </p>
 
             <div class="table-responsive">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th class="f-bold">Member Full name</th>
-                    <th class="f-bold">Member Username</th>
+                    <th class="f-bold"> Full name</th>
+                    <th class="f-bold"> Username</th>
                     <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Licence Type</th>
-                    <th class="f-bold">Registration Country</th>
-                    <th class="f-bold">Amount of Direct Links</th>
-                    <th class="f-bold">Total USD Purchase Value</th>
+                    <th class="f-bold">Direct Links</th>
                     <th class="f-bold">Emaayas Issued</th>
-                    <th class="f-bold">My Bonus Emaayas Earned</th>
+                    <th class="f-bold">Links Earning</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader1">
@@ -584,10 +537,7 @@
                     <td>{{data.name}}</td>
                     <td>{{data.username}}</td>
                     <td>{{data.join_date}}</td>
-                    <td>{{data.licence}}</td>
-                    <td>{{data.country}}</td>
                     <td>{{levelOneData?.data.length}}</td>
-                    <td>{{data.audPurchase | currency:'crypto'}}</td>
                     <td>{{data.pptlIssued | currency:'crypto'}}</td>
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
@@ -628,22 +578,12 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th class="f-bold tbl-row-head-pd">Linker Full name</th>
-                    <th class="f-bold tbl-row-head-pd">Member Full name</th>
-                    <th class="f-bold tbl-row-head-pd">Member Username</th>
-                    <th class="f-bold tbl-row-head-pd">Join Date</th>
-                    <th class="f-bold tbl-row-head-pd">Licence Type</th>
-                    <th class="f-bold tbl-row-head-pd">Registration Country</th>
-                    <th class="f-bold tbl-row-head-pd">
-                      Amount of Direct Links
-                    </th>
-                    <th class="f-bold tbl-row-head-pd">
-                      Total USD Purchase Value
-                    </th>
-                    <th class="f-bold tbl-row-head-pd">Emaayas Issued</th>
-                    <th class="f-bold tbl-row-head-pd">
-                      My Bonus Emaayas Earned
-                    </th>
+                    <th class="f-bold"> Full name</th>
+                    <th class="f-bold"> Username</th>
+                    <th class="f-bold">Join Date</th>
+                    <th class="f-bold">Direct Links</th>
+                    <th class="f-bold">Emaayas Issued</th>
+                    <th class="f-bold">Links Earning</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader2">
@@ -695,14 +635,10 @@
                 </tbody>
                 <tbody *ngIf="!tableLoader2  && levelTwoData">
                   <tr *ngFor="let data of levelTwoData?.data.rows">
-                    <td>{{data.referrer}}</td>
                     <td>{{data.name}}</td>
                     <td>{{data.username}}</td>
                     <td>{{data.join_date}}</td>
-                    <td>{{data.licence}}</td>
-                    <td>{{data.country}}</td>
                     <td>{{levelTwoData?.data.length}}</td>
-                    <td>{{data.audPurchase | currency:'crypto'}}</td>
                     <td>{{data.pptlIssued | currency:'crypto'}}</td>
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
@@ -743,22 +679,12 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th class="f-bold tbl-row-head-pd">Sponsor Full name</th>
-                    <th class="f-bold tbl-row-head-pd">Member Full name</th>
-                    <th class="f-bold tbl-row-head-pd">Member Username</th>
-                    <th class="f-bold tbl-row-head-pd">Join Date</th>
-                    <th class="f-bold tbl-row-head-pd">Licence Type</th>
-                    <th class="f-bold tbl-row-head-pd">Registration Country</th>
-                    <th class="f-bold tbl-row-head-pd">
-                      Amount of Direct Links
-                    </th>
-                    <th class="f-bold tbl-row-head-pd">
-                      Total USD Purchase Value
-                    </th>
-                    <th class="f-bold tbl-row-head-pd">Emaayas Issued</th>
-                    <th class="f-bold tbl-row-head-pd">
-                      My Bonus Emaayas Earned
-                    </th>
+                    <th class="f-bold"> Full name</th>
+                    <th class="f-bold"> Username</th>
+                    <th class="f-bold">Join Date</th>
+                    <th class="f-bold">Direct Links</th>
+                    <th class="f-bold">Emaayas Issued</th>
+                    <th class="f-bold">Links Earning</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader3">
@@ -810,17 +736,11 @@
                 </tbody>
                 <tbody *ngIf="!tableLoader3 && levelThreeData">
                   <tr *ngFor="let data of levelThreeData?.data.rows">
-                    <td class="tbl-row-pd">{{data.referrer}}</td>
                     <td class="tbl-row-pd">{{data.name}}</td>
                     <td class="tbl-row-pd">{{data.username}}</td>
                     <td class="tbl-row-pd">{{data.join_date}}</td>
-                    <td class="tbl-row-pd">{{data.licence}}</td>
-                    <td class="tbl-row-pd">{{data.country}}</td>
                     <td class="tbl-row-pd">
                       {{levelThreeData?.data.length}}
-                    </td>
-                    <td class="tbl-row-pd">
-                      {{data.audPurchase | currency:'crypto'}}
                     </td>
                     <td class="tbl-row-pd">
                       {{data.pptlIssued | currency:'crypto'}}
@@ -914,7 +834,7 @@
                 <thead>
                   <tr>
                     <td>
-                      <p>{{'Currency' | translate}}</p>
+                      <p>{{'Token Name' | translate}}</p>
                     </td>
                     <td>
                       <p>{{'AMOUNT INVESTED' | translate}}</p>
@@ -926,7 +846,7 @@
                       <p>{{'UserName' | translate}}</p>
                     </td>
                     <td>
-                      <p>{{'Time' | translate}}</p>
+                      <p>{{'Date' | translate}}</p>
                     </td>
                     <!-- <td class="text-uppercase text-right">
                                             <p>{{'EARNING IN MXN' | translate}} (2%)</p>
@@ -1149,10 +1069,10 @@
             <div class="posReltv">
               <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                  <p class="aff-h2">
+                  <!-- <p class="aff-h2">
                     {{'REVENUE FROM THE LINK FOR THE RESPECTIVE USERS' |
                     translate}}
-                  </p>
+                  </p> -->
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 scndHlf">
                   <div class="rytAlgnmnt">
@@ -1203,7 +1123,7 @@
           </div>
         </div>
 
-        <div class="col-md-4 col-lg-4 col-sm-5 col-xs-12">
+        <!-- <div class="col-md-4 col-lg-4 col-sm-5 col-xs-12">
           <div class="height-div">
             <div class="white-back2">
               <div class="pos-rltv">
@@ -1274,7 +1194,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="row2">
