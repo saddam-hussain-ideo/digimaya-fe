@@ -35,7 +35,7 @@
                 </div>
               </div> -->
               <p class="number">
-                {{networkIssuedPPTL | currency : 'crypto'}} $EMYA
+                {{totalEarningInEMYA | currency : 'crypto'}} $EMYA
               </p>
             </div>
           </div>
@@ -72,7 +72,8 @@
               </div> -->
               <p class="number">
                 <!-- {{networkIssuedPPTL | currency : 'crypto'}} $EMYA -->
-                0
+                {{totalAffiliateEarningsRecords ? totalAffiliateEarningsRecords
+                :0}}
               </p>
             </div>
           </div>
@@ -794,7 +795,7 @@
               </div>
             </div>
 
-            <div class="download-csv" *ngIf="!noAffiliateEarners">
+            <!-- <div class="download-csv" *ngIf="!noAffiliateEarners">
               <div class="heading-right right-aligned" (click)="downloadCSV()">
                 <h1 class="download-csv">
                   {{'Download as' | translate}} CSV
@@ -831,7 +832,7 @@
                   </span>
                 </h1>
               </div>
-            </div>
+            </div> -->
 
             <div class="clear"></div>
 
@@ -905,11 +906,6 @@
                     </td>
                   </tr>
                 </tbody>
-                <!-- <tbody *ngIf="!affiliatesLoader && !levelTwoData" >
-                                    <tr>
-                                        <td colspan="12" class="no-data-tbl">no data to display</td>
-                                    </tr>
-                                </tbody> -->
                 <tbody
                   *ngIf="!affiliatesLoader && !totalAffiliatesArray.length"
                 >
@@ -923,31 +919,9 @@
                 </tbody>
 
                 <tbody
-                  *ngIf="!affiliatesLoader && totalAffiliatesArray.length > 0"
+                  *ngIf="!affiliatesLoader && totalAffiliatesArray && totalAffiliatesArray.length > 0"
                 >
                   <tr *ngFor="let affiliate of totalAffiliatesArray">
-                    <!-- <td class="img-width-table v-middle text-center">
-
-                                            <div class="coin-image">
-                                                <img *ngIf="affiliate.CurrencyType=='USD'"
-                                                    src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
-                                                <img *ngIf="affiliate.CurrencyType=='MXN'"
-                                                    src="../../../assets/img/dollar-icon.png" alt="mxn-icon">
-                                                <img *ngIf="affiliate.CurrencyType=='LTC'"
-                                                    src="../../../assets/img/ltc-left.png" alt="ltc-icon">
-                                                <img *ngIf="affiliate.CurrencyType=='BTC'" style="width: 30px"
-                                                    src="../../../assets/img/btc-left.png" alt="btc-icon">
-                                                <img *ngIf="affiliate.CurrencyType=='ETH'"
-                                                    src="../../../assets/img/eth-left.png" alt="eth-icon">
-                                                <img style="padding-top: 12px;" *ngIf="affiliate.CurrencyType=='FRU'"
-                                                    src="../../../assets/img/fav.png" alt="xchge-icon">
-
-                                            </div>
-
-
-
-                                        </td> -->
-
                     <td class="text-uppercase text-center">
                       <p class="amounts-text">
                         {{affiliate.currency | currency:'crypto'}}
@@ -958,9 +932,6 @@
                         {{affiliate.amountInvested | currency: 'crypto'}}
                       </p>
                     </td>
-                    <!-- <td class="text-uppercase text-right">
-                                            <p class="amounts-text">${{affiliate.AmountInMexican}}</p>
-                                        </td> -->
 
                     <td class="text-center">
                       <p class="amounts-text">{{affiliate.userName}}</p>
@@ -971,14 +942,9 @@
                         {{affiliate.time | date : 'yyyy-MM-dd'}}
                       </p>
                     </td>
-
-                    <!-- <td class="text-right">
-                                            <p class="amounts-text-black">{{affiliate.EarningInMexican}} MXN</p>
-                                        </td> -->
-
                     <td class="text-center">
                       <p class="amounts-text-black">
-                        {{affiliate.earningInPPTL | currency:'crypto'}} $EMYA
+                        {{affiliate.earningInEMYA | currency:'crypto'}} $EMYA
                       </p>
                     </td>
                   </tr>

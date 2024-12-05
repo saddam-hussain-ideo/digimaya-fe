@@ -31,7 +31,7 @@ export class Affiliate {
   public totalAffiliateCurrentPage = 1;
   public totalAffiliatesArray = [];
   public csvData: any;
-  public totalEarningInPPTL: any;
+  public totalEarningInEMYA: any;
   public totalEarningInUSD: any;
 
   public dataFilter = 'DAY';
@@ -342,7 +342,7 @@ export class Affiliate {
             this.levelOneData = res['data'];
             console.log(this.levelOneData, "levelonedata");
 
-            this.tableOneCount = this.levelOneData.data.length;
+            this.tableOneCount = this.levelOneData.length;
           }
         },
         (err) => {
@@ -467,7 +467,7 @@ export class Affiliate {
             this._sharedService.showHideLoader(false);
             this.noAffiliateEarners = false;
             this.totalAffiliateEarningsRecords = a.data.Count;
-            this.totalEarningInPPTL = a.data.totalEarningInPPTL;
+            this.totalEarningInEMYA = a.data.totalEarningInEMYA;
             this.totalEarningInUSD = a.data.totalEarningInAud;
             this.totalAffiliatesArray = a.data.earningList;
             this.referalLicencesCount = {
@@ -629,7 +629,7 @@ export class Affiliate {
     if (value == 'usdt') {
       return this.totalEarningInUSD != undefined ? this.totalEarningInUSD : 0;
     } else {
-      return this.totalEarningInPPTL != undefined ? this.totalEarningInPPTL : 0;
+      return this.totalEarningInEMYA != undefined ? this.totalEarningInEMYA : 0;
     }
   }
 
