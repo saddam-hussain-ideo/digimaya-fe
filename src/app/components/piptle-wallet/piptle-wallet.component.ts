@@ -238,7 +238,6 @@ export class PiptleWalletComponent implements OnInit {
       },
       (err) => {
         this._sharedService.showHideLoader(false);
-
         console.log(err);
       }
     );

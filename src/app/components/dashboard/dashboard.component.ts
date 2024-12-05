@@ -8,7 +8,6 @@ import {
 import Chart from 'chart.js';
 import { DashboardService } from '../../services/dashboardService';
 import { AmountInvestedModel } from '../../models/amountInvestedModel';
-import { RatesModel } from '../../models/ratesModel';
 import { SharedService } from '../../services/shared';
 import { TransactionsModel } from '../../models/transactionsModel';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -68,9 +67,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
   public userObject: any;
   public investedValues: AmountInvestedModel;
   public recentTransactions: TransactionsModel[];
-  public RatesModel: RatesModel;
+  public RatesModel;
   public liveRates: any;
-  public selectedCurrency: any = 'btc';
+  public selectedCurrency: any = 'usd';
   public coinsWanted: any;
   public coinsCalculated: any;
   public coinsCalculatedBottom: any = 0;
@@ -96,7 +95,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   public BitcoinGoldWidgetData = [];
   public XchangeWidgetData = [];
 
-  public selectedCurrencyActual: any = 'btc';
+  public selectedCurrencyActual: any = 'USD';
 
   public noLatestTransactions = false;
 
@@ -127,7 +126,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     private translate: TranslateService
   ) {
     this.investedValues = new AmountInvestedModel();
-    this.RatesModel = new RatesModel();
+    this.RatesModel;
     this.validations = new Validations();
   }
 
@@ -204,38 +203,27 @@ export class DashboardComponent implements OnDestroy, OnInit {
   }
 
   getLiveRatesByCode() {
-    // this.liveRates.btc = (this.liveRates.btc / this.liveRates.fru).toFixed(4);
     this.liveRates.btc = Number(this.liveRates.btc).toFixed(4);
     this.liveRates.btc = this.validations.toCommas(this.liveRates.btc);
-
     this.liveRates.bch = Number(this.liveRates.bch).toFixed(4);
     this.liveRates.bch = this.validations.toCommas(this.liveRates.bch);
-
-    // this.liveRates.ltc = (this.liveRates.ltc / this.liveRates.fru).toFixed(4);
     this.liveRates.ltc = Number(this.liveRates.ltc).toFixed(4);
     this.liveRates.ltc = this.validations.toCommas(this.liveRates.ltc);
-    // this.liveRates.eth = (this.liveRates.eth / this.liveRates.fru).toFixed(4);
     this.liveRates.eth = Number(this.liveRates.eth).toFixed(4);
     this.liveRates.eth = this.validations.toCommas(this.liveRates.eth);
-    // this.liveRates.mxn = (this.liveRates.mxn / this.liveRates.fru).toFixed(4);
     this.liveRates.mxn = Number(this.liveRates.mxn).toFixed(4);
     this.liveRates.mxn = this.validations.toCommas(this.liveRates.mxn);
-
     this.liveRates.usd = Number(this.liveRates.usd).toFixed(4);
     this.liveRates.usd = this.validations.toCommas(this.liveRates.usd);
-    this.convertCurrencyToPPTL('mxn');
+    this.convertCurrencyToPPTL('usd');
   }
 
   getRates() {
     this._dashboardService.getRates().subscribe(
       (a) => {
-        console.log(a);
-
         if (a.code == 200) {
           this.RatesModel = a.data;
           this.liveRates = Object.assign({}, a.data);
-          console.log(this.liveRates);
-
           this.getLiveRatesByCode();
           this.populateWidgets();
         }
@@ -267,11 +255,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
         (a) => {
           if (a.code == 200) {
             this.pagination = [];
-            console.log(a);
-
             this.recentTransactions = a.data.list;
             this.paginationNumber = a.data.count;
-
             for (let x = 0; x < this.recentTransactions.length; x++) {
               this.recentTransactions[x].CalculatedTokens =
                 this.validations.toCommas(
@@ -284,7 +269,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
             }
 
             this._sharedService.showHideLoader(false);
-
             if (this.recentTransactions.length == 0) {
               this.noTransactions = true;
             } else {
@@ -314,7 +298,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
     this.totalCalulatedValue = calculateInMxn;
     // let coinWithDiscount = (calculateInMxn / this.RatesModel.liveRate).toFixed(8);
-    const totalCoins = +(calculateInMxn / this.RatesModel.liveRate).toFixed(8);
+    const totalCoins = +(
+      calculateInMxn / this.RatesModel.liveRate.$numberDecimal
+    ).toFixed(8);
 
     let bonusTokens = 0;
     let bonusPercentage = 0;
@@ -334,15 +320,11 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
     this.coinsCalculatedBottom = coinsWithBonus;
     // this.coinsCalculated = (calculateInMxn / this.RatesModel.baseRate).toFixed(8);
-
     // this.bonusTokens = (Number(coinWithDiscount) - Number(this.coinsCalculated)).toFixed(8)
-
     // this.totalTokensWithoutBonus = this.coinsCalculated;
-
     // this.coinsCalculatedBottom = coinWithDiscount;
     // this.coinsCalculated = coinWithDiscount;
     this.coinsWantedBottom = this.coinsWanted;
-
     // this.totalCoinToPayFor = Number(coinWithDiscount)
   }
 
@@ -369,7 +351,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     const valueForCurrencySelected = this.RatesModel[selectedCurrency];
 
     this.coinsWanted = (
-      (this.coinsCalculated * this.RatesModel.liveRate) /
+      (this.coinsCalculated * this.RatesModel.liveRate.$numberDecimal) /
       valueForCurrencySelected
     ).toFixed(6);
     this.coinsCalculatedBottom = this.coinsCalculated;
@@ -418,7 +400,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
   checkLength() {
     const fieldLength = $('#coinsWanted').val().length;
-
     if (fieldLength <= 8) {
       return true;
     } else {
@@ -445,11 +426,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
     if (this.coinsCalculated < 0) {
       this.coinsCalculated = 0;
     }
-
     // if (value.length > 8) {
     //     return false;
     // }
-
     this.calculate_reverse(this.selectedCurrency);
   }
 
@@ -470,22 +449,27 @@ export class DashboardComponent implements OnDestroy, OnInit {
            this.coinsCalculated = 0; */
 
     this.selectedCurrency = elem;
-    if (elem == 'liveRate') {
+    if (elem == 'usd') {
       this.selectedCurrencyActual = 'USD';
+    } else if (elem == 'usdt') {
+      this.selectedCurrencyActual = 'USDT';
+    } else if (elem == 'usdc') {
+      this.selectedCurrencyActual = 'USDC';
+    } else if (elem == 'btc') {
+      this.selectedCurrencyActual = 'BTC';
+    } else if (elem == 'eth') {
+      this.selectedCurrencyActual = 'ETH';
+    } else if (elem == 'ton') {
+      this.selectedCurrencyActual = 'TON';
+    } else if (elem == 'sol') {
+      this.selectedCurrencyActual = 'SOL';
+    } else if (elem == 'bnb') {
+      this.selectedCurrencyActual = 'BNB';
     } else {
       this.selectedCurrencyActual = elem;
-      // this.selectedCurrencyActual = elem;
-      if (elem == 'mxn') {
-        this.selectedCurrencyActual = 'AUD';
-      } else if (elem == 'usd') {
-        this.selectedCurrencyActual = 'USDT';
-      } else {
-        this.selectedCurrencyActual = elem;
-      }
     }
 
     this.resetCalculator();
-
     /* this.calculate_now(this.selectedCurrency);  */ // Calculate again when another value selected from dropdown
   }
 
@@ -542,8 +526,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
       .takeWhile(() => this._alive)
       .subscribe(
         (a) => {
-          console.log(a);
-
           this.BitcoinWidgetData = a.BTC;
           for (let i = 0; i < this.BitcoinWidgetData.length; i++) {
             this.BitcoinWidgetData[i] = this.BitcoinWidgetData[i];
@@ -1088,10 +1070,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
     this.userService.getTokens(this.userId, this.userToken).subscribe(
       (res) => {
         if (res) {
-          console.log(res);
-
           this.totalPiptles = res['data']['totalTokens'];
-          this.totalValueAud = this.totalPiptles * this.RatesModel.liveRate;
+          this.totalValueAud =
+            this.totalPiptles * this.RatesModel.liveRate.$numberDecimal;
         }
       },
       (err) => {
@@ -1105,19 +1086,13 @@ export class DashboardComponent implements OnDestroy, OnInit {
   getILOStages() {
     this._dashboardService.getILOStages().subscribe(
       (a) => {
-        console.log(a);
-
         if (a.code == 200) {
           this.stageData = a['data'].stagesInfo;
           const number = a['data'].totalCapacity;
           this.totalCapacity = this.numberWithCommas(number);
-
           const total = a['data'].totalIssued;
           const totalNumber = total.toString().split('.')[0];
           this.totalIssued = this.numberWithCommas(totalNumber);
-
-          console.log(this.totalIssued);
-
           this.totalLicesees = a['data']['globalInfo']['total_licences'];
         }
       },
@@ -1137,26 +1112,28 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
   convertCurrencyToPPTL(value) {
     this.selectedCurrencyUSD = value;
-    console.log(this.RatesModel);
-    const liveRate = this.RatesModel.liveRate;
+    const liveRate = this.RatesModel.liveRate.$numberDecimal;
     let rates;
-    if (value == 'btc') {
-      rates = this.validations.toConcat(this.liveRates.btc);
-    } else if (value == 'ltc') {
-      rates = this.validations.toConcat(this.liveRates.ltc);
-    } else if (value == 'bch') {
-      rates = this.validations.toConcat(this.liveRates.bch);
-    } else if (value == 'usd') {
+
+    if (value == 'usd') {
       rates = this.validations.toConcat(this.liveRates.usd);
-    } else if (value == 'mxn') {
-      this.selectedCurrencyUSD = 'USD';
-      rates = this.validations.toConcat(this.liveRates.mxn);
+    } else if (value == 'usdt') {
+      rates = this.validations.toConcat(this.liveRates.usdt);
+    } else if (value == 'usdc') {
+      rates = this.validations.toConcat(this.liveRates.usdc);
+    } else if (value == 'btc') {
+      rates = this.validations.toConcat(this.liveRates.btc);
     } else if (value == 'eth') {
       rates = this.validations.toConcat(this.liveRates.eth);
+    } else if (value == 'ton') {
+      rates = this.validations.toConcat(this.liveRates.ton);
+    } else if (value == 'sol') {
+      rates = this.validations.toConcat(this.liveRates.sol);
+    } else if (value == 'bnb') {
+      rates = this.validations.toConcat(this.liveRates.bnb);
     }
-    console.log(rates);
+
     const valueInAud = 1 / rates;
-    console.log(valueInAud);
     this.selectedCurrencyValue = liveRate * valueInAud;
   }
 }
