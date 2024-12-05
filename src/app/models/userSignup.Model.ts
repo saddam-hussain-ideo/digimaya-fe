@@ -8,6 +8,5 @@ export class UserSignupModel {
   username: any;
   ETHWalleRecieverData: any;
   Language: any;
-  country: string;
   mobile: string;
 }
