@@ -35,7 +35,7 @@
                 </div>
               </div> -->
               <p class="number">
-                {{networkIssuedPPTL | currency : 'crypto'}} $EMYA
+                {{totalEarningInEMYA | currency : 'crypto'}} $EMYA
               </p>
             </div>
           </div>
@@ -72,7 +72,8 @@
               </div> -->
               <p class="number">
                 <!-- {{networkIssuedPPTL | currency : 'crypto'}} $EMYA -->
-                0
+                {{totalAffiliateEarningsRecords ? totalAffiliateEarningsRecords
+                :0}}
               </p>
             </div>
           </div>
@@ -527,18 +528,22 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader1 && levelOneData">
+                <tbody
+                  *ngIf="!tableLoader1 && levelOneData && levelOneData.length === 0"
+                >
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader1 && levelOneData">
-                  <tr *ngFor="let data of levelOneData?.data.rows">
-                    <td>{{data.name}}</td>
-                    <td>{{data.username}}</td>
-                    <td>{{data.join_date}}</td>
-                    <td>{{levelOneData?.data.length}}</td>
-                    <td>{{data.pptlIssued | currency:'crypto'}}</td>
+                <tbody
+                  *ngIf="!tableLoader1 && levelOneData && levelOneData.length > 0"
+                >
+                  <tr *ngFor="let data of levelOneData">
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{levelOneData ? levelOneData.length : 0}}</td>
+                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
@@ -546,7 +551,7 @@
 
               <div
                 class="pagination-bottom pt-2"
-                *ngIf="!tableLoader1  && levelOneData"
+                *ngIf="!tableLoader1  && levelOneData && levelOneData.length > 0"
               >
                 <pagination-controls
                   *ngIf="tableOneSize < tableOneCount"
@@ -628,18 +633,22 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader2 && levelTwoData">
+                <tbody
+                  *ngIf="!tableLoader2 && levelTwoData && levelTwoData.length === 0"
+                >
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader2  && levelTwoData">
-                  <tr *ngFor="let data of levelTwoData?.data.rows">
-                    <td>{{data.name}}</td>
-                    <td>{{data.username}}</td>
-                    <td>{{data.join_date}}</td>
-                    <td>{{levelTwoData?.data.length}}</td>
-                    <td>{{data.pptlIssued | currency:'crypto'}}</td>
+                <tbody
+                  *ngIf="!tableLoader2  && levelTwoData && levelTwoData.length > 0"
+                >
+                  <tr *ngFor="let data of levelTwoData">
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{levelTwoData ? levelTwoData.length : 0}}</td>
+                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
@@ -729,25 +738,23 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader3 && levelThreeData">
+                <tbody
+                  *ngIf="!tableLoader3 && levelThreeData && levelThreeData.length === 0"
+                >
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader3 && levelThreeData">
-                  <tr *ngFor="let data of levelThreeData?.data.rows">
-                    <td class="tbl-row-pd">{{data.name}}</td>
-                    <td class="tbl-row-pd">{{data.username}}</td>
-                    <td class="tbl-row-pd">{{data.join_date}}</td>
-                    <td class="tbl-row-pd">
-                      {{levelThreeData?.data.length}}
-                    </td>
-                    <td class="tbl-row-pd">
-                      {{data.pptlIssued | currency:'crypto'}}
-                    </td>
-                    <td class="tbl-row-pd">
-                      {{data.bonusEarned | currency:'crypto'}}
-                    </td>
+                <tbody
+                  *ngIf="!tableLoader3 && levelThreeData && levelThreeData.length > 0"
+                >
+                  <tr *ngFor="let data of levelThreeData">
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{levelOneData ? levelOneData.length : 0}}</td>
+                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
+                    <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -788,7 +795,7 @@
               </div>
             </div>
 
-            <div class="download-csv" *ngIf="!noAffiliateEarners">
+            <!-- <div class="download-csv" *ngIf="!noAffiliateEarners">
               <div class="heading-right right-aligned" (click)="downloadCSV()">
                 <h1 class="download-csv">
                   {{'Download as' | translate}} CSV
@@ -825,7 +832,7 @@
                   </span>
                 </h1>
               </div>
-            </div>
+            </div> -->
 
             <div class="clear"></div>
 
@@ -899,12 +906,9 @@
                     </td>
                   </tr>
                 </tbody>
-                <!-- <tbody *ngIf="!affiliatesLoader && !levelTwoData" >
-                                    <tr>
-                                        <td colspan="12" class="no-data-tbl">no data to display</td>
-                                    </tr>
-                                </tbody> -->
-                <tbody *ngIf="!affiliatesLoader && !totalAffiliatesArray ">
+                <tbody
+                  *ngIf="!affiliatesLoader && !totalAffiliatesArray.length"
+                >
                   <tr>
                     <td colspan="12" class="text-center">
                       <p class="no-record">
@@ -915,31 +919,9 @@
                 </tbody>
 
                 <tbody
-                  *ngIf="!affiliatesLoader && totalAffiliatesArray.length > 0"
+                  *ngIf="!affiliatesLoader && totalAffiliatesArray && totalAffiliatesArray.length > 0"
                 >
                   <tr *ngFor="let affiliate of totalAffiliatesArray">
-                    <!-- <td class="img-width-table v-middle text-center">
-
-                                            <div class="coin-image">
-                                                <img *ngIf="affiliate.CurrencyType=='USD'"
-                                                    src="../../../assets/img/dollar-icon-green.png" alt="dollar-icon">
-                                                <img *ngIf="affiliate.CurrencyType=='MXN'"
-                                                    src="../../../assets/img/dollar-icon.png" alt="mxn-icon">
-                                                <img *ngIf="affiliate.CurrencyType=='LTC'"
-                                                    src="../../../assets/img/ltc-left.png" alt="ltc-icon">
-                                                <img *ngIf="affiliate.CurrencyType=='BTC'" style="width: 30px"
-                                                    src="../../../assets/img/btc-left.png" alt="btc-icon">
-                                                <img *ngIf="affiliate.CurrencyType=='ETH'"
-                                                    src="../../../assets/img/eth-left.png" alt="eth-icon">
-                                                <img style="padding-top: 12px;" *ngIf="affiliate.CurrencyType=='FRU'"
-                                                    src="../../../assets/img/fav.png" alt="xchge-icon">
-
-                                            </div>
-
-
-
-                                        </td> -->
-
                     <td class="text-uppercase text-center">
                       <p class="amounts-text">
                         {{affiliate.currency | currency:'crypto'}}
@@ -950,9 +932,6 @@
                         {{affiliate.amountInvested | currency: 'crypto'}}
                       </p>
                     </td>
-                    <!-- <td class="text-uppercase text-right">
-                                            <p class="amounts-text">${{affiliate.AmountInMexican}}</p>
-                                        </td> -->
 
                     <td class="text-center">
                       <p class="amounts-text">{{affiliate.userName}}</p>
@@ -963,14 +942,9 @@
                         {{affiliate.time | date : 'yyyy-MM-dd'}}
                       </p>
                     </td>
-
-                    <!-- <td class="text-right">
-                                            <p class="amounts-text-black">{{affiliate.EarningInMexican}} MXN</p>
-                                        </td> -->
-
                     <td class="text-center">
                       <p class="amounts-text-black">
-                        {{affiliate.earningInPPTL | currency:'crypto'}} $EMYA
+                        {{affiliate.earningInEMYA | currency:'crypto'}} $EMYA
                       </p>
                     </td>
                   </tr>
