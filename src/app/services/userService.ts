@@ -431,10 +431,10 @@ export class UserService {
       .map((res) => res.json());
   }
 
-  updateProfile(name, phoneNumber) {
+  updateProfile(name, phoneNumber, userId) {
     let data;
 
-    data = { name: name, phoneNumber: phoneNumber };
+    data = { userid: userId, phone: phoneNumber, name: name };
 
     const headers = new Headers();
 
