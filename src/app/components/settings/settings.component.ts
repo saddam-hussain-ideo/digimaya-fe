@@ -1253,7 +1253,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this._userService
         .updateProfile(
           this.userObject.Name,
-          this.userObject.PhoneNumber
+          this.userObject.PhoneNumber,
+          this.userObject.UserId
         )
         .subscribe(
           (a) => {
