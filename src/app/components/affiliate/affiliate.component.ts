@@ -325,8 +325,8 @@ export class Affiliate {
           if (res) {
             this.tableLoader1 = false;
             this.referredCountries = res['data']['referred_countries'];
-            this.levelOneData = res;
-            this.tableOneCount = this.levelOneData.data.length;
+            this.levelOneData = res['data'];
+            this.tableOneCount = this.levelOneData.length;
           }
         },
         (err) => {
