@@ -377,6 +377,9 @@
     font-size: 14px;
     color: #8c8c8c;
   }
+  &.dark{
+    color: brown;
+  }
   li{
     list-style-type: disc;
   }
@@ -1207,5 +1210,32 @@
       width: 20px !important;
       height: 20px !important;
     }
+  }
+}
+
+.edit-profile-buttom{
+  font-family: 'MavenPro';
+  font-size: 16px;
+  color: #191919;
+  padding: 12px;
+  min-width: 120px;
+  font-weight: 600;
+  margin-top: 30px;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 3px;
+    background: radial-gradient(
+      107.63% 220.06% at 0.17% 0.51%,
+      #ff7f2c 0%,
+      #ff0082 100%
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
   }
 }

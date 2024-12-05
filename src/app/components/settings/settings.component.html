@@ -1408,5 +1408,29 @@
         </div>
       </div>
     </div>
+    <div class="d-flex align-items-center justify-content-center flex-column">
+      <p class="sub-title no-left-margin"> Your Profile </p>
+      <div class="d-flex flex-row">
+        <div class="d-flex flex-column w-50">
+          <p class="nn-lbl-sett dark text-right mr-3">First Name</p>
+          <p class="nn-lbl-sett dark text-right mr-3">Last Name</p>
+          <p class="nn-lbl-sett dark text-right mr-3">Sex</p>
+          <p class="nn-lbl-sett dark text-right mr-3">Year of Birth</p>
+          <p class="nn-lbl-sett dark text-right mr-3">Country</p>
+          <p class="nn-lbl-sett dark text-right mr-3">Phone Number</p>
+          <p class="nn-lbl-sett dark text-right mr-3">Primary Email</p>
+        </div>
+        <div class="d-flex flex-column w-50">
+          <p class="nn-lbl-sett text-left">{{ userObject.Name }}</p>
+          <p class="nn-lbl-sett text-left">{{ userObject.Name }}</p>
+          <p class="nn-lbl-sett text-left">Male</p>
+          <p class="nn-lbl-sett text-left">1984</p>
+          <p class="nn-lbl-sett text-left">Portugal</p>
+          <p class="nn-lbl-sett text-left">0311581548484</p>
+          <p class="nn-lbl-sett text-left">{{ userObject.Email }}</p>
+        </div>
+      </div>
+      <button class="edit-profile-buttom">Edit Profile</button>
+    </div>
   </div>
 </section>
