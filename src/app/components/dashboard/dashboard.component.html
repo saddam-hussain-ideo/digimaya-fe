@@ -73,9 +73,9 @@
       <div class="col-lg-3 col-md-4 pl-0 mb-3">
         <div class="info-custom-card">
           <div class="content">
-            <span class="heading text-class">Seed Stage</span>
-            <span class="pulper-color" *ngIf="RatesModel.stageName">
-              {{ RatesModel?.stageName ? RatesModel?.stageName : "0" }}
+            <span class="heading text-class">Current Stage: </span>
+            <span class="pulper-color" *ngIf="RatesModel?.stageName">
+              {{ RatesModel?.stageName ? RatesModel?.stageName : '0' }}
             </span>
             <span class="pulper-color" *ngIf="!RatesModel?.stageName"> 0 </span>
           </div>
@@ -93,7 +93,7 @@
         <div class="info-custom-card">
           <div class="content">
             <span class="heading text-class">Current $EMYA Value </span>
-            <!-- <span class="pulper-color"> $ {{RatesModel.liveRate | currency : 'stageRate'}} </span> -->
+            <!-- <span class="pulper-color"> $ {{RatesModel?.liveRate | currency : 'stageRate'}} </span> -->
             <span class="pulper-color">
               {{ selectedCurrencyUSD }}
               {{ selectedCurrencyValue | currency: 'crypto' }}
@@ -650,18 +650,14 @@
                                 getCurrencySelected($event.target.value)
                               "
                             >
+                              <option value="usd">USD</option>
+                              <option value="usdc">USDC</option>
+                              <option value="usdt">USDT</option>
                               <option value="btc">BTC</option>
-                              <option value="ltc">LTC</option>
                               <option value="eth">ETH</option>
-                              <!-- <option value="bch">BCH</option> -->
-                              <!--  <option value="neo">NEO</option>-->
-                              <!-- <option value="btg">BTG</option> -->
-                              <!-- <option value="dash">DASH</option> -->
-                              <option value="mxn">USD</option>
-                              <!-- <option value="mxnp">MXNP</option> -->
-                              <option value="usd">USDT</option>
-                              <option value="bch">BCH</option>
-                              <!-- <option value="eur">EURO</option> -->
+                              <option value="ton">TON</option>
+                              <option value="sol">SOL</option>
+                              <option value="bnb">BNB</option>
                             </select>
                           </span>
                         </div>
@@ -705,7 +701,7 @@
                                   {{ 'Round Stage' | translate }}
                                 </td>
                                 <td class="right-header">
-                                  {{ RatesModel.stageName }}
+                                  {{ RatesModel?.stageName }}
                                 </td>
                                 <!-- <td class="right-aligned text-uppercase">FRU</td> -->
                               </tr>
@@ -717,7 +713,7 @@
                                 >
 
                                 <!-- <td class="">{{bonusTokens}}</td> -->
-                                <!-- <td class="">{{RatesModel.bonus}}%</td> -->
+                                <!-- <td class="">{{RatesModel?.bonus}}%</td> -->
                                 <td class="right-header">
                                   {{ bonusPercentage }} %
                                 </td>
@@ -729,7 +725,7 @@
                                 <td class="left-header">Bonus Coins</td>
 
                                 <!-- <td class="">{{bonusTokens}}</td> -->
-                                <!-- <td class="">{{RatesModel.bonus}}%</td> -->
+                                <!-- <td class="">{{RatesModel?.bonus}}%</td> -->
                                 <td class="right-header">
                                   {{ bonusCoins | currency }}
                                 </td>

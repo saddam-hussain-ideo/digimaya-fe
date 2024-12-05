@@ -343,7 +343,7 @@ export class UserService {
     return this.http
       .get(
         environment.BaseUrl +
-          `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}&type=all`,
+        `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}&type=all`,
         { headers: headers }
       )
       .map((res) => res.json());
@@ -359,7 +359,7 @@ export class UserService {
     return this.http
       .get(
         environment.BaseUrl +
-          `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}`,
+        `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}`,
         { headers: headers }
       )
       .map((res) => res.json());
@@ -374,7 +374,7 @@ export class UserService {
     return this.http
       .get(
         environment.BaseUrl +
-          `user/updateNotificationStatus?notificationid=${notificationId}`,
+        `user/updateNotificationStatus?notificationid=${notificationId}`,
         { headers: headers }
       )
       .map((res) => res.json());
@@ -426,6 +426,24 @@ export class UserService {
     headers.append('authorization', token);
     return this.http
       .get(`${environment.BaseUrl}user/getLoginCredentials/${queryParams}`, {
+        headers: headers
+      })
+      .map((res) => res.json());
+  }
+
+  updateProfile(name, phoneNumber) {
+    let data;
+
+    data = { name: name, phoneNumber: phoneNumber };
+
+    const headers = new Headers();
+
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', this.userToken);
+
+    return this.http
+      .post(environment.BaseUrl + 'user/edituserprofile', data, {
         headers: headers
       })
       .map((res) => res.json());

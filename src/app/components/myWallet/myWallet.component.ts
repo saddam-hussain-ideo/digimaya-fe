@@ -42,7 +42,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   public _alive = true;
   public fileName: any;
 
-  public wireCurrencySelected: any = 'AUD';
+  public wireCurrencySelected: any = 'USD';
 
   public creditCardCurrency: any = 'USD';
 
@@ -566,9 +566,9 @@ export class MyWalletComponent implements OnInit, OnDestroy {
             this.investedValues.TokenBalance = this.validations.toCommas(
               this.investedValues.TokenBalance
             );
-            this.investedValues.EARNTokenBalance = this.validations.toCommas(
-              this.investedValues.EARNTokenBalance
-            );
+            // this.investedValues.EARNTokenBalance = this.validations.toCommas(
+            //   this.investedValues.EARNTokenBalance
+            // );
 
             this._sharedService.showHideLoader(false);
           }
@@ -604,32 +604,32 @@ export class MyWalletComponent implements OnInit, OnDestroy {
           this.LoaderWire = false;
           this.bankInfo = a.data;
           // if(this.wireCurrencySelected == "MXN"){
-          if (this.wireCurrencySelected == 'AUD') {
-            this.beneficiaryNomber = this.bankInfo.MXNBeneficiaryNomber;
-            this.beneficiartBank = this.bankInfo.MXNBeneficiartBank;
-            this.merchantBankName = this.bankInfo.MXNBankName;
-            this.merchantBankAccount = this.bankInfo.MXNAccountNumber;
-            this.currencyRate = Number(this.bankInfo.MXN).toFixed(8);
-          } else if (this.wireCurrencySelected == 'USD') {
-            this.beneficiaryNomber = this.bankInfo.BeneficiaryNomber;
-            this.beneficiartBank = this.bankInfo.BeneficiartBank;
-            this.branchCode = this.bankInfo.BranchCode;
-            this.address = this.bankInfo.Address;
-            this.swift = this.bankInfo.SWIFT;
-            this.merchantBankName = this.bankInfo.IntermediaryBank;
-            this.merchantBankAccount = this.bankInfo.AccountNumber;
-            this.currencyRate = Number(this.bankInfo.USD).toFixed(8);
-            this.currencyRateCreditCard = this.bankInfo.USD;
-          } else {
-            this.swift = this.bankInfo.SWIFT;
-            this.beneficiaryNomber = this.bankInfo.BeneficiaryNomber;
-            this.beneficiartBank = this.bankInfo.BeneficiartBank;
-            this.branchCode = this.bankInfo.BranchCode;
-            this.merchantBankName = this.bankInfo.IntermediaryBank;
-            this.merchantBankAccount = this.bankInfo.AccountNumber;
-            this.currencyRate = Number(this.bankInfo.USD).toFixed(8);
-            this.currencyRateCreditCard = this.bankInfo.USD;
-          }
+          // if (this.wireCurrencySelected == 'AUD') {
+          //   this.beneficiaryNomber = this.bankInfo.MXNBeneficiaryNomber;
+          //   this.beneficiartBank = this.bankInfo.MXNBeneficiartBank;
+          //   this.merchantBankName = this.bankInfo.MXNBankName;
+          //   this.merchantBankAccount = this.bankInfo.MXNAccountNumber;
+          //   this.currencyRate = Number(this.bankInfo.MXN).toFixed(8);
+          // } else if (this.wireCurrencySelected == 'USD') {
+          //   this.beneficiaryNomber = this.bankInfo.BeneficiaryNomber;
+          //   this.beneficiartBank = this.bankInfo.BeneficiartBank;
+          //   this.branchCode = this.bankInfo.BranchCode;
+          //   this.address = this.bankInfo.Address;
+          //   this.swift = this.bankInfo.SWIFT;
+          //   this.merchantBankName = this.bankInfo.IntermediaryBank;
+          //   this.merchantBankAccount = this.bankInfo.AccountNumber;
+          //   this.currencyRate = Number(this.bankInfo.USD).toFixed(8);
+          //   this.currencyRateCreditCard = this.bankInfo.USD;
+          // } else {
+          //   this.swift = this.bankInfo.SWIFT;
+          //   this.beneficiaryNomber = this.bankInfo.BeneficiaryNomber;
+          //   this.beneficiartBank = this.bankInfo.BeneficiartBank;
+          //   this.branchCode = this.bankInfo.BranchCode;
+          //   this.merchantBankName = this.bankInfo.IntermediaryBank;
+          //   this.merchantBankAccount = this.bankInfo.AccountNumber;
+          //   this.currencyRate = Number(this.bankInfo.USD).toFixed(8);
+          //   this.currencyRateCreditCard = this.bankInfo.USD;
+          // }
           this.count = this.count + 1;
         }
       },
@@ -674,7 +674,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     this.getInvestedData();
     this.getWalletAddresses();
 
-    this.changeWireCurrency(this.wireCurrencySelected);
+    // this.changeWireCurrency(this.wireCurrencySelected);
     if (
       this.userObject.WalletAddress == undefined ||
       this.userObject.WalletAddress == null
