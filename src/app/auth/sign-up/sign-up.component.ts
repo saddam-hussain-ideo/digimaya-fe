@@ -155,7 +155,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
     this.countryCode = `+${code}`;
     this.countryName = country;
-    this.SignUpObject.country = this.countryName;
   }
 
   resendVerificationCode() {
@@ -169,10 +168,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
           this.lang == 'en'
             ? this.toasterService.pop('success', 'Success', a.message)
             : this.toasterService.pop(
-                'success',
-                'Satisfactorioamente',
-                a.message
-              );
+              'success',
+              'Satisfactorioamente',
+              a.message
+            );
           // this.toasterService.pop('success', 'Satisfactorioamente', a.message);
         }
       },
@@ -202,10 +201,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
           this.lang == 'en'
             ? this.toasterService.pop('success', 'Success', a.message)
             : this.toasterService.pop(
-                'success',
-                'Satisfactorioamente',
-                a.message
-              );
+              'success',
+              'Satisfactorioamente',
+              a.message
+            );
           // this.toasterService.pop('success', 'Satisfactorioamente', a.message);
 
           $('#TermsCheck').prop('checked', false);
@@ -269,24 +268,24 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this.lang == 'en'
         ? this.toasterService.pop('error', 'Error', 'Email is required')
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'Correo electrónico requerido'
-          );
+          'error',
+          'Error',
+          'Correo electrónico requerido'
+        );
     } else {
       if (!this.ValidationsClass.validateEmail(this.SignUpObject.email)) {
         error = true;
         this.lang == 'en'
           ? this.toasterService.pop(
-              'error',
-              'Error',
-              'Email should be a valid email.'
-            )
+            'error',
+            'Error',
+            'Email should be a valid email.'
+          )
           : this.toasterService.pop(
-              'error',
-              'Error',
-              'Ingrese un correo electrónico válido'
-            );
+            'error',
+            'Error',
+            'Ingrese un correo electrónico válido'
+          );
       }
     }
 
@@ -295,39 +294,39 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this.lang == 'en'
         ? this.toasterService.pop('error', 'Error', 'Please enter a username')
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'Favor de ingresar un usuario valido'
-          );
+          'error',
+          'Error',
+          'Favor de ingresar un usuario valido'
+        );
     } else if (
       !this.ValidationsClass.verifyUserNameLength(this.SignUpObject.username)
     ) {
       error = true;
       this.lang == 'en'
         ? this.toasterService.pop(
-            'error',
-            'Error',
-            'Username should be between 3-20 characters'
-          )
+          'error',
+          'Error',
+          'Username should be between 3-20 characters'
+        )
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'El nombre de usuario debe tener entre 3 y 20 caracteres'
-          );
+          'error',
+          'Error',
+          'El nombre de usuario debe tener entre 3 y 20 caracteres'
+        );
     } else {
       if (!this.ValidationsClass.verifyUsername(this.SignUpObject.username)) {
         error = true;
         this.lang == 'en'
           ? this.toasterService.pop(
-              'error',
-              'Error',
-              'Username should be alphanumeric with only one underscore as a special character.'
-            )
+            'error',
+            'Error',
+            'Username should be alphanumeric with only one underscore as a special character.'
+          )
           : this.toasterService.pop(
-              'error',
-              'Error',
-              'El nombre de usuario debe ser alfanumérico y solo un guion bajo como carácter especial'
-            );
+            'error',
+            'Error',
+            'El nombre de usuario debe ser alfanumérico y solo un guion bajo como carácter especial'
+          );
       }
     }
 
@@ -336,15 +335,15 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this.lang == 'en'
         ? this.toasterService.pop('error', 'Error', 'Full Name is required')
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'Se requiere nombre completo '
-          );
+          'error',
+          'Error',
+          'Se requiere nombre completo '
+        );
     }
-    if (!this.ValidationsClass.verifyNameInputs(this.SignUpObject.country)) {
-      error = true;
-      this.toasterService.pop('error', 'Error', 'Country is required');
-    }
+    //TODO commented as country is now not going to be used if (!this.ValidationsClass.verifyNameInputs(this.SignUpObject.country)) {
+    //   error = true;
+    //   this.toasterService.pop('error', 'Error', 'Country is required');
+    // }
     if (
       !this.ValidationsClass.validatePhone(
         `${this.countryCode}${this.SignUpObject.mobile}`
@@ -360,15 +359,15 @@ export class SignUpComponent implements OnInit, OnDestroy {
       error = true;
       this.lang == 'en'
         ? this.toasterService.pop(
-            'error',
-            'Error',
-            'Full Name should be between 3-50 characters'
-          )
+          'error',
+          'Error',
+          'Full Name should be between 3-50 characters'
+        )
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'Nombre Completo (8-50 caracteres)'
-          );
+          'error',
+          'Error',
+          'Nombre Completo (8-50 caracteres)'
+        );
     }
 
     if (!this.ValidationsClass.verifyNameInputs(this.SignUpObject.password)) {
@@ -376,10 +375,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this.lang == 'en'
         ? this.toasterService.pop('error', 'Error', 'Password is required')
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'La contraseña es requerida'
-          );
+          'error',
+          'Error',
+          'La contraseña es requerida'
+        );
     }
 
     if (
@@ -389,46 +388,46 @@ export class SignUpComponent implements OnInit, OnDestroy {
       error = true;
       this.lang == 'en'
         ? this.toasterService.pop(
-            'error',
-            'Error',
-            `Password length must be between 8 to 50 characters including one small alphabet,
+          'error',
+          'Error',
+          `Password length must be between 8 to 50 characters including one small alphabet,
          one capital alphabet, one special character and one numeric value.`
-          )
+        )
         : this.toasterService.pop(
-            'error',
-            'Error',
-            `La contraseña debe tener entre 8 y 50 caracteres incluyendo una minúscula, una mayúscula, un número y un carácter especial`
-          );
+          'error',
+          'Error',
+          `La contraseña debe tener entre 8 y 50 caracteres incluyendo una minúscula, una mayúscula, un número y un carácter especial`
+        );
     }
 
     if (!this.ValidationsClass.verifyNameInputs(this.SignUpObject.cPassword)) {
       error = true;
       this.lang == 'en'
         ? this.toasterService.pop(
-            'error',
-            'Error',
-            'Your passwords do not match'
-          )
+          'error',
+          'Error',
+          'Your passwords do not match'
+        )
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'Ambas contraseñas no coinciden'
-          );
+          'error',
+          'Error',
+          'Ambas contraseñas no coinciden'
+        );
     }
 
     if (this.SignUpObject.cPassword != this.SignUpObject.password) {
       error = true;
       this.lang == 'en'
         ? this.toasterService.pop(
-            'error',
-            'Error',
-            'Your passwords do not match'
-          )
+          'error',
+          'Error',
+          'Your passwords do not match'
+        )
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'Ambas contraseñas no coinciden'
-          );
+          'error',
+          'Error',
+          'Ambas contraseñas no coinciden'
+        );
     }
 
     if ($('#TermsCheck').is(':checked')) {
@@ -436,15 +435,15 @@ export class SignUpComponent implements OnInit, OnDestroy {
       error = true;
       this.lang == 'en'
         ? this.toasterService.pop(
-            'error',
-            'Error',
-            'Please accept terms and condition by clicking on check box terms & condition checkbox'
-          )
+          'error',
+          'Error',
+          'Please accept terms and condition by clicking on check box terms & condition checkbox'
+        )
         : this.toasterService.pop(
-            'error',
-            'Error',
-            'Favor de aceptar los términos y condiciones dando clic en la casilla'
-          );
+          'error',
+          'Error',
+          'Favor de aceptar los términos y condiciones dando clic en la casilla'
+        );
     }
 
     if (error) {
