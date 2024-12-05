@@ -23,10 +23,10 @@ export class AffilliateService {
     return this.http
       .get(
         environment.BaseUrl +
-          'user/getAffiliatesGraph/' +
-          userid +
-          '/' +
-          filter,
+        'user/getAffiliatesGraph/' +
+        userid +
+        '/' +
+        filter,
         { headers: headers }
       )
       .map((res) => res.json());
@@ -61,8 +61,8 @@ export class AffilliateService {
       .map((res) => res.json());
   }
 
-  getTopReferrals(pageNumber, pageSize) {
-    const queryParams = `?pageNumber=${pageNumber}&pageSize=${pageSize}`;
+  getTopReferrals(pageNumber, pageSize, userId) {
+    const queryParams = `?userId=${userId}`;
     const headers = new Headers();
 
     headers.append('Content-Type', 'application/json; charset=UTF-8');
@@ -86,12 +86,12 @@ export class AffilliateService {
     return this.http
       .get(
         environment.BaseUrl +
-          'user/allreferrals/' +
-          userId +
-          '/' +
-          pageNumber +
-          '/' +
-          pageSize,
+        'user/allreferrals/' +
+        userId +
+        '/' +
+        pageNumber +
+        '/' +
+        pageSize,
         { headers: headers }
       )
       .map((res) => res.json());

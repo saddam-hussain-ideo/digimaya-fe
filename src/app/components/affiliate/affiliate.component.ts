@@ -539,12 +539,12 @@ export class Affiliate {
   getTopReferrals() {
     this.topRefersLoader = true;
     this._affilliateService
-      .getTopReferrals(this.topReferalCurrentPage, this.referralPSize)
+      .getTopReferrals(this.topReferalCurrentPage, this.referralPSize, this.userObject.UserId)
       .subscribe(
         (a) => {
           if (a.code == 200) {
             this.topRefersLoader = false;
-            this.topReferrals = a.data.rows;
+            this.topReferrals = a.data;
             this.paginationNumber = a.data.totalRecords;
             // this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
             // for (var i = 0; i < this.topReferrals.length; i++) {

@@ -27,6 +27,7 @@ $ico-font: 26px;
   padding: 13px 20px;
   height: auto;
   border-radius: 8px;
+  min-height: 100%;
 
   @media (min-width: 1200px) and (max-width: 1350px) {
     height: auto;
@@ -906,7 +907,6 @@ label:hover:before {
   thead {
     tr {
       td {
-        padding: 23px 20px;
         background: transparent;
         border: none;
         vertical-align: middle;

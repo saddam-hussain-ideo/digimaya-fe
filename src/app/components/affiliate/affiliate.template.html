@@ -129,7 +129,7 @@
 
       <div class="row1 mb-4">
         <div class="row">
-          <div class="col-lg-12 right-7">
+          <div class="col-lg-6 right-7">
             <div class="white-back referral-pd">
               <!-- <div class="pos-rltv">
 
@@ -302,12 +302,12 @@
               </div>
             </div>
           </div>
-          <!-- <div class="col-lg-6 col-md-6 left-7">
+          <div class="col-lg-6 col-md-6 left-7">
             <div class="">
               <div class="white-back">
                 <div class="pos-rltv">
                   <div class="pos-left">
-                    <h6 class="aff-link">Top Links Globally</h6>
+                    <h6 class="aff-link">Top 20 Promoters</h6>
                   </div>
                 </div>
 
@@ -323,26 +323,26 @@
                     <thead>
                       <tr>
                         <td>
+                          <p>S.no</p>
+                        </td>
+                        <td>
                           <p>Username</p>
                         </td>
                         <td>
-                          <p>Country</p>
-                        </td>
-                        <td>
-                          <p>Total Licensee's Linked</p>
+                          <p>Link's Earning</p>
                         </td>
                       </tr>
                     </thead>
                     <tbody *ngIf="!topRefersLoader">
-                      <tr *ngFor="let referral of topReferrals">
-                        <td class="text-center">
-                          <p class="earners-name">{{referral?.name}}</p>
+                      <tr *ngFor="let referral of topReferrals; let i = index">
+                        <td>
+                          <p class="earners-name">{{i + 1}}</p>
                         </td>
-                        <td class="text-center">
-                          <p class="earnings">{{referral?.country}}</p>
+                        <td>
+                          <p class="earnings">{{referral?.userName}}</p>
                         </td>
-                        <td class="text-center">
-                          <p class="earnings">{{referral?.referred}}</p>
+                        <td>
+                          <p class="earnings">{{referral?.bonusEarned}}</p>
                         </td>
                       </tr>
                     </tbody>
@@ -411,7 +411,7 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
 
           <div class="col-lg-6 col-md-6 d-md-block d-lg-none d-xl-none left-7">
             <div class="height-div">
