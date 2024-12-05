@@ -339,8 +339,8 @@ export class Affiliate {
           if (res) {
             this.tableLoader1 = false;
             this.referredCountries = res['data']['referred_countries'];
-            this.levelOneData = res;
-            console.log(this.levelOneData);
+            this.levelOneData = res['data'];
+            console.log(this.levelOneData, "levelonedata");
 
             this.tableOneCount = this.levelOneData.data.length;
           }
@@ -370,8 +370,8 @@ export class Affiliate {
           console.log(res);
           if (res) {
             this.tableLoader2 = false;
-            this.levelTwoData = res;
-            this.tableTwoCount = this.levelTwoData.data.length;
+            this.levelTwoData = res['data'];
+            this.tableTwoCount = this.levelTwoData.length;
           }
         },
         (err) => {
@@ -399,8 +399,8 @@ export class Affiliate {
           console.log(res);
           if (res) {
             this.tableLoader3 = false;
-            this.levelThreeData = res;
-            this.tableThreeCount = this.levelThreeData.data.length;
+            this.levelThreeData = res['data'];
+            this.tableThreeCount = this.levelThreeData.length;
           }
         },
         (err) => {

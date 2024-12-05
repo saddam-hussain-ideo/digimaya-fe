@@ -527,18 +527,22 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader1 && levelOneData">
+                <tbody
+                  *ngIf="!tableLoader1 && levelOneData && levelOneData.length === 0"
+                >
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader1 && levelOneData">
-                  <tr *ngFor="let data of levelOneData?.data.rows">
-                    <td>{{data.name}}</td>
-                    <td>{{data.username}}</td>
-                    <td>{{data.join_date}}</td>
-                    <td>{{levelOneData?.data.length}}</td>
-                    <td>{{data.pptlIssued | currency:'crypto'}}</td>
+                <tbody
+                  *ngIf="!tableLoader1 && levelOneData && levelOneData.length > 0"
+                >
+                  <tr *ngFor="let data of levelOneData">
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{levelOneData ? levelOneData.length : 0}}</td>
+                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
@@ -546,7 +550,7 @@
 
               <div
                 class="pagination-bottom pt-2"
-                *ngIf="!tableLoader1  && levelOneData"
+                *ngIf="!tableLoader1  && levelOneData && levelOneData.length > 0"
               >
                 <pagination-controls
                   *ngIf="tableOneSize < tableOneCount"
@@ -628,18 +632,22 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader2 && levelTwoData">
+                <tbody
+                  *ngIf="!tableLoader2 && levelTwoData && levelTwoData.length === 0"
+                >
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader2  && levelTwoData">
-                  <tr *ngFor="let data of levelTwoData?.data.rows">
-                    <td>{{data.name}}</td>
-                    <td>{{data.username}}</td>
-                    <td>{{data.join_date}}</td>
-                    <td>{{levelTwoData?.data.length}}</td>
-                    <td>{{data.pptlIssued | currency:'crypto'}}</td>
+                <tbody
+                  *ngIf="!tableLoader2  && levelTwoData && levelTwoData.length > 0"
+                >
+                  <tr *ngFor="let data of levelTwoData">
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{levelOneData ? levelOneData.length : 0}}</td>
+                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
@@ -729,25 +737,23 @@
                     </td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader3 && levelThreeData">
+                <tbody
+                  *ngIf="!tableLoader3 && levelThreeData && levelThreeData.length === 0"
+                >
                   <tr>
                     <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
-                <tbody *ngIf="!tableLoader3 && levelThreeData">
-                  <tr *ngFor="let data of levelThreeData?.data.rows">
-                    <td class="tbl-row-pd">{{data.name}}</td>
-                    <td class="tbl-row-pd">{{data.username}}</td>
-                    <td class="tbl-row-pd">{{data.join_date}}</td>
-                    <td class="tbl-row-pd">
-                      {{levelThreeData?.data.length}}
-                    </td>
-                    <td class="tbl-row-pd">
-                      {{data.pptlIssued | currency:'crypto'}}
-                    </td>
-                    <td class="tbl-row-pd">
-                      {{data.bonusEarned | currency:'crypto'}}
-                    </td>
+                <tbody
+                  *ngIf="!tableLoader3 && levelThreeData && levelThreeData.length > 0"
+                >
+                  <tr *ngFor="let data of levelThreeData">
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{levelOneData ? levelOneData.length : 0}}</td>
+                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
+                    <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -905,7 +911,7 @@
                                     </tr>
                                 </tbody> -->
                 <tbody
-                  *ngIf="!affiliatesLoader && !totalAffiliatesArray.length()"
+                  *ngIf="!affiliatesLoader && !totalAffiliatesArray.length"
                 >
                   <tr>
                     <td colspan="12" class="text-center">
