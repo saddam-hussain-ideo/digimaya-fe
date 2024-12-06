@@ -1238,4 +1238,24 @@
       linear-gradient(#000 0 0);
     mask-composite: exclude;
   }
+  &.colored {
+    background: radial-gradient(
+      107.63% 220.06% at 0.17% 0.51%,
+      #ff7f2c 0%,
+      #ff0082 100%
+    );
+    border: none;
+    border-radius: 8px;
+    color: white;
+  }
+}
+
+.edit-profile-section{
+  display: flex;
+  flex-direction: column;
+  background-color:#F6F6F6 ;
+  padding:20px ;
+  border-radius: 8px;
+  width: 50%;
+  margin-top: 40px;
 }
