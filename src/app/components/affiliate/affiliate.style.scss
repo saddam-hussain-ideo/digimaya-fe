@@ -28,7 +28,8 @@ $ico-font: 26px;
   height: auto;
   border-radius: 8px;
   min-height: 100%;
-
+  overflow-y: auto;
+  max-height: 280px;
   @media (min-width: 1200px) and (max-width: 1350px) {
     height: auto;
   }
