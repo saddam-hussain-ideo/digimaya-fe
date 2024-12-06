@@ -57,22 +57,22 @@ const routes: Routes = [
       },
       { path: 'dashboard/:id', component: DashboardComponent },
       { path: 'affiliate', component: Affiliate, canActivate: [AuthGuard] },
-      {
-        path: 'wallet',
-        component: PiptleWalletComponent,
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'my-wallet',
-        component: MyWalletComponent,
-        canActivate: [AuthGuard]
-      },
+      //// TODO: Commenting as not in use {
+      //   path: 'wallet',
+      //   component: PiptleWalletComponent,
+      //   canActivate: [AuthGuard]
+      // },
+      //// TODO: Commenting as not in use {
+      //   path: 'my-wallet',
+      //   component: MyWalletComponent,
+      //   canActivate: [AuthGuard]
+      // },
       {
         path: 'settings',
         component: SettingsComponent,
         canActivate: [AuthGuard]
       },
-      { path: 'ilo', component: IcoComponent, canActivate: [AuthGuard] },
+      // TODO: Commenting as not in use { path: 'ilo', component: IcoComponent, canActivate: [AuthGuard] },
       { path: 'faqs', component: FaqsComponent, canActivate: [AuthGuard] },
       // TODO: Commenting as per demand of Project Manager{
       //   path: 'wire-transfer',
@@ -115,4 +115,4 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
