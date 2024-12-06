@@ -20,9 +20,11 @@ import { UserService } from 'src/app/services/userService';
 import { ToasterConfig, ToasterService } from 'angular2-toaster';
 import { element } from '@angular/core/src/render3/instructions';
 import { TranslateService } from '@ngx-translate/core';
+import { MyWalletComponent } from '../myWallet/myWallet.component';
 
 declare var $: any;
 @Component({
+
   selector: 'crypto-dashboard',
   providers: [DashboardService],
   templateUrl: './dashboard.component.html',
