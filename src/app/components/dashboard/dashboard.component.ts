@@ -168,9 +168,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
   ];
 
   // events
-  public chartClicked(e: any): void {}
+  public chartClicked(e: any): void { }
 
-  public chartHovered(e: any): void {}
+  public chartHovered(e: any): void { }
 
   getAmountInvested() {
     this._sharedService.showHideLoader(true);
@@ -333,6 +333,26 @@ export class DashboardComponent implements OnDestroy, OnInit {
       (res) => {
         if (res) {
           this.lineChartLabels = res.data['dates'];
+          this.lineChartData[0] = res.data['values'];
+        }
+      },
+      (err) => {
+        const obj = JSON.parse(err._body);
+        console.log(obj);
+        if (obj.code == 401) {
+          localStorage.clear();
+          this.router.navigate(['/']);
+        }
+      }
+    );
+  }
+  saleGraphWeekly() {
+    this._dashboardService.salesGraphWeekly().subscribe(
+      (res) => {
+        if (res) {
+          console.log(res, "salegraphweekly");
+
+          this.lineChartLabels = res.data['weeks'];
           this.lineChartData[0] = res.data['values'];
         }
       },
@@ -710,7 +730,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
               enabled: false,
               yAlign: 'bottom',
               callbacks: {
-                title: function () {}
+                title: function () { }
               },
               custom: function (tooltipModel) {
                 // Tooltip Element
@@ -992,7 +1012,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
       this.getTokens();
     }
     this.date = new Date();
-    this.saleGraph();
+    this.saleGraphWeekly()
     this.getAmountInvested();
     this.getRates();
     this.getILOStages();

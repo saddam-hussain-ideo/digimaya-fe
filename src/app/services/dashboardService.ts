@@ -42,6 +42,18 @@ export class DashboardService {
       })
       .map((res) => res.json());
   }
+  salesGraphWeekly() {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('accept-language', getLanguage());
+    headers.append('authorization', this.userToken);
+
+    return this.http
+      .get(environment.BaseUrl + 'user/getPiptleIssuedGraphWeekly', {
+        headers: headers
+      })
+      .map((res) => res.json());
+  }
   getRates() {
     const headers = new Headers();
 
