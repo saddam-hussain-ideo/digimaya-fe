@@ -12,13 +12,13 @@ import { AppComponent } from './app.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { NotFoundComponent } from './template/not-found/not-found.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+// import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { HeadComponent } from './template/sidebar-header/head.component';
 import { Affiliate } from './components/affiliate/affiliate.component';
-import { MyWalletComponent } from './components/myWallet/myWallet.component';
+// import { MyWalletComponent } from './components/myWallet/myWallet.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { IcoComponent } from './components/ICO/ico.component';
 import { FaqsComponent } from './components/faqs/faqs.component';
@@ -63,7 +63,8 @@ import { environment } from 'src/environments/environment';
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
 import { LandingPageComponent } from './components/landing/landing.component';
 import { CookiePolicyComponent } from './components/cookie-policy/cookie-policy.component';
-
+import { MyWalletModule } from './components/myWallet/myWallet.module';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
@@ -76,10 +77,10 @@ export function createTranslateLoader(http: HttpClient) {
     SignUpComponent,
     NotFoundComponent,
     HeadComponent,
-    DashboardComponent,
+    // DashboardComponent,
     HomeComponent,
     Affiliate,
-    MyWalletComponent,
+    // MyWalletComponent,
     SettingsComponent,
     NotificationsComponent,
     IcoComponent,
@@ -123,7 +124,9 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    MyWalletModule,
+    DashboardModule
   ],
   providers: [
     SharedService,
@@ -137,5 +140,5 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [StagesComponent]
 })
 export class AppModule {
-  constructor(public _sharedService: SharedService) {}
+  constructor(public _sharedService: SharedService) { }
 }
