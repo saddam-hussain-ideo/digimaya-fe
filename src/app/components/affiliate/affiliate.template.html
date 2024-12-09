@@ -11,7 +11,7 @@
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
-                  Link Earnings
+                  LINK Earnings
                   <!-- <span class="white-right">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                               <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -43,7 +43,7 @@
             <div class="inner-box">
               <div class="top-left-ico-text">
                 <p class="ico-top-text">
-                  Links Count
+                  LINKs Count
                   <!-- <span class="white-right">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47px" height="6px">
                               <image x="0px" y="0px" width="47px" height="6px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg==" />
@@ -181,7 +181,7 @@
                 <div class="">
                   <div class="padding-change">
                     <p class="aff-link pt-0 mb-0">
-                      {{'My Link:'| translate}}
+                      {{'Personal URL:'| translate}}
                     </p>
                   </div>
                   <div class="padding-change2 affiliate-text-field">
@@ -237,7 +237,9 @@
                 </div>
                 <div class="">
                   <div class="padding-change">
-                    <p class="aff-link mb-0"> {{ 'My Code:' | translate}} </p>
+                    <p class="aff-link mb-0">
+                      {{ 'Personal Code:' | translate}}
+                    </p>
                   </div>
                   <div class="padding-change2 affiliate-text-field">
                     <input
@@ -329,7 +331,7 @@
                           <p>Username</p>
                         </td>
                         <td>
-                          <p>Link Earning</p>
+                          <p>USDT Earned</p>
                         </td>
                       </tr>
                     </thead>
@@ -413,7 +415,7 @@
             </div>
           </div>
 
-          <div class="col-lg-6 col-md-6 d-md-block d-lg-none d-xl-none left-7">
+          <!-- <div class="col-lg-6 col-md-6 d-md-block d-lg-none d-xl-none left-7">
             <div class="height-div">
               <div class="white-back2">
                 <div class="pos-rltv">
@@ -456,23 +458,19 @@
                   </div>
                 </div>
               </div>
-
-              <!-- <div>
-                                <img class="tbl-img" src="../../../assets/img/tbl-img.png">
-                            </div> -->
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
 
       <!--tables section-->
 
-      <h1 class="page-title">My Link Network</h1>
+      <h1 class="page-title">My LINK Network</h1>
 
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
-            <p class="transaction-txt"> LEVEL 1: My Direct Links </p>
+            <p class="transaction-txt"> LEVEL 1: My Direct LINKs </p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -481,9 +479,9 @@
                     <th class="f-bold"> Full name</th>
                     <th class="f-bold"> Username</th>
                     <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct Links</th>
-                    <th class="f-bold">Emaayas Issued</th>
-                    <th class="f-bold">Link Earning</th>
+                    <th class="f-bold">Direct LINKs</th>
+                    <!-- <th class="f-bold">Emaayas Issued</th> -->
+                    <th class="f-bold">USDT Earned</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader1">
@@ -543,7 +541,7 @@
                     <td>{{data.userName}}</td>
                     <td>{{data.joinDate | date : 'yyyy-MM-dd'}}</td>
                     <td>{{levelOneData ? levelOneData.length : 0}}</td>
-                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
+                    <!-- <td>{{data.emyaIssued | currency:'crypto'}}</td> -->
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
@@ -577,7 +575,7 @@
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
-            <p class="transaction-txt">LEVEL 2: Team Links</p>
+            <p class="transaction-txt">LEVEL 2: Team LINKs</p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -586,9 +584,9 @@
                     <th class="f-bold"> Full name</th>
                     <th class="f-bold"> Username</th>
                     <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct Links</th>
-                    <th class="f-bold">Emaayas Issued</th>
-                    <th class="f-bold">Link Earning</th>
+                    <th class="f-bold">Direct LINKs</th>
+                    <!-- <th class="f-bold">Emaayas Issued</th> -->
+                    <th class="f-bold">USDT Earned</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader2">
@@ -648,7 +646,7 @@
                     <td>{{data.userName}}</td>
                     <td>{{data.joinDate | date : 'yyyy-MM-dd'}}</td>
                     <td>{{levelTwoData ? levelTwoData.length : 0}}</td>
-                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
+                    <!-- <td>{{data.emyaIssued | currency:'crypto'}}</td> -->
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
@@ -682,7 +680,7 @@
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte">
-            <p class="transaction-txt">LEVEL 3: Team Links</p>
+            <p class="transaction-txt">LEVEL 3: Team LINKs</p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -691,9 +689,9 @@
                     <th class="f-bold"> Full name</th>
                     <th class="f-bold"> Username</th>
                     <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct Links</th>
-                    <th class="f-bold">Emaayas Issued</th>
-                    <th class="f-bold">Link Earning</th>
+                    <th class="f-bold">Direct LINKs</th>
+                    <!-- <th class="f-bold">Emaayas Issued</th> -->
+                    <th class="f-bold">USDT Earned</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader3">
@@ -753,7 +751,7 @@
                     <td>{{data.userName}}</td>
                     <td>{{data.joinDate | date : 'yyyy-MM-dd'}}</td>
                     <td>{{levelOneData ? levelOneData.length : 0}}</td>
-                    <td>{{data.emyaIssued | currency:'crypto'}}</td>
+                    <!-- <td>{{data.emyaIssued | currency:'crypto'}}</td> -->
                     <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
@@ -785,7 +783,7 @@
       </div>
 
       <!--end table section-->
-
+      <!-- 
       <div class="row">
         <div class="col-md-12">
           <div class="all-white">
@@ -795,7 +793,7 @@
               </div>
             </div>
 
-            <!-- <div class="download-csv" *ngIf="!noAffiliateEarners">
+             <div class="download-csv" *ngIf="!noAffiliateEarners">
               <div class="heading-right right-aligned" (click)="downloadCSV()">
                 <h1 class="download-csv">
                   {{'Download as' | translate}} CSV
@@ -832,7 +830,7 @@
                   </span>
                 </h1>
               </div>
-            </div> -->
+            </div>
 
             <div class="clear"></div>
 
@@ -846,18 +844,12 @@
                     <td>
                       <p>{{'AMOUNT INVESTED' | translate}}</p>
                     </td>
-                    <!-- <td class="text-uppercase text-right">
-                                            <p>{{'AMOUNT INVESTED IN MXN' | translate}}</p>
-                                        </td> -->
                     <td>
                       <p>{{'Username' | translate}}</p>
                     </td>
                     <td>
                       <p>{{'Date' | translate}}</p>
                     </td>
-                    <!-- <td class="text-uppercase text-right">
-                                            <p>{{'EARNING IN MXN' | translate}} (2%)</p>
-                                        </td> -->
                   </tr>
                 </thead>
 
@@ -973,10 +965,6 @@
                   <p class="total-head">{{'Total'|translate}} :</p>
                 </li>
 
-                <!-- <li>
-                                    <p class="total-values">$ {{totalEarningInUSD  | currency:'fait'}}</p>
-                                </li> -->
-
                 <li>
                   <p class="total-values">
                     {{totalEarningInEMYA | currency:'crypto'}} $EMYA
@@ -986,7 +974,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col-md-8 col-lg-8 col-sm-7 col-xs-12">
