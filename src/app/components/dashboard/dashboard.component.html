@@ -58,7 +58,7 @@
         <div class="info-custom-card">
           <div class="content">
             <span class="heading text-class">Purchased Tokens</span>
-            <span class="pulper-color"> {{ totalCapacity }} </span>
+            <span class="pulper-color"> {{ totalPiptles }} </span>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
         <div class="info-custom-card">
           <div class="content">
             <span class="heading text-class">Interest Tokens</span>
-            <span class="pulper-color"> {{ totalIssued }} </span>
+            <span class="pulper-color"> {{ interestTokens }} </span>
           </div>
         </div>
       </div>
@@ -119,7 +119,7 @@
               >Your Total eMaaya Value</span
             >
             <span class="heading prp-text-ppt">
-              {{ totalValueAud ? (totalValueAud | number: '1.2-2') : 0 }}
+              {{ totalValueAud | number: '1.4-4' }}
             </span>
           </div>
         </div>

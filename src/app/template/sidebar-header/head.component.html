@@ -72,11 +72,13 @@
 
     <div class="collapse navbar-collapse right-aligned" id="nav-content">
       <!-- <div class="d-flex flex-row"> -->
-      <img
-        src="../../../assets//img/msg_icon.svg"
-        alt="fb-icon"
-        class="icon-img"
-      />
+      <a href="mailto:info@dgmaaya.com">
+        <img
+          src="../../../assets//img/msg_icon.svg"
+          alt="fb-icon"
+          class="icon-img"
+        />
+      </a>
       <img
         src="../../../assets//img/bell_icon.svg"
         alt="fb-icon"
@@ -90,14 +92,14 @@
         />
         <div class="d-flex flex-column justify-content-center">
           <h3 class="avatar-name mb-0">{{ userObject?.UserName }}</h3>
-          <div class="d-flex flex-row align-items-center">
-            <p class="m-0 my_setting mr-1 mt-1" (click)="NavigateToSettings()">
+          <div class="d-flex flex-row align-items-center mt-1">
+            <p class="m-0 my_setting mr-1" (click)="NavigateToSettings()">
               My Setting
             </p>
             <img
               src="../../../assets//img/small_right_arrow.svg"
               alt="fb-icon"
-              class="icon-img"
+              class="icon-img-arrow"
             />
           </div>
         </div>
