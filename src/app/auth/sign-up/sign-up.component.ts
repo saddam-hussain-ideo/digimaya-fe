@@ -215,6 +215,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
             this.signupForm = false;
             this.resendEmail = true;
           }, 1500);
+          this.router.navigate(['/sign-in']);
         }
       },
       (err) => {
@@ -346,7 +347,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     // }
     if (
       !this.ValidationsClass.validatePhone(
-        `${this.countryCode}${this.SignUpObject.mobile}`
+        `${this.SignUpObject.mobile}`
       )
     ) {
       error = true;
@@ -450,7 +451,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
       console.log(error);
     } else {
       if (this.SignUpObject.mobile) {
-        this.SignUpObject.mobile = `${this.countryCode}${this.SignUpObject.mobile}`;
+        this.SignUpObject.mobile = `${this.SignUpObject.mobile}`;
       }
 
       this.reCaptcha.execute();
