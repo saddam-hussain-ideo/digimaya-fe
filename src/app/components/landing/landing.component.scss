@@ -180,6 +180,14 @@
     max-height: 219px;
   }
 }
+.digimaaya-btns-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+gap: 40px;
+}
 .discover-more-button {
   background: radial-gradient(
     107.63% 220.06% at 0.17% 0.51%,
@@ -190,14 +198,18 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 16px;
-  padding: 16px 0;
+  padding: 16px 138px;
   max-width: 425px;
   width: 100%;
-  margin-bottom: 40px;
   border-radius: 8px;
   color: white;
+  @media only screen and (max-width: 1400px) and (min-width: 1100px){
+    padding: 16px 100px;
+      }
   @media screen and (max-width: 600px) {
     margin-top: 0;
+    padding: 16px 0;
+    
   }
 }
 
