@@ -1,0 +1,124 @@
+@import '../../../_variables';
+
+.header-side-border {
+  height: 50px;
+  background: #f6f6f6;
+  // border-left:3px solid $dashboard-purple-clr;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  h1 {
+    color: #191919;
+    font-family: 'CenturyRetrospective', serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 20px;
+  }
+}
+
+.aff-p1 {
+  padding-left: 0;
+  padding-top: 5px;
+  color: $theme-blue;
+  font-family: 'LatoWebLight';
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.show {
+  display: block;
+}
+
+.change-btm {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+.grey-bg {
+  background: #eff1f3;
+  margin-top: 15px;
+  color: $theme-blue;
+  font-family: 'LatoWeb';
+  font-size: 14px;
+  padding-left: 15px;
+  font-weight: 600;
+  .faq-points {
+    color: #404040;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'MavenPro';
+  }
+}
+
+.faq-main-2 {
+  background-color: #f6f6f6;
+  padding: 20px;
+  margin-bottom: 16px;
+
+  .panel {
+    background-color: #ededed;
+    margin-top: -1px;
+    padding-left: 15px;
+    transition: all 0.6s;
+    p {
+      font-size: 14px;
+      font-family: 'MavenPro';
+      font-weight: 500;
+      line-height: 18px;
+      color: #8c8c8c;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 5px;
+  }
+}
+
+.faq-main-2 {
+  .active {
+    background-color: #dfe6ec;
+
+    p {
+      color: $dashboard-purple-clr;
+    }
+  }
+
+  .arrow-faq-div {
+    float: right;
+    margin-right: 15px;
+    width: 20px;
+
+    .fas {
+      color: #404040;
+    }
+  }
+}
+.fb-pd {
+  padding-left: 3px;
+}
+.icon-borders {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  background-color: #643e8d;
+  display: inline-block;
+  box-shadow: 1px 1px 4px #2d2d2d;
+  border: 1px solid white;
+  .icon-img {
+    // width: 20px;
+    height: 30px;
+    padding: 4px;
+  }
+  .icon-flag {
+    height: 32px;
+    padding: 0px;
+  }
+  .icon-telegram {
+    height: 30px;
+  }
+}
+
+.faqs-section-top {
+  background-color: white;
+  padding: 40px 20px;
+}

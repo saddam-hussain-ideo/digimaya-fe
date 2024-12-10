@@ -1,0 +1,900 @@
+<div class="loadingOverlay" *ngIf="mainLoader">
+  <div class="overlay-content">
+    <svg
+      class="lds-comets"
+      width="100%"
+      height="100%"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid"
+    >
+      <g transform="rotate(208.756 50 50)">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          repeatCount="indefinite"
+          values="360 50 50;0 50 50"
+          keyTimes="0;1"
+          dur="2.3s"
+          keySplines="0.5 0.5 0.5 0.5"
+          calcMode="spline"
+        ></animateTransform>
+        <path
+          fill="#85ffbd"
+          d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
+        ></path>
+        <path
+          fill="#316598"
+          d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
+        ></path>
+        <path
+          fill="#a4bcc2"
+          d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
+        ></path>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<div class="wrapper" [ngClass]="{ 'sidebar-active': openSidebar }">
+  <!-- Sidebar -->
+
+  <nav class="navbar fixed-top navbar-expand-md ok-top-nav nav-clr">
+    <!-- <hr class="upper-line"> -->
+    <button
+      class="navbar-toggler top-nav-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#nav-content"
+      aria-controls="nav-content"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="left-navigation-part">
+      <div class="logo-box parallelogram navbar-brand">
+        <a class="cursor" (click)="navigateToDashboard()">
+          <img src="../../../assets/img/maayaLogo.svg" />
+        </a>
+      </div>
+
+      <div class="sidebar-toggle-wrapper" (click)="closeSidebar()">
+        <div class="sidebar-toggle">
+          <button type="button" class="toggle-btn-sidebar">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse right-aligned" id="nav-content">
+      <!-- <div class="d-flex flex-row"> -->
+      <img
+        src="../../../assets//img/msg_icon.svg"
+        alt="fb-icon"
+        class="icon-img"
+      />
+      <img
+        src="../../../assets//img/bell_icon.svg"
+        alt="fb-icon"
+        class="icon-img"
+      />
+      <div class="avatar_section">
+        <img
+          src="../../../assets//img/avatar_icon.svg"
+          alt="fb-icon"
+          class="icon-img"
+        />
+        <div class="d-flex flex-column justify-content-center">
+          <h3 class="avatar-name mb-0">{{ userObject?.UserName }}</h3>
+          <div class="d-flex flex-row align-items-center">
+            <p class="m-0 my_setting mr-1 mt-1" (click)="NavigateToSettings()">
+              My Setting
+            </p>
+            <img
+              src="../../../assets//img/small_right_arrow.svg"
+              alt="fb-icon"
+              class="icon-img"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- </div> -->
+
+      <!-- <div class="search-bar">
+                <div class='search-wrapper'>
+                    <div class='btn'>
+                        <button class="search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <input type="text" class="input-search" placeholder="Search">
+                </div>
+            </div>
+
+            <ul class="navbar-nav left-notifications-list ml-auto">
+
+                <li class="nav-item">
+
+                    <div class="notifications">
+                        
+                        <a class="notification-btn" href="mailto:info@cryptoxchange.com">
+                            <img src="../../../assets/img/messages.png" alt="message icon">
+                        </a>
+                    </div>
+
+
+                    <select class="language-select" (change)="switchLanguage($event.target.value)">    
+
+                        <option value="en">EN</option>
+                        <option value="de">DE</option>
+
+                    </select>
+
+
+
+                </li>
+               
+                <li class="nav-item">
+
+
+
+
+                    <div class="dropdown">
+                        <div class="notification-count" *ngIf="notificationCount != 0">
+                            <p class="count">{{notificationCount}}</p>
+                        </div>
+                        <button type="button" class="btn dropdown-toggle notification-btn" data-toggle="dropdown"
+                            (click)="fetchNotifications()">
+                            <img src="../../../assets/img/notification.png" alt="notification icon">
+                        </button>
+                        <div class="dropdown-menu notifications-tab">
+
+                            <div class="pointy-up">
+
+                            </div>
+
+
+
+
+                            <ul class="notifications-list">
+
+                                <li class="no-hover" *ngIf="notificationsLoader">
+                                    <div class="box-loader">
+                                        <div class="center-loader">
+                                            <svg class="lds-comets" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"
+                                                preserveAspectRatio="xMidYMid">
+                                                <g transform="rotate(208.756 50 50)">
+                                                    <animateTransform attributeName="transform" type="rotate"
+                                                        repeatCount="indefinite" values="360 50 50;0 50 50" keyTimes="0;1"
+                                                        dur="2.3s" keySplines="0.5 0.5 0.5 0.5" calcMode="spline"></animateTransform>
+                                                    <path fill="#85ffbd" d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"></path>
+                                                    <path fill="#316598" d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"></path>
+                                                    <path fill="#a4bcc2" d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"></path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <div class="clearfix" *ngIf="notificationList.length == 0">
+                                    <div class="not-inner">
+                                        <p class="no-notifications text-centered">No Notifications</p>
+                                    </div>
+                                </div>
+
+                                <ng-container *ngFor="let nott of notificationList">
+
+
+                                    <li *ngIf="nott.NotificationType == 'WIRE_TRANSFER_APPROVE_REJECTION'" [ngClass]="{'unreadNotification': nott.IsRead==false}"
+                                        (click)="updateNotificationStatus(nott._id)">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <svg width="19px" height="15px" viewBox="0 0 19 15" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g id="Dashboard" transform="translate(-19.000000, -312.000000)"
+                                                            fill="#8E949C" fill-rule="nonzero">
+                                                            <g id="Navigation" transform="translate(0.000000, 70.000000)">
+                                                                <g id="transfer" transform="translate(19.000000, 242.000000)">
+                                                                    <path d="M18.8013361,4.97239972 L14.0512541,0.199623099 C13.7862098,-0.0666076039 13.3565565,-0.0665277027 13.0915917,0.199782901 C12.9643975,0.327624776 12.8929477,0.500930416 12.8929079,0.681706816 L12.8929079,2.7271768 L8.1428259,2.7271768 C7.7680423,2.7271768 7.4642314,3.03243923 7.4642314,3.40901345 C7.4642314,3.78558767 7.7680423,4.09085009 8.1428259,4.09085009 L13.5715024,4.09085009 C13.946286,4.09085009 14.2500969,3.78558767 14.2500969,3.40901345 L14.2500969,2.32759105 L17.3620811,5.45444348 L14.2500969,8.58129592 L14.2500969,7.49991347 C14.2500969,7.12333925 13.946286,6.81807683 13.5715024,6.81807683 L6.10708215,6.81807683 L6.10708215,4.77260684 C6.10700263,4.39603262 5.80311221,4.09085009 5.42836837,4.09093 C5.24849132,4.09096995 5.07596999,4.16276115 4.948736,4.29056307 L0.198693759,9.06333969 C-0.066231253,9.32961034 -0.066231253,9.76119652 0.198693759,10.0274272 L4.94877577,14.8002038 C5.07600975,14.9280857 5.24857084,14.9999568 5.42852741,14.9999967 C5.51771048,15.0002764 5.60609834,14.9826582 5.68840282,14.9481808 C5.94191654,14.8425515 6.10716167,14.593939 6.10708215,14.3181601 L6.10708215,12.2726901 L10.8571642,12.2726901 C11.2319478,12.2726901 11.5357587,11.9674277 11.5357587,11.5908534 C11.5357587,11.2142792 11.2319478,10.9090168 10.8571642,10.9090168 L5.42852741,10.9090168 C5.0537438,10.9090168 4.7499329,11.2142792 4.7499329,11.5908534 L4.7499329,12.6722359 L1.63794869,9.54538346 L4.7499329,6.41853102 L4.7499329,7.49991347 C4.7499329,7.87648769 5.0537438,8.18175012 5.42852741,8.18175012 L12.8929079,8.18175012 L12.8929079,10.2272201 C12.8929874,10.6037943 13.1968778,10.9089768 13.5716217,10.9088969 C13.7514987,10.908857 13.9240201,10.8370658 14.0512541,10.7092639 L18.8013361,5.93648725 C19.0662213,5.6702166 19.0662213,5.23863042 18.8013361,4.97239972 Z"
+                                                                        id="Shape"></path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li *ngIf="nott.NotificationType == 'Transaction_Confirmation'" [ngClass]="{'unreadNotification': nott.IsRead==false}"
+                                        (click)="updateNotificationStatus(nott._id)">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/transaction.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li *ngIf="nott.NotificationType == 'KYC_Approval'" [ngClass]="{'unreadNotification': nott.IsRead==false}"
+                                        (click)="updateNotificationStatus(nott._id)">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/kyc.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li *ngIf="nott.NotificationType == 'ICO_Stage_Updation'" [ngClass]="{'unreadNotification': nott.IsRead==false}"
+                                        (click)="updateNotificationStatus(nott._id)">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/ico-stage.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li *ngIf="nott.NotificationType === 'AFFILIATION_TRANSACTION'" [ngClass]="{'unreadNotification': nott.IsRead==false}"
+                                        (click)="updateNotificationStatus(nott._id)">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/reward.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li *ngIf="nott.NotificationType === 'AFFILIATION_REGISTRATION'" [ngClass]="{'unreadNotification': nott.IsRead==false}"
+                                        (click)="updateNotificationStatus(nott._id)">
+                                        <div class="clearfix">
+                                            <div class="not-icon-left">
+                                                <img src="../../../assets/img/affiliate.png">
+                                            </div>
+                                            <div class="not-inner">
+                                                <p class="notification-line">{{nott.NotificationText}}</p>
+                                            </div>
+                                            <div class="abs-time">
+                                                {{nott.CreatedOnUTC}}
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ng-container>
+
+                                <div class="clearfix">
+                                    <div class="not-inner">
+                                        <p class="see-all-btn text-centered" style="cursor:pointer" (click)="navigateToNotificationsList()">See
+                                            All
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+
+                </li>
+
+                <li class="nav-item">
+                    <div class="notifications">
+                        <button class="notification-btn" onclick="zE.activate();">
+                            <img src="../../../assets/img/chat.png" alt="chat icon">
+                        </button>
+                    </div>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item p-bar">
+                    <div class="dropdown profile-dropdown-wrapper full-screen-profile">
+                        <button type="button" class="dropdown-toggle profile-dropdown-btn" data-toggle="dropdown">
+
+                            <div class="clearfix">
+
+
+                                <div class="left-image">
+                                    <div class="rounded-image-box">
+                                        <img src="../../../assets/img/shirley.png">
+                                    </div>
+                                </div>
+                                <div class="profile-name">
+                                    <p class="actual-name">{{userObject.UserName}}
+                                        <span class='icon-drop'>
+                                            <i class="fas fa-chevron-down"></i>
+                                        </span>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </button>
+                        <div class="dropdown-menu">
+                            <ul class="profile-list">
+                                <li class="cursor" (click)="NavigateToSettings()">
+                                    <div class="clearfix cursor">
+                                        <div class="left-icon">
+                                            <svg class="ver-align-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                width="20px" height="20px">
+                                                <image x="0px" y="0px" width="20px" height="20px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAQAAAAngNWGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBhoMHQ42cuoNAAABWUlEQVQoz2XSvWtVQRAF8JOoiBYhiC/BWGiIRSzUWmxEEAk2RhAbTWMhmIekUATBLohYxErBSv0T7GzsLGJIY4IoUdEmifgBFhEFhZ/FW9+792am2D0zZ8/uHLZPGnE943mXO81y1HO/Tow26ukv/B2ZzWCS6YLbSVp5kIGm4jN8tKYXX61i/r9iZ5mpEF56ZLGCr1aJsQLeOFjwoCWwUleMD93iMt4aEQtY7xG32u4WOF6KT7EqDoM5ezvEG+Utn7tWnADbxKfSOyL9GS7jf0nyPOeSXEuSDCX5VnoDSW/iH6JN16K74nvZj0ls0acNzoonFWMumsOV+tQL2NASu4257C+YMKtVJ74GP00WfLKoHqv7eKFy4S/v8diZgo/WFe/hlReVA1NO9cxR+WaX7BHnS3NGxE3wxz6b/uNOv8F4wbfBhukmMXY5ZKiCH2LZ6c3EZg6774D8AxlK7Tt5GVv7AAAAAElFTkSuQmCC" />
+                                            </svg>
+                                        </div>
+                                        <div class="right-name">
+                                            <p class="text-color">Profile</p>
+                                        </div>
+                                    </div>
+                                </li>
+
+
+
+
+                                <li (click)="navigateToFaqs()">
+
+                                    <div class="clearfix cursor">
+                                        <div class="left-icon">
+                                            <svg class="ver-align-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                width="18px" height="18px">
+                                                <image x="0px" y="0px" width="18px" height="18px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAQAAAD8x0bcAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBhoMIQis4jbHAAABA0lEQVQoz2WSsUoDQRCGvztMJYLChfRCCi2ECGcRLNOmsLDzCaxtbC1EfAJbBQUfwE5JmxAQAjHN2ahIGgshNgnmfovcHjPx32bnm5/dmZ2NhNEOTRKmZDwxMVxhHepDVndKQi5YHsrkXLcaFvuWNXXMCQsS1A6mM3cNQldl9K11gTb040y5chefC3RkQLcoNjPsRcTsm1YnfAGr1AzbZiumbkCLCyBlzT4etZhfB3pAipdiRg48A7tLpnd0YIrMhNCr664vUEXjEtwL1eV1snjM4xLcCKHUWN60EsZyXaDp0lByNeyAL/VfY236X4AaejSGT50qCrnIfbqEParMGDGw+A+3VnAmUZWGhgAAAABJRU5ErkJggg==" />
+                                            </svg>
+                                        </div>
+                                        <div class="right-name">
+                                            <p class="text-color">FAQ</p>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </li>
+
+
+                                <li (click)="logout()">
+
+                                    <div class="clearfix cursor">
+                                        <div class="left-icon">
+                                            <svg class="ver-align-none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                width="18px" height="15px">
+                                                <image x="0px" y="0px" width="18px" height="15px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAY1BMVEX///+jssf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+jsseNoU6pAAAAH3RSTlMAABSmowTA/M0M2xHtJPdDBVb1OgLnHdUJCga3C5gH9fLnCAAAAAFiS0dEAIgFHUgAAAAHdElNRQfiBhoMIR3BP9IsAAAAX0lEQVQY02XPVw7AIAwDULro3nua+5+yUklABX9Fz1KUCCHwRdiEiiliAmI9JJCGuEyR5ZZAKUqPUNUeoWk7l4DepWGcHJoXd9e6/e8C5E6D0nLgpO4yP97m74DpIXgB318QYzdytmQAAAAASUVORK5CYII=" />
+                                            </svg>
+                                        </div>
+                                        <div class="right-name">
+                                            <p class="text-color">Logout</p>
+                                        </div>
+                                    </div>
+
+
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul> -->
+    </div>
+  </nav>
+
+  <!--   -->
+
+  <div class="no-printme">
+    <nav id="sidebar">
+      <!-- <img src="../../../assets/img/dashboard-img.png" class="myimg" alt="" srcset=""> -->
+
+      <div style="height: 100%" class="sidebar-bg">
+        <!-- <div class="close-sidebar" (click)="closeSidebar()">
+        <button class="close-sidebar-btn">
+          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px" y="0px" width="20px" height="20px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;"
+            xml:space="preserve">
+            <g>
+              <g id="close">
+                <polygon points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3 
+                           214.2,178.5 		" />
+              </g>
+            </g>
+  
+          </svg>
+  
+        </button>
+      </div> -->
+        <div class="sidebar-header">
+          <p></p>
+          <p></p>
+        </div>
+
+        <ul class="list-unstyled components">
+          <li id="dash-nav" class="active" (click)="navigateToDashboard()">
+            <a>
+              <span class="side-icons">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.16659 3.33325H7.49992C7.72093 3.33325 7.93289 3.42105 8.08917 3.57733C8.24545 3.73361 8.33325 3.94557 8.33325 4.16659V9.16659C8.33325 9.3876 8.24545 9.59956 8.08917 9.75584C7.93289 9.91212 7.72093 9.99992 7.49992 9.99992H4.16659C3.94557 9.99992 3.73361 9.91212 3.57733 9.75584C3.42105 9.59956 3.33325 9.3876 3.33325 9.16659V4.16659C3.33325 3.94557 3.42105 3.73361 3.57733 3.57733C3.73361 3.42105 3.94557 3.33325 4.16659 3.33325ZM4.16659 13.3333H7.49992C7.72093 13.3333 7.93289 13.421 8.08917 13.5773C8.24545 13.7336 8.33325 13.9456 8.33325 14.1666V15.8333C8.33325 16.0543 8.24545 16.2662 8.08917 16.4225C7.93289 16.5788 7.72093 16.6666 7.49992 16.6666H4.16659C3.94557 16.6666 3.73361 16.5788 3.57733 16.4225C3.42105 16.2662 3.33325 16.0543 3.33325 15.8333V14.1666C3.33325 13.9456 3.42105 13.7336 3.57733 13.5773C3.73361 13.421 3.94557 13.3333 4.16659 13.3333ZM12.4999 9.99992H15.8333C16.0543 9.99992 16.2662 10.0877 16.4225 10.244C16.5788 10.4003 16.6666 10.6122 16.6666 10.8333V15.8333C16.6666 16.0543 16.5788 16.2662 16.4225 16.4225C16.2662 16.5788 16.0543 16.6666 15.8333 16.6666H12.4999C12.2789 16.6666 12.0669 16.5788 11.9107 16.4225C11.7544 16.2662 11.6666 16.0543 11.6666 15.8333V10.8333C11.6666 10.6122 11.7544 10.4003 11.9107 10.244C12.0669 10.0877 12.2789 9.99992 12.4999 9.99992ZM12.4999 3.33325H15.8333C16.0543 3.33325 16.2662 3.42105 16.4225 3.57733C16.5788 3.73361 16.6666 3.94557 16.6666 4.16659V5.83325C16.6666 6.05427 16.5788 6.26623 16.4225 6.42251C16.2662 6.57879 16.0543 6.66659 15.8333 6.66659H12.4999C12.2789 6.66659 12.0669 6.57879 11.9107 6.42251C11.7544 6.26623 11.6666 6.05427 11.6666 5.83325V4.16659C11.6666 3.94557 11.7544 3.73361 11.9107 3.57733C12.0669 3.42105 12.2789 3.33325 12.4999 3.33325Z"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <!-- <span class="img-borders">
+                  <img
+                    src="../../../assets/img/dashboard_icon.svg"
+                    class="sidebar-img"
+                    alt=""
+                  />
+                </span> -->
+              </span>
+              {{ 'Dashboard' | translate }}</a
+            >
+          </li>
+
+          <!-- <li id="ico-nav" (click)="navigateToICO()">
+            <a>
+              <span class="side-icons">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.83325 5.83341V14.1667M3.33325 6.66675V13.3334M8.33325 5.83341C8.33325 5.39139 8.50885 4.96746 8.82141 4.6549C9.13397 4.34234 9.55789 4.16675 9.99992 4.16675H14.9999C15.4419 4.16675 15.8659 4.34234 16.1784 4.6549C16.491 4.96746 16.6666 5.39139 16.6666 5.83341V14.1667C16.6666 14.6088 16.491 15.0327 16.1784 15.3453C15.8659 15.6578 15.4419 15.8334 14.9999 15.8334H9.99992C9.55789 15.8334 9.13397 15.6578 8.82141 15.3453C8.50885 15.0327 8.33325 14.6088 8.33325 14.1667V5.83341Z"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg> </span
+              >{{ 'Round Tracker' | translate }}</a
+            >
+          </li> -->
+
+          <!-- <li id="piptle-wallet-nav" (click)="navigateToPiptleWallet()">
+            <a>
+              <span class="side-icons">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.1666 6.66659V4.16659C14.1666 3.94557 14.0788 3.73361 13.9225 3.57733C13.7662 3.42105 13.5543 3.33325 13.3333 3.33325H4.99992C4.55789 3.33325 4.13397 3.50885 3.82141 3.82141C3.50885 4.13397 3.33325 4.55789 3.33325 4.99992M3.33325 4.99992C3.33325 5.44195 3.50885 5.86587 3.82141 6.17843C4.13397 6.49099 4.55789 6.66659 4.99992 6.66659H14.9999C15.2209 6.66659 15.4329 6.75438 15.5892 6.91066C15.7455 7.06694 15.8333 7.2789 15.8333 7.49992V9.99992M3.33325 4.99992V14.9999C3.33325 15.4419 3.50885 15.8659 3.82141 16.1784C4.13397 16.491 4.55789 16.6666 4.99992 16.6666H14.9999C15.2209 16.6666 15.4329 16.5788 15.5892 16.4225C15.7455 16.2662 15.8333 16.0543 15.8333 15.8333V13.3333"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M16.6665 10V13.3333H13.3332C12.8911 13.3333 12.4672 13.1577 12.1547 12.8452C11.8421 12.5326 11.6665 12.1087 11.6665 11.6667C11.6665 11.2246 11.8421 10.8007 12.1547 10.4882C12.4672 10.1756 12.8911 10 13.3332 10H16.6665Z"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              {{ 'My eMaaya Wallet' | translate }}</a
+            >
+          </li> -->
+
+          <!-- TODO commented as this component willl be used in dashboard section <li id="wallet-nav" (click)="navigateToWallet()">
+            <a>
+              <span class="side-icons">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.58325 17.5001H7.14492C6.54775 17.5001 5.97032 17.2863 5.51711 16.8974C5.0639 16.5086 4.76486 15.9703 4.67409 15.3801L3.62825 8.58675C3.59173 8.34923 3.60699 8.10663 3.67301 7.87557C3.73902 7.64451 3.85422 7.43045 4.01071 7.24808C4.16719 7.06571 4.36127 6.91934 4.57962 6.819C4.79798 6.71866 5.03545 6.66672 5.27575 6.66675H14.7249C14.9652 6.66672 15.2027 6.71866 15.4211 6.819C15.6394 6.91934 15.8335 7.06571 15.99 7.24808C16.1465 7.43045 16.2617 7.64451 16.3277 7.87557C16.3937 8.10663 16.4089 8.34923 16.3724 8.58675L15.9558 11.2934"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7.5 9.16667V5C7.5 4.33696 7.76339 3.70107 8.23223 3.23223C8.70107 2.76339 9.33696 2.5 10 2.5C10.663 2.5 11.2989 2.76339 11.7678 3.23223C12.2366 3.70107 12.5 4.33696 12.5 5V9.16667M12.5 15.8333L14.1667 17.5L17.5 14.1667"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              {{ 'Buy Tokens' | translate }}</a
+            >
+          </li> -->
+
+          <!-- TODO: Commenting as per demand of Project Manager <li id="wire-nav" class="disabled" (click)="navigateToWireTransfer()">
+            <a>
+              <span class="side-icons">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.6666 8.33325H3.33325L7.91659 3.33325M3.33325 11.6666H16.6666L12.0833 16.6666"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+
+              {{ 'Wire Transfer' | translate }}</a
+            >
+          </li> -->
+
+          <li id="aff-nav" (click)="navigateToAffiliates()">
+            <a>
+              <span class="side-icons">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.66667 17.5V16.6667C6.66667 16.2246 6.84226 15.8007 7.15482 15.4882C7.46738 15.1756 7.89131 15 8.33333 15H11.6667C12.1087 15 12.5326 15.1756 12.8452 15.4882C13.1577 15.8007 13.3333 16.2246 13.3333 16.6667V17.5M14.1667 8.33333H15.8333C16.2754 8.33333 16.6993 8.50893 17.0118 8.82149C17.3244 9.13405 17.5 9.55797 17.5 10V10.8333M2.5 10.8333V10C2.5 9.55797 2.67559 9.13405 2.98816 8.82149C3.30072 8.50893 3.72464 8.33333 4.16667 8.33333H5.83333M8.33333 10.8333C8.33333 11.2754 8.50893 11.6993 8.82149 12.0118C9.13405 12.3244 9.55797 12.5 10 12.5C10.442 12.5 10.866 12.3244 11.1785 12.0118C11.4911 11.6993 11.6667 11.2754 11.6667 10.8333C11.6667 10.3913 11.4911 9.96738 11.1785 9.65482C10.866 9.34226 10.442 9.16667 10 9.16667C9.55797 9.16667 9.13405 9.34226 8.82149 9.65482C8.50893 9.96738 8.33333 10.3913 8.33333 10.8333ZM12.5 4.16667C12.5 4.60869 12.6756 5.03262 12.9882 5.34518C13.3007 5.65774 13.7246 5.83333 14.1667 5.83333C14.6087 5.83333 15.0326 5.65774 15.3452 5.34518C15.6577 5.03262 15.8333 4.60869 15.8333 4.16667C15.8333 3.72464 15.6577 3.30072 15.3452 2.98816C15.0326 2.67559 14.6087 2.5 14.1667 2.5C13.7246 2.5 13.3007 2.67559 12.9882 2.98816C12.6756 3.30072 12.5 3.72464 12.5 4.16667ZM4.16667 4.16667C4.16667 4.60869 4.34226 5.03262 4.65482 5.34518C4.96738 5.65774 5.39131 5.83333 5.83333 5.83333C6.27536 5.83333 6.69928 5.65774 7.01184 5.34518C7.3244 5.03262 7.5 4.60869 7.5 4.16667C7.5 3.72464 7.3244 3.30072 7.01184 2.98816C6.69928 2.67559 6.27536 2.5 5.83333 2.5C5.39131 2.5 4.96738 2.67559 4.65482 2.98816C4.34226 3.30072 4.16667 3.72464 4.16667 4.16667Z"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              {{ 'Link Program' | translate }}</a
+            >
+          </li>
+
+          <li id="faqs-nav" (click)="navigateToFaqs()">
+            <a>
+              <span class="side-icons">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6.66675 6.66675C6.66675 6.00371 6.97404 5.36782 7.52102 4.89898C8.068 4.43014 8.80987 4.16675 9.58341 4.16675H10.4167C11.1903 4.16675 11.9322 4.43014 12.4791 4.89898C13.0261 5.36782 13.3334 6.00371 13.3334 6.66675C13.3641 7.20779 13.2182 7.74416 12.9176 8.19506C12.617 8.64596 12.178 8.98698 11.6667 9.16675C11.1555 9.40644 10.7165 9.86113 10.4159 10.4623C10.1153 11.0635 9.9694 11.7787 10.0001 12.5001M10.0001 15.8334V15.8417"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              {{ 'FAQ' | translate }}'s</a
+            >
+          </li>
+          <!-- 
+          <li id="faqs-nav" (click)="logout()">
+            <a>
+              <span class="side-icons">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M11.6667 6.66659V4.99992C11.6667 4.55789 11.4911 4.13397 11.1785 3.82141C10.866 3.50885 10.442 3.33325 10 3.33325H4.16667C3.72464 3.33325 3.30072 3.50885 2.98816 3.82141C2.67559 4.13397 2.5 4.55789 2.5 4.99992V14.9999C2.5 15.4419 2.67559 15.8659 2.98816 16.1784C3.30072 16.491 3.72464 16.6666 4.16667 16.6666H10C10.442 16.6666 10.866 16.491 11.1785 16.1784C11.4911 15.8659 11.6667 15.4419 11.6667 14.9999V13.3333"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7.5 10H17.5M17.5 10L15 7.5M17.5 10L15 12.5"
+                    stroke="#191919"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              {{ 'Logout' | translate }}
+            </a>
+          </li> -->
+        </ul>
+        <div class="add-section">
+          <video loop autoplay>
+            <source
+              src="../../../assets/video/emaaya-video.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+        <a class="logout-btn ml-3" (click)="logout()">
+          <span class="side-icons">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.6667 6.66659V4.99992C11.6667 4.55789 11.4911 4.13397 11.1785 3.82141C10.866 3.50885 10.442 3.33325 10 3.33325H4.16667C3.72464 3.33325 3.30072 3.50885 2.98816 3.82141C2.67559 4.13397 2.5 4.55789 2.5 4.99992V14.9999C2.5 15.4419 2.67559 15.8659 2.98816 16.1784C3.30072 16.491 3.72464 16.6666 4.16667 16.6666H10C10.442 16.6666 10.866 16.491 11.1785 16.1784C11.4911 15.8659 11.6667 15.4419 11.6667 14.9999V13.3333"
+                stroke="#191919"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M7.5 10H17.5M17.5 10L15 7.5M17.5 10L15 12.5"
+                stroke="#191919"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          {{ 'Logout' | translate }}
+        </a>
+        <div
+          class="d-flex justify-content-center align-items-center flex-row pt-5"
+        >
+          <a
+            href="https://api.whatsapp.com/send/?phone=919990500030"
+            target="_blank"
+            rel="noreferrer"
+            class="mr-4"
+          >
+            <svg
+              width="19"
+              height="19"
+              viewBox="0 0 19 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.625 18.3951L1.875 13.7251C1.165 12.4451 0.795 11.0151 0.795 9.56507C0.795 4.81507 4.665 0.945068 9.415 0.945068C14.165 0.945068 18.035 4.81507 18.035 9.56507C18.035 14.3151 14.165 18.1851 9.415 18.1851C7.985 18.1851 6.585 17.8251 5.315 17.1451L0.625 18.4051V18.3951ZM5.545 15.3851L5.845 15.5651C6.925 16.2151 8.165 16.5551 9.415 16.5551C13.265 16.5551 16.405 13.4251 16.405 9.56507C16.405 5.70507 13.275 2.57507 9.415 2.57507C5.555 2.57507 2.425 5.70507 2.425 9.56507C2.425 10.8351 2.775 12.0851 3.445 13.1851L3.625 13.4851L2.925 16.0951L5.545 15.3951V15.3851Z"
+                fill="#000000"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.6144 10.7651C12.2644 10.5551 11.7944 10.3151 11.3844 10.4851C11.0644 10.6151 10.8544 11.1151 10.6544 11.3751C10.5444 11.5051 10.4244 11.5251 10.2544 11.4651C9.05443 10.9851 8.12443 10.1851 7.46443 9.07509C7.35443 8.90509 7.37443 8.76509 7.50443 8.60509C7.70443 8.36509 7.95443 8.10509 8.01443 7.78509C8.06443 7.46509 7.92443 7.09509 7.78443 6.81509C7.61443 6.45509 7.42443 5.93509 7.06443 5.73509C6.73443 5.54509 6.29443 5.65509 5.99443 5.89509C5.48443 6.31509 5.23443 6.96509 5.24443 7.61509C5.24443 7.79509 5.26443 7.98509 5.31443 8.16509C5.41443 8.59509 5.61443 8.99509 5.83443 9.37509C6.00443 9.66509 6.18443 9.93509 6.38443 10.2051C7.02443 11.0751 7.82443 11.8351 8.75443 12.4051C9.21443 12.6851 9.71443 12.9351 10.2344 13.1051C10.8144 13.2951 11.3344 13.4951 11.9544 13.3751C12.6144 13.2551 13.2544 12.8451 13.5144 12.2151C13.5944 12.0251 13.6344 11.8151 13.5844 11.6251C13.4944 11.2151 12.9444 10.9751 12.6144 10.7751V10.7651Z"
+                fill="#000000"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/digimaaya"
+            target="_blank"
+            rel="noreferrer"
+            class="mr-4"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.444843 5.11498H3.35484V14.445H0.444843V5.11498ZM1.89484 0.474976C2.82484 0.474976 3.57484 1.22498 3.57484 2.15498C3.57484 3.08498 2.82484 3.83498 1.89484 3.83498C0.96484 3.83498 0.214844 3.08498 0.214844 2.15498C0.214844 1.22498 0.96484 0.474976 1.89484 0.474976Z"
+                fill="#000000"
+              />
+              <path
+                d="M5.16406 5.11501H7.94407V6.39501H7.98406C8.37406 5.66501 9.31407 4.88501 10.7341 4.88501C13.6741 4.88501 14.2141 6.81501 14.2141 9.32501V14.445H11.3141V9.90501C11.3141 8.82501 11.2941 7.43501 9.80407 7.43501C8.31407 7.43501 8.06406 8.61501 8.06406 9.83501V14.455H5.16406V5.12501V5.11501Z"
+                fill="#000000"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://twitter.com/DigiMaaya"
+            target="_blank"
+            rel="noreferrer"
+            class="mr-4"
+          >
+            <svg
+              width="17"
+              height="17"
+              viewBox="0 0 17 17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.2338 7.33506L16.0638 0.565063H14.6838L9.62383 6.44506L5.58383 0.565063H0.923828L7.03383 9.46506L0.923828 16.5651H2.30383L7.64383 10.3551L11.9138 16.5651H16.5738L10.2338 7.33506ZM2.79383 1.59506H4.91383L14.6738 15.5651H12.5538L2.79383 1.59506Z"
+                fill="#000000"
+              />
+            </svg>
+          </a>
+          <a
+            href="https://t.me/DigiMaayaOfficial"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <svg
+              width="21"
+              height="18"
+              viewBox="0 0 21 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.15335 16.5351C7.96335 16.5351 7.77335 16.4151 7.70335 16.2251L5.71336 10.8451C5.62336 10.5951 5.74336 10.3251 5.99336 10.2351C6.24336 10.1451 6.51336 10.2651 6.60336 10.5151L8.59335 15.8951C8.68335 16.1451 8.56335 16.4151 8.31335 16.5051C8.26335 16.5251 8.20335 16.5351 8.14335 16.5351H8.15335Z"
+                fill="#000000"
+              />
+              <path
+                d="M8.18314 16.5951C8.11314 16.5951 8.04313 16.5751 7.97313 16.5451C7.80313 16.4651 7.70312 16.2851 7.70312 16.0951L7.90312 11.6551C7.90312 11.4751 8.01313 11.3151 8.17313 11.2451C8.33313 11.1651 8.52313 11.1851 8.66313 11.2951L11.3231 13.3151C11.4431 13.4051 11.5031 13.5351 11.5131 13.6851C11.5131 13.8251 11.4531 13.9651 11.3431 14.0651L8.48312 16.4851C8.39312 16.5551 8.28313 16.5951 8.17313 16.5951H8.18314ZM8.82314 12.6051L8.71313 15.0451L10.2831 13.7151L8.82314 12.6051Z"
+                fill="#000000"
+              />
+              <path
+                d="M15.6838 17.3951C15.3238 17.3951 14.9638 17.2751 14.6738 17.0551L8.09375 12.0551C7.98375 11.9651 7.91375 11.8351 7.90375 11.6951C7.90375 11.5551 7.95375 11.4151 8.06375 11.3151L12.5137 7.41506L6.40375 11.0851C6.28375 11.1551 6.13375 11.1751 6.00375 11.1251L1.31375 9.54506C0.883751 9.39506 0.60375 9.01506 0.59375 8.55506C0.59375 8.10506 0.853752 7.70506 1.28375 7.54506L19.4738 0.635061C19.8438 0.495061 20.2638 0.57506 20.5538 0.83506C20.8538 1.09506 20.9738 1.50506 20.8838 1.88506L17.3238 16.1251C17.1838 16.6751 16.7838 17.1151 16.2538 17.2951C16.0738 17.3551 15.8838 17.3951 15.6938 17.3951H15.6838ZM9.13376 11.6551L15.2538 16.2951C15.4538 16.4451 15.6938 16.4851 15.9338 16.4051C16.1638 16.3251 16.3338 16.1351 16.3938 15.8951L19.9538 1.65506C19.9638 1.60506 19.9438 1.56506 19.9238 1.54506C19.9038 1.52506 19.8638 1.50506 19.8138 1.52506L1.62375 8.43506C1.62375 8.43506 1.55376 8.46506 1.55376 8.53506C1.55376 8.61506 1.61375 8.63506 1.62375 8.63506L6.10376 10.1451L16.5938 3.84506C16.8037 3.71506 17.0838 3.77506 17.2238 3.97506C17.3738 4.17506 17.3337 4.45506 17.1537 4.61506L9.13376 11.6451V11.6551Z"
+                fill="#000000"
+              />
+            </svg>
+          </a>
+        </div>
+        <!-- <div class="search-bar-search">
+                <div class='search-wrapper'>
+                    <div class='btn'>
+                        <button class="search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <input type="text" class="input-search" placeholder="Search">
+                </div>
+            </div> -->
+
+        <!-- <ul class="dropdown">
+          <div class="dropdown profile-dropdown-wrapper-sidebar">
+            <button
+              type="button"
+              class="dropdown-toggle profile-drop-side"
+              data-toggle="dropdown"
+            >
+              <div class="clearfix">
+                <div class="centered-image">
+                  <div class="rounded-image-box margin-auto">
+                    <span class="profile-borders">
+                      <img
+                        [routerLink]="['/home/settings']"
+                        src="../../../assets/img/PIPTLE-ProfileICON.png"
+                        class="profile-img"
+                        alt=""
+                      />
+                    </span>
+                  </div>
+                </div>
+                <div class="profile-section">
+                  <p [routerLink]="['/home/settings']" class="profile-txt">
+                    MY SETTINGS
+                  </p>
+                </div>
+              </div>
+            </button>
+            <p class="profile-txt text-center">{{ userName }}</p>
+
+            <hr class="sidebar-hr" />
+
+            <div class="logout-sec">
+              <p class="log-out" (click)="logout()">
+                {{ "Logout" | translate }}
+              </p>
+            </div>
+
+            <div class="extra-side">
+              <ul class="profile-list" style="height: 85px">
+
+              </ul>
+            </div>
+
+            <div id="sidebar-icon" style="height: 120px">
+              <ul class="social-icon-list-sidebar">
+                <li class="text-center mr-2">
+                  <a
+                    href="https://www.facebook.com/piptle/"
+                    class="icon-borders p-0 side-social-icons"
+                    target="_blank"
+                  >
+                    <img
+                      src="../../../assets//img//PIPTLE-Facebook-F-Icon.png"
+                      alt="fb-icon"
+                      class="icon-img"
+                    />
+                  </a>
+                </li>
+                <li class="text-center mr-2">
+                  <a
+                    href="https://twitter.com/piptleit"
+                    class="icon-borders side-social-icons p-0"
+                    target="_blank"
+                  >
+                    <img
+                      src="../../../assets//img//PIPTLE-TwitterIcon.png"
+                      alt="twitter-icon"
+                      class="icon-img"
+                    />
+                  </a>
+                </li>
+                <li class="text-center mr-2">
+                  <a
+                    href="https://www.instagram.com/piptleit/"
+                    target="_blank"
+                    class="icon-borders side-social-icons p-0"
+                  >
+                    <img
+                      src="../../../assets//img//PIPTLE-InstagramIcon.png"
+                      alt="instagram-icon"
+                      class="icon-img"
+                    />
+                  </a>
+                </li>
+                <li class="text-center mr-2">
+                  <a
+                    href="https://t.me/piptler"
+                    target="_blank"
+                    class="icon-borders p-0 side-social-icons"
+                  >
+                    <img
+                      src="../../../assets//img//telegram icon.png"
+                      alt="telegram-icon"
+                      class="icon-telegram"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ul> -->
+      </div>
+    </nav>
+  </div>
+  <!-- Page Content -->
+  <div id="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

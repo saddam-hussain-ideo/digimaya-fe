@@ -1,0 +1,91 @@
+<section class="myWallet-section" *ngIf="userObject">
+  <div id="snackbar"></div>
+  <div class="background">
+    <div class="mywallet-head">
+      <h1 style="display: inline-block" class="page-title setting-txt">
+        {{ 'SETTINGS' | translate }}
+      </h1>
+      <a
+        class="helpbtn d-none"
+        style="float: right; margin-top: 35px; margin-right: auto"
+        href="https://fruture.org/twoFactorInfo.html"
+        target="_blank"
+        >{{ 'Help' | translate }}</a
+      >
+      <toaster-container [toasterconfig]="config"></toaster-container>
+    </div>
+
+    <div class="edit-profile-section">
+      <p class="sub-title no-left-margin mb-4"> Your Profile </p>
+      <div class="d-flex flex-row align-items-center mb-3">
+        <p class="nn-lbl-sett dark text-left w-50 mb-0">Name</p>
+        <input
+          type="text"
+          class="form-control nn-input-sett w-60"
+          id="name"
+          name="userObject.Name"
+          [(ngModel)]="userObject.Name"
+        />
+      </div>
+      <div class="d-flex flex-row align-items-center mb-3">
+        <p class="nn-lbl-sett dark text-left w-50 mb-0">Username</p>
+        <input
+          type="text"
+          class="form-control nn-input-sett w-60"
+          id="UserName"
+          name="userObject.UserName"
+          [(ngModel)]="userObject.UserName"
+          placeholder="N/A"
+          disabled
+        />
+      </div>
+      <div class="d-flex flex-row align-items-center mb-3">
+        <p class="nn-lbl-sett dark text-left w-50 mb-0">Phone number</p>
+        <input
+          type="text"
+          class="form-control nn-input-sett w-60"
+          id="PhoneNumber"
+          name="userObject.PhoneNumber"
+          [(ngModel)]="userObject.PhoneNumber"
+          [attr.placeholder]="!userObject?.PhoneNumber ? 'N/A' : ''"
+        />
+      </div>
+      <div class="d-flex flex-row align-items-center mb-3">
+        <p class="nn-lbl-sett dark text-left w-50 mb-0">Primary Email</p>
+        <input
+          type="text"
+          class="form-control nn-input-sett w-60"
+          id="name"
+          name="userObject.Name"
+          [(ngModel)]="userObject.Email"
+          disabled
+        />
+      </div>
+      <div class="mt-5 d-flex justify-content-end">
+        <button
+          class="edit-profile-buttom colored"
+          (click)="editProfileButton()"
+          *ngIf="!isProfileEdit"
+        >
+          Edit Profile
+        </button>
+        <div class="d-flex">
+          <button
+            class="edit-profile-buttom mr-3 colored"
+            (click)="updateProfile()"
+            *ngIf="isProfileEdit"
+          >
+            Submit
+          </button>
+          <button
+            class="edit-profile-buttom"
+            (click)="editProfileButton()"
+            *ngIf="isProfileEdit"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

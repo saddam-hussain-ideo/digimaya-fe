@@ -1,0 +1,466 @@
+@import '../../../_variables';
+
+.withDrawLoader {
+  height: 35px;
+}
+
+.bg {
+  background-color: $white-color;
+  .head-title {
+    img {
+      border: 1px solid $dashboard-purple-clr;
+      background-color: $dashboard-purple-clr;
+      border-radius: 50px;
+      width: 40px;
+      height: 40px;
+      padding: 5px;
+      margin-right: 8px;
+    }
+    .page-title {
+      color: #191919;
+      font-family: 'CenturyRetrospective', serif;
+      font-size: 40px;
+      line-height: 40px;
+      text-transform: capitalize;
+      margin: 0 0 40px 0;
+    }
+  }
+  .custom-draw-btn {
+    // background: #997bb5;
+    background: radial-gradient(
+      107.63% 220.06% at 0.17% 0.51%,
+      #ff7f2c 0%,
+      #ff0082 100%
+    );
+    color: #fff;
+    font-size: 16px;
+    font-family: 'MavenPro';
+    // min-width: 200px;
+    border-radius: 8px;
+    padding: 8px 0;
+    font-weight: 600;
+  }
+  .custom-draw-btn:disabled {
+    // background: #997bb5;
+    opacity: 0.6;
+  }
+  .custom-small-btn {
+    // background: #997bb5;
+    background: radial-gradient(
+      107.63% 220.06% at 0.17% 0.51%,
+      #ff7f2c 0%,
+      #ff0082 100%
+    );
+    color: #fff;
+    font-family: 'MavenPro';
+    font-weight: 600;
+    padding: 8px 0;
+    border-radius: 8px;
+    width: 100%;
+  }
+  .custom-small-btn:disabled {
+    opacity: 0.6;
+  }
+}
+
+.bg-colored {
+  background-color: #f6f6f6 !important;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.wallet-new-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  .cards-inner-width {
+    width: 33.3%;
+    &.dark {
+      width: 50%;
+    }
+  }
+}
+@media screen and (max-width: 1280px) {
+  .custom-draw-btn {
+    font-size: 11px;
+  }
+  .custom-btns {
+    width: 60px;
+    font-size: 11px;
+    padding: 0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1047px) {
+  .wallet-new-cards {
+    flex-direction: column;
+    .cards-inner-width {
+      width: unset;
+      margin-bottom: 10px;
+    }
+  }
+  .custom-draw-btn {
+    font-size: 16px;
+  }
+  .custom-btns {
+    width: 30%;
+    font-size: 16px;
+  }
+}
+
+// @media screen and (max-width:1280px){
+//   .custom-small-btn{
+//     font-size: 12px;
+//   }
+//   .custom-draw-btn{
+//     font-size: 12px;
+
+//   }
+//   .send{
+//     width: 30%;
+
+//   }
+//   .recieve{
+//     width: 30%;
+
+//   }
+//   .stake{
+//     width: 30%;
+
+//   }
+// }
+@media (max-width: 1500px) {
+  .wallet-cards {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.inner-w-box {
+  background-color: #f6f6f6;
+  padding: 16px;
+  border-radius: 8px;
+  .wallet-cards {
+    .wallet-val {
+      font-family: 'MavenPro';
+      font-weight: 600;
+      color: #191919;
+      font-size: 32px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &.light {
+        color: white !important;
+      }
+    }
+    .wallet-puc {
+      font-family: 'LatoWebLight';
+      font-weight: 400;
+      color: #643e8d;
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+  }
+  &.dark-bg {
+    background-color: #191919 !important;
+  }
+}
+.wallet-inner-t {
+  color: #191919;
+  font-size: 16px;
+  font-family: 'CenturyRetrospective', serif;
+  text-transform: capitalize;
+  line-height: 16px;
+  &.light {
+    color: white !important;
+  }
+}
+
+.background {
+  background-color: #f2f1f7;
+  border-radius: 8px;
+}
+.transaction-txt {
+  font-size: 25px;
+  font-family: 'LatoWeb';
+  color: $dashboard-purple-clr;
+  padding: 10px 0 0 12px;
+}
+
+.header-whte {
+  background-color: white;
+}
+.piptle-tbl {
+  background-color: white;
+}
+.piptle-wallet {
+  .card-content {
+    padding: 13px 14px 9px;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 0;
+    font-family: 'LatoWebBold';
+  }
+  .withdraw-btn {
+    background: $light-pulper-color;
+    color: $white-color;
+    height: 43px;
+    font-family: 'LatoWebBold';
+    min-width: 200px;
+    text-transform: uppercase;
+    border-radius: unset;
+  }
+
+  .piptel-transaction-history {
+    padding: 20px;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    .header {
+      h2 {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: 'LatoWeb';
+      }
+    }
+    .table > tbody > tr > td,
+    .table > tbody > tr > th,
+    .table > thead > tr > td,
+    .table > thead > tr > th {
+      vertical-align: middle !important;
+      border-top: none;
+      font-family: 'MavenPro';
+      font-size: 16px;
+      // color: #34519d !important;
+      color: #191919;
+      font-weight: 600;
+      /*   color: #26497b; */
+    }
+    .table td,
+    .table th {
+      padding: 0;
+      border: none !important;
+      font-size: 14px;
+      color: #191919;
+    }
+  }
+}
+
+button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+::ng-deep .modal-content {
+  padding: 16px 30px;
+  border-radius: 5px !important;
+  box-sizing: border-box;
+  border: 1px solid #e1dddd;
+
+  .modal-heading {
+    .text-upercase {
+      color: $dashboard-purple-clr;
+      font-weight: bold;
+      font-size: 16px;
+      .conditions-maintext {
+        margin-top: 1rem;
+      }
+    }
+  }
+  .modal-body {
+    padding: 0;
+    position: relative;
+
+    .verify-text {
+      margin: 0;
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #20292f;
+      font-family: 'LatoWebLight';
+    }
+
+    .scroll {
+      overflow-y: scroll;
+      height: 80vh;
+    }
+    .header-inside {
+      padding-bottom: 25px;
+      width: 72%;
+      margin: 0 auto;
+
+      @media (max-width: 640px) {
+        width: 100%;
+      }
+
+      .no-of-coins {
+        color: $theme-blue;
+        font-family: 'LatoWeb';
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 22px;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      .dropdownlist {
+        .styled-select {
+          width: 100%;
+          padding: 0 8px;
+          color: #495057;
+        }
+        option:first-child {
+          display: none;
+        }
+      }
+      .doc-link {
+        text-decoration: underline;
+        font-weight: bold;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+      .twoFaField {
+        text-align: center;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .custom-2 {
+      margin: 0;
+      // border-top:4px solid #F6F6F6;
+      margin-bottom: 25px;
+    }
+
+    label,
+    span {
+      color: $dashboard-purple-clr;
+      font-family: 'LatoWeb';
+      font-size: 13px;
+      line-height: 15px;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select {
+      height: 42px;
+      background-color: #f0f0f0;
+      font-family: 'LatoWeb';
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 22px;
+      border: none;
+      box-shadow: none;
+    }
+
+    .w-25 {
+      width: 25%;
+      padding-top: 1px;
+    }
+
+    .w-75 {
+      width: 75%;
+    }
+    .w-67 {
+      width: 67%;
+    }
+    .name-field {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .submit-btn {
+      height: 52px;
+      background-color: $dashboard-purple-clr;
+      width: 100%;
+      border: none;
+      text-transform: uppercase;
+      color: $white-color;
+      font-family: 'LatoWeb';
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+
+      @media (max-width: 640px) {
+        width: 100%;
+      }
+      img {
+        padding-left: 10px;
+        margin-top: -10px;
+      }
+    }
+    .save-wallet {
+      background-color: #643e8d;
+      border: none;
+      text-transform: uppercase;
+      color: #fff;
+      font-family: 'LatoWeb';
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}
+.f-bold {
+  font-weight: bold;
+}
+.content {
+  font-size: 16px !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+  text-align: center !important;
+}
+.action-btn {
+  background: radial-gradient(
+    107.63% 220.06% at 0.17% 0.51%,
+    #ff7f2c 0%,
+    #ff0082 100%
+  );
+  color: #fff;
+  font-family: 'MavenPro';
+  width: 5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.description-field {
+  background-color: #f0f0f0;
+  border: none;
+}
+.no-visibility-2 {
+  visibility: hidden;
+  margin: 0;
+}
+
+textarea::placeholder {
+  font-family: 'LatoWeb';
+  font-size: 14px;
+  color: rgb(190, 187, 187);
+}
+select::placeholder {
+  color: rgb(190, 187, 187);
+}
+.transactionurl {
+  color: $dashboard-purple-clr;
+}
+input[type='checkbox'] {
+  position: initial;
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.sub-heading {
+  color: #191919;
+  font-family: 'CenturyRetrospective', serif;
+  text-transform: capitalize;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 40px;
+}

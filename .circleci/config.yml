@@ -1,0 +1,53 @@
+version: 2
+jobs:
+    deploy_staging:
+        machine:
+            enabled: true
+        steps:
+            - add_ssh_keys:
+                  fingerprints:
+                      - $SSH_FINGERPRINT_STAGING
+            - run:
+                  name: SSH Deploy Staging
+                  command: |
+                      ssh $SSH_USER_STAGING@$SSH_HOST_STAGING bash -c '
+                        cd /home/cistaging/fruture_ico_customer_portal_ui
+                        git fetch
+                        git checkout staging
+                        git pull
+                        npm i
+                        ng build --configuration=staging'
+
+    deploy_master:
+        machine:
+            enabled: true
+        steps:
+            - add_ssh_keys:
+                  fingerprints:
+                      - $SSH_FINGERPRINT_MASTER
+            - run:
+                  name: SSH Deploy Master
+                  command: |
+                      ssh $SSH_USER_PRODUCTION@$SSH_HOST_PRODUCTION bash -c '
+                        cd /home/ciproduction/fruture_ico_customer_portal_ui
+                        git fetch
+                        git checkout release/master
+                        git pull
+                        npm i
+                        npm run build --prod'
+
+
+workflows:
+    version: 2
+    deploy:
+        jobs:
+            - deploy_staging:
+                  filters:
+                      branches:
+                          only:
+                              - staging
+            - deploy_master:
+                  filters:
+                      branches:
+                          only:
+                              - release/master

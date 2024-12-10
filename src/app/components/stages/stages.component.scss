@@ -1,0 +1,26 @@
+.stages {
+  // color: $dashboard-purple-clr;
+  .pl-left {
+    padding-left: 1rem;
+  }
+  color: #616a75;
+  .stage-heading {
+    text-transform: uppercase;
+    font-family: 'LatoWebBold';
+  }
+  .stage-text {
+    font-size: 14px;
+    color: black;
+    list-style: decimal;
+  }
+  .ordered-list {
+    list-style: lower-alpha;
+    padding-left: 1rem;
+  }
+  .list-group-item-light {
+    color: black !important;
+  }
+}
+.mt-10 {
+  margin-top: 5px;
+}

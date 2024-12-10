@@ -1,0 +1,28 @@
+.login-loader .cssload-thecube {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.verify-text {
+  margin: 0;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #20292f;
+  font-family: 'LatoWebLight';
+}
+
+.spinning {
+  position: relative;
+  .spin-hider {
+    position: absolute;
+    right: 2px;
+    top: 10px;
+    height: 35px;
+    background: white;
+    width: 25px;
+    @media (max-width: 767px) {
+      top: 22px;
+    }
+  }
+}

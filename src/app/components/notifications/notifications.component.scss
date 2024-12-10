@@ -1,0 +1,90 @@
+.notifications-list-full {
+  padding-left: 0;
+  list-style-type: none;
+  li {
+    background: #fff;
+    cursor: pointer;
+    list-style-type: none;
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 2px;
+    box-shadow: 0px 1px 15px 1px rgba(62, 57, 107, 0.07);
+    &:hover {
+      box-shadow:
+        0 4px 10px 0 rgba(0, 0, 0, 0.2),
+        0 4px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+}
+
+.unreadNotification {
+  background-color: #eae8e8 !important;
+}
+
+.left-notifications-list {
+  padding-top: 0px;
+  margin-right: 63px;
+}
+
+.left-notifications-list li {
+  margin-right: 45px;
+  width: 20px;
+}
+
+.left-notifications-list li:last-child {
+  margin-right: 0;
+}
+
+.notifications-list li {
+  margin-right: 0;
+  padding: 10px 10px 0px 20px;
+  border-bottom: 1px solid #eee;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.notifications-list li:hover {
+  background: #2097d4;
+  p {
+    color: white;
+  }
+}
+
+.notification-line {
+  font-size: 12px;
+  font-family: 'LatoWebLight';
+  color: #34519d;
+  margin: 0;
+}
+
+.not-icon-left {
+  position: relative;
+  float: left;
+  margin-right: 15px;
+  img {
+    width: 35px;
+  }
+}
+
+.not-inner {
+  position: relative;
+  padding-top: 8px;
+}
+
+.box-loader {
+  .center-loader {
+    width: 70px;
+    margin: 30px auto;
+  }
+}
+
+.white-box-notifications {
+  background: white;
+  padding: 25px;
+  border-top: 3px solid #399bcc;
+}
+
+.abs-time {
+  color: #a4a4a4;
+  font-size: 11px;
+}
