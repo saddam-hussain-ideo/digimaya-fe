@@ -78,6 +78,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
   public documentUrl;
   public privacyPolicy;
   public lang;
+  public signUpSuccessfull: boolean = false
+  public signUpSuccessfullMessage: string = ""
   isShow = false;
   isConfirm = false;
   countriesList: Array<Object> = file['list']['countries'];
@@ -198,24 +200,26 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
           this.actionBtnShow = true;
 
-          this.lang == 'en'
-            ? this.toasterService.pop('success', 'Success', a.message)
-            : this.toasterService.pop(
-              'success',
-              'Satisfactorioamente',
-              a.message
-            );
+          // this.lang == 'en'
+          //   ? 
+          // this.toasterService.pop('success', 'Success', a.message)
+          // : this.toasterService.pop(
+          //   'success',
+          //   'Satisfactorioamente',
+          //   a.message
+          // );
           // this.toasterService.pop('success', 'Satisfactorioamente', a.message);
 
-          $('#TermsCheck').prop('checked', false);
+          // $('#TermsCheck').prop('checked', false);
 
           grecaptcha.reset();
 
-          setTimeout(() => {
-            this.signupForm = false;
-            this.resendEmail = true;
-          }, 1500);
-          this.router.navigate(['/sign-in']);
+          // setTimeout(() => {
+          //   this.signupForm = false;
+          //   this.resendEmail = true;
+          // }, 1500);
+          this.signUpSuccessfull = true
+          this.signUpSuccessfullMessage = a.message
         }
       },
       (err) => {
