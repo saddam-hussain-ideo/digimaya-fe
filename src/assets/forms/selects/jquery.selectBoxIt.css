@@ -135,7 +135,7 @@
 
 /* Drop Down optgroup headers */
 .selectboxit-optgroup-header {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 /* Drop Down optgroup header hover psuedo class */
