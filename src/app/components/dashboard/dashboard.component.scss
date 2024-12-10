@@ -15,15 +15,15 @@
 }
 .buy-txt {
   font-size: 24px;
-  font-weight: bold;
-  font-family: 'CenturyRetrospective', serif;
+  font-weight: 700;
+  font-family: 'Calibri';
   text-transform: capitalize;
   margin-bottom: 0;
   padding: 10px 0;
 }
 .puc-txt {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
   padding-top: 10px;
   margin-bottom: 0;
@@ -40,7 +40,7 @@
 
 .curr-txt {
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
 }
 .buy-text {
@@ -50,7 +50,7 @@
   // display: inline-block;
   // border-right: 2px solid white;
   // height: 3rem;
-  font-weight: bold;
+  font-weight: 700;
   font-family: 'LatoWebBold';
   text-transform: uppercase;
 }
@@ -159,7 +159,7 @@
 }
 
 .rates-table-currency {
-  font-family: 'MavenPro' !important;
+  font-family: 'Calibri' !important;
   // color: #1D2939 !important;
   color: #8c8c8c;
   font-size: 12px !important;
@@ -307,7 +307,7 @@
   background: linear-gradient(to bottom right, #ff7f2c, #ff0082);
   font-size: 16px;
   color: white;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-weight: 600;
   width: 200px;
   height: 45.13px;
@@ -350,7 +350,7 @@
   font-family: 'LatoWebLight';
   // color: #616A75;
   color: $dashboard-purple-clr;
-  font-weight: bold;
+  font-weight: 700;
   padding-top: 0;
   line-height: 8px;
   text-transform: uppercase;
@@ -464,11 +464,11 @@
   text-transform: capitalize;
   font-size: 24px;
   // font-family: 'LatoWebLight';
-  font-family: 'CenturyRetrospective', serif;
+  font-family: 'Calibri';
   margin: $title-margin;
-  font-weight: bold;
+  font-weight: 700;
   .piptleissued {
-    font-weight: bold;
+    font-weight: 700;
   }
 }
 
@@ -486,13 +486,13 @@
 .rates-title {
   //   color:#616A75;
   color: #191919;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   text-transform: capitalize;
   //   font-size: $font-14;
   font-size: 12px;
   // font-family: 'LatoWebLight';
   margin: 0;
-  font-weight: bold;
+  font-weight: 700;
   .link-clr {
     color: white;
   }
@@ -511,8 +511,8 @@
   padding-left: 0;
   font-size: 14px;
   margin: 0;
-  font-weight: bold;
-  font-family: 'MavenPro';
+  font-weight: 700;
+  font-family: 'Calibri';
 }
 
 .main-calculator {
@@ -534,7 +534,7 @@
   border-radius: 8px;
   height: 35px;
   color: #666666;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   box-shadow: none;
   padding: 16px 13px;
   border: 2px solid #11111333;
@@ -544,14 +544,14 @@
   width: 48%;
   color: #8c8c8c !important;
   font-size: 14px !important;
-  font-family: 'MavenPro' !important;
+  font-family: 'Calibri' !important;
   font-weight: 500 !important;
 }
 .right-header {
   width: 48%;
   color: #8c8c8c !important;
   font-size: 14px !important;
-  font-family: 'MavenPro' !important;
+  font-family: 'Calibri' !important;
   font-weight: 500 !important;
   text-align: end;
 }
@@ -582,8 +582,8 @@
   background-color: transparent;
   color: #666666;
   font-size: 16px;
-  font-weight: bold;
-  font-family: 'MavenPro';
+  font-weight: 700;
+  font-family: 'Calibri';
   padding: 4px 14px;
   margin: 0;
   text-indent: 0.01px;
@@ -697,7 +697,7 @@
   // top: 54%;
   // color: #666666 !important;
   // margin-top: -.5em;
-  // font-weight: bold;
+  // font-weight: 700;
   display: none;
 }
 
@@ -954,7 +954,7 @@
       width: 50%;
       text-align: center;
       .nav-link {
-        font-family: 'MavenPro';
+        font-family: 'Calibri';
         color: black;
         border: 1px solid #b3b3b3;
         font-size: 16px;
@@ -967,7 +967,7 @@
         color: $white-color;
         margin: 0 20px;
         font-size: 16px;
-        font-family: 'MavenPro';
+        font-family: 'Calibri';
       }
     }
   }
@@ -1018,7 +1018,7 @@
   padding-left: 0;
   font-size: 16px;
   font-weight: 500;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   margin: 0;
 
   @media only screen and (min-width: 1200px) and (max-width: 1429px) {
@@ -1582,7 +1582,7 @@
     text-align: left;
     padding-top: unset;
     padding-left: unset;
-    font-weight: bold;
+    font-weight: 700;
     font-family: helvetica;
     text-transform: uppercase;
     z-index: 2;
@@ -1734,7 +1734,7 @@
     text-align: left;
     // padding-top: 25px;
     padding-left: 11px;
-    font-weight: bold;
+    font-weight: 700;
     font-family: 'LatoWebBold';
     text-transform: uppercase;
     z-index: 2;
@@ -1797,7 +1797,7 @@
     .content {
       padding: 16px;
       margin: 0;
-      font-family: 'MavenPro';
+      font-family: 'Calibri';
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -1807,7 +1807,7 @@
           font-size: 32px;
           line-height: 32px;
           font-weight: 600;
-          font-family: 'MavenPro';
+          font-family: 'Calibri';
           color: black;
         }
       }
@@ -1819,7 +1819,7 @@
         font-size: 32px;
         line-height: 32px;
         font-weight: 600;
-        font-family: 'MavenPro';
+        font-family: 'Calibri';
         overflow: hidden;
         text-overflow: ellipsis;
         &.value-text{
@@ -1845,7 +1845,7 @@
     .prp-text {
       color: $dashboard-purple-clr;
       font-size: $font-14;
-      font-weight: bold;
+      font-weight: 700;
     }
   }
   .logos-spacing {
@@ -1868,7 +1868,7 @@
 }
 .tbl-value {
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: center;
   margin: 0;
@@ -1911,7 +1911,7 @@ div[disabled='disabled'] {
       font-weight: 400;
       font-size: 40px;
       line-height: 40px;
-      font-family: 'CenturyRetrospective', serif;
+      font-family: 'Calibri';
       margin: auto;
     }
     margin-bottom: 40px;
@@ -1924,7 +1924,7 @@ div[disabled='disabled'] {
     text-align: center;
     color: #643e8d;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     padding: 10px 0;
   }
 }
@@ -1935,7 +1935,7 @@ div[disabled='disabled'] {
     font-size: 22px;
   }
   .graph-inner-text {
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 26px;
   }
@@ -1945,19 +1945,19 @@ div[disabled='disabled'] {
   padding-right: 1rem;
 }
 .text-class {
-  font-family: 'CenturyRetrospective', serif;
+  font-family: 'Calibri';
   font-size: 16px;
   line-height: 16px;
   color: white;
 }
 .text-class-prp {
-  font-family: 'CenturyRetrospective', serif;
+  font-family: 'Calibri';
   font-size: 16px;
   line-height: 16px;
   color: white;
 }
 .payments-accepted-for {
-  font-family: 'CenturyRetrospective', serif;
+  font-family: 'Calibri';
   color: #191919;
   font-size: 24px;
   line-height: 24px;
@@ -1969,17 +1969,17 @@ div[disabled='disabled'] {
   justify-content: center;
   font-size: 16px;
   color: #191919;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   padding-top: 40px;
 }
 .global-transaction-heading {
   font-size: 14px;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   color: #8c8c8c;
 }
 .global-transaction-heading-two {
   font-size: 14px;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   color: #191919;
 }
 .padding-bottom-40 {

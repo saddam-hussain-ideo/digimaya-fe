@@ -18,7 +18,7 @@
     }
     .page-title {
       color: #191919;
-      font-family: 'CenturyRetrospective', serif;
+      font-family: 'Calibri';
       font-size: 40px;
       line-height: 40px;
       text-transform: capitalize;
@@ -34,7 +34,7 @@
     );
     color: #fff;
     font-size: 16px;
-    font-family: 'MavenPro';
+    font-family: 'Calibri';
     // min-width: 200px;
     border-radius: 8px;
     padding: 8px 0;
@@ -52,7 +52,7 @@
       #ff0082 100%
     );
     color: #fff;
-    font-family: 'MavenPro';
+    font-family: 'Calibri';
     font-weight: 600;
     padding: 8px 0;
     border-radius: 8px;
@@ -141,7 +141,7 @@
   border-radius: 8px;
   .wallet-cards {
     .wallet-val {
-      font-family: 'MavenPro';
+      font-family: 'Calibri';
       font-weight: 600;
       color: #191919;
       font-size: 32px;
@@ -166,7 +166,7 @@
 .wallet-inner-t {
   color: #191919;
   font-size: 16px;
-  font-family: 'CenturyRetrospective', serif;
+  font-family: 'Calibri';
   text-transform: capitalize;
   line-height: 16px;
   &.light {
@@ -226,7 +226,7 @@
     .table > thead > tr > th {
       vertical-align: middle !important;
       border-top: none;
-      font-family: 'MavenPro';
+      font-family: 'Calibri';
       font-size: 16px;
       // color: #34519d !important;
       color: #191919;
@@ -257,7 +257,7 @@ button:disabled {
   .modal-heading {
     .text-upercase {
       color: $dashboard-purple-clr;
-      font-weight: bold;
+      font-weight: 700;
       font-size: 16px;
       .conditions-maintext {
         margin-top: 1rem;
@@ -294,7 +294,7 @@ button:disabled {
         color: $theme-blue;
         font-family: 'LatoWeb';
         font-size: 22px;
-        font-weight: bold;
+        font-weight: 700;
         line-height: 22px;
       }
     }
@@ -313,7 +313,7 @@ button:disabled {
       }
       .doc-link {
         text-decoration: underline;
-        font-weight: bold;
+        font-weight: 700;
         margin-left: 5px;
         cursor: pointer;
       }
@@ -376,7 +376,7 @@ button:disabled {
       color: $white-color;
       font-family: 'LatoWeb';
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 700;
       text-align: center;
       cursor: pointer;
 
@@ -395,14 +395,14 @@ button:disabled {
       color: #fff;
       font-family: 'LatoWeb';
       font-size: 14px;
-      font-weight: bold;
+      font-weight: 700;
       text-align: center;
       cursor: pointer;
     }
   }
 }
 .f-bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 .content {
   font-size: 16px !important;
@@ -417,7 +417,7 @@ button:disabled {
     #ff0082 100%
   );
   color: #fff;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   width: 5rem;
   font-weight: 600;
   margin-bottom: 10px;
@@ -457,7 +457,7 @@ input[type='checkbox'] {
 }
 .sub-heading {
   color: #191919;
-  font-family: 'CenturyRetrospective', serif;
+  font-family: 'Calibri';
   text-transform: capitalize;
   font-size: 24px;
   font-weight: 400;
