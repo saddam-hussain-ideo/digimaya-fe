@@ -3,7 +3,8 @@ import {
   OnInit,
   OnDestroy,
   ChangeDetectorRef,
-  NgZone
+  NgZone,
+  SimpleChanges
 } from '@angular/core';
 import Chart from 'chart.js';
 import { DashboardService } from '../../services/dashboardService';
@@ -112,6 +113,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
   public pagination = [];
 
   public topScrollValue = 0;
+  public interestTokens = 0;
+  public totalBackers = 0;
 
   selectedCurrencyUSD = 'USD';
   selectedCurrencyValue = 0;
@@ -1009,14 +1012,15 @@ export class DashboardComponent implements OnDestroy, OnInit {
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
     this.userToken = JSON.parse(localStorage.getItem('userToken'));
 
-    if (this.userObject) {
-      this.userId = this.userObject['UserId'];
-      this.getTokens();
-    }
+
     this.date = new Date();
     this.saleGraphWeekly()
     this.getAmountInvested();
     this.getRates();
+    if (this.userObject) {
+      this.userId = this.userObject['UserId'];
+      this.getTokens();
+    }
     this.getILOStages();
     this.getMostRecentTransactions();
     this.get24HrsGraph();
@@ -1093,8 +1097,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
       (res) => {
         if (res) {
           this.totalPiptles = res['data']['totalTokens'];
-          this.totalValueAud =
-            this.totalPiptles * this.RatesModel.liveRate.$numberDecimal;
+          this.interestTokens = res['data']['stakedTokens']
+          this.totalBackers = res['data']['backers']
+          this.totalValueAud = this.totalPiptles * parseFloat(this.RatesModel.liveRate.$numberDecimal);
         }
       },
       (err) => {
@@ -1156,6 +1161,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
     const valueInAud = 1 / rates;
-    this.selectedCurrencyValue = parseFloat((liveRate * valueInAud).toFixed(3));
+    this.selectedCurrencyValue = liveRate;
   }
 }
