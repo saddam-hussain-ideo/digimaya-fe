@@ -119,8 +119,7 @@
               >Your Total eMaaya Value</span
             >
             <span class="heading prp-text-ppt">
-              <!-- USD$ {{ totalValueAud | currency : "crypto" }} -->
-              {{ totalValueAud ? totalValueAud : 0 }}
+              {{ totalValueAud ? (totalValueAud | number: '1.2-2') : 0 }}
             </span>
           </div>
         </div>
