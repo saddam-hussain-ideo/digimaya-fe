@@ -1156,6 +1156,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
 
     const valueInAud = 1 / rates;
-    this.selectedCurrencyValue = liveRate * valueInAud;
+    this.selectedCurrencyValue = parseFloat((liveRate * valueInAud).toFixed(3));
   }
 }

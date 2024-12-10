@@ -1018,14 +1018,15 @@
 
 .wallet-type-wrap {
   background: white;
-  max-height: 280px;
-  min-height: 280px;
+  max-height: 300px;
+  min-height: 300px;
   margin-bottom: 30px;
   padding: 20px;
   border-radius: 8px;
-  // @media (max-width:1600px) and (min-width:1156px) {
-  //     height: 455px;
-  // }
+  @media (max-width:1500px) and (min-width:1156px) {
+    max-height: 330px;
+    min-height: 330px;
+  }
 
   // @media (max-width:1155px) and (min-width:992px) {
   //     height: 435px;

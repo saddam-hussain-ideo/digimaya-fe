@@ -189,7 +189,13 @@
                     </div> -->
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 BTC = {{ walletInfo?.btc | currency: 'crypto' }} $EMYA
+                        1 BTC =
+                        {{
+                          walletInfo?.btc
+                            ? (walletInfo.btc | number: '1.2-2')
+                            : 'N/A'
+                        }}
+                        $EMYA
                       </p>
                     </div>
                   </div>
@@ -376,7 +382,13 @@
                     </div> -->
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 ETH = {{ walletInfo?.eth | currency: 'crypto' }} $EMYA
+                        1 ETH =
+                        {{
+                          walletInfo?.eth
+                            ? (walletInfo.eth | number: '1.2-2')
+                            : 'N/A'
+                        }}
+                        $EMYA
                       </p>
                     </div>
                   </div>
@@ -565,7 +577,13 @@
                     </div> -->
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 SOL = {{ walletInfo?.sol | currency: 'crypto' }} $EMYA
+                        1 SOL =
+                        {{
+                          walletInfo?.sol
+                            ? (walletInfo.sol | number: '1.2-2')
+                            : 'N/A'
+                        }}
+                        $EMYA
                       </p>
                     </div>
                   </div>
@@ -754,7 +772,13 @@
                     </div> -->
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 TON = {{ walletInfo?.ton | currency }} $EMYA
+                        1 TON =
+                        {{
+                          walletInfo?.ton
+                            ? (walletInfo.ton | number: '1.2-2')
+                            : 'N/A'
+                        }}
+                        $EMYA
                       </p>
                     </div>
                   </div>
@@ -1040,7 +1064,13 @@
                   <div class="right-refresh clearfix">
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 BNB = {{ walletInfo?.bnb | currency: 'crypto' }} $EMYA
+                        1 BNB =
+                        {{
+                          walletInfo?.bnb
+                            ? (walletInfo.bnb | number: '1.2-2')
+                            : 'N/A'
+                        }}
+                        $EMYA
                       </p>
                     </div>
                   </div>
@@ -1182,7 +1212,12 @@
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
                         1 USDC =
-                        {{ walletInfo?.usdc | currency: 'crypto' }} $EMYA
+                        {{
+                          walletInfo?.usdc
+                            ? (walletInfo.usdc | number: '1.2-2')
+                            : 'N/A'
+                        }}
+                        $EMYA
                       </p>
                     </div>
                   </div>
@@ -1324,7 +1359,13 @@
                   <div class="right-refresh clearfix">
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 USDT = {{ walletInfo?.usdt | currency }} $EMYA
+                        1 USDT =
+                        {{
+                          walletInfo?.usdt
+                            ? (walletInfo.usdt | number: '1.2-2')
+                            : 'N/A'
+                        }}
+                        $EMYA
                       </p>
                     </div>
                   </div>
@@ -1466,7 +1507,13 @@
                   <div class="right-refresh clearfix">
                     <div class="right-side clearfix">
                       <p class="no-of-btc adjusting-font">
-                        1 USDT = {{ walletInfo?.usdt | currency }} $EMYA
+                        1 USDT =
+                        {{
+                          walletInfo?.usdt
+                            ? (walletInfo.usdt | number: '1.2-2')
+                            : 'N/A'
+                        }}
+                        $EMYA
                       </p>
                     </div>
                   </div>

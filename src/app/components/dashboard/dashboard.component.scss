@@ -943,7 +943,7 @@
 .calculator-box {
   background: #f6f6f6;
   /*    min-height:100%; */
-  height: 394px;
+  max-height: 394px;
   padding: 20px;
   border-radius: 8px;
   .calculator-tabs {
@@ -1019,7 +1019,6 @@
   font-size: 16px;
   font-weight: 500;
   font-family: 'MavenPro';
-  text-transform: uppercase;
   margin: 0;
 
   @media only screen and (min-width: 1200px) and (max-width: 1429px) {
@@ -1699,11 +1698,11 @@
   }
 }
 
-@media only screen and (min-width: 1500px) {
-  .inner-calc {
-    padding-bottom: 62px;
-  }
-}
+// @media only screen and (min-width: 1500px) {
+//   .inner-calc {
+//     padding-bottom: 62px;
+//   }
+// }
 @media only screen and (min-width: 1200px) {
   //    .footer-bottom {
   //     background-size: 100% 100%;
@@ -1797,7 +1796,6 @@
     border-radius: 8px;
     .content {
       padding: 16px;
-      text-transform: uppercase;
       margin: 0;
       font-family: 'MavenPro';
       display: flex;
@@ -1824,6 +1822,9 @@
         font-family: 'MavenPro';
         overflow: hidden;
         text-overflow: ellipsis;
+        &.value-text{
+          font-size: 28px;
+        }
       }
     }
   }
@@ -1944,7 +1945,6 @@ div[disabled='disabled'] {
   padding-right: 1rem;
 }
 .text-class {
-  text-transform: capitalize;
   font-family: 'CenturyRetrospective', serif;
   font-size: 16px;
   line-height: 16px;
@@ -2049,4 +2049,14 @@ div[disabled='disabled'] {
   .gallery-item.small {
     grid-column: span 1;
   }
+}
+
+.row-payemnt-card{
+  height: inherit;
+}
+.payment-card-video{
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
 }
