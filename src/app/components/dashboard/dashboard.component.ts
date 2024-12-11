@@ -1098,7 +1098,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
       (res) => {
         if (res) {
           this.totalPiptles = res['data']['totalTokens'];
-          this.interestTokens = res['data']['stakedTokens']
+          this.interestTokens = res['data']['stakingBonus']
           this.totalBackers = res['data']['backers']
           // this.totalValueAud = this.totalPiptles * parseFloat(this.RatesModel.liveRate.$numberDecimal);
         }

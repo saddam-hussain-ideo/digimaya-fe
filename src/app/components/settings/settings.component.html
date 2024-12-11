@@ -42,12 +42,14 @@
       <div class="d-flex flex-row align-items-center mb-3">
         <p class="nn-lbl-sett dark text-left w-50 mb-0">Phone number</p>
         <input
-          type="number"
+          type="text"
           class="form-control nn-input-sett w-60"
           id="PhoneNumber"
           name="userObject.PhoneNumber"
           [(ngModel)]="userObject.PhoneNumber"
           [attr.placeholder]="!userObject?.PhoneNumber ? 'N/A' : ''"
+          (input)="onPhoneNumberInput($event)"
+          [disabled]="!isProfileEdit"
         />
       </div>
       <div class="d-flex flex-row align-items-center mb-3">
