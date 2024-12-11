@@ -13,13 +13,13 @@ else
   echo "nvm not found, skipping Node version management"
 fi
 
-# Install specific node version (e.g., 14)
+# Install specific node version using .nvmrc file if it exists
 echo "Installing node version..."
 nvm install
 nvm use
 
-# Clean npm cache and install dependencies
-echo "Cleaning npm cache and installing dependencies..."
+# Install dependencies
+echo "Installing dependencies..."
 npm install
 
 # Build the frontend
