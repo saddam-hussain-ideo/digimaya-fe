@@ -2,6 +2,7 @@ import {
   Component,
   OnInit,
   OnDestroy,
+  DoCheck,
   ChangeDetectorRef,
   NgZone,
   SimpleChanges
@@ -31,7 +32,7 @@ declare var $: any;
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnDestroy, OnInit {
+export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
   public pieChartOptions: any;
   lineChartOptions: any;
   valid = false;
@@ -1099,13 +1100,18 @@ export class DashboardComponent implements OnDestroy, OnInit {
           this.totalPiptles = res['data']['totalTokens'];
           this.interestTokens = res['data']['stakedTokens']
           this.totalBackers = res['data']['backers']
-          this.totalValueAud = this.totalPiptles * parseFloat(this.RatesModel.liveRate.$numberDecimal);
+          // this.totalValueAud = this.totalPiptles * parseFloat(this.RatesModel.liveRate.$numberDecimal);
         }
       },
       (err) => {
         console.log(err);
       }
     );
+  }
+  ngDoCheck() {
+    if (this.totalPiptles && this.RatesModel.liveRate.$numberDecimal) {
+      this.totalValueAud = this.totalPiptles * parseFloat(this.RatesModel.liveRate.$numberDecimal);
+    }
   }
   numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');

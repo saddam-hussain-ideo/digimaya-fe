@@ -85,7 +85,7 @@
         <div class="info-custom-card">
           <div class="content">
             <span class="heading text-class">Total Backers</span>
-            <span class="pulper-color"> {{ totalLicesees }} </span>
+            <span class="pulper-color"> {{ totalBackers }} </span>
           </div>
         </div>
       </div>
@@ -833,7 +833,8 @@
                           'UNSOLVED TRANSACTION' ||
                         transactions.TransactionType == 'AVAILABLE' ||
                         transactions.TransactionType == 'ACTIVITY REWARD' ||
-                        transactions.TransactionType == 'STAKING REWARD'
+                        transactions.TransactionType == 'STAKING REWARD' ||
+                        transactions.TransactionType == 'PURCHASE'
                       "
                     >
                       <div *ngIf="transactions.TransactionHash.length > 15">
