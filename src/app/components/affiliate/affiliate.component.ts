@@ -539,7 +539,11 @@ export class Affiliate {
   getTopReferrals() {
     this.topRefersLoader = true;
     this._affilliateService
-      .getTopReferrals(this.topReferalCurrentPage, this.referralPSize, this.userObject.UserId)
+      .getTopReferrals(
+        this.topReferalCurrentPage,
+        this.referralPSize,
+        this.userObject.UserId
+      )
       .subscribe(
         (a) => {
           if (a.code == 200) {

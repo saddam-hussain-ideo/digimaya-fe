@@ -343,7 +343,7 @@ export class UserService {
     return this.http
       .get(
         environment.BaseUrl +
-        `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}&type=all`,
+          `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}&type=all`,
         { headers: headers }
       )
       .map((res) => res.json());
@@ -359,7 +359,7 @@ export class UserService {
     return this.http
       .get(
         environment.BaseUrl +
-        `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}`,
+          `user/getUserNotificationsList?pagenumber=${pagenumber}&pagesize=${pagesize}`,
         { headers: headers }
       )
       .map((res) => res.json());
@@ -374,7 +374,7 @@ export class UserService {
     return this.http
       .get(
         environment.BaseUrl +
-        `user/updateNotificationStatus?notificationid=${notificationId}`,
+          `user/updateNotificationStatus?notificationid=${notificationId}`,
         { headers: headers }
       )
       .map((res) => res.json());

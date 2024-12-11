@@ -11,8 +11,7 @@
     "lint:e2e": "ng lint crypto-e2e --fix",
     "lint:crypto": "ng lint crypto --fix",
     "lint:all": "ng lint crypto --fix && ng lint crypto-e2e --fix",
-    "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
-    "prepare": "husky install"
+    "format": "prettier --write \"src/**/*.{ts,html,scss,json}\""
   },
   "private": true,
   "engines": {
