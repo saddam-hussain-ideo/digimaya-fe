@@ -85,7 +85,7 @@
         <div class="info-custom-card">
           <div class="content">
             <span class="heading text-class">Total Backers</span>
-            <span class="pulper-color"> {{ totalLicesees }} </span>
+            <span class="pulper-color"> {{ totalBackers }} </span>
           </div>
         </div>
       </div>
@@ -468,48 +468,34 @@
                   aria-labelledby="pills-profile-tab"
                 >
                   <div class="stage-table-div">
-                    <table class="stage-table table-responsives table-striped">
-                      <tbody>
-                        <tr>
-                          <td>
-                            <span class="color-green"
-                              >{{ 'Total Supply' | translate }} :
-                            </span>
-                            <span class="color-pulper"
-                              >{{ totalCapacity }} $EMYA</span
-                            >
-                          </td>
-                          <td>
-                            <span class="color-green"
-                              >{{ 'Total Issued' | translate }} :
-                            </span>
-                            <span class="color-pulper"
-                              >{{ totalIssued | currency }}
-                            </span>
-                          </td>
-                          <td class="color-pulper">$EMYA</td>
-                        </tr>
-                        <tr *ngFor="let sData of stageData">
-                          <td>
-                            <span class="color-green"
-                              >{{ sData.StageName }} :
-                            </span>
-                            <span class="color-pulper"
-                              >{{ sData.TotalSaleAmount }} $EMYA</span
-                            >
-                          </td>
-                          <td>
-                            <span class="color-green"
-                              >{{ 'Total Issued' | translate }} :
-                            </span>
-                            <span class="color-pulper"
-                              >{{ sData.TotalAmountSold | currency }}
-                            </span>
-                          </td>
-                          <td class="color-pulper">$EMYA</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <div class="table-responsive">
+                      <table class="stage-table table-striped">
+                        <thead>
+                          <tr>
+                            <th>Stage Name</th>
+                            <th>Total Amount</th>
+                            <th>Stage Price</th>
+                            <th>Start Date</th>
+                            <th>Total Coins Issued</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let sData of stageData">
+                            <td> {{ sData.StageName }} </td>
+                            <td>{{ sData.TotalSaleAmount }} </td>
+                            <td>
+                              {{ sData.StageRate.$numberDecimal }}
+                            </td>
+                            <td>
+                              {{ sData.StageStartDate | date: 'yyyy-MM-dd' }}
+                            </td>
+                            <td>
+                              {{ sData.TotalAmountSold | number: '1.4-4' }}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -833,7 +819,8 @@
                           'UNSOLVED TRANSACTION' ||
                         transactions.TransactionType == 'AVAILABLE' ||
                         transactions.TransactionType == 'ACTIVITY REWARD' ||
-                        transactions.TransactionType == 'STAKING REWARD'
+                        transactions.TransactionType == 'STAKING REWARD' ||
+                        transactions.TransactionType == 'PURCHASE'
                       "
                     >
                       <div *ngIf="transactions.TransactionHash.length > 15">
@@ -883,7 +870,7 @@
                       {{ transactions.BonusPercentage }}
                     </td> -->
                     <td class="text-centered v-middle stacked-text table-head">
-                      {{ transactions.TotalTokens | currency }}
+                      {{ transactions.TotalTokens | number: '1.3-3' }}
                     </td>
                     <td class="text-centered v-middle stacked-text table-head">
                       <!-- {{transactions.CryptoAmountReceive | currency:'crypto'}} -->
@@ -931,7 +918,10 @@
                       </p>
                     </td>
                     <td class="text-centered v-middle stacked-text table-head">
-                      {{ transactions.AmountInMxn | currency }}
+                      {{
+                        transactions.TotalTokens * selectedCurrencyValue
+                          | number: '1.3-3'
+                      }}
                     </td>
                     <td class="v-middle stacked-text table-head">
                       {{ transactions.CreatedOnUTC }}
