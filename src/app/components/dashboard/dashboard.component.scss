@@ -975,14 +975,25 @@
     padding: 10px 14px;
     .stage-table {
       width: 100%;
-
+      table-layout: fixed;
+      th{
+        vertical-align: middle !important;
+        border-top: none;
+        font-family: Calibri;
+        font-size: 14px;
+        color: #191919;
+        padding: 12px 15px;
+      }
       tbody {
         tr {
-          td {
-            padding: 12px 0 12px 5px;
-
-            font-family: 'LatoWebBold';
-            font-size: 13px;
+         
+          td{
+            vertical-align: middle !important;
+            font-family: Calibri;
+            font-size: 14px;
+            color: #191919;
+            padding: 12px 15px;
+    border: none !important;
           }
         }
       }
