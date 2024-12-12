@@ -217,7 +217,10 @@ a:focus {
   /* position: fixed; */
   /* background-position-y: bottom; */
   background-color: #f6f6f6;
-  padding-top: 130px /* background-repeat-y: no-repeat; */ /* height: 100vh */;
+  padding-top: 130px;
+  @media screen and (max-width:767px) {
+    padding-top: 60px;
+  }
 }
 
 .sidebar-toggle-wrapper {
@@ -241,7 +244,7 @@ a:focus {
     -ms-transform: none;
     -webkit-transform: none;
     transform: none;
-    background: url(../../../assets/img/menu-icn.png) no-repeat;
+    background: url(../../../assets/img/menu-icn.svg) no-repeat;
   }
 }
 
@@ -258,7 +261,6 @@ a:focus {
   left: 8px;
   top: 21px;
   cursor: pointer;
-
   .fas {
     font-size: 24px;
   }
@@ -621,6 +623,9 @@ a:focus {
   background-color: '#F6F6F6';
   color: #f6f6f6;
   transition: all 0.3s;
+  @media screen and (max-width:767px) {
+    width: 250px;
+  }
 }
 
 .sidebar-active {
@@ -1254,5 +1259,18 @@ a.article:hover {
   margin-top: 15%;
   @media only screen and (max-width: 1400px) and (min-width: 1100px) {
     gap: 18px;
+  }
+  @media screen and (max-width:767px) {
+    margin-top: 60%;
+  }
+  @media screen and (max-width:400px) {
+    margin-top: 50%;
+  }
+}
+
+.my-settings-route{
+  display: none;
+  @media screen and (max-width:767px) {
+    display: list-item;
   }
 }

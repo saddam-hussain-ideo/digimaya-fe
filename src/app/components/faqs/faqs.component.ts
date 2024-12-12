@@ -8,6 +8,7 @@ declare var $: any;
 })
 export class FaqsComponent {
   public ngOnInit() {
+    window.scrollTo(0, 0)
     $('.list-unstyled li').removeClass('active');
     $('#faqs-nav').addClass('active');
 

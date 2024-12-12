@@ -1032,13 +1032,19 @@
   //     height: 435px;
   // }
 
-  // @media (max-width:991px) and (min-width:768px){
-  //     height: 420px;
-  // }
+  @media (max-width:576px) and (min-width:400px){
+    min-height: 250px;
+    max-height: 250px;
+
+  }
 
   // @media (max-width:767px) {
   //     height: 500px;
   // }
+  @media (max-width:400px) {
+      min-height: 350px;
+      max-height: 350px;
+  }
 }
 
 .left-icon,
