@@ -244,15 +244,15 @@ export class MyWalletComponent implements OnInit, OnDestroy {
         if (size > 5) {
           this.userObject.Language == 'en'
             ? self.toasterService.pop(
-              'error',
-              'Error',
-              'File is too large, please upload less than 5MB'
-            )
+                'error',
+                'Error',
+                'File is too large, please upload less than 5MB'
+              )
             : self.toasterService.pop(
-              'error',
-              'Error',
-              'El documento es muy pesado, favor de subir una imagen menor a 5mb'
-            );
+                'error',
+                'Error',
+                'El documento es muy pesado, favor de subir una imagen menor a 5mb'
+              );
           return false;
         }
 
@@ -310,10 +310,10 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     if (!this.validations.verifyNameInputs(this.instrumentId)) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Please enter the instument Id'
-        )
+            'error',
+            'Error',
+            'Please enter the instument Id'
+          )
         : this.toasterService.pop('error', 'Error', 'Por favor ingresa tu INE');
       error = true;
     }
@@ -321,15 +321,15 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     if (!this.validations.verifyNameInputs(this.bankName)) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Please enter the bank name'
-        )
+            'error',
+            'Error',
+            'Please enter the bank name'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Por favor ingresa el nombre del banco'
-        );
+            'error',
+            'Error',
+            'Por favor ingresa el nombre del banco'
+          );
       error = true;
     }
 
@@ -339,30 +339,30 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     ) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Please select your currency'
-        )
+            'error',
+            'Error',
+            'Please select your currency'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Por favor seleccciona una moneda'
-        );
+            'error',
+            'Error',
+            'Por favor seleccciona una moneda'
+          );
       error = true;
     }
 
     if (this.uploadedFile == undefined || this.uploadedFile == null) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Please upload the photo of the receipt'
-        )
+            'error',
+            'Error',
+            'Please upload the photo of the receipt'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Por favor envianos el comprobante de deposito.'
-        );
+            'error',
+            'Error',
+            'Por favor envianos el comprobante de deposito.'
+          );
       error = true;
     }
 
@@ -385,10 +385,10 @@ export class MyWalletComponent implements OnInit, OnDestroy {
               this.userObject.Language == 'en'
                 ? this.toasterService.pop('success', 'Success', a.message)
                 : this.toasterService.pop(
-                  'success',
-                  'Satisfactorioamente',
-                  a.message
-                );
+                    'success',
+                    'Satisfactorioamente',
+                    a.message
+                  );
               this.submitClaimLoader = false;
               this.submitClaimBtn = true;
               setTimeout(() => {
@@ -419,45 +419,45 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     if (this.creditCardNumber == undefined || this.creditCardNumber == null) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Please enter your Credit Card Number'
-        )
+            'error',
+            'Error',
+            'Please enter your Credit Card Number'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Please enter your Credit Card Number'
-        );
+            'error',
+            'Error',
+            'Please enter your Credit Card Number'
+          );
       error = true;
     }
 
     if (this.creditCardCvc == undefined || this.creditCardCvc == null) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Please enter your CVC Number'
-        )
+            'error',
+            'Error',
+            'Please enter your CVC Number'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Please enter your CVC Number'
-        );
+            'error',
+            'Error',
+            'Please enter your CVC Number'
+          );
       error = true;
     }
 
     if (this.CreditCardType == undefined || this.CreditCardType == null) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Please select credit card type'
-        )
+            'error',
+            'Error',
+            'Please select credit card type'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Please select credit card type'
-        );
+            'error',
+            'Error',
+            'Please select credit card type'
+          );
       error = true;
     }
   }
@@ -503,10 +503,10 @@ export class MyWalletComponent implements OnInit, OnDestroy {
     ) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Please enter a valid ETH Address'
-        )
+            'error',
+            'Error',
+            'Please enter a valid ETH Address'
+          )
         : this.toasterService.pop('error', 'Error', 'Direccion ETH Invalida');
       error = true;
     }
@@ -527,10 +527,10 @@ export class MyWalletComponent implements OnInit, OnDestroy {
               this.userObject.Language == 'en'
                 ? this.toasterService.pop('success', 'Success', a.message)
                 : this.toasterService.pop(
-                  'success',
-                  'Satisfactorioamente',
-                  a.message
-                );
+                    'success',
+                    'Satisfactorioamente',
+                    a.message
+                  );
               this.noEthAddress = false;
               this.updateLoader = false;
               this.updateEth = true;

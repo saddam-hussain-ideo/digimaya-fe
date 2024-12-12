@@ -335,37 +335,37 @@ export class SettingsComponent implements OnInit, OnDestroy {
     ) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          `Please Upload ${this.idType} Front & ${this.idType} Back Image`
-        )
+            'error',
+            'Error',
+            `Please Upload ${this.idType} Front & ${this.idType} Back Image`
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          `Favor de subir ${IDTYPE} frente y ${IDTYPE} Posterior imagen`
-        );
+            'error',
+            'Error',
+            `Favor de subir ${IDTYPE} frente y ${IDTYPE} Posterior imagen`
+          );
       error = true;
     } else if (this.idType === 'PASSPORT' && !this.frontPhotoFile) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          `Please Upload ${this.idType} Front Image`
-        )
+            'error',
+            'Error',
+            `Please Upload ${this.idType} Front Image`
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          `Favor de subir ${IDTYPE} frente imagen`
-        );
+            'error',
+            'Error',
+            `Favor de subir ${IDTYPE} frente imagen`
+          );
       error = true;
     } else if (!this.idType) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop('error', 'Error', 'Please Select ID Type')
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Por favor elige el tipo de Identificacion'
-        );
+            'error',
+            'Error',
+            'Por favor elige el tipo de Identificacion'
+          );
       error = true;
     }
 
@@ -376,39 +376,39 @@ export class SettingsComponent implements OnInit, OnDestroy {
     ) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          `Please Upload ${this.billType} Bill Image`
-        )
+            'error',
+            'Error',
+            `Please Upload ${this.billType} Bill Image`
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          `Favor de Subir el Comprobante de Domicilio`
-        );
+            'error',
+            'Error',
+            `Favor de Subir el Comprobante de Domicilio`
+          );
       error = true;
     } else if (!this.billType) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop('error', 'Error', 'Please Select Bill Type')
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Por favor elige el comprobante de domicilio'
-        );
+            'error',
+            'Error',
+            'Por favor elige el comprobante de domicilio'
+          );
       error = true;
     }
 
     if (this.phoneNumber == undefined) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Phone Number Cannot Be Empty'
-        )
+            'error',
+            'Error',
+            'Phone Number Cannot Be Empty'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Numero de telefono no puede estar vacio'
-        );
+            'error',
+            'Error',
+            'Numero de telefono no puede estar vacio'
+          );
       error = true;
     }
 
@@ -416,10 +416,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.userObject.Language == 'en'
         ? this.toasterService.pop('error', 'Error', 'Code Cannot Be Empty')
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Codigo de Pais no puede estar vacio'
-        );
+            'error',
+            'Error',
+            'Codigo de Pais no puede estar vacio'
+          );
       error = true;
     }
 
@@ -429,15 +429,15 @@ export class SettingsComponent implements OnInit, OnDestroy {
     ) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Code Must Be Between 2 to 4 Digits'
-        )
+            'error',
+            'Error',
+            'Code Must Be Between 2 to 4 Digits'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'El codigo del pais debe tener entre 2 y 4 digitos'
-        );
+            'error',
+            'Error',
+            'El codigo del pais debe tener entre 2 y 4 digitos'
+          );
       error = true;
     }
 
@@ -447,15 +447,15 @@ export class SettingsComponent implements OnInit, OnDestroy {
     ) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Phone Must Be Between 7 to 10 Digits'
-        )
+            'error',
+            'Error',
+            'Phone Must Be Between 7 to 10 Digits'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'El número telefónico debe ser de 7 y 10 dígitos'
-        );
+            'error',
+            'Error',
+            'El número telefónico debe ser de 7 y 10 dígitos'
+          );
       error = true;
     }
 
@@ -483,10 +483,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
               this.userObject.Language == 'en'
                 ? this.toasterService.pop('success', 'Success', a.message)
                 : this.toasterService.pop(
-                  'success',
-                  'Satisfactorioamente',
-                  a.message
-                );
+                    'success',
+                    'Satisfactorioamente',
+                    a.message
+                  );
               this.kycLoader = false;
               this.showDetails = true;
               this.userKycStatus = 'SUBMITTED';
@@ -499,7 +499,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
               // disable properties
               $('#phoneNumber').prop('disabled', true);
               this.disabled = true;
-              setTimeout(() => { }, 3000);
+              setTimeout(() => {}, 3000);
             }
           },
           (err) => {
@@ -580,10 +580,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.userObject.Language == 'en'
         ? this.toasterService.pop('error', 'Error', 'Please enter a 2FA Code')
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Favor de introducir el codigo 2FA'
-        );
+            'error',
+            'Error',
+            'Favor de introducir el codigo 2FA'
+          );
       error = true;
     }
 
@@ -617,10 +617,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
               this.userObject.Language == 'en'
                 ? this.toasterService.pop('success', 'Success', a.message)
                 : this.toasterService.pop(
-                  'success',
-                  'Satisfactorioamente',
-                  a.message
-                );
+                    'success',
+                    'Satisfactorioamente',
+                    a.message
+                  );
               this.enable2faDiv = false;
               this.disable2FA = false;
               this.state = true;
@@ -655,10 +655,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.userObject.Language == 'en'
         ? this.toasterService.pop('error', 'Error', 'Please enter a 2FA Code')
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Favor de introducir el codigo 2FA'
-        );
+            'error',
+            'Error',
+            'Favor de introducir el codigo 2FA'
+          );
       error = true;
     }
 
@@ -690,10 +690,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
               this.userObject.Language == 'en'
                 ? this.toasterService.pop('success', 'Success', a.message)
                 : this.toasterService.pop(
-                  'success',
-                  'Satisfactorioamente',
-                  a.message
-                );
+                    'success',
+                    'Satisfactorioamente',
+                    a.message
+                  );
               this.disable2FA = true;
               this.disableSwitch = true;
               this.enable2faDiv = false;
@@ -796,24 +796,24 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.userObject.Language == 'en'
         ? this.toasterService.pop('error', 'Error', "Name Can't be Empty.")
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'nombre no pueden estar vacios'
-        );
+            'error',
+            'Error',
+            'nombre no pueden estar vacios'
+          );
       error = true;
     } else if (!this.validations.verifyUserNameLength(this.userObject.Name)) {
       error = true;
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Name should be between 3-50 characters'
-        )
+            'error',
+            'Error',
+            'Name should be between 3-50 characters'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'El nombre completo debe ser entre 3 y 50 caracteres'
-        );
+            'error',
+            'Error',
+            'El nombre completo debe ser entre 3 y 50 caracteres'
+          );
     }
 
     if (this.userWalletAddress == undefined) {
@@ -825,15 +825,15 @@ export class SettingsComponent implements OnInit, OnDestroy {
       if (this.userObject.WalletAddress == '' && this.userWalletAddress == '') {
         this.userObject.Language == 'en'
           ? this.toasterService.pop(
-            'error',
-            'Error',
-            "ETH address can't be empty."
-          )
+              'error',
+              'Error',
+              "ETH address can't be empty."
+            )
           : this.toasterService.pop(
-            'error',
-            'Error',
-            'La Dirección ETH no puede estar vacía'
-          );
+              'error',
+              'Error',
+              'La Dirección ETH no puede estar vacía'
+            );
         error = true;
       } else if (
         this.userObject.WalletAddress != '' &&
@@ -841,15 +841,15 @@ export class SettingsComponent implements OnInit, OnDestroy {
       ) {
         this.userObject.Language == 'en'
           ? this.toasterService.pop(
-            'error',
-            'Error',
-            "ETH address can't be empty."
-          )
+              'error',
+              'Error',
+              "ETH address can't be empty."
+            )
           : this.toasterService.pop(
-            'error',
-            'Error',
-            'La Dirección ETH no puede estar vacía'
-          );
+              'error',
+              'Error',
+              'La Dirección ETH no puede estar vacía'
+            );
         error = true;
       }
     } else {
@@ -874,10 +874,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
               this.userObject.Language == 'en'
                 ? this.toasterService.pop('success', 'Success', a.message)
                 : this.toasterService.pop(
-                  'success',
-                  'Satisfactorioamente',
-                  a.message
-                );
+                    'success',
+                    'Satisfactorioamente',
+                    a.message
+                  );
               this.changeGeneralBtn = true;
               this.userObject.WalletAddress = this.userWalletAddress;
               localStorage.setItem(
@@ -920,15 +920,15 @@ export class SettingsComponent implements OnInit, OnDestroy {
     if (!this.validations.verifyNameInputs(this.oldPassword)) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Old Password Cannot be Empty'
-        )
+            'error',
+            'Error',
+            'Old Password Cannot be Empty'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Contraseña anterior no puede estar vacio'
-        );
+            'error',
+            'Error',
+            'Contraseña anterior no puede estar vacio'
+          );
       error = true;
     }
 
@@ -936,10 +936,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.userObject.Language == 'en'
         ? this.toasterService.pop('error', 'Error', 'Password Cannot be Empty')
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Contraseña no puede estar vacia'
-        );
+            'error',
+            'Error',
+            'Contraseña no puede estar vacia'
+          );
       error = true;
     }
 
@@ -950,45 +950,45 @@ export class SettingsComponent implements OnInit, OnDestroy {
       error = true;
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          `Password length must be between 8 to 50 characters including one small alphabet,
+            'error',
+            'Error',
+            `Password length must be between 8 to 50 characters including one small alphabet,
          one capital alphabet, one special character and one numeric value.`
-        )
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          `La contraseña debe tener entre 8 y 50 caracteres incluyendo una minúscula, una mayúscula, un número y un carácter especial`
-        );
+            'error',
+            'Error',
+            `La contraseña debe tener entre 8 y 50 caracteres incluyendo una minúscula, una mayúscula, un número y un carácter especial`
+          );
     }
 
     if (!this.validations.verifyNameInputs(this.cPassword)) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Password and confirm password must match'
-        )
+            'error',
+            'Error',
+            'Password and confirm password must match'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Ambas contraseñas deben coincidir'
-        );
+            'error',
+            'Error',
+            'Ambas contraseñas deben coincidir'
+          );
       error = true;
     }
 
     if (this.cPassword != this.password) {
       this.userObject.Language == 'en'
         ? this.toasterService.pop(
-          'error',
-          'Error',
-          'Password and confirm password must match'
-        )
+            'error',
+            'Error',
+            'Password and confirm password must match'
+          )
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'Ambas contraseñas deben coincidir'
-        );
+            'error',
+            'Error',
+            'Ambas contraseñas deben coincidir'
+          );
       error = true;
     }
 
@@ -1006,10 +1006,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
               this.userObject.Language == 'en'
                 ? this.toasterService.pop('success', 'Success', a.message)
                 : this.toasterService.pop(
-                  'success',
-                  'Satisfactorioamente',
-                  a.message
-                );
+                    'success',
+                    'Satisfactorioamente',
+                    a.message
+                  );
               this.refreshPasswords();
             }
           },
@@ -1127,29 +1127,29 @@ export class SettingsComponent implements OnInit, OnDestroy {
           this.toasterService.clear();
           this.userObject.Language == 'en'
             ? this.toasterService.pop(
-              'error',
-              'Error',
-              'Max upload size is limited to 5 MB'
-            )
+                'error',
+                'Error',
+                'Max upload size is limited to 5 MB'
+              )
             : this.toasterService.pop(
-              'error',
-              'Error',
-              'El documento es muy pesado, favor de subir una imagen menor a 5mb'
-            );
+                'error',
+                'Error',
+                'El documento es muy pesado, favor de subir una imagen menor a 5mb'
+              );
         }
       } else {
         this.toasterService.clear();
         this.userObject.Language == 'en'
           ? this.toasterService.pop(
-            'error',
-            'Error',
-            'Only jpg, png, and pdf file supported'
-          )
+              'error',
+              'Error',
+              'Only jpg, png, and pdf file supported'
+            )
           : this.toasterService.pop(
-            'error',
-            'Error',
-            'Solo archivos .jpg y .png '
-          );
+              'error',
+              'Error',
+              'Solo archivos .jpg y .png '
+            );
       }
     }
   }
@@ -1227,7 +1227,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
     }
   }
   editProfileButton() {
-    this.isProfileEdit = !this.isProfileEdit
+    this.isProfileEdit = !this.isProfileEdit;
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
   }
   updateProfile() {
@@ -1238,18 +1238,17 @@ export class SettingsComponent implements OnInit, OnDestroy {
       this.userObject.Language == 'en'
         ? this.toasterService.pop('error', 'Error', "Name Can't be Empty.")
         : this.toasterService.pop(
-          'error',
-          'Error',
-          'nombre no pueden estar vacios'
-        );
+            'error',
+            'Error',
+            'nombre no pueden estar vacios'
+          );
       error = true;
     } else if (!this.validations.validatePhone(this.userObject.PhoneNumber)) {
       error = true;
       this.toasterService.pop('error', 'Error', 'Invalid mobile number');
     }
     if (error) {
-    }
-    else {
+    } else {
       this._userService
         .updateProfile(
           this.userObject.Name,
@@ -1263,11 +1262,11 @@ export class SettingsComponent implements OnInit, OnDestroy {
               this.userObject.Language == 'en'
                 ? this.toasterService.pop('success', 'Success', a.message)
                 : this.toasterService.pop(
-                  'success',
-                  'Satisfactorioamente',
-                  a.message
-                );
-              this.isProfileEdit = false
+                    'success',
+                    'Satisfactorioamente',
+                    a.message
+                  );
+              this.isProfileEdit = false;
               localStorage.setItem(
                 'userObject',
                 JSON.stringify(this.userObject)
@@ -1281,7 +1280,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
             this._sharedService.showHideLoader(false);
             const obj = JSON.parse(err._body);
             this.toasterService.pop('error', 'Error', obj.message);
-            this.isProfileEdit = false
+            this.isProfileEdit = false;
             this.userObject = null;
             this.userObject = JSON.parse(localStorage.getItem('userObject'));
 

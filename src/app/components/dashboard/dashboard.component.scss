@@ -976,7 +976,7 @@
     .stage-table {
       width: 100%;
       table-layout: fixed;
-      th{
+      th {
         vertical-align: middle !important;
         border-top: none;
         font-family: Calibri;
@@ -986,14 +986,13 @@
       }
       tbody {
         tr {
-         
-          td{
+          td {
             vertical-align: middle !important;
             font-family: Calibri;
             font-size: 14px;
             color: #191919;
             padding: 12px 15px;
-    border: none !important;
+            border: none !important;
           }
         }
       }
@@ -1833,7 +1832,7 @@
         font-family: 'Calibri';
         overflow: hidden;
         text-overflow: ellipsis;
-        &.value-text{
+        &.value-text {
           font-size: 28px;
         }
       }
@@ -2062,10 +2061,10 @@ div[disabled='disabled'] {
   }
 }
 
-.row-payemnt-card{
+.row-payemnt-card {
   height: inherit;
 }
-.payment-card-video{
+.payment-card-video {
   margin: auto;
   height: 100%;
   width: 100%;

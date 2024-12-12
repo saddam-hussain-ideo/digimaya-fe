@@ -11,35 +11,13 @@
     "lint:e2e": "ng lint crypto-e2e --fix",
     "lint:crypto": "ng lint crypto --fix",
     "lint:all": "ng lint crypto --fix && ng lint crypto-e2e --fix",
-    "format": "prettier --write \"src/**/*.{ts,html,scss,json}\""
+    "format": "prettier --write \"src/**/*.{ts,html,scss,json}\"",
+    "prepare": "husky install"
   },
   "private": true,
   "engines": {
     "node": "14.21.3",
     "npm": "6.14.18"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.html": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.scss": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
   },
   "dependencies": {
     "@angular/animations": "^6.1.10",
@@ -89,7 +67,7 @@
     "@types/socket.io-client": "~1.4.29",
     "aos": "^2.3.4",
     "codelyzer": "~4.2.1",
-    "husky": "^9.1.7",
+    "husky": "^8.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",

@@ -26,7 +26,6 @@ import { MyWalletComponent } from '../myWallet/myWallet.component';
 
 declare var $: any;
 @Component({
-
   selector: 'crypto-dashboard',
   providers: [DashboardService],
   templateUrl: './dashboard.component.html',
@@ -174,9 +173,9 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
   ];
 
   // events
-  public chartClicked(e: any): void { }
+  public chartClicked(e: any): void {}
 
-  public chartHovered(e: any): void { }
+  public chartHovered(e: any): void {}
 
   getAmountInvested() {
     this._sharedService.showHideLoader(true);
@@ -356,7 +355,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     this._dashboardService.salesGraphWeekly().subscribe(
       (res) => {
         if (res) {
-          console.log(res, "salegraphweekly");
+          console.log(res, 'salegraphweekly');
 
           this.lineChartLabels = res.data['weeks'];
           this.lineChartData[0] = res.data['values'];
@@ -736,7 +735,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
               enabled: false,
               yAlign: 'bottom',
               callbacks: {
-                title: function () { }
+                title: function () {}
               },
               custom: function (tooltipModel) {
                 // Tooltip Element
@@ -1013,9 +1012,8 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
     this.userToken = JSON.parse(localStorage.getItem('userToken'));
 
-
     this.date = new Date();
-    this.saleGraphWeekly()
+    this.saleGraphWeekly();
     this.getAmountInvested();
     this.getRates();
     if (this.userObject) {
@@ -1098,8 +1096,8 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
       (res) => {
         if (res) {
           this.totalPiptles = res['data']['totalTokens'];
-          this.interestTokens = res['data']['stakedTokens']
-          this.totalBackers = res['data']['backers']
+          this.interestTokens = res['data']['stakedTokens'];
+          this.totalBackers = res['data']['backers'];
           // this.totalValueAud = this.totalPiptles * parseFloat(this.RatesModel.liveRate.$numberDecimal);
         }
       },
@@ -1110,7 +1108,8 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
   }
   ngDoCheck() {
     if (this.totalPiptles && this.RatesModel.liveRate.$numberDecimal) {
-      this.totalValueAud = this.totalPiptles * parseFloat(this.RatesModel.liveRate.$numberDecimal);
+      this.totalValueAud =
+        this.totalPiptles * parseFloat(this.RatesModel.liveRate.$numberDecimal);
     }
   }
   numberWithCommas(x) {

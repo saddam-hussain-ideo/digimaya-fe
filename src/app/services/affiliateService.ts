@@ -23,10 +23,10 @@ export class AffilliateService {
     return this.http
       .get(
         environment.BaseUrl +
-        'user/getAffiliatesGraph/' +
-        userid +
-        '/' +
-        filter,
+          'user/getAffiliatesGraph/' +
+          userid +
+          '/' +
+          filter,
         { headers: headers }
       )
       .map((res) => res.json());
@@ -86,12 +86,12 @@ export class AffilliateService {
     return this.http
       .get(
         environment.BaseUrl +
-        'user/allreferrals/' +
-        userId +
-        '/' +
-        pageNumber +
-        '/' +
-        pageSize,
+          'user/allreferrals/' +
+          userId +
+          '/' +
+          pageNumber +
+          '/' +
+          pageSize,
         { headers: headers }
       )
       .map((res) => res.json());
