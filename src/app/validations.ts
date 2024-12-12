@@ -53,10 +53,10 @@ export class Validations {
     return Math.abs(Number(value)) >= 1.0e9
       ? (Math.abs(Number(value)) / 1.0e9).toFixed(8) + ' B'
       : // Six Zeroes for Millions
-        Math.abs(Number(value)) >= 1.0e6
+      Math.abs(Number(value)) >= 1.0e6
         ? (Math.abs(Number(value)) / 1.0e6).toFixed(8) + ' M'
         : // Three Zeroes for Thousands
-          Math.abs(Number(value)) >= 1.0e3
+        Math.abs(Number(value)) >= 1.0e3
           ? (Math.abs(Number(value)) / 1.0e3).toFixed(8) + ' K'
           : Math.abs(Number(value)).toFixed(8);
   }
@@ -133,18 +133,21 @@ export class Validations {
     setInterval(timer, 1000);
   }
 
+
   public blockSpecialChar(e) {
     let k;
     e.keyCode ? (k = e.keyCode) : (k = e.which);
+    // Allow uppercase letters, lowercase letters, space, backspace, and hyphen
     if (
-      (k > 64 && k < 91) ||
-      (k > 96 && k < 123) ||
-      k == 8 ||
-      k == 32 ||
-      (k >= 48 && k <= 57)
+      (k > 64 && k < 91) || // A-Z
+      (k > 96 && k < 123) || // a-z
+      k == 8 || // Backspace
+      k == 32 || // Space
+      k == 45 // Hyphen (-)
     ) {
       return true;
     }
     return false;
   }
 }
+
