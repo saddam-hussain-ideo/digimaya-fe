@@ -1067,7 +1067,7 @@ border: none !important;
   }
 
   @media only screen and (max-width: 767px) {
-    text-align: center;
+    text-align: start !important;
     padding-left: 0;
   }
 }
