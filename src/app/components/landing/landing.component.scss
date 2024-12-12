@@ -180,13 +180,13 @@
     max-height: 219px;
   }
 }
-.digimaaya-btns-section{
+.digimaaya-btns-section {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   flex-direction: column;
-gap: 40px;
+  gap: 40px;
 }
 .discover-more-button {
   background: radial-gradient(
@@ -204,13 +204,12 @@ gap: 40px;
   border-radius: 8px;
   color: white;
   text-decoration: none;
-  @media only screen and (max-width: 1400px) and (min-width: 1100px){
+  @media only screen and (max-width: 1400px) and (min-width: 1100px) {
     padding: 16px 100px;
-      }
+  }
   @media screen and (max-width: 600px) {
     margin-top: 0;
     padding: 16px 0;
-    
   }
 }
 

@@ -140,5 +140,5 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [StagesComponent]
 })
 export class AppModule {
-  constructor(public _sharedService: SharedService) { }
+  constructor(public _sharedService: SharedService) {}
 }
