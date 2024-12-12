@@ -55,7 +55,7 @@
 }
 
 .login-button {
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-size: 16px;
   color: white;
   padding: 12px;
@@ -95,7 +95,7 @@
 }
 
 .experience-text {
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-size: 26px;
   font-weight: 400;
   line-height: 26px;
@@ -122,7 +122,7 @@
   }
 }
 .header-text {
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-size: 100px;
   font-weight: 600;
   line-height: 100px;
@@ -142,13 +142,13 @@
   }
 }
 .features-text {
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-size: 20px;
   font-weight: 400;
   line-height: 28.6px;
   color: white;
   a {
-    font-family: 'MavenPro';
+    font-family: 'Calibri';
     font-size: 20px;
     font-weight: 400;
     line-height: 28.6px;
@@ -163,7 +163,7 @@
   }
 }
 .feature-name {
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-size: 16px;
   font-weight: 400;
   line-height: 16px;
@@ -180,29 +180,41 @@
     max-height: 219px;
   }
 }
+.digimaaya-btns-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 40px;
+}
 .discover-more-button {
   background: radial-gradient(
     107.63% 220.06% at 0.17% 0.51%,
     #ff7f2c 0%,
     #ff0082 100%
   );
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-size: 16px;
   font-weight: 600;
   line-height: 16px;
-  padding: 16px 0;
+  padding: 16px 138px;
   max-width: 425px;
   width: 100%;
-  margin-bottom: 40px;
   border-radius: 8px;
   color: white;
+  text-decoration: none;
+  @media only screen and (max-width: 1400px) and (min-width: 1100px) {
+    padding: 16px 100px;
+  }
   @media screen and (max-width: 600px) {
     margin-top: 0;
+    padding: 16px 0;
   }
 }
 
 .footer-links-text {
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-size: 20px;
   font-weight: 500;
   line-height: 20px;
@@ -217,7 +229,7 @@
 }
 
 .copyrights-text {
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   font-size: 12px;
   font-weight: 400;
   line-height: 12px;

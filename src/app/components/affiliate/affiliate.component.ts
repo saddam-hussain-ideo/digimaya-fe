@@ -444,9 +444,9 @@ export class Affiliate {
             this.affiliatesLoader = false;
             this._sharedService.showHideLoader(false);
             this.noAffiliateEarners = false;
-            this.totalAffiliateEarningsRecords = a.data.Count;
+            this.totalAffiliateEarningsRecords = a.data.count;
             this.totalEarningInEMYA = a.data.totalEarningInEMYA;
-            this.totalEarningInUSD = a.data.totalEarningInAud;
+            this.totalEarningInUSD = a.data.totalEarningInUSDT;
             this.totalAffiliatesArray = a.data.earningList;
             this.referalLicencesCount = {
               gpa: a.data.referralLicencesCount['gpa'],

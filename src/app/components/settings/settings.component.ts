@@ -1201,7 +1201,12 @@ export class SettingsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.isAlive = false;
   }
-
+  onPhoneNumberInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    // Remove invalid characters and update the model
+    input.value = input.value.replace(/[^+\d]/g, '');
+    this.userObject.PhoneNumber = input.value;
+  }
   hidePassword(value) {
     if (value == 'currentpassword') {
       this.currentpassword.nativeElement.setAttribute('type', 'password');

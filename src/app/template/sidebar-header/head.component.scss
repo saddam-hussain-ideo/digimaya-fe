@@ -72,11 +72,13 @@ a:focus {
     height: 30px;
   }
 }
-
+.icon-img-arrow {
+  padding-top: 3px;
+}
 .profile-txt {
   color: white;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 10px;
 }
 .logout-sec {
@@ -84,7 +86,7 @@ a:focus {
   .log-out {
     color: white;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
     text-transform: uppercase;
   }
@@ -697,7 +699,7 @@ a:focus {
   font-weight: 600;
   color: #191919;
   font-weight: 500;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1174,7 +1176,7 @@ a.article:hover {
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .btm-dd {
@@ -1193,13 +1195,13 @@ a.article:hover {
 }
 .avatar-name {
   font-size: 20px;
-  font-family: 'CenturyRetrospective', serif;
+  font-family: 'Calibri';
   text-transform: capitalize;
 }
 .my_setting {
   font-size: 14px;
   line-height: 14px;
-  font-family: 'CenturyRetrospective', serif;
+  font-family: 'Calibri';
   cursor: pointer;
 }
 
@@ -1215,6 +1217,9 @@ a.article:hover {
     max-height: inherit;
     border-radius: 8px;
   }
+  @media only screen and (max-width: 1400px) and (min-width: 1100px) {
+    max-height: 180px;
+  }
 }
 .logout-btn {
   // padding: 15px 0 15px 5px;
@@ -1228,7 +1233,7 @@ a.article:hover {
   font-weight: 600;
   color: #191919;
   font-weight: 500;
-  font-family: 'MavenPro';
+  font-family: 'Calibri';
   display: flex;
   align-items: center;
   gap: 6px;
@@ -1238,5 +1243,16 @@ a.article:hover {
         stroke: #191919;
       }
     }
+  }
+}
+.social-media-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 24px;
+  margin-top: 15%;
+  @media only screen and (max-width: 1400px) and (min-width: 1100px) {
+    gap: 18px;
   }
 }

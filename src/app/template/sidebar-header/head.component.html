@@ -72,11 +72,13 @@
 
     <div class="collapse navbar-collapse right-aligned" id="nav-content">
       <!-- <div class="d-flex flex-row"> -->
-      <img
-        src="../../../assets//img/msg_icon.svg"
-        alt="fb-icon"
-        class="icon-img"
-      />
+      <a href="mailto:info@dgmaaya.com">
+        <img
+          src="../../../assets//img/msg_icon.svg"
+          alt="fb-icon"
+          class="icon-img"
+        />
+      </a>
       <img
         src="../../../assets//img/bell_icon.svg"
         alt="fb-icon"
@@ -90,14 +92,14 @@
         />
         <div class="d-flex flex-column justify-content-center">
           <h3 class="avatar-name mb-0">{{ userObject?.UserName }}</h3>
-          <div class="d-flex flex-row align-items-center">
-            <p class="m-0 my_setting mr-1 mt-1" (click)="NavigateToSettings()">
+          <div class="d-flex flex-row align-items-center mt-1">
+            <p class="m-0 my_setting mr-1" (click)="NavigateToSettings()">
               My Setting
             </p>
             <img
               src="../../../assets//img/small_right_arrow.svg"
               alt="fb-icon"
-              class="icon-img"
+              class="icon-img-arrow"
             />
           </div>
         </div>
@@ -681,14 +683,11 @@
           </span>
           {{ 'Logout' | translate }}
         </a>
-        <div
-          class="d-flex justify-content-center align-items-center flex-row pt-5"
-        >
+        <div class="social-media-section">
           <a
             href="https://api.whatsapp.com/send/?phone=919990500030"
             target="_blank"
             rel="noreferrer"
-            class="mr-4"
           >
             <svg
               width="19"
@@ -713,7 +712,6 @@
             href="https://www.linkedin.com/company/digimaaya"
             target="_blank"
             rel="noreferrer"
-            class="mr-4"
           >
             <svg
               width="15"
@@ -736,7 +734,6 @@
             href="https://twitter.com/DigiMaaya"
             target="_blank"
             rel="noreferrer"
-            class="mr-4"
           >
             <svg
               width="17"
