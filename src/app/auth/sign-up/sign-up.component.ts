@@ -17,7 +17,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { takeWhile } from 'rxjs/operators';
 import { SharedService } from 'src/app/services/shared';
 import file from '../../../assets/countries/countries';
-import { log } from 'console';
 declare var $: any;
 
 @Component({
