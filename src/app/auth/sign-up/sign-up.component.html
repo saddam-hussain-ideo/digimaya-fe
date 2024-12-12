@@ -47,7 +47,9 @@
         <div *ngIf="!signUpSuccessfull" class="form-div">
           <h2 class="text-center">Sign Up</h2>
           <div class="form-group">
-            <label class="ico-label" for="email">Email ID</label>
+            <label class="ico-label" for="email"
+              >Email ID<span class="required-asterisk">*</span></label
+            >
             <input
               id="email"
               autocomplete="off"
@@ -61,7 +63,9 @@
 
           <div class="form-group-row">
             <div class="form-group">
-              <label class="ico-label" for="username">Username</label>
+              <label class="ico-label" for="username"
+                >Username<span class="required-asterisk">*</span></label
+              >
               <input
                 id="username"
                 autocomplete="off"
@@ -75,7 +79,9 @@
             </div>
 
             <div class="form-group">
-              <label class="ico-label" for="fullName">Full Name</label>
+              <label class="ico-label" for="fullName"
+                >Full Name<span class="required-asterisk">*</span></label
+              >
               <input
                 id="fullName"
                 autocomplete="off"
@@ -121,7 +127,9 @@
             </div> -->
 
             <div class="form-group">
-              <label class="ico-label" for="mobile">Mobile Number</label>
+              <label class="ico-label" for="mobile"
+                >Mobile Number<span class="required-asterisk">*</span></label
+              >
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text codearea" *ngIf="countryCode">{{
@@ -130,11 +138,12 @@
                 </div>
                 <input
                   id="mobile"
-                  type="number"
+                  type="text"
                   placeholder="Mobile Number"
                   class="form-control ico-inputs"
                   name="SignUpObject.mobile"
                   [(ngModel)]="SignUpObject.mobile"
+                  (input)="onPhoneNumberInput($event)"
                 />
               </div>
             </div>
@@ -142,7 +151,9 @@
 
           <div class="form-group-row">
             <div class="form-group">
-              <label class="ico-label" for="password">Password</label>
+              <label class="ico-label" for="password"
+                >Password<span class="required-asterisk">*</span></label
+              >
               <div class="input-container">
                 <input
                   id="password"
@@ -167,7 +178,9 @@
             </div>
 
             <div class="form-group">
-              <label class="ico-label" for="cPassword">Confirm Password</label>
+              <label class="ico-label" for="cPassword"
+                >Confirm Password<span class="required-asterisk">*</span></label
+              >
               <div class="input-container">
                 <input
                   id="cPassword"
