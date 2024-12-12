@@ -724,23 +724,17 @@
                     >
                       {{ 'Discount' | translate }}%
                     </th> -->
-                    <th
-                      class="rates-table-currency table-head text-centered no-top-padding"
-                    >
+                    <th class="rates-table-currency table-head no-top-padding">
                       {{ 'Total Tokens' | translate }}
                     </th>
-                    <th
-                      class="rates-table-currency table-head text-centered no-top-padding"
-                    >
+                    <th class="rates-table-currency table-head no-top-padding">
                       Currency used
                     </th>
-                    <th
-                      class="rates-table-currency table-head text-centered no-top-padding"
-                    >
+                    <th class="rates-table-currency table-head no-top-padding">
                       eMaaya Value USD
                     </th>
 
-                    <th class="rates-table-currency text-centered table-head">
+                    <th class="rates-table-currency table-head">
                       {{ 'Date' | translate }}
                     </th>
                   </tr>
@@ -869,10 +863,10 @@
                     <td class="text-centered v-middle stacked-text table-head">
                       {{ transactions.BonusPercentage }}
                     </td> -->
-                    <td class="text-centered v-middle stacked-text table-head">
+                    <td class="v-middle stacked-text table-head">
                       {{ transactions.TotalTokens | number: '1.3-3' }}
                     </td>
-                    <td class="text-centered v-middle stacked-text table-head">
+                    <td class="v-middle stacked-text table-head">
                       <!-- {{transactions.CryptoAmountReceive | currency:'crypto'}} -->
                       <p
                         class="mb-0"
@@ -917,7 +911,7 @@
                         {{ transactions.CurrencyUsed }}
                       </p>
                     </td>
-                    <td class="text-centered v-middle stacked-text table-head">
+                    <td class="v-middle stacked-text table-head">
                       {{
                         transactions.TotalTokens * selectedCurrencyValue
                           | number: '1.3-3'
