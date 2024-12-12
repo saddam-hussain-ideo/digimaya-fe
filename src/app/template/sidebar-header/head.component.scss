@@ -258,7 +258,6 @@ a:focus {
   left: 8px;
   top: 21px;
   cursor: pointer;
-
   .fas {
     font-size: 24px;
   }
@@ -621,6 +620,9 @@ a:focus {
   background-color: '#F6F6F6';
   color: #f6f6f6;
   transition: all 0.3s;
+  @media screen and (max-width:767px) {
+    width: 250px;
+  }
 }
 
 .sidebar-active {

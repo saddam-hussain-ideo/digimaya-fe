@@ -161,7 +161,7 @@
 .rates-table-currency {
   font-family: 'Calibri' !important;
   // color: #1D2939 !important;
-  color: #8c8c8c;
+  color: #8c8c8c !important;
   font-size: 12px !important;
   text-align: left;
 }
@@ -295,6 +295,10 @@
 .center-select {
   @media only screen and (max-width: 767px) {
     margin: 20px 15px 3px 15px;
+    padding: 0;
+  }
+  @media only screen and (max-width: 600px) {
+    margin: 0;
     padding: 0;
   }
 }
@@ -754,8 +758,28 @@
   text-decoration: none;
 }
 
-.transactions-new-design td {
-  padding: 8px 15px !important;
+.transactions-new-design  {
+  th{
+    vertical-align: middle !important;
+    border-top: none;
+    font-family: Calibri;
+    font-size: 14px;
+    color: #191919;
+    padding: 12px 15px;
+  }
+  tbody {
+    tr {
+     
+      td{
+        vertical-align: middle !important;
+        font-family: Calibri;
+        font-size: 14px;
+        color: #191919;
+        padding: 12px 15px;
+border: none !important;
+      }
+    }
+  }
 }
 
 .table td,
@@ -917,11 +941,6 @@
   color: $dashboard-purple-clr;
 }
 
-.center-select {
-  @media only screen and (max-width: 767px) {
-    margin: 20px 15px 3px 15px;
-  }
-}
 
 .top-left-dash svg {
   position: absolute;
@@ -969,6 +988,11 @@
         font-size: 16px;
         font-family: 'Calibri';
       }
+      @media screen and (max-width:800px) {
+        .nav-link,.active{
+        margin: 0;
+        }
+      }
     }
   }
   .stage-table-div {
@@ -995,6 +1019,11 @@
             padding: 12px 15px;
     border: none !important;
           }
+        }
+      }
+      @media screen and (max-width800px) {
+        table{
+          width: 500px;
         }
       }
     }
@@ -1244,7 +1273,7 @@
   @media (max-width: 768px) {
     text-align: center;
     .custom-dropdown {
-      width: 115px;
+      width: 100%;
     }
   }
 }

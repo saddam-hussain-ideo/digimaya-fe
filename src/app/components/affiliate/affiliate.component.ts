@@ -208,6 +208,7 @@ export class Affiliate {
   public ctx;
 
   public ngOnInit() {
+    window.scrollTo(0, 0)
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
 
     this.affiliateGraph();
