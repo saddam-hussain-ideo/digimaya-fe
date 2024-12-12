@@ -434,7 +434,7 @@ export class UserService {
   updateProfile(name, phoneNumber, userId) {
     let data;
 
-    data = { userid: userId, phone: `+${phoneNumber}`, name: name };
+    data = { userid: userId, phone: phoneNumber, name: name };
 
     const headers = new Headers();
 

@@ -876,45 +876,45 @@
                       <!-- {{transactions.CryptoAmountReceive | currency:'crypto'}} -->
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == 'BTC'"
+                        *ngIf="transactions.CurrencyUsed == 'BTC'"
                       >
-                        {{ transactions.TransactionCurrencyType }}
+                        {{ transactions.CurrencyUsed }}
                       </p>
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == '$EMYA'"
+                        *ngIf="transactions.CurrencyUsed == '$EMYA'"
                       >
-                        {{ transactions.TransactionCurrencyType }}
+                        {{ transactions.CurrencyUsed }}
                       </p>
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == 'USD'"
+                        *ngIf="transactions.CurrencyUsed == 'USD'"
                       >
                         USDT
                       </p>
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == 'MXN'"
+                        *ngIf="transactions.CurrencyUsed == 'MXN'"
                       >
                         USD
                       </p>
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == 'LTC'"
+                        *ngIf="transactions.CurrencyUsed == 'LTC'"
                       >
-                        {{ transactions.TransactionCurrencyType }}
+                        {{ transactions.CurrencyUsed }}
                       </p>
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == 'ETH'"
+                        *ngIf="transactions.CurrencyUsed == 'ETH'"
                       >
-                        {{ transactions.TransactionCurrencyType }}
+                        {{ transactions.CurrencyUsed }}
                       </p>
                       <p
                         class="mb-0"
-                        *ngIf="transactions.TransactionCurrencyType == 'BCH'"
+                        *ngIf="transactions.CurrencyUsed == 'BCH'"
                       >
-                        {{ transactions.TransactionCurrencyType }}
+                        {{ transactions.CurrencyUsed }}
                       </p>
                     </td>
                     <td class="text-centered v-middle stacked-text table-head">
