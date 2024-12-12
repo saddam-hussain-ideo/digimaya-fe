@@ -213,10 +213,8 @@ a:focus {
   object-fit: cover;
 }
 .sidebar-bg {
-  // background-repeat: no-repeat;
-  /* position: fixed; */
-  /* background-position-y: bottom; */
-  background-color: #f6f6f6;
+  background: linear-gradient(to bottom, #fff, #fceaea, #fbe6e7);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   padding-top: 130px;
   @media screen and (max-width:767px) {
     padding-top: 60px;
