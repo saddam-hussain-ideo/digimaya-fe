@@ -1263,6 +1263,9 @@ a.article:hover {
   @media screen and (max-width:767px) {
     margin-top: 60%;
   }
+  @media screen and (max-width:400px) {
+    margin-top: 50%;
+  }
 }
 
 .my-settings-route{
