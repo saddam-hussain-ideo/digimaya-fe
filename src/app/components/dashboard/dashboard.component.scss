@@ -1019,16 +1019,17 @@
           }
         }
       }
-      @media screen and (max-width800px) {
-        table {
-          width: 500px;
-        }
+      @media (max-width: 767px) {
+        width: 500px;
       }
     }
   }
 
   @media (max-width: 767px) {
     min-height: 100%;
+    .stage-table {
+      width: 500px;
+    }
   }
 
   @media (max-width: 1200px) and (min-width: 992px) {
