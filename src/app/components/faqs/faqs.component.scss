@@ -15,7 +15,7 @@
     padding: 20px;
     text-align: center;
   }
-  @media screen and (max-width:800px ) {
+  @media screen and (max-width: 800px) {
     height: auto;
   }
 }
@@ -54,11 +54,11 @@
   }
 }
 
-.faq-section{
+.faq-section {
   display: flex;
   width: 50%;
   flex-direction: column;
-  @media screen and (max-width:800px) {
+  @media screen and (max-width: 800px) {
     width: 100%;
   }
 }
