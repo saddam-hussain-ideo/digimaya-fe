@@ -31,15 +31,14 @@ export class HeadComponent implements OnInit {
     public _sharedService: SharedService,
     public userService: UserService,
     private _ngZone: NgZone
-  ) { }
+  ) {}
 
   ngOnInit() {
     let mql = window.matchMedia('(max-width: 767px)');
     if (mql.matches) {
-      this.openSidebar = false
-    }
-    else {
-      this.openSidebar = true
+      this.openSidebar = false;
+    } else {
+      this.openSidebar = true;
     }
     $('.list-unstyled li').removeClass('active');
 
@@ -268,19 +267,19 @@ export class HeadComponent implements OnInit {
   }
 
   navigateToFaqs() {
-    this.closeSidebar()
+    this.closeSidebar();
     this.router.navigate(['/home/faqs']);
   }
   NavigateToSettings() {
     this.router.navigate(['/home/settings']);
-    this.closeSidebar()
+    this.closeSidebar();
   }
   navigateToICO() {
     this.router.navigate(['/home/ilo']);
   }
 
   navigateToDashboard() {
-    this.closeSidebar()
+    this.closeSidebar();
     this.router.navigate(['/home/dashboard']);
   }
   navigateToWallet() {
@@ -295,7 +294,7 @@ export class HeadComponent implements OnInit {
   }
 
   navigateToAffiliates() {
-    this.closeSidebar()
+    this.closeSidebar();
     this.router.navigate(['/home/affiliate']);
   }
 
