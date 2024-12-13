@@ -829,7 +829,16 @@
                       "
                     >
                       <div *ngIf="transactions.TransactionHash.length > 15">
-                        <a class="no-underline" target="_blank">
+                        <a
+                          class="no-underline"
+                          target="_blank"
+                          [href]="
+                            linkForTransaction(
+                              transactions.ChainTxId,
+                              transactions.ChainName
+                            )
+                          "
+                        >
                           {{ transactions.TransactionHash.slice(0, 6) }}...{{
                             transactions.TransactionHash.slice(
                               transactions.TransactionHash.length - 6
@@ -838,9 +847,17 @@
                         </a>
                       </div>
                       <div *ngIf="transactions.TransactionHash.length <= 15">
-                        <a class="no-underline" target="_blank">{{
-                          transactions.TransactionHash
-                        }}</a>
+                        <a
+                          class="no-underline"
+                          target="_blank"
+                          [href]="
+                            linkForTransaction(
+                              transactions.ChainTxId,
+                              transactions.ChainName
+                            )
+                          "
+                          >{{ transactions.TransactionHash }}</a
+                        >
                       </div>
                     </td>
 

@@ -32,14 +32,13 @@ export class HeadComponent implements OnInit {
     public _sharedService: SharedService,
     public userService: UserService,
     private _ngZone: NgZone
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (this.mql.matches) {
-      this.openSidebar = false
-    }
-    else {
-      this.openSidebar = true
+      this.openSidebar = false;
+    } else {
+      this.openSidebar = true;
     }
     $('.list-unstyled li').removeClass('active');
 
@@ -269,14 +268,14 @@ export class HeadComponent implements OnInit {
 
   navigateToFaqs() {
     if (this.mql.matches) {
-      this.closeSidebar()
+      this.closeSidebar();
     }
     this.router.navigate(['/home/faqs']);
   }
   NavigateToSettings() {
     this.router.navigate(['/home/settings']);
     if (this.mql.matches) {
-      this.closeSidebar()
+      this.closeSidebar();
     }
   }
   navigateToICO() {
@@ -285,7 +284,7 @@ export class HeadComponent implements OnInit {
 
   navigateToDashboard() {
     if (this.mql.matches) {
-      this.closeSidebar()
+      this.closeSidebar();
     }
     this.router.navigate(['/home/dashboard']);
   }
@@ -302,7 +301,7 @@ export class HeadComponent implements OnInit {
 
   navigateToAffiliates() {
     if (this.mql.matches) {
-      this.closeSidebar()
+      this.closeSidebar();
     }
     this.router.navigate(['/home/affiliate']);
   }

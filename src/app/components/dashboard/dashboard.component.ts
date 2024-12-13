@@ -1169,4 +1169,11 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     const valueInAud = 1 / rates;
     this.selectedCurrencyValue = liveRate;
   }
+  linkForTransaction(hash, chain) {
+    if (chain === 'bsc-mainnet') {
+      return `https://bscscan.com/tx/${hash}`;
+    } else if (chain === 'ethereum-mainnet') {
+      return `https://etherscan.io/tx/${hash}`;
+    }
+  }
 }
