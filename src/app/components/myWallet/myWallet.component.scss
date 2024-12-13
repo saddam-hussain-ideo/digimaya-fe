@@ -1032,18 +1032,17 @@
   //     height: 435px;
   // }
 
-  @media (max-width:576px) and (min-width:400px){
+  @media (max-width: 576px) and (min-width: 400px) {
     min-height: 250px;
     max-height: 250px;
-
   }
 
   // @media (max-width:767px) {
   //     height: 500px;
   // }
-  @media (max-width:400px) {
-      min-height: 350px;
-      max-height: 350px;
+  @media (max-width: 400px) {
+    min-height: 350px;
+    max-height: 350px;
   }
 }
 

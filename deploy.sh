@@ -3,8 +3,7 @@
 # Variables
 BUILD_DIR="dist/crypto"      # Build directory (adjust if different)
 SERVER_USER="ubuntu"         # SSH username for the server
-SERVER_HOST="3.6.113.156"    # Server IP or domain
-SERVER_PATH="/var/www/html/digimaya_fe"  # Path where the build folder will be copied on the server
+SERVER_HOST="65.0.44.35"    # Server IP or domain
 
 # Load nvm if it's installed
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
@@ -22,9 +21,23 @@ nvm use
 echo "Installing dependencies..."
 npm install
 
+# Check Git branch and set server path accordingly
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
 # Build the frontend
 echo "Building the frontend..."
-npm run build
+if [ "$CURRENT_BRANCH" == "master" ]; then
+    SERVER_PATH="/var/www/html/digimaya_fe_prod" # Path for master branch
+    npm run build:prod
+elif [ "$CURRENT_BRANCH" == "develop" ]; then
+    SERVER_PATH="/var/www/html/digimaya_fe"      # Path for develop branch
+    npm run build:develop
+else
+    echo "Not on master or develop branch. Exiting."
+    exit 1
+fi
+
+echo "Current branch: $CURRENT_BRANCH, using server path: $SERVER_PATH"
 
 # Check if build directory exists
 if [ ! -d "$BUILD_DIR" ]; then
