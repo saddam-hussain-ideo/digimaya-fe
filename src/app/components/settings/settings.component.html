@@ -24,7 +24,9 @@
           class="form-control nn-input-sett w-60"
           id="name"
           name="userObject.Name"
+          (input)="onNameInput($event)"
           [(ngModel)]="userObject.Name"
+          [disabled]="!isProfileEdit"
         />
       </div>
       <div class="d-flex flex-row align-items-center mb-3">
