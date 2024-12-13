@@ -214,19 +214,13 @@
                   'I confirm that I have read, accepted and agreed to all'
                     | translate
                 }}
-                <a
-                  class="links no-underline"
-                  target="_blank"
-                  [(href)]="documentUrl"
-                  >{{ 'Terms & Conditions' | translate }}</a
-                >
+                <span class="links no-underline m-0 p-0">{{
+                  'Terms & Conditions' | translate
+                }}</span>
                 &
-                <a
-                  class="links no-underline"
-                  target="_blank"
-                  [(href)]="privacyPolicy"
-                  >{{ 'Privacy Policy' | translate }}</a
-                >
+                <span class="links no-underline p-0 m-0">{{
+                  'Privacy Policy' | translate
+                }}</span>
                 {{ 'and that I am of legal age' | translate }}
               </label>
             </p>
