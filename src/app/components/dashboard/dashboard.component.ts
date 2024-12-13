@@ -173,9 +173,9 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
   ];
 
   // events
-  public chartClicked(e: any): void {}
+  public chartClicked(e: any): void { }
 
-  public chartHovered(e: any): void {}
+  public chartHovered(e: any): void { }
 
   getAmountInvested() {
     this._sharedService.showHideLoader(true);
@@ -735,7 +735,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
               enabled: false,
               yAlign: 'bottom',
               callbacks: {
-                title: function () {}
+                title: function () { }
               },
               custom: function (tooltipModel) {
                 // Tooltip Element
@@ -1168,5 +1168,13 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
 
     const valueInAud = 1 / rates;
     this.selectedCurrencyValue = liveRate;
+  }
+  linkForTransaction(hash, chain) {
+    if (chain === "bsc-mainnet") {
+      return `https://bscscan.com/tx/${hash}`
+    }
+    else if (chain === "ethereum-mainnet") {
+      return `https://etherscan.io/tx/${hash}`
+    }
   }
 }
