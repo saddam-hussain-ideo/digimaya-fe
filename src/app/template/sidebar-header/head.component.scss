@@ -216,7 +216,7 @@ a:focus {
   background: linear-gradient(to bottom, #fff, #fceaea, #fbe6e7);
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   padding-top: 130px;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     padding-top: 60px;
   }
 }
@@ -621,7 +621,7 @@ a:focus {
   background-color: '#F6F6F6';
   color: #f6f6f6;
   transition: all 0.3s;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     width: 250px;
   }
 }
@@ -1258,17 +1258,17 @@ a.article:hover {
   @media only screen and (max-width: 1400px) and (min-width: 1100px) {
     gap: 18px;
   }
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     margin-top: 60%;
   }
-  @media screen and (max-width:400px) {
+  @media screen and (max-width: 400px) {
     margin-top: 50%;
   }
 }
 
-.my-settings-route{
+.my-settings-route {
   display: none;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     display: list-item;
   }
 }
