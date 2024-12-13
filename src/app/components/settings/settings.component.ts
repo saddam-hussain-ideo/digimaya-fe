@@ -157,6 +157,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0)
     this.pdfUploaded = '../../../assets/img/pdf.png';
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
 

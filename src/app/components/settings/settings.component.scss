@@ -1260,6 +1260,9 @@
   border-radius: 8px;
   width: 50%;
   margin-top: 40px;
+  @media screen and (max-width:1100px) {
+    width: 100%;
+  }
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

@@ -976,6 +976,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
 
   ngOnInit() {
     // this.userToken = JSON.parse(localStorage.getItem('userToken'));
+    window.scrollTo(0, 0)
     const userToken = this.activatedRoute.snapshot.params['id'];
     if (userToken) {
       this._sharedService.updateValidateLoader(true);

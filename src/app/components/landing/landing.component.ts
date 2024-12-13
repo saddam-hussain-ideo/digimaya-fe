@@ -8,9 +8,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: 'landing.component.html'
 })
 export class LandingPageComponent implements OnInit {
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    window.scrollTo(0, 0)
+  }
   gotoSignin() {
     this.router.navigate(['/sign-in']);
   }
