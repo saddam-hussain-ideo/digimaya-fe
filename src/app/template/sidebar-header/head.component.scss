@@ -19,7 +19,6 @@ a:focus {
   border: none;
   border-radius: 0;
   margin-bottom: 40px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .side-icons {
@@ -213,11 +212,18 @@ a:focus {
   object-fit: cover;
 }
 .sidebar-bg {
-  background: linear-gradient(to bottom, #fff, #fceaea, #fbe6e7);
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  background-image:url('../../../assets//img/sidebar-bg.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  // box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   padding-top: 130px;
   @media screen and (max-width: 767px) {
     padding-top: 60px;
+    height: 95%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
   }
 }
 
@@ -618,7 +624,7 @@ a:focus {
   height: 100%;
   // padding-bottom: 100px;
   z-index: 999999;
-  background-color: '#F6F6F6';
+  background-color: #F6F6F6;
   color: #f6f6f6;
   transition: all 0.3s;
   @media screen and (max-width: 767px) {
@@ -641,12 +647,12 @@ a:focus {
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: #888;
+      background: #D9D9D9;
     }
 
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
-      background: #555;
+      background: #8C8C8C;
     }
   }
 }
@@ -1226,6 +1232,7 @@ a.article:hover {
 }
 .logout-btn {
   // padding: 15px 0 15px 5px;
+  width: min-content;
   padding: 10px 12px;
   // font-size: 0.85rem;
   font-size: 16px;
@@ -1254,16 +1261,16 @@ a.article:hover {
   justify-content: center;
   flex-direction: row;
   gap: 24px;
-  margin-top: 15%;
+  margin-bottom: 20px;
   @media only screen and (max-width: 1400px) and (min-width: 1100px) {
     gap: 18px;
   }
-  @media screen and (max-width: 767px) {
-    margin-top: 60%;
-  }
-  @media screen and (max-width: 400px) {
-    margin-top: 50%;
-  }
+  // @media screen and (max-width: 767px) {
+  //   margin-top: 60%;
+  // }
+  // @media screen and (max-width: 400px) {
+  //   margin-top: 50%;
+  // }
 }
 
 .my-settings-route {
