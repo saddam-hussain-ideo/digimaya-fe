@@ -19,6 +19,7 @@ export class HeadComponent implements OnInit {
   public selectedLang = 'es';
   public notificationCount = 0;
   public notificationsLoader = true;
+  public mql = window.matchMedia('(max-width: 767px)');
 
   public imgSpanish = '../../../assets/img/esp.png';
   public imgEnglish = '../../../assets/img/eng.png';
@@ -31,14 +32,14 @@ export class HeadComponent implements OnInit {
     public _sharedService: SharedService,
     public userService: UserService,
     private _ngZone: NgZone
-  ) {}
+  ) { }
 
   ngOnInit() {
-    let mql = window.matchMedia('(max-width: 767px)');
-    if (mql.matches) {
-      this.openSidebar = false;
-    } else {
-      this.openSidebar = true;
+    if (this.mql.matches) {
+      this.openSidebar = false
+    }
+    else {
+      this.openSidebar = true
     }
     $('.list-unstyled li').removeClass('active');
 
@@ -267,19 +268,25 @@ export class HeadComponent implements OnInit {
   }
 
   navigateToFaqs() {
-    this.closeSidebar();
+    if (this.mql.matches) {
+      this.closeSidebar()
+    }
     this.router.navigate(['/home/faqs']);
   }
   NavigateToSettings() {
     this.router.navigate(['/home/settings']);
-    this.closeSidebar();
+    if (this.mql.matches) {
+      this.closeSidebar()
+    }
   }
   navigateToICO() {
     this.router.navigate(['/home/ilo']);
   }
 
   navigateToDashboard() {
-    this.closeSidebar();
+    if (this.mql.matches) {
+      this.closeSidebar()
+    }
     this.router.navigate(['/home/dashboard']);
   }
   navigateToWallet() {
@@ -294,7 +301,9 @@ export class HeadComponent implements OnInit {
   }
 
   navigateToAffiliates() {
-    this.closeSidebar();
+    if (this.mql.matches) {
+      this.closeSidebar()
+    }
     this.router.navigate(['/home/affiliate']);
   }
 
@@ -312,7 +321,7 @@ export class HeadComponent implements OnInit {
       dd.style.display = 'block';
     }
     localStorage.clear();
-    this.router.navigate(['/']);
+    this.router.navigate(['/sign-in']);
   }
 
   openMailer() {
