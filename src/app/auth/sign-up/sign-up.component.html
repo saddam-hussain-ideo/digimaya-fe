@@ -74,6 +74,7 @@
                 class="ico-inputs"
                 placeholder="{{ 'Username' | translate }}"
                 name="SignUpObject.username"
+                (input)="onNameInput($event, 'username')"
                 [(ngModel)]="SignUpObject.username"
               />
             </div>
@@ -90,6 +91,7 @@
                 placeholder="{{ 'Full Name' | translate }}"
                 name="SignUpObject.fullName"
                 [(ngModel)]="SignUpObject.fullName"
+                (input)="onNameInput($event, 'fullName')"
                 (keypress)="blockSpecialChar($event)"
               />
             </div>
