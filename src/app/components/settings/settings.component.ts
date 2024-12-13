@@ -1206,6 +1206,9 @@ export class SettingsComponent implements OnInit, OnDestroy {
     const input = event.target as HTMLInputElement;
     // Remove invalid characters and update the model
     input.value = input.value.replace(/[^+\d]/g, '');
+    if (input.value[0] !== '+') {
+      input.value = '+' + input.value; // Ensure `+` is the first character
+    }
     this.userObject.PhoneNumber = input.value;
   }
   onNameInput(event: Event): void {
