@@ -330,14 +330,16 @@ export class SignUpComponent implements OnInit, OnDestroy {
             'Favor de ingresar un usuario valido'
           );
     } else if (
-      !this.ValidationsClass.verifyUserNameLength(this.SignUpObject.username)
+      !this.ValidationsClass.verifyAffiliateCodeAndUsernmarLength(
+        this.SignUpObject.username
+      )
     ) {
       error = true;
       this.lang == 'en'
         ? this.toasterService.pop(
             'error',
             'Error',
-            'Username should be between 3-20 characters'
+            'Username should be between 3-15 characters'
           )
         : this.toasterService.pop(
             'error',
@@ -455,6 +457,26 @@ export class SignUpComponent implements OnInit, OnDestroy {
             'Error',
             'Ambas contraseñas no coinciden'
           );
+    }
+    if (this.SignUpObject.referralCode) {
+      if (
+        !this.ValidationsClass.verifyAffiliateCodeAndUsernmarLength(
+          this.SignUpObject.referralCode
+        )
+      ) {
+        error = true;
+        this.lang == 'en'
+          ? this.toasterService.pop(
+              'error',
+              'Error',
+              'Affiliate Code should be between 3-15 characters'
+            )
+          : this.toasterService.pop(
+              'error',
+              'Error',
+              'El nombre de usuario debe tener entre 3 y 20 caracteres'
+            );
+      }
     }
 
     if ($('#TermsCheck').is(':checked')) {

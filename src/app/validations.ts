@@ -82,6 +82,13 @@ export class Validations {
       return true;
     }
   }
+  verifyAffiliateCodeAndUsernmarLength(username) {
+    if (username.length < 3 || username.length > 15) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   verifyUsername(username) {
     if (/^[A-Za-z0-9]+(?:_[A-Za-z0-9]+)*$/.test(username)) {
