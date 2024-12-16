@@ -1213,8 +1213,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
   onNameInput(event: Event): void {
     const input = event.target as HTMLInputElement;
-    // Remove invalid characters and update the model
-    this.userObject.Name = input.value.trim();
+    // Remove invalid characters and trim spaces at the beginning and end
+    this.userObject.Name = input.value.replace(/^\s+|\s+$/g, ''); // Ensures no leading or trailing spaces
   }
   hidePassword(value) {
     if (value == 'currentpassword') {
