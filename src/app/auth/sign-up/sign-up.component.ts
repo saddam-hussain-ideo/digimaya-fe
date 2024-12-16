@@ -458,7 +458,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
             'Ambas contraseñas no coinciden'
           );
     }
-    debugger;
     if (this.SignUpObject.referralCode) {
       if (
         !this.ValidationsClass.verifyAffiliateCodeAndUsernmarLength(
