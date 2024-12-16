@@ -115,6 +115,7 @@ export class MyWalletComponent implements OnInit, OnDestroy {
 
     /* Copy the text inside the text field */
     document.execCommand('Copy');
+    this.toasterService.pop('success', 'Success', 'Copied successfully');
   }
 
   getValueOfCurrencyTypeCC(elem) {
