@@ -142,7 +142,17 @@ a:focus {
   margin-bottom: 0;
   border: none;
 }
-
+.sidemenu-wrapper {
+  @media screen and (max-width: 768px) {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+  }
+}
 .nav-clr {
   background-image: url('../../../assets//img/nav_background.svg');
   background-repeat: no-repeat;
@@ -633,6 +643,9 @@ a:focus {
 }
 
 .sidebar-active {
+  .sidemenu-wrapper {
+    display: initial;
+  }
   #sidebar {
     // margin-left: -250px;
     overflow-y: auto;

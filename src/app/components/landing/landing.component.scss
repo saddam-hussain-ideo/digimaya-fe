@@ -8,11 +8,14 @@
     height: 2px;
     width: 75%;
     margin: 80px 0;
+    @media screen and (max-width: 600px) {
+      margin: 0 0 32px 0;
+    }
   }
   .padding-top-sides {
     padding: 60px 80px;
     @media screen and (max-width: 600px) {
-      padding: 32px;
+      padding: 32px 32px 0 32px;
     }
   }
   .divider-two {
@@ -59,6 +62,7 @@
 .large-phone-image {
   @media screen and (max-width: 1300px) {
     margin-bottom: 5%;
+    max-width: 80%;
   }
 }
 .login-button {
@@ -140,6 +144,7 @@
   }
   @media screen and (max-width: 600px) {
     font-size: 32px;
+    line-height: 32px;
   }
 }
 .features-section {
@@ -154,6 +159,12 @@
   font-weight: 400;
   line-height: 28.6px;
   color: white;
+  &.responsive-text-one {
+    display: block;
+  }
+  &.responsive-text-two {
+    display: none;
+  }
   a {
     font-family: 'Calibri';
     font-size: 20px;
@@ -164,6 +175,13 @@
   }
   @media screen and (max-width: 600px) {
     font-size: 14px;
+    line-height: 20px;
+    &.responsive-text-one {
+      display: none;
+    }
+    &.responsive-text-two {
+      display: block;
+    }
     a {
       font-size: 14px;
     }
