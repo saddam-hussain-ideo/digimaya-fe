@@ -273,10 +273,10 @@ export class HeadComponent implements OnInit {
     this.router.navigate(['/home/faqs']);
   }
   NavigateToSettings() {
-    this.router.navigate(['/home/settings']);
     if (this.mql.matches) {
       this.closeSidebar();
     }
+    this.router.navigate(['/home/settings']);
   }
   navigateToICO() {
     this.router.navigate(['/home/ilo']);
@@ -313,7 +313,9 @@ export class HeadComponent implements OnInit {
   closeSidebar() {
     this.openSidebar = !this.openSidebar;
   }
-
+  sidebarClose() {
+    this.openSidebar = false;
+  }
   logout() {
     const dd = document.getElementById('mainLangDD');
     if (dd) {
