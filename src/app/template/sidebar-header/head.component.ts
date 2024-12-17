@@ -32,7 +32,7 @@ export class HeadComponent implements OnInit {
     public _sharedService: SharedService,
     public userService: UserService,
     private _ngZone: NgZone
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (this.mql.matches) {

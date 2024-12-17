@@ -313,7 +313,7 @@ select {
   font-size: 14px;
   margin: 10px 0;
   cursor: pointer;
-  &.lg{
+  &.lg {
     font-size: 20px;
   }
   &:hover {
@@ -370,9 +370,9 @@ select {
   line-height: 16px;
   margin-top: 16px;
   text-align: left;
-&.lg{
-  font-size: 20px;
-}
+  &.lg {
+    font-size: 20px;
+  }
   @media (max-width: 768px) {
     font-size: 14px;
     text-align: center;
