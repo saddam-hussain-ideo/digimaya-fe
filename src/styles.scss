@@ -72,12 +72,22 @@ select {
   align-items: center;
   background-color: white;
   background-size: cover;
+  @media screen and (max-width: 600px) {
+    background-image: url('./assets/img/auth-bg.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-color: transparent;
+  }
 }
 
 .outer-wrapper {
   height: 100vh;
   display: flex;
   background: transparent;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .inner-wrapper {
@@ -100,6 +110,8 @@ select {
   @media (max-width: 480px) {
     width: 100%;
     padding: 10px;
+    margin: 0;
+    overflow-y: scroll;
   }
 }
 
@@ -133,8 +145,9 @@ select {
     padding: 10px;
   }
 
-  @media (max-width: 480px) {
-    background: #ffffff;
+  @media (max-width: 600px) {
+    background: transparent;
+    align-items: center;
   }
 }
 
@@ -178,7 +191,7 @@ select {
   }
 
   @media (max-width: 480px) {
-    padding: 10px;
+    padding: 24px;
   }
 }
 
@@ -202,7 +215,8 @@ select {
   }
 
   @media (max-width: 480px) {
-    font-size: 24px;
+    font-size: 32px;
+    margin-bottom: 80px;
   }
 }
 
@@ -224,13 +238,13 @@ select {
   }
 
   @media (max-width: 768px) {
-    width: 150px;
+    width: 220px;
     margin: 20px 0;
   }
 
   @media (max-width: 480px) {
     content: url('./assets/img/maaya_gradient.svg');
-    width: 150px;
+    width: 220px;
   }
 }
 
@@ -244,6 +258,10 @@ select {
 
   @media (max-width: 768px) {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
   }
 
   @media (max-height: 800px) {
@@ -299,7 +317,6 @@ select {
   }
 
   @media (max-width: 480px) {
-    flex-direction: column;
     gap: 10px;
   }
 }
