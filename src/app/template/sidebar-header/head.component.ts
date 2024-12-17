@@ -116,11 +116,7 @@ export class HeadComponent implements OnInit {
           'background-image',
           'url(' + this.imgEnglish + ')'
         );
-        $('.change-lang').html(
-          'This website uses cookies to ensure you get the best experience on our website.'
-        );
         $('#linking').html('Read More');
-        $('#allow').html('Allow Cookies');
       } else {
         $('#dropdownMenu1').css(
           'background-image',
@@ -130,11 +126,7 @@ export class HeadComponent implements OnInit {
           'background-image',
           'url(' + this.imgSpanish + ')'
         );
-        $('.change-lang').html(
-          'Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.'
-        );
         $('#linking').html('Ver mas detalles');
-        $('#allow').html('Permitir Cookies');
       }
     });
 
@@ -186,11 +178,7 @@ export class HeadComponent implements OnInit {
         'background-image',
         'url(' + this.imgEnglish + ')'
       );
-      $('.change-lang').html(
-        'This website uses cookies to ensure you get the best experience on our website.'
-      );
       $('#linking').html('Read More');
-      $('#allow').html('Allow Cookies');
     } else {
       $('#dropdownMenu1').css(
         'background-image',
@@ -200,11 +188,7 @@ export class HeadComponent implements OnInit {
         'background-image',
         'url(' + this.imgSpanish + ')'
       );
-      $('.change-lang').html(
-        'Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.'
-      );
       $('#linking').html('Ver mas detalles');
-      $('#allow').html('Permitir Cookies');
     }
 
     if (language) {

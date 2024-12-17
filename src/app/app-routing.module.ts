@@ -29,7 +29,7 @@ import { CookiePolicyComponent } from './components/cookie-policy/cookie-policy.
 
 const routes: Routes = [
   { path: 'landing', component: LandingPageComponent },
-  // { path: 'cookie-policy', component: CookiePolicyComponent },
+  { path: 'cookie-policy', component: CookiePolicyComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   {
