@@ -65,21 +65,13 @@ export class AppComponent implements OnInit {
         'background-image',
         'url(' + this.imgEnglish + ')'
       );
-      $('.change-lang').html(
-        'This website uses cookies to ensure you get the best experience on our website.'
-      );
       $('#linking').html('Read More');
-      $('#allow').html('Allow Cookies');
     } else {
       $('#dropdownMenu3').css(
         'background-image',
         'url(' + this.imgSpanish + ')'
       );
-      $('.change-lang').html(
-        'Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.'
-      );
       $('#linking').html('Ver mas detalles');
-      $('#allow').html('Permitir Cookies');
     }
 
     if (language) {
