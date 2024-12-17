@@ -257,7 +257,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
   onNameInput(event: Event, name: string): void {
     const input = event.target as HTMLInputElement;
     // Remove invalid characters and trim spaces at the beginning and end
-    this.SignUpObject[name] = input.value.replace(/^\s+|\s+$/g, ''); // Ensures no leading or trailing spaces
+    const trimmedValue = input.value.replace(/^\s+/, '');
+    this.SignUpObject[name] = trimmedValue; // Ensures no leading or trailing spaces
   }
 
   routeToLogin() {

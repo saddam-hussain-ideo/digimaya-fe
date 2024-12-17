@@ -298,7 +298,9 @@ export class HeadComponent implements OnInit {
     this.openSidebar = !this.openSidebar;
   }
   sidebarClose() {
-    this.openSidebar = false;
+    if (this.mql.matches) {
+      this.openSidebar = false;
+    }
   }
   logout() {
     const dd = document.getElementById('mainLangDD');

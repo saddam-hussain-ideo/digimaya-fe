@@ -24,8 +24,9 @@
           class="form-control nn-input-sett w-60"
           id="name"
           name="userObject.Name"
+          [ngModel]="userObject.Name"
           (input)="onNameInput($event)"
-          [(ngModel)]="userObject.Name"
+          (blur)="userObject.Name = userObject.Name.trim()"
           [disabled]="!isProfileEdit"
         />
       </div>

@@ -1211,10 +1211,13 @@ export class SettingsComponent implements OnInit, OnDestroy {
     }
     this.userObject.PhoneNumber = input.value;
   }
+
   onNameInput(event: Event): void {
     const input = event.target as HTMLInputElement;
-    // Remove invalid characters and trim spaces at the beginning and end
-    this.userObject.Name = input.value.replace(/^\s+|\s+$/g, ''); // Ensures no leading or trailing spaces
+
+    // Allow spaces between words but remove leading and trailing spaces
+    const trimmedValue = input.value.replace(/^\s+/, ''); // Remove leading spaces only
+    this.userObject.Name = trimmedValue; // Keep user input with no leading spaces
   }
   hidePassword(value) {
     if (value == 'currentpassword') {
