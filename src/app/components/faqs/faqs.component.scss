@@ -142,3 +142,27 @@
   background-color: white;
   padding: 40px 20px;
 }
+
+.whitepaper-info-deck-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+  border-top: 1px solid #2d2d2d;
+  border-bottom: 1px solid #2d2d2d;
+  padding: 10px 0;
+  .link {
+    font-family: 'Calibri';
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 20px;
+    text-align: center;
+    color: #404040;
+    cursor: pointer;
+    margin: 0;
+    @media screen and (max-width: 600px) {
+      font-size: 14px;
+      padding-right: 4px;
+    }
+  }
+}
