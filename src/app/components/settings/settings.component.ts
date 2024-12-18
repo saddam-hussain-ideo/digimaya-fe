@@ -1215,9 +1215,10 @@ export class SettingsComponent implements OnInit, OnDestroy {
   onNameInput(event: Event): void {
     const input = event.target as HTMLInputElement;
 
-    // Allow spaces between words but remove leading and trailing spaces
-    const trimmedValue = input.value.replace(/^\s+/, ''); // Remove leading spaces only
-    this.userObject.Name = trimmedValue; // Keep user input with no leading spaces
+    // Remove leading spaces but keep spaces between words
+    const trimmedValue = input.value.replace(/^\s+/g, ''); // Remove only leading spaces
+    this.userObject.Name = trimmedValue; // Update model
+    input.value = trimmedValue; // Reflect updated value in the input field
   }
   hidePassword(value) {
     if (value == 'currentpassword') {
