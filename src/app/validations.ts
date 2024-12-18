@@ -18,7 +18,7 @@ export class Validations {
   }
 
   validatePhone(phone) {
-    const re = /^\+?([0-9]{2})\)?([0-9]{10})$/;
+    const re = /^\+[1-9]\d{1,14}$/;
     const checkresult = re.test(phone);
     return checkresult;
   }
