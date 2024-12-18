@@ -1053,6 +1053,11 @@
   position: relative;
   z-index: 8;
 }
+@media screen and (max-width: 1500px) {
+  .right-text {
+    width: min-content;
+  }
+}
 .bch-img {
   width: 45px;
   height: 45px;
@@ -1129,8 +1134,11 @@
   font-size: 13px;
   color: $theme-blue;
   padding-right: 40px;
-  font-family: 'LatoWeb';
+  font-family: 'Calibri';
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }
 .hexa-back {
   background-image: url('../../../assets/img/hexa.png');

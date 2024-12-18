@@ -109,13 +109,14 @@ export class MyWalletComponent implements OnInit, OnDestroy {
   copyToClipboard(id) {
     /* Get the text field */
     const copyText = document.getElementById(id) as HTMLInputElement;
-
-    /* Select the text field */
-    copyText.select();
-
-    /* Copy the text inside the text field */
-    document.execCommand('Copy');
-    this.toasterService.pop('success', 'Success', 'Copied successfully');
+    window.navigator['clipboard']
+      .writeText(copyText.value)
+      .then(() => {
+        this.toasterService.pop('success', 'Success', 'Copied successfully');
+      })
+      .catch((err) => {
+        console.error('Error copying text: ', err);
+      });
   }
 
   getValueOfCurrencyTypeCC(elem) {

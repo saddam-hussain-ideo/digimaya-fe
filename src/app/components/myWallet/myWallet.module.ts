@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angular2-qrcode';
 import { ToasterModule } from 'angular2-toaster';
+import { TooltipModule } from 'ng2-tooltip-directive';
 @NgModule({
   declarations: [MyWalletComponent],
   imports: [
@@ -12,7 +13,8 @@ import { ToasterModule } from 'angular2-toaster';
     TranslateModule,
     FormsModule,
     QRCodeModule,
-    ToasterModule
+    ToasterModule,
+    TooltipModule
   ],
   exports: [MyWalletComponent] // Export the child component
 })
