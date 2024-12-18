@@ -247,6 +247,15 @@
   font-weight: 500;
   position: relative;
 }
+.nn-input-sett-disabled {
+  background-color: #f9f9f9; /* Light gray background */
+  color: #a1a1a1; /* Dimmed text color */
+  border: 2px solid #d1d1d1; /* Lighter border */
+  cursor: not-allowed; /* Show disabled cursor */
+  opacity: 0.7; /* Reduce opacity to indicate it's inactive */
+  height: 48px;
+  border-radius: 8px !important;
+}
 .auth-sett-text2 {
   color: $theme-blue;
   font-family: 'LatoWeb';
@@ -1221,7 +1230,6 @@
   padding: 12px;
   min-width: 120px;
   font-weight: 600;
-  margin-top: 30px;
   position: relative;
   &::before {
     content: '';
