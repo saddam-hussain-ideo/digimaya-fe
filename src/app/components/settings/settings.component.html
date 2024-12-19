@@ -34,7 +34,12 @@
         <p class="nn-lbl-sett dark text-left w-50 mb-0">Username</p>
         <input
           type="text"
-          class="form-control nn-input-sett w-60"
+          [ngClass]="{
+            'form-control': true,
+            'nn-input-sett-disabled': isProfileEdit,
+            'nn-input-sett': !isProfileEdit,
+            'w-60': true
+          }"
           id="UserName"
           name="userObject.UserName"
           [(ngModel)]="userObject.UserName"
@@ -59,14 +64,19 @@
         <p class="nn-lbl-sett dark text-left w-50 mb-0">Primary Email</p>
         <input
           type="text"
-          class="form-control nn-input-sett w-60"
+          [ngClass]="{
+            'form-control': true,
+            'nn-input-sett-disabled': isProfileEdit,
+            'nn-input-sett': !isProfileEdit,
+            'w-60': true
+          }"
           id="name"
           name="userObject.Name"
           [(ngModel)]="userObject.Email"
           disabled
         />
       </div>
-      <div class="mt-5 d-flex justify-lg-content-end justify-content-center">
+      <div class="mt-3 d-flex justify-lg-content-end justify-content-center">
         <button
           class="edit-profile-buttom colored"
           (click)="editProfileButton()"
