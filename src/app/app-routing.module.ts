@@ -26,10 +26,12 @@ import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
 import { LandingPageComponent } from './components/landing/landing.component';
 import { CookiePolicyComponent } from './components/cookie-policy/cookie-policy.component';
+import { DisclaimerAgreementComponent } from './components/disclaimer-and-agreement/disclaimer-and-agreement.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingPageComponent },
   { path: 'cookie-policy', component: CookiePolicyComponent },
+  { path: 'disclaimer-and-agreement', component: DisclaimerAgreementComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   {

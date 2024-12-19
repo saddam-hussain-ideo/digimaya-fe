@@ -22,4 +22,7 @@ export class LandingPageComponent implements OnInit {
   routeToCookiePolicy() {
     this.router.navigate(['/cookie-policy']);
   }
+  routeToDisclaimer() {
+    this.router.navigate(['/disclaimer-and-agreement']);
+  }
 }
