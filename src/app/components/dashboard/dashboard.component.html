@@ -66,7 +66,9 @@
         <div class="info-custom-card">
           <div class="content">
             <span class="heading text-class">Interest Tokens</span>
-            <span class="pulper-color"> {{ interestTokens }} </span>
+            <span class="pulper-color">
+              {{ interestTokens | number: '1.4-4' }}
+            </span>
           </div>
         </div>
       </div>
@@ -134,12 +136,21 @@
           <div class="h-100">
             <iframe
               class="payment-card-video"
+              src="https://www.youtube.com/embed/8fr524dSvlI?si=XXFku22T_rBwzC1o?&autoplay=1&loop=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0&&playlist=8fr524dSvlI"
+              title="Digimaaya  - Company Show Reel"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+            <!-- <iframe
+              class="payment-card-video"
               src="https://www.youtube.com/embed/mTufGCkzRAc?autoplay=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0"
               title="Ideofuzion  - Company Show Reel"
               frameBorder="{0}"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-            ></iframe>
+            ></iframe> -->
           </div>
         </div>
       </div>
@@ -271,7 +282,7 @@
                       ></div>
                     </div>
                     <div class="row in-calculator">
-                      <div class="col-md-4 col-xs-12 pl-md-0 p-0">
+                      <div class="col-md-4 col-xs-12 p-0 pl-md-0 pr-md-3">
                         <div class="form-group">
                           <label class="black-labels hidden-above-sm p-b-5">{{
                             selectedCurrencyActual
@@ -328,13 +339,13 @@
                                 getCurrencySelected($event.target.value)
                               "
                             >
-                              <option value="usd">USD</option>
+                              <!-- <option value="usd">USD</option> -->
                               <option value="usdc">USDC</option>
                               <option value="usdt">USDT</option>
-                              <option value="btc">BTC</option>
+                              <!-- <option value="btc">BTC</option> -->
                               <option value="eth">ETH</option>
-                              <option value="ton">TON</option>
-                              <option value="sol">SOL</option>
+                              <!-- <option value="ton">TON</option> -->
+                              <!-- <option value="sol">SOL</option> -->
                               <option value="bnb">BNB</option>
                             </select>
                           </span>
@@ -487,7 +498,7 @@
                               {{ sData.StageRate.$numberDecimal }}
                             </td>
                             <td>
-                              {{ sData.StageStartDate | date: 'yyyy-MM-dd' }}
+                              {{ sData.StageStartDate }}
                             </td>
                             <td>
                               {{ sData.TotalAmountSold | number: '1.4-4' }}
@@ -735,7 +746,7 @@
                     </th>
 
                     <th class="rates-table-currency table-head">
-                      {{ 'Date' | translate }}
+                      {{ 'Date/Time' | translate }}
                     </th>
                   </tr>
                 </thead>
@@ -818,7 +829,16 @@
                       "
                     >
                       <div *ngIf="transactions.TransactionHash.length > 15">
-                        <a class="no-underline" target="_blank">
+                        <a
+                          class="no-underline"
+                          target="_blank"
+                          [href]="
+                            linkForTransaction(
+                              transactions.ChainTxId,
+                              transactions.ChainName
+                            )
+                          "
+                        >
                           {{ transactions.TransactionHash.slice(0, 6) }}...{{
                             transactions.TransactionHash.slice(
                               transactions.TransactionHash.length - 6
@@ -827,9 +847,17 @@
                         </a>
                       </div>
                       <div *ngIf="transactions.TransactionHash.length <= 15">
-                        <a class="no-underline" target="_blank">{{
-                          transactions.TransactionHash
-                        }}</a>
+                        <a
+                          class="no-underline"
+                          target="_blank"
+                          [href]="
+                            linkForTransaction(
+                              transactions.ChainTxId,
+                              transactions.ChainName
+                            )
+                          "
+                          >{{ transactions.TransactionHash }}</a
+                        >
                       </div>
                     </td>
 
@@ -907,6 +935,24 @@
                       <p
                         class="mb-0"
                         *ngIf="transactions.CurrencyUsed == 'BCH'"
+                      >
+                        {{ transactions.CurrencyUsed }}
+                      </p>
+                      <p
+                        class="mb-0"
+                        *ngIf="transactions.CurrencyUsed == 'USDT'"
+                      >
+                        {{ transactions.CurrencyUsed }}
+                      </p>
+                      <p
+                        class="mb-0"
+                        *ngIf="transactions.CurrencyUsed == 'USDC'"
+                      >
+                        {{ transactions.CurrencyUsed }}
+                      </p>
+                      <p
+                        class="mb-0"
+                        *ngIf="transactions.CurrencyUsed == 'BNB'"
                       >
                         {{ transactions.CurrencyUsed }}
                       </p>

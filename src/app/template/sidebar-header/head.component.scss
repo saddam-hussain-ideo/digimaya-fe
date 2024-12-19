@@ -19,7 +19,6 @@ a:focus {
   border: none;
   border-radius: 0;
   margin-bottom: 40px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .side-icons {
@@ -143,7 +142,17 @@ a:focus {
   margin-bottom: 0;
   border: none;
 }
-
+.sidemenu-wrapper {
+  @media screen and (max-width: 768px) {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+  }
+}
 .nav-clr {
   background-image: url('../../../assets//img/nav_background.svg');
   background-repeat: no-repeat;
@@ -213,13 +222,18 @@ a:focus {
   object-fit: cover;
 }
 .sidebar-bg {
-  // background-repeat: no-repeat;
-  /* position: fixed; */
-  /* background-position-y: bottom; */
-  background-color: #f6f6f6;
+  background-image: url('../../../assets//img/sidebar-bg.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  // box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   padding-top: 130px;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     padding-top: 60px;
+    height: 95%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
   }
 }
 
@@ -620,15 +634,20 @@ a:focus {
   height: 100%;
   // padding-bottom: 100px;
   z-index: 999999;
-  background-color: '#F6F6F6';
+  background-color: #f6f6f6;
   color: #f6f6f6;
   transition: all 0.3s;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     width: 250px;
   }
 }
 
 .sidebar-active {
+  .sidemenu-wrapper {
+    @media screen and (max-width: 600px) {
+      display: initial;
+    }
+  }
   #sidebar {
     // margin-left: -250px;
     overflow-y: auto;
@@ -643,12 +662,12 @@ a:focus {
 
     /* Handle */
     &::-webkit-scrollbar-thumb {
-      background: #888;
+      background: #d9d9d9;
     }
 
     /* Handle on hover */
     &::-webkit-scrollbar-thumb:hover {
-      background: #555;
+      background: #8c8c8c;
     }
   }
 }
@@ -1228,6 +1247,7 @@ a.article:hover {
 }
 .logout-btn {
   // padding: 15px 0 15px 5px;
+  width: min-content;
   padding: 10px 12px;
   // font-size: 0.85rem;
   font-size: 16px;
@@ -1256,21 +1276,21 @@ a.article:hover {
   justify-content: center;
   flex-direction: row;
   gap: 24px;
-  margin-top: 15%;
+  padding-bottom: 20px;
   @media only screen and (max-width: 1400px) and (min-width: 1100px) {
     gap: 18px;
   }
-  @media screen and (max-width:767px) {
-    margin-top: 60%;
-  }
-  @media screen and (max-width:400px) {
-    margin-top: 50%;
-  }
+  // @media screen and (max-width: 767px) {
+  //   margin-top: 60%;
+  // }
+  // @media screen and (max-width: 400px) {
+  //   margin-top: 50%;
+  // }
 }
 
-.my-settings-route{
+.my-settings-route {
   display: none;
-  @media screen and (max-width:767px) {
+  @media screen and (max-width: 767px) {
     display: list-item;
   }
 }

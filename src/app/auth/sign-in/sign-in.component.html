@@ -17,57 +17,58 @@
           />
         </div>
         <p>
-          A new innovation supporting creating income opportunities from crowd
-          funding property.
+          Program based on principles of New-age Finance in a Community based
+          Economy.
         </p>
       </div>
 
       <div class="right-panel">
         <div class="form-div">
-          <h2 class="text-center">Sign In</h2>
-          <div class="form-group">
-            <label class="ico-label" for="email">Email ID</label>
-            <input
-              id="email"
-              autocomplete="off"
-              type="email"
-              class="ico-inputs"
-              placeholder="{{ 'Email/Username' | translate }}"
-              name="email"
-              [(ngModel)]="email"
-            />
-          </div>
-
-          <div class="form-group">
-            <label class="ico-label" for="password">Password</label>
-            <div class="input-container">
+          <div class="d-flex flex-column">
+            <h2 class="text-center">Sign In</h2>
+            <div class="form-group">
+              <label class="ico-label" for="email">Email ID</label>
               <input
-                id="password"
+                id="email"
                 autocomplete="off"
-                #passwordField
-                type="password"
+                type="email"
                 class="ico-inputs"
-                placeholder="{{ 'Password' | translate }}"
-                name="password"
-                (keydown)="loginWithEnter($event)"
-                [(ngModel)]="password"
+                placeholder="{{ 'Email/Username' | translate }}"
+                name="email"
+                [(ngModel)]="email"
               />
-              <span
-                *ngIf="!isShow"
-                class="toggle-password toggle-signin fa fa-eye-slash"
-                (click)="showPassword()"
-              ></span>
-              <span
-                *ngIf="isShow"
-                class="fa fa-eye toggle-password toggle-signin"
-                (click)="hidePassword()"
-              ></span>
+            </div>
+
+            <div class="form-group">
+              <label class="ico-label" for="password">Password</label>
+              <div class="input-container">
+                <input
+                  id="password"
+                  autocomplete="off"
+                  #passwordField
+                  type="password"
+                  class="ico-inputs"
+                  placeholder="{{ 'Password' | translate }}"
+                  name="password"
+                  (keydown)="loginWithEnter($event)"
+                  [(ngModel)]="password"
+                />
+                <span
+                  *ngIf="!isShow"
+                  class="toggle-password toggle-signin fa fa-eye-slash"
+                  (click)="showPassword()"
+                ></span>
+                <span
+                  *ngIf="isShow"
+                  class="fa fa-eye toggle-password toggle-signin"
+                  (click)="hidePassword()"
+                ></span>
+              </div>
             </div>
           </div>
-
-          <a class="links" (click)="navigateToforgot()">{{
+          <!-- <a class="links" (click)="navigateToforgot()">{{
             'Forgot Password?' | translate
-          }}</a>
+          }}</a> -->
 
           <div *ngIf="loginLoaderShow" class="loader">
             <svg
@@ -105,19 +106,20 @@
               </g>
             </svg>
           </div>
+          <div class="d-flex flex-column">
+            <div *ngIf="actionBtnShow">
+              <button class="ico-submit" (click)="login()">
+                {{ 'Sign In' | translate }}
+              </button>
+            </div>
 
-          <div *ngIf="actionBtnShow">
-            <button class="ico-submit" (click)="login()">
-              {{ 'Sign In' | translate }}
-            </button>
+            <p class="bottom-text">
+              {{ "Don't have an account?" | translate }}
+              <a class="links" (click)="routeToSignUp()">{{
+                'Sign Up' | translate
+              }}</a>
+            </p>
           </div>
-
-          <p class="bottom-text">
-            {{ "Don't have an account?" | translate }}
-            <a class="links" (click)="routeToSignUp()">{{
-              'Sign Up' | translate
-            }}</a>
-          </p>
         </div>
       </div>
     </div>

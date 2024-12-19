@@ -976,7 +976,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
 
   ngOnInit() {
     // this.userToken = JSON.parse(localStorage.getItem('userToken'));
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     const userToken = this.activatedRoute.snapshot.params['id'];
     if (userToken) {
       this._sharedService.updateValidateLoader(true);
@@ -1168,5 +1168,12 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
 
     const valueInAud = 1 / rates;
     this.selectedCurrencyValue = liveRate;
+  }
+  linkForTransaction(hash, chain) {
+    if (chain === 'bsc-mainnet') {
+      return `https://bscscan.com/tx/${hash}`;
+    } else if (chain === 'ethereum-mainnet') {
+      return `https://etherscan.io/tx/${hash}`;
+    }
   }
 }

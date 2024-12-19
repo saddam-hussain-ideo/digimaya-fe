@@ -18,7 +18,7 @@ export class Validations {
   }
 
   validatePhone(phone) {
-    const re = /^\+?([0-9]{2})\)?([0-9]{10})$/;
+    const re = /^\+[1-9]\d{6,14}$/;
     const checkresult = re.test(phone);
     return checkresult;
   }
@@ -82,6 +82,13 @@ export class Validations {
       return true;
     }
   }
+  verifyAffiliateCodeAndUsernmarLength(username) {
+    if (username.length < 3 || username.length > 15) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   verifyUsername(username) {
     if (/^[A-Za-z0-9]+(?:_[A-Za-z0-9]+)*$/.test(username)) {
@@ -136,12 +143,13 @@ export class Validations {
   public blockSpecialChar(e) {
     let k;
     e.keyCode ? (k = e.keyCode) : (k = e.which);
+    // Allow uppercase letters, lowercase letters, space, backspace, and hyphen
     if (
-      (k > 64 && k < 91) ||
-      (k > 96 && k < 123) ||
-      k == 8 ||
-      k == 32 ||
-      (k >= 48 && k <= 57)
+      (k > 64 && k < 91) || // A-Z
+      (k > 96 && k < 123) || // a-z
+      k == 8 || // Backspace
+      k == 32 || // Space
+      k == 45 // Hyphen (-)
     ) {
       return true;
     }

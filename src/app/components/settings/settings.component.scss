@@ -242,9 +242,19 @@
   border-radius: 8px !important;
   color: #11111399;
   box-shadow: none;
+  border: 2px solid #11111333;
   font-size: 16px;
   font-weight: 500;
   position: relative;
+}
+.nn-input-sett-disabled {
+  background-color: #f9f9f9; /* Light gray background */
+  color: #a1a1a1; /* Dimmed text color */
+  border: 2px solid #d1d1d1; /* Lighter border */
+  cursor: not-allowed; /* Show disabled cursor */
+  opacity: 0.7; /* Reduce opacity to indicate it's inactive */
+  height: 48px;
+  border-radius: 8px !important;
 }
 .auth-sett-text2 {
   color: $theme-blue;
@@ -369,7 +379,7 @@
 }
 
 .nn-lbl-sett {
-  color: #11111399;
+  color: #ff0082;
   font-family: 'Calibri';
   font-size: 16px;
   font-weight: 500;
@@ -378,7 +388,7 @@
     color: #8c8c8c;
   }
   &.dark {
-    color: brown;
+    color: #ff0082;
   }
   li {
     list-style-type: disc;
@@ -1220,7 +1230,6 @@
   padding: 12px;
   min-width: 120px;
   font-weight: 600;
-  margin-top: 30px;
   position: relative;
   &::before {
     content: '';
@@ -1260,7 +1269,7 @@
   border-radius: 8px;
   width: 50%;
   margin-top: 40px;
-  @media screen and (max-width:1100px) {
+  @media screen and (max-width: 1100px) {
     width: 100%;
   }
 }
@@ -1269,7 +1278,15 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
+  appearance: textfield; /* Ensures cross-browser compatibility */
+}
+
+/* General styling for Safari (including iOS Safari) */
+input[type='number'] {
+  -webkit-appearance: textfield; /* iOS Safari compatibility */
+  appearance: textfield;
 }

@@ -19,8 +19,8 @@
           />
         </div>
         <p>
-          A new innovation supporting creating income opportunities from crowd
-          funding property.
+          Program based on principles of New-age Finance in a Community based
+          Economy.
         </p>
       </div>
 
@@ -30,24 +30,18 @@
           <p class="ico-label">
             {{ signUpSuccessfullMessage }}
           </p>
-          <div class="centered-text" *ngIf="actionBtnShow">
-            <button class="ico-submit" (click)="resendVerificationCode()">
-              {{ 'Resend Verification Link' | translate }}
-            </button>
-          </div>
           <div class="form-group">
-            <p class="bottom-text">
-              Go to
-              <a class="links" (click)="routeToLogin()">{{
-                'Login' | translate
-              }}</a>
-            </p>
+            <button class="ico-submit" (click)="routeToLogin()"
+              >Go To {{ 'Login' | translate }}</button
+            >
           </div>
         </div>
         <div *ngIf="!signUpSuccessfull" class="form-div">
           <h2 class="text-center">Sign Up</h2>
           <div class="form-group">
-            <label class="ico-label" for="email">Email ID</label>
+            <label class="ico-label" for="email"
+              >Email ID<span class="required-asterisk">*</span></label
+            >
             <input
               id="email"
               autocomplete="off"
@@ -61,7 +55,9 @@
 
           <div class="form-group-row">
             <div class="form-group">
-              <label class="ico-label" for="username">Username</label>
+              <label class="ico-label" for="username"
+                >Username<span class="required-asterisk">*</span></label
+              >
               <input
                 id="username"
                 autocomplete="off"
@@ -70,12 +66,16 @@
                 class="ico-inputs"
                 placeholder="{{ 'Username' | translate }}"
                 name="SignUpObject.username"
-                [(ngModel)]="SignUpObject.username"
+                (input)="onNameInput($event, 'username')"
+                [ngModel]="SignUpObject.username"
+                (blur)="userObject.Name = userObject.Name.trim()"
               />
             </div>
 
             <div class="form-group">
-              <label class="ico-label" for="fullName">Full Name</label>
+              <label class="ico-label" for="fullName"
+                >Full Name<span class="required-asterisk">*</span></label
+              >
               <input
                 id="fullName"
                 autocomplete="off"
@@ -83,7 +83,9 @@
                 class="ico-inputs"
                 placeholder="{{ 'Full Name' | translate }}"
                 name="SignUpObject.fullName"
-                [(ngModel)]="SignUpObject.fullName"
+                [ngModel]="SignUpObject.fullName"
+                (input)="onNameInput($event, 'fullName')"
+                (blur)="userObject.Name = userObject.Name.trim()"
                 (keypress)="blockSpecialChar($event)"
               />
             </div>
@@ -121,7 +123,9 @@
             </div> -->
 
             <div class="form-group">
-              <label class="ico-label" for="mobile">Mobile Number</label>
+              <label class="ico-label" for="mobile"
+                >Mobile Number<span class="required-asterisk">*</span></label
+              >
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text codearea" *ngIf="countryCode">{{
@@ -130,11 +134,12 @@
                 </div>
                 <input
                   id="mobile"
-                  type="number"
+                  type="text"
                   placeholder="Mobile Number"
                   class="form-control ico-inputs"
                   name="SignUpObject.mobile"
                   [(ngModel)]="SignUpObject.mobile"
+                  (input)="onPhoneNumberInput($event)"
                 />
               </div>
             </div>
@@ -142,7 +147,9 @@
 
           <div class="form-group-row">
             <div class="form-group">
-              <label class="ico-label" for="password">Password</label>
+              <label class="ico-label" for="password"
+                >Password<span class="required-asterisk">*</span></label
+              >
               <div class="input-container">
                 <input
                   id="password"
@@ -167,7 +174,9 @@
             </div>
 
             <div class="form-group">
-              <label class="ico-label" for="cPassword">Confirm Password</label>
+              <label class="ico-label" for="cPassword"
+                >Confirm Password<span class="required-asterisk">*</span></label
+              >
               <div class="input-container">
                 <input
                   id="cPassword"
@@ -201,19 +210,13 @@
                   'I confirm that I have read, accepted and agreed to all'
                     | translate
                 }}
-                <a
-                  class="links no-underline"
-                  target="_blank"
-                  [(href)]="documentUrl"
-                  >{{ 'Terms & Conditions' | translate }}</a
-                >
+                <span class="links no-underline m-0 p-0">{{
+                  'Terms & Conditions' | translate
+                }}</span>
                 &
-                <a
-                  class="links no-underline"
-                  target="_blank"
-                  [(href)]="privacyPolicy"
-                  >{{ 'Privacy Policy' | translate }}</a
-                >
+                <span class="links no-underline p-0 m-0">{{
+                  'Privacy Policy' | translate
+                }}</span>
                 {{ 'and that I am of legal age' | translate }}
               </label>
             </p>

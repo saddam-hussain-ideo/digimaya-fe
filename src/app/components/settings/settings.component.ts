@@ -157,7 +157,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     this.pdfUploaded = '../../../assets/img/pdf.png';
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
 
@@ -1206,7 +1206,19 @@ export class SettingsComponent implements OnInit, OnDestroy {
     const input = event.target as HTMLInputElement;
     // Remove invalid characters and update the model
     input.value = input.value.replace(/[^+\d]/g, '');
+    if (input.value[0] !== '+') {
+      input.value = '+' + input.value; // Ensure `+` is the first character
+    }
     this.userObject.PhoneNumber = input.value;
+  }
+
+  onNameInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    // Remove leading spaces but keep spaces between words
+    const trimmedValue = input.value.replace(/^\s+/g, ''); // Remove only leading spaces
+    this.userObject.Name = trimmedValue; // Update model
+    input.value = trimmedValue; // Reflect updated value in the input field
   }
   hidePassword(value) {
     if (value == 'currentpassword') {

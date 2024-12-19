@@ -33,7 +33,18 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   public captchaKey = null;
 
-  public SignUpObject: UserSignupModel;
+  public SignUpObject: UserSignupModel = {
+    email: null,
+    fullName: null,
+    referralCode: null,
+    ethAddress: null,
+    password: null,
+    cPassword: null,
+    username: null,
+    ETHWalleRecieverData: null,
+    Language: null,
+    mobile: '+'
+  };
 
   public emptyEmailCheck = false;
 
@@ -233,6 +244,23 @@ export class SignUpComponent implements OnInit, OnDestroy {
       }
     );
   }
+  onPhoneNumberInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    // Only allow `+` as the first character, followed by numbers
+    input.value = input.value.replace(/[^+\d]/g, '');
+    if (input.value[0] !== '+') {
+      input.value = '+' + input.value; // Ensure `+` is the first character
+    }
+    this.SignUpObject.mobile = input.value;
+  }
+
+  onNameInput(event: Event, name: string): void {
+    const input = event.target as HTMLInputElement;
+    // Remove invalid characters and trim spaces at the beginning and end
+    const trimmedValue = input.value.replace(/^\s+/g, '');
+    this.SignUpObject[name] = trimmedValue; // Ensures no leading or trailing spaces
+    input.value = trimmedValue;
+  }
 
   routeToLogin() {
     this.router.navigate(['/sign-in']);
@@ -304,14 +332,16 @@ export class SignUpComponent implements OnInit, OnDestroy {
             'Favor de ingresar un usuario valido'
           );
     } else if (
-      !this.ValidationsClass.verifyUserNameLength(this.SignUpObject.username)
+      !this.ValidationsClass.verifyAffiliateCodeAndUsernmarLength(
+        this.SignUpObject.username
+      )
     ) {
       error = true;
       this.lang == 'en'
         ? this.toasterService.pop(
             'error',
             'Error',
-            'Username should be between 3-20 characters'
+            'Username should be between 3-15 characters'
           )
         : this.toasterService.pop(
             'error',
@@ -430,6 +460,26 @@ export class SignUpComponent implements OnInit, OnDestroy {
             'Ambas contraseñas no coinciden'
           );
     }
+    if (this.SignUpObject.referralCode) {
+      if (
+        !this.ValidationsClass.verifyAffiliateCodeAndUsernmarLength(
+          this.SignUpObject.referralCode
+        )
+      ) {
+        error = true;
+        this.lang == 'en'
+          ? this.toasterService.pop(
+              'error',
+              'Error',
+              'Affiliate Code should be between 3-15 characters'
+            )
+          : this.toasterService.pop(
+              'error',
+              'Error',
+              'El nombre de usuario debe tener entre 3 y 20 caracteres'
+            );
+      }
+    }
 
     if ($('#TermsCheck').is(':checked')) {
     } else {
@@ -451,7 +501,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
       console.log(error);
     } else {
       if (this.SignUpObject.mobile) {
-        this.SignUpObject.mobile = `+${this.SignUpObject.mobile}`;
+        this.SignUpObject.mobile = `${this.SignUpObject.mobile}`;
       }
 
       this.reCaptcha.execute();
@@ -468,6 +518,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this.passwordConfirm.nativeElement.setAttribute('type', 'password');
       return;
     }
+    console.log(this.SignUpObject);
+
     this.isShow = false;
     this.passwordInput.nativeElement.setAttribute('type', 'password');
   }

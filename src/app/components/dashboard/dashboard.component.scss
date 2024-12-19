@@ -758,8 +758,8 @@
   text-decoration: none;
 }
 
-.transactions-new-design  {
-  th{
+.transactions-new-design {
+  th {
     vertical-align: middle !important;
     border-top: none;
     font-family: Calibri;
@@ -769,14 +769,13 @@
   }
   tbody {
     tr {
-     
-      td{
+      td {
         vertical-align: middle !important;
         font-family: Calibri;
         font-size: 14px;
         color: #191919;
         padding: 12px 15px;
-border: none !important;
+        border: none !important;
       }
     }
   }
@@ -941,7 +940,6 @@ border: none !important;
   color: $dashboard-purple-clr;
 }
 
-
 .top-left-dash svg {
   position: absolute;
   top: 0;
@@ -988,9 +986,10 @@ border: none !important;
         font-size: 16px;
         font-family: 'Calibri';
       }
-      @media screen and (max-width:800px) {
-        .nav-link,.active{
-        margin: 0;
+      @media screen and (max-width: 800px) {
+        .nav-link,
+        .active {
+          margin: 0;
         }
       }
     }
@@ -1020,16 +1019,17 @@ border: none !important;
           }
         }
       }
-      @media screen and (max-width800px) {
-        table{
-          width: 500px;
-        }
+      @media (max-width: 767px) {
+        width: 500px;
       }
     }
   }
 
   @media (max-width: 767px) {
     min-height: 100%;
+    .stage-table {
+      width: 500px;
+    }
   }
 
   @media (max-width: 1200px) and (min-width: 992px) {

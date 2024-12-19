@@ -15,7 +15,7 @@
     padding: 20px;
     text-align: center;
   }
-  @media screen and (max-width:800px ) {
+  @media screen and (max-width: 800px) {
     height: auto;
   }
 }
@@ -54,11 +54,11 @@
   }
 }
 
-.faq-section{
+.faq-section {
   display: flex;
   width: 50%;
   flex-direction: column;
-  @media screen and (max-width:800px) {
+  @media screen and (max-width: 800px) {
     width: 100%;
   }
 }
@@ -78,7 +78,6 @@
     li {
       font-size: 14px;
       font-family: 'Calibri';
-      font-weight: 500;
       line-height: 18px;
       color: #8c8c8c;
       list-style-type: decimal;
@@ -142,4 +141,28 @@
 .faqs-section-top {
   background-color: white;
   padding: 40px 20px;
+}
+
+.whitepaper-info-deck-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+  border-top: 1px solid #2d2d2d;
+  border-bottom: 1px solid #2d2d2d;
+  padding: 10px 0;
+  .link {
+    font-family: 'Calibri';
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 20px;
+    text-align: center;
+    color: #404040;
+    cursor: pointer;
+    margin: 0;
+    @media screen and (max-width: 600px) {
+      font-size: 14px;
+      padding-right: 4px;
+    }
+  }
 }

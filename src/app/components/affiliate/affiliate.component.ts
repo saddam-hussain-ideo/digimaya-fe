@@ -208,7 +208,7 @@ export class Affiliate {
   public ctx;
 
   public ngOnInit() {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
 
     this.affiliateGraph();
@@ -478,7 +478,6 @@ export class Affiliate {
   }
 
   ConvertToCSV(objArray) {
-    debugger;
     const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
     for (let i = 0; i < array.length; i++) {
@@ -500,7 +499,6 @@ export class Affiliate {
     this._affilliateService.getCsvData(this.userObject.UserId).subscribe(
       (a) => {
         if (a.code == 200) {
-          debugger;
           this.csvData = a.data.earningList;
           const jsonObject = JSON.stringify(this.csvData);
           const parsedResponse = this.ConvertToCSV(jsonObject);

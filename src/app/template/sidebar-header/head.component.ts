@@ -19,6 +19,7 @@ export class HeadComponent implements OnInit {
   public selectedLang = 'es';
   public notificationCount = 0;
   public notificationsLoader = true;
+  public mql = window.matchMedia('(max-width: 767px)');
 
   public imgSpanish = '../../../assets/img/esp.png';
   public imgEnglish = '../../../assets/img/eng.png';
@@ -31,15 +32,13 @@ export class HeadComponent implements OnInit {
     public _sharedService: SharedService,
     public userService: UserService,
     private _ngZone: NgZone
-  ) { }
+  ) {}
 
   ngOnInit() {
-    let mql = window.matchMedia('(max-width: 767px)');
-    if (mql.matches) {
-      this.openSidebar = false
-    }
-    else {
-      this.openSidebar = true
+    if (this.mql.matches) {
+      this.openSidebar = false;
+    } else {
+      this.openSidebar = true;
     }
     $('.list-unstyled li').removeClass('active');
 
@@ -58,51 +57,55 @@ export class HeadComponent implements OnInit {
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
     console.log(this.userObject);
     this.userName = this.userObject['Name'];
-    if (this.userObject) {
-      this._ngZone.run(() => {
-        if (this.userObject.Language == 'en') {
-          $('#dropdownMenu1').css(
-            'background-image',
-            'url(' + this.imgEnglish + ')'
-          );
-          $('#dropdownMenu2').css(
-            'background-image',
-            'url(' + this.imgEnglish + ')'
-          );
-          $('.change-lang').html(
-            'This website uses cookies to ensure you get the best experience on our website.'
-          );
-          $('#linking').html('Read More');
-          $('#allow').html('Allow Cookies');
-        } else {
-          $('#dropdownMenu1').css(
-            'background-image',
-            'url(' + this.imgSpanish + ')'
-          );
-          $('#dropdownMenu2').css(
-            'background-image',
-            'url(' + this.imgSpanish + ')'
-          );
-          $('.change-lang').html(
-            'Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.'
-          );
-          $('#linking').html('Ver mas detalles');
-          $('#allow').html('Permitir Cookies');
-        }
-        this.selectedLang = this.userObject.Language;
-        if (this.selectedLang) {
-          this.translate.use(this.selectedLang);
-        } else {
-          this.translate.use('es');
-        }
-      });
-    }
+    // if (this.userObject) {
+    //   this._ngZone.run(() => {
+    //     if (this.userObject.Language == 'en') {
+    //       $('#dropdownMenu1').css(
+    //         'background-image',
+    //         'url(' + this.imgEnglish + ')'
+    //       );
+    //       $('#dropdownMenu2').css(
+    //         'background-image',
+    //         'url(' + this.imgEnglish + ')'
+    //       );
+    //       $('.change-lang').html(
+    //         'This website uses cookies to ensure you get the best experience on our website.'
+    //       );
+    //       $('#linking').html('Read More');
+    //       $('#allow').html('Allow Cookies');
+    //     } else {
+    //       $('#dropdownMenu1').css(
+    //         'background-image',
+    //         'url(' + this.imgSpanish + ')'
+    //       );
+    //       $('#dropdownMenu2').css(
+    //         'background-image',
+    //         'url(' + this.imgSpanish + ')'
+    //       );
+    //       $('.change-lang').html(
+    //         'Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.'
+    //       );
+    //       $('#linking').html('Ver mas detalles');
+    //       $('#allow').html('Permitir Cookies');
+    //     }
+    //     this.selectedLang = this.userObject.Language;
+    //     if (this.selectedLang) {
+    //       this.translate.use(this.selectedLang);
+    //     } else {
+    //       this.translate.use('es');
+    //     }
+    //   });
+    // }
 
     this._sharedService.changeEmittedForLoader$.subscribe((a) => {
       this.mainLoader = a;
       this.changeDet.detectChanges();
     });
-
+    window.onscroll = () => {
+      if (this.mql.matches) {
+        this.openSidebar = false;
+      }
+    };
     this._sharedService.changeEmittedForUserUpdation$.subscribe((a) => {
       console.log(a);
 
@@ -117,11 +120,7 @@ export class HeadComponent implements OnInit {
           'background-image',
           'url(' + this.imgEnglish + ')'
         );
-        $('.change-lang').html(
-          'This website uses cookies to ensure you get the best experience on our website.'
-        );
         $('#linking').html('Read More');
-        $('#allow').html('Allow Cookies');
       } else {
         $('#dropdownMenu1').css(
           'background-image',
@@ -131,11 +130,7 @@ export class HeadComponent implements OnInit {
           'background-image',
           'url(' + this.imgSpanish + ')'
         );
-        $('.change-lang').html(
-          'Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.'
-        );
         $('#linking').html('Ver mas detalles');
-        $('#allow').html('Permitir Cookies');
       }
     });
 
@@ -187,11 +182,7 @@ export class HeadComponent implements OnInit {
         'background-image',
         'url(' + this.imgEnglish + ')'
       );
-      $('.change-lang').html(
-        'This website uses cookies to ensure you get the best experience on our website.'
-      );
       $('#linking').html('Read More');
-      $('#allow').html('Allow Cookies');
     } else {
       $('#dropdownMenu1').css(
         'background-image',
@@ -201,11 +192,7 @@ export class HeadComponent implements OnInit {
         'background-image',
         'url(' + this.imgSpanish + ')'
       );
-      $('.change-lang').html(
-        'Este sitio web utiliza Cookies para que tengas la mejor experiencia al navegar.'
-      );
       $('#linking').html('Ver mas detalles');
-      $('#allow').html('Permitir Cookies');
     }
 
     if (language) {
@@ -268,19 +255,25 @@ export class HeadComponent implements OnInit {
   }
 
   navigateToFaqs() {
-    this.closeSidebar()
+    if (this.mql.matches) {
+      this.closeSidebar();
+    }
     this.router.navigate(['/home/faqs']);
   }
   NavigateToSettings() {
+    if (this.mql.matches) {
+      this.closeSidebar();
+    }
     this.router.navigate(['/home/settings']);
-    this.closeSidebar()
   }
   navigateToICO() {
     this.router.navigate(['/home/ilo']);
   }
 
   navigateToDashboard() {
-    this.closeSidebar()
+    if (this.mql.matches) {
+      this.closeSidebar();
+    }
     this.router.navigate(['/home/dashboard']);
   }
   navigateToWallet() {
@@ -295,7 +288,9 @@ export class HeadComponent implements OnInit {
   }
 
   navigateToAffiliates() {
-    this.closeSidebar()
+    if (this.mql.matches) {
+      this.closeSidebar();
+    }
     this.router.navigate(['/home/affiliate']);
   }
 
@@ -306,14 +301,21 @@ export class HeadComponent implements OnInit {
   closeSidebar() {
     this.openSidebar = !this.openSidebar;
   }
-
+  sidebarClose() {
+    if (this.mql.matches) {
+      this.openSidebar = false;
+    }
+  }
+  checkScroll() {
+    console.log('scrolling....');
+  }
   logout() {
     const dd = document.getElementById('mainLangDD');
     if (dd) {
       dd.style.display = 'block';
     }
     localStorage.clear();
-    this.router.navigate(['/']);
+    this.router.navigate(['/sign-in']);
   }
 
   openMailer() {

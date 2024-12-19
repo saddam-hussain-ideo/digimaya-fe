@@ -72,12 +72,22 @@ select {
   align-items: center;
   background-color: white;
   background-size: cover;
+  @media screen and (max-width: 600px) {
+    background-image: url('./assets/img/auth-bg.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-color: transparent;
+  }
 }
 
 .outer-wrapper {
   height: 100vh;
   display: flex;
   background: transparent;
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 }
 
 .inner-wrapper {
@@ -100,6 +110,8 @@ select {
   @media (max-width: 480px) {
     width: 100%;
     padding: 10px;
+    margin: 0;
+    overflow-y: scroll;
   }
 }
 
@@ -133,8 +145,9 @@ select {
     padding: 10px;
   }
 
-  @media (max-width: 480px) {
-    background: #ffffff;
+  @media (max-width: 600px) {
+    background: transparent;
+    align-items: center;
   }
 }
 
@@ -178,7 +191,7 @@ select {
   }
 
   @media (max-width: 480px) {
-    padding: 10px;
+    padding: 24px;
   }
 }
 
@@ -202,7 +215,8 @@ select {
   }
 
   @media (max-width: 480px) {
-    font-size: 24px;
+    font-size: 32px;
+    margin-bottom: 80px;
   }
 }
 
@@ -224,13 +238,13 @@ select {
   }
 
   @media (max-width: 768px) {
-    width: 150px;
+    width: 220px;
     margin: 20px 0;
   }
 
   @media (max-width: 480px) {
     content: url('./assets/img/maaya_gradient.svg');
-    width: 150px;
+    width: 220px;
   }
 }
 
@@ -244,6 +258,10 @@ select {
 
   @media (max-width: 768px) {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
   }
 
   @media (max-height: 800px) {
@@ -279,7 +297,7 @@ select {
 .ico-inputs {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 2px solid #11111333;
   border-radius: 4px;
   font-size: 14px;
   background: transparent;
@@ -299,7 +317,6 @@ select {
   }
 
   @media (max-width: 480px) {
-    flex-direction: column;
     gap: 10px;
   }
 }
@@ -313,7 +330,9 @@ select {
   font-size: 14px;
   margin: 10px 0;
   cursor: pointer;
-
+  &.lg {
+    font-size: 20px;
+  }
   &:hover {
     text-decoration: underline;
   }
@@ -368,7 +387,9 @@ select {
   line-height: 16px;
   margin-top: 16px;
   text-align: left;
-
+  &.lg {
+    font-size: 20px;
+  }
   @media (max-width: 768px) {
     font-size: 14px;
     text-align: center;
@@ -391,7 +412,7 @@ select {
 .input-container {
   display: flex;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 2px solid #11111333;
   border-radius: 4px;
   padding-right: 10px;
 }
@@ -726,14 +747,14 @@ input:-webkit-autofill {
 [type='checkbox']:checked + label:after {
   content: '\2713';
   position: absolute;
-  top: 0.1em;
-  left: 0.05em;
-  font-size: 1.4em;
+  top: 0.3em;
+  left: 0.2em;
+  font-size: 1em;
   line-height: 0.8;
   // color: #09ad7e;
-  color: $dashboard-purple-clr;
+  color: red;
   transition: all 0.2s;
-  font-family: 'LatoWebLight';
+  font-family: 'Calibri';
 }
 /* checked mark aspect changes */
 [type='checkbox']:not(:checked) + label:after {
@@ -2289,4 +2310,42 @@ h1 {
 p {
   font-family: 'Calibri';
   font-weight: 400; /* Regular */
+}
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+}
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active
+// input:-internal-autofill-selected:hover,
+// input:-internal-autofill-selected:focus {
+//   -webkit-animation: autofill 0s forwards;
+//     animation: autofill 0s forwards;
+// }
+// @keyframes autofill {
+//   100% {
+//       background: transparent;
+//       color: inherit;
+//   }
+// }
+
+// @-webkit-keyframes autofill {
+//   100% {
+//       background: transparent;
+//       color: inherit;
+//   }
+// }
+// input,
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus {
+//   -webkit-box-shadow: 0 0 50px rgba(255, 255, 255, 0) inset !important;
+//   background-color: transparent !important;
+//   background-clip: text;
+// }
+input:-webkit-autofill {
+  -webkit-text-fill-color: transparent;
+  transition: background-color 5000s ease-in-out 0s;
+  color: #11111399;
 }
