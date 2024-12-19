@@ -101,7 +101,11 @@ export class HeadComponent implements OnInit {
       this.mainLoader = a;
       this.changeDet.detectChanges();
     });
-
+    window.onscroll = () => {
+      if (this.mql.matches) {
+        this.openSidebar = false;
+      }
+    };
     this._sharedService.changeEmittedForUserUpdation$.subscribe((a) => {
       console.log(a);
 
@@ -301,6 +305,9 @@ export class HeadComponent implements OnInit {
     if (this.mql.matches) {
       this.openSidebar = false;
     }
+  }
+  checkScroll() {
+    console.log('scrolling....');
   }
   logout() {
     const dd = document.getElementById('mainLangDD');
