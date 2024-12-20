@@ -691,6 +691,9 @@ export class MyWalletComponent implements OnInit, OnDestroy {
       .subscribe((res) => {
         this.userObject = JSON.parse(localStorage.getItem('userObject'));
       });
+    setInterval(() => {
+      this.getWalletAddresses();
+    }, 60000);
   }
 
   getTokens() {
