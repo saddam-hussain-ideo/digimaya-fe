@@ -319,7 +319,8 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     let coinsWithBonus = totalCoins + bonusTokens;
     this.bonusCoins = bonusTokens;
     this.bonusPercentage = bonusPercentage;
-    this.coinsCalculated = totalCoins.toFixed(6);
+    this.coinsCalculated = parseFloat(totalCoins.toFixed(6)).toString();
+    this.ref.markForCheck();
     if (isNaN(coinsWithBonus)) {
       coinsWithBonus = 0;
     }
@@ -332,7 +333,9 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     this.coinsWantedBottom = this.coinsWanted;
     // this.totalCoinToPayFor = Number(coinWithDiscount)
   }
-
+  onCoinsCalculatedChange(value: string) {
+    this.coinsCalculated = value;
+  }
   saleGraph() {
     this._dashboardService.salesGraph().subscribe(
       (res) => {
@@ -464,6 +467,8 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     this.coinsWantedBottom = 0;
     this.bonusCoins = 0;
     this.bonusPercentage = 0;
+    this.coinsCalculated = '';
+    this.coinsWanted = '';
   }
 
   getCurrencySelected(elem) {
@@ -1008,6 +1013,9 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     } else {
       this.getDashboardData();
     }
+    setInterval(() => {
+      this.getRates();
+    }, 60000);
   }
   getDashboardData() {
     this.userObject = JSON.parse(localStorage.getItem('userObject'));

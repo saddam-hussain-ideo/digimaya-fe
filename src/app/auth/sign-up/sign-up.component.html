@@ -210,13 +210,14 @@
                   'I confirm that I have read, accepted and agreed to all'
                     | translate
                 }}
-                <span class="links no-underline m-0 p-0">{{
-                  'Terms & Conditions' | translate
-                }}</span>
-                &
-                <span class="links no-underline p-0 m-0">{{
-                  'Privacy Policy' | translate
-                }}</span>
+                <a
+                  class="links no-underline m-0 p-0"
+                  [href]="'/#/disclaimer-and-agreement'"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Disclaimer and Agreement
+                </a>
                 {{ 'and that I am of legal age' | translate }}
               </label>
             </p>
