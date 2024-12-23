@@ -238,12 +238,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     return numericValue.toFixed(3); // Format to 3 decimal places
   }
   formatEmaayaValue(valueOne: any, valueTwo: any): string {
-    if (
-      valueOne == null ||
-      valueTwo == null ||
-      valueOne === '' ||
-      valueTwo === ''
-    ) {
+    if (!valueOne || !valueTwo) {
       return ''; // Return '' if either value is null, undefined, or empty
     }
 
