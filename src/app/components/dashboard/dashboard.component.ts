@@ -173,9 +173,9 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
   ];
 
   // events
-  public chartClicked(e: any): void { }
+  public chartClicked(e: any): void {}
 
-  public chartHovered(e: any): void { }
+  public chartHovered(e: any): void {}
 
   getAmountInvested() {
     this._sharedService.showHideLoader(true);
@@ -223,13 +223,13 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     this.convertCurrencyToPPTL('usd');
   }
   formatValue(value: any): string {
-
     if (value == null || value === '') {
       return ''; // Return '' if the value is null, undefined, or empty
     }
 
     // Convert to number after removing commas if it's a string
-    const numericValue = typeof value === 'string' ? parseFloat(value.replace(/,/g, '')) : value;
+    const numericValue =
+      typeof value === 'string' ? parseFloat(value.replace(/,/g, '')) : value;
 
     if (isNaN(numericValue)) {
       return ''; // Return '' if it's still not a number
@@ -238,14 +238,24 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     return numericValue.toFixed(3); // Format to 3 decimal places
   }
   formatEmaayaValue(valueOne: any, valueTwo: any): string {
-
-    if (valueOne == null || valueTwo == null || valueOne === '' || valueTwo === '') {
+    if (
+      valueOne == null ||
+      valueTwo == null ||
+      valueOne === '' ||
+      valueTwo === ''
+    ) {
       return ''; // Return '' if either value is null, undefined, or empty
     }
 
     // Convert valueOne and valueTwo to numbers after removing commas if needed
-    const numericValueOne = typeof valueOne === 'string' ? parseFloat(valueOne.replace(/,/g, '')) : valueOne;
-    const numericValueTwo = typeof valueTwo === 'string' ? parseFloat(valueTwo.replace(/,/g, '')) : valueTwo;
+    const numericValueOne =
+      typeof valueOne === 'string'
+        ? parseFloat(valueOne.replace(/,/g, ''))
+        : valueOne;
+    const numericValueTwo =
+      typeof valueTwo === 'string'
+        ? parseFloat(valueTwo.replace(/,/g, ''))
+        : valueTwo;
 
     if (isNaN(numericValueOne) || isNaN(numericValueTwo)) {
       return ''; // Return '' if either is not a valid number
@@ -771,7 +781,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
               enabled: false,
               yAlign: 'bottom',
               callbacks: {
-                title: function () { }
+                title: function () {}
               },
               custom: function (tooltipModel) {
                 // Tooltip Element

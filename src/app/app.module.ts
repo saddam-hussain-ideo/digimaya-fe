@@ -144,5 +144,5 @@ registerLocaleData(localeEn);
   entryComponents: [StagesComponent]
 })
 export class AppModule {
-  constructor(public _sharedService: SharedService) { }
+  constructor(public _sharedService: SharedService) {}
 }
