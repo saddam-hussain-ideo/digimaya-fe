@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-prod": "ng serve --prod --configuration=production",
     "build": "ng build --prod --configuration=production --aot --output-hashing=all",
     "build:prod": "ng build --prod --configuration=production --aot --output-hashing=all",
     "build:develop": "ng build --configuration=development --aot --output-hashing=all",

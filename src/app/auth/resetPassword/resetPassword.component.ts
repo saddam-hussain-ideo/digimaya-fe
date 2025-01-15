@@ -22,7 +22,7 @@ declare var $: any;
 @Component({
   selector: 'reset-password',
   providers: [UserService],
-  styleUrls: ['./resetPassword.component.css'],
+  styleUrls: ['./resetPassword.component.scss'],
   templateUrl: './resetPassword.component.html'
 })
 export class ResetPassword implements OnInit, OnDestroy {

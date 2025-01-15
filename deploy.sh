@@ -3,7 +3,6 @@
 # Variables
 BUILD_DIR="dist/crypto"      # Build directory (adjust if different)
 SERVER_USER="ubuntu"         # SSH username for the server
-SERVER_HOST="65.0.44.35"    # Server IP or domain
 
 # Load nvm if it's installed
 if [ -s "$HOME/.nvm/nvm.sh" ]; then
@@ -27,9 +26,11 @@ CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 # Build the frontend
 echo "Building the frontend..."
 if [ "$CURRENT_BRANCH" == "master" ]; then
+    SERVER_HOST="3.110.18.145"    # Server IP or domain for prod
     SERVER_PATH="/var/www/html/digimaya_fe_prod" # Path for master branch
     npm run build:prod
 elif [ "$CURRENT_BRANCH" == "develop" ]; then
+    SERVER_HOST="65.0.44.35"    # Server IP or domain for develop
     SERVER_PATH="/var/www/html/digimaya_fe"      # Path for develop branch
     npm run build:develop
 else
@@ -53,4 +54,4 @@ rsync -avz --delete "$BUILD_DIR/" "$SERVER_USER@$SERVER_HOST:$SERVER_PATH"
 # scp -r "$BUILD_DIR" "$SERVER_USER@$SERVER_HOST:$SERVER_PATH"
 
 # Success message
-echo "Frontend built and copied to server successfully."
+echo "Frontend built and copied to server on host $SERVER_HOST successfully in directory $SERVER_PATH."

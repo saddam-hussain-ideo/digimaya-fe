@@ -717,7 +717,6 @@ a:focus {
   // font-size: 0.85rem;
   font-size: 16px;
   display: block;
-  font-family: 'LatoWeb';
   // color: #34519d;
   // color:   #997bb5;
   font-weight: 600;
@@ -1292,5 +1291,16 @@ a.article:hover {
   display: none;
   @media screen and (max-width: 767px) {
     display: list-item;
+  }
+}
+
+#prof-nav {
+  display: none; /* Hide by default */
+}
+
+@media (max-width: 768px) {
+  /* Show on mobile screens (adjust max-width as needed) */
+  #prof-nav {
+    display: block;
   }
 }

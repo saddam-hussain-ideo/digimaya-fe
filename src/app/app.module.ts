@@ -66,10 +66,12 @@ import { CookiePolicyComponent } from './components/cookie-policy/cookie-policy.
 import { MyWalletModule } from './components/myWallet/myWallet.module';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { DisclaimerAgreementComponent } from './components/disclaimer-and-agreement/disclaimer-and-agreement.component';
+import { registerLocaleData } from '@angular/common';
+import localeEn from '@angular/common/locales/en';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
-
+registerLocaleData(localeEn);
 @NgModule({
   declarations: [
     Currency,
