@@ -1019,7 +1019,7 @@
           }
         }
       }
-      @media (max-width: 767px) {
+      @media (max-width: 575px) {
         width: 500px;
       }
     }
@@ -1027,9 +1027,6 @@
 
   @media (max-width: 767px) {
     min-height: 100%;
-    .stage-table {
-      width: 500px;
-    }
   }
 
   @media (max-width: 1200px) and (min-width: 992px) {
@@ -1322,7 +1319,6 @@
     margin: 20px 0;
     td {
       table-layout: fixed;
-      width: 43%;
     }
   }
   .centered-label {
@@ -1988,6 +1984,7 @@ div[disabled='disabled'] {
   font-size: 16px;
   line-height: 16px;
   color: white;
+  font-weight: bold;
 }
 .text-class-prp {
   font-family: 'Calibri';

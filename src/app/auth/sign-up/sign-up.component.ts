@@ -249,9 +249,9 @@ export class SignUpComponent implements OnInit, OnDestroy {
     // Only allow `+` as the first character, followed by numbers
     input.value = input.value.replace(/[^+\d]/g, '');
     if (input.value[0] !== '+') {
-      input.value = '+' + input.value; // Ensure `+` is the first character
+      // input.value = '+' + input.value;
     }
-    this.SignUpObject.mobile = input.value;
+    // this.SignUpObject.mobile = input.value;
   }
 
   onNameInput(event: Event, name: string): void {
@@ -379,6 +379,9 @@ export class SignUpComponent implements OnInit, OnDestroy {
     //   error = true;
     //   this.toasterService.pop('error', 'Error', 'Country is required');
     // }
+
+    this.SignUpObject.mobile =
+      `${this.countryCode}` + `${this.SignUpObject.mobile}`;
     if (!this.ValidationsClass.validatePhone(`${this.SignUpObject.mobile}`)) {
       error = true;
       this.toasterService.pop('error', 'Error', 'Invalid mobile number');

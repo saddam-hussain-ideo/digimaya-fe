@@ -59,7 +59,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
   }
 
   routeToLogin() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/sign-in']);
   }
 
   submitEmailForForgotPasswordWithEnter(event) {
