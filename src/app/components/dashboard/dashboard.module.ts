@@ -7,9 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angular2-qrcode';
 import { ToasterModule } from 'angular2-toaster';
 import { ChartsModule } from 'ng2-charts';
+import { SharedModule } from 'src/app/shared.module';
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
+    SharedModule,
     MyWalletModule,
     CommonModule,
     TranslateModule,

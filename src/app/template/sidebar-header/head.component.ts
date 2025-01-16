@@ -20,7 +20,7 @@ export class HeadComponent implements OnInit {
   public notificationCount = 0;
   public notificationsLoader = true;
   public mql = window.matchMedia('(max-width: 767px)');
-
+  public ImageURL = '';
   public imgSpanish = '../../../assets/img/esp.png';
   public imgEnglish = '../../../assets/img/eng.png';
   userName: string;
@@ -170,6 +170,15 @@ export class HeadComponent implements OnInit {
     this._sharedService.changeEmittedForNotificationsCount$.subscribe((a) => {
       this.notificationCount = a;
     });
+
+    this.userService.getBlasterMessage().subscribe(
+      (res) => {
+        this.ImageURL = res.data.ImageURL;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   switchLanguage(language) {
