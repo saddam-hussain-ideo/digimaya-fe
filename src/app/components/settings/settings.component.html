@@ -140,12 +140,12 @@
               [(ngModel)]="password"
             />
             <span
-              *ngIf="!isShow"
+              *ngIf="!isNew"
               class="toggle-password fa fa-eye-slash"
               (click)="showPassword('newpassword')"
             ></span>
             <span
-              *ngIf="isShow"
+              *ngIf="isNew"
               class="fa fa-eye toggle-password"
               (click)="hidePassword('newpassword')"
             ></span>
@@ -166,12 +166,12 @@
               [(ngModel)]="cPassword"
             />
             <span
-              *ngIf="!isShow"
+              *ngIf="!isConfirm"
               class="toggle-password fa fa-eye-slash"
               (click)="showPassword('confirmpassword')"
             ></span>
             <span
-              *ngIf="isShow"
+              *ngIf="isConfirm"
               class="fa fa-eye toggle-password"
               (click)="hidePassword('confirmpassword')"
             ></span>

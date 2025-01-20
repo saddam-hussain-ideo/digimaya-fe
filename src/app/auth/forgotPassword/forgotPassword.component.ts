@@ -128,11 +128,7 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
     } else {
       if (!this.ValidationsClass.validateEmail(this.email)) {
         this.lang == 'en'
-          ? this.toasterService.pop(
-              'error',
-              'Error',
-              'Email should be a Valid email'
-            )
+          ? this.toasterService.pop('error', 'Error', 'Email should be valid')
           : this.toasterService.pop(
               'error',
               'Error',
