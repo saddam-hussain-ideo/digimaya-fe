@@ -43,7 +43,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     username: null,
     ETHWalleRecieverData: null,
     Language: null,
-    mobile: '+'
+    mobile: ''
   };
 
   public emptyEmailCheck = false;
@@ -96,6 +96,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   countriesList: Array<Object> = file['list']['countries'];
   countryCode: string;
   countryName: string;
+  mobileNumber: string;
   patt1 = /[0-9]/g;
   patt2 = /[a-zA-Z]/g;
   @ViewChild('passwordField') passwordInput: ElementRef;
@@ -113,7 +114,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
-    console.log(this.countriesList);
     this.userObject = JSON.parse(localStorage.getItem('userObject'));
 
     if (localStorage.getItem('userToken')) {
@@ -157,15 +157,9 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   oncountrychange(e) {
-    console.log(e);
-
-    console.log(e.target.value);
     const value = e.target.value;
     const code = value.match(this.patt1).join('');
-    console.log(code);
     const country = value.match(this.patt2).join('');
-    console.log(country);
-
     this.countryCode = `+${code}`;
     this.countryName = country;
   }
@@ -244,14 +238,25 @@ export class SignUpComponent implements OnInit, OnDestroy {
       }
     );
   }
+
   onPhoneNumberInput(event: Event): void {
     const input = event.target as HTMLInputElement;
-    // Only allow `+` as the first character, followed by numbers
-    input.value = input.value.replace(/[^+\d]/g, '');
-    if (input.value[0] !== '+') {
-      // input.value = '+' + input.value;
+
+    // Remove all non-numeric characters
+    let sanitizedValue = input.value.replace(/\D/g, '');
+
+    // Remove leading zeros
+    sanitizedValue = sanitizedValue.replace(/^0+/, '');
+
+    // Enforce a maximum length (e.g., 10 digits for a local number)
+    const maxLength = 10;
+    if (sanitizedValue.length > maxLength) {
+      sanitizedValue = sanitizedValue.slice(0, maxLength);
     }
-    // this.SignUpObject.mobile = input.value;
+
+    // Update the input value and model
+    input.value = sanitizedValue;
+    this.mobileNumber = sanitizedValue;
   }
 
   onNameInput(event: Event, name: string): void {
@@ -289,9 +294,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
   }
 
   signUp() {
-    // if(this.SignUpObject.mobile){
-    //   this.SignUpObject.mobile = `${this.SignUpObject.mobile}`
-    // }
     let error = false;
 
     this.toasterService.clear();
@@ -309,11 +311,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
       if (!this.ValidationsClass.validateEmail(this.SignUpObject.email)) {
         error = true;
         this.lang == 'en'
-          ? this.toasterService.pop(
-              'error',
-              'Error',
-              'Email should be a valid email.'
-            )
+          ? this.toasterService.pop('error', 'Error', 'Email should be valid.')
           : this.toasterService.pop(
               'error',
               'Error',
@@ -380,10 +378,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
     //   this.toasterService.pop('error', 'Error', 'Country is required');
     // }
 
-    this.SignUpObject.mobile =
-      `${this.countryCode}` + `${this.SignUpObject.mobile}`;
+    this.SignUpObject.mobile = `${this.countryCode}` + `${this.mobileNumber}`;
     if (!this.ValidationsClass.validatePhone(`${this.SignUpObject.mobile}`)) {
       error = true;
+      console.log('mobile number', this.SignUpObject.mobile);
       this.toasterService.pop('error', 'Error', 'Invalid mobile number');
     }
 
@@ -503,10 +501,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
     if (error) {
       console.log(error);
     } else {
-      if (this.SignUpObject.mobile) {
-        this.SignUpObject.mobile = `${this.SignUpObject.mobile}`;
-      }
-
       this.reCaptcha.execute();
     }
   }
@@ -521,8 +515,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
       this.passwordConfirm.nativeElement.setAttribute('type', 'password');
       return;
     }
-    console.log(this.SignUpObject);
-
     this.isShow = false;
     this.passwordInput.nativeElement.setAttribute('type', 'password');
   }

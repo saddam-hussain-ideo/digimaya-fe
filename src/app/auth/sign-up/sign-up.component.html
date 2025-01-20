@@ -106,41 +106,34 @@
 
           <div class="form-group-row">
             <div class="form-group">
-              <label class="ico-label" for="country"
-                >Country<span class="required-asterisk">*</span></label
-              >
-              <select
-                class="ico-inputs form-control"
-                (change)="oncountrychange($event)"
-              >
-                <option value="">Country of Residence</option>
-                <option
-                  *ngFor="let country of countriesList"
-                  value="{{ country.code }} {{ country.name }}"
-                >
-                  {{ country.name }}
-                </option>
-              </select>
-            </div>
+              <label class="ico-label" for="mobile">
+                Mobile Number
+                <span class="required-asterisk">*</span>
+              </label>
 
-            <div class="form-group">
-              <label class="ico-label" for="mobile"
-                >Mobile Number<span class="required-asterisk">*</span></label
-              >
               <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text codearea" *ngIf="countryCode">{{
-                    countryCode
-                  }}</span>
-                </div>
+                <select
+                  class="ico-inputs form-control"
+                  (change)="oncountrychange($event)"
+                >
+                  <option
+                    *ngFor="let country of countriesList"
+                    value="{{ country.code }} {{ country.name }}"
+                  >
+                    {{ country.name }} ({{ country.code }})
+                  </option>
+                </select>
+
                 <input
                   id="mobile"
-                  type="text"
+                  type="tel"
                   placeholder="Mobile Number"
                   class="ico-inputs form-control"
-                  name="SignUpObject.mobile"
-                  [(ngModel)]="SignUpObject.mobile"
+                  name="mobile"
+                  [(ngModel)]="mobile"
                   (input)="onPhoneNumberInput($event)"
+                  required
+                  maxlength="15"
                 />
               </div>
             </div>
