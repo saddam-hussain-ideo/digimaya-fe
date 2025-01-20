@@ -46,7 +46,7 @@
               id="email"
               autocomplete="off"
               type="email"
-              class="ico-inputs"
+              class="ico-inputs form-control"
               placeholder="{{ 'Email' | translate }}"
               name="SignUpObject.email"
               [(ngModel)]="SignUpObject.email"
@@ -63,7 +63,7 @@
                 autocomplete="off"
                 maxlength="20"
                 type="text"
-                class="ico-inputs"
+                class="ico-inputs form-control"
                 placeholder="{{ 'Username' | translate }}"
                 name="SignUpObject.username"
                 (input)="onNameInput($event, 'username')"
@@ -80,7 +80,7 @@
                 id="fullName"
                 autocomplete="off"
                 type="text"
-                class="ico-inputs"
+                class="ico-inputs form-control"
                 placeholder="{{ 'Full Name' | translate }}"
                 name="SignUpObject.fullName"
                 [ngModel]="SignUpObject.fullName"
@@ -97,7 +97,7 @@
               id="referralCode"
               autocomplete="off"
               type="text"
-              class="ico-inputs"
+              class="ico-inputs form-control"
               placeholder="{{ 'Affiliate Code (optional)' | translate }}"
               name="SignUpObject.referralCode"
               [(ngModel)]="SignUpObject.referralCode"
@@ -116,6 +116,7 @@
                   class="ico-inputs form-control"
                   (change)="oncountrychange($event)"
                 >
+                  <option value="">Select Country</option>
                   <option
                     *ngFor="let country of countriesList"
                     value="{{ country.code }} {{ country.name }}"
@@ -150,7 +151,7 @@
                   id="password"
                   type="password"
                   #passwordField
-                  class="ico-inputs"
+                  class="ico-inputs form-control"
                   placeholder="{{ 'Password' | translate }}"
                   name="SignUpObject.password"
                   [(ngModel)]="SignUpObject.password"
@@ -177,7 +178,7 @@
                 <input
                   id="cPassword"
                   type="password"
-                  class="ico-inputs"
+                  class="ico-inputs form-control"
                   #confirmPasswordField
                   placeholder="{{ 'Confirm Password' | translate }}"
                   name="SignUpObject.cPassword"
