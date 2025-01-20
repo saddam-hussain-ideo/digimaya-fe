@@ -672,18 +672,15 @@ a:focus {
   }
 }
 
-#sidebar .sidebar-header {
-  padding: 10px;
-}
-
-.sidebar-header p {
+.sidebar-header {
   color: #616a75;
-  font-size: 12px;
+  font-size: 16px;
   text-transform: uppercase;
   font-family: 'LatoWeb';
-  margin: 0;
+  margin: 10px;
+  padding: 10px;
   letter-spacing: 2px;
-  text-align: left;
+  text-align: center;
 }
 
 #sidebar ul.components {
