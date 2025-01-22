@@ -68,6 +68,7 @@ import { DisclaimerAgreementComponent } from './components/disclaimer-and-agreem
 import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import { SharedModule } from './shared.module';
+import { WithdrawModalComponent } from './components/withdraw-modal/withdraw-modal.component';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
@@ -100,7 +101,8 @@ registerLocaleData(localeEn);
     StakinghistoryComponent,
     LandingPageComponent,
     CookiePolicyComponent,
-    DisclaimerAgreementComponent
+    DisclaimerAgreementComponent,
+    WithdrawModalComponent
   ],
   imports: [
     SharedModule,
@@ -141,7 +143,7 @@ registerLocaleData(localeEn);
     }
   ], //shared service being injected into modules
   bootstrap: [AppComponent],
-  entryComponents: [StagesComponent]
+  entryComponents: [StagesComponent, WithdrawModalComponent]
 })
 export class AppModule {
   constructor(public _sharedService: SharedService) {}

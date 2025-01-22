@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { AffilliateService } from '../../services/affiliateService';
 import { Validations } from '../../validations';
 import { SharedService } from '../../services/shared';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { WithdrawModalComponent } from '../withdraw-modal/withdraw-modal.component';
 
 declare var $: any;
 @Component({
@@ -83,7 +83,8 @@ export class Affiliate {
   constructor(
     public router: Router,
     public _affilliateService: AffilliateService,
-    public _sharedService: SharedService
+    public _sharedService: SharedService,
+    private modalService: NgbModal
   ) {
     this.validations = new Validations();
   }
@@ -175,6 +176,22 @@ export class Affiliate {
   getGraphByFilter(elem) {
     this.dataFilter = elem;
     this.affiliateGraph();
+  }
+
+  openWithdrawModal() {
+    const modalRef = this.modalService.open(WithdrawModalComponent);
+    modalRef.result.then(
+      (result) => {
+        if (result === 'confirm') {
+          // Handle the confirm action
+          console.log('Withdraw confirmed');
+        }
+      },
+      (reason) => {
+        // Handle the dismiss action
+        console.log('Withdraw dismissed');
+      }
+    );
   }
 
   changePageNumberForMyAffiliates(event) {

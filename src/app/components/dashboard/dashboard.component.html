@@ -831,11 +831,13 @@
                         <a
                           class="no-underline"
                           target="_blank"
-                          [href]="
-                            linkForTransaction(
-                              transactions.ChainTxId,
-                              transactions.ChainName
-                            )
+                          [attr.href]="
+                            transactions.ChainTxId
+                              ? linkForTransaction(
+                                  transactions.ChainTxId,
+                                  transactions.ChainName
+                                )
+                              : null
                           "
                         >
                           {{ transactions.TransactionHash.slice(0, 6) }}...{{
@@ -849,14 +851,17 @@
                         <a
                           class="no-underline"
                           target="_blank"
-                          [href]="
-                            linkForTransaction(
-                              transactions.ChainTxId,
-                              transactions.ChainName
-                            )
+                          [attr.href]="
+                            transactions.ChainTxId
+                              ? linkForTransaction(
+                                  transactions.ChainTxId,
+                                  transactions.ChainName
+                                )
+                              : null
                           "
-                          >{{ transactions.TransactionHash }}</a
                         >
+                          {{ transactions.TransactionHash }}
+                        </a>
                       </div>
                     </td>
 
@@ -895,6 +900,9 @@
                     </td>
                     <td class="v-middle stacked-text table-head">
                       <!-- {{transactions.CryptoAmountReceive | currency:'crypto'}} -->
+                      <p class="mb-0" *ngIf="transactions.CurrencyUsed == ''">
+                        {{ 'Admin' }}
+                      </p>
                       <p
                         class="mb-0"
                         *ngIf="transactions.CurrencyUsed == 'BTC'"

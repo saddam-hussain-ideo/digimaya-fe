@@ -1263,6 +1263,10 @@ canvas {
   opacity: 0.4;
 }
 .inner-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
   height: 120px;
   margin-bottom: 15px;
   background: radial-gradient(
@@ -1272,9 +1276,6 @@ canvas {
   );
   border-radius: 8px;
   padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   @media (min-width: 992px) and (max-width: 1199px) {
     height: 140px;
 
@@ -1292,6 +1293,13 @@ canvas {
     margin-bottom: 15px;
   }
 }
+
+.left-box {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .total-text {
   font-family: 'Calibri';
   font-weight: 400;
@@ -1315,16 +1323,6 @@ canvas {
 
   @media (min-width: 992px) and (max-width: 1199px) {
     font-size: 16px;
-  }
-
-  @media (min-width: 1200px) and (max-width: 1600px) {
-    font-size: 20px;
-    padding-top: 4px;
-  }
-
-  @media (min-width: 1601px) and (max-width: 1800px) {
-    font-size: 18px;
-    padding-top: 15px;
   }
 }
 .dollar {
@@ -1431,4 +1429,19 @@ canvas {
   font-size: 16px;
   color: #191919;
   font-weight: 600;
+}
+
+.withdraw-btn {
+  padding: 5px 10px;
+  background-color: white;
+  color: #ff0844;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.withdraw-btn:hover {
+  background-color: #ff7e5f;
+  color: white;
 }
