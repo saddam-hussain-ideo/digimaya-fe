@@ -297,14 +297,16 @@ select {
 
 .ico-inputs {
   width: 100%;
-  padding: 10px;
+  height: 40px;
+  padding: 6px;
   border: 2px solid #11111333;
   border-radius: 4px;
   font-size: 14px;
   background: transparent;
   @media (max-width: 480px) {
     font-size: 12px;
-    padding: 8px;
+    height: 36px;
+    padding: 4px;
   }
 }
 
@@ -376,6 +378,13 @@ select {
       $maaya-purple-dusk
     );
   }
+}
+
+.ico-submit:disabled {
+  background: linear-gradient(to bottom right, #cccccc, #999999);
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* Bottom Text */
@@ -2446,3 +2455,64 @@ input:-webkit-autofill {
   height: 48px;
   border-radius: 8px !important;
 }
+
+// /* General styles for select inputs */
+// select {
+//   width: 100%;
+//   padding: 8px; /* Match the ico-inputs padding */
+//   border: 2px solid #11111333;
+//   border-radius: 4px;
+//   font-size: 12px; /* Match the ico-inputs font size */
+//   background-color: transparent;
+//   color: #111113; /* Default text color */
+//   outline: none;
+//   appearance: none; /* Remove default browser styles */
+//   cursor: pointer;
+//   transition:
+//     border-color 0.3s,
+//     box-shadow 0.3s;
+
+//   @media (max-width: 480px) {
+//     font-size: 11px; /* Adjust for smaller screens */
+//     padding: 6px; /* Adjust padding */
+//   }
+// }
+
+// // select:hover {
+// //   border-color: #11111399; /* Add a hover effect */
+// // }
+
+// // select:focus {
+// //   border-color: #007bff; /* Add a focus effect */
+// //   box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+// // }
+
+// /* Disable appearance for disabled selects */
+// select:disabled {
+//   background-color: #f8f9fa;
+//   color: #6c757d;
+//   cursor: not-allowed;
+// }
+
+// /* Styles for options */
+// option {
+//   background-color: #ffffff;
+//   color: #111113; /* Default text color */
+//   padding: 6px; /* Add spacing */
+//   font-size: 12px;
+//   cursor: pointer;
+
+//   @media (max-width: 480px) {
+//     font-size: 11px; /* Adjust for smaller screens */
+//   }
+// }
+
+// option:disabled {
+//   color: #6c757d; /* Dim disabled options */
+//   cursor: not-allowed;
+// }
+
+// /* Placeholder option style (if used) */
+// option[disabled][selected] {
+//   color: #aaa; /* Gray placeholder text */
+// }

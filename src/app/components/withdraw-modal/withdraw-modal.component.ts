@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AffilliateService } from 'src/app/services/affiliateService';
 
@@ -9,12 +9,15 @@ import { AffilliateService } from 'src/app/services/affiliateService';
   styleUrls: ['./withdraw-modal.component.scss']
 })
 export class WithdrawModalComponent implements OnInit {
+  @Input() totalEarningInUSD: number;
   public chains = [];
   public address = '';
   public amount = 0;
   public chain = '';
   public successMessage = '';
   public errorMessage = '';
+  public amountMessage = '';
+  public isSunday = false;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -23,6 +26,7 @@ export class WithdrawModalComponent implements OnInit {
 
   ngOnInit() {
     this.getSupportedChains();
+    this.checkIfSunday();
   }
 
   close() {
@@ -36,6 +40,28 @@ export class WithdrawModalComponent implements OnInit {
   onchange(e) {
     const value = e.target.value;
     this.chain = value;
+  }
+
+  percentAmount: number = 0;
+
+  onAmountInput(e: Event): void {
+    const value = parseFloat((e.target as HTMLInputElement).value);
+
+    if (isNaN(value) || value <= 0) {
+      this.amount = 0;
+      this.percentAmount = 0;
+      this.amountMessage = 'Please enter a valid positive amount.';
+      return;
+    } else if (value > this.totalEarningInUSD) {
+      this.amount = 0;
+      this.percentAmount = 0;
+      this.amountMessage = 'Amount should be less than available balance.';
+      return;
+    }
+
+    this.amountMessage = '';
+    this.amount = value;
+    this.percentAmount = value * 0.99;
   }
 
   getSupportedChains() {
@@ -66,7 +92,7 @@ export class WithdrawModalComponent implements OnInit {
           if (a.code == 200 || a.code == 304) {
             this.successMessage = `${a.message}`;
             this.errorMessage = '';
-            // this.activeModal.close('confirm');
+            setTimeout(() => this.activeModal.close('confirm'), 2000);
           }
         },
         (err) => {
@@ -76,5 +102,14 @@ export class WithdrawModalComponent implements OnInit {
           this.successMessage = '';
         }
       );
+  }
+
+  checkIfSunday() {
+    const today = new Date();
+    // this.isSunday = today.getDay() === 0;
+    this.isSunday = true;
+    if (!this.isSunday) {
+      this.errorMessage = 'Withdrawals are only processed on Sundays';
+    }
   }
 }
