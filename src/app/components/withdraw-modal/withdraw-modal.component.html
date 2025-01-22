@@ -49,10 +49,15 @@
       </div>
 
       <div class="form-group">
-        <label class="ico-label" for="amount">
-          Amount
-          <span class="required-asterisk">*</span>
-        </label>
+        <div class="form-label-container">
+          <label class="ico-label" for="amount">
+            Amount
+            <span class="required-asterisk">*</span>
+          </label>
+          <span class="available-balance">
+            Available Balance: {{ totalEarningInUSD | number: '1.3-3' }} USDT
+          </span>
+        </div>
         <input
           id="amount"
           autocomplete="off"
@@ -61,11 +66,27 @@
           placeholder="Amount"
           name="amount"
           [(ngModel)]="amount"
+          (input)="onAmountInput($event)"
         />
       </div>
+      <div *ngIf="percentAmount > 0">
+        <p
+          >Amount will be deducted by 1% as transaction fee. You will receive:
+          {{ percentAmount | number: '1.2-2' }}</p
+        >
+      </div>
+      <div *ngIf="amountMessage" class="alert alert-danger">
+        {{ amountMessage }}
+      </div>
+
       <div class="modal-footer">
-        <button type="button" class="ico-submit" (click)="confirm()">
-          Confirm
+        <button
+          type="button"
+          class="ico-submit"
+          (click)="confirm()"
+          [disabled]="!isSunday"
+        >
+          Send Withdrawal Request
         </button>
       </div>
     </div>

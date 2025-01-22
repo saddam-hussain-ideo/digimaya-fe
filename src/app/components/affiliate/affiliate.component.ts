@@ -48,12 +48,14 @@ export class Affiliate {
   tableLoader1: boolean;
   tableLoader2: boolean;
   tableLoader3: boolean;
+  withdrawalLoader: boolean;
   topRefersLoader: boolean;
   affiliatesLoader: boolean;
   referralLevel: number;
   pageNo;
   pageSize;
   rowsData;
+  withdrawalData;
   levelOneData;
   levelTwoData;
   levelThreeData;
@@ -68,6 +70,10 @@ export class Affiliate {
   referralPSize = 5;
   paginationNumber = 1;
   topReferalCurrentPage = 1;
+  withdrawalCount = 0;
+  withdrawCurrentPage = 0;
+  withdrawSize = 5;
+
   tableOneCurrentPage = 1;
   tableOneSize = 5;
   tableOneCount = 1;
@@ -180,6 +186,7 @@ export class Affiliate {
 
   openWithdrawModal() {
     const modalRef = this.modalService.open(WithdrawModalComponent);
+    modalRef.componentInstance.totalEarningInUSD = this.totalEarningInUSD;
     modalRef.result.then(
       (result) => {
         if (result === 'confirm') {
@@ -212,7 +219,6 @@ export class Affiliate {
     this.tableOneCurrentPage = value;
     this.levelOneReferrals();
   }
-
   changePageForTable2(value) {
     this.tableTwoCurrentPage = value;
     this.levelTwoReferrals();
@@ -220,6 +226,10 @@ export class Affiliate {
   changePageForTable3(value) {
     this.tableThreeCurrentPage = value;
     this.levelThreeReferrals();
+  }
+  changePageForWithdrawals(value) {
+    this.withdrawCurrentPage = value;
+    this.getWithdrawalHistory();
   }
 
   public ctx;
@@ -239,7 +249,7 @@ export class Affiliate {
     this.getTopAffiliates();
     this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
     this.affiliateGraph();
-    // this.getReferrals()
+    this.getWithdrawalHistory();
     this.levelOneReferrals();
     this.levelTwoReferrals();
     this.levelThreeReferrals();
@@ -328,6 +338,29 @@ export class Affiliate {
   //     }
 
   // }
+
+  getWithdrawalHistory() {
+    this.withdrawalLoader = true;
+    this._affilliateService
+      .getWithdrawalHistory(this.withdrawCurrentPage, this.withdrawSize)
+      .subscribe(
+        (res) => {
+          if (res) {
+            this.withdrawalLoader = false;
+            this.withdrawalData = res['data'].withdrawalHistory;
+            this.withdrawalCount = this.withdrawalData.length;
+          }
+        },
+        (err) => {
+          this.withdrawalLoader = false;
+          let obj;
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
+          console.log(obj);
+        }
+      );
+  }
 
   levelOneReferrals() {
     this.tableLoader1 = true;

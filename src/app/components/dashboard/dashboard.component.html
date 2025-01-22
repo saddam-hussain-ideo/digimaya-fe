@@ -980,24 +980,48 @@
               </table>
             </div>
 
-            <!-- <div class='pagination-bottom' *ngIf="paginationNumber>recentTransactionsPSize">
+            <div
+              class="pagination-bottom"
+              *ngIf="paginationNumber > recentTransactionsPSize"
+            >
+              <pagination-controls
+                *ngIf="recentTransactionsPSize < paginationNumber"
+                responsive="true"
+                previousLabel=""
+                nextLabel=""
+                (pageChange)="changePage($event)"
+              ></pagination-controls>
 
-                        <pagination-controls *ngIf="recentTransactionsPSize < paginationNumber" responsive="true" previousLabel="" nextLabel="" (pageChange)="changePage($event)"></pagination-controls>
+              <ul class="no-visibility-2">
+                <li
+                  *ngFor="
+                    let item of recentTransactions
+                      | paginate
+                        : {
+                            itemsPerPage: recentTransactionsPSize,
+                            currentPage: currentPage,
+                            totalItems: paginationNumber
+                          }
+                  "
+                  >{{ item }}</li
+                >
+              </ul>
+            </div>
 
-
-                        <ul class="no-visibility-2">
-                            <li *ngFor="let item of recentTransactions | paginate: { itemsPerPage: recentTransactionsPSize, currentPage: currentPage, totalItems: paginationNumber }">{{item}}</li>
-                        </ul>
-
-                    </div> -->
-
-            <!-- <div *ngIf="paginationNumber>recentTransactionsPSize" class='pagination-bottom'>
-                        <ul class="pagination">
-                            <li *ngFor="let page of pagination;" [ngClass]="{'active': page==recentTransactionsPNumber}" (click)="getPageForPagination(page)">
-                                {{page + 1}}
-                            </li>
-                        </ul>
-                    </div> -->
+            <div
+              *ngIf="paginationNumber > recentTransactionsPSize"
+              class="pagination-bottom"
+            >
+              <ul class="pagination">
+                <li
+                  *ngFor="let page of pagination"
+                  [ngClass]="{ active: page == recentTransactionsPNumber }"
+                  (click)="getPageForPagination(page)"
+                >
+                  {{ page + 1 }}
+                </li>
+              </ul>
+            </div>
 
             <div class="clear"></div>
           </div>

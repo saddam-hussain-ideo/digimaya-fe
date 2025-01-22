@@ -24,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: none;
   padding-bottom: 10px;
 }
 
@@ -35,7 +35,7 @@
 .modal-footer {
   display: flex;
   justify-content: flex-end;
-  border-top: 1px solid #dee2e6;
+  border-top: none;
   padding-top: 10px;
 }
 
@@ -62,4 +62,18 @@
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
+}
+
+.form-label-container {
+  display: flex;
+  justify-content: space-between; /* Push elements to opposite ends */
+  align-items: center; /* Vertically align label and balance text */
+}
+
+.available-balance {
+  color: #ff1493; /* Bright pink color */
+  font-weight: bold; /* Bold font */
+  font-size: 14px; /* Adjust font size */
+  margin-left: 10px; /* Add spacing from the label */
+  white-space: nowrap; /* Prevent line wrapping */
 }
