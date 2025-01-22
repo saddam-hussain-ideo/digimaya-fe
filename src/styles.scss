@@ -72,7 +72,7 @@ select {
   align-items: center;
   background-color: white;
   background-size: cover;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     background-image: url('./assets/img/auth-bg.png');
     background-repeat: no-repeat;
     background-position: top;
@@ -85,7 +85,7 @@ select {
   height: 100vh;
   display: flex;
   background: transparent;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
   }
 }
@@ -143,9 +143,10 @@ select {
     border-radius: 0;
     text-align: center;
     padding: 10px;
+    min-height: 100px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 480px) {
     background: transparent;
     align-items: center;
   }
@@ -1110,9 +1111,9 @@ $label-color: #2097d4;
     }
   }
   @media screen and (max-width: 600px) {
-    font-size: 16px;
+    font-size: 26px;
     &.lg {
-      font-size: 32px;
+      font-size: 36px;
     }
   }
   @media (max-width: 991px) {
