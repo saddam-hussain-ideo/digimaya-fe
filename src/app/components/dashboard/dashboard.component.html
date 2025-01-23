@@ -829,7 +829,10 @@
                     >
                       <div *ngIf="transactions.TransactionHash.length > 15">
                         <a
-                          class="no-underline"
+                          [ngClass]="{
+                            'no-underline': true,
+                            'text-black': !transactions.ChainTxId
+                          }"
                           target="_blank"
                           [attr.href]="
                             transactions.ChainTxId
@@ -849,7 +852,10 @@
                       </div>
                       <div *ngIf="transactions.TransactionHash.length <= 15">
                         <a
-                          class="no-underline"
+                          [ngClass]="{
+                            'no-underline': true,
+                            'text-black': !transactions.ChainTxId
+                          }"
                           target="_blank"
                           [attr.href]="
                             transactions.ChainTxId

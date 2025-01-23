@@ -96,7 +96,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   a {
-    color: #228cb7 !important;
+    color: #228cb7;
   }
 }
 
@@ -752,10 +752,6 @@
   border: none !important;
   font-size: 14px;
   overflow: hidden;
-}
-
-.no-underline {
-  text-decoration: none;
 }
 
 .transactions-new-design {
@@ -2116,4 +2112,10 @@ div[disabled='disabled'] {
   height: 100%;
   width: 100%;
   border-radius: 8px;
+}
+
+.text-black {
+  color: #191919 !important;
+  cursor: default;
+  text-decoration: none;
 }
