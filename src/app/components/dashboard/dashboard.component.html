@@ -58,7 +58,9 @@
         <div class="info-custom-card">
           <div class="content">
             <span class="heading text-class">Purchased Tokens</span>
-            <span class="pulper-color"> {{ totalPiptles }} </span>
+            <span class="pulper-color">
+              {{ totalPiptles ? (totalPiptles | number: '1.4-4') : 0 }}
+            </span>
           </div>
         </div>
       </div>
