@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Inject } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AffilliateService } from 'src/app/services/affiliateService';
+import { ToasterService } from 'angular2-toaster';
 
 @Component({
   selector: 'crypto-withdraw-modal',
@@ -21,7 +22,8 @@ export class WithdrawModalComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    public _affilliateService: AffilliateService
+    public _affilliateService: AffilliateService,
+    @Inject(ToasterService) private toasterService: ToasterService
   ) {}
 
   ngOnInit() {
@@ -92,6 +94,7 @@ export class WithdrawModalComponent implements OnInit {
           if (a.code == 200 || a.code == 304) {
             this.successMessage = `${a.message}`;
             this.errorMessage = '';
+            this.toasterService.pop('success', 'Success', this.successMessage);
             setTimeout(() => this.activeModal.close('confirm'), 2000);
           }
         },
@@ -100,6 +103,7 @@ export class WithdrawModalComponent implements OnInit {
           console.log(obj);
           this.errorMessage = `${obj.message}`;
           this.successMessage = '';
+          this.toasterService.pop('error', 'Error', this.errorMessage);
         }
       );
   }
