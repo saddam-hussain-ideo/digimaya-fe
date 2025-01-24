@@ -1187,7 +1187,7 @@
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte d-flex flex-column">
-            <p class="transaction-txt"> Withdrawal History </p>
+            <p class="transaction-txt">Withdrawal History</p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -1200,9 +1200,9 @@
                     <th class="f-bold">Status</th>
                   </tr>
                 </thead>
-                <tbody *ngIf="tableLoader1">
+                <tbody *ngIf="withdrawalLoader">
                   <tr>
-                    <td colspan="12">
+                    <td colspan="5">
                       <div class="custom-loader">
                         <svg
                           class="lds-comets"
@@ -1243,45 +1243,45 @@
                   </tr>
                 </tbody>
                 <tbody
-                  *ngIf="!withdrawalLoader && withdrawalData && withdrawalData.length === 0"
+                  *ngIf="!withdrawalLoader && withdrawalData && withdrawalData.length > 0"
                 >
-                  <tr>
-                    <td colspan="12" class="no-data-tbl">no data to display</td>
+                  <tr *ngFor="let item of withdrawalData">
+                    <td>{{ item.TransactionHash }}</td>
+                    <td>{{ item.TransactionType }}</td>
+                    <td>{{ item.ChainName }}</td>
+                    <td>{{ item.TotalTokens }}</td>
+                    <td>{{ item.Status }}</td>
                   </tr>
                 </tbody>
                 <tbody
-                  *ngIf="!withdrawalLoader && withdrawalData && withdrawalData.length > 0"
+                  *ngIf="!withdrawalLoader && (!withdrawalData || withdrawalData.length === 0)"
                 >
-                  <tr *ngFor="let data of withdrawalData">
-                    <td>{{data.TransactionHash}}</td>
-                    <td>{{data.TransactionType}}</td>
-                    <td>{{data.ChainName}}</td>
-                    <td>{{data.TotalTokens ? data.TotalTokens : 0}}</td>
-                    <td>{{data.Status}}</td>
+                  <tr>
+                    <td colspan="5" class="text-center">No data to display</td>
                   </tr>
                 </tbody>
               </table>
+            </div>
 
-              <div
-                class="pagination-bottom pt-2"
-                *ngIf="!withdrawalLoader  && withdrawalData && withdrawalData.length > 0"
-              >
-                <pagination-controls
-                  *ngIf="withdrawSize < withdrawalCount"
-                  responsive="true"
-                  previousLabel=""
-                  nextLabel=""
-                  (pageChange)="changePageForWithdrawals($event)"
-                ></pagination-controls>
+            <div
+              class="pagination-bottom pt-2"
+              *ngIf="!withdrawalLoader && withdrawalData && withdrawalData.length > 0"
+            >
+              <pagination-controls
+                *ngIf="withdrawSize < withdrawalCount"
+                responsive="true"
+                previousLabel=""
+                nextLabel=""
+                (pageChange)="changePageForWithdrawals($event)"
+              ></pagination-controls>
 
-                <ul class="no-visibility-2 d-none">
-                  <li
-                    *ngFor="let item of withdrawalData | paginate: { itemsPerPage: withdrawSize, currentPage: withdrawCurrentPage, totalItems: withdrawalCount }"
-                  >
-                    {{item}}
-                  </li>
-                </ul>
-              </div>
+              <ul class="no-visibility-2 d-none">
+                <li
+                  *ngFor="let item of withdrawalData | paginate: { itemsPerPage: withdrawSize, currentPage: withdrawCurrentPage, totalItems: withdrawalCount }"
+                >
+                  {{ item }}
+                </li>
+              </ul>
             </div>
           </div>
         </div>

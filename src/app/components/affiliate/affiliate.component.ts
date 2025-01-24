@@ -72,7 +72,7 @@ export class Affiliate {
   topReferalCurrentPage = 1;
   withdrawalCount = 0;
   withdrawCurrentPage = 0;
-  withdrawSize = 5;
+  withdrawSize = 10;
 
   tableOneCurrentPage = 1;
   tableOneSize = 5;
