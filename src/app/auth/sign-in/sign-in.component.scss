@@ -4,3 +4,13 @@
   width: 32px !important;
   height: 32px !important;
 }
+
+.forgot-password {
+  display: block;
+  margin-top: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
