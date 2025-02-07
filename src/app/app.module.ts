@@ -42,7 +42,6 @@ import {
 import { AuthenticateComponent } from './auth/authenticate/authenticate.component';
 import { ScrollEventModule } from 'ngx-scroll-event';
 import { HttpClient } from '@angular/common/http';
-import { SafePipe } from './safePipe';
 import { TooltipModule } from 'ng2-tooltip-directive';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -68,6 +67,8 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
 import { DisclaimerAgreementComponent } from './components/disclaimer-and-agreement/disclaimer-and-agreement.component';
 import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
+import { SharedModule } from './shared.module';
+import { WithdrawModalComponent } from './components/withdraw-modal/withdraw-modal.component';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
 }
@@ -94,16 +95,17 @@ registerLocaleData(localeEn);
     UserSetup,
     NewUserVerify,
     AuthenticateComponent,
-    SafePipe,
     WireTransferComponent,
     PiptleWalletComponent,
     StagesComponent,
     StakinghistoryComponent,
     LandingPageComponent,
     CookiePolicyComponent,
-    DisclaimerAgreementComponent
+    DisclaimerAgreementComponent,
+    WithdrawModalComponent
   ],
   imports: [
+    SharedModule,
     BrowserModule,
     HttpModule,
     HttpClientModule,
@@ -141,7 +143,7 @@ registerLocaleData(localeEn);
     }
   ], //shared service being injected into modules
   bootstrap: [AppComponent],
-  entryComponents: [StagesComponent]
+  entryComponents: [StagesComponent, WithdrawModalComponent]
 })
 export class AppModule {
   constructor(public _sharedService: SharedService) {}

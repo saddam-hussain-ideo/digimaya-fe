@@ -116,6 +116,9 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
   public interestTokens = 0;
   public totalBackers = 0;
 
+  public video =
+    'https://www.youtube.com/embed/8fr524dSvlI?&autoplay=1&loop=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0';
+
   selectedCurrencyUSD = 'USD';
   selectedCurrencyValue = 0;
   totalValueAud = 0;
@@ -1066,6 +1069,7 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
       this.getTokens();
     }
     this.getILOStages();
+    this.getVideo();
     this.getMostRecentTransactions();
     this.get24HrsGraph();
     this.getBlogs();
@@ -1134,6 +1138,24 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
       },
       tooltipTemplate: '<%= value %>%'
     };
+  }
+
+  getVideo() {
+    this.userService.getVideo(this.userToken).subscribe(
+      (res) => {
+        if (res) {
+          this.video = res['data']['VideoURL'];
+          if (this.video.includes('youtube')) {
+            this.video =
+              this.video +
+              '?&autoplay=1&loop=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0';
+          }
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   getTokens() {
@@ -1214,10 +1236,15 @@ export class DashboardComponent implements OnDestroy, OnInit, DoCheck {
     this.selectedCurrencyValue = liveRate;
   }
   linkForTransaction(hash, chain) {
+    console.log(hash, chain);
     if (chain === 'bsc-mainnet') {
       return `https://bscscan.com/tx/${hash}`;
     } else if (chain === 'ethereum-mainnet') {
       return `https://etherscan.io/tx/${hash}`;
+    } else if (chain === 'bsc-testnet') {
+      return `https://testnet.bscscan.com/tx/${hash}`;
+    } else if (chain === 'ethereum-sepolia') {
+      return `https://sepolia.etherscan.io/tx/${hash}`;
     }
   }
 }

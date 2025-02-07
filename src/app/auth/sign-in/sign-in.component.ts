@@ -191,6 +191,12 @@ export class SignInComponent implements OnInit, OnDestroy {
           );
       error = true;
     }
+    //  else {
+    //   if (!this.ValidationsClass.validateEmail(this.email)) {
+    //     this.toasterService.pop('error', 'Error', "Email should be valid");
+    //     error = true;
+    //   }
+    // }
 
     if (!this.ValidationsClass.verifyNameInputs(this.password)) {
       this.lang == 'en'

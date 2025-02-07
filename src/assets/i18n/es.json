@@ -37,7 +37,7 @@
   "Already have an account?": "Ya tienes Cuenta?",
   "Full Name should be between 8-50 characters": "Nombre Completo (8-50 caracteres)",
   "Full Name is required": "Necesitamos tu Nombre Completo",
-  "Email should be a valid email": "Ingrese un correo electrónico válido",
+  "Email should be valid": "Ingrese un correo electrónico válido",
   "Email you are trying to register is already been used. Please try to register with another email address": "El correo electronico ya está registrado. Porfavor, intenta con otro.",
   "A verification link has been sent to": "Una liga de verificacion ha sido enviada a",
   "check your inbox. Kindly also check your spam folder if you don't find the verification email in your inbox. If you didn't receive our email, please click  resend verification email button": "Favor de revisar su bandeja de entrada, no olvides revisar en la carpeta de SPAM. Si no encontraste el correo de verificacion, favor de dar click en reenviar para generar un nuevo correo de verificacion.",

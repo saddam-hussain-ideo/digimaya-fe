@@ -3,6 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
 import { getLanguage } from './services/utils';
 import { SharedService } from './services/shared';
+import { ToasterService, ToasterConfig } from 'angular2-toaster';
+
 declare var $: any;
 @Component({
   selector: 'crypto-root',
@@ -13,6 +15,7 @@ export class AppComponent implements OnInit {
   isLoading = false;
   public imgSpanish = '../assets/img/esp.png';
   public imgEnglish = '../assets/img/eng.png';
+  public config: ToasterConfig = new ToasterConfig({ animation: 'flyRight' });
 
   public $zopim: any;
   constructor(

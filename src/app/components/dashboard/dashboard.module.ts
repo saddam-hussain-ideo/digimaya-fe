@@ -7,16 +7,20 @@ import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angular2-qrcode';
 import { ToasterModule } from 'angular2-toaster';
 import { ChartsModule } from 'ng2-charts';
+import { SharedModule } from 'src/app/shared.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
+    SharedModule,
     MyWalletModule,
     CommonModule,
     TranslateModule,
     FormsModule,
     QRCodeModule,
     ToasterModule,
-    ChartsModule
+    ChartsModule,
+    NgxPaginationModule
   ], // Use the module here
   exports: [DashboardComponent] // Export the child component
 })

@@ -65,11 +65,11 @@
                   (click)="hidePassword()"
                 ></span>
               </div>
+              <a class="links forgot-password" (click)="navigateToforgot()"
+                >Forgot Password?
+              </a>
             </div>
           </div>
-          <!-- <a class="links" (click)="navigateToforgot()">{{
-            'Forgot Password?' | translate
-          }}</a> -->
 
           <div *ngIf="loginLoaderShow" class="loader">
             <svg

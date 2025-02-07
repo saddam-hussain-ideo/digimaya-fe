@@ -58,7 +58,9 @@
         <div class="info-custom-card">
           <div class="content">
             <span class="heading text-class">Purchased Tokens</span>
-            <span class="pulper-color"> {{ totalPiptles }} </span>
+            <span class="pulper-color">
+              {{ totalPiptles ? (totalPiptles | number: '1.4-4') : 0 }}
+            </span>
           </div>
         </div>
       </div>
@@ -115,12 +117,10 @@
         </div>
       </div> -->
       <div class="col-lg-3 col-md-3 pl-md-0 p-0 mb-3">
-        <div class="info-custom-card dark-bg">
+        <div class="info-custom-card">
           <div class="content">
-            <span class="heading prp-text text-class"
-              >Your Total eMaaya Value</span
-            >
-            <span class="heading prp-text-ppt">
+            <span class="heading text-class">Your Total eMaaya Value</span>
+            <span class="pulper-color value-text text-uppercase">
               {{ totalValueAud | number: '1.4-4' }}
             </span>
           </div>
@@ -136,7 +136,7 @@
           <div class="h-100">
             <iframe
               class="payment-card-video"
-              src="https://www.youtube.com/embed/8fr524dSvlI?si=XXFku22T_rBwzC1o?&autoplay=1&loop=1&mute=1&showinfo=0&iv_load_policy=3&rel=0&controls=0&&playlist=8fr524dSvlI"
+              [src]="video | safe"
               title="Digimaaya  - Company Show Reel"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -325,7 +325,7 @@
                           <label
                             class="black-labels hidden-above-sm"
                             style="visibility: hidden; padding-bottom: 5px"
-                            >PUC</label
+                            >eMaaya</label
                           >
                           <span class="custom-dropdown big">
                             <img
@@ -361,7 +361,7 @@
 
                           <label
                             class="black-labels d-block d-sm-none d-none d-sm-block d-md-none"
-                            >PUC</label
+                            >eMaaya</label
                           >
                           <input
                             type="number"
@@ -426,7 +426,7 @@
                                 <!-- <td class="final-price">{{totalCoinToPayFor}}</td> -->
                                 <td class="final-price">
                                   {{ coinsCalculatedBottom }}
-                                  PUC
+                                  eMaaya
                                 </td>
                                 <!-- <td class="right-aligned final-price text-uppercase"></td> -->
                               </tr>
@@ -485,7 +485,7 @@
                         <thead>
                           <tr>
                             <th>Stage Name</th>
-                            <th>Total Amount</th>
+                            <th>Total Tokens</th>
                             <th>Stage Price</th>
                             <th>Start Date</th>
                             <th>Total Coins Issued</th>
@@ -831,13 +831,18 @@
                     >
                       <div *ngIf="transactions.TransactionHash.length > 15">
                         <a
-                          class="no-underline"
+                          [ngClass]="{
+                            'no-underline': true,
+                            'text-black': !transactions.ChainTxId
+                          }"
                           target="_blank"
-                          [href]="
-                            linkForTransaction(
-                              transactions.ChainTxId,
-                              transactions.ChainName
-                            )
+                          [attr.href]="
+                            transactions.ChainTxId
+                              ? linkForTransaction(
+                                  transactions.ChainTxId,
+                                  transactions.ChainName
+                                )
+                              : null
                           "
                         >
                           {{ transactions.TransactionHash.slice(0, 6) }}...{{
@@ -849,16 +854,22 @@
                       </div>
                       <div *ngIf="transactions.TransactionHash.length <= 15">
                         <a
-                          class="no-underline"
+                          [ngClass]="{
+                            'no-underline': true,
+                            'text-black': !transactions.ChainTxId
+                          }"
                           target="_blank"
-                          [href]="
-                            linkForTransaction(
-                              transactions.ChainTxId,
-                              transactions.ChainName
-                            )
+                          [attr.href]="
+                            transactions.ChainTxId
+                              ? linkForTransaction(
+                                  transactions.ChainTxId,
+                                  transactions.ChainName
+                                )
+                              : null
                           "
-                          >{{ transactions.TransactionHash }}</a
                         >
+                          {{ transactions.TransactionHash }}
+                        </a>
                       </div>
                     </td>
 
@@ -897,6 +908,9 @@
                     </td>
                     <td class="v-middle stacked-text table-head">
                       <!-- {{transactions.CryptoAmountReceive | currency:'crypto'}} -->
+                      <p class="mb-0" *ngIf="transactions.CurrencyUsed == ''">
+                        {{ 'Admin' }}
+                      </p>
                       <p
                         class="mb-0"
                         *ngIf="transactions.CurrencyUsed == 'BTC'"
@@ -974,24 +988,48 @@
               </table>
             </div>
 
-            <!-- <div class='pagination-bottom' *ngIf="paginationNumber>recentTransactionsPSize">
+            <div
+              class="pagination-bottom"
+              *ngIf="paginationNumber > recentTransactionsPSize"
+            >
+              <pagination-controls
+                *ngIf="recentTransactionsPSize < paginationNumber"
+                responsive="true"
+                previousLabel=""
+                nextLabel=""
+                (pageChange)="changePage($event)"
+              ></pagination-controls>
 
-                        <pagination-controls *ngIf="recentTransactionsPSize < paginationNumber" responsive="true" previousLabel="" nextLabel="" (pageChange)="changePage($event)"></pagination-controls>
+              <ul class="no-visibility-2">
+                <li
+                  *ngFor="
+                    let item of recentTransactions
+                      | paginate
+                        : {
+                            itemsPerPage: recentTransactionsPSize,
+                            currentPage: currentPage,
+                            totalItems: paginationNumber
+                          }
+                  "
+                  >{{ item }}</li
+                >
+              </ul>
+            </div>
 
-
-                        <ul class="no-visibility-2">
-                            <li *ngFor="let item of recentTransactions | paginate: { itemsPerPage: recentTransactionsPSize, currentPage: currentPage, totalItems: paginationNumber }">{{item}}</li>
-                        </ul>
-
-                    </div> -->
-
-            <!-- <div *ngIf="paginationNumber>recentTransactionsPSize" class='pagination-bottom'>
-                        <ul class="pagination">
-                            <li *ngFor="let page of pagination;" [ngClass]="{'active': page==recentTransactionsPNumber}" (click)="getPageForPagination(page)">
-                                {{page + 1}}
-                            </li>
-                        </ul>
-                    </div> -->
+            <div
+              *ngIf="paginationNumber > recentTransactionsPSize"
+              class="pagination-bottom"
+            >
+              <ul class="pagination">
+                <li
+                  *ngFor="let page of pagination"
+                  [ngClass]="{ active: page == recentTransactionsPNumber }"
+                  (click)="getPageForPagination(page)"
+                >
+                  {{ page + 1 }}
+                </li>
+              </ul>
+            </div>
 
             <div class="clear"></div>
           </div>
