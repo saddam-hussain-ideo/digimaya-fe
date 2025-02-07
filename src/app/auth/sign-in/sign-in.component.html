@@ -1,6 +1,7 @@
 <div class="bg-wrapper">
   <div class="outer-wrapper">
     <re-captcha
+      *ngIf="enableCaptcha"
       size="invisible"
       #captchaRef="reCaptcha"
       (resolved)="submitCaptcha($event)"
