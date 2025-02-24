@@ -1250,12 +1250,7 @@
                     <td>{{ item.TransactionType }}</td>
                     <td>{{ item.ChainName }}</td>
                     <td>{{ item.TotalTokens }}</td>
-                    <td *ngIf="item.Status === 'REJECTED'">
-                      <a href="mailto:info@digimaaya.com">{{ item.Status }}</a>
-                    </td>
-                    <td *ngIf="item.Status !== 'REJECTED'">
-                      {{ item.Status }}
-                    </td>
+                    <td>{{ item.Status }}</td>
                   </tr>
                 </tbody>
                 <tbody
