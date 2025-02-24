@@ -1246,7 +1246,26 @@
                   *ngIf="!withdrawalLoader && withdrawalData && withdrawalData.length > 0"
                 >
                   <tr *ngFor="let item of withdrawalData">
-                    <td>{{ item.TransactionHash }}</td>
+                    <td *ngIf="item.TransactionHash">
+                      <div *ngIf="item.Status == 'COMPLETED'">
+                        <a
+                          target="_blank"
+                          [attr.href]="
+                            item.Status == 'COMPLETED'
+                              ? linkForTransaction(
+                                  item.TransferedTxHash,
+                                  item.ChainName
+                                )
+                              : null
+                          "
+                        >
+                          {{ item.TransactionHash }}
+                        </a>
+                      </div>
+                      <div *ngIf="item.Status != 'COMPLETED'">
+                        {{ item.TransactionHash }}
+                      </div>
+                    </td>
                     <td>{{ item.TransactionType }}</td>
                     <td>{{ item.ChainName }}</td>
                     <td>{{ item.TotalTokens }}</td>

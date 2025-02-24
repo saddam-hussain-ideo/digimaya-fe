@@ -693,4 +693,17 @@ export class Affiliate {
     /* Copy the text inside the text field */
     document.execCommand('Copy');
   }
+
+  linkForTransaction(hash, chain) {
+    console.log(hash, chain);
+    if (chain === 'bsc-mainnet') {
+      return `https://bscscan.com/tx/${hash}`;
+    } else if (chain === 'ethereum-mainnet') {
+      return `https://etherscan.io/tx/${hash}`;
+    } else if (chain === 'bsc-testnet') {
+      return `https://testnet.bscscan.com/tx/${hash}`;
+    } else if (chain === 'ethereum-sepolia') {
+      return `https://sepolia.etherscan.io/tx/${hash}`;
+    }
+  }
 }

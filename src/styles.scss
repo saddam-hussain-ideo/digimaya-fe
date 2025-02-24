@@ -222,6 +222,20 @@ select {
   }
 }
 
+@media (max-height: 750px) {
+  .inner-wrapper {
+    padding: 20px; /* Reduce padding for shorter screens */
+    height: auto; /* Let the container grow as needed */
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+  }
+}
+
+@media (max-height: 750px) {
+  .left-panel {
+    min-height: auto; /* Remove or reduce the fixed min-height */
+  }
+}
+
 /* Logo Styles */
 .logo-top {
   text-align: center;

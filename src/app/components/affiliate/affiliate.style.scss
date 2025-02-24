@@ -1453,6 +1453,11 @@ a {
   text-decoration: none;
 }
 
+td > div {
+  font-size: 14px;
+  font-family: 'Calibri';
+}
+
 a:hover {
   cursor: pointer;
 }
