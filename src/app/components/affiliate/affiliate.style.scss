@@ -1448,6 +1448,11 @@ canvas {
 
 a {
   font-size: 14px;
-  color: #191919;
+  color: #228cb7;
   font-family: 'Calibri';
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
 }
