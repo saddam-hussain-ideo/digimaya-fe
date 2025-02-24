@@ -28,6 +28,24 @@
   padding-bottom: 10px;
 }
 
+.modal-note-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-note {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.modal-note-container svg {
+  margin-right: 2px;
+  width: 40px;
+  height: 40px;
+}
+
 .modal-body {
   padding: 10px 0;
 }
