@@ -968,7 +968,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
         ? this.toasterService.pop(
             'error',
             'Error',
-            'Password and confirm password must match'
+            'New password and confirm password must match'
           )
         : this.toasterService.pop(
             'error',
@@ -983,13 +983,22 @@ export class SettingsComponent implements OnInit, OnDestroy {
         ? this.toasterService.pop(
             'error',
             'Error',
-            'Password and confirm password must match'
+            'New password and confirm password must match'
           )
         : this.toasterService.pop(
             'error',
             'Error',
             'Ambas contraseñas deben coincidir'
           );
+      error = true;
+    }
+
+    if (this.password == this.oldPassword) {
+      this.toasterService.pop(
+        'error',
+        'Error',
+        'New password must be different from the old password.'
+      );
       error = true;
     }
 

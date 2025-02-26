@@ -419,6 +419,29 @@ export class UserService {
       })
       .map((res) => res.json());
   }
+
+  getVideo(token) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('authorization', token);
+    return this.http
+      .get(`${environment.BaseUrl}user/getVideo`, {
+        headers: headers
+      })
+      .map((res) => res.json());
+  }
+
+  getBlasterMessage() {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('authorization', this.userToken);
+    return this.http
+      .get(`${environment.BaseUrl}user/getBlasterMessage`, {
+        headers: headers
+      })
+      .map((res) => res.json());
+  }
+
   singleSignOn(token, value) {
     const queryParams = `?isForCredentials=${value}`;
     const headers = new Headers();

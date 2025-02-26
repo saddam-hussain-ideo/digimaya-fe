@@ -19,14 +19,14 @@ import { AuthenticateComponent } from './auth/authenticate/authenticate.componen
 import { UserSetup } from './auth/user-setup/user-setup.component';
 import { NewUserVerify } from './auth/new-user-verification/new-user-verify';
 import { WireTransferComponent } from './components/wire-transfer/wire-transfer.component';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClient } from '@angular/common/http';
 import { PiptleWalletComponent } from './components/piptle-wallet/piptle-wallet.component';
 import { StakinghistoryComponent } from './components/stakinghistory/stakinghistory.component';
 import { LandingPageComponent } from './components/landing/landing.component';
 import { CookiePolicyComponent } from './components/cookie-policy/cookie-policy.component';
 import { DisclaimerAgreementComponent } from './components/disclaimer-and-agreement/disclaimer-and-agreement.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
 const routes: Routes = [
   { path: 'landing', component: LandingPageComponent },
@@ -93,9 +93,7 @@ const routes: Routes = [
       }
     ]
   },
-
-  //Should be at last in routes
-  { path: '', redirectTo: 'landing', pathMatch: 'full' },
+  { path: '', pathMatch: 'full', component: LandingPageComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

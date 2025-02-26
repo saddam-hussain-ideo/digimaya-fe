@@ -72,7 +72,7 @@
 
     <div class="collapse navbar-collapse right-aligned" id="nav-content">
       <!-- <div class="d-flex flex-row"> -->
-      <a href="mailto:info@dgmaaya.com">
+      <a href="mailto:info@digimaaya.com">
         <img
           src="../../../assets//img/msg_icon.svg"
           alt="fb-icon"
@@ -411,29 +411,84 @@
   <div class="no-printme">
     <div class="sidemenu-wrapper" (click)="sidebarClose()">
       <nav id="sidebar">
-        <!-- <img src="../../../assets/img/dashboard-img.png" class="myimg" alt="" srcset=""> -->
+        <!-- <img
+          src="../../../assets/img/dashboard-img.png"
+          class="myimg"
+          alt=""
+          srcset=""
+        /> -->
 
         <div class="sidebar-bg">
           <!-- <div class="close-sidebar" (click)="closeSidebar()">
-        <button class="close-sidebar-btn">
-          <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px" y="0px" width="20px" height="20px" viewBox="0 0 357 357" style="enable-background:new 0 0 357 357;"
-            xml:space="preserve">
-            <g>
-              <g id="close">
-                <polygon points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3 
-                           214.2,178.5 		" />
-              </g>
-            </g>
-  
-          </svg>
-  
-        </button>
-      </div> -->
+            <button class="close-sidebar-btn">
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                width="20px"
+                height="20px"
+                viewBox="0 0 357 357"
+                style="enable-background: new 0 0 357 357"
+                xml:space="preserve"
+              >
+                <g>
+                  <g id="close">
+                    <polygon
+                      points="357,35.7 321.3,0 178.5,142.8 35.7,0 0,35.7 142.8,178.5 0,321.3 35.7,357 178.5,214.2 321.3,357 357,321.3 
+                           214.2,178.5 		"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </div> -->
           <div class="d-flex flex-column">
             <div class="sidebar-header">
-              <p></p>
-              <p></p>
+              <div id="prof-nav" (click)="NavigateToSettings()">
+                <a class="avatar-name">
+                  <!-- <span class="side-icons">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                      <g
+                        id="SVGRepo_tracerCarrier"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25Z"
+                          stroke="#000000"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M12.1303 13C13.8203 13 15.1903 11.63 15.1903 9.94C15.1903 8.25001 13.8203 6.88 12.1303 6.88C10.4403 6.88 9.07031 8.25001 9.07031 9.94C9.07031 11.63 10.4403 13 12.1303 13Z"
+                          stroke="#000000"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M6.5 19.11C6.80719 17.8839 7.51529 16.7956 8.51178 16.0179C9.50827 15.2403 10.736 14.818 12 14.818C13.264 14.818 14.4917 15.2403 15.4882 16.0179C16.4847 16.7956 17.1928 17.8839 17.5 19.11"
+                          stroke="#000000"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </g>
+                    </svg>
+                  </span> -->
+                  {{ userObject?.UserName }}</a
+                >
+              </div>
             </div>
 
             <ul class="list-unstyled components">
@@ -685,12 +740,13 @@
           </li> -->
             </ul>
             <div class="add-section">
-              <video loop autoplay muted>
+              <!-- <video loop autoplay muted>
                 <source
                   src="../../../assets/video/emaaya-video.mp4"
                   type="video/mp4"
                 />
-              </video>
+              </video> -->
+              <img [src]="ImageURL" alt="Blaster Message" />
             </div>
             <a class="logout-btn ml-3" (click)="logout()">
               <span class="side-icons">

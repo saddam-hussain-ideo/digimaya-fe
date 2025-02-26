@@ -46,7 +46,7 @@
               id="email"
               autocomplete="off"
               type="email"
-              class="ico-inputs"
+              class="ico-inputs form-control"
               placeholder="{{ 'Email' | translate }}"
               name="SignUpObject.email"
               [(ngModel)]="SignUpObject.email"
@@ -63,7 +63,7 @@
                 autocomplete="off"
                 maxlength="20"
                 type="text"
-                class="ico-inputs"
+                class="ico-inputs form-control"
                 placeholder="{{ 'Username' | translate }}"
                 name="SignUpObject.username"
                 (input)="onNameInput($event, 'username')"
@@ -80,7 +80,7 @@
                 id="fullName"
                 autocomplete="off"
                 type="text"
-                class="ico-inputs"
+                class="ico-inputs form-control"
                 placeholder="{{ 'Full Name' | translate }}"
                 name="SignUpObject.fullName"
                 [ngModel]="SignUpObject.fullName"
@@ -97,7 +97,7 @@
               id="referralCode"
               autocomplete="off"
               type="text"
-              class="ico-inputs"
+              class="ico-inputs form-control"
               placeholder="{{ 'Affiliate Code (optional)' | translate }}"
               name="SignUpObject.referralCode"
               [(ngModel)]="SignUpObject.referralCode"
@@ -105,41 +105,36 @@
           </div>
 
           <div class="form-group-row">
-            <!-- TODO country code commented as it will be not be of use  <div class="form-group">
-              <label class="ico-label" for="country">Country</label>
-              <select
-                class="form-control"
-                class="ico-inputs"
-                (change)="oncountrychange($event)"
-              >
-                <option value="">Country of Residence</option>
-                <option
-                  *ngFor="let country of countriesList"
-                  value="{{ country.code }} {{ country.name }}"
-                >
-                  {{ country.name }}
-                </option>
-              </select>
-            </div> -->
-
             <div class="form-group">
-              <label class="ico-label" for="mobile"
-                >Mobile Number<span class="required-asterisk">*</span></label
-              >
+              <label class="ico-label" for="mobile">
+                Mobile Number
+                <span class="required-asterisk">*</span>
+              </label>
+
               <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text codearea" *ngIf="countryCode">{{
-                    countryCode
-                  }}</span>
-                </div>
+                <select
+                  class="ico-inputs form-control"
+                  (change)="oncountrychange($event)"
+                >
+                  <option value="">Select Country</option>
+                  <option
+                    *ngFor="let country of countriesList"
+                    value="{{ country.code }} {{ country.name }}"
+                  >
+                    {{ country.name }} ({{ country.code }})
+                  </option>
+                </select>
+
                 <input
                   id="mobile"
-                  type="text"
+                  type="tel"
                   placeholder="Mobile Number"
-                  class="form-control ico-inputs"
-                  name="SignUpObject.mobile"
-                  [(ngModel)]="SignUpObject.mobile"
+                  class="ico-inputs form-control"
+                  name="mobile"
+                  [(ngModel)]="mobile"
                   (input)="onPhoneNumberInput($event)"
+                  required
+                  maxlength="15"
                 />
               </div>
             </div>
@@ -147,15 +142,16 @@
 
           <div class="form-group-row">
             <div class="form-group">
-              <label class="ico-label" for="password"
-                >Password<span class="required-asterisk">*</span></label
-              >
+              <label class="ico-label" for="password">
+                Password
+                <span class="required-asterisk">*</span>
+              </label>
               <div class="input-container">
                 <input
                   id="password"
                   type="password"
                   #passwordField
-                  class="ico-inputs"
+                  class="ico-inputs form-control"
                   placeholder="{{ 'Password' | translate }}"
                   name="SignUpObject.password"
                   [(ngModel)]="SignUpObject.password"
@@ -174,14 +170,15 @@
             </div>
 
             <div class="form-group">
-              <label class="ico-label" for="cPassword"
-                >Confirm Password<span class="required-asterisk">*</span></label
-              >
+              <label class="ico-label" for="cPassword">
+                Confirm Password
+                <span class="required-asterisk">*</span>
+              </label>
               <div class="input-container">
                 <input
                   id="cPassword"
                   type="password"
-                  class="ico-inputs"
+                  class="ico-inputs form-control"
                   #confirmPasswordField
                   placeholder="{{ 'Confirm Password' | translate }}"
                   name="SignUpObject.cPassword"

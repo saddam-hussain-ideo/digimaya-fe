@@ -13,6 +13,7 @@ import { ToasterService, ToasterConfig } from 'angular2-toaster';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from 'src/app/services/shared';
 import { takeWhile } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 declare var $: any;
 
 @Component({
@@ -42,6 +43,7 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   public lang;
   public selectedLanguage = 'default';
+  public enableCaptcha = !!environment.captchaKey; // Add this line
   @ViewChild(RecaptchaComponent) reCaptcha: RecaptchaComponent;
   @ViewChild('passwordField') passwordInput: ElementRef;
   @ViewChild('#eyeicon') eyeicon: ElementRef;
@@ -191,7 +193,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     }
     //  else {
     //   if (!this.ValidationsClass.validateEmail(this.email)) {
-    //     this.toasterService.pop('error', 'Error', "Email should be a valid Email");
+    //     this.toasterService.pop('error', 'Error', "Email should be valid");
     //     error = true;
     //   }
     // }
@@ -209,9 +211,14 @@ export class SignInComponent implements OnInit, OnDestroy {
 
     if (error) {
     } else {
-      this.reCaptcha.execute();
+      if (this.enableCaptcha) {
+        this.reCaptcha.execute();
+      } else {
+        this.actualSignIn();
+      }
     }
   }
+
   routeToSignUp() {
     this.router.navigate(['sign-up']);
   }
@@ -219,10 +226,12 @@ export class SignInComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.isAlive = false;
   }
+
   hidePassword() {
     this.isShow = false;
     this.passwordInput.nativeElement.setAttribute('type', 'password');
   }
+
   showPassword() {
     this.isShow = true;
     this.passwordInput.nativeElement.setAttribute('type', 'text');

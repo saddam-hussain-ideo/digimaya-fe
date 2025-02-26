@@ -72,7 +72,7 @@ select {
   align-items: center;
   background-color: white;
   background-size: cover;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     background-image: url('./assets/img/auth-bg.png');
     background-repeat: no-repeat;
     background-position: top;
@@ -82,10 +82,10 @@ select {
 }
 
 .outer-wrapper {
-  height: 100vh;
+  height: 100%;
   display: flex;
   background: transparent;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     width: 100%;
   }
 }
@@ -93,13 +93,14 @@ select {
 .inner-wrapper {
   display: flex;
   width: 100%;
+  height: 100%;
   margin: auto;
   border-radius: 8px;
   overflow: hidden;
   background: transparent;
   padding: 40px;
   @media (max-width: 1024px) {
-    height: 85%;
+    height: auto;
   }
 
   @media (max-width: 768px) {
@@ -129,8 +130,8 @@ select {
     #ff7f2c 0%,
     #ff0082 100%
   );
-
   color: white;
+  min-height: 600px;
 
   @media (max-width: 1024px) {
     flex: 1;
@@ -143,9 +144,10 @@ select {
     border-radius: 0;
     text-align: center;
     padding: 10px;
+    min-height: 100px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 480px) {
     background: transparent;
     align-items: center;
   }
@@ -217,6 +219,20 @@ select {
   @media (max-width: 480px) {
     font-size: 32px;
     margin-bottom: 80px;
+  }
+}
+
+@media (max-height: 750px) {
+  .inner-wrapper {
+    padding: 20px; /* Reduce padding for shorter screens */
+    height: auto; /* Let the container grow as needed */
+    overflow-y: auto; /* Enable vertical scrolling if necessary */
+  }
+}
+
+@media (max-height: 750px) {
+  .left-panel {
+    min-height: auto; /* Remove or reduce the fixed min-height */
   }
 }
 
@@ -296,15 +312,16 @@ select {
 
 .ico-inputs {
   width: 100%;
-  padding: 10px;
+  height: 40px;
+  padding: 6px;
   border: 2px solid #11111333;
   border-radius: 4px;
   font-size: 14px;
   background: transparent;
-
   @media (max-width: 480px) {
     font-size: 12px;
-    padding: 8px;
+    height: 36px;
+    padding: 4px;
   }
 }
 
@@ -378,6 +395,13 @@ select {
   }
 }
 
+.ico-submit:disabled {
+  background: linear-gradient(to bottom right, #cccccc, #999999);
+  color: #666666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 /* Bottom Text */
 .bottom-text {
   color: black;
@@ -425,7 +449,7 @@ select {
   outline: none;
 }
 
-.input-container .toggle-password {
+.toggle-password {
   font-size: 16px;
   color: $maaya-purple-dusk;
   cursor: pointer;
@@ -609,7 +633,7 @@ input:-webkit-autofill {
 .blue-inputs {
   font-family: 'LatoWebLight';
   // border: 1px solid rgb(121, 226, 226);
-  border: 1px solid $dashboard-purple-clr;
+  border: 1px solid $maaya-purple-dusk;
   border-radius: 2px;
   background-color: #fff;
   text-align: center;
@@ -1089,12 +1113,33 @@ $label-color: #2097d4;
 }
 
 .page-title {
-  color: #191919;
   font-weight: 400;
   font-size: 40px;
   line-height: 40px;
   font-family: 'Calibri';
   margin: auto;
+  text-align: center;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  background-image: linear-gradient(90deg, #ff7f2c 48.77%, #ff0082 60.9%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  &.lg {
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 70px;
+    &.light {
+      color: white;
+      background: none;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 26px;
+    &.lg {
+      font-size: 36px;
+    }
+  }
   @media (max-width: 991px) {
     text-align: center;
   }
@@ -2149,7 +2194,7 @@ blue-submit .back-btn {
 }
 
 .ngx-pagination .current {
-  background: $theme-blue !important;
+  background: $theme-orange !important;
 }
 
 @media (max-width: 1400px) and (min-width: 1200px) {
@@ -2349,3 +2394,140 @@ input:-webkit-autofill {
   transition: background-color 5000s ease-in-out 0s;
   color: #11111399;
 }
+
+.edit-profile-buttom {
+  font-family: 'Calibri';
+  font-size: 16px;
+  color: #191919;
+  padding: 12px;
+  min-width: 120px;
+  font-weight: 600;
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 3px;
+    background: radial-gradient(
+      107.63% 220.06% at 0.17% 0.51%,
+      #ff7f2c 0%,
+      #ff0082 100%
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+  &.colored {
+    background: radial-gradient(
+      107.63% 220.06% at 0.17% 0.51%,
+      #ff7f2c 0%,
+      #ff0082 100%
+    );
+    border: none;
+    border-radius: 8px;
+    color: white;
+    max-width: 240px;
+    width: 100%;
+  }
+}
+
+.nn-lbl-sett {
+  color: #ff0082;
+  font-family: 'Calibri';
+  font-size: 16px;
+  font-weight: 500;
+  &.status {
+    font-size: 14px;
+    color: #8c8c8c;
+  }
+  &.dark {
+    color: #ff0082;
+  }
+  li {
+    list-style-type: disc;
+  }
+}
+
+.nn-input-sett {
+  height: 48px;
+  background-color: transparent;
+  border-radius: 8px !important;
+  color: #11111399;
+  box-shadow: none;
+  border: 2px solid #11111333;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+}
+.nn-input-sett-disabled {
+  background-color: #f9f9f9; /* Light gray background */
+  color: #a1a1a1; /* Dimmed text color */
+  border: 2px solid #d1d1d1; /* Lighter border */
+  cursor: not-allowed; /* Show disabled cursor */
+  opacity: 0.7; /* Reduce opacity to indicate it's inactive */
+  height: 48px;
+  border-radius: 8px !important;
+}
+
+// /* General styles for select inputs */
+// select {
+//   width: 100%;
+//   padding: 8px; /* Match the ico-inputs padding */
+//   border: 2px solid #11111333;
+//   border-radius: 4px;
+//   font-size: 12px; /* Match the ico-inputs font size */
+//   background-color: transparent;
+//   color: #111113; /* Default text color */
+//   outline: none;
+//   appearance: none; /* Remove default browser styles */
+//   cursor: pointer;
+//   transition:
+//     border-color 0.3s,
+//     box-shadow 0.3s;
+
+//   @media (max-width: 480px) {
+//     font-size: 11px; /* Adjust for smaller screens */
+//     padding: 6px; /* Adjust padding */
+//   }
+// }
+
+// // select:hover {
+// //   border-color: #11111399; /* Add a hover effect */
+// // }
+
+// // select:focus {
+// //   border-color: #007bff; /* Add a focus effect */
+// //   box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+// // }
+
+// /* Disable appearance for disabled selects */
+// select:disabled {
+//   background-color: #f8f9fa;
+//   color: #6c757d;
+//   cursor: not-allowed;
+// }
+
+// /* Styles for options */
+// option {
+//   background-color: #ffffff;
+//   color: #111113; /* Default text color */
+//   padding: 6px; /* Add spacing */
+//   font-size: 12px;
+//   cursor: pointer;
+
+//   @media (max-width: 480px) {
+//     font-size: 11px; /* Adjust for smaller screens */
+//   }
+// }
+
+// option:disabled {
+//   color: #6c757d; /* Dim disabled options */
+//   cursor: not-allowed;
+// }
+
+// /* Placeholder option style (if used) */
+// option[disabled][selected] {
+//   color: #aaa; /* Gray placeholder text */
+// }

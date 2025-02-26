@@ -121,4 +121,47 @@ export class AffilliateService {
       })
       .map((res) => res.json());
   }
+
+  getSupportedChains() {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('authorization', this.userToken);
+
+    return this.http
+      .get(`${environment.BaseUrl}getSupportedChains`, {
+        headers: headers
+      })
+      .map((res) => res.json());
+  }
+
+  getWithdrawalHistory(pageNo, pageSize) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('authorization', this.userToken);
+
+    const params = `?pageNumber=${pageNo}&pageSize=${pageSize}`;
+
+    return this.http
+      .get(`${environment.BaseUrl}user/getWithdrawalHistory${params}`, {
+        headers: headers
+      })
+      .map((res) => res.json());
+  }
+
+  withdraw(address, amount, chain) {
+    const headers = new Headers();
+    const data = {
+      address: address,
+      amount: amount,
+      chain: chain
+    };
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('authorization', this.userToken);
+
+    return this.http
+      .post(environment.BaseUrl + 'user/referral/withdrawal', data, {
+        headers: headers
+      })
+      .map((res) => res.json());
+  }
 }
