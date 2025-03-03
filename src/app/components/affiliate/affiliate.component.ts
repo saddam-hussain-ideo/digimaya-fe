@@ -192,6 +192,7 @@ export class Affiliate {
         if (result === 'confirm') {
           // Handle the confirm action
           console.log('Withdraw confirmed');
+          window.location.reload();
         }
       },
       (reason) => {
