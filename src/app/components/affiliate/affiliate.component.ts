@@ -70,9 +70,9 @@ export class Affiliate {
   referralPSize = 5;
   paginationNumber = 1;
   topReferalCurrentPage = 1;
-  withdrawalCount = 0;
-  withdrawCurrentPage = 0;
+  withdrawCurrentPage = 1;
   withdrawSize = 10;
+  withdrawalCount = 0;
 
   tableOneCurrentPage = 1;
   tableOneSize = 5;
@@ -228,8 +228,8 @@ export class Affiliate {
     this.tableThreeCurrentPage = value;
     this.levelThreeReferrals();
   }
-  changePageForWithdrawals(value) {
-    this.withdrawCurrentPage = value;
+  changePageForWithdrawals(page: number) {
+    this.withdrawCurrentPage = page;
     this.getWithdrawalHistory();
   }
 
@@ -276,69 +276,11 @@ export class Affiliate {
       }
     });
 
-    /* Graph */
-
     $('.affiliate-graph-ul > li').click(function () {
       $('.affiliate-graph-ul li').removeClass('affiliate-active-li');
       $(this).addClass('affiliate-active-li');
     });
-    // this._sharedService.showHideLoader(false);
   }
-
-  // getReferrals(){
-  //     this._sharedService.showHideLoader(true);
-  //                 this.tableLoader1 = true
-  //         this.tableLoader2 = true
-
-  //         this.tableLoader3 = true
-  //     for(let i = 1; i <= 3 ; i++) {
-
-  //         this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = i,this.pageNo = 1, this.pageSize= 10 )
-  //         .subscribe(res => {
-  //             if(res){
-  //                 this._sharedService.showHideLoader(false);
-  //                 this.referredCountries = res['data']['referred_countries']
-  //                 this.obj = {
-  //                     level : i,
-  //                     data : res['data']
-  //                 }
-  //                 this.dataArr.push(this.obj)
-
-  //                 this.levelOneData = this.dataArr.find(result => result.level == 1)
-
-  //                 this.levelTwoData = this.dataArr.find(result => result.level == 2)
-  //                 this.levelThreeData = this.dataArr.find(result => result.level == 3)
-
-  //                 if(this.levelOneData){
-  //                     this.tableLoader1 = false
-  //                     this.tableOneCount = this.levelOneData.data.totalRecords
-  //                     // this.referredCountries = this.levelOneData['data']['referred_countries']
-  //                 }
-  //                 if(this.levelTwoData){
-  //                     this.tableLoader2 = false
-  //                     this.tableTwoCount = this.levelTwoData.data.totalRecords
-
-  //                 }
-  //                 if(this.levelThreeData){
-  //                     this.tableLoader3 = false
-  //                     this.tableThreeCount = this.levelThreeData.data.totalRecords
-
-  //                 }
-
-  //             }
-  //         }, err => {
-  //             this.tableLoader1 = false
-  //             this.tableLoader2 = false
-  //             this.tableLoader3 = false
-  //             this._sharedService.showHideLoader(false);
-  //             console.log(err);
-  //             const obj = JSON.parse(err._body);
-  //             console.log('Level' , i ,obj);
-
-  //         })
-  //     }
-
-  // }
 
   getWithdrawalHistory() {
     this.withdrawalLoader = true;
@@ -349,7 +291,7 @@ export class Affiliate {
           if (res) {
             this.withdrawalLoader = false;
             this.withdrawalData = res['data'].withdrawalHistory;
-            this.withdrawalCount = this.withdrawalData.length;
+            this.withdrawalCount = res['data'].totalCount;
           }
         },
         (err) => {
@@ -377,8 +319,10 @@ export class Affiliate {
           if (res) {
             this.tableLoader1 = false;
             this.referredCountries = res['data']['referred_countries'];
-            this.levelOneData = res['data'];
-            this.tableOneCount = this.levelOneData.length;
+            this.levelOneData = res['data']['referrals'];
+            this.tableOneCount = res['data']['totalReferrals'];
+            this.tableOneCurrentPage = res['data']['currentPage'];
+            this.tableOneSize = res['data']['pageSize'];
           }
         },
         (err) => {
@@ -405,8 +349,10 @@ export class Affiliate {
         (res) => {
           if (res) {
             this.tableLoader2 = false;
-            this.levelTwoData = res['data'];
-            this.tableTwoCount = this.levelTwoData.length;
+            this.levelTwoData = res.data.referrals;
+            this.tableTwoCount = res.data.totalReferrals;
+            this.tableTwoCurrentPage = res.data.currentPage;
+            this.tableTwoSize = res.data.pageSize;
           }
         },
         (err) => {
@@ -433,8 +379,10 @@ export class Affiliate {
         (res) => {
           if (res) {
             this.tableLoader3 = false;
-            this.levelThreeData = res['data'];
-            this.tableThreeCount = this.levelThreeData.length;
+            this.levelThreeData = res.data.referrals;
+            this.tableThreeCount = res.data.totalReferrals;
+            this.tableThreeCurrentPage = res.data.currentPage;
+            this.tableThreeSize = res.data.pageSize;
           }
         },
         (err) => {
@@ -516,7 +464,6 @@ export class Affiliate {
           }
           console.log(obj);
           if (obj.code == 400) {
-            // show empty error
             this._sharedService.showHideLoader(false);
             this.noAffiliateEarners = true;
           }
@@ -600,14 +547,6 @@ export class Affiliate {
             this.topRefersLoader = false;
             this.topReferrals = a.data;
             this.paginationNumber = a.data.totalRecords;
-            // this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
-            // for (var i = 0; i < this.topReferrals.length; i++) {
-            //     this.topReferrals[i].percentage = ((this.topReferrals[i].AmountInUsd / this.fivePercentOfTotalAmountInvested) * 100);
-            //     if (this.topReferrals[i].percentage > 100) {
-            //         this.topReferrals[i].percentage = 100;
-            //     }
-            //     this.topReferrals[i].AmountInUsd = this.validations.toCommas(this.topReferrals[i].AmountInUsd.toFixed(3));
-            // }
             if (this.topReferrals.length == 0) {
               this.noTopAffilliates = true;
             } else {
@@ -685,13 +624,8 @@ export class Affiliate {
   }
 
   copyToClipboard(id) {
-    /* Get the text field */
     const copyText = document.getElementById(id) as HTMLInputElement;
-
-    /* Select the text field */
     copyText.select();
-
-    /* Copy the text inside the text field */
     document.execCommand('Copy');
   }
 
@@ -706,5 +640,12 @@ export class Affiliate {
     } else if (chain === 'ethereum-sepolia') {
       return `https://sepolia.etherscan.io/tx/${hash}`;
     }
+  }
+
+  getPageNumbers(totalCount: number, pageSize: number): number[] {
+    const totalPages = Math.ceil(totalCount / pageSize);
+    return Array(totalPages)
+      .fill(0)
+      .map((x, i) => i + 1);
   }
 }
