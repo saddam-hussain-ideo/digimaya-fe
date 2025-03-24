@@ -33,6 +33,7 @@ export class Affiliate {
   public csvData: any;
   public totalEarningInEMYA: any;
   public totalEarningInUSD: any;
+  public totalEarningSoFar: any;
 
   public dataFilter = 'DAY';
   public noGraphData = false;
@@ -45,9 +46,17 @@ export class Affiliate {
 
   public fivePercentOfTotalAmountInvested: any;
   public noAffiliateEarners = false;
+
   tableLoader1: boolean;
   tableLoader2: boolean;
   tableLoader3: boolean;
+  tableLoader4: boolean;
+  tableLoader5: boolean;
+  tableLoader6: boolean;
+  tableLoader7: boolean;
+  tableLoader8: boolean;
+  tableLoader9: boolean;
+
   withdrawalLoader: boolean;
   topRefersLoader: boolean;
   affiliatesLoader: boolean;
@@ -55,10 +64,18 @@ export class Affiliate {
   pageNo;
   pageSize;
   rowsData;
+
   withdrawalData;
   levelOneData;
   levelTwoData;
   levelThreeData;
+  levelFourData;
+  levelFiveData;
+  levelSixData;
+  levelSevenData;
+  levelEightData;
+  levelNineData;
+
   obj;
   dataArr = [];
   referalLicencesCount = {
@@ -85,6 +102,30 @@ export class Affiliate {
   tableThreeCurrentPage = 1;
   tableThreeSize = 5;
   tableThreeCount = 1;
+
+  tableFourCurrentPage = 1;
+  tableFourSize = 5;
+  tableFourCount = 1;
+
+  tableFiveCurrentPage = 1;
+  tableFiveSize = 5;
+  tableFiveCount = 1;
+
+  tableSixCurrentPage = 1;
+  tableSixSize = 5;
+  tableSixCount = 1;
+
+  tableSevenCurrentPage = 1;
+  tableSevenSize = 5;
+  tableSevenCount = 1;
+
+  tableEightCurrentPage = 1;
+  tableEightSize = 5;
+  tableEightCount = 1;
+
+  tableNineCurrentPage = 1;
+  tableNineSize = 5;
+  tableNineCount = 1;
 
   constructor(
     public router: Router,
@@ -228,6 +269,30 @@ export class Affiliate {
     this.tableThreeCurrentPage = value;
     this.levelThreeReferrals();
   }
+  changePageForTable4(value) {
+    this.tableFourCurrentPage = value;
+    this.levelFourReferrals();
+  }
+  changePageForTable5(value) {
+    this.tableFiveCurrentPage = value;
+    this.levelFiveReferrals();
+  }
+  changePageForTable6(value) {
+    this.tableSixCurrentPage = value;
+    this.levelSixReferrals();
+  }
+  changePageForTable7(value) {
+    this.tableSevenCurrentPage = value;
+    this.levelSevenReferrals();
+  }
+  changePageForTable8(value) {
+    this.tableEightCurrentPage = value;
+    this.levelEightReferrals();
+  }
+  changePageForTable9(value) {
+    this.tableNineCurrentPage = value;
+    this.levelNineReferrals();
+  }
   changePageForWithdrawals(page: number) {
     this.withdrawCurrentPage = page;
     this.getWithdrawalHistory();
@@ -250,7 +315,9 @@ export class Affiliate {
     this.getTopAffiliates();
     this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
     this.affiliateGraph();
+
     this.getWithdrawalHistory();
+
     this.levelOneReferrals();
     this.levelTwoReferrals();
     this.levelThreeReferrals();
@@ -396,6 +463,186 @@ export class Affiliate {
       );
   }
 
+  levelFourReferrals() {
+    this.tableLoader4 = true;
+    this._affilliateService
+      .levelReferrals(
+        this.userObject.UserId,
+        (this.referralLevel = 4),
+        this.tableFourCurrentPage,
+        this.tableFourSize
+      )
+      .subscribe(
+        (res) => {
+          if (res) {
+            this.tableLoader4 = false;
+            this.levelFourData = res.data.referrals;
+            this.tableFourCount = res.data.totalReferrals;
+            this.tableFourCurrentPage = res.data.currentPage;
+            this.tableFourSize = res.data.pageSize;
+          }
+        },
+        (err) => {
+          this.tableLoader4 = false;
+          let obj;
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
+          console.log(obj);
+        }
+      );
+  }
+
+  levelFiveReferrals() {
+    this.tableLoader5 = true;
+    this._affilliateService
+      .levelReferrals(
+        this.userObject.UserId,
+        (this.referralLevel = 5),
+        this.tableFiveCurrentPage,
+        this.tableFiveSize
+      )
+      .subscribe(
+        (res) => {
+          if (res) {
+            this.tableLoader5 = false;
+            this.levelFiveData = res.data.referrals;
+            this.tableFiveCount = res.data.totalReferrals;
+            this.tableFiveCurrentPage = res.data.currentPage;
+            this.tableFiveSize = res.data.pageSize;
+          }
+        },
+        (err) => {
+          this.tableLoader5 = false;
+          let obj;
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
+          console.log(obj);
+        }
+      );
+  }
+
+  levelSixReferrals() {
+    this.tableLoader6 = true;
+    this._affilliateService
+      .levelReferrals(
+        this.userObject.UserId,
+        (this.referralLevel = 6),
+        this.tableSixCurrentPage,
+        this.tableSixSize
+      )
+      .subscribe(
+        (res) => {
+          if (res) {
+            this.tableLoader6 = false;
+            this.levelSixData = res.data.referrals;
+            this.tableSixCount = res.data.totalReferrals;
+            this.tableSixCurrentPage = res.data.currentPage;
+            this.tableSixSize = res.data.pageSize;
+          }
+        },
+        (err) => {
+          this.tableLoader6 = false;
+          let obj;
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
+          console.log(obj);
+        }
+      );
+  }
+
+  levelSevenReferrals() {
+    this.tableLoader7 = true;
+    this._affilliateService
+      .levelReferrals(
+        this.userObject.UserId,
+        (this.referralLevel = 7),
+        this.tableSevenCurrentPage,
+        this.tableSevenSize
+      )
+      .subscribe(
+        (res) => {
+          if (res) {
+            this.tableLoader7 = false;
+            this.levelSevenData = res.data.referrals;
+            this.tableSevenCount = res.data.totalReferrals;
+            this.tableSevenCurrentPage = res.data.currentPage;
+            this.tableSevenSize = res.data.pageSize;
+          }
+        },
+        (err) => {
+          this.tableLoader7 = false;
+          let obj;
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
+          console.log(obj);
+        }
+      );
+  }
+
+  levelEightReferrals() {
+    this.tableLoader8 = true;
+    this._affilliateService
+      .levelReferrals(
+        this.userObject.UserId,
+        (this.referralLevel = 8),
+        this.tableEightCurrentPage,
+        this.tableEightSize
+      )
+      .subscribe(
+        (res) => {
+          if (res) {
+            this.tableLoader8 = false;
+            this.levelEightData = res.data.referrals;
+            this.tableEightCount = res.data.totalReferrals;
+            this.tableEightCurrentPage = res.data.currentPage;
+            this.tableEightSize = res.data.pageSize;
+          }
+        },
+        (err) => {
+          this.tableLoader8 = false;
+          let obj;
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
+          console.log(obj);
+        }
+      );
+  }
+
+  levelNineReferrals() {
+    this.tableLoader9 = true;
+    this._affilliateService
+      .levelReferrals(
+        this.userObject.UserId,
+        (this.referralLevel = 9),
+        this.tableNineCurrentPage,
+        this.tableNineSize
+      )
+      .subscribe(
+        (res) => {
+          if (res) {
+            this.tableLoader9 = false;
+            this.levelNineData = res.data.referrals;
+            this.tableNineCount = res.data.totalReferrals;
+            this.tableNineCurrentPage = res.data.currentPage;
+            this.tableNineSize = res.data.pageSize;
+          }
+        },
+        (err) => {
+          this.tableLoader9 = false;
+          let obj;
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
+          console.log(obj);
+        }
+      );
+  }
+
   affiliateGraph() {
     this.graphLoader = true;
 
@@ -440,19 +687,43 @@ export class Affiliate {
       .subscribe(
         (a) => {
           this.affiliatesLoader = false;
+          this._sharedService.showHideLoader(false);
           if (a.code == 200 || a.code == 304) {
-            this.affiliatesLoader = false;
-            this._sharedService.showHideLoader(false);
             this.noAffiliateEarners = false;
             this.totalAffiliateEarningsRecords = a.data.count;
             this.totalEarningInEMYA = a.data.totalEarningInEMYA;
             this.totalEarningInUSD = a.data.totalEarningInUSDT;
+            this.totalEarningSoFar = a.data.totalEarningSoFar;
             this.totalAffiliatesArray = a.data.earningList;
             this.referalLicencesCount = {
               gpa: a.data.referralLicencesCount['gpa'],
               other: a.data.referralLicencesCount['other']
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
+
+            if (Number(this.totalEarningSoFar) > 6000) {
+              this.levelFourReferrals();
+            }
+
+            if (Number(this.totalEarningSoFar) > 12000) {
+              this.levelFiveReferrals();
+            }
+
+            if (Number(this.totalEarningSoFar) > 24000) {
+              this.levelSixReferrals();
+            }
+
+            if (Number(this.totalEarningSoFar) > 48000) {
+              this.levelSevenReferrals();
+            }
+
+            if (Number(this.totalEarningSoFar) > 96000) {
+              this.levelEightReferrals();
+            }
+
+            if (Number(this.totalEarningSoFar) > 192000) {
+              this.levelNineReferrals();
+            }
           }
         },
         (err) => {
@@ -464,7 +735,6 @@ export class Affiliate {
           }
           console.log(obj);
           if (obj.code == 400) {
-            this._sharedService.showHideLoader(false);
             this.noAffiliateEarners = true;
           }
           if (obj.code == 401) {
