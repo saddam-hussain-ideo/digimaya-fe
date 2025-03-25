@@ -701,27 +701,27 @@ export class Affiliate {
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
 
-            if (Number(this.totalEarningSoFar) > 6000) {
+            if (Number(this.totalEarningSoFar) > 6) {
               this.levelFourReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 12000) {
+            if (Number(this.totalEarningSoFar) > 12) {
               this.levelFiveReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 24000) {
+            if (Number(this.totalEarningSoFar) > 24) {
               this.levelSixReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 48000) {
+            if (Number(this.totalEarningSoFar) > 48) {
               this.levelSevenReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 96000) {
+            if (Number(this.totalEarningSoFar) > 96) {
               this.levelEightReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 192000) {
+            if (Number(this.totalEarningSoFar) > 192) {
               this.levelNineReferrals();
             }
           }
