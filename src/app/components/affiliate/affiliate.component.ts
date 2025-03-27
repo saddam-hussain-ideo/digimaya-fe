@@ -705,23 +705,23 @@ export class Affiliate {
               this.levelFourReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 12) {
+            if (Number(this.totalEarningSoFar) > 8) {
               this.levelFiveReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 24) {
+            if (Number(this.totalEarningSoFar) > 10) {
               this.levelSixReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 48) {
+            if (Number(this.totalEarningSoFar) > 12) {
               this.levelSevenReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 96) {
+            if (Number(this.totalEarningSoFar) > 14) {
               this.levelEightReferrals();
             }
 
-            if (Number(this.totalEarningSoFar) > 192) {
+            if (Number(this.totalEarningSoFar) > 16) {
               this.levelNineReferrals();
             }
           }
