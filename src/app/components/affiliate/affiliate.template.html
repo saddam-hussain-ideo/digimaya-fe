@@ -3,9 +3,11 @@
     <div class="aff-back d-flex flex-column">
       <h1 class="page-title mb-4">{{'Link Program' | translate}}</h1>
 
+      <!--referal changes-->
+
       <div class="head-section">
         <div class="clearfix ico-top-divs row">
-          <div class="col-sm-4 col-md-4 col-lg-4 p-sm-0 no-right">
+          <div class="col-sm-6 col-md-6 col-lg-6 p-sm-0 no-right">
             <div class="inner-box">
               <div class="left-box">
                 <div class="top-left-ico-text">
@@ -22,19 +24,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4 col-md-4 col-lg-4 no-right">
-            <div class="inner-box">
-              <div class="left-box">
-                <div class="top-left-ico-text">
-                  <p class="ico-top-text"> Earned Tokens </p>
-                </div>
-                <p class="number">
-                  {{ totalEarningInEMYA | number: '1.3-3' }} EMYA
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4 col-lg-4 no-right">
+          <div class="col-sm-6 col-md-6 col-lg-6 no-right">
             <div class="inner-box">
               <div class="left-box">
                 <div class="top-left-ico-text">
@@ -47,13 +37,106 @@
               </div>
             </div>
           </div>
+
+          <!-- <div class="col-sm-12 col-md-4 col-lg-3 no-right">
+            <div class="inner-box">
+              <div class="top-left-ico-text">
+                <p class="ico-top-text">
+                  Countries in My Link Network
+                  <span class="white-right">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="47px"
+                      height="6px"
+                    >
+                      <image
+                        x="0px"
+                        y="0px"
+                        width="47px"
+                        height="6px"
+                        xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAGCAQAAAD5jQ/ZAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiBwQRJhUZ/fXmAAAAW0lEQVQoz2P8/5YBBgQYGBmIBd8YfhJQwcTAyFDA8J92oPA/AwvR7iUNfGWIYtjEQCPj3zGEM+xhYKCN8Q8ZQhlOQ5gsDO/gwoSi9i/DF4Z/BA2/yxDJcBfGAQDslWyKBW4N8QAAAABJRU5ErkJggg=="
+                      />
+                    </svg>
+                  </span>
+                </p>
+              </div>
+              <p class="number" *ngIf="referredCountries <= 1">
+                {{ 'Countries' | translate}} Country
+              </p>
+            </div>
+          </div> -->
+
+          <!-- <div class="col-sm-12 col-md-12 col-lg-4">
+            <div class="inner-box">
+              <div class="top-left-ico-text">
+                <p class="ico-top-text">My Link $EMYA Bonuses</p>
+              </div>
+              <div class="d-flex flex-column">
+                <p class="total-text">
+                  $EMYA {{earningValues('pptl') | currency : 'crypto'}}
+                </p>
+                <p class="total-text">
+                  USD Value $ {{earningValues('usdt') | currency: 'crypto'}}
+                </p>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
+
+      <!---->
 
       <div class="row1 mb-4">
         <div class="row">
           <div class="col-lg-6 right-7">
             <div class="white-back referral-pd">
+              <!-- <div class="pos-rltv">
+
+                                <div class="pos-left">
+                                    <h6 class="aff-h2">{{'Discription' | translate}}
+
+                                    </h6>
+
+                                </div>
+
+
+                            </div>
+                            <div class="clear"></div>
+                            <div>
+                                <p class="aff-p1">
+                                    {{ 'Every user will earn 2% of the investment of their referrals using their code' |
+                                    translate}}
+                                </p>
+                            </div> -->
+
+              <!-- <hr class="saperator" /> -->
+
+              <!-- <div class="pos-rltv negate-margin">
+
+                                <h6 class="aff-h2 some-extra-margin">select commission type</h6>
+                                <div class="checksimg ">
+                                    <div class="pos-rltv">
+                                        <div class="pos-left2">
+                                            <p class="checkp">
+                                                <input type="radio" name="cpaRevenue" class='v-checkbox' id="test1" (change)="cpaActionClick()" />
+                                                <label for="test1">CPA ( Cost per action ) - 5% in Cash or Crypto or 7% in
+                                                    Tokens </label>
+                                            </p>
+                                            <p class="checkp pad-btm">
+                                                <input type="radio" name="cpaRevenue" class='v-checkbox' id="test2" (change)="revenueActionClick()" />
+                                                <label for="test2">REVENUE SHARE - 25% of fee</label>
+                                            </p>
+
+                                        </div>
+                                        <div class="pos-left3">
+
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div> -->
+
               <div>
                 <div class="">
                   <div class="padding-change">
@@ -108,6 +191,9 @@
                       </button>
                     </div>
                   </div>
+                  <!-- <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
+                                        
+                                    </div> -->
                 </div>
                 <div class="">
                   <div class="padding-change">
@@ -162,6 +248,18 @@
                       </button>
                     </div>
                   </div>
+                  <!-- <div class="col-lg-1 col-md-1 col-xs-12 padding-change centering-btn">
+                                            <button class="copy-af-link" (click)="copyToClipboard('aff-code-1')">
+    
+    
+                                                <p class="p-15 copy-add">
+                                                    <i class="far fa-copy"></i>
+    
+                                                </p>
+    
+    
+                                            </button>
+                                        </div> -->
                 </div>
               </div>
             </div>
@@ -279,28 +377,74 @@
               </div>
             </div>
           </div>
+
+          <!-- <div class="col-lg-6 col-md-6 d-md-block d-lg-none d-xl-none left-7">
+            <div class="height-div">
+              <div class="white-back2">
+                <div class="pos-rltv">
+                  <div class="pos-left">
+                    <h6 class="aff-h2">my affiliates</h6>
+                  </div>
+                </div>
+                <div class="clear"></div>
+
+                <div class="topp">
+                  <div class="table-responsive">
+                    <p class="no-record" *ngIf="noMyAffilliates">
+                      No Data Found
+                    </p>
+                    <table
+                      class="table my-tbl table-striped"
+                      *ngIf="!noMyAffilliates"
+                    >
+                      <thead>
+                        <tr>
+                          <td>
+                            <p class="top-aff-th left-aligned">Name</p>
+                          </td>
+                          <td>
+                            <p class="top-aff-th center-aligned">time</p>
+                          </td>
+                        </tr>
+                      </thead>
+                      <tbody class="">
+                        <tr *ngFor="let affiliate of myAffilliates">
+                          <td class="text-capitalize">
+                            {{affiliate?.UserName}}
+                          </td>
+                          <td class="center-aligned">
+                            {{affiliate?.CreatedOnUTC}}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
 
+      <!--tables section-->
+
       <h1 class="page-title">My LINK Network</h1>
 
-      <!-- Level 1: My Direct LINKs -->
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte d-flex flex-column">
             <p class="transaction-txt"> LEVEL 1: My Direct LINKs </p>
 
-            <!-- Level One Referrals Table -->
             <div class="table-responsive">
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
+                    <th class="f-bold"> Full name</th>
+                    <th class="f-bold"> Username</th>
                     <th class="f-bold">Join Date</th>
                     <th class="f-bold">Direct LINKs</th>
+                    <!-- <th class="f-bold">Emaayas Issued</th> -->
                     <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader1">
@@ -349,56 +493,48 @@
                   *ngIf="!tableLoader1 && levelOneData && levelOneData.length === 0"
                 >
                   <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
+                    <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
                 <tbody
                   *ngIf="!tableLoader1 && levelOneData && levelOneData.length > 0"
                 >
                   <tr *ngFor="let data of levelOneData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{data.directReferrals ? data.directReferrals : 0}}</td>
+                    <!-- <td>{{data.emyaIssued | currency:'crypto'}}</td> -->
+                    <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
               </table>
-            </div>
 
-            <!-- Pagination Controls for Level 1 -->
-            <nav *ngIf="tableOneCount > tableOneSize">
-              <ul class="pagination">
-                <!-- Previous Button -->
-                <li
-                  [class.disabled]="tableOneCurrentPage === 1"
-                  (click)="tableOneCurrentPage > 1 && changePageForTable1(tableOneCurrentPage - 1)"
-                >
-                  <a>Previous</a>
-                </li>
-                <!-- Page Numbers -->
-                <li
-                  *ngFor="let page of getPageNumbers(tableOneCount, tableOneSize)"
-                  [class.active]="page === tableOneCurrentPage"
-                  (click)="changePageForTable1(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <!-- Next Button -->
-                <li
-                  [class.disabled]="tableOneCurrentPage === getPageNumbers(tableOneCount, tableOneSize).length"
-                  (click)="tableOneCurrentPage < getPageNumbers(tableOneCount, tableOneSize).length && changePageForTable1(tableOneCurrentPage + 1)"
-                >
-                  <a>Next</a>
-                </li>
-              </ul>
-            </nav>
+              <div
+                class="pagination-bottom pt-2"
+                *ngIf="!tableLoader1  && levelOneData && levelOneData.length > 0"
+              >
+                <pagination-controls
+                  *ngIf="tableOneSize < tableOneCount"
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePageForTable1($event)"
+                ></pagination-controls>
+
+                <ul class="no-visibility-2 d-none">
+                  <li
+                    *ngFor="let item of levelOneData | paginate: { itemsPerPage: tableOneSize, currentPage: tableOneCurrentPage, totalItems: tableOneCount }"
+                  >
+                    {{item}}
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Level 2: Team LINKs -->
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte d-flex flex-column">
@@ -408,12 +544,12 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
+                    <th class="f-bold"> Full name</th>
+                    <th class="f-bold"> Username</th>
                     <th class="f-bold">Join Date</th>
                     <th class="f-bold">Direct LINKs</th>
+                    <!-- <th class="f-bold">Emaayas Issued</th> -->
                     <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader2">
@@ -462,56 +598,48 @@
                   *ngIf="!tableLoader2 && levelTwoData && levelTwoData.length === 0"
                 >
                   <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
+                    <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
                 <tbody
-                  *ngIf="!tableLoader2 && levelTwoData && levelTwoData.length > 0"
+                  *ngIf="!tableLoader2  && levelTwoData && levelTwoData.length > 0"
                 >
                   <tr *ngFor="let data of levelTwoData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{data.directReferrals ? data.directReferrals : 0}}</td>
+                    <!-- <td>{{data.emyaIssued | currency:'crypto'}}</td> -->
+                    <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
               </table>
-            </div>
 
-            <!-- Pagination Controls for Level 2 -->
-            <nav *ngIf="tableTwoCount > tableTwoSize">
-              <ul class="pagination">
-                <!-- Previous Button -->
-                <li
-                  [class.disabled]="tableTwoCurrentPage === 1"
-                  (click)="tableTwoCurrentPage > 1 && changePageForTable2(tableTwoCurrentPage - 1)"
-                >
-                  <a>Previous</a>
-                </li>
-                <!-- Page Numbers -->
-                <li
-                  *ngFor="let page of getPageNumbers(tableTwoCount, tableTwoSize)"
-                  [class.active]="page === tableTwoCurrentPage"
-                  (click)="changePageForTable2(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <!-- Next Button -->
-                <li
-                  [class.disabled]="tableTwoCurrentPage === getPageNumbers(tableTwoCount, tableTwoSize).length"
-                  (click)="tableTwoCurrentPage < getPageNumbers(tableTwoCount, tableTwoSize).length && changePageForTable2(tableTwoCurrentPage + 1)"
-                >
-                  <a>Next</a>
-                </li>
-              </ul>
-            </nav>
+              <div
+                class="pagination-bottom pt-2"
+                *ngIf="!tableLoader2 && levelTwoData"
+              >
+                <pagination-controls
+                  *ngIf="tableTwoSize < tableTwoCount"
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePageForTable2($event)"
+                ></pagination-controls>
+
+                <ul class="no-visibility-2 d-none">
+                  <li
+                    *ngFor="let item of levelTwoData | paginate: { itemsPerPage: tabletwoSize, currentPage: tableTwoCurrentPage, totalItems: tableTwoCount }"
+                  >
+                    {{item}}
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Level 3: Team LINKs -->
       <div class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte d-flex flex-column">
@@ -521,12 +649,12 @@
               <table class="table table-striped">
                 <thead>
                   <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
+                    <th class="f-bold"> Full name</th>
+                    <th class="f-bold"> Username</th>
                     <th class="f-bold">Join Date</th>
                     <th class="f-bold">Direct LINKs</th>
+                    <!-- <th class="f-bold">Emaayas Issued</th> -->
                     <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
                   </tr>
                 </thead>
                 <tbody *ngIf="tableLoader3">
@@ -575,77 +703,120 @@
                   *ngIf="!tableLoader3 && levelThreeData && levelThreeData.length === 0"
                 >
                   <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
+                    <td colspan="12" class="no-data-tbl">no data to display</td>
                   </tr>
                 </tbody>
                 <tbody
                   *ngIf="!tableLoader3 && levelThreeData && levelThreeData.length > 0"
                 >
                   <tr *ngFor="let data of levelThreeData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
+                    <td>{{data.fullName}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>{{data.joinDate}}</td>
+                    <td>{{data.directReferrals ? data.directReferrals : 0}}</td>
+                    <!-- <td>{{data.emyaIssued | currency:'crypto'}}</td> -->
+                    <td>{{data.bonusEarned | currency:'crypto'}}</td>
                   </tr>
                 </tbody>
               </table>
-            </div>
 
-            <!-- Pagination Controls for Level 3 -->
-            <nav *ngIf="tableThreeCount > tableThreeSize">
-              <ul class="pagination">
-                <!-- Previous Button -->
-                <li
-                  [class.disabled]="tableThreeCurrentPage === 1"
-                  (click)="tableThreeCurrentPage > 1 && changePageForTable3(tableThreeCurrentPage - 1)"
-                >
-                  <a>Previous</a>
-                </li>
-                <!-- Page Numbers -->
-                <li
-                  *ngFor="let page of getPageNumbers(tableThreeCount, tableThreeSize)"
-                  [class.active]="page === tableThreeCurrentPage"
-                  (click)="changePageForTable3(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <!-- Next Button -->
-                <li
-                  [class.disabled]="tableThreeCurrentPage === getPageNumbers(tableThreeCount, tableThreeSize).length"
-                  (click)="tableThreeCurrentPage < getPageNumbers(tableThreeCount, tableThreeSize).length && changePageForTable3(tableThreeCurrentPage + 1)"
-                >
-                  <a>Next</a>
-                </li>
-              </ul>
-            </nav>
+              <div
+                class="pagination-bottom pt-2"
+                *ngIf="!tableLoader3 && levelThreeData"
+              >
+                <pagination-controls
+                  *ngIf="tableThreeSize < tableThreeCount"
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePageForTable3($event)"
+                ></pagination-controls>
+
+                <ul class="no-visibility-2 d-none">
+                  <li
+                    *ngFor="let item of levelThreeData | paginate: { itemsPerPage: tablethreeSize, currentPage: tableThreeCurrentPage, totalItems: tableThreeCount }"
+                  >
+                    {{item}}
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Level 4: Team LINKs -->
-      <div
-        class="table-section"
-        *ngIf="levelFourData && levelFourData.length > 0"
-      >
-        <div class="piptel-transaction-history">
-          <div class="header header-whte d-flex flex-column">
-            <p class="transaction-txt">LEVEL 4: Team LINKs</p>
+      <!--end table section-->
+      <!-- 
+      <div class="row">
+        <div class="col-md-12">
+          <div class="all-white">
+            <div class="pos-rltv heading-left">
+              <div class="aff-earnings">
+                <h6>{{'LINK EARNINGS' | translate}}</h6>
+              </div>
+            </div>
 
-            <div class="table-responsive">
-              <table class="table table-striped">
+             <div class="download-csv" *ngIf="!noAffiliateEarners">
+              <div class="heading-right right-aligned" (click)="downloadCSV()">
+                <h1 class="download-csv">
+                  {{'Download as' | translate}} CSV
+                  <span class="download-image">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M2.6665 11.3335V12.6668C2.6665 13.0205 2.80698 13.3596 3.05703 13.6096C3.30708 13.8597 3.64622 14.0002 3.99984 14.0002H11.9998C12.3535 14.0002 12.6926 13.8597 12.9426 13.6096C13.1927 13.3596 13.3332 13.0205 13.3332 12.6668V11.3335"
+                        stroke="#191919"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M4.6665 7.3335L7.99984 10.6668L11.3332 7.3335"
+                        stroke="#191919"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M8 2.6665V10.6665"
+                        stroke="#191919"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </h1>
+              </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="table-responsive aff-earners-div">
+              <table class="table table-striped affiliates-detail">
                 <thead>
                   <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
-                    <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct LINKs</th>
-                    <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
+                    <td>
+                      <p>{{'Token Name' | translate}}</p>
+                    </td>
+                    <td>
+                      <p>{{'AMOUNT INVESTED' | translate}}</p>
+                    </td>
+                    <td>
+                      <p>{{'Username' | translate}}</p>
+                    </td>
+                    <td>
+                      <p>{{'Date' | translate}}</p>
+                    </td>
                   </tr>
                 </thead>
-                <tbody *ngIf="tableLoader4">
+
+                <tbody *ngIf="affiliatesLoader">
                   <tr>
                     <td colspan="12">
                       <div class="custom-loader">
@@ -688,622 +859,85 @@
                   </tr>
                 </tbody>
                 <tbody
-                  *ngIf="!tableLoader4 && levelFourData && levelFourData.length === 0"
+                  *ngIf="!affiliatesLoader && !totalAffiliatesArray.length"
                 >
                   <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader4 && levelFourData && levelFourData.length > 0"
-                >
-                  <tr *ngFor="let data of levelFourData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination Controls for Level 3 -->
-            <nav *ngIf="tableFourCount > tableFourSize">
-              <ul class="pagination">
-                <!-- Previous Button -->
-                <li
-                  [class.disabled]="tableFourCurrentPage === 1"
-                  (click)="tableFourCurrentPage > 1 && changePageForTable4(tableFourCurrentPage - 1)"
-                >
-                  <a>Previous</a>
-                </li>
-                <!-- Page Numbers -->
-                <li
-                  *ngFor="let page of getPageNumbers(tableFourCount, tableFourSize)"
-                  [class.active]="page === tableFourCurrentPage"
-                  (click)="changePageForTable4(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <!-- Next Button -->
-                <li
-                  [class.disabled]="tableFourCurrentPage === getPageNumbers(tableFourCount, tableFourSize).length"
-                  (click)="tableFourCurrentPage < getPageNumbers(tableFourCount, tableFourSize).length && changePageForTable3(tableFourCurrentPage + 1)"
-                >
-                  <a>Next</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-
-      <!-- Level 5: Team LINKs -->
-      <div
-        class="table-section"
-        *ngIf="levelFiveData && levelFiveData.length > 0"
-      >
-        <div class="piptel-transaction-history">
-          <div class="header header-whte d-flex flex-column">
-            <p class="transaction-txt">LEVEL 5: Team LINKs</p>
-
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
-                    <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct LINKs</th>
-                    <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
-                  </tr>
-                </thead>
-                <tbody *ngIf="tableLoader5">
-                  <tr>
-                    <td colspan="12">
-                      <div class="custom-loader">
-                        <svg
-                          class="lds-comets"
-                          width="100%"
-                          height="100%"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          viewBox="0 0 100 100"
-                          preserveAspectRatio="xMidYMid"
-                        >
-                          <g transform="rotate(208.756 50 50)">
-                            <animateTransform
-                              attributeName="transform"
-                              type="rotate"
-                              repeatCount="indefinite"
-                              values="360 50 50;0 50 50"
-                              keyTimes="0;1"
-                              dur="2.3s"
-                              keySplines="0.5 0.5 0.5 0.5"
-                              calcMode="spline"
-                            ></animateTransform>
-                            <path
-                              fill="#85ffbd"
-                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                            ></path>
-                            <path
-                              fill="#316598"
-                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                            ></path>
-                            <path
-                              fill="#a4bcc2"
-                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                            ></path>
-                          </g>
-                        </svg>
-                      </div>
+                    <td colspan="12" class="text-center">
+                      <p class="no-record">
+                        {{'No Refer Earners!' | translate}}
+                      </p>
                     </td>
                   </tr>
                 </tbody>
+
                 <tbody
-                  *ngIf="!tableLoader5 && levelFiveData && levelFiveData.length === 0"
+                  *ngIf="!affiliatesLoader && totalAffiliatesArray && totalAffiliatesArray.length > 0"
                 >
-                  <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader5 && levelFiveData && levelFiveData.length > 0"
-                >
-                  <tr *ngFor="let data of levelFiveData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                  <tr *ngFor="let affiliate of totalAffiliatesArray">
+                    <td class="text-uppercase text-center">
+                      <p class="amounts-text">
+                        {{affiliate.currency | currency:'crypto'}}
+                      </p>
+                    </td>
+                    <td class="text-center">
+                      <p class="amounts-text">
+                        {{affiliate.amountInvested | currency: 'crypto'}}
+                      </p>
+                    </td>
 
-            <!-- Pagination Controls for Level 5 -->
-            <nav *ngIf="tableFiveCount > tableFiveSize">
-              <ul class="pagination">
-                <li
-                  [class.disabled]="tableFiveCurrentPage === 1"
-                  (click)="tableFiveCurrentPage > 1 && changePageForTable5(tableFiveCurrentPage - 1)"
-                >
-                  <a>Previous</a>
-                </li>
-                <li
-                  *ngFor="let page of getPageNumbers(tableFiveCount, tableFiveSize)"
-                  [class.active]="page === tableFiveCurrentPage"
-                  (click)="changePageForTable5(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <li
-                  [class.disabled]="tableFiveCurrentPage === getPageNumbers(tableFiveCount, tableFiveSize).length"
-                  (click)="tableFiveCurrentPage < getPageNumbers(tableFiveCount, tableFiveSize).length && changePageForTable5(tableFiveCurrentPage + 1)"
-                >
-                  <a>Next</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
+                    <td class="text-center">
+                      <p class="amounts-text">{{affiliate.userName}}</p>
+                    </td>
 
-      <!-- Level 6: Team LINKs -->
-      <div
-        class="table-section"
-        *ngIf="levelSixData && levelSixData.length > 0"
-      >
-        <div class="piptel-transaction-history">
-          <div class="header header-whte d-flex flex-column">
-            <p class="transaction-txt">LEVEL 6: Team LINKs</p>
-
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
-                    <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct LINKs</th>
-                    <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
-                  </tr>
-                </thead>
-                <tbody *ngIf="tableLoader6">
-                  <tr>
-                    <td colspan="12">
-                      <div class="custom-loader">
-                        <svg
-                          class="lds-comets"
-                          width="100%"
-                          height="100%"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          viewBox="0 0 100 100"
-                          preserveAspectRatio="xMidYMid"
-                        >
-                          <g transform="rotate(208.756 50 50)">
-                            <animateTransform
-                              attributeName="transform"
-                              type="rotate"
-                              repeatCount="indefinite"
-                              values="360 50 50;0 50 50"
-                              keyTimes="0;1"
-                              dur="2.3s"
-                              keySplines="0.5 0.5 0.5 0.5"
-                              calcMode="spline"
-                            ></animateTransform>
-                            <path
-                              fill="#85ffbd"
-                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                            ></path>
-                            <path
-                              fill="#316598"
-                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                            ></path>
-                            <path
-                              fill="#a4bcc2"
-                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                            ></path>
-                          </g>
-                        </svg>
-                      </div>
+                    <td class="text-center">
+                      <p class="amounts-text">
+                        {{affiliate.time | date : 'yyyy-MM-dd'}}
+                      </p>
                     </td>
                   </tr>
                 </tbody>
-                <tbody
-                  *ngIf="!tableLoader6 && levelSixData && levelSixData.length === 0"
-                >
-                  <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader6 && levelSixData && levelSixData.length > 0"
-                >
-                  <tr *ngFor="let data of levelSixData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
-                  </tr>
-                </tbody>
               </table>
+
+              <div
+                class="pagination-table clearfix"
+                *ngIf="affiliateEarningsPageSize < totalAffiliateEarningsRecords"
+              >
+                <ul class="no-visibility">
+                  <li
+                    *ngFor="let item of totalAffiliatesArray | paginate: { itemsPerPage: affiliateEarningsPageSize, currentPage: affiliateEarningsPageNumber, totalItems: totalAffiliateEarningsRecords }"
+                  >
+                    {{item}}
+                  </li>
+                </ul>
+
+                <pagination-controls
+                  responsive="true"
+                  previousLabel=""
+                  nextLabel=""
+                  (pageChange)="changePageNumber($event)"
+                ></pagination-controls>
+              </div>
             </div>
 
-            <!-- Pagination Controls for Level 6 -->
-            <nav *ngIf="tableSixCount > tableSixSize">
-              <ul class="pagination">
-                <li
-                  [class.disabled]="tableSixCurrentPage === 1"
-                  (click)="tableSixCurrentPage > 1 && changePageForTable6(tableSixCurrentPage - 1)"
-                >
-                  <a>Previous</a>
+            <div
+              class="bg-table clearfix"
+              *ngIf="!affiliatesLoader && totalAffiliatesArray.length > 0"
+            >
+              <ul class="clearfix total-row">
+                <li>
+                  <p class="total-head">{{'Total'|translate}} :</p>
                 </li>
-                <li
-                  *ngFor="let page of getPageNumbers(tableSixCount, tableSixSize)"
-                  [class.active]="page === tableSixCurrentPage"
-                  (click)="changePageForTable6(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <li
-                  [class.disabled]="tableSixCurrentPage === getPageNumbers(tableSixCount, tableSixSize).length"
-                  (click)="tableSixCurrentPage < getPageNumbers(tableSixCount, tableSixSize).length && changePageForTable6(tableSixCurrentPage + 1)"
-                >
-                  <a>Next</a>
+
+                <li>
+                  <p class="total-values">
+                    {{totalEarningInEMYA | currency:'crypto'}} $EMYA
+                  </p>
                 </li>
               </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-
-      <!-- Level 7: Team LINKs -->
-      <div
-        class="table-section"
-        *ngIf="levelSevenData && levelSevenData.length > 0"
-      >
-        <div class="piptel-transaction-history">
-          <div class="header header-whte d-flex flex-column">
-            <p class="transaction-txt">LEVEL 7: Team LINKs</p>
-
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
-                    <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct LINKs</th>
-                    <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
-                  </tr>
-                </thead>
-                <tbody *ngIf="tableLoader7">
-                  <tr>
-                    <td colspan="12">
-                      <div class="custom-loader">
-                        <svg
-                          class="lds-comets"
-                          width="100%"
-                          height="100%"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          viewBox="0 0 100 100"
-                          preserveAspectRatio="xMidYMid"
-                        >
-                          <g transform="rotate(208.756 50 50)">
-                            <animateTransform
-                              attributeName="transform"
-                              type="rotate"
-                              repeatCount="indefinite"
-                              values="360 50 50;0 50 50"
-                              keyTimes="0;1"
-                              dur="2.3s"
-                              keySplines="0.5 0.5 0.5 0.5"
-                              calcMode="spline"
-                            ></animateTransform>
-                            <path
-                              fill="#85ffbd"
-                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                            ></path>
-                            <path
-                              fill="#316598"
-                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                            ></path>
-                            <path
-                              fill="#a4bcc2"
-                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                            ></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader7 && levelSevenData && levelSevenData.length === 0"
-                >
-                  <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader7 && levelSevenData && levelSevenData.length > 0"
-                >
-                  <tr *ngFor="let data of levelSevenData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
-                  </tr>
-                </tbody>
-              </table>
             </div>
-
-            <!-- Pagination Controls for Level 7 -->
-            <nav *ngIf="tableSevenCount > tableSevenSize">
-              <ul class="pagination">
-                <li
-                  [class.disabled]="tableSevenCurrentPage === 1"
-                  (click)="tableSevenCurrentPage > 1 && changePageForTable7(tableSevenCurrentPage - 1)"
-                >
-                  <a>Previous</a>
-                </li>
-                <li
-                  *ngFor="let page of getPageNumbers(tableSevenCount, tableSevenSize)"
-                  [class.active]="page === tableSevenCurrentPage"
-                  (click)="changePageForTable7(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <li
-                  [class.disabled]="tableSevenCurrentPage === getPageNumbers(tableSevenCount, tableSevenSize).length"
-                  (click)="tableSevenCurrentPage < getPageNumbers(tableSevenCount, tableSevenSize).length && changePageForTable7(tableSevenCurrentPage + 1)"
-                >
-                  <a>Next</a>
-                </li>
-              </ul>
-            </nav>
           </div>
         </div>
-      </div>
-
-      <!-- Level 8: Team LINKs -->
-      <div
-        class="table-section"
-        *ngIf="levelEightData && levelEightData.length > 0"
-      >
-        <div class="piptel-transaction-history">
-          <div class="header header-whte d-flex flex-column">
-            <p class="transaction-txt">LEVEL 8: Team LINKs</p>
-
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
-                    <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct LINKs</th>
-                    <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
-                  </tr>
-                </thead>
-                <tbody *ngIf="tableLoader8">
-                  <tr>
-                    <td colspan="12">
-                      <div class="custom-loader">
-                        <svg
-                          class="lds-comets"
-                          width="100%"
-                          height="100%"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          viewBox="0 0 100 100"
-                          preserveAspectRatio="xMidYMid"
-                        >
-                          <g transform="rotate(208.756 50 50)">
-                            <animateTransform
-                              attributeName="transform"
-                              type="rotate"
-                              repeatCount="indefinite"
-                              values="360 50 50;0 50 50"
-                              keyTimes="0;1"
-                              dur="2.3s"
-                              keySplines="0.5 0.5 0.5 0.5"
-                              calcMode="spline"
-                            ></animateTransform>
-                            <path
-                              fill="#85ffbd"
-                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                            ></path>
-                            <path
-                              fill="#316598"
-                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                            ></path>
-                            <path
-                              fill="#a4bcc2"
-                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                            ></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader8 && levelEightData && levelEightData.length === 0"
-                >
-                  <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader8 && levelEightData && levelEightData.length > 0"
-                >
-                  <tr *ngFor="let data of levelEightData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination Controls for Level 8 -->
-            <nav *ngIf="tableEightCount > tableEightSize">
-              <ul class="pagination">
-                <li
-                  [class.disabled]="tableEightCurrentPage === 1"
-                  (click)="tableEightCurrentPage > 1 && changePageForTable8(tableEightCurrentPage - 1)"
-                >
-                  <a>Previous</a>
-                </li>
-                <li
-                  *ngFor="let page of getPageNumbers(tableEightCount, tableEightSize)"
-                  [class.active]="page === tableEightCurrentPage"
-                  (click)="changePageForTable8(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <li
-                  [class.disabled]="tableEightCurrentPage === getPageNumbers(tableEightCount, tableEightSize).length"
-                  (click)="tableEightCurrentPage < getPageNumbers(tableEightCount, tableEightSize).length && changePageForTable8(tableEightCurrentPage + 1)"
-                >
-                  <a>Next</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
-
-      <!-- Level 9: Team LINKs -->
-      <div
-        class="table-section"
-        *ngIf="levelNineData && levelNineData.length > 0"
-      >
-        <div class="piptel-transaction-history">
-          <div class="header header-whte d-flex flex-column">
-            <p class="transaction-txt">LEVEL 9: Team LINKs</p>
-
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="f-bold">Full name</th>
-                    <th class="f-bold">Username</th>
-                    <th class="f-bold">Join Date</th>
-                    <th class="f-bold">Direct LINKs</th>
-                    <th class="f-bold">USDT Earned</th>
-                    <th class="f-bold">Token Earned</th>
-                  </tr>
-                </thead>
-                <tbody *ngIf="tableLoader9">
-                  <tr>
-                    <td colspan="12">
-                      <div class="custom-loader">
-                        <svg
-                          class="lds-comets"
-                          width="100%"
-                          height="100%"
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          viewBox="0 0 100 100"
-                          preserveAspectRatio="xMidYMid"
-                        >
-                          <g transform="rotate(208.756 50 50)">
-                            <animateTransform
-                              attributeName="transform"
-                              type="rotate"
-                              repeatCount="indefinite"
-                              values="360 50 50;0 50 50"
-                              keyTimes="0;1"
-                              dur="2.3s"
-                              keySplines="0.5 0.5 0.5 0.5"
-                              calcMode="spline"
-                            ></animateTransform>
-                            <path
-                              fill="#85ffbd"
-                              d="M91,74.1C75.6,98,40.7,102.4,21.2,81c11,9.9,26.8,13.5,40.8,8.7c7.4-2.5,13.9-7.2,18.7-13.3 c1.8-2.3,3.5-7.6,6.7-8C90.5,67.9,92.7,71.5,91,74.1z"
-                            ></path>
-                            <path
-                              fill="#316598"
-                              d="M50.7,5c-4,0.2-4.9,5.9-1.1,7.3c1.8,0.6,4.1,0.1,5.9,0.3c2.1,0.1,4.3,0.5,6.4,0.9c5.8,1.4,11.3,4,16,7.8 C89.8,31.1,95.2,47,92,62c4.2-13.1,1.6-27.5-6.4-38.7c-3.4-4.7-7.8-8.7-12.7-11.7C66.6,7.8,58.2,4.6,50.7,5z"
-                            ></path>
-                            <path
-                              fill="#a4bcc2"
-                              d="M30.9,13.4C12,22.7,2.1,44.2,7.6,64.8c0.8,3.2,3.8,14.9,9.3,10.5c2.4-2,1.1-4.4-0.2-6.6 c-1.7-3-3.1-6.2-4-9.5C10.6,51,11.1,41.9,14.4,34c4.7-11.5,14.1-19.7,25.8-23.8C37,11,33.9,11.9,30.9,13.4z"
-                            ></path>
-                          </g>
-                        </svg>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader9 && levelNineData && levelNineData.length === 0"
-                >
-                  <tr>
-                    <td colspan="12" class="no-data-tbl">No data to display</td>
-                  </tr>
-                </tbody>
-                <tbody
-                  *ngIf="!tableLoader9 && levelNineData && levelNineData.length > 0"
-                >
-                  <tr *ngFor="let data of levelNineData">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.directReferrals || 0 }}</td>
-                    <td>{{ data.usdtEarned | currency:'crypto' }}</td>
-                    <td>{{ data.tokenEarned | currency:'crypto' }}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <!-- Pagination Controls for Level 9 -->
-            <nav *ngIf="tableNineCount > tableNineSize">
-              <ul class="pagination">
-                <li
-                  [class.disabled]="tableNineCurrentPage === 1"
-                  (click)="tableNineCurrentPage > 1 && changePageForTable9(tableNineCurrentPage - 1)"
-                >
-                  <a>Previous</a>
-                </li>
-                <li
-                  *ngFor="let page of getPageNumbers(tableNineCount, tableNineSize)"
-                  [class.active]="page === tableNineCurrentPage"
-                  (click)="changePageForTable9(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <li
-                  [class.disabled]="tableNineCurrentPage === getPageNumbers(tableNineCount, tableNineSize).length"
-                  (click)="tableNineCurrentPage < getPageNumbers(tableNineCount, tableNineSize).length && changePageForTable9(tableNineCurrentPage + 1)"
-                >
-                  <a>Next</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col-md-8 col-lg-8 col-sm-7 col-xs-12">
@@ -1349,7 +983,12 @@
 
             <div class="posReltv">
               <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12"></div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                  <!-- <p class="aff-h2">
+                    {{'REVENUE FROM THE LINK FOR THE RESPECTIVE USERS' |
+                    translate}}
+                  </p> -->
+                </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 scndHlf">
                   <div class="rytAlgnmnt">
                     <label class="marryt20"> {{'Show' | translate}}: </label>
@@ -1398,10 +1037,151 @@
             </div>
           </div>
         </div>
+
+        <!-- <div class="col-md-4 col-lg-4 col-sm-5 col-xs-12">
+          <div class="height-div">
+            <div class="white-back2">
+              <div class="pos-rltv">
+                <div class="pos-left">
+                  <h6 class="aff-h2">{{'MY LINK' | translate}}</h6>
+                </div>
+              </div>
+              <div class="clear"></div>
+
+              <div class="topp">
+                <div class="table-responsive">
+                  <p class="no-record" *ngIf="noMyAffilliates">
+                    {{ 'No Data Found' | translate}}
+                  </p>
+                  <table class="table my-tbl" *ngIf="!noMyAffilliates">
+                    <thead>
+                      <tr>
+                        <td>
+                          <p class="top-aff-th left-aligned">
+                            {{'Name' | translate}}
+                          </p>
+                        </td>
+                        <td>
+                          <p class="top-aff-th left-aligned">
+                            {{'Date & Time' | translate}}
+                          </p>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody class="">
+                      <tr *ngFor="let affiliate of myAffilliates">
+                        <td
+                          class="text-capitalize"
+                          style="text-align: left !important"
+                        >
+                          {{affiliate?.UserName}}
+                        </td>
+                        <td
+                          class="text-capitalize"
+                          style="text-align: left !important"
+                        >
+                          {{affiliate?.CreatedOnUTC}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="pagination-bottom">
+                  <ul class="no-visibility">
+                    <li
+                      *ngFor="let item of myAffilliates | paginate: { itemsPerPage: myAffiliatesPageSize, currentPage: myAffiliatesPageNumber, totalItems: totalAffiliatesForUser }"
+                    >
+                      {{item}}
+                    </li>
+                  </ul>
+
+                  <pagination-controls
+                    *ngIf="myAffiliatesPageSize < totalAffiliatesForUser"
+                    responsive="true"
+                    previousLabel=""
+                    nextLabel=""
+                    (pageChange)="changePageNumberForMyAffiliates($event)"
+                  ></pagination-controls>
+                </div>
+
+                <div class="clear"></div>
+              </div>
+            </div>
+          </div>
+        </div> -->
       </div>
 
       <div class="row2">
-        <div class="row"></div>
+        <div class="row">
+          <!-- <div class="col-lg-6 ">    d-md-none d-sm-none d-xs-none d-lg-block d-none left-7
+                    
+                        <div class="height-div">
+                            <div class="white-back2">
+                                <div class="pos-rltv">
+
+                                    <div class="pos-left">
+                                        <h6 class="aff-h2">My Referrals
+
+                                        </h6>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="clear"></div>
+
+                                <div class="topp">
+                                    <div class="table-responsive">
+                                        <p class="no-record" *ngIf="noMyAffilliates">No Data Found</p>
+                                        <table class="table my-tbl table-striped" *ngIf="!noMyAffilliates">
+                                            <thead>
+                                                <tr>
+                                                    <td>
+
+                                                        <p class="top-aff-th left-aligned">Name</p>
+
+
+                                                    </td>
+                                                    <td>
+
+                                                        <p class="top-aff-th  center-aligned">time</p>
+
+
+                                                    </td>
+                                                    <td>
+
+                                                        <p class="top-aff-th center-aligned">bonus</p>
+
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="">
+
+                                                <tr *ngFor="let affiliate of myAffilliates">
+                                                    <td class="text-capitalize">{{affiliate?.Name}}</td>
+                                                    <td class="center-aligned">{{affiliate?.Date}} </td>
+                                                    <td class="text-uppercase center-aligned">$ {{affiliate?.AmountInUsd}}</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+
+                            <div>
+                                <img class="tbl-img" src="../../../assets/img/my affiliates bg.png">
+                            </div>
+
+
+                        </div>
+                    </div> -->
+        </div>
       </div>
 
       <div class="table-section">
@@ -1472,7 +1252,10 @@
                           target="_blank"
                           [attr.href]="
                             item.Status == 'COMPLETED'
-                              ? linkForTransaction(item.TransferedTxHash, item.ChainName)
+                              ? linkForTransaction(
+                                  item.TransferedTxHash,
+                                  item.ChainName
+                                )
                               : null
                           "
                         >
@@ -1504,33 +1287,26 @@
               </table>
             </div>
 
-            <!-- Pagination Controls for Withdrawal History -->
-            <nav *ngIf="withdrawalCount > withdrawSize">
-              <ul class="pagination">
-                <!-- Previous Button -->
+            <div
+              class="pagination-bottom pt-2"
+              *ngIf="!withdrawalLoader && withdrawalData && withdrawalData.length > 0"
+            >
+              <pagination-controls
+                *ngIf="withdrawSize < withdrawalCount"
+                responsive="true"
+                previousLabel=""
+                nextLabel=""
+                (pageChange)="changePageForWithdrawals($event)"
+              ></pagination-controls>
+
+              <ul class="no-visibility-2 d-none">
                 <li
-                  [class.disabled]="withdrawCurrentPage === 1"
-                  (click)="withdrawCurrentPage > 1 && changePageForWithdrawals(withdrawCurrentPage - 1)"
+                  *ngFor="let item of withdrawalData | paginate: { itemsPerPage: withdrawSize, currentPage: withdrawCurrentPage, totalItems: withdrawalCount }"
                 >
-                  <a>Previous</a>
-                </li>
-                <!-- Page Numbers -->
-                <li
-                  *ngFor="let page of getPageNumbers(withdrawalCount, withdrawSize)"
-                  [class.active]="page === withdrawCurrentPage"
-                  (click)="changePageForWithdrawals(page)"
-                >
-                  <a>{{ page }}</a>
-                </li>
-                <!-- Next Button -->
-                <li
-                  [class.disabled]="withdrawCurrentPage === getPageNumbers(withdrawalCount, withdrawSize).length"
-                  (click)="withdrawCurrentPage < getPageNumbers(withdrawalCount, withdrawSize).length && changePageForWithdrawals(withdrawCurrentPage + 1)"
-                >
-                  <a>Next</a>
+                  {{ item }}
                 </li>
               </ul>
-            </nav>
+            </div>
           </div>
         </div>
       </div>
