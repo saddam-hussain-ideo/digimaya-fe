@@ -739,27 +739,27 @@ export class Affiliate {
 
             console.log('totalInvestment', this.totalInvestment);
 
-            if (Number(this.totalInvestment) > 6) {
+            if (Number(this.totalInvestment) > 60) {
               this.levelFourReferrals();
             }
 
-            if (Number(this.totalInvestment) > 8) {
+            if (Number(this.totalInvestment) > 80) {
               this.levelFiveReferrals();
             }
 
-            if (Number(this.totalInvestment) > 10) {
+            if (Number(this.totalInvestment) > 100) {
               this.levelSixReferrals();
             }
 
-            if (Number(this.totalInvestment) > 12) {
+            if (Number(this.totalInvestment) > 120) {
               this.levelSevenReferrals();
             }
 
-            if (Number(this.totalInvestment) > 14) {
+            if (Number(this.totalInvestment) > 140) {
               this.levelEightReferrals();
             }
 
-            if (Number(this.totalInvestment) > 16) {
+            if (Number(this.totalInvestment) > 160) {
               this.levelNineReferrals();
             }
           }
