@@ -47,6 +47,25 @@ export class AffilliateService {
       .map((res) => res.json());
   }
 
+  getAffiliateInvestments(
+    userId,
+    allData = true,
+    pageNumber = 1,
+    pageSize = 10
+  ) {
+    const queryParams = `?userId=${userId}&pageNumber=${pageNumber}&pageSize=${pageSize}&allData=${allData}`;
+    const headers = new Headers();
+
+    headers.append('Content-Type', 'application/json; charset=UTF-8');
+    headers.append('authorization', this.userToken);
+
+    return this.http
+      .get(environment.BaseUrl + `user/getaffiliateinvestments${queryParams}`, {
+        headers: headers
+      })
+      .map((res) => res.json());
+  }
+
   getCsvData(userid) {
     const headers = new Headers();
 

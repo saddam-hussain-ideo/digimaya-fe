@@ -30,6 +30,9 @@ export class Affiliate {
   public totalAffiliateEarningsRecords: any;
   public totalAffiliateCurrentPage = 1;
   public totalAffiliatesArray = [];
+  cpaAffiliates = [];
+  totalInvestment: number = 0;
+  cpaTotalCount: number = 0;
   public csvData: any;
   public totalEarningInEMYA: any;
   public totalEarningInUSD: any;
@@ -314,6 +317,7 @@ export class Affiliate {
     this.getTopReferrals();
     this.getTopAffiliates();
     this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
+    this.getAffiliateInvestments();
     this.affiliateGraph();
 
     this.getWithdrawalHistory();
@@ -700,30 +704,6 @@ export class Affiliate {
               other: a.data.referralLicencesCount['other']
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
-
-            if (Number(this.totalEarningSoFar) > 6) {
-              this.levelFourReferrals();
-            }
-
-            if (Number(this.totalEarningSoFar) > 8) {
-              this.levelFiveReferrals();
-            }
-
-            if (Number(this.totalEarningSoFar) > 10) {
-              this.levelSixReferrals();
-            }
-
-            if (Number(this.totalEarningSoFar) > 12) {
-              this.levelSevenReferrals();
-            }
-
-            if (Number(this.totalEarningSoFar) > 14) {
-              this.levelEightReferrals();
-            }
-
-            if (Number(this.totalEarningSoFar) > 16) {
-              this.levelNineReferrals();
-            }
           }
         },
         (err) => {
@@ -737,6 +717,59 @@ export class Affiliate {
           if (obj.code == 400) {
             this.noAffiliateEarners = true;
           }
+          if (obj.code == 401) {
+            localStorage.clear();
+            this.router.navigate(['/']);
+          }
+        }
+      );
+  }
+
+  getAffiliateInvestments() {
+    this._affilliateService
+      .getAffiliateInvestments(this.userObject.UserId)
+      .subscribe(
+        (a) => {
+          if (a.code == 200 || a.code == 304) {
+            this.cpaAffiliates = a.data.data;
+            this.cpaTotalCount = a.data.totalCount;
+            this.totalInvestment = parseFloat(
+              Number(a.data.totalInvestment).toFixed(8)
+            );
+
+            console.log('totalInvestment', this.totalInvestment);
+
+            if (Number(this.totalInvestment) > 6) {
+              this.levelFourReferrals();
+            }
+
+            if (Number(this.totalInvestment) > 8) {
+              this.levelFiveReferrals();
+            }
+
+            if (Number(this.totalInvestment) > 10) {
+              this.levelSixReferrals();
+            }
+
+            if (Number(this.totalInvestment) > 12) {
+              this.levelSevenReferrals();
+            }
+
+            if (Number(this.totalInvestment) > 14) {
+              this.levelEightReferrals();
+            }
+
+            if (Number(this.totalInvestment) > 16) {
+              this.levelNineReferrals();
+            }
+          }
+        },
+        (err) => {
+          let obj;
+          if (err._body) {
+            obj = JSON.parse(err._body);
+          }
+          console.log(obj);
           if (obj.code == 401) {
             localStorage.clear();
             this.router.navigate(['/']);
@@ -900,7 +933,6 @@ export class Affiliate {
   }
 
   linkForTransaction(hash, chain) {
-    console.log(hash, chain);
     if (chain === 'bsc-mainnet') {
       return `https://bscscan.com/tx/${hash}`;
     } else if (chain === 'ethereum-mainnet') {
