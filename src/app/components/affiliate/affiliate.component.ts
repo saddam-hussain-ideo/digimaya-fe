@@ -32,6 +32,9 @@ export class Affiliate {
   public totalAffiliatesArray = [];
   cpaAffiliates = [];
   totalInvestment: number = 0;
+  userInvestment: number = 0;
+  affiliatesInvestment: number = 0;
+  affiliateLevelUnlocked: number = 0;
   cpaTotalCount: number = 0;
   public csvData: any;
   public totalEarningInEMYA: any;
@@ -317,7 +320,7 @@ export class Affiliate {
     this.getTopReferrals();
     this.getTopAffiliates();
     this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
-    this.getAffiliateInvestments();
+
     this.affiliateGraph();
 
     this.getWithdrawalHistory();
@@ -698,12 +701,40 @@ export class Affiliate {
             this.totalEarningInEMYA = a.data.totalEarningInEMYA;
             this.totalEarningInUSD = a.data.totalEarningInUSDT;
             this.totalEarningSoFar = a.data.totalEarningSoFar;
+            this.totalInvestment = a.data.totalInvestment;
+            this.userInvestment = a.data.userInvestment;
+            this.affiliatesInvestment = a.data.affiliatesInvestment;
+            this.affiliateLevelUnlocked = a.data.affiliateLevelUnlocked;
             this.totalAffiliatesArray = a.data.earningList;
             this.referalLicencesCount = {
               gpa: a.data.referralLicencesCount['gpa'],
               other: a.data.referralLicencesCount['other']
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
+
+            if (Number(this.affiliateLevelUnlocked) >= 4) {
+              this.levelFourReferrals();
+            }
+
+            if (Number(this.affiliateLevelUnlocked) >= 5) {
+              this.levelFiveReferrals();
+            }
+
+            if (Number(this.affiliateLevelUnlocked) >= 6) {
+              this.levelSixReferrals();
+            }
+
+            if (Number(this.affiliateLevelUnlocked) >= 7) {
+              this.levelSevenReferrals();
+            }
+
+            if (Number(this.affiliateLevelUnlocked) >= 8) {
+              this.levelEightReferrals();
+            }
+
+            if (Number(this.affiliateLevelUnlocked) >= 9) {
+              this.levelNineReferrals();
+            }
           }
         },
         (err) => {
@@ -725,58 +756,32 @@ export class Affiliate {
       );
   }
 
-  getAffiliateInvestments() {
-    this._affilliateService
-      .getAffiliateInvestments(this.userObject.UserId)
-      .subscribe(
-        (a) => {
-          if (a.code == 200 || a.code == 304) {
-            this.cpaAffiliates = a.data.data;
-            this.cpaTotalCount = a.data.totalCount;
-            this.totalInvestment = parseFloat(
-              Number(a.data.totalInvestment).toFixed(8)
-            );
-
-            console.log('totalInvestment', this.totalInvestment);
-
-            if (Number(this.totalInvestment) > 60) {
-              this.levelFourReferrals();
-            }
-
-            if (Number(this.totalInvestment) > 80) {
-              this.levelFiveReferrals();
-            }
-
-            if (Number(this.totalInvestment) > 100) {
-              this.levelSixReferrals();
-            }
-
-            if (Number(this.totalInvestment) > 120) {
-              this.levelSevenReferrals();
-            }
-
-            if (Number(this.totalInvestment) > 140) {
-              this.levelEightReferrals();
-            }
-
-            if (Number(this.totalInvestment) > 160) {
-              this.levelNineReferrals();
-            }
-          }
-        },
-        (err) => {
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-          if (obj.code == 401) {
-            localStorage.clear();
-            this.router.navigate(['/']);
-          }
-        }
-      );
-  }
+  // getAffiliateInvestments() {
+  //   this._affilliateService
+  //     .getAffiliateInvestments(this.userObject.UserId)
+  //     .subscribe(
+  //       (a) => {
+  //         if (a.code == 200 || a.code == 304) {
+  //           this.cpaAffiliates = a.data.data;
+  //           this.cpaTotalCount = a.data.totalCount;
+  //           this.totalInvestment = parseFloat(
+  //             Number(a.data.totalInvestment).toFixed(8)
+  //           );
+  //         }
+  //       },
+  //       (err) => {
+  //         let obj;
+  //         if (err._body) {
+  //           obj = JSON.parse(err._body);
+  //         }
+  //         console.log(obj);
+  //         if (obj.code == 401) {
+  //           localStorage.clear();
+  //           this.router.navigate(['/']);
+  //         }
+  //       }
+  //     );
+  // }
 
   ConvertToCSV(objArray) {
     const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
