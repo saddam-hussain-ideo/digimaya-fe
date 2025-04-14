@@ -23,7 +23,15 @@ export class AuthGuard implements CanActivate {
       }
       const userToken = localStorage.getItem('userToken');
 
-      if (userToken && this.isValidJSON(userToken)) {
+      console.log('AuthGuard: userToken:', userToken);
+      console.log('AuthGuard: isValidJSON:', this.isValidJSON(userToken));
+      console.log('AuthGuard: isTokenExpired:', this.isTokenExpired(userToken));
+
+      if (!userToken || this.isTokenExpired(userToken)) {
+        localStorage.removeItem('userToken');
+      }
+
+      if (userToken && !this.isTokenExpired(userToken)) {
         return true;
       }
 
@@ -36,6 +44,17 @@ export class AuthGuard implements CanActivate {
       console.error('Error checking authentication:', error);
       this.router.navigate(['/sign-in']);
       return false;
+    }
+  }
+
+  private isTokenExpired(token: string): boolean {
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      console.log('Token payload:', payload);
+      return payload.exp && Date.now() >= payload.exp * 1000;
+    } catch (e) {
+      console.error('Token parsing error, treating as expired:', e);
+      return true;
     }
   }
 
