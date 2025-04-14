@@ -93,7 +93,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: '', pathMatch: 'full', component: LandingPageComponent },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
 

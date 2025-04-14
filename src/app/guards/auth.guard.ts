@@ -16,38 +16,34 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
+    console.log('Auth guard triggered for URL:', state.url);
     try {
-      // Retrieve the userToken from localStorage
+      if (state.url === '/landing' || state.url === '/') {
+        return true; // Allow access to landing page and root path
+      }
       const userToken = localStorage.getItem('userToken');
 
-      // Check if the token exists and is valid
       if (userToken && this.isValidJSON(userToken)) {
-        return true; // Allow access
-      } else {
-        // Redirect to the landing page with an optional return URL
-        this.router.navigate(['/'], {
-          queryParams: { returnUrl: state.url }
-        });
-        return false; // Block access
+        return true;
       }
+
+      // Redirect to sign-in instead of root path
+      this.router.navigate(['/sign-in'], {
+        queryParams: { returnUrl: state.url }
+      });
+      return false;
     } catch (error) {
       console.error('Error checking authentication:', error);
-      this.router.navigate(['/']); // Redirect on unexpected errors
+      this.router.navigate(['/sign-in']);
       return false;
     }
   }
 
-  /**
-   * Validates if a string is a valid JSON.
-   * @param str - The string to validate
-   * @returns true if the string is valid JSON, false otherwise
-   */
-  private isValidJSON(str: string | null): boolean {
-    if (!str) return false;
+  private isValidJSON(str: string): boolean {
     try {
       JSON.parse(str);
       return true;
-    } catch {
+    } catch (e) {
       return false;
     }
   }
