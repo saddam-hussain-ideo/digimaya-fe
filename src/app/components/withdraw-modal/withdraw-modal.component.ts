@@ -109,9 +109,13 @@ export class WithdrawModalComponent implements OnInit {
   }
 
   checkIfSunday() {
+    // Get current time and convert to Indian Standard Time (IST)
     const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinutes = now.getMinutes();
+    const options = { timeZone: 'Asia/Kolkata' };
+    const istTime = new Date(now.toLocaleString('en-US', options));
+
+    const currentHour = istTime.getHours();
+    const currentMinutes = istTime.getMinutes();
 
     // Convert 10:00 PM to 22:00
     const startHour = 22;
@@ -127,7 +131,7 @@ export class WithdrawModalComponent implements OnInit {
     this.isSunday = isWithinTimeWindow;
     if (!this.isSunday) {
       this.errorMessage =
-        'Withdrawals are only processed between 10:00 PM and 11:59 PM daily';
+        'Withdrawals are only processed between 10:00 PM and 11:59 PM Indian Standard Time (IST) daily';
     }
   }
 }
