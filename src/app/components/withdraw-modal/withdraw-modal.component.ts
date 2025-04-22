@@ -109,11 +109,25 @@ export class WithdrawModalComponent implements OnInit {
   }
 
   checkIfSunday() {
-    const today = new Date();
-    // this.isSunday = today.getDay() === 0;
-    this.isSunday = true;
+    const now = new Date();
+    const currentHour = now.getHours();
+    const currentMinutes = now.getMinutes();
+
+    // Convert 10:00 PM to 22:00
+    const startHour = 22;
+    // Convert 11:59 PM to 23:59
+    const endHour = 23;
+    const endMinutes = 59;
+
+    // Check if current time is within the allowed window
+    const isWithinTimeWindow =
+      (currentHour === startHour && currentMinutes >= 0) ||
+      (currentHour === endHour && currentMinutes <= endMinutes);
+
+    this.isSunday = isWithinTimeWindow;
     if (!this.isSunday) {
-      this.errorMessage = 'Withdrawals are only processed on Sundays';
+      this.errorMessage =
+        'Withdrawals are only processed between 10:00 PM and 11:59 PM daily';
     }
   }
 }
