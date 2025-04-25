@@ -486,7 +486,10 @@ export class Affiliate {
             this.userInvestment = a.data.userInvestment;
             this.affiliatesInvestment = a.data.affiliatesInvestment;
             this.affiliateLevelUnlocked = a.data.affiliateLevelUnlocked;
-            this.affiliateLevelUnlocked = this.affiliateLevelUnlocked - 3;
+            this.affiliateLevelUnlocked =
+              this.affiliateLevelUnlocked == 0
+                ? this.affiliateLevelUnlocked
+                : this.affiliateLevelUnlocked - 3;
             this.totalAffiliatesArray = a.data.earningList;
             this.referalLicencesCount = {
               gpa: a.data.referralLicencesCount['gpa'],
