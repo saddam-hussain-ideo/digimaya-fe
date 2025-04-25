@@ -37,7 +37,6 @@ export class Affiliate {
   affiliateLevelUnlocked: number = 0;
   cpaTotalCount: number = 0;
   public csvData: any;
-  public totalEarningInEMYA: any;
   public totalEarningInUSD: any;
   public totalEarningSoFar: any;
 
@@ -132,6 +131,12 @@ export class Affiliate {
   tableNineCurrentPage = 1;
   tableNineSize = 5;
   tableNineCount = 1;
+
+  public maxLevel = 9; // Maximum possible levels
+  public activeReferralLevels: number[] = []; // Stores levels that have referrals
+  public referralLevelData: { [key: number]: any } = {}; // Stores data for each level
+  public levelLoaders: { [key: number]: boolean } = {}; // Stores loader state for each level
+  public levelPagination: { [key: number]: any } = {}; // Stores pagination info for each level
 
   constructor(
     public router: Router,
@@ -263,42 +268,6 @@ export class Affiliate {
     this.topReferalCurrentPage = value;
     this.getTopReferrals();
   }
-  changePageForTable1(value) {
-    this.tableOneCurrentPage = value;
-    this.levelOneReferrals();
-  }
-  changePageForTable2(value) {
-    this.tableTwoCurrentPage = value;
-    this.levelTwoReferrals();
-  }
-  changePageForTable3(value) {
-    this.tableThreeCurrentPage = value;
-    this.levelThreeReferrals();
-  }
-  changePageForTable4(value) {
-    this.tableFourCurrentPage = value;
-    this.levelFourReferrals();
-  }
-  changePageForTable5(value) {
-    this.tableFiveCurrentPage = value;
-    this.levelFiveReferrals();
-  }
-  changePageForTable6(value) {
-    this.tableSixCurrentPage = value;
-    this.levelSixReferrals();
-  }
-  changePageForTable7(value) {
-    this.tableSevenCurrentPage = value;
-    this.levelSevenReferrals();
-  }
-  changePageForTable8(value) {
-    this.tableEightCurrentPage = value;
-    this.levelEightReferrals();
-  }
-  changePageForTable9(value) {
-    this.tableNineCurrentPage = value;
-    this.levelNineReferrals();
-  }
   changePageForWithdrawals(page: number) {
     this.withdrawCurrentPage = page;
     this.getWithdrawalHistory();
@@ -325,9 +294,7 @@ export class Affiliate {
 
     this.getWithdrawalHistory();
 
-    this.levelOneReferrals();
-    this.levelTwoReferrals();
-    this.levelThreeReferrals();
+    this.fetchReferralLevels();
 
     $('.list-unstyled li').removeClass('active');
     $('#aff-nav').addClass('active');
@@ -379,273 +346,88 @@ export class Affiliate {
       );
   }
 
-  levelOneReferrals() {
-    this.tableLoader1 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 1),
-        this.tableOneCurrentPage,
-        this.tableOneSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader1 = false;
-            this.referredCountries = res['data']['referred_countries'];
-            this.levelOneData = res['data']['referrals'];
-            this.tableOneCount = res['data']['totalReferrals'];
-            this.tableOneCurrentPage = res['data']['currentPage'];
-            this.tableOneSize = res['data']['pageSize'];
-          }
-        },
-        (err) => {
-          this.tableLoader1 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-        }
-      );
+  async fetchReferralLevels() {
+    // Start with level 1
+    await this.fetchNextLevel(1);
   }
 
-  levelTwoReferrals() {
-    this.tableLoader2 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 2),
-        this.tableTwoCurrentPage,
-        this.tableTwoSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader2 = false;
-            this.levelTwoData = res.data.referrals;
-            this.tableTwoCount = res.data.totalReferrals;
-            this.tableTwoCurrentPage = res.data.currentPage;
-            this.tableTwoSize = res.data.pageSize;
-          }
-        },
-        (err) => {
-          this.tableLoader2 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
+  private async fetchNextLevel(level: number) {
+    this.levelLoaders[level] = true;
+
+    try {
+      const currentPage = this.levelPagination[level]
+        ? this.levelPagination[level].currentPage
+        : 1;
+      const pageSize = this.levelPagination[level]
+        ? this.levelPagination[level].pageSize
+        : 5;
+
+      const response = await this._affilliateService
+        .levelReferrals(this.userObject.UserId, level, currentPage, pageSize)
+        .toPromise();
+
+      if (
+        response &&
+        response.data.referrals &&
+        response.data.referrals.length > 0
+      ) {
+        // Store the level data
+        this.referralLevelData[level] = response.data.referrals;
+
+        // Store pagination info
+        this.levelPagination[level] = {
+          currentPage: response.data.currentPage,
+          pageSize: response.data.pageSize,
+          totalCount: response.data.totalReferrals
+        };
+
+        // Add to active levels if not already present
+        if (!this.activeReferralLevels.includes(level)) {
+          this.activeReferralLevels.push(level);
+          this.activeReferralLevels.sort((a, b) => a - b);
         }
-      );
+
+        this.levelLoaders[level] = false;
+
+        // Fetch next level
+        await this.fetchNextLevel(level + 1);
+      } else {
+        // If no referrals found for this level, we stop fetching
+        console.log(`No referrals found for level ${level}, stopping fetch`);
+      }
+    } catch (error) {
+      console.error(`Error fetching level ${level}:`, error);
+    } finally {
+      this.levelLoaders[level] = false;
+    }
   }
 
-  levelThreeReferrals() {
-    this.tableLoader3 = true;
+  // Method to handle pagination for any level
+  changeLevelPage(level: number, newPage: number) {
+    this.levelPagination[level].currentPage = newPage;
     this._affilliateService
       .levelReferrals(
         this.userObject.UserId,
-        (this.referralLevel = 3),
-        this.tableThreeCurrentPage,
-        this.tableThreeSize
+        level,
+        newPage,
+        this.levelPagination[level].pageSize
       )
       .subscribe(
         (res) => {
-          if (res) {
-            this.tableLoader3 = false;
-            this.levelThreeData = res.data.referrals;
-            this.tableThreeCount = res.data.totalReferrals;
-            this.tableThreeCurrentPage = res.data.currentPage;
-            this.tableThreeSize = res.data.pageSize;
+          if (res && res.data) {
+            this.referralLevelData[level] = res.data.referrals;
+            this.levelPagination[level] = {
+              currentPage: res.data.currentPage,
+              pageSize: res.data.pageSize,
+              totalCount: res.data.totalReferrals
+            };
           }
         },
-        (err) => {
-          this.tableLoader3 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-        }
-      );
-  }
-
-  levelFourReferrals() {
-    this.tableLoader4 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 4),
-        this.tableFourCurrentPage,
-        this.tableFourSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader4 = false;
-            this.levelFourData = res.data.referrals;
-            this.tableFourCount = res.data.totalReferrals;
-            this.tableFourCurrentPage = res.data.currentPage;
-            this.tableFourSize = res.data.pageSize;
-          }
-        },
-        (err) => {
-          this.tableLoader4 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-        }
-      );
-  }
-
-  levelFiveReferrals() {
-    this.tableLoader5 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 5),
-        this.tableFiveCurrentPage,
-        this.tableFiveSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader5 = false;
-            this.levelFiveData = res.data.referrals;
-            this.tableFiveCount = res.data.totalReferrals;
-            this.tableFiveCurrentPage = res.data.currentPage;
-            this.tableFiveSize = res.data.pageSize;
-          }
-        },
-        (err) => {
-          this.tableLoader5 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-        }
-      );
-  }
-
-  levelSixReferrals() {
-    this.tableLoader6 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 6),
-        this.tableSixCurrentPage,
-        this.tableSixSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader6 = false;
-            this.levelSixData = res.data.referrals;
-            this.tableSixCount = res.data.totalReferrals;
-            this.tableSixCurrentPage = res.data.currentPage;
-            this.tableSixSize = res.data.pageSize;
-          }
-        },
-        (err) => {
-          this.tableLoader6 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-        }
-      );
-  }
-
-  levelSevenReferrals() {
-    this.tableLoader7 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 7),
-        this.tableSevenCurrentPage,
-        this.tableSevenSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader7 = false;
-            this.levelSevenData = res.data.referrals;
-            this.tableSevenCount = res.data.totalReferrals;
-            this.tableSevenCurrentPage = res.data.currentPage;
-            this.tableSevenSize = res.data.pageSize;
-          }
-        },
-        (err) => {
-          this.tableLoader7 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-        }
-      );
-  }
-
-  levelEightReferrals() {
-    this.tableLoader8 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 8),
-        this.tableEightCurrentPage,
-        this.tableEightSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader8 = false;
-            this.levelEightData = res.data.referrals;
-            this.tableEightCount = res.data.totalReferrals;
-            this.tableEightCurrentPage = res.data.currentPage;
-            this.tableEightSize = res.data.pageSize;
-          }
-        },
-        (err) => {
-          this.tableLoader8 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-        }
-      );
-  }
-
-  levelNineReferrals() {
-    this.tableLoader9 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 9),
-        this.tableNineCurrentPage,
-        this.tableNineSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader9 = false;
-            this.levelNineData = res.data.referrals;
-            this.tableNineCount = res.data.totalReferrals;
-            this.tableNineCurrentPage = res.data.currentPage;
-            this.tableNineSize = res.data.pageSize;
-          }
-        },
-        (err) => {
-          this.tableLoader9 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
+        (error) => {
+          console.error(
+            `Error fetching level ${level} page ${newPage}:`,
+            error
+          );
         }
       );
   }
@@ -698,43 +480,19 @@ export class Affiliate {
           if (a.code == 200 || a.code == 304) {
             this.noAffiliateEarners = false;
             this.totalAffiliateEarningsRecords = a.data.count;
-            this.totalEarningInEMYA = a.data.totalEarningInEMYA;
             this.totalEarningInUSD = a.data.totalEarningInUSDT;
             this.totalEarningSoFar = a.data.totalEarningSoFar;
             this.totalInvestment = a.data.totalInvestment;
             this.userInvestment = a.data.userInvestment;
             this.affiliatesInvestment = a.data.affiliatesInvestment;
             this.affiliateLevelUnlocked = a.data.affiliateLevelUnlocked;
+            this.affiliateLevelUnlocked = this.affiliateLevelUnlocked - 3;
             this.totalAffiliatesArray = a.data.earningList;
             this.referalLicencesCount = {
               gpa: a.data.referralLicencesCount['gpa'],
               other: a.data.referralLicencesCount['other']
             };
             this.networkIssuedPPTL = a.data.referralIssuedPptls;
-
-            if (Number(this.affiliateLevelUnlocked) >= 4) {
-              this.levelFourReferrals();
-            }
-
-            if (Number(this.affiliateLevelUnlocked) >= 5) {
-              this.levelFiveReferrals();
-            }
-
-            if (Number(this.affiliateLevelUnlocked) >= 6) {
-              this.levelSixReferrals();
-            }
-
-            if (Number(this.affiliateLevelUnlocked) >= 7) {
-              this.levelSevenReferrals();
-            }
-
-            if (Number(this.affiliateLevelUnlocked) >= 8) {
-              this.levelEightReferrals();
-            }
-
-            if (Number(this.affiliateLevelUnlocked) >= 9) {
-              this.levelNineReferrals();
-            }
           }
         },
         (err) => {
@@ -883,8 +641,6 @@ export class Affiliate {
   earningValues(value) {
     if (value == 'usdt') {
       return this.totalEarningInUSD != undefined ? this.totalEarningInUSD : 0;
-    } else {
-      return this.totalEarningInEMYA != undefined ? this.totalEarningInEMYA : 0;
     }
   }
 
