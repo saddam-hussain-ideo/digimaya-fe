@@ -82,7 +82,7 @@
                       class="aff-link-in"
                       type="text"
                       readonly
-                      value="{{affiliateLink}}"
+                      [value]="affiliateLink"
                     />
                     <div class="copy-link-section">
                       <button
@@ -136,7 +136,7 @@
                       class="aff-link-in"
                       type="text"
                       readonly
-                      value="{{affiliateCode}}"
+                      [value]="affiliateCode"
                     />
                     <div class="copy-link-section">
                       <button
@@ -303,7 +303,7 @@
       <div *ngFor="let level of activeReferralLevels" class="table-section">
         <div class="piptel-transaction-history">
           <div class="header header-whte d-flex flex-column">
-            <p class="transaction-txt">LEVEL {{level}}: Team LINKs</p>
+            <p class="transaction-txt">LEVEL {{level+1}}: Team LINKs</p>
 
             <div class="table-responsive">
               <table class="table table-striped">
@@ -316,7 +316,7 @@
                     <th class="f-bold">Management Position</th>
                   </tr>
                 </thead>
-                <tbody *ngIf="levelLoaders[level]">
+                <tbody *ngIf="tableLoader1">
                   <tr>
                     <td colspan="12">
                       <div class="custom-loader">
@@ -359,23 +359,24 @@
                   </tr>
                 </tbody>
                 <tbody
-                  *ngIf="!levelLoaders[level] && (!referralLevelData[level] || referralLevelData[level].length === 0)"
+                  *ngIf="!tableLoader1 && (!paginatedReferralData[level] || paginatedReferralData[level].length === 0)"
                 >
                   <tr>
                     <td colspan="12" class="no-data-tbl">No data to display</td>
                   </tr>
                 </tbody>
                 <tbody
-                  *ngIf="!levelLoaders[level] && referralLevelData[level] && referralLevelData[level].length > 0"
+                  *ngIf="!tableLoader1 && paginatedReferralData[level] && paginatedReferralData[level].length > 0"
                 >
-                  <tr *ngFor="let data of referralLevelData[level]">
-                    <td>{{ data.fullName }}</td>
-                    <td>{{ data.userName }}</td>
-                    <td>{{ data.joinDate }}</td>
-                    <td>{{ data.userInvestment | currency:'crypto' }}</td>
+                  <tr *ngFor="let referral of paginatedReferralData[level]">
+                    <td>{{ referral.fullName }}</td>
+                    <td>{{ referral.userName }}</td>
+                    <td>{{ referral.joinDate }}</td>
+                    <td>{{ referral.userInvestment | currency:'crypto' }}</td>
                     <td
-                      >{{ data.unlockedLevel == 0 ? 0 : (data.unlockedLevel >= 3
-                      ? data.unlockedLevel - 3 : data.unlockedLevel) }}</td
+                      >{{ referral.unlockedLevel == 0 ? 0 :
+                      (referral.unlockedLevel >= 3 ? referral.unlockedLevel - 3
+                      : referral.unlockedLevel) }}</td
                     >
                   </tr>
                 </tbody>
@@ -384,25 +385,26 @@
 
             <!-- Dynamic Pagination -->
             <nav
-              *ngIf="levelPagination[level] && levelPagination[level].totalCount > levelPagination[level].pageSize"
+              *ngIf="allReferralData[level]?.referrals?.length > itemsPerPage"
+              class="mt-3"
             >
               <ul class="pagination">
                 <li
-                  [class.disabled]="levelPagination[level].currentPage === 1"
-                  (click)="levelPagination[level].currentPage > 1 && changeLevelPage(level, levelPagination[level].currentPage - 1)"
+                  [class.disabled]="currentPages[level] === 1"
+                  (click)="currentPages[level] > 1 && changeLevelPage(level, currentPages[level] - 1)"
                 >
                   <a>Previous</a>
                 </li>
                 <li
-                  *ngFor="let page of getPageNumbers(levelPagination[level].totalCount, levelPagination[level].pageSize)"
-                  [class.active]="page === levelPagination[level].currentPage"
+                  *ngFor="let page of getPageNumbers(allReferralData[level]?.referrals?.length || 0, itemsPerPage)"
+                  [class.active]="page === currentPages[level]"
                   (click)="changeLevelPage(level, page)"
                 >
-                  <a>{{ page }}</a>
+                  <a>{{page}}</a>
                 </li>
                 <li
-                  [class.disabled]="levelPagination[level].currentPage === getPageNumbers(levelPagination[level].totalCount, levelPagination[level].pageSize).length"
-                  (click)="levelPagination[level].currentPage < getPageNumbers(levelPagination[level].totalCount, levelPagination[level].pageSize).length && changeLevelPage(level, levelPagination[level].currentPage + 1)"
+                  [class.disabled]="currentPages[level] === getPageNumbers(allReferralData[level]?.referrals?.length || 0, itemsPerPage).length"
+                  (click)="currentPages[level] < getPageNumbers(allReferralData[level]?.referrals?.length || 0, itemsPerPage).length && changeLevelPage(level, currentPages[level] + 1)"
                 >
                   <a>Next</a>
                 </li>

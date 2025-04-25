@@ -126,8 +126,8 @@ export class AffilliateService {
         return this.http.get(environment.BaseUrl + "user/allreferrals/"+userId, { headers: headers })
             .map(res => res.json());
     } */
-  levelReferrals(userId, level, pageNo, pageSize) {
-    const params = `?userId=${userId}&level=${level}&pageNumber=${pageNo}&pageSize=${pageSize}`;
+  levelReferrals(userId) {
+    const params = `?userId=${userId}`;
     const headers = new Headers();
 
     headers.append('Content-Type', 'application/json; charset=UTF-8');
