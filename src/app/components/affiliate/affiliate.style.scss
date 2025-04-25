@@ -1276,55 +1276,119 @@ canvas {
   );
   border-radius: 8px;
   padding: 16px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    z-index: 1;
+  }
+
   @media (min-width: 992px) and (max-width: 1199px) {
     height: 140px;
-
-    .left-stat-icon,
-    .table-type,
-    .right-icon-stats {
-      height: 140px;
-    }
   }
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .inner-box {
-    height: 210px;
-    position: relative;
-    margin-bottom: 15px;
+
+  @media (max-width: 991px) {
+    height: auto;
+    min-height: 120px;
   }
 }
 
 .left-box {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  padding-right: 15px;
 }
 
-.total-text {
-  font-family: 'Calibri';
-  font-weight: 400;
-  color: #fff;
-  font-size: 14px;
-  margin: 0;
-  @media (min-width: 992px) and (max-width: 1199px) {
-    font-size: 13px;
+.top-left-ico-text {
+  .ico-top-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'LatoWebMedium';
+    font-size: 14px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+    }
   }
 }
+
 .number {
   font-family: 'Calibri';
   font-weight: 600;
   color: #ffffff;
-  font-size: 32px;
+  font-size: 24px;
   margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   @media (min-width: 768px) and (max-width: 991px) {
-    font-size: 26px;
+    font-size: 22px;
   }
 
   @media (min-width: 992px) and (max-width: 1199px) {
-    font-size: 16px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
   }
 }
+
+.right-box {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+
+  @media (max-width: 767px) {
+    margin-top: 15px;
+  }
+}
+
+.withdraw-btn {
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #ff0844;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  @media (max-width: 767px) {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
 .dollar {
   font-family: 'LatoWebLight';
   font-weight: 400;
@@ -1429,16 +1493,6 @@ canvas {
   font-size: 16px;
   color: #191919;
   font-weight: 600;
-}
-
-.withdraw-btn {
-  padding: 5px 10px;
-  background-color: white;
-  color: #ff0844;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
 }
 
 .withdraw-btn:hover {
