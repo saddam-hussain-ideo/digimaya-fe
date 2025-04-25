@@ -30,9 +30,15 @@ export class Affiliate {
   public totalAffiliateEarningsRecords: any;
   public totalAffiliateCurrentPage = 1;
   public totalAffiliatesArray = [];
+  cpaAffiliates = [];
+  totalInvestment: number = 0;
+  userInvestment: number = 0;
+  affiliatesInvestment: number = 0;
+  affiliateLevelUnlocked: number = 0;
+  cpaTotalCount: number = 0;
   public csvData: any;
-  public totalEarningInEMYA: any;
   public totalEarningInUSD: any;
+  public totalEarningSoFar: any;
 
   public dataFilter = 'DAY';
   public noGraphData = false;
@@ -45,9 +51,17 @@ export class Affiliate {
 
   public fivePercentOfTotalAmountInvested: any;
   public noAffiliateEarners = false;
+
   tableLoader1: boolean;
   tableLoader2: boolean;
   tableLoader3: boolean;
+  tableLoader4: boolean;
+  tableLoader5: boolean;
+  tableLoader6: boolean;
+  tableLoader7: boolean;
+  tableLoader8: boolean;
+  tableLoader9: boolean;
+
   withdrawalLoader: boolean;
   topRefersLoader: boolean;
   affiliatesLoader: boolean;
@@ -55,10 +69,18 @@ export class Affiliate {
   pageNo;
   pageSize;
   rowsData;
+
   withdrawalData;
   levelOneData;
   levelTwoData;
   levelThreeData;
+  levelFourData;
+  levelFiveData;
+  levelSixData;
+  levelSevenData;
+  levelEightData;
+  levelNineData;
+
   obj;
   dataArr = [];
   referalLicencesCount = {
@@ -70,9 +92,9 @@ export class Affiliate {
   referralPSize = 5;
   paginationNumber = 1;
   topReferalCurrentPage = 1;
-  withdrawalCount = 0;
-  withdrawCurrentPage = 0;
+  withdrawCurrentPage = 1;
   withdrawSize = 10;
+  withdrawalCount = 0;
 
   tableOneCurrentPage = 1;
   tableOneSize = 5;
@@ -85,6 +107,36 @@ export class Affiliate {
   tableThreeCurrentPage = 1;
   tableThreeSize = 5;
   tableThreeCount = 1;
+
+  tableFourCurrentPage = 1;
+  tableFourSize = 5;
+  tableFourCount = 1;
+
+  tableFiveCurrentPage = 1;
+  tableFiveSize = 5;
+  tableFiveCount = 1;
+
+  tableSixCurrentPage = 1;
+  tableSixSize = 5;
+  tableSixCount = 1;
+
+  tableSevenCurrentPage = 1;
+  tableSevenSize = 5;
+  tableSevenCount = 1;
+
+  tableEightCurrentPage = 1;
+  tableEightSize = 5;
+  tableEightCount = 1;
+
+  tableNineCurrentPage = 1;
+  tableNineSize = 5;
+  tableNineCount = 1;
+
+  public maxLevel = 9; // Maximum possible levels
+  public activeReferralLevels: number[] = []; // Stores levels that have referrals
+  public referralLevelData: { [key: number]: any } = {}; // Stores data for each level
+  public levelLoaders: { [key: number]: boolean } = {}; // Stores loader state for each level
+  public levelPagination: { [key: number]: any } = {}; // Stores pagination info for each level
 
   constructor(
     public router: Router,
@@ -216,20 +268,8 @@ export class Affiliate {
     this.topReferalCurrentPage = value;
     this.getTopReferrals();
   }
-  changePageForTable1(value) {
-    this.tableOneCurrentPage = value;
-    this.levelOneReferrals();
-  }
-  changePageForTable2(value) {
-    this.tableTwoCurrentPage = value;
-    this.levelTwoReferrals();
-  }
-  changePageForTable3(value) {
-    this.tableThreeCurrentPage = value;
-    this.levelThreeReferrals();
-  }
-  changePageForWithdrawals(value) {
-    this.withdrawCurrentPage = value;
+  changePageForWithdrawals(page: number) {
+    this.withdrawCurrentPage = page;
     this.getWithdrawalHistory();
   }
 
@@ -249,11 +289,12 @@ export class Affiliate {
     this.getTopReferrals();
     this.getTopAffiliates();
     this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
+
     this.affiliateGraph();
+
     this.getWithdrawalHistory();
-    this.levelOneReferrals();
-    this.levelTwoReferrals();
-    this.levelThreeReferrals();
+
+    this.fetchReferralLevels();
 
     $('.list-unstyled li').removeClass('active');
     $('#aff-nav').addClass('active');
@@ -276,69 +317,11 @@ export class Affiliate {
       }
     });
 
-    /* Graph */
-
     $('.affiliate-graph-ul > li').click(function () {
       $('.affiliate-graph-ul li').removeClass('affiliate-active-li');
       $(this).addClass('affiliate-active-li');
     });
-    // this._sharedService.showHideLoader(false);
   }
-
-  // getReferrals(){
-  //     this._sharedService.showHideLoader(true);
-  //                 this.tableLoader1 = true
-  //         this.tableLoader2 = true
-
-  //         this.tableLoader3 = true
-  //     for(let i = 1; i <= 3 ; i++) {
-
-  //         this._affilliateService.levelReferrals(this.userObject.UserId, this.referralLevel = i,this.pageNo = 1, this.pageSize= 10 )
-  //         .subscribe(res => {
-  //             if(res){
-  //                 this._sharedService.showHideLoader(false);
-  //                 this.referredCountries = res['data']['referred_countries']
-  //                 this.obj = {
-  //                     level : i,
-  //                     data : res['data']
-  //                 }
-  //                 this.dataArr.push(this.obj)
-
-  //                 this.levelOneData = this.dataArr.find(result => result.level == 1)
-
-  //                 this.levelTwoData = this.dataArr.find(result => result.level == 2)
-  //                 this.levelThreeData = this.dataArr.find(result => result.level == 3)
-
-  //                 if(this.levelOneData){
-  //                     this.tableLoader1 = false
-  //                     this.tableOneCount = this.levelOneData.data.totalRecords
-  //                     // this.referredCountries = this.levelOneData['data']['referred_countries']
-  //                 }
-  //                 if(this.levelTwoData){
-  //                     this.tableLoader2 = false
-  //                     this.tableTwoCount = this.levelTwoData.data.totalRecords
-
-  //                 }
-  //                 if(this.levelThreeData){
-  //                     this.tableLoader3 = false
-  //                     this.tableThreeCount = this.levelThreeData.data.totalRecords
-
-  //                 }
-
-  //             }
-  //         }, err => {
-  //             this.tableLoader1 = false
-  //             this.tableLoader2 = false
-  //             this.tableLoader3 = false
-  //             this._sharedService.showHideLoader(false);
-  //             console.log(err);
-  //             const obj = JSON.parse(err._body);
-  //             console.log('Level' , i ,obj);
-
-  //         })
-  //     }
-
-  // }
 
   getWithdrawalHistory() {
     this.withdrawalLoader = true;
@@ -349,7 +332,7 @@ export class Affiliate {
           if (res) {
             this.withdrawalLoader = false;
             this.withdrawalData = res['data'].withdrawalHistory;
-            this.withdrawalCount = this.withdrawalData.length;
+            this.withdrawalCount = res['data'].totalCount;
           }
         },
         (err) => {
@@ -363,87 +346,88 @@ export class Affiliate {
       );
   }
 
-  levelOneReferrals() {
-    this.tableLoader1 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 1),
-        this.tableOneCurrentPage,
-        this.tableOneSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader1 = false;
-            this.referredCountries = res['data']['referred_countries'];
-            this.levelOneData = res['data'];
-            this.tableOneCount = this.levelOneData.length;
-          }
-        },
-        (err) => {
-          this.tableLoader1 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
-        }
-      );
+  async fetchReferralLevels() {
+    // Start with level 1
+    await this.fetchNextLevel(1);
   }
 
-  levelTwoReferrals() {
-    this.tableLoader2 = true;
-    this._affilliateService
-      .levelReferrals(
-        this.userObject.UserId,
-        (this.referralLevel = 2),
-        this.tableTwoCurrentPage,
-        this.tableTwoSize
-      )
-      .subscribe(
-        (res) => {
-          if (res) {
-            this.tableLoader2 = false;
-            this.levelTwoData = res['data'];
-            this.tableTwoCount = this.levelTwoData.length;
-          }
-        },
-        (err) => {
-          this.tableLoader2 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
+  private async fetchNextLevel(level: number) {
+    this.levelLoaders[level] = true;
+
+    try {
+      const currentPage = this.levelPagination[level]
+        ? this.levelPagination[level].currentPage
+        : 1;
+      const pageSize = this.levelPagination[level]
+        ? this.levelPagination[level].pageSize
+        : 5;
+
+      const response = await this._affilliateService
+        .levelReferrals(this.userObject.UserId, level, currentPage, pageSize)
+        .toPromise();
+
+      if (
+        response &&
+        response.data.referrals &&
+        response.data.referrals.length > 0
+      ) {
+        // Store the level data
+        this.referralLevelData[level] = response.data.referrals;
+
+        // Store pagination info
+        this.levelPagination[level] = {
+          currentPage: response.data.currentPage,
+          pageSize: response.data.pageSize,
+          totalCount: response.data.totalReferrals
+        };
+
+        // Add to active levels if not already present
+        if (!this.activeReferralLevels.includes(level)) {
+          this.activeReferralLevels.push(level);
+          this.activeReferralLevels.sort((a, b) => a - b);
         }
-      );
+
+        this.levelLoaders[level] = false;
+
+        // Fetch next level
+        await this.fetchNextLevel(level + 1);
+      } else {
+        // If no referrals found for this level, we stop fetching
+        console.log(`No referrals found for level ${level}, stopping fetch`);
+      }
+    } catch (error) {
+      console.error(`Error fetching level ${level}:`, error);
+    } finally {
+      this.levelLoaders[level] = false;
+    }
   }
 
-  levelThreeReferrals() {
-    this.tableLoader3 = true;
+  // Method to handle pagination for any level
+  changeLevelPage(level: number, newPage: number) {
+    this.levelPagination[level].currentPage = newPage;
     this._affilliateService
       .levelReferrals(
         this.userObject.UserId,
-        (this.referralLevel = 3),
-        this.tableThreeCurrentPage,
-        this.tableThreeSize
+        level,
+        newPage,
+        this.levelPagination[level].pageSize
       )
       .subscribe(
         (res) => {
-          if (res) {
-            this.tableLoader3 = false;
-            this.levelThreeData = res['data'];
-            this.tableThreeCount = this.levelThreeData.length;
+          if (res && res.data) {
+            this.referralLevelData[level] = res.data.referrals;
+            this.levelPagination[level] = {
+              currentPage: res.data.currentPage,
+              pageSize: res.data.pageSize,
+              totalCount: res.data.totalReferrals
+            };
           }
         },
-        (err) => {
-          this.tableLoader3 = false;
-          let obj;
-          if (err._body) {
-            obj = JSON.parse(err._body);
-          }
-          console.log(obj);
+        (error) => {
+          console.error(
+            `Error fetching level ${level} page ${newPage}:`,
+            error
+          );
         }
       );
   }
@@ -492,13 +476,20 @@ export class Affiliate {
       .subscribe(
         (a) => {
           this.affiliatesLoader = false;
+          this._sharedService.showHideLoader(false);
           if (a.code == 200 || a.code == 304) {
-            this.affiliatesLoader = false;
-            this._sharedService.showHideLoader(false);
             this.noAffiliateEarners = false;
             this.totalAffiliateEarningsRecords = a.data.count;
-            this.totalEarningInEMYA = a.data.totalEarningInEMYA;
             this.totalEarningInUSD = a.data.totalEarningInUSDT;
+            this.totalEarningSoFar = a.data.totalEarningSoFar;
+            this.totalInvestment = a.data.totalInvestment;
+            this.userInvestment = a.data.userInvestment;
+            this.affiliatesInvestment = a.data.affiliatesInvestment;
+            this.affiliateLevelUnlocked = a.data.affiliateLevelUnlocked;
+            this.affiliateLevelUnlocked =
+              this.affiliateLevelUnlocked == 0
+                ? this.affiliateLevelUnlocked
+                : this.affiliateLevelUnlocked - 3;
             this.totalAffiliatesArray = a.data.earningList;
             this.referalLicencesCount = {
               gpa: a.data.referralLicencesCount['gpa'],
@@ -516,8 +507,6 @@ export class Affiliate {
           }
           console.log(obj);
           if (obj.code == 400) {
-            // show empty error
-            this._sharedService.showHideLoader(false);
             this.noAffiliateEarners = true;
           }
           if (obj.code == 401) {
@@ -527,6 +516,33 @@ export class Affiliate {
         }
       );
   }
+
+  // getAffiliateInvestments() {
+  //   this._affilliateService
+  //     .getAffiliateInvestments(this.userObject.UserId)
+  //     .subscribe(
+  //       (a) => {
+  //         if (a.code == 200 || a.code == 304) {
+  //           this.cpaAffiliates = a.data.data;
+  //           this.cpaTotalCount = a.data.totalCount;
+  //           this.totalInvestment = parseFloat(
+  //             Number(a.data.totalInvestment).toFixed(8)
+  //           );
+  //         }
+  //       },
+  //       (err) => {
+  //         let obj;
+  //         if (err._body) {
+  //           obj = JSON.parse(err._body);
+  //         }
+  //         console.log(obj);
+  //         if (obj.code == 401) {
+  //           localStorage.clear();
+  //           this.router.navigate(['/']);
+  //         }
+  //       }
+  //     );
+  // }
 
   ConvertToCSV(objArray) {
     const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
@@ -600,14 +616,6 @@ export class Affiliate {
             this.topRefersLoader = false;
             this.topReferrals = a.data;
             this.paginationNumber = a.data.totalRecords;
-            // this.fivePercentOfTotalAmountInvested = ((a.data.totalAmountInvestedInUsd * 5) / 100);
-            // for (var i = 0; i < this.topReferrals.length; i++) {
-            //     this.topReferrals[i].percentage = ((this.topReferrals[i].AmountInUsd / this.fivePercentOfTotalAmountInvested) * 100);
-            //     if (this.topReferrals[i].percentage > 100) {
-            //         this.topReferrals[i].percentage = 100;
-            //     }
-            //     this.topReferrals[i].AmountInUsd = this.validations.toCommas(this.topReferrals[i].AmountInUsd.toFixed(3));
-            // }
             if (this.topReferrals.length == 0) {
               this.noTopAffilliates = true;
             } else {
@@ -636,8 +644,6 @@ export class Affiliate {
   earningValues(value) {
     if (value == 'usdt') {
       return this.totalEarningInUSD != undefined ? this.totalEarningInUSD : 0;
-    } else {
-      return this.totalEarningInEMYA != undefined ? this.totalEarningInEMYA : 0;
     }
   }
 
@@ -685,18 +691,12 @@ export class Affiliate {
   }
 
   copyToClipboard(id) {
-    /* Get the text field */
     const copyText = document.getElementById(id) as HTMLInputElement;
-
-    /* Select the text field */
     copyText.select();
-
-    /* Copy the text inside the text field */
     document.execCommand('Copy');
   }
 
   linkForTransaction(hash, chain) {
-    console.log(hash, chain);
     if (chain === 'bsc-mainnet') {
       return `https://bscscan.com/tx/${hash}`;
     } else if (chain === 'ethereum-mainnet') {
@@ -706,5 +706,12 @@ export class Affiliate {
     } else if (chain === 'ethereum-sepolia') {
       return `https://sepolia.etherscan.io/tx/${hash}`;
     }
+  }
+
+  getPageNumbers(totalCount: number, pageSize: number): number[] {
+    const totalPages = Math.ceil(totalCount / pageSize);
+    return Array(totalPages)
+      .fill(0)
+      .map((x, i) => i + 1);
   }
 }
