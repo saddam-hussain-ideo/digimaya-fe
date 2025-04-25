@@ -374,7 +374,7 @@
                     <td>{{ data.joinDate }}</td>
                     <td>{{ data.userInvestment | currency:'crypto' }}</td>
                     <td
-                      >{{ data.unlockedLevel == 0 ? 0 : (data.unlockedLevel > 3
+                      >{{ data.unlockedLevel == 0 ? 0 : (data.unlockedLevel >= 3
                       ? data.unlockedLevel - 3 : data.unlockedLevel) }}</td
                     >
                   </tr>
