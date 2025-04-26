@@ -44,7 +44,7 @@ export class WithdrawModalComponent implements OnInit {
     this.chain = value;
   }
 
-  percentAmount: number = 0;
+  percentAmount = 0;
 
   onAmountInput(e: Event): void {
     const value = parseFloat((e.target as HTMLInputElement).value);
@@ -111,24 +111,26 @@ export class WithdrawModalComponent implements OnInit {
   checkIfSunday() {
     // Get current time and convert to Indian Standard Time (IST)
     const now = new Date();
-    const options = { timeZone: 'Asia/Kolkata' };
-    const istTime = new Date(now.toLocaleString('en-US', options));
+    this.isSunday = now.getDay() === 0;
 
-    const currentHour = istTime.getHours();
-    const currentMinutes = istTime.getMinutes();
-
-    // Convert 10:00 PM to 22:00
-    const startHour = 22;
-    // Convert 11:59 PM to 23:59
-    const endHour = 23;
-    const endMinutes = 59;
-
-    // Check if current time is within the allowed window
-    const isWithinTimeWindow =
-      (currentHour === startHour && currentMinutes >= 0) ||
-      (currentHour === endHour && currentMinutes <= endMinutes);
-
-    this.isSunday = isWithinTimeWindow;
+    // const options = { timeZone: 'Asia/Kolkata' };
+    // const istTime = new Date(now.toLocaleString('en-US', options));
+    //
+    // const currentHour = istTime.getHours();
+    // const currentMinutes = istTime.getMinutes();
+    //
+    // // Convert 10:00 PM to 22:00
+    // const startHour = 22;
+    // // Convert 11:59 PM to 23:59
+    // const endHour = 23;
+    // const endMinutes = 59;
+    //
+    // // Check if current time is within the allowed window
+    // const isWithinTimeWindow =
+    //   (currentHour === startHour && currentMinutes >= 0) ||
+    //   (currentHour === endHour && currentMinutes <= endMinutes);
+    //
+    // this.isSunday = isWithinTimeWindow;
     if (!this.isSunday) {
       this.errorMessage =
         'Withdrawals are only processed between 10:00 PM and 11:59 PM Indian Standard Time (IST) daily';
