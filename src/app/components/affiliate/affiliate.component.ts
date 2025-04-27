@@ -39,7 +39,7 @@ export class Affiliate implements OnInit {
   public affiliateEarningsPageSize = 5;
   public affiliateEarningsPageNumber = 1;
   public totalAffiliateCurrentPage = 1;
-  public withdrawCurrentPage = 1;
+  public withdrawCurrentPage = 0;
   public withdrawSize = 10;
   public withdrawalCount = 0;
   public itemsPerPage = 5;
