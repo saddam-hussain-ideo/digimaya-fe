@@ -117,21 +117,21 @@ export class WithdrawModalComponent implements OnInit {
     const currentHour = istTime.getHours();
     const currentMinutes = istTime.getMinutes();
 
-    // Convert 10:00 PM to 22:00
-    const startHour = 22;
-    // Convert 11:59 PM to 23:59
-    const endHour = 23;
-    const endMinutes = 59;
+    // Convert 3:00 PM to 15:00
+    const startHour = 15;
+    // Convert 5:00 PM to 17:00
+    const endHour = 17;
 
     // Check if current time is within the allowed window
     const isWithinTimeWindow =
       (currentHour === startHour && currentMinutes >= 0) ||
-      (currentHour === endHour && currentMinutes <= endMinutes);
+      (currentHour > startHour && currentHour < endHour) ||
+      (currentHour === endHour && currentMinutes === 0);
 
     this.isSunday = isWithinTimeWindow;
     if (!this.isSunday) {
       this.errorMessage =
-        'Withdrawals are only processed between 10:00 PM and 11:59 PM Indian Standard Time (IST) daily';
+        'Withdrawals are only processed between 3:00 PM and 5:00 PM Indian Standard Time (IST) daily';
     }
   }
 }
