@@ -18,7 +18,7 @@ export class WithdrawModalComponent implements OnInit {
   public successMessage = '';
   public errorMessage = '';
   public amountMessage = '';
-  public isSunday = false;
+  public isWithinTimeWindow = false;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -28,7 +28,7 @@ export class WithdrawModalComponent implements OnInit {
 
   ngOnInit() {
     this.getSupportedChains();
-    this.checkIfSunday();
+    this.checkWithdrawalTime();
   }
 
   close() {
@@ -48,6 +48,11 @@ export class WithdrawModalComponent implements OnInit {
 
   onAmountInput(e: Event): void {
     const value = parseFloat((e.target as HTMLInputElement).value);
+
+    console.log('isWithinTimeWindow', this.isWithinTimeWindow);
+    console.log('address', this.address);
+    console.log('amount', this.amount);
+    console.log('chain', this.chain);
 
     if (isNaN(value) || value <= 0) {
       this.amount = 0;
@@ -108,32 +113,38 @@ export class WithdrawModalComponent implements OnInit {
       );
   }
 
-  checkIfSunday() {
+  checkWithdrawalTime() {
     // Get current time and convert to Indian Standard Time (IST)
     const now = new Date();
-    this.isSunday = now.getDay() === 0;
+    const options = { timeZone: 'Asia/Kolkata' };
+    const istTime = new Date(now.toLocaleString('en-US', options));
 
-    // const options = { timeZone: 'Asia/Kolkata' };
-    // const istTime = new Date(now.toLocaleString('en-US', options));
-    //
-    // const currentHour = istTime.getHours();
-    // const currentMinutes = istTime.getMinutes();
-    //
-    // // Convert 10:00 PM to 22:00
-    // const startHour = 22;
-    // // Convert 11:59 PM to 23:59
-    // const endHour = 23;
-    // const endMinutes = 59;
-    //
-    // // Check if current time is within the allowed window
-    // const isWithinTimeWindow =
-    //   (currentHour === startHour && currentMinutes >= 0) ||
-    //   (currentHour === endHour && currentMinutes <= endMinutes);
-    //
-    // this.isSunday = isWithinTimeWindow;
-    if (!this.isSunday) {
-      this.errorMessage =
-        'Withdrawals are only processed between 10:00 PM and 11:59 PM Indian Standard Time (IST) daily';
+    const currentHour = istTime.getHours();
+    const currentMinutes = istTime.getMinutes();
+    // Withdrawal time limits in 24-hour format (India time)
+    const withdrawalTimeLimits = {
+      startHour: 22, // 10:00 PM
+      startMinute: 0,
+      endHour: 23, // 11:59 PM
+      endMinute: 59
+    };
+
+    const { startHour, startMinute, endHour, endMinute } = withdrawalTimeLimits;
+
+    // Convert time to minutes for easier comparison
+    const currentTimeInMinutes = currentHour * 60 + currentMinutes;
+    const startTimeInMinutes = startHour * 60 + startMinute;
+    const endTimeInMinutes = endHour * 60 + endMinute;
+
+    // Check if current time is within the allowed window
+    this.isWithinTimeWindow =
+      currentTimeInMinutes >= startTimeInMinutes &&
+      currentTimeInMinutes <= endTimeInMinutes;
+
+    if (!this.isWithinTimeWindow) {
+      const startTime = `${startHour.toString().padStart(2, '0')}:${startMinute.toString().padStart(2, '0')}`;
+      const endTime = `${endHour.toString().padStart(2, '0')}:${endMinute.toString().padStart(2, '0')}`;
+      this.errorMessage = `Withdrawals are only processed between ${startTime} and ${endTime} Indian Standard Time (IST) daily`;
     }
   }
 }

@@ -1,4 +1,5 @@
 <section class="aff-sec">
+  <toaster-container></toaster-container>
   <div class="aff-wrap">
     <div class="aff-back d-flex flex-column">
       <h1 class="page-title mb-4">{{'Link Program' | translate}}</h1>
@@ -6,18 +7,49 @@
       <div class="head-section">
         <div class="clearfix ico-top-divs row">
           <div class="col-sm-3 col-md-3 col-lg-3 p-sm-0 no-right">
-            <div class="inner-box">
-              <div class="left-box">
-                <div class="top-left-ico-text">
-                  <p class="ico-top-text"> LINK Earnings </p>
+            <div class="earnings-card">
+              <div class="earnings-content">
+                <div class="earnings-header">
+                  <div class="earnings-icon">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.31 11.14C10.54 10.68 9.97 10.2 9.97 9.47C9.97 8.63 10.74 8.03 12.08 8.03C13.45 8.03 13.97 8.65 14.02 9.56H15.68C15.63 8.31 14.92 7.11 13.23 6.71V5H10.9V6.69C9.43 7.01 8.3 7.99 8.3 9.5C8.3 11.28 9.56 12.17 11.7 12.71C13.5 13.17 14.03 13.68 14.03 14.44C14.03 14.6 14.01 14.75 13.97 14.9H15.7C15.74 14.75 15.76 14.6 15.76 14.44C15.76 13.1 14.9 12.2 13.1 11.8V10.03H15.42V8.34H13.1C13.1 8.34 13.1 8.34 13.1 8.34Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <h3 class="earnings-title">LINK Earnings</h3>
                 </div>
-                <p class="number">
-                  {{ totalEarningInUSD | number: '1.3-3' }} USDT
-                </p>
-              </div>
-              <div class="right-box">
+                <div class="earnings-amount">
+                  <span class="amount"
+                    >{{ totalEarningInUSD | number: '1.3-3' }}</span
+                  >
+                  <span class="currency">USDT</span>
+                </div>
                 <button class="withdraw-btn" (click)="openWithdrawModal()">
-                  Withdraw
+                  <span class="btn-text">Withdraw</span>
+                  <svg
+                    class="btn-icon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -298,6 +330,68 @@
       </div>
 
       <h1 class="page-title">My LINK Network</h1>
+
+      <!-- No Affiliates Message -->
+      <div
+        *ngIf="activeReferralLevels.length === 0"
+        class="no-affiliates-message"
+      >
+        <div class="message-container">
+          <div class="message-icon">
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12 7C10.9 7 10 7.9 10 9C10 10.1 10.9 11 12 11C13.1 11 14 10.1 14 9C14 7.9 13.1 7 12 7ZM12 13C10.9 13 10 13.9 10 15C10 16.1 10.9 17 12 17C13.1 17 14 16.1 14 15C14 13.9 13.1 13 12 13Z"
+                fill="#643E8D"
+              />
+            </svg>
+          </div>
+          <h3 class="message-title">No Affiliates Yet</h3>
+          <p class="message-text"
+            >You haven't referred anyone to the platform yet. Start sharing your
+            referral link and code to build your network!</p
+          >
+          <div class="message-actions">
+            <button class="share-btn" (click)="copyToClipboard('aff-link-1')">
+              <span>Copy Referral Link</span>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 3V7C15 7.26522 15.1054 7.51957 15.2929 7.70711C15.4804 7.89464 15.7348 8 16 8H20"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M18 17H11C10.4696 17 9.96086 16.7893 9.58579 16.4142C9.21071 16.0391 9 15.5304 9 15V5C9 4.46957 9.21071 3.96086 9.58579 3.58579C9.96086 3.21071 10.4696 3 11 3H15L20 8V15C20 15.5304 19.7893 16.0391 19.4142 16.4142C19.0391 16.7893 18.5304 17 18 17Z"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M16 17V19C16 19.5304 15.7893 20.0391 15.4142 20.4142C15.0391 20.7893 14.5304 21 14 21H7C6.46957 21 5.96086 20.7893 5.58579 20.4142C5.21071 20.0391 5 19.5304 5 19V9C5 8.46957 5.21071 7.96086 5.58579 7.58579C5.96086 7.21071 6.46957 7 7 7H9"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
 
       <!-- Dynamic Level Tables -->
       <div *ngFor="let level of activeReferralLevels" class="table-section">
@@ -618,23 +712,23 @@
               <ul class="pagination">
                 <!-- Previous Button -->
                 <li
-                  [class.disabled]="withdrawCurrentPage === 1"
-                  (click)="withdrawCurrentPage > 1 && changePageForWithdrawals(withdrawCurrentPage - 1)"
+                  [class.disabled]="withdrawCurrentPage === 0"
+                  (click)="withdrawCurrentPage > 0 && changePageForWithdrawals(withdrawCurrentPage)"
                 >
                   <a>Previous</a>
                 </li>
                 <!-- Page Numbers -->
                 <li
                   *ngFor="let page of getPageNumbers(withdrawalCount, withdrawSize)"
-                  [class.active]="page === withdrawCurrentPage"
+                  [class.active]="page === withdrawCurrentPage + 1"
                   (click)="changePageForWithdrawals(page)"
                 >
                   <a>{{ page }}</a>
                 </li>
                 <!-- Next Button -->
                 <li
-                  [class.disabled]="withdrawCurrentPage === getPageNumbers(withdrawalCount, withdrawSize).length"
-                  (click)="withdrawCurrentPage < getPageNumbers(withdrawalCount, withdrawSize).length && changePageForWithdrawals(withdrawCurrentPage + 1)"
+                  [class.disabled]="withdrawCurrentPage === getPageNumbers(withdrawalCount, withdrawSize).length - 1"
+                  (click)="withdrawCurrentPage < getPageNumbers(withdrawalCount, withdrawSize).length - 1 && changePageForWithdrawals(withdrawCurrentPage + 2)"
                 >
                   <a>Next</a>
                 </li>

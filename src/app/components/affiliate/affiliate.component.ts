@@ -5,6 +5,7 @@ import { Validations } from '../../validations';
 import { SharedService } from '../../services/shared';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WithdrawModalComponent } from '../withdraw-modal/withdraw-modal.component';
+import { ToasterService } from 'angular2-toaster';
 
 declare var $: any;
 
@@ -37,8 +38,8 @@ export class Affiliate implements OnInit {
 
   // Pagination
   public affiliateEarningsPageSize = 5;
-  public affiliateEarningsPageNumber = 1;
-  public totalAffiliateCurrentPage = 1;
+  public affiliateEarningsPageNumber = 0;
+  public totalAffiliateCurrentPage = 0;
   public withdrawCurrentPage = 0;
   public withdrawSize = 10;
   public withdrawalCount = 0;
@@ -123,7 +124,8 @@ export class Affiliate implements OnInit {
     public router: Router,
     public _affilliateService: AffilliateService,
     public _sharedService: SharedService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toasterService: ToasterService
   ) {
     this.validations = new Validations();
   }
@@ -191,12 +193,12 @@ export class Affiliate implements OnInit {
   }
 
   changePageNumber(event: number) {
-    this.affiliateEarningsPageNumber = event;
+    this.affiliateEarningsPageNumber = event - 1;
     this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
   }
 
   changePageForWithdrawals(page: number) {
-    this.withdrawCurrentPage = page;
+    this.withdrawCurrentPage = page - 1;
     this.getWithdrawalHistory();
   }
 
@@ -207,9 +209,9 @@ export class Affiliate implements OnInit {
         .getWithdrawalHistory(this.withdrawCurrentPage, this.withdrawSize)
         .toPromise();
 
-      if (response) {
-        this.withdrawalData = response['data'].withdrawalHistory;
-        this.withdrawalCount = response['data'].totalCount;
+      if (response && response.code === 200) {
+        this.withdrawalData = response.data.withdrawalHistory;
+        this.withdrawalCount = response.data.count;
       }
     } catch (err) {
       let obj;
@@ -443,6 +445,13 @@ export class Affiliate implements OnInit {
     const copyText = document.getElementById(id) as HTMLInputElement;
     copyText.select();
     document.execCommand('Copy');
+
+    // Show success message
+    const message =
+      id === 'aff-link-1'
+        ? 'Referral link copied successfully!'
+        : 'Referral code copied successfully!';
+    this.toasterService.pop('success', '', message);
   }
 
   linkForTransaction(hash: string, chain: string): string {

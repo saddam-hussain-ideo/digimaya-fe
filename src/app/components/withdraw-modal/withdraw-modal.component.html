@@ -116,12 +116,20 @@
         {{ amountMessage }}
       </div>
 
+      <div
+        *ngIf="!isWithinTimeWindow"
+        class="alert alert-warning time-restriction"
+      >
+        <i class="fas fa-clock"></i>
+        {{ errorMessage }}
+      </div>
+
       <div class="modal-footer">
         <button
           type="button"
           class="ico-submit"
           (click)="confirm()"
-          [disabled]="!isSunday"
+          [disabled]="!isWithinTimeWindow || !address || !amount || !chain"
         >
           Send Withdrawal Request
         </button>

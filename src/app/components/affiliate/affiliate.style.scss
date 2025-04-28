@@ -1263,21 +1263,26 @@ canvas {
   opacity: 0.4;
 }
 .inner-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  height: 120px;
-  margin-bottom: 15px;
   background: radial-gradient(
     107.63% 220.06% at 0.17% 0.51%,
     #ff7f2c 0%,
     #ff0082 100%
   );
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 16px;
+  padding: 24px;
+  height: 100%;
+  min-height: 180px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
 
   &::before {
     content: '';
@@ -1294,61 +1299,54 @@ canvas {
     z-index: 1;
   }
 
-  @media (min-width: 992px) and (max-width: 1199px) {
-    height: 140px;
-  }
-
-  @media (max-width: 991px) {
-    height: auto;
-    min-height: 120px;
+  @media (max-width: 767px) {
+    padding: 20px;
+    min-height: 160px;
   }
 }
 
 .left-box {
+  position: relative;
+  z-index: 2;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
-  position: relative;
-  z-index: 2;
-  flex: 1;
-  padding-right: 15px;
 }
 
 .top-left-ico-text {
   .ico-top-text {
     color: rgba(255, 255, 255, 0.9);
     font-family: 'LatoWebMedium';
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 
     @media (max-width: 767px) {
-      font-size: 12px;
+      font-size: 14px;
     }
+  }
+
+  .small {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'LatoWeb';
+    font-size: 12px;
+    margin-top: 4px;
   }
 }
 
 .number {
   font-family: 'Calibri';
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
-  font-size: 24px;
-  margin: 0;
+  font-size: 32px;
   line-height: 1.2;
+  display: block;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  @media (min-width: 768px) and (max-width: 991px) {
-    font-size: 22px;
-  }
-
-  @media (min-width: 992px) and (max-width: 1199px) {
-    font-size: 20px;
-  }
-
   @media (max-width: 767px) {
-    font-size: 18px;
+    font-size: 28px;
   }
 }
 
@@ -1514,4 +1512,252 @@ td > div {
 
 a:hover {
   cursor: pointer;
+}
+
+.earnings-card {
+  background: radial-gradient(
+    107.63% 220.06% at 0.17% 0.51%,
+    #ff7f2c 0%,
+    #ff0082 100%
+  );
+  border-radius: 16px;
+  padding: 24px;
+  height: 100%;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    z-index: 1;
+  }
+}
+
+.earnings-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.earnings-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.earnings-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.earnings-title {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'LatoWebMedium';
+  font-size: 16px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.earnings-amount {
+  margin: 16px 0;
+}
+
+.amount {
+  font-family: 'Calibri';
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1.2;
+  display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.currency {
+  font-family: 'LatoWeb';
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  margin-left: 4px;
+}
+
+.withdraw-btn {
+  background: rgba(255, 255, 255, 0.9);
+  color: #ff0844;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: auto;
+
+  &:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    .btn-icon {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.btn-text {
+  font-family: 'LatoWebMedium';
+}
+
+.btn-icon {
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .earnings-card {
+    padding: 20px;
+    min-height: 160px;
+  }
+
+  .earnings-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .earnings-title {
+    font-size: 14px;
+  }
+
+  .amount {
+    font-size: 28px;
+  }
+
+  .withdraw-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
+
+.no-affiliates-message {
+  background: #f6f6f6;
+  border-radius: 16px;
+  padding: 40px;
+  margin: 20px 0;
+  text-align: center;
+
+  .message-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .message-icon {
+    margin-bottom: 24px;
+    svg {
+      width: 64px;
+      height: 64px;
+      path {
+        fill: $maaya-orange-dawn;
+      }
+    }
+  }
+
+  .message-title {
+    color: $maaya-purple-dusk;
+    font-family: 'LatoWebMedium';
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .message-text {
+    color: #616a75;
+    font-family: 'LatoWeb';
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .message-actions {
+    .share-btn {
+      background: linear-gradient(
+        to right,
+        $maaya-orange-dawn,
+        $maaya-purple-dusk
+      );
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-family: 'LatoWebMedium';
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 24px;
+
+    .message-icon svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .message-title {
+      font-size: 20px;
+    }
+
+    .message-text {
+      font-size: 14px;
+    }
+
+    .share-btn {
+      padding: 10px 20px;
+      font-size: 13px;
+    }
+  }
 }
