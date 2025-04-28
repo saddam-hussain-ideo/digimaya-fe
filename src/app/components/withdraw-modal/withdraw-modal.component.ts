@@ -118,9 +118,16 @@ export class WithdrawModalComponent implements OnInit {
     const currentHour = istTime.getHours();
     const currentMinutes = istTime.getMinutes();
 
+    // Withdrawal time limits in 24-hour format (India time)
+    const withdrawalTimeLimits = {
+      startHour: 14, // 2:00 PM
+      startMinute: 0,
+      endHour: 16, // 4:59 PM
+      endMinute: 59
+    };
+
     // Get time limits from environment
-    const { startHour, startMinute, endHour, endMinute } =
-      environment.withdrawalTimeLimits;
+    const { startHour, startMinute, endHour, endMinute } = withdrawalTimeLimits;
 
     // Convert time to minutes for easier comparison
     const currentTimeInMinutes = currentHour * 60 + currentMinutes;
