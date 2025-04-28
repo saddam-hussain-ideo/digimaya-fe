@@ -49,6 +49,11 @@ export class WithdrawModalComponent implements OnInit {
   onAmountInput(e: Event): void {
     const value = parseFloat((e.target as HTMLInputElement).value);
 
+    console.log('isWithinTimeWindow', this.isWithinTimeWindow);
+    console.log('address', this.address);
+    console.log('amount', this.amount);
+    console.log('chain', this.chain);
+
     if (isNaN(value) || value <= 0) {
       this.amount = 0;
       this.percentAmount = 0;
