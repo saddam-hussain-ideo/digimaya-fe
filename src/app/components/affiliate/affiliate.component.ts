@@ -5,6 +5,7 @@ import { Validations } from '../../validations';
 import { SharedService } from '../../services/shared';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WithdrawModalComponent } from '../withdraw-modal/withdraw-modal.component';
+import { ToasterService } from 'angular2-toaster';
 
 declare var $: any;
 
@@ -123,7 +124,8 @@ export class Affiliate implements OnInit {
     public router: Router,
     public _affilliateService: AffilliateService,
     public _sharedService: SharedService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toasterService: ToasterService
   ) {
     this.validations = new Validations();
   }
@@ -443,6 +445,13 @@ export class Affiliate implements OnInit {
     const copyText = document.getElementById(id) as HTMLInputElement;
     copyText.select();
     document.execCommand('Copy');
+
+    // Show success message
+    const message =
+      id === 'aff-link-1'
+        ? 'Referral link copied successfully!'
+        : 'Referral code copied successfully!';
+    this.toasterService.pop('success', '', message);
   }
 
   linkForTransaction(hash: string, chain: string): string {
