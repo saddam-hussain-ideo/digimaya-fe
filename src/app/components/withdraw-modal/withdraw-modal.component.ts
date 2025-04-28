@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Inject } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AffilliateService } from 'src/app/services/affiliateService';
 import { ToasterService } from 'angular2-toaster';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'crypto-withdraw-modal',
@@ -117,7 +116,6 @@ export class WithdrawModalComponent implements OnInit {
 
     const currentHour = istTime.getHours();
     const currentMinutes = istTime.getMinutes();
-
     // Withdrawal time limits in 24-hour format (India time)
     const withdrawalTimeLimits = {
       startHour: 14, // 2:00 PM
@@ -126,7 +124,6 @@ export class WithdrawModalComponent implements OnInit {
       endMinute: 59
     };
 
-    // Get time limits from environment
     const { startHour, startMinute, endHour, endMinute } = withdrawalTimeLimits;
 
     // Convert time to minutes for easier comparison
@@ -140,7 +137,9 @@ export class WithdrawModalComponent implements OnInit {
       currentTimeInMinutes <= endTimeInMinutes;
 
     if (!this.isWithinTimeWindow) {
-      this.errorMessage = `Withdrawals are only processed between ${startHour}:${startMinute.toString().padStart(2, '0')} and ${endHour}:${endMinute.toString().padStart(2, '0')} Indian Standard Time (IST) daily`;
+      const startTime = `${startHour.toString().padStart(2, '0')}:${startMinute.toString().padStart(2, '0')}`;
+      const endTime = `${endHour.toString().padStart(2, '0')}:${endMinute.toString().padStart(2, '0')}`;
+      this.errorMessage = `Withdrawals are only processed between ${startTime} and ${endTime} Indian Standard Time (IST) daily`;
     }
   }
 }
