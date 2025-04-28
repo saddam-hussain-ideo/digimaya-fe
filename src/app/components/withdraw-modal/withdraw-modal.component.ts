@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Inject } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AffilliateService } from 'src/app/services/affiliateService';
 import { ToasterService } from 'angular2-toaster';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'crypto-withdraw-modal',
@@ -18,7 +19,7 @@ export class WithdrawModalComponent implements OnInit {
   public successMessage = '';
   public errorMessage = '';
   public amountMessage = '';
-  public isSunday = false;
+  public isWithinTimeWindow = false;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -28,7 +29,7 @@ export class WithdrawModalComponent implements OnInit {
 
   ngOnInit() {
     this.getSupportedChains();
-    this.checkIfSunday();
+    this.checkWithdrawalTime();
   }
 
   close() {
@@ -108,7 +109,7 @@ export class WithdrawModalComponent implements OnInit {
       );
   }
 
-  checkIfSunday() {
+  checkWithdrawalTime() {
     // Get current time and convert to Indian Standard Time (IST)
     const now = new Date();
     const options = { timeZone: 'Asia/Kolkata' };
@@ -117,21 +118,22 @@ export class WithdrawModalComponent implements OnInit {
     const currentHour = istTime.getHours();
     const currentMinutes = istTime.getMinutes();
 
-    // Convert 3:00 PM to 15:00
-    const startHour = 15;
-    // Convert 5:00 PM to 17:00
-    const endHour = 17;
+    // Get time limits from environment
+    const { startHour, startMinute, endHour, endMinute } =
+      environment.withdrawalTimeLimits;
+
+    // Convert time to minutes for easier comparison
+    const currentTimeInMinutes = currentHour * 60 + currentMinutes;
+    const startTimeInMinutes = startHour * 60 + startMinute;
+    const endTimeInMinutes = endHour * 60 + endMinute;
 
     // Check if current time is within the allowed window
-    const isWithinTimeWindow =
-      (currentHour === startHour && currentMinutes >= 0) ||
-      (currentHour > startHour && currentHour < endHour) ||
-      (currentHour === endHour && currentMinutes === 0);
+    this.isWithinTimeWindow =
+      currentTimeInMinutes >= startTimeInMinutes &&
+      currentTimeInMinutes <= endTimeInMinutes;
 
-    this.isSunday = isWithinTimeWindow;
-    if (!this.isSunday) {
-      this.errorMessage =
-        'Withdrawals are only processed between 3:00 PM and 5:00 PM Indian Standard Time (IST) daily';
+    if (!this.isWithinTimeWindow) {
+      this.errorMessage = `Withdrawals are only processed between ${startHour}:${startMinute.toString().padStart(2, '0')} and ${endHour}:${endMinute.toString().padStart(2, '0')} Indian Standard Time (IST) daily`;
     }
   }
 }

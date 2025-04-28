@@ -116,7 +116,10 @@
         {{ amountMessage }}
       </div>
 
-      <div *ngIf="!isSunday" class="alert alert-warning time-restriction">
+      <div
+        *ngIf="!isWithinTimeWindow"
+        class="alert alert-warning time-restriction"
+      >
         <i class="fas fa-clock"></i>
         {{ errorMessage }}
       </div>
@@ -126,7 +129,7 @@
           type="button"
           class="ico-submit"
           (click)="confirm()"
-          [disabled]="!isSunday || !address || !amount || !chain"
+          [disabled]="!isWithinTimeWindow || !address || !amount || !chain"
         >
           Send Withdrawal Request
         </button>
