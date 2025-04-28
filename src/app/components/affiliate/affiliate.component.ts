@@ -37,8 +37,8 @@ export class Affiliate implements OnInit {
 
   // Pagination
   public affiliateEarningsPageSize = 5;
-  public affiliateEarningsPageNumber = 1;
-  public totalAffiliateCurrentPage = 1;
+  public affiliateEarningsPageNumber = 0;
+  public totalAffiliateCurrentPage = 0;
   public withdrawCurrentPage = 0;
   public withdrawSize = 10;
   public withdrawalCount = 0;
@@ -191,12 +191,12 @@ export class Affiliate implements OnInit {
   }
 
   changePageNumber(event: number) {
-    this.affiliateEarningsPageNumber = event;
+    this.affiliateEarningsPageNumber = event - 1;
     this.getAffiliateEarnings(this.affiliateEarningsPageNumber);
   }
 
   changePageForWithdrawals(page: number) {
-    this.withdrawCurrentPage = page;
+    this.withdrawCurrentPage = page - 1;
     this.getWithdrawalHistory();
   }
 
@@ -207,9 +207,9 @@ export class Affiliate implements OnInit {
         .getWithdrawalHistory(this.withdrawCurrentPage, this.withdrawSize)
         .toPromise();
 
-      if (response) {
-        this.withdrawalData = response['data'].withdrawalHistory;
-        this.withdrawalCount = response['data'].totalCount;
+      if (response && response.code === 200) {
+        this.withdrawalData = response.data.withdrawalHistory;
+        this.withdrawalCount = response.data.count;
       }
     } catch (err) {
       let obj;

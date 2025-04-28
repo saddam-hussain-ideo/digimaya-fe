@@ -618,23 +618,23 @@
               <ul class="pagination">
                 <!-- Previous Button -->
                 <li
-                  [class.disabled]="withdrawCurrentPage === 1"
-                  (click)="withdrawCurrentPage > 1 && changePageForWithdrawals(withdrawCurrentPage - 1)"
+                  [class.disabled]="withdrawCurrentPage === 0"
+                  (click)="withdrawCurrentPage > 0 && changePageForWithdrawals(withdrawCurrentPage)"
                 >
                   <a>Previous</a>
                 </li>
                 <!-- Page Numbers -->
                 <li
                   *ngFor="let page of getPageNumbers(withdrawalCount, withdrawSize)"
-                  [class.active]="page === withdrawCurrentPage"
+                  [class.active]="page === withdrawCurrentPage + 1"
                   (click)="changePageForWithdrawals(page)"
                 >
                   <a>{{ page }}</a>
                 </li>
                 <!-- Next Button -->
                 <li
-                  [class.disabled]="withdrawCurrentPage === getPageNumbers(withdrawalCount, withdrawSize).length"
-                  (click)="withdrawCurrentPage < getPageNumbers(withdrawalCount, withdrawSize).length && changePageForWithdrawals(withdrawCurrentPage + 1)"
+                  [class.disabled]="withdrawCurrentPage === getPageNumbers(withdrawalCount, withdrawSize).length - 1"
+                  (click)="withdrawCurrentPage < getPageNumbers(withdrawalCount, withdrawSize).length - 1 && changePageForWithdrawals(withdrawCurrentPage + 2)"
                 >
                   <a>Next</a>
                 </li>
