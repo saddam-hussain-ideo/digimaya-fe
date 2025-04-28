@@ -44,7 +44,7 @@ export class WithdrawModalComponent implements OnInit {
     this.chain = value;
   }
 
-  percentAmount: number = 0;
+  percentAmount = 0;
 
   onAmountInput(e: Event): void {
     const value = parseFloat((e.target as HTMLInputElement).value);
